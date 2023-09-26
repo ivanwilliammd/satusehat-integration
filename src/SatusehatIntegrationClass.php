@@ -2,6 +2,14 @@
 
 namespace Ivanwilliammd\SatusehatIntegration;
 
+// Guzzle HTTP Package
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Exception\ClientException;
+
+
+
 class SatusehatIntegrationClass
 {
     public $patient_dev = ['P02478375538', 'P02428473601', 'P03647103112', 'P01058967035', 'P01836748436', 'P01654557057', 'P00805884304', 'P00883356749', 'P00912894463'];
@@ -30,4 +38,53 @@ class SatusehatIntegrationClass
             $this->organization_id = env('ORGID_DEV');
         }
     }
+
+    public static function oauth2()
+    {
+        $token = SatusehatToken::where('environment', env("SATUSEHAT_ENV"))->orderBy('created_at', 'desc')
+                    ->where('created_at', '>', now()->subMinutes(50))->first();
+
+        if($token){
+            return $token->token;
+        }
+
+        $client = new Client();
+
+        $headers = [
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+        $options = [
+            'form_params' => [
+                'client_id' => $this->client_id,
+                'client_secret' => $this->client_secret
+        ]];
+
+        // Create session
+        $url = $this->auth_url . '/accesstoken?grant_type=client_credentials';
+        $request = new Request('POST', $url, $headers);
+
+        try {
+            $res = $client->sendAsync($request, $options)->wait();
+            $contents = json_decode($res->getBody()->getContents());
+
+            if (isset($contents->access_token)){
+                SatusehatToken::create([
+                    'environment' => env("SATUSEHAT_ENV"),
+                    'token' => $contents->access_token
+                ]);
+                return $contents->access_token;
+            }
+            else{
+                // return $this->respondError($oauth2);
+                return null;
+            }
+        }
+        catch (ClientException $e) {
+            // error.
+            $res = json_decode($e->getResponse()->getBody()->getContents());
+            $issue_information = $res->issue[0]->details->text;
+            return $issue_information;
+        }
+    }
+
 }
