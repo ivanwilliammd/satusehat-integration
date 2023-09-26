@@ -1,0 +1,82 @@
+{
+    "resourceType": "Location",
+    "address": {
+        "city": "Jakarta Pusat",
+        "country": "ID",
+        "district": "Jakarta Pusat",
+        "line": [
+            "Jl. Percetakan Negara No.29"
+        ],
+        "postalCode": "10560",
+        "type": "both",
+        "use": "work",
+        "extension": [
+            {
+                "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode",
+                "extension": [
+                    {
+                        "url": "province",
+                        "valueCode": "31"
+                    },
+                    {
+                        "url": "city",
+                        "valueCode": "3171"
+                    },
+                    {
+                        "url": "district",
+                        "valueCode": "317101"
+                    },
+                    {
+                        "url": "village",
+                        "valueCode": "31710101"
+                    }
+                ]
+            }
+        ]
+    },
+    "description": "Rawat Jalan Poli Interna di Gedung ABCD",
+    "identifier": [
+        {
+            "system": "http://sys-ids.kemkes.go.id/location/80216c56-cf06-4c79-8211-ba4e5200d323",
+            "use": "official",
+            "value": "OPD_INT"
+        }
+    ],
+    "managingOrganization": {
+        "reference": "Organization/80216c56-cf06-4c79-8211-ba4e5200d323"
+    },
+    "mode": "instance",
+    "name": "Rawat Jalan Poli Interna",
+    "physicalType": {
+        "coding": [
+            {
+                "code": "ro",
+                "display": "Room",
+                "system": "http://terminology.hl7.org/CodeSystem/location-physical-type"
+            }
+        ]
+    },
+    "position": {
+        "altitude": 0,
+        "latitude": -6.214,
+        "longitude": 106.856
+    },
+    "status": "active",
+    "telecom": [
+        {
+            "system": "phone",
+            "use": "work",
+            "value": "021-1234567"
+        },
+        {
+            "system": "email",
+            "use": "work",
+            "value": "hello@gmail.com"
+        },
+        {
+            "system": "url",
+            "use": "work",
+            "value": "http://www.kemkes.go.id"
+        }
+    ]
+}

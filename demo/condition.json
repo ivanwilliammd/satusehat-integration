@@ -1,0 +1,42 @@
+{
+    "resourceType": "Condition",
+    "category": [
+        {
+            "coding": [
+                {
+                    "code": "encounter-diagnosis",
+                    "display": "Encounter Diagnosis",
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+                }
+            ]
+        }
+    ],
+    "clinicalStatus": {
+        "coding": [
+            {
+                "code": "active",
+                "display": "Active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+        ]
+    },
+    "code": {
+        "coding": [
+            {
+                "code": "J06",
+                "display": "Type 2 diabetes mellitus without complications",
+                "system": "http://hl7.org/fhir/sid/icd-10"
+            }
+        ]
+    },
+    "encounter": {
+        "display": "Encounter with patient John Doe",
+        "reference": "urn:uuid:0a26ca28-0ea3-486d-8fa9-6f9edd37e567"
+    },
+    "onsetDateTime": "2023-09-16",
+    "recordedDate": "2023-09-16",
+    "subject": {
+        "display": "John Doe",
+        "reference": "Patient/100000030009"
+    }
+}

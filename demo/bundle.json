@@ -1,0 +1,156 @@
+{
+    "resourceType": "Bundle",
+    "entry": [
+        {
+            "fullUrl": "urn:uuid:0a26ca28-0ea3-486d-8fa9-6f9edd37e567",
+            "request": {
+                "method": "POST",
+                "url": "Encounter"
+            },
+            "resource": {
+                "resourceType": "Encounter",
+                "class": {
+                    "code": "AMB",
+                    "display": "ambulatory",
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "display": "Hipertensi",
+                            "reference": "urn:uuid:ba5a7dec-023f-45e1-adb9-1b9d71737a5f"
+                        },
+                        "rank": 1,
+                        "use": {
+                            "coding": [
+                                {
+                                    "code": "DD",
+                                    "display": "Discharge diagnosis",
+                                    "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "http://sys-ids.kemkes.go.id/encounter/80216c56-cf06-4c79-8211-ba4e5200d323",
+                        "value": "35664984812312391912312139"
+                    }
+                ],
+                "location": [
+                    {
+                        "location": {
+                            "display": "Ruang Rawat Inap 1",
+                            "reference": "Location/d485bb9d-0ec2-480d-8e38-5163b5c97181"
+                        }
+                    }
+                ],
+                "participant": [
+                    {
+                        "individual": {
+                            "display": "dr. Ivan William Harsono, MTI",
+                            "reference": "Practitioner/N10000002"
+                        },
+                        "type": [
+                            {
+                                "coding": [
+                                    {
+                                        "code": "ATND",
+                                        "display": "attender",
+                                        "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "period": {
+                    "end": "2023-09-18T20:15:00+07:00",
+                    "start": "2023-09-18T20:00:00+07:00"
+                },
+                "serviceProvider": {
+                    "reference": "Organization/80216c56-cf06-4c79-8211-ba4e5200d323"
+                },
+                "status": "finished",
+                "statusHistory": [
+                    {
+                        "period": {
+                            "end": "2023-09-18T20:15:00+07:00",
+                            "start": "2023-09-18T20:00:00+07:00"
+                        },
+                        "status": "arrived"
+                    },
+                    {
+                        "period": {
+                            "end": "2023-09-18T20:15:00+07:00",
+                            "start": "2023-09-18T20:00:00+07:00"
+                        },
+                        "status": "in-progress"
+                    },
+                    {
+                        "period": {
+                            "end": "2023-09-18T20:15:00+07:00",
+                            "start": "2023-09-18T20:00:00+07:00"
+                        },
+                        "status": "finished"
+                    }
+                ],
+                "subject": {
+                    "display": "Budi Santoso",
+                    "reference": "Patient/100000030009"
+                }
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:ba5a7dec-023f-45e1-adb9-1b9d71737a5f",
+            "request": {
+                "method": "POST",
+                "url": "Condition"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis",
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category"
+                            }
+                        ]
+                    }
+                ],
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "code": "active",
+                            "display": "Active",
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+                        }
+                    ]
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "code": "J06",
+                            "display": "Type 2 diabetes mellitus without complications",
+                            "system": "http://hl7.org/fhir/sid/icd-10"
+                        }
+                    ]
+                },
+                "encounter": {
+                    "display": "Encounter with patient John Doe",
+                    "reference": "urn:uuid:0a26ca28-0ea3-486d-8fa9-6f9edd37e567"
+                },
+                "onsetDateTime": "2023-09-16",
+                "recordedDate": "2023-09-16",
+                "subject": {
+                    "display": "John Doe",
+                    "reference": "Patient/100000030009"
+                }
+            }
+        }
+    ],
+    "type": "transaction"
+}
