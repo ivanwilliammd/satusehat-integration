@@ -2,7 +2,6 @@
 
 namespace Ivanwilliammd\SatusehatIntegration;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class SatusehatIntegrationServiceProvider extends ServiceProvider
@@ -39,5 +38,4 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
     {
 
     }
-
 }

@@ -7,5 +7,5 @@ return [
      * used by the Activity model shipped with this package.
      */
     'log_table_name' => 'satusehat_log',
-    'token_table_name' => 'satusehat_token'
+    'token_table_name' => 'satusehat_token',
 ];
