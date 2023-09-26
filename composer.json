@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "dcarbone/php-fhir-generated": "^2.0"
     },
     "require-dev": {
         "pestphp/pest": "^2.15",
