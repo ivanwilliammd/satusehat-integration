@@ -1,28 +1,26 @@
 <?php
+
 require_once 'vendor/autoload.php';
 
 // This file will generate encounter.json
 
-use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIREncounter;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIREncounterStatus;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterStatusHistory;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterParticipant;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterDiagnosis;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterLocation;
-
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIREncounterLocationStatus;
-
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRPeriod;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterParticipant;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBackboneElement\FHIREncounter\FHIREncounterStatusHistory;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCodeableConcept;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCoding;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifier;
-
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRDateTime;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRString;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRUri;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIREncounterLocationStatus;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIREncounterStatus;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifier;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRPeriod;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRPositiveInt;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRString;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRUri;
+use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIREncounter;
 
 $encounter = new FHIREncounter();
 

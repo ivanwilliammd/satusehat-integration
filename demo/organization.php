@@ -1,29 +1,25 @@
 <?php
+
 require_once 'vendor/autoload.php';
 
 // This file will generate organization.json
 
-use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifier;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifierUse;
-
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPoint;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPointUse;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPointSystem;
-
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRAddress;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRAddressUse;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRAddressType;
-
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRAddressUse;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBoolean;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCodeableConcept;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCoding;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPoint;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPointSystem;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRContactPointUse;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifier;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRIdentifierUse;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRExtension;
-
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRString;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRBoolean;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRUri;
+use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIROrganization;
 
 $organization = new FHIROrganization();
 
@@ -89,21 +85,18 @@ $organization->addTelecom($telecomUri);
 $organization->setPartOf($partOf);
 $organization->addAddress($address);
 
-
 $organization = json_decode(json_encode($organization), true);
 $organization['address'][0]['extension'] = (array) [
-        [
-            "url" =>
-                "https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode",
-            "extension" => [
-                ["url" => "province", "valueCode" => "31"],
-                ["url" => "city", "valueCode" => "3171"],
-                ["url" => "district", "valueCode" => "317101"],
-                ["url" => "village", "valueCode" => "31710101"],
-            ],
+    [
+        'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode',
+        'extension' => [
+            ['url' => 'province', 'valueCode' => '31'],
+            ['url' => 'city', 'valueCode' => '3171'],
+            ['url' => 'district', 'valueCode' => '317101'],
+            ['url' => 'village', 'valueCode' => '31710101'],
         ],
-    ];
-
+    ],
+];
 
 // var_dump($organization);
 $fp = fopen('demo/organization.json', 'w+');

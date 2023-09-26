@@ -4,17 +4,14 @@ require_once 'vendor/autoload.php';
 
 // This file will generate condition.json
 
-use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRCondition;
-
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCodeableConcept;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCoding;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
-
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRDateTime;
+use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRString;
-use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRCode;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRUri;
-
+use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIRCondition;
 
 $condition = new FHIRCondition();
 
@@ -54,7 +51,6 @@ $onsetDateTime = new FHIRDateTime('2023-09-16');
 
 // Set recordedDate
 $recordedDate = new FHIRDateTime('2023-09-16');
-
 
 $condition->setClinicalStatus($clinicalStatus);
 $condition->addCategory($category);
