@@ -50,7 +50,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [ivanwilliammd](https://github.com/ivanwilliammd)
-- [All Contributors](../../contributors)
 
 ## License
 
