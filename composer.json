@@ -17,7 +17,10 @@
     "require": {
         "php": "^8.1",
         "dcarbone/php-fhir-generated": "^2.0",
-        "guzzlehttp/guzzle": "^7.8"
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/config": "^10.25",
+        "illuminate/database": "^10.25",
+        "illuminate/support": "^10.25"
     },
     "require-dev": {
         "pestphp/pest": "^2.15",
