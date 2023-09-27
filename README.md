@@ -4,7 +4,18 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/ivanwilliammd/satusehat-integration/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ivanwilliammd/satusehat-integration/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+SATUSEHAT FHIR PHP Library utilizing [DCarbone's PHP-FHIR library](https://github.com/dcarbone/php-fhir-generated) to generate FHIR resources.
+The plus of this library is that it has a built-in validation for FHIR resources structure, ensuring that the resources send are structurally valid.
+
+
+## Checklist Phase 1 Outpatient
+Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
+- [ ] Patient
+- [ ] Practitioner
+- [ ] Organization
+- [ ] Location
+- [ ] Encounter
+- [ ] Condition
 
 ## Support us
 
