@@ -41,7 +41,7 @@ class OAuth2
         }
     }
 
-    public static function token()
+    public function token()
     {
         $token = SatusehatToken::where('environment', getenv('SATUSEHAT_ENV'))->orderBy('created_at', 'desc')
             ->where('created_at', '>', now()->subMinutes(50))->first();
