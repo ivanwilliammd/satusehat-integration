@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
         }
 
         if (! isset($this->table)) {
-            $this->setTable(config('satusehatintegration.table_name'));
+            $this->setTable(config('satusehatintegration.satusehat_token'));
         }
 
         parent::__construct($attributes);
