@@ -1,7 +1,7 @@
 <?php
 
 namespace Satusehat\Integration\Models;
-use Illuminate\Database\Eloquent\Builder;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,9 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-
- class SatusehatLog extends Model
- {
+class SatusehatLog extends Model
+{
     public $guarded = [];
 
     public function __construct(array $attributes = [])
@@ -29,4 +28,4 @@ use Illuminate\Database\Eloquent\Model;
 
         parent::__construct($attributes);
     }
- }
+}
