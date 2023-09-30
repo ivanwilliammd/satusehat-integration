@@ -3,13 +3,11 @@
 namespace Satusehat\Integration;
 
 use Dotenv\Dotenv;
-use Satusehat\Integration\Models\SatusehatToken;
-use Satusehat\Integration\Models\SatusehatLog;
-
-// Guzzle HTTP Package
 use GuzzleHttp\Client;
+// Guzzle HTTP Package
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
+use Satusehat\Integration\Models\SatusehatToken;
 
 class OAuth2
 {
