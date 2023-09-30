@@ -4,12 +4,11 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/ivanwilliammd/satusehat-integration/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ivanwilliammd/satusehat-integration/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
-SATUSEHAT FHIR PHP Library utilizing [DCarbone's PHP-FHIR library](https://github.com/dcarbone/php-fhir-generated) to generate FHIR resources.
-The plus of this library is that it has a built-in validation for FHIR resources structure, ensuring that the resources send are structurally valid.
-
+This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
 ## Checklist Phase 1 Outpatient
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
+- [ ] OAuth2
 - [ ] Patient
 - [ ] Practitioner
 - [ ] Organization
@@ -25,23 +24,29 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 ## Installation
 
-You can install the package via composer:
+### Composer
 
 ```bash
 composer require ivanwilliammd/satusehat-integration
 ```
 
+### Publish Config
+
+```bash
+php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=config
+```
+
+### Publish Migration
+
+```bash
+php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=migrations
+```
+
 ## Usage
 
 ```php
-$skeleton = new Ivanwilliammd\SatusehatIntegration();
-echo $skeleton->echoPhrase('Hello, Ivanwilliammd!');
-```
-
-## Testing
-
-```bash
-composer test
+$test = new Satusehat\Integration();
+echo $test->echoPhrase('Hello, Ivanwilliammd!');
 ```
 
 ## Changelog
