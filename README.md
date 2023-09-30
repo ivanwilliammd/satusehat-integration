@@ -8,7 +8,7 @@ This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON 
 
 ## Checklist Phase 1 Outpatient
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
-- [ ] OAuth2
+- [x] OAuth2
 - [ ] Patient
 - [ ] Practitioner
 - [ ] Organization
