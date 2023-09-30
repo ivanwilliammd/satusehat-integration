@@ -13,7 +13,7 @@ class CreateSatusehatTokenTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('satusehatintegration.token_table_name'), function (Blueprint $table) {
+        Schema::connection(config('satusehatintegration.database_connection'))->create(config('satusehatintegration.token_table_name'), function (Blueprint $table) {
             $table->string('environment');
             $table->longText('token');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateSatusehatTokenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('satusehatintegration.token_table_name'));
+        Schema::connection(config('satusehatintegration.database_connection'))->dropIfExists(config('satusehatintegration.token_table_name'));
     }
 }

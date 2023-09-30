@@ -1,3 +1,6 @@
 <?php
 
-namespace Satusehat\Integration;
+namespace Satusehat\Integration\Models;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
