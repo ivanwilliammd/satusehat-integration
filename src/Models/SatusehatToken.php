@@ -14,9 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SatusehatToken extends Model
 {
-    public $table;
     public $guarded = [];
-
 
     public function __construct(array $attributes = [])
     {
@@ -25,7 +23,7 @@ class SatusehatToken extends Model
         }
 
         if (! isset($this->table)) {
-            $this->setTable(config('satusehatintegration.satusehat_token'));
+            $this->setTable(config('satusehatintegration.token_table_name'));
         }
 
         parent::__construct($attributes);

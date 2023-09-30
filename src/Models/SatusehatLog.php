@@ -28,7 +28,7 @@ class SatusehatLog extends Model
         }
 
         if (! isset($this->table)) {
-            $this->setTable(config('satusehatintegration.satusehat_log'));
+            $this->setTable(config('satusehatintegration.log_table_name'));
         }
 
         parent::__construct($attributes);
