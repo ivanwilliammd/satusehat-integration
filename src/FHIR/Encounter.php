@@ -10,14 +10,14 @@ class Encounter extends OAuth2Client
 
     public function __construct()
     {
-        if($this->organization_id == null){
-            return "Add your organization_id at environment first";
+        if ($this->organization_id == null) {
+            return 'Add your organization_id at environment first';
         }
     }
 
     public function addRegistrationId($registration_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter' . $this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter'.$this->organization_id;
         $identifier['value'] = $registration_id;
 
         $this->encounter['identifier'][] = $identifier;
@@ -26,32 +26,30 @@ class Encounter extends OAuth2Client
     public function addStatusHistory($timestamp)
     {
         // Arrived
-        if(array_key_exist('arrived', $timestamp)){
+        if (array_key_exist('arrived', $timestamp)) {
             $this->encounter['status'] = 'arrived';
 
             $this->encounter['period']['start'] = $timestamp['arrived'];
             $statusHistory_arrived['status'] = 'arrived';
             $statusHistory_arrived['period']['start'] = $timestamp['arrived'];
-        }
-        else{
-            return "arrived is required";
+        } else {
+            return 'arrived is required';
         }
 
         // In-progress
-        if(array_key_exist('inprogress', $timestamp)){
+        if (array_key_exist('inprogress', $timestamp)) {
             $this->encounter['status'] = 'inprogress';
 
             $statusHistory_inprogress['status'] = 'in-progress';
             $statusHistory_inprogress['period']['start'] = $timestamp['inprogress'];
 
             $statusHistory_arrived['period']['end'] = $timestamp['inprogress'];
-        }
-        else{
-            return "inprogress is required";
+        } else {
+            return 'inprogress is required';
         }
 
         // Finished
-        if(array_key_exist('finished', $timestamp)){
+        if (array_key_exist('finished', $timestamp)) {
             $this->encounter['status'] = 'finished';
 
             $statusHistory_finished['status'] = 'finished';
@@ -59,15 +57,14 @@ class Encounter extends OAuth2Client
             $statusHistory_finished['period']['end'] = $timestamp['finished'];
 
             $statusHistory_inprogress['period']['end'] = $timestamp['finished'];
-        }
-        else{
-            return "finished is required";
+        } else {
+            return 'finished is required';
         }
     }
 
     public function setConsultationMethod($consultation_method)
     {
-        switch($data['consultation_method']){
+        switch ($data['consultation_method']) {
             case 'RAJAL':
                 $class_code = 'AMB';
                 $class_display = 'ambulatory';
@@ -89,8 +86,8 @@ class Encounter extends OAuth2Client
                 $class_display = 'teleconsultation';
                 break;
             default:
-                return "consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELECONSULTATION)";
-        };
+                return 'consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELECONSULTATION)';
+        }
 
         $class['code'] = $class_code;
         $class['display'] = $class_display;

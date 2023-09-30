@@ -37,32 +37,28 @@ use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRReference;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRString;
 use DCarbone\PHPFHIRGenerated\R4\FHIRElement\FHIRUri;
 use DCarbone\PHPFHIRGenerated\R4\FHIRResource\FHIRDomainResource\FHIREncounter;
-
 use Satusehat\Integration\OAuth2Client;
 
 class Encounter extends OAuth2Client
 {
-
-
     public function __construct($data)
     {
 
         $encounter = new FHIREncounter();
 
         // Set identifier
-        if(array_key_exists('registration_id', $data)){
+        if (array_key_exists('registration_id', $data)) {
             $identifier = new FHIRIdentifier();
             $identifier->setValue($data['registration_id']);
-            $identifier->setSystem(new FHIRUri('http://sys-ids.kemkes.go.id/encounter/' . $this->organization_id, true));
+            $identifier->setSystem(new FHIRUri('http://sys-ids.kemkes.go.id/encounter/'.$this->organization_id, true));
             $encounter->addIdentifier($identifier);
-        }
-        else{
-            return "registration_id is required";
+        } else {
+            return 'registration_id is required';
         }
 
         // Set Class
-        if(array_key_exists('consultation_method', $data)){
-            switch($data['consultation_method']){
+        if (array_key_exists('consultation_method', $data)) {
+            switch ($data['consultation_method']) {
                 case 'RAJAL':
                     $class_code = 'AMB';
                     $class_display = 'ambulatory';
@@ -84,7 +80,7 @@ class Encounter extends OAuth2Client
                     $class_display = 'teleconsultation';
                     break;
                 default:
-                    return "consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELECONSULTATION)";
+                    return 'consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELECONSULTATION)';
             }
 
             $class = new FHIRCoding();
@@ -92,28 +88,26 @@ class Encounter extends OAuth2Client
             $class->setDisplay(new FHIRString($class_display));
             $class->setSystem(new FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActCode', true));
             $encounter->setClass($class);
-        }
-        else{
-            return "consultation_method is required";
+        } else {
+            return 'consultation_method is required';
         }
 
         // Set subject
-        if(array_key_exists('subject_id', $data) && array_key_exists('subject_name', $data)){
+        if (array_key_exists('subject_id', $data) && array_key_exists('subject_name', $data)) {
             $subject = new FHIRReference();
-            $subject->setReference(new FHIRString('Patient/' . $data['subject_id']));
+            $subject->setReference(new FHIRString('Patient/'.$data['subject_id']));
             $subject->setDisplay(new FHIRString($data['subject_name']));
             $encounter->setSubject($subject);
-        }
-        else{
-            return "subject_id and subject_name is required";
+        } else {
+            return 'subject_id and subject_name is required';
         }
 
         // Set doctor
-        if(array_key_exists('doctor', $data)){
+        if (array_key_exists('doctor', $data)) {
             foreach ($data['doctor'] as $key => $value) {
                 $participant = new FHIREncounterParticipant();
                 $participant->setIndividual(new FHIRReference());
-                $participant->getIndividual()->setReference(new FHIRString('Practitioner/' . $key));
+                $participant->getIndividual()->setReference(new FHIRString('Practitioner/'.$key));
                 $participant->getIndividual()->setDisplay(new FHIRString($value));
 
                 $participant->addType(new FHIRCodeableConcept());
@@ -124,18 +118,16 @@ class Encounter extends OAuth2Client
 
                 $encounter->addParticipant($participant);
             }
-        }
-        else{
+        } else {
             return "doctor in array format of array key-value ['id' => 'name'] is required";
         }
 
-
         // Set location
-        if(array_key_exist('location', $data)){
+        if (array_key_exist('location', $data)) {
             foreach ($data['location'] as $key => $value) {
                 $location = new FHIREncounterLocation();
                 $location->setLocation(new FHIRReference());
-                $location->getLocation()->setReference(new FHIRString('Location/' . $key));
+                $location->getLocation()->setReference(new FHIRString('Location/'.$key));
                 $location->getLocation()->setDisplay(new FHIRString($value));
                 $location->setStatus(new FHIREncounterLocationStatus('active'));
                 // $location->setPeriod(new FHIRPeriod());
@@ -146,11 +138,9 @@ class Encounter extends OAuth2Client
 
                 $encounter->addLocation($location);
             }
-        }
-        else{
+        } else {
             return "location in array format of array key-value ['id' => 'name'] is required";
         }
-
 
         // Set arrived Status History
         $arrived = new FHIREncounterStatusHistory();
