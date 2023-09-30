@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Satusehat\Integration\Models\SatusehatLog.
  *
- * @property string $environment
- * @property string $token
+ * @property string|null $response_id
+ * @property string $action
+ * @property string $url
+ * @property array|null $payload
+ * @property array $response
+ * @property string $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
