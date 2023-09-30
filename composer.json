@@ -16,11 +16,11 @@
     ],
     "require": {
         "php": "^8.1",
-        "dcarbone/php-fhir-generated": "^2.0",
         "guzzlehttp/guzzle": "^7.8",
         "illuminate/config": "^10.25",
         "illuminate/database": "^10.25",
-        "illuminate/support": "^10.25"
+        "illuminate/support": "^10.25",
+        "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
         "pestphp/pest": "^2.15",
@@ -29,12 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Ivanwilliammd\\SatusehatIntegration\\": "src"
+            "Satusehat\\Integration\\": "src",
+            "Satusehat\\fhir\\": "src/FHIR/Encounter"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ivanwilliammd\\SatusehatIntegration\\Tests\\": "tests"
+            "Satusehat\\Integration\\Tests\\": "tests"
         }
     },
     "scripts": {

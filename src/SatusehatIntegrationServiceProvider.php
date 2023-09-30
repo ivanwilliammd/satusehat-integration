@@ -1,6 +1,6 @@
 <?php
 
-namespace Ivanwilliammd\SatusehatIntegration;
+namespace Satusehat\Integration;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -36,6 +36,6 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
 
     public function register()
     {
-
+        //
     }
 }
