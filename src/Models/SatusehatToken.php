@@ -14,7 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SatusehatToken extends Model
 {
+    public $table;
     public $guarded = [];
+
 
     public function __construct(array $attributes = [])
     {
