@@ -50,6 +50,13 @@
             "phpstan/extension-installer": true
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Satusehat\\Integration\\SatusehatIntegrationServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

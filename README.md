@@ -33,13 +33,13 @@ composer require ivanwilliammd/satusehat-integration
 ### Publish Config
 
 ```bash
-php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=config
+php artisan vendor:publish --provider="Ivanwilliammd\SatusehatIntegration\SatusehatIntegrationServiceProvider" --tag=config
 ```
 
 ### Publish Migration
 
 ```bash
-php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="Ivanwilliammd\SatusehatIntegration\SatusehatIntegrationServiceProvider" --tag=migrations
 ```
 
 ### Run Migration
