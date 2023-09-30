@@ -81,8 +81,13 @@ CLIENTSECRET_PROD=xxxxxx
 ### Ujicoba ClientID & ClientSecret untuk mendapatkan Token
 
 ```php
-$test = new Satusehat\Integration::token();
-echo $test;
+/** 
+ * Uji coba generate TokenID yang sesuai dan di DB akan tersimpan
+ * Pastikan sudah mengisi konfigurasi di .env
+*/
+
+$client = new Satusehat\Integration\OAuth2;
+echo $client->token();
 ```
 
 ## Changelog
