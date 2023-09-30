@@ -3,12 +3,15 @@
 namespace Satusehat\Integration;
 
 use Dotenv\Dotenv;
+use Satusehat\Integration\Models\SatusehatToken;
+use Satusehat\Integration\Models\SatusehatLog;
+
 // Guzzle HTTP Package
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 
-class SatusehatIntegrationClass
+class OAuth2
 {
     public $patient_dev = ['P02478375538', 'P02428473601', 'P03647103112', 'P01058967035', 'P01836748436', 'P01654557057', 'P00805884304', 'P00883356749', 'P00912894463'];
 
@@ -20,27 +23,27 @@ class SatusehatIntegrationClass
         $dotenv->safeLoad();
 
         if (getenv('SATUSEHAT_ENV') == 'PROD') {
-            $this->auth_url = 'https://api-satusehat.kemkes.go.id/oauth2/v1';
-            $this->base_url = 'https://api-satusehat.kemkes.go.id/fhir-r4/v1';
+            $this->auth_url = getenv('SATUSEHAT_AUTH_PROD', 'https://api-satusehat.kemkes.go.id/oauth2/v1');
+            $this->base_url = getenv('SATUSEHAT_FHIR_PROD', 'https://api-satusehat.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_PROD');
             $this->client_secret = getenv('CLIENTSECRET_PROD');
             $this->organization_id = getenv('ORGID_PROD');
         } elseif (getenv('SATUSEHAT_ENV') == 'STG') {
-            $this->auth_url = 'https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1';
-            $this->base_url = 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1';
+            $this->auth_url = getenv('SATUSEHAT_AUTH_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1');
+            $this->base_url = getenv('SATUSEHAT_FHIR_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_STG');
             $this->client_secret = getenv('CLIENTSECRET_STG');
             $this->organization_id = getenv('ORGID_STG');
         } elseif (getenv('SATUSEHAT_ENV') == 'DEV') {
-            $this->auth_url = 'https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1';
-            $this->base_url = 'https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1';
+            $this->auth_url = getenv('SATUSEHAT_AUTH_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1');
+            $this->base_url = getenv('SATUSEHAT_FHIR_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_DEV');
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
         }
     }
 
-    public static function oauth2()
+    public static function token()
     {
         $token = SatusehatToken::where('environment', getenv('SATUSEHAT_ENV'))->orderBy('created_at', 'desc')
             ->where('created_at', '>', now()->subMinutes(50))->first();

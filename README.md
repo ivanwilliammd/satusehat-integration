@@ -42,28 +42,56 @@ php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegratio
 php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=migrations
 ```
 
+### Run Migration
+
+```bash
+php artisan migrate
+```
+
 ## Usage
 
+## Usage
+
+### Konfigurasi ClientID & ClientSecret dan Organization ID
+```env
+SATUSEHAT_ENV=xxxxxx (DEV/STG/PROD)
+
+SATUSEHAT_AUTH_DEV=https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1
+SATUSEHAT_FHIR_DEV=https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1
+
+SATUSEHAT_AUTH_STG=https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1
+SATUSEHAT_FHIR_STG=https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1
+
+SATUSEHAT_AUTH_PROD=https://api-satusehat.kemkes.go.id/oauth2/v1
+SATUSEHAT_FHIR_PROD=https://api-satusehat.kemkes.go.id/fhir-r4/v1
+
+ORGID_DEV=xxxxxx
+CLIENTID_DEV=xxxxxx
+CLIENTSECRET_DEV=xxxxxx
+
+ORGID_STG=xxxxxx
+CLIENTID_STG=xxxxxx
+CLIENTSECRET_STG=xxxxxx
+
+ORGID_PROD=xxxxxx
+CLIENTID_PROD=xxxxxx
+CLIENTSECRET_PROD=xxxxxx
+```
+
+### Ujicoba ClientID & ClientSecret untuk mendapatkan Token
+
 ```php
-$test = new Satusehat\Integration();
-echo $test->echoPhrase('Hello, Ivanwilliammd!');
+$test = new Satusehat\Integration::token();
+echo $test;
 ```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [ivanwilliammd](https://github.com/ivanwilliammd)
+- [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
 
 ## License
 
