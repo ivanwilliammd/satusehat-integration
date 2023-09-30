@@ -6,15 +6,25 @@
 
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
-## Checklist Phase 1 Outpatient
+## Fitur SATUSEHAT Fase 1 Rawat Jalan
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
-- [x] OAuth2
-- [ ] Patient
-- [ ] Practitioner
-- [ ] Organization
-- [ ] Location
-- [ ] Encounter
-- [ ] Condition
+- [x] OAuth2 (POST)
+- [ ] Organization GET
+- [ ] Organization POST
+- [ ] Organization PUT
+- [ ] Location GET
+- [ ] Location POST
+- [ ] Location PUT
+- [ ] Patient GET by ID
+- [ ] Patient GET by NIK
+- [ ] Practitioner GET by ID
+- [ ] Practitioner GET by NIK
+- [ ] Encounter GET
+- [ ] Encounter POST
+- [ ] Encounter PUT
+- [ ] Condition GET
+- [ ] Condition POST
+- [ ] Condition PUT
 
 ## Installation
 
@@ -42,9 +52,7 @@ php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegratio
 php artisan migrate
 ```
 
-## Usage
-
-## Usage
+## Cara pemakaian
 
 ### Konfigurasi ClientID & ClientSecret dan Organization ID
 ```env
@@ -72,17 +80,96 @@ CLIENTID_PROD=xxxxxx
 CLIENTSECRET_PROD=xxxxxx
 ```
 
-### Ujicoba ClientID & ClientSecret untuk mendapatkan Token
+## Dry Run
 
 ```php
 /** 
- * Uji coba generate TokenID yang sesuai dan di DB akan tersimpan
+ * Uji coba echo Token yang sesuai dan di DB akan tersimpan
  * Pastikan sudah mengisi konfigurasi di .env
 */
 
-$client = new Satusehat\Integration\OAuth2;
+$client = new Satusehat\Integration\OAuth2Client;
 echo $client->token();
 ```
+
+### GET by ID
+
+```php
+/** 
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+*/
+<?php
+
+use Satusehat\Integration\OAuth2Client;
+
+$client = new OAuth2Client;
+
+$client->get('Organization', '{id}');
+$client->get('Location', '{id}');
+$client->get('Patient', '{id}');
+$client->get('Practitioner', '{id}');
+$client->get('Encounter', '{id}');
+$client->get('Condition', '{id}');
+```
+
+### GET by NIK
+
+```php
+/** 
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+*/
+<?php
+
+use Satusehat\Integration\OAuth2Client;
+
+$client = new OAuth2Client;
+
+$client->get_by_nik('Patient', '{NIK Pasien}');
+$client->get_by_nik('Practitioner', '{NIK Dokter}');
+```
+
+### POST
+#### POST Encounter
+
+```php
+/** 
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+*/
+<?php
+
+use Satusehat\Integration\OAuth2Client;
+use Satusehat\FHIR\Encounter;
+
+$client = new OAuth2Client;
+
+$data = new Encounter;
+$data->setSubject('{SATUSEHAT ID Pasien}');
+
+$client->post('Encounter', $data);
+
+```
+
+### PUT
+#### PUT Encounter
+
+```php
+/** 
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+*/
+<?php
+
+use Satusehat\Integration\OAuth2Client;
+use Satusehat\FHIR\Encounter;
+
+$client = new OAuth2Client;
+
+$data = new Encounter;
+$data->setSubject('{SATUSEHAT ID Pasien}');
+
+$client->put('Encounter', '{id Encounter}', $data);
+
+```
+
 
 ## Changelog
 
