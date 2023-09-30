@@ -3,7 +3,6 @@
 namespace Satusehat\Integration;
 
 use Dotenv\Dotenv;
-
 // Guzzle HTTP Package
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -18,7 +17,7 @@ class SatusehatIntegrationClass
     public function __construct()
     {
         $dotenv = Dotenv::createUnsafeImmutable(getcwd());
-		$dotenv->safeLoad();
+        $dotenv->safeLoad();
 
         if (getenv('SATUSEHAT_ENV') == 'PROD') {
             $this->auth_url = 'https://api-satusehat.kemkes.go.id/oauth2/v1';
