@@ -17,7 +17,7 @@ class Encounter extends OAuth2Client
 
     public function addRegistrationId($registration_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter' . $this->organization_id;
         $identifier['value'] = $registration_id;
 
         $this->encounter['identifier'][] = $identifier;
@@ -26,7 +26,7 @@ class Encounter extends OAuth2Client
     public function addStatusHistory($timestamp)
     {
         // Arrived
-        if (array_key_exist('arrived', $timestamp)) {
+        if (array_key_exists('arrived', $timestamp)) {
             $this->encounter['status'] = 'arrived';
 
             $this->encounter['period']['start'] = $timestamp['arrived'];
@@ -37,7 +37,7 @@ class Encounter extends OAuth2Client
         }
 
         // In-progress
-        if (array_key_exist('inprogress', $timestamp)) {
+        if (array_key_exists('inprogress', $timestamp)) {
             $this->encounter['status'] = 'inprogress';
 
             $statusHistory_inprogress['status'] = 'in-progress';
@@ -49,7 +49,7 @@ class Encounter extends OAuth2Client
         }
 
         // Finished
-        if (array_key_exist('finished', $timestamp)) {
+        if (array_key_exists('finished', $timestamp)) {
             $this->encounter['status'] = 'finished';
 
             $statusHistory_finished['status'] = 'finished';
@@ -64,7 +64,7 @@ class Encounter extends OAuth2Client
 
     public function setConsultationMethod($consultation_method)
     {
-        switch ($data['consultation_method']) {
+        switch ($consultation_method) {
             case 'RAJAL':
                 $class_code = 'AMB';
                 $class_display = 'ambulatory';
