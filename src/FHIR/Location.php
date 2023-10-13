@@ -9,7 +9,7 @@ class Location extends OAuth2Client
     public $location = [
         'resourceType' => 'Location',
         'status' => 'active',
-        'mode' => 'instance'
+        'mode' => 'instance',
     ];
 
     public function addIdentifier($location_identifier)
@@ -116,7 +116,7 @@ class Location extends OAuth2Client
     {
         $this->location['position'] = [
             'latitude' => $latitude ? $latitude : getenv('LATITUDE'),
-            'longitude' => $longitude ? $longitude : getenv('LONGITUDE')
+            'longitude' => $longitude ? $longitude : getenv('LONGITUDE'),
         ];
     }
 
@@ -133,17 +133,17 @@ class Location extends OAuth2Client
         $this->addAddress();
 
         // Add physicalType if not exist
-        if(array_key_exists('physicalType', $this->location)) {
+        if (array_key_exists('physicalType', $this->location)) {
             $this->addPhysicalType();
         }
 
         // Add latitude & longitude if not exist
-        if(array_key_exists('position', $this->location)) {
+        if (array_key_exists('position', $this->location)) {
             $this->addPosition();
         }
 
         // Add default managing organization from parent (registered sarana)
-        if(array_key_exists('managingOrganization', $this->location)) {
+        if (array_key_exists('managingOrganization', $this->location)) {
             $this->setManagingOrganization();
         }
 
