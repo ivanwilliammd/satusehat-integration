@@ -118,7 +118,7 @@ class OAuth2Client
         $status->save();
     }
 
-    public function get($resource, $id)
+    public function get_by_id($resource, $id)
     {
         $access_token = $this->token();
 
@@ -194,7 +194,7 @@ class OAuth2Client
         }
     }
 
-    public function post($resource, $body)
+    public function ss_post($resource, $body)
     {
         $access_token = $this->token();
 
@@ -241,7 +241,7 @@ class OAuth2Client
         echo $res->getBody();
     }
 
-    public function put($resource, $id, $body)
+    public function ss_put($resource, $id, $body)
     {
         $access_token = $this->token();
 

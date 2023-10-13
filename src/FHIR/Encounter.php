@@ -97,7 +97,7 @@ class Encounter extends OAuth2Client
     public function post()
     {
         $payload = $this->json();
-        [$statusCode, $res] = $this->post('Encounter', $payload);
+        [$statusCode, $res] = $this->ss_post('Encounter', $payload);
 
         return [$statusCode, $res];
     }
@@ -105,7 +105,7 @@ class Encounter extends OAuth2Client
     public function put($id)
     {
         $payload = $this->json();
-        [$statusCode, $res] = $this->put('Encounter', $id, $payload);
+        [$statusCode, $res] = $this->ss_put('Encounter', $id, $payload);
 
         return [$statusCode, $res];
     }
