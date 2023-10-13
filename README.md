@@ -10,18 +10,18 @@ This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON 
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
 - [x] OAuth2 (POST)
 - [ ] Organization GET
-- [ ] Organization POST
-- [ ] Organization PUT
+- [x] Organization POST
+- [x] Organization PUT
 - [ ] Location GET
-- [ ] Location POST
-- [ ] Location PUT
+- [x] Location POST
+- [x] Location PUT
 - [ ] Patient GET by ID
 - [ ] Patient GET by NIK
 - [ ] Practitioner GET by ID
 - [ ] Practitioner GET by NIK
 - [ ] Encounter GET
-- [ ] Encounter POST
-- [ ] Encounter PUT
+- [x] Encounter POST
+- [x] Encounter PUT
 - [ ] Condition GET
 - [ ] Condition POST
 - [ ] Condition PUT
