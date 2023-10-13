@@ -21,6 +21,7 @@ class Encounter extends OAuth2Client
         // Arrived
         if (array_key_exists('arrived', $timestamp)) {
             $this->encounter['status'] = 'arrived';
+            $this->encounter['period']['start'] = $timestamp['arrived'];
 
             $this->encounter['period']['start'] = $timestamp['arrived'];
             $statusHistory_arrived['status'] = 'arrived';
@@ -44,6 +45,7 @@ class Encounter extends OAuth2Client
         // Finished
         if (array_key_exists('finished', $timestamp)) {
             $this->encounter['status'] = 'finished';
+            $this->encounter['period']['end'] = $timestamp['finished'];
 
             $statusHistory_finished['status'] = 'finished';
             $statusHistory_finished['period']['start'] = $timestamp['finished'];
@@ -89,8 +91,41 @@ class Encounter extends OAuth2Client
         $this->encounter['class'] = $class;
     }
 
+    public function setSubject($subjectId, $name)
+    {
+        $this->encounter['subject']['reference'] = 'Patient/'.$subjectId;
+        $this->encounter['subject']['display'] = $name;
+    }
+
+    public function addParticipant($participantId, $name, $type = 'ATND', $display = 'attender')
+    {
+        $participant['individual']['reference'] = 'Practitioner/'.$participantId;
+        $participant['individual']['display'] = $name;
+        $participant['type'][]['coding'][] = [
+            'system' => 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+            'code' => $type,
+            'display' => $display,
+        ];
+
+        $this->encounter['participant'][] = $participant;
+    }
+
+    public function addLocation($locationId, $name)
+    {
+        $location['location']['reference'] = 'Location/'.$locationId;
+        $location['location']['display'] = $name;
+
+        $this->encounter['location'][] = $location;
+    }
+
+    public function setServiceProvider()
+    {
+        $this->encounter['serviceProvider']['reference'] = 'Organization/'.$this->organization_id;
+    }
+
     public function json()
     {
+        $this->setServiceProvider();
         return $this->encounter;
     }
 
