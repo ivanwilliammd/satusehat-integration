@@ -66,16 +66,50 @@ class Organization extends OAuth2Client
         ];
     }
 
-    public function addAddress($address)
+    public function addAddress()
     {
         $this->organization['address'][] = [
-            'line' => $address['line'],
-            'city' => $address['city'],
-            'district' => $address['district'],
-            'state' => $address['state'],
-            'postalCode' => $address['postalCode'],
-            'country' => $address['country'],
+            'use' => 'work',
+            'type' => 'both',
+            'line' => [
+                getenv('ALAMAT'),
+            ],
+            'city' => getenv('KOTA'),
+            'postalCode' => getenv('KODEPOS'),
+            'country' => 'ID',
+            'extension' => [
+                [
+                    'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode',
+                    'extension' => [
+                        [
+                            'url' => 'province',
+                            'valueCode' => getenv('KODE_PROVINSI'),
+                        ],
+                        [
+                            'url' => 'city',
+                            'valueCode' => getenv('KODE_KABUPATEN'),
+                        ],
+                        [
+                            'url' => 'district',
+                            'valueCode' => getenv('KODE_KECAMATAN'),
+                        ],
+                        [
+                            'url' => 'village',
+                            'valueCode' => getenv('KODE_KELURAHAN'),
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
+    public function json()
+    {
+        $this->addPhone();
+        $this->addEmail();
+        $this->addUrl();
+        $this->addAddress();
+        $this->setOrganizationPartOf();
+        return $this->organization;
+    }
 }
