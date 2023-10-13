@@ -110,6 +110,7 @@ class Organization extends OAuth2Client
         $this->addUrl();
         $this->addAddress();
         $this->setOrganizationPartOf();
+
         return $this->organization;
     }
 
