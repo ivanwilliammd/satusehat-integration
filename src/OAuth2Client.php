@@ -51,6 +51,10 @@ class OAuth2Client
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
         }
+
+        if ($this->organization_id == null) {
+            return 'Add your organization_id at environment first';
+        }
     }
 
     public function token()

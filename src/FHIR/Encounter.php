@@ -8,17 +8,6 @@ class Encounter extends OAuth2Client
 {
     public $encounter = ['resourceType' => 'Encounter'];
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        if ($this->organization_id == null) {
-            return 'Add your organization_id at environment first';
-        }
-
-        return $this->encounter;
-    }
-
     public function addRegistrationId($registration_id)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter'.$this->organization_id;
