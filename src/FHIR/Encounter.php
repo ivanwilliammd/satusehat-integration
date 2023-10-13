@@ -126,6 +126,7 @@ class Encounter extends OAuth2Client
     public function json()
     {
         $this->setServiceProvider();
+
         return $this->encounter;
     }
 
