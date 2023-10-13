@@ -29,8 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Satusehat\\Integration\\": "src",
-            "Satusehat\\FHIR\\": "src/FHIR/"
+            "Satusehat\\Integration\\": "src"
         }
     },
     "autoload-dev": {

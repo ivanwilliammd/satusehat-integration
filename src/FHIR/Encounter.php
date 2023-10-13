@@ -1,18 +1,22 @@
 <?php
 
-namespace Satusehat\FHIR;
+namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\OAuth2Client;
 
 class Encounter extends OAuth2Client
 {
-    public $encounter;
+    public $encounter = ['resourceType' => 'Encounter'];
 
     public function __construct()
     {
+        parent::__construct();
+
         if ($this->organization_id == null) {
             return 'Add your organization_id at environment first';
         }
+
+        return $this->encounter;
     }
 
     public function addRegistrationId($registration_id)
@@ -96,7 +100,7 @@ class Encounter extends OAuth2Client
         $this->encounter['class'] = $class;
     }
 
-    public function getEncounter()
+    public function json()
     {
         return $this->encounter;
     }
