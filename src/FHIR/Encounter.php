@@ -10,7 +10,7 @@ class Encounter extends OAuth2Client
 
     public function addRegistrationId($registration_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter/'.$this->organization_id;
         $identifier['value'] = $registration_id;
 
         $this->encounter['identifier'][] = $identifier;

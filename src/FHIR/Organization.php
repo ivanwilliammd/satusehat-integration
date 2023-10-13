@@ -20,9 +20,9 @@ class Organization extends OAuth2Client
         ],
     ];
 
-    public function addOrganizationIdentifier($organization_identifier)
+    public function addIdentifier($organization_identifier)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/'.$this->organization_id;
         $identifier['value'] = $organization_identifier;
         $identifier['use'] = 'official';
 
@@ -34,12 +34,12 @@ class Organization extends OAuth2Client
         $this->organization['name'] = $organization_name;
     }
 
-    public function setOrganizationPartOf($partOf)
+    public function setOrganizationPartOf($partOf = null)
     {
         $this->organization['partOf']['reference'] = 'Organization/'.$partOf ? $partOf : $this->organization_id;
     }
 
-    public function addPhone($phone_number)
+    public function addPhone($phone_number = null)
     {
         $this->organization['telecom'][] = [
             'system' => 'phone',
@@ -48,7 +48,7 @@ class Organization extends OAuth2Client
         ];
     }
 
-    public function addEmail($email)
+    public function addEmail($email = null)
     {
         $this->organization['telecom'][] = [
             'system' => 'email',
@@ -57,7 +57,7 @@ class Organization extends OAuth2Client
         ];
     }
 
-    public function addUrl($url)
+    public function addUrl($url = null)
     {
         $this->organization['telecom'][] = [
             'system' => 'url',
