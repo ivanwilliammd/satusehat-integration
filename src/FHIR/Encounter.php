@@ -94,14 +94,16 @@ class Encounter extends OAuth2Client
         return $this->encounter;
     }
 
-    public function post(){
+    public function post()
+    {
         $payload = $this->json();
         [$statusCode, $res] = $this->post('Encounter', $payload);
 
         return [$statusCode, $res];
     }
 
-    public function put($id){
+    public function put($id)
+    {
         $payload = $this->json();
         [$statusCode, $res] = $this->put('Encounter', $id, $payload);
 
