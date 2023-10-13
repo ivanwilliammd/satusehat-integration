@@ -44,7 +44,7 @@ class Organization extends OAuth2Client
         $this->organization['telecom'][] = [
             'system' => 'phone',
             'value' => $phone_number ? $phone_number : getenv('PHONE'),
-            'use' => 'work'
+            'use' => 'work',
         ];
     }
 
@@ -53,7 +53,7 @@ class Organization extends OAuth2Client
         $this->organization['telecom'][] = [
             'system' => 'email',
             'value' => $email ? $email : getenv('EMAIL'),
-            'use' => 'work'
+            'use' => 'work',
         ];
     }
 
@@ -62,7 +62,7 @@ class Organization extends OAuth2Client
         $this->organization['telecom'][] = [
             'system' => 'url',
             'value' => $url ? $url : getenv('WEBSITE'),
-            'use' => 'work'
+            'use' => 'work',
         ];
     }
 
@@ -77,5 +77,4 @@ class Organization extends OAuth2Client
             'country' => $address['country'],
         ];
     }
-
 }
