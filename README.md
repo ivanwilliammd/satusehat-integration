@@ -14,7 +14,7 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 - [x] KYC SATUSEHAT Platform (Centang Biru SATUSEHAT Mobile)
 
 #### Organization
-- [ ] Organization GET by ID
+- [x] Organization GET by ID
 - [x] Organization POST
 - [x] Organization PUT
 
