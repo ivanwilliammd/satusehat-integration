@@ -20,7 +20,7 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 - [x] Encounter PUT
 - [ ] Condition POST
 - [ ] Condition PUT
-- [ ] KYC SATUSEHAT Platform
+- [x] KYC SATUSEHAT Platform
 
 ### Optional
 - [ ] Organization GET
