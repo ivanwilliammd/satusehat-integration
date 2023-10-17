@@ -231,7 +231,7 @@ class KYC extends OAuth2Client
         $publicKey = $keyPair['publicKey'];
         $privateKey = $keyPair['privateKey'];
 
-        $accessToken = $this->oauth2();
+        $accessToken = $this->token();
 
         // Set the API URL and authentication token
         $apiUrl = 'https://api-satusehat.kemkes.go.id/kyc/v1/generate-url';
