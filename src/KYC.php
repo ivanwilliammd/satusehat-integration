@@ -2,13 +2,11 @@
 
 namespace Satusehat\Integration;
 
-use Satusehat\Integration\OAuth2Client;
-
 // Cryptography
-use phpseclib3\Crypt\PublicKeyLoader;
-use phpseclib3\Crypt\RSA;
 use phpseclib3\Crypt\AES;
+use phpseclib3\Crypt\PublicKeyLoader;
 use phpseclib3\Crypt\Random;
+use phpseclib3\Crypt\RSA;
 
 class KYC extends OAuth2Client
 {
@@ -34,12 +32,12 @@ class KYC extends OAuth2Client
         ];
     }
 
-
     // Cryptography
-    public function importRsaKey($pem) {
+    public function importRsaKey($pem)
+    {
         // Fetch the part of the PEM string between header and footer
-        $pemHeader = "-----BEGIN PUBLIC KEY-----";
-        $pemFooter = "-----END PUBLIC KEY-----";
+        $pemHeader = '-----BEGIN PUBLIC KEY-----';
+        $pemFooter = '-----END PUBLIC KEY-----';
         $pemContents = substr($pem, strlen($pemHeader), strlen($pem) - strlen($pemFooter));
 
         // Base64 decode the string to get the binary data
@@ -50,7 +48,7 @@ class KYC extends OAuth2Client
         file_put_contents($tempFile, $binaryDerString);
 
         // Import the RSA key using openssl
-        $key = openssl_pkey_get_public("file://" . $tempFile);
+        $key = openssl_pkey_get_public('file://'.$tempFile);
 
         // Generate the key details for encryption
         $keyDetails = openssl_pkey_get_details($key);
@@ -61,7 +59,8 @@ class KYC extends OAuth2Client
         return $key;
     }
 
-    public function generateSymmetricKey() {
+    public function generateSymmetricKey()
+    {
         // Generate a random key using OpenSSL
         $cryptoStrong = true;
         $key = openssl_random_pseudo_bytes(32, $cryptoStrong);
@@ -75,12 +74,13 @@ class KYC extends OAuth2Client
         return $key;
     }
 
-    public function generateRSAKeyPair() {
+    public function generateRSAKeyPair()
+    {
         // Generate private key
         $privateKeyConfig = [
-            "digest_alg" => "sha256",
-            "private_key_bits" => 2048,
-            "private_key_type" => OPENSSL_KEYTYPE_RSA
+            'digest_alg' => 'sha256',
+            'private_key_bits' => 2048,
+            'private_key_type' => OPENSSL_KEYTYPE_RSA,
         ];
         $privateKeyResource = openssl_pkey_new($privateKeyConfig);
 
@@ -90,23 +90,26 @@ class KYC extends OAuth2Client
 
         // Prepare the result
         $result = [
-            "privateKey" => $privateKeyResource,
-            "publicKey" => $publicKey
+            'privateKey' => $privateKeyResource,
+            'publicKey' => $publicKey,
         ];
 
         return $result;
     }
 
-    public function formatMessage($data) {
+    public function formatMessage($data)
+    {
         $dataAsBase64 = chunk_split(base64_encode($data));
+
         return "-----BEGIN ENCRYPTED MESSAGE-----\r\n{$dataAsBase64}-----END ENCRYPTED MESSAGE-----";
     }
 
-    public function aesEncrypt($data, $symmetricKey) {
-        $cipher = "aes-256-gcm";
+    public function aesEncrypt($data, $symmetricKey)
+    {
+        $cipher = 'aes-256-gcm';
         $ivLength = 12;
-            $tag = '';
-        $iv = "";
+        $tag = '';
+        $iv = '';
 
         // Generate random IV
         if (function_exists('random_bytes')) {
@@ -115,7 +118,7 @@ class KYC extends OAuth2Client
             $iv = openssl_random_pseudo_bytes($ivLength);
         } else {
             // Fallback if random bytes generation is not available
-            $iv = "";
+            $iv = '';
             for ($i = 0; $i < $ivLength; $i++) {
                 $iv .= chr(mt_rand(0, 255));
             }
@@ -131,20 +134,19 @@ class KYC extends OAuth2Client
         $tag = $cipher->getTag();
 
         // Concatenate the IV, ciphertext, and tag
-        $encryptedData = $iv . $ciphertext. $tag;
+        $encryptedData = $iv.$ciphertext.$tag;
 
         return $encryptedData;
     }
 
-
-    public function aesDecrypt($encryptedData, $symmetricKey) {
-        $cipher = "aes-256-gcm";
+    public function aesDecrypt($encryptedData, $symmetricKey)
+    {
+        $cipher = 'aes-256-gcm';
         $ivLength = 12;
 
         // Extract IV and encrypted bytes
         $iv = substr($encryptedData, 0, $ivLength);
         $encryptedBytes = substr($encryptedData, $ivLength);
-
 
         $ivlen = openssl_cipher_iv_length($cipher);
         $tag_length = 16;
@@ -153,6 +155,7 @@ class KYC extends OAuth2Client
         $ciphertext = substr($encryptedData, $ivlen, -$tag_length);
 
         $ciphertext_raw = openssl_decrypt($ciphertext, $cipher, $symmetricKey, OPENSSL_NO_PADDING, $iv, $tag);
+
         return $ciphertext_raw;
 
         // Decrypt the data
@@ -167,8 +170,8 @@ class KYC extends OAuth2Client
         return $decryptedData;
     }
 
-
-    public function encryptMessage($message, $pubPEM) {
+    public function encryptMessage($message, $pubPEM)
+    {
         // Generate a symmetric key
         $aesKey = $this->generateSymmetricKey(); // Generate a 256-bit key (32 bytes)
 
@@ -176,23 +179,21 @@ class KYC extends OAuth2Client
         $serverKey = $serverKey->withPadding(RSA::ENCRYPTION_OAEP);
         $wrappedAesKey = $serverKey->encrypt($aesKey);
 
-
         // echo ($wrappedAesKey);
 
         // Encrypt the message using the generated AES key
         $encryptedMessage = $this->aesEncrypt($message, $aesKey);
 
         // Combine wrapped AES key and encrypted message
-        $payload = $wrappedAesKey . $encryptedMessage;
+        $payload = $wrappedAesKey.$encryptedMessage;
 
         return $this->formatMessage($payload);
     }
 
-
     public function decryptMessage($message, $privateKey)
     {
-        $beginTag = "-----BEGIN ENCRYPTED MESSAGE-----";
-        $endTag = "-----END ENCRYPTED MESSAGE-----";
+        $beginTag = '-----BEGIN ENCRYPTED MESSAGE-----';
+        $endTag = '-----END ENCRYPTED MESSAGE-----';
 
         // Fetch the part of the PEM string between beginTag and endTag
         $messageContents = substr(
@@ -219,14 +220,14 @@ class KYC extends OAuth2Client
         // $key = $key->withPadding(RSA::ENCRYPTION_OAEP);
         $aesKey = $key->decrypt($wrappedKey);
 
-
         // Decrypt the encrypted message using the unwrapped key
         $decryptedMessage = $this->aesDecrypt($encryptedMessage, $aesKey);
 
         return $decryptedMessage;
     }
 
-    public function generateUrl($agen, $nik_agen) {
+    public function generateUrl($agen, $nik_agen)
+    {
         $keyPair = $this->generateKey();
         $publicKey = $keyPair['publicKey'];
         $privateKey = $keyPair['privateKey'];
@@ -236,7 +237,7 @@ class KYC extends OAuth2Client
         // Set the API URL and authentication token
         $apiUrl = 'https://api-satusehat.kemkes.go.id/kyc/v1/generate-url';
 
-        $pubPEM = "-----BEGIN PUBLIC KEY-----
+        $pubPEM = '-----BEGIN PUBLIC KEY-----
         MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxLwvebfOrPLIODIxAwFp
         4Qhksdtn7bEby5OhkQNLTdClGAbTe2tOO5Tiib9pcdruKxTodo481iGXTHR5033I
         A5X55PegFeoY95NH5Noj6UUhyTFfRuwnhtGJgv9buTeBa4pLgHakfebqzKXr0Lce
@@ -244,14 +245,14 @@ class KYC extends OAuth2Client
         8KuGuqHIFQa5t7UUH8WcxlLVRHWOtEQ3+Y6TQr8sIpSVszfhpjh9+Cag1EgaMzk+
         HhAxMtXZgpyHffGHmPJ9eXbBO008tUzrE88fcuJ5pMF0LATO6ayXTKgZVU0WO/4e
         iQIDAQAB
-        -----END PUBLIC KEY-----";
+        -----END PUBLIC KEY-----';
 
         // Set the request data
-        $data = array(
+        $data = [
             'agent_name' => $agen,
             'agent_nik' => $nik_agen,
-            'public_key' => $publicKey
-        );
+            'public_key' => $publicKey,
+        ];
 
         $jsonData = json_encode($data);
 
@@ -265,23 +266,23 @@ class KYC extends OAuth2Client
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $encryptedPayload);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: text/plain',
-            'Authorization: Bearer ' . $accessToken
-        ));
+            'Authorization: Bearer '.$accessToken,
+        ]);
 
         // Execute the request
         $response = curl_exec($ch);
 
         // Check for cURL errors
-        if(curl_errno($ch)) {
-            echo 'cURL error: ' . curl_error($ch);
+        if (curl_errno($ch)) {
+            echo 'cURL error: '.curl_error($ch);
         }
 
         // Close cURL
         curl_close($ch);
 
         // Output the response
-        return $this->decryptMessage($response,$privateKey);
+        return $this->decryptMessage($response, $privateKey);
     }
 }
