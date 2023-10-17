@@ -7,28 +7,39 @@
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
 ## Fitur SATUSEHAT Fase 1 Rawat Jalan
-### Must Send
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
+
+#### OAuth & KYC
 - [x] OAuth2 (POST)
+- [x] KYC SATUSEHAT Platform (Centang Biru SATUSEHAT Mobile)
+
+#### Organization
+- [ ] Organization GET by ID
 - [x] Organization POST
 - [x] Organization PUT
+
+#### Location
+- [x] Location GET by ID
 - [x] Location POST
 - [x] Location PUT
-- [ ] Patient GET by NIK
-- [ ] Practitioner GET by NIK
+
+#### Patient
+- [x] Patient GET by NIK
+- [x] Patient GET by ID
+
+#### Practitioner
+- [x] Practitioner GET by NIK
+- [x] Practitioner GET by ID
+
+#### Encounter
+- [x] Encounter GET by ID
 - [x] Encounter POST
 - [x] Encounter PUT
+
+#### Condition
+- [x] Condition GET by ID
 - [ ] Condition POST
 - [ ] Condition PUT
-- [x] KYC SATUSEHAT Platform
-
-### Optional
-- [ ] Organization GET
-- [ ] Location GET
-- [ ] Patient GET by ID
-- [ ] Practitioner GET by ID
-- [ ] Encounter GET
-- [ ] Condition GET
 
 
 ## Installation
@@ -60,6 +71,8 @@ php artisan migrate
 ## Cara pemakaian
 
 ### Konfigurasi ClientID & ClientSecret dan Organization ID
+Isilah Organization ID, Client ID dan Client Secret yang diberikan oleh SATUSEHAT di file .env
+
 ```env
 SATUSEHAT_ENV=xxxxxx (DEV/STG/PROD)
 
@@ -85,7 +98,7 @@ CLIENTID_PROD=xxxxxx
 CLIENTSECRET_PROD=xxxxxx
 ```
 
-## Dry Run
+## Dry Run / Create Token
 
 ```php
 /** 
@@ -95,6 +108,34 @@ CLIENTSECRET_PROD=xxxxxx
 
 $client = new Satusehat\Integration\OAuth2Client;
 echo $client->token();
+```
+
+
+
+## KYC (Verifikasi SATUSEHAT Centang Biru)
+*Note : Wajib dilakukan pada konfigurasi .env ```SATUEHAT_ENV=PROD```
+
+```php
+/** 
+ * Pastikan sudah mengisi konfigurasi di .env
+ * Proses KYC tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+*/
+<?php
+
+use Satusehat\Integration\KYC;
+
+$kyc = new KYC;
+
+// Isi nama verifikator & NIK verifikator untuk mendapatkan link KYC
+$json = $kyc->generateUrl('{nama_verifikator}', '{nik_verifikator}');
+$kyc_link = json_decode($json, true);
+
+/** 
+ * Melakukan route redirect ke link KYC
+ * saat ini hanya bisa dibuka pada tab baru / pop-up
+ * tidak bisa melalui iframe
+*/
+return redirect($kyc_link['data']['url']);
 ```
 
 ### GET by ID
@@ -138,19 +179,13 @@ $client->get_by_nik('Practitioner', '{NIK Dokter}');
 
 ```php
 /** 
- * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi kelas OAuth2Client
 */
 <?php
 
-use Satusehat\Integration\OAuth2Client;
-use Satusehat\FHIR\Encounter;
-
-$client = new OAuth2Client;
+use Satusehat\Integration\FHIR\Encounter;
 
 $data = new Encounter;
-$data->setSubject('{SATUSEHAT ID Pasien}');
-
-$client->post('Encounter', $data);
 
 ```
 
@@ -159,19 +194,15 @@ $client->post('Encounter', $data);
 
 ```php
 /** 
- * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi kelas OAuth2Client
 */
 <?php
 
-use Satusehat\Integration\OAuth2Client;
-use Satusehat\FHIR\Encounter;
-
-$client = new OAuth2Client;
+use Satusehat\Integration\FHIR\Encounter;
 
 $data = new Encounter;
-$data->setSubject('{SATUSEHAT ID Pasien}');
 
-$client->put('Encounter', '{id Encounter}', $data);
+
 
 ```
 
