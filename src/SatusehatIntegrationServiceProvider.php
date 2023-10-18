@@ -32,6 +32,21 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
                 __DIR__.'/../database/migrations/create_satusehat_log_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_log_table.php"),
             ], 'migrations');
         }
+
+        // Publish Migrations for ICD10
+        if (! class_exists('CreateIcd10Table')) {
+            $timestamp = date('Y_m_d_His', time());
+
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_satusehat_icd10_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd10_table.php"),
+            ], 'migrations');
+        }
+
+        // Publish ICD-10 for Log
+        $this->publishes([
+                __DIR__.'/../database/migrations/create_satusehat_log_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_log_table.php"),
+            ], 'icd10');
+
     }
 
     public function register()
