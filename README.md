@@ -6,6 +6,16 @@
 
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
+## How to contribute ?
+As this is open source project, please kindly support this project by adding feature improvement or bug fixing. Styling fix (comma, delimiter, tab, spacing) will not be considered as contribution and will not considered for merge request. Significant contributor will be mentioned to [credits](#credits).<br>
+
+1. Fork this repository
+2. Clone your forked repository
+3. Create new branch
+4. Make changes
+5. Commit and push
+6. Create pull request
+
 ## Fitur SATUSEHAT Fase 1 Rawat Jalan
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
 
@@ -287,9 +297,8 @@ $condition->put('{condition_id}');
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Credits
+1. [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
 
-- [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
 
 ## License
-
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
