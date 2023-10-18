@@ -42,7 +42,7 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        // Publish ICD-10 for Log
+        // Publish ICD-10 csv data
         $this->publishes([
                 __DIR__.'/../database/migrations/create_satusehat_log_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_log_table.php"),
             ], 'icd10');
