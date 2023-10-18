@@ -1,67 +1,34 @@
 <?php
-
-
-
 namespace Database\Seeders;
 
-
-
 use Illuminate\Database\Seeder;
-
 use Satusehat\Integration\Models\Icd10;
 
-
-
-class CountrySeeder extends Seeder
-
+class Icd10Seeder extends Seeder
 {
-
     /**
-
      * Run the database seeds.
-
      *
-
      * @return void
-
      */
-
     public function run()
-
     {
+        Icd10::truncate();
 
-        Country::truncate();
-
-
-
-        $csvFile = fopen(base_path("database/data/country.csv"), "r");
-
-
+        $csvFile = fopen(database_path("/seeders/csv/icd10.csv"), "r");
 
         $firstline = true;
-
-        while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
-
+        while (($data = fgetcsv($csvFile, 2000, ";")) !== FALSE) {
             if (!$firstline) {
-
-                Country::create([
-
-                    "name" => $data['0'],
-
-                    "code" => $data['1']
-
+                Icd10::create([
+                    "icd10_code" => $data['0'],
+                    "icd10_display_en" => $data['1'],
+                    "icd10_display_id" => $data['2']
                 ]);
-
             }
-
             $firstline = false;
-
         }
 
-
-
         fclose($csvFile);
-
     }
-
 }

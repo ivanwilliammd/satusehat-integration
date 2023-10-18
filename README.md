@@ -37,6 +37,7 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 - [x] Encounter PUT
 
 #### Condition
+- [x] ICD-10 Masterdata 202212 Version
 - [x] Condition GET by ID
 - [ ] Condition POST
 - [ ] Condition PUT
@@ -66,6 +67,18 @@ php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegratio
 
 ```bash
 php artisan migrate
+```
+
+### Publish ICD-10 Migration, Seeder, and CSV file (optional)
+```bash
+# Run to publish all assets regarding ICD-10
+php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=icd10
+
+# Run to migrate the ICD10 table
+php artisan migrate
+
+# Run to seed the data
+php artisan db:seed --class=Icd10Seeder
 ```
 
 ## Cara pemakaian

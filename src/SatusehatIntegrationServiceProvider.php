@@ -34,18 +34,25 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
         }
 
         // Publish Migrations for ICD10
-        if (! class_exists('CreateIcd10Table')) {
+        if (! class_exists('CreateSatusehatIcd10Table')) {
             $timestamp = date('Y_m_d_His', time());
 
             $this->publishes([
                 __DIR__.'/../database/migrations/create_satusehat_icd10_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd10_table.php"),
-            ], 'migrations');
+            ], 'icd10');
         }
 
         // Publish ICD-10 csv data
         $this->publishes([
-            __DIR__.'/../database/migrations/create_satusehat_log_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_log_table.php"),
+            __DIR__.'/../database/seeders/csv/icd10.csv.stub' => database_path("/seeders/csv/icd10.csv"),
         ], 'icd10');
+
+        // Publish Seeder for ICD10
+        if (! class_exists('Icd10Seeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/Icd10Seeder.php.stub' => database_path("/seeders/Icd10Seeder.php"),
+            ], 'icd10');
+        }
 
     }
 
