@@ -147,6 +147,16 @@ class Location extends OAuth2Client
             $this->setManagingOrganization();
         }
 
+        // Name is required
+        if (!array_key_exists('name', $this->location)) {
+            return 'Please use location->setName($location_name) to pass the data';
+        }
+
+        // Identifier is required
+        if (!array_key_exists('identifier', $this->location)) {
+            return 'Please use location->addIdentifier($location_identifier) to pass the data';
+        }
+
         return $this->location;
     }
 
