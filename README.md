@@ -39,8 +39,8 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 #### Condition
 - [x] ICD-10 Masterdata 202212 Version
 - [x] Condition GET by ID
-- [ ] Condition POST
-- [ ] Condition PUT
+- [x] Condition POST
+- [x] Condition PUT
 
 
 ## Installation
@@ -69,7 +69,7 @@ php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegratio
 php artisan migrate
 ```
 
-### Publish ICD-10 Migration, Seeder, and CSV file (optional)
+### Publish ICD-10 Migration, Seeder, and CSV file (optional - to enable auto code lookup)
 ```bash
 # Run to publish all assets regarding ICD-10
 php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=icd10
@@ -163,11 +163,22 @@ use Satusehat\Integration\OAuth2Client;
 
 $client = new OAuth2Client;
 
+// Organization
 $client->get('Organization', '{id}');
+
+// Location
 $client->get('Location', '{id}');
+
+// Patient
 $client->get('Patient', '{id}');
+
+// Practitioner
 $client->get('Practitioner', '{id}');
+
+// Encounter
 $client->get('Encounter', '{id}');
+
+// Condition
 $client->get('Condition', '{id}');
 ```
 
@@ -183,40 +194,91 @@ use Satusehat\Integration\OAuth2Client;
 
 $client = new OAuth2Client;
 
+// Patient
 $client->get_by_nik('Patient', '{NIK Pasien}');
+
+// Practitioner
 $client->get_by_nik('Practitioner', '{NIK Dokter}');
 ```
 
-### POST
-#### POST Encounter
+### Agnostic POST & PUT : using self build JSON object
 
 ```php
 /** 
- * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi kelas OAuth2Client
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi OAuth2Client->token()
 */
 <?php
 
-use Satusehat\Integration\FHIR\Encounter;
+use Satusehat\Integration\OAuth2Client;
 
-$data = new Encounter;
+$client = new OAuth2Client;
+$body = ...... ; // JSON Object
+$resource = ......; // Any FHIR Resource (Organization, Location, Patient, Practitioner, Encounter, Condition)
 
+// General Format POST
+$client->ss_post($resource, $body);
+
+// General Format PUT
+$id = ...... ; // SATUSEHAT response ID
+$client->ss_put($resource, $id, $body);
 ```
 
-### PUT
-#### PUT Encounter
-
+### POST : Using FHIR Class Object
 ```php
 /** 
  * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi kelas OAuth2Client
 */
 <?php
 
+use Satusehat\Integration\FHIR\Organization;
+use Satusehat\Integration\FHIR\Location;
 use Satusehat\Integration\FHIR\Encounter;
+use Satusehat\Integration\FHIR\Condition;
 
-$data = new Encounter;
+// Organization
+$organization = new Organization;
+$organization->post();
 
+// Location
+$location = new Location;
+$location->post();
 
+// Encounter
+$encounter = new Encounter;
+$encounter->post();
 
+// Condition
+$condition = new Condition;
+$condition->post();
+```
+
+### PUT : Using FHIR Class Object
+```php
+/** 
+ * Proses GET / POST / PUT, tidak perlu lagi menggunakan deklarasi kelas OAuth2Client
+*/
+<?php
+
+use Satusehat\Integration\FHIR\Organization;
+use Satusehat\Integration\FHIR\Location;
+use Satusehat\Integration\FHIR\Encounter;
+use Satusehat\Integration\FHIR\Condition;
+
+// Organization
+$organization = new Organization;
+$organization->put('{organization_id}');
+
+// Location
+$location = new Location;
+$location->put('{location_id}');
+
+// Encounter
+$encounter = new Encounter;
+$encounter->put('{encounter_id}');
+
+// Condition
+$condition = new Condition;
+$condition->put('{condition_id}');
 ```
 
 

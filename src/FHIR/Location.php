@@ -149,4 +149,20 @@ class Location extends OAuth2Client
 
         return $this->location;
     }
+
+    public function post()
+    {
+        $payload = $this->json();
+        [$statusCode, $res] = $this->ss_post('Location', $payload);
+
+        return [$statusCode, $res];
+    }
+
+    public function put($id)
+    {
+        $payload = $this->json();
+        [$statusCode, $res] = $this->ss_put('Location', $id, $payload);
+
+        return [$statusCode, $res];
+    }
 }

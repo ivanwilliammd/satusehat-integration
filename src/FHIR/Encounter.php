@@ -125,7 +125,35 @@ class Encounter extends OAuth2Client
 
     public function json()
     {
-        $this->setServiceProvider();
+        // Status is required
+        if(!array_key_exists('status', $this->encounter)){
+            return 'Please use encounter->statusHistory([timestamp array]) to add the status';
+        }
+
+        // Class is required
+        if(!array_key_exists('class', $this->encounter)){
+            return 'Please use encounter->setConsultationMethod($method) to pass the data';
+        }
+
+        // Subject is required
+        if(!array_key_exists('subject', $this->encounter)){
+            return 'Please use encounter->setSubject($subjectId, $name) to pass the data';
+        }
+
+        // Participant is required
+        if(!array_key_exists('participant', $this->encounter)){
+            return 'Please use encounter->addParticipant($participantId, $name) to pass the data';
+        }
+
+        // Location is required
+        if(!array_key_exists('location', $this->encounter)){
+            return 'Please use encounter->addLocation($locationId, $name) to pass the data';
+        }
+
+        // Add default ServiceProvider
+        if(!array_key_exists('serviceProvider', $this->encounter)){
+            $this->setServiceProvider();
+        }
 
         return $this->encounter;
     }
