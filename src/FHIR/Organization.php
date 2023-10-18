@@ -29,12 +29,12 @@ class Organization extends OAuth2Client
         $this->organization['identifier'][] = $identifier;
     }
 
-    public function setOrganizationName($organization_name)
+    public function setName($organization_name)
     {
         $this->organization['name'] = $organization_name;
     }
 
-    public function setOrganizationPartOf($partOf = null)
+    public function setPartOf($partOf = null)
     {
         $this->organization['partOf']['reference'] = 'Organization/'.$partOf ? $partOf : $this->organization_id;
     }
@@ -117,12 +117,12 @@ class Organization extends OAuth2Client
 
         // Name is required
         if (! array_key_exists('name', $this->organization)) {
-            return 'Please use organization->setOrganizationName($organization_name) to pass the data';
+            return 'Please use organization->setName($organization_name) to pass the data';
         }
 
         // Set default Organization part.Of
         if (! array_key_exists('partOf', $this->organization)) {
-            $this->setOrganizationPartOf();
+            $this->setPartOf();
         }
 
         return $this->organization;

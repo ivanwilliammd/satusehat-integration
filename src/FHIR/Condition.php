@@ -71,7 +71,7 @@ class Condition extends OAuth2Client
         ];
     }
 
-    public function addIcd10($code = null, $display = null)
+    public function addCode($code = null, $display = null)
     {
         // Look in database if display is null
         $display = $display ? $display : Icd10::where('icd10_code', $code)->first()->icd10_en;

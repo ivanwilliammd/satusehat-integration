@@ -31,15 +31,13 @@ class Encounter extends OAuth2Client
         }
 
         // In-progress
-        if (array_key_exists('inprogress', $timestamp)) {
-            $this->encounter['status'] = 'inprogress';
+        if (array_key_exists('in-progress', $timestamp)) {
+            $this->encounter['status'] = 'in-progress';
 
             $statusHistory_inprogress['status'] = 'in-progress';
             $statusHistory_inprogress['period']['start'] = $timestamp['inprogress'];
 
             $statusHistory_arrived['period']['end'] = $timestamp['inprogress'];
-        } else {
-            return 'inprogress is required';
         }
 
         // Finished
@@ -52,8 +50,6 @@ class Encounter extends OAuth2Client
             $statusHistory_finished['period']['end'] = $timestamp['finished'];
 
             $statusHistory_inprogress['period']['end'] = $timestamp['finished'];
-        } else {
-            return 'finished is required';
         }
     }
 
@@ -76,12 +72,12 @@ class Encounter extends OAuth2Client
                 $class_code = 'HH';
                 $class_display = 'home health';
                 break;
-            case 'TELECONSULTATION':
+            case 'TELEKONSULTASI':
                 $class_code = 'TELE';
                 $class_display = 'teleconsultation';
                 break;
             default:
-                return 'consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELECONSULTATION)';
+                return 'consultation_method is invalid (Choose RAJAL / IGD / RANAP/ HOMECARE / TELEKONSULTASI)';
         }
 
         $class['code'] = $class_code;
@@ -121,6 +117,33 @@ class Encounter extends OAuth2Client
     public function setServiceProvider()
     {
         $this->encounter['serviceProvider']['reference'] = 'Organization/'.$this->organization_id;
+    }
+
+    public function addDiagnosis($id, $code, $display = null){
+
+        // Look in database if display is null
+        $display = $display ? $display : Icd10::where('icd10_code', $code)->first()->icd10_en;
+
+        // Handling if incomplete code / display
+        if (! $code && ! $display) {
+            return 'Kode ICD-10 invalid';
+        }
+
+        // Create Encounter.diagnosis content
+        $diagnosis['condition']['reference'] = 'Condition/'.$id;
+        $diagnosis['condition']['display'] = 'Condition/'.$display;
+        $diagnosis['use']['coding'][] = [
+            'system' => 'http://terminology.hl7.org/CodeSystem/diagnosis-role',
+            'code' => 'DD',
+            'display' => 'Discharge diagnosis',
+        ];
+
+        // Determine ranking
+        if(! array_key_exists('diagnosis', $this->encounter)){$rank = 1;}
+        else{$rank = count($this->encounter['diagnosis']) + 1;}
+        $diagnosis['rank'] = $rank;
+
+        $this->encounter['diagnosis'][] = $diagnosis;
     }
 
     public function json()
