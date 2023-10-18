@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Models\Icd10;
+use Satusehat\Integration\OAuth2Client;
 
 class Condition extends OAuth2Client
 {
@@ -11,7 +11,7 @@ class Condition extends OAuth2Client
 
     public function addClinicalStatus($clinical_status = 'active')
     {
-        switch($clinical_status) {
+        switch ($clinical_status) {
             case 'active':
                 $code = 'active';
                 $display = 'Active';
@@ -44,17 +44,18 @@ class Condition extends OAuth2Client
         ];
     }
 
-    public function addCategory($category = 'Diagnosis'){
-        switch($category){
-            case 'Diagnosis' :
+    public function addCategory($category = 'Diagnosis')
+    {
+        switch ($category) {
+            case 'Diagnosis':
                 $code = 'encounter-diagnosis';
                 $display = 'Encounter Diagnosis';
                 break;
-            case 'Keluhan' :
+            case 'Keluhan':
                 $code = 'problem-list-item';
                 $display = 'Problem List Item';
                 break;
-            default :
+            default:
                 $code = 'encounter-diagnosis';
                 $display = 'Encounter Diagnosis';
         }
@@ -70,12 +71,13 @@ class Condition extends OAuth2Client
         ];
     }
 
-    public function addIcd10($code = null, $display = null){
+    public function addIcd10($code = null, $display = null)
+    {
         // Look in database if display is null
         $display = $display ? $display : Icd10::where('icd10_code', $code)->first()->icd10_en;
 
         // Handling if incomplete code / display
-        if(!$code && !$display){
+        if (! $code && ! $display) {
             return 'Kode ICD-10 invalid';
         }
 
@@ -95,53 +97,53 @@ class Condition extends OAuth2Client
     public function setEncounter($encounterId, $display = null)
     {
         $this->condition['encounter']['reference'] = 'Encounter/'.$encounterId;
-        $this->condition['encounter']['display'] = $kunjungan ? $display : 'Kunjungan '. $encounterId;
+        $this->condition['encounter']['display'] = $kunjungan ? $display : 'Kunjungan '.$encounterId;
     }
 
     public function setOnsetDateTime($onset_date_time = null)
     {
-        $this->condition['onsetDateTime'] = $onset_date_time ? $onset_date_time : now()->format('Y-m-d') . 'T' . now()->format('H:i:s') . '+07:00';
+        $this->condition['onsetDateTime'] = $onset_date_time ? $onset_date_time : now()->format('Y-m-d').'T'.now()->format('H:i:s').'+07:00';
     }
 
     public function setRecordedDate($recorded_date = null)
     {
-        $this->condition['recordedDate'] = $recorded_date ? $recorded_date : now()->format('Y-m-d') . 'T' . now()->format('H:i:s') . '+07:00';
+        $this->condition['recordedDate'] = $recorded_date ? $recorded_date : now()->format('Y-m-d').'T'.now()->format('H:i:s').'+07:00';
     }
 
     public function json()
     {
         // Add default clinical status
-        if(!array_key_exists('clinicalStatus', $this->condition)){
+        if (! array_key_exists('clinicalStatus', $this->condition)) {
             $this->addClinicalStatus();
         }
 
         // Add default category
-        if(!array_key_exists('category', $this->condition)){
+        if (! array_key_exists('category', $this->condition)) {
             $this->addCategory();
         }
 
         // Add default OnsetDateTime
-        if(!array_key_exists('onsetDateTime', $this->condition)){
+        if (! array_key_exists('onsetDateTime', $this->condition)) {
             $this->setOnsetDateTime();
         }
 
         // Add default RecordedDate
-        if(!array_key_exists('recordedDate', $this->condition)){
+        if (! array_key_exists('recordedDate', $this->condition)) {
             $this->setRecordedDate();
         }
 
         // Subject is required
-        if(!array_key_exists('subject', $this->condition)){
+        if (! array_key_exists('subject', $this->condition)) {
             return 'Please use condition->setSubject($subjectId, $name) to pass the data';
         }
 
         // Encounter is required
-        if(!array_key_exists('encounter', $this->condition)){
+        if (! array_key_exists('encounter', $this->condition)) {
             return 'Please use condition->setEncounter($encounterId) to pass the data';
         }
 
         // ICD-10 is required
-        if(!array_key_exists('code', $this->condition)){
+        if (! array_key_exists('code', $this->condition)) {
             return 'Please use condition->addIcd10($code, $display) to pass the data';
         }
 
