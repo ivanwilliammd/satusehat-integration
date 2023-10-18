@@ -7,7 +7,7 @@
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
 ## How to contribute ?
-As this is open source project, please kindly support this project by adding feature improvement or bug fixing. Styling fix (comma, delimiter, tab, spacing) will not be considered as contribution and will not considered for merge request. Significant contributor will be mentioned to [credits](#credits).<br>
+As this is open source project, please kindly support this project by adding feature improvement or bug fixing. Styling fix (comma, delimiter, tab, spacing) will not be considered as contribution and will not considered for merge request. Significant contributor(s) will be mentioned to [credits](#credits).<br>
 
 1. Fork this repository
 2. Clone your forked repository
@@ -47,7 +47,7 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 - [x] Encounter PUT
 
 #### Condition
-- [x] ICD-10 Masterdata 202212 Version
+- [x] ICD-10 Masterdata (2022-12 Update)
 - [x] Condition GET by ID
 - [x] Condition POST
 - [x] Condition PUT
