@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $icd10_code
  * @property string $icd10_display_en
  * @property string $icd10_display_id
- * @property boolean $active
+ * @property bool $active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
