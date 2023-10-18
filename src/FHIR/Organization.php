@@ -111,17 +111,17 @@ class Organization extends OAuth2Client
         $this->addAddress();
 
         // Identifier is required
-        if (!array_key_exists('identifier', $this->organization)) {
+        if (! array_key_exists('identifier', $this->organization)) {
             return 'Please use organization->addIdentifier($organization_identifier) to pass the data';
         }
 
         // Name is required
-        if (!array_key_exists('name', $this->organization)) {
+        if (! array_key_exists('name', $this->organization)) {
             return 'Please use organization->setOrganizationName($organization_name) to pass the data';
         }
 
         // Set default Organization part.Of
-        if (!array_key_exists('partOf', $this->organization)) {
+        if (! array_key_exists('partOf', $this->organization)) {
             $this->setOrganizationPartOf();
         }
 
