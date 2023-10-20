@@ -17,15 +17,15 @@ class OAuth2Client
 
     public $practitioner_dev = ['10009880728', '10006926841', '10001354453', '10010910332', '10018180913', '10002074224', '10012572188', '10018452434', '10014058550', '10001915884'];
 
-    protected string $auth_url;
+    public string $auth_url;
 
-    protected string $base_url;
+    public string $base_url;
 
-    protected string $client_id;
+    public string $client_id;
 
-    protected string $client_secret;
+    public string $client_secret;
 
-    protected string $organization_id;
+    public string $organization_id;
 
     public function __construct()
     {
