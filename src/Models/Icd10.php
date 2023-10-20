@@ -34,6 +34,7 @@ class Icd10 extends Model
     }
 
     protected $primaryKey = 'icd10_code';
+
     public $incrementing = false;
 
     protected $casts = ['icd10_code' => 'string', 'icd10_en' => 'string', 'icd10_id' => 'string'];

@@ -30,6 +30,7 @@ class SatusehatToken extends Model
     }
 
     protected $primaryKey = 'token';
+
     public $incrementing = false;
 
     protected $casts = ['environment' => 'string', 'token' => 'string'];

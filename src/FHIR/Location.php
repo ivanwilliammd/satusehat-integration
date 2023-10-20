@@ -2,7 +2,6 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Models\Icd10;
 use Satusehat\Integration\OAuth2Client;
 
 class Location extends OAuth2Client

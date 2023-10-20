@@ -119,7 +119,8 @@ class Encounter extends OAuth2Client
         $this->encounter['serviceProvider']['reference'] = 'Organization/'.$this->organization_id;
     }
 
-    public function addDiagnosis($id, $code, $display = null){
+    public function addDiagnosis($id, $code, $display = null)
+    {
 
         // Look in database if display is null
         $display = $display ? $display : Icd10::where('icd10_code', $code)->first()->icd10_en;
@@ -139,8 +140,11 @@ class Encounter extends OAuth2Client
         ];
 
         // Determine ranking
-        if(! array_key_exists('diagnosis', $this->encounter)){$rank = 1;}
-        else{$rank = count($this->encounter['diagnosis']) + 1;}
+        if (! array_key_exists('diagnosis', $this->encounter)) {
+            $rank = 1;
+        } else {
+            $rank = count($this->encounter['diagnosis']) + 1;
+        }
         $diagnosis['rank'] = $rank;
 
         $this->encounter['diagnosis'][] = $diagnosis;
