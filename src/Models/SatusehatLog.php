@@ -34,4 +34,10 @@ class SatusehatLog extends Model
 
         parent::__construct($attributes);
     }
+
+    protected $primaryKey = 'created_at';
+    public $incrementing = false;
+
+    protected $casts = ['response_id' => 'string', 'action' => 'string', 'url' => 'string',
+                        'payload' => 'array', 'response' => 'array', 'user_id' => 'string'];
 }

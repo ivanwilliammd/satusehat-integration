@@ -28,4 +28,9 @@ class SatusehatToken extends Model
 
         parent::__construct($attributes);
     }
+
+    protected $primaryKey = 'token';
+    public $incrementing = false;
+
+    protected $casts = ['environment' => 'string', 'token' => 'string'];
 }
