@@ -15,8 +15,8 @@ class CreateSatusehatIcd10Table extends Migration
     {
         Schema::connection(config('satusehatintegration.database_connection'))->create(config('satusehatintegration.icd10_table_name'), function (Blueprint $table) {
             $table->string('icd10_code');
-            $table->longText('icd10_display_en');
-            $table->longText('icd10_display_id')->nullable();
+            $table->longText('icd10_en');
+            $table->longText('icd10_id')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
