@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * Satusehat\Integration\Models\Icd10.
  *
  * @property string $icd10_code
- * @property string $icd10_display_en
- * @property string $icd10_display_id
+ * @property string $icd10_en
+ * @property string $icd10_id
  * @property bool $active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

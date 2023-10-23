@@ -20,6 +20,7 @@
         "illuminate/config": "^10.25",
         "illuminate/database": "^10.25",
         "illuminate/support": "^10.25",
+        "jeroenzwart/laravel-csv-seeder": "^1.6",
         "phpseclib/phpseclib": "^3.0",
         "vlucas/phpdotenv": "^5.5"
     },
