@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use SatuSehat\Integration\OAuth2Client;
 use Satusehat\Integration\FHIR\Exception\FHIRMissingProperty;
+use SatuSehat\Integration\OAuth2Client;
 
 class Observation extends OAuth2Client
 {
@@ -12,11 +12,10 @@ class Observation extends OAuth2Client
     /**
      * Sets a status to the observation.
      *
-     * @param string $status The status to add. Defaults to "final".
-     *
+     * @param  string  $status The status to add. Defaults to "final".
      * @return Observation Returns the current instance of the Observation class.
      */
-    public function setStatus($status = "final"): Observation
+    public function setStatus($status = 'final'): Observation
     {
         switch ($status) {
             case 'registered':
@@ -55,8 +54,8 @@ class Observation extends OAuth2Client
     /**
      * Adds a category to the observation.
      *
-     * @param string $code The code of the category.
-     * @param string $display The display name of the category.
+     * @param  string  $code The code of the category.
+     * @param  string  $display The display name of the category.
      * @return Observation The updated observation object.
      */
     public function addCategory($code = 'vital-signs', $display = 'Vital Signs'): Observation
@@ -67,9 +66,9 @@ class Observation extends OAuth2Client
                 [
                     'system' => 'http://terminology.hl7.org/CodeSystem/observation-category',
                     'code' => $code,
-                    'display' => $display
-                ]
-            ]
+                    'display' => $display,
+                ],
+            ],
         ];
 
         return $this;
@@ -82,7 +81,7 @@ class Observation extends OAuth2Client
      */
     public function json(): string
     {
-        if (!array_key_exists('category', $this->observation)) {
+        if (! array_key_exists('category', $this->observation)) {
             throw new FHIRMissingProperty('Category is required.');
         }
 
