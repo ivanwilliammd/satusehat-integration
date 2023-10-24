@@ -2,22 +2,10 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use SatuSehat\Integration\OAuth2Client;
 use Satusehat\Integration\FHIR\Exception\FHIRMissingProperty;
-
-enum ObservationCode: string
-{
-    case Sistole = "8480-6";
-    case Diastole = "8462-4";
-    case HeartRate = "8867-4";
-    case Temperature = "8310-5";
-    case RespiratoryRate = "9279-1";
-}
-
-enum ObservationCategory: string
-{
-    case VitalSigns = "vital-signs";
-}
+use SatuSehat\Integration\OAuth2Client;
+use Satusehat\Integration\FHIR\Enum\ObservationCode;
+use Satusehat\Integration\FHIR\Enum\ObservationCategory;
 
 class Observation extends OAuth2Client
 {
@@ -26,11 +14,10 @@ class Observation extends OAuth2Client
     /**
      * Sets a status to the observation.
      *
-     * @param string $status The status to add. Defaults to "final".
-     *
+     * @param  string  $status The status to add. Defaults to "final".
      * @return Observation Returns the current instance of the Observation class.
      */
-    public function setStatus($status = "final"): Observation
+    public function setStatus($status = 'final'): Observation
     {
         switch ($status) {
             case 'registered':
@@ -69,7 +56,8 @@ class Observation extends OAuth2Client
     /**
      * Adds a category to the observation.
      *
-     * @param string $code The code of the category.
+     * @param  string  $code The code of the category.
+     * @param  string  $display The display name of the category.
      * @return Observation The updated observation object.
      */
     public function addCategory(ObservationCategory $category): Observation
