@@ -3,7 +3,7 @@
 namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\FHIR\Exception\FHIRMissingProperty;
-use SatuSehat\Integration\OAuth2Client;
+use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\FHIR\Enum\ObservationCode;
 use Satusehat\Integration\FHIR\Enum\ObservationCategory;
 
