@@ -309,6 +309,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 1. [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
+2. [Yogi Pristiawan](https://github.com/yuu)
 
 
 ## License
