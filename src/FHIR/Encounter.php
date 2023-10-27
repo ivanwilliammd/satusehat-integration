@@ -19,12 +19,18 @@ class Encounter extends OAuth2Client
 
     public function addStatusHistory($timestamp)
     {
+        // Unset if previously set
+        if (array_key_exists('statusHistory', $this->encounter)) {
+            unset($this->encounter['statusHistory']);
+        }
+
         // Arrived
         if (array_key_exists('arrived', $timestamp)) {
             $this->encounter['status'] = 'arrived';
             $this->encounter['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
 
             $this->encounter['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
+
             $statusHistory_arrived['status'] = 'arrived';
             $statusHistory_arrived['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
         } else {
@@ -52,6 +58,11 @@ class Encounter extends OAuth2Client
 
             $statusHistory_inprogress['period']['end'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['finished']));
         }
+
+        // Add all timestamp statusHistory
+        $this->encounter['statusHistory'][] = $statusHistory_arrived;
+        $this->encounter['statusHistory'][] = $statusHistory_inprogress;
+        $this->encounter['statusHistory'][] = $statusHistory_finished;
     }
 
     public function setConsultationMethod($consultation_method)
