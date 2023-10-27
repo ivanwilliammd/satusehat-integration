@@ -149,12 +149,12 @@ class Condition extends OAuth2Client
             return 'Please use condition->addIcd10($code, $display) to pass the data';
         }
 
-        return $this->condition;
+        return json_encode($this->condition, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     public function post()
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_post('Condition', $payload);
 
         return [$statusCode, $res];
@@ -162,7 +162,7 @@ class Condition extends OAuth2Client
 
     public function put($id)
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_put('Condition', $id, $payload);
 
         return [$statusCode, $res];

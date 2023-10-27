@@ -125,12 +125,12 @@ class Organization extends OAuth2Client
             $this->setPartOf();
         }
 
-        return $this->organization;
+        return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     public function post()
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_post('Organization', $payload);
 
         return [$statusCode, $res];
@@ -138,7 +138,7 @@ class Organization extends OAuth2Client
 
     public function put($id)
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_put('Organization', $id, $payload);
 
         return [$statusCode, $res];

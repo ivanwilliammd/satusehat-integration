@@ -157,12 +157,12 @@ class Location extends OAuth2Client
             return 'Please use location->addIdentifier($location_identifier) to pass the data';
         }
 
-        return $this->location;
+        return json_encode($this->location, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     public function post()
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_post('Location', $payload);
 
         return [$statusCode, $res];
@@ -170,7 +170,7 @@ class Location extends OAuth2Client
 
     public function put($id)
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_put('Location', $id, $payload);
 
         return [$statusCode, $res];

@@ -184,6 +184,22 @@ class Observation extends OAuth2Client
             throw new FHIRMissingProperty('Encounter is required.');
         }
 
-        return json_encode($this->observation);
+        return json_encode($this->observation, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    }
+
+    public function post()
+    {
+        $payload = json_decode($this->json());
+        [$statusCode, $res] = $this->ss_post('Observation', $payload);
+
+        return [$statusCode, $res];
+    }
+
+    public function put($id)
+    {
+        $payload = json_decode($this->json());
+        [$statusCode, $res] = $this->ss_put('Observation', $id, $payload);
+
+        return [$statusCode, $res];
     }
 }
