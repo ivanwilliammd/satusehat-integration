@@ -9,114 +9,13 @@ This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON 
 ## How to contribute ?
 See how to contributes at this [page](CONTRIBUTING.md).<be>
 
-## Fitur SATUSEHAT Rawat Jalan
-Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
+## Quick Installation
+See Onboarding Instruction [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Onboarding)
 
-#### OAuth & KYC
-- [x] OAuth2 (POST)
-- [x] KYC SATUSEHAT Platform (Centang Biru SATUSEHAT Mobile)
+## Features
+See feature Wiki page [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Feature)
 
-#### Organization
-- [x] Organization GET by ID
-- [x] Organization POST
-- [x] Organization PUT
 
-#### Location
-- [x] Location GET by ID
-- [x] Location POST
-- [x] Location PUT
-
-#### Patient
-- [x] Patient GET by NIK
-- [x] Patient GET by ID
-
-#### Practitioner
-- [x] Practitioner GET by NIK
-- [x] Practitioner GET by ID
-
-#### Encounter
-- [x] Encounter GET by ID
-- [x] Encounter POST
-- [x] Encounter PUT
-
-#### Condition
-- [x] ICD-10 Masterdata (2022-12 Update)
-- [x] Condition GET by ID
-- [x] Condition POST
-- [x] Condition PUT
-
-#### Observation (WIP)
-- [ ] Observation GET
-- [ ] Observation POST
-- [ ] Observation GET
-
-## Installation
-
-### Composer
-
-```bash
-composer require ivanwilliammd/satusehat-integration
-```
-
-### Publish Config
-
-```bash
-php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=config
-```
-
-### Publish Migration
-
-```bash
-php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=migrations
-```
-
-### Run Migration
-
-```bash
-php artisan migrate
-```
-
-### Publish ICD-10 Migration, Seeder, and CSV file (optional - to enable auto code lookup)
-```bash
-# Run to publish all assets regarding ICD-10
-php artisan vendor:publish --provider="Satusehat\Integration\SatusehatIntegrationServiceProvider" --tag=icd10
-
-# Run to migrate the ICD10 table
-php artisan migrate
-
-# Run to seed the data
-php artisan db:seed --class=Icd10Seeder
-```
-
-## Cara pemakaian
-
-### Konfigurasi ClientID & ClientSecret dan Organization ID
-Isilah Organization ID, Client ID dan Client Secret yang diberikan oleh SATUSEHAT di file .env
-
-```env
-SATUSEHAT_ENV=xxxxxx (DEV/STG/PROD)
-
-SATUSEHAT_AUTH_DEV=https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1
-SATUSEHAT_FHIR_DEV=https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1
-
-SATUSEHAT_AUTH_STG=https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1
-SATUSEHAT_FHIR_STG=https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1
-
-SATUSEHAT_AUTH_PROD=https://api-satusehat.kemkes.go.id/oauth2/v1
-SATUSEHAT_FHIR_PROD=https://api-satusehat.kemkes.go.id/fhir-r4/v1
-
-ORGID_DEV=xxxxxx
-CLIENTID_DEV=xxxxxx
-CLIENTSECRET_DEV=xxxxxx
-
-ORGID_STG=xxxxxx
-CLIENTID_STG=xxxxxx
-CLIENTSECRET_STG=xxxxxx
-
-ORGID_PROD=xxxxxx
-CLIENTID_PROD=xxxxxx
-CLIENTSECRET_PROD=xxxxxx
-```
 
 ## Dry Run / Create Token
 
