@@ -22,11 +22,11 @@ class Encounter extends OAuth2Client
         // Arrived
         if (array_key_exists('arrived', $timestamp)) {
             $this->encounter['status'] = 'arrived';
-            $this->encounter['period']['start'] = $timestamp['arrived'];
+            $this->encounter['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
 
-            $this->encounter['period']['start'] = $timestamp['arrived'];
+            $this->encounter['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
             $statusHistory_arrived['status'] = 'arrived';
-            $statusHistory_arrived['period']['start'] = $timestamp['arrived'];
+            $statusHistory_arrived['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['arrived']));
         } else {
             return 'arrived is required';
         }
@@ -36,21 +36,21 @@ class Encounter extends OAuth2Client
             $this->encounter['status'] = 'in-progress';
 
             $statusHistory_inprogress['status'] = 'in-progress';
-            $statusHistory_inprogress['period']['start'] = $timestamp['inprogress'];
+            $statusHistory_inprogress['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['inprogress']));
 
-            $statusHistory_arrived['period']['end'] = $timestamp['inprogress'];
+            $statusHistory_arrived['period']['end'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['inprogress']));
         }
 
         // Finished
         if (array_key_exists('finished', $timestamp)) {
             $this->encounter['status'] = 'finished';
-            $this->encounter['period']['end'] = $timestamp['finished'];
+            $this->encounter['period']['end'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['finished']));
 
             $statusHistory_finished['status'] = 'finished';
-            $statusHistory_finished['period']['start'] = $timestamp['finished'];
-            $statusHistory_finished['period']['end'] = $timestamp['finished'];
+            $statusHistory_finished['period']['start'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['finished']));
+            $statusHistory_finished['period']['end'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['finished']));
 
-            $statusHistory_inprogress['period']['end'] = $timestamp['finished'];
+            $statusHistory_inprogress['period']['end'] = date("Y-m-d\TH:i:sP", strtotime($timestamp['finished']));
         }
     }
 
