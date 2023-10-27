@@ -32,7 +32,7 @@ class Encounter extends OAuth2Client
         }
 
         // In-progress
-        if (array_key_exists('in-progress', $timestamp)) {
+        if (array_key_exists('inprogress', $timestamp)) {
             $this->encounter['status'] = 'in-progress';
 
             $statusHistory_inprogress['status'] = 'in-progress';

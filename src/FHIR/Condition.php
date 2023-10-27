@@ -44,14 +44,15 @@ class Condition extends OAuth2Client
         ];
     }
 
-    public function addCategory($category = 'Diagnosis')
+    public function addCategory($category = 'diagnosis')
     {
+        $category = strtolower($category);
         switch ($category) {
-            case 'Diagnosis':
+            case 'diagnosis':
                 $code = 'encounter-diagnosis';
                 $display = 'Encounter Diagnosis';
                 break;
-            case 'Keluhan':
+            case 'keluhan':
                 $code = 'problem-list-item';
                 $display = 'Problem List Item';
                 break;
