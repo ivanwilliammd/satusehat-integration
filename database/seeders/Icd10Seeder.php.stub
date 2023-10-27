@@ -1,34 +1,27 @@
 <?php
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Satusehat\Integration\Models\Icd10;
+use JeroenZwart\CsvSeeder\CsvSeeder;
+use DB;
 
-class Icd10Seeder extends Seeder
+class Icd10Seeder extends CsvSeeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
+    public function __construct(){
+        $this->file = base_path().'/database/seeders/csv/icd10.csv';
+        $this->tablename = config('satusehatintegration.icd10_table_name');
+        $this->delimiter = ';';
+    }
+
     public function run()
     {
-        Icd10::truncate();
+        // Recommended when importing larger CSVs
+		DB::disableQueryLog();
 
-        $csvFile = fopen(database_path("/seeders/csv/icd10.csv"), "r");
-
-        $firstline = true;
-        while (($data = fgetcsv($csvFile, 2000, ";")) !== FALSE) {
-            if (!$firstline) {
-                Icd10::create([
-                    "icd10_code" => $data['0'],
-                    "icd10_en" => $data['1'],
-                    "icd10_id" => $data['2']
-                ]);
-            }
-            $firstline = false;
-        }
-
-        fclose($csvFile);
+		parent::run();
     }
 }
