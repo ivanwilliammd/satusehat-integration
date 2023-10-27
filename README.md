@@ -7,16 +7,9 @@
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
 ## How to contribute ?
-As this is open source project, please kindly support this project by adding feature improvement or bug fixing. Styling fix (comma, delimiter, tab, spacing) will not be considered as contribution and will not considered for merge request. Significant contributor(s) will be mentioned to [credits](#credits).<br>
+See how to contributes at this [page](CONTRIBUTING.md).<be>
 
-1. Fork this repository
-2. Clone your forked repository
-3. Create new branch
-4. Make changes
-5. Commit and push
-6. Create pull request
-
-## Fitur SATUSEHAT Fase 1 Rawat Jalan
+## Fitur SATUSEHAT Rawat Jalan
 Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) : 
 
 #### OAuth & KYC
@@ -52,6 +45,10 @@ Based on : SATUSEHAT Mandate PMK 24 tahun 2022 (Deadline December 2023) :
 - [x] Condition POST
 - [x] Condition PUT
 
+#### Observation (WIP)
+- [ ] Observation GET
+- [ ] Observation POST
+- [ ] Observation GET
 
 ## Installation
 
