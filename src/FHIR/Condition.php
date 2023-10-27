@@ -105,7 +105,7 @@ class Condition extends OAuth2Client
 
     public function setOnsetDateTime($onset_date_time = null)
     {
-        $this->condition['recordedDate'] = $onset_date_time ?
+        $this->condition['onsetDateTime'] = $onset_date_time ?
                                                 date("Y-m-d\TH:i:sP", strtotime($onset_date_time)) :
                                                 date("Y-m-d\TH:i:sP");
     }
