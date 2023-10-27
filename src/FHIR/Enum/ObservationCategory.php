@@ -4,5 +4,5 @@ namespace Satusehat\Integration\FHIR\Enum;
 
 enum ObservationCategory: string
 {
-    case VitalSigns = "vital-signs";
+    case VitalSigns = 'vital-signs';
 }
