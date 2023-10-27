@@ -1,6 +1,6 @@
 # Changelog
 
-Main branch : 
+v1.1 : 
 - Added beta functionality of Observation
 - Fixing inconsistency and function in Condition
 - Updated timezone format
