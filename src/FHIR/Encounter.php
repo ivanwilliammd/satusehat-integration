@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Models\Icd10;
+use Satusehat\Integration\OAuth2Client;
 
 class Encounter extends OAuth2Client
 {
