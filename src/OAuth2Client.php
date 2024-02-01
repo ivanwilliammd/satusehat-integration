@@ -280,4 +280,42 @@ class OAuth2Client
             return [$statusCode, $res];
         }
     }
+    
+    public function get($resource, $id)
+    {
+    $access_token = $this->token();
+
+    if (!isset($access_token)) {
+        return $this->respondError($oauth2);
+    }
+
+    $client = new Client();
+    $headers = [
+        'Authorization' => 'Bearer ' . $access_token,
+    ];
+
+    $url = $this->base_url . '/' . $resource . '/' . $id;
+    $request = new Request('GET', $url, $headers);
+
+    try {
+        $res = $client->sendAsync($request)->wait();
+        $statusCode = $res->getStatusCode();
+        $response = json_decode($res->getBody()->getContents());
+
+        if ($response && isset($response->resourceType) && $response->resourceType == 'OperationOutcome' || isset($response->total) && $response->total == 0) {
+            $id = 'Error ' . $statusCode;
+        }
+
+        $this->log($id, 'GET', $url, null, json_encode($response));
+
+        return [$statusCode, $response];
+    } catch (ClientException $e) {
+        $statusCode = $e->getResponse()->getStatusCode();
+        $res = json_decode($e->getResponse()->getBody()->getContents());
+
+        $this->log('Error ' . $statusCode, 'GET', $url, null, (array) $res);
+
+        return [$statusCode, $res];
+    }  
+    }
 }
