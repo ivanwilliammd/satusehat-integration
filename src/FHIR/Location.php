@@ -12,9 +12,9 @@ class Location extends OAuth2Client
         'mode' => 'instance',
     ];
 
-    public function addIdentifier($location_identifier)
+    public function addIdentifier($location_identifier, $location_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/'.$this->location_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $location_id;
         $identifier['value'] = $location_identifier;
 
         $this->location['identifier'][] = $identifier;
