@@ -14,7 +14,7 @@ class Location extends OAuth2Client
 
     public function addIdentifier($location_identifier)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/'.$this->location_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $this->organization_id;
         $identifier['value'] = $location_identifier;
 
         $this->location['identifier'][] = $identifier;
