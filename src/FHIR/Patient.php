@@ -186,12 +186,12 @@ class Patient extends OAuth2Client
 
         // identifier is required
         if (! array_key_exists('identifier', $this->patient)) {
-            return 'Please use addIdentifier($identifier_type, $identifier_value) to pass the data';
+            return 'Please use patient->addIdentifier($identifier_type, $identifier_value) to pass the data';
         }
 
         // Name is required
         if (! array_key_exists('name', $this->patient)) {
-            return 'Please use organization->setName($organization_name) to pass the data';
+            return 'Please use patient->setName($patient_name) to pass the data';
         }
 
         return json_encode($this->patient, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
