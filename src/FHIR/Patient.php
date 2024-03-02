@@ -56,43 +56,43 @@ class Patient extends OAuth2Client
         $this->patient['deceasedBoolean'] = $bool;
     }
 
-    public function setAddress($address, $city, $postal_code, $country, $province_code, $city_code, $district_code, $village_code, $rt, $rw){
+    public function setAddress($address_detail){
         
         $address = [
             'use' => 'home',
             'line' => [
-                $address
+                $address_detail['address']
             ],
-            'city' => $city,
-            'postalCode' => $postal_code,
-            'country' => $country,
+            'city' => $address_detail['city'],
+            'postalCode' => $address_detail['postalCode'],
+            'country' => $address_detail['country'],
             'extension' => [
                 [
                 'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode',
                 'extension' => [
                     [
                         'url' => 'province',
-                        'valueCode' => $province_code,
+                        'valueCode' => $address_detail['provinceCode'],
                     ],
                     [
                         'url' => 'city',
-                        'valueCode' => $city_code,
+                        'valueCode' => $address_detail['cityCode'],
                     ],
                     [
                         'url' => 'district',
-                        'valueCode' => $district_code,
+                        'valueCode' => $address_detail['districtCode'],
                     ],
                     [
                         'url' => 'village',
-                        'valueCode' => $village_code,
+                        'valueCode' => $address_detail['villageCode'],
                     ],
                     [
                         'url' => 'rt',
-                        'valueCode' => $rt,
+                        'valueCode' => $address_detail['rt'],
                     ],
                     [
                         'url' => 'rw',
-                        'valueCode' => $rw,
+                        'valueCode' => $address_detail['rw'],
                     ]
                 ]
                 ]
@@ -186,12 +186,12 @@ class Patient extends OAuth2Client
 
         // identifier is required
         if (! array_key_exists('identifier', $this->patient)) {
-            return 'Please use patient->addIdentifier($identifier_type, $identifier_value) to pass the data';
+            return 'Please use addIdentifier($identifier_type, $identifier_value) to pass the data';
         }
 
         // Name is required
         if (! array_key_exists('name', $this->patient)) {
-            return 'Please use patient->setName($patient_name) to pass the data';
+            return 'Please use organization->setName($organization_name) to pass the data';
         }
 
         return json_encode($this->patient, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
