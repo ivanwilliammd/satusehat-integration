@@ -10,13 +10,15 @@ class Organization extends OAuth2Client
         'resourceType' => 'Organization',
         'active' => true,
         'type' => [
-            'coding' => [
-                [
-                    'system' => 'http://hl7.org/fhir/organization-type',
-                    'code' => 'dept',
-                    'display' => 'Hospital Department',
+            [
+                'coding' => [
+                    [
+                        'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
+                        'code' => 'dept',
+                        'display' => 'Hospital Department',
+                    ],
                 ],
-            ],
+            ]
         ],
     ];
 
@@ -36,7 +38,7 @@ class Organization extends OAuth2Client
 
     public function setPartOf($partOf = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/'.$partOf ? $partOf : $this->organization_id;
+        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
     }
 
     public function addPhone($phone_number = null)
