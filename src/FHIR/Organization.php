@@ -10,13 +10,15 @@ class Organization extends OAuth2Client
         'resourceType' => 'Organization',
         'active' => true,
         'type' => [
-            'coding' => [
-                [
-                    'system' => 'http://hl7.org/fhir/organization-type',
-                    'code' => 'dept',
-                    'display' => 'Hospital Department',
+            [
+                'coding' => [
+                    [
+                        'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
+                        'code' => 'dept',
+                        'display' => 'Hospital Department',
+                    ],
                 ],
-            ],
+            ]
         ],
     ];
 
