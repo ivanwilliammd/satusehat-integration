@@ -38,7 +38,7 @@ class Organization extends OAuth2Client
 
     public function setPartOf($partOf = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/'.$partOf ? $partOf : $this->organization_id;
+        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
     }
 
     public function addPhone($phone_number = null)
