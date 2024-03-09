@@ -55,7 +55,7 @@ class Location extends OAuth2Client
 
     public function addAddress()
     {
-        $this->location['address'][] = [
+        $this->location['address'] = [
             'use' => 'work',
             'type' => 'both',
             'line' => [
