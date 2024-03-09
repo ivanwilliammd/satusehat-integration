@@ -228,7 +228,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.($resource == 'Bundle' ? '' : '/'.$resource);
-        $request = new Request('POST', $url, $headers, $body);
+        $request = new Request('POST', $url, $headers, json_encode($body));
 
         try {
             $res = $client->sendAsync($request)->wait();
@@ -279,7 +279,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.'/'.$resource.'/'.$id;
-        $request = new Request('PUT', $url, $headers, $body);
+        $request = new Request('PUT', $url, $headers, json_encode($body));
 
         try {
             $res = $client->sendAsync($request)->wait();
