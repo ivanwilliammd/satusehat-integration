@@ -118,11 +118,22 @@ class OAuth2Client
         $status->save();
     }
 
+    public function respondError($message)
+    {
+        $statusCode = $message['statusCode'];
+        $res = $message['res'];
+        return [$statusCode, $res];
+    }
+
     public function get_by_id($resource, $id)
     {
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -160,6 +171,10 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -199,6 +214,10 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -246,6 +265,10 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
