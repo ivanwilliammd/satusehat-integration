@@ -12,6 +12,11 @@ class Location extends OAuth2Client
         'mode' => 'instance',
     ];
 
+    public function setId($id){
+        // This method is required for put()
+        $this->location['id'] = $id;
+    }
+
     public function addIdentifier($location_identifier)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $this->organization_id;
