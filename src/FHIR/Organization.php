@@ -22,6 +22,11 @@ class Organization extends OAuth2Client
         ],
     ];
 
+    public function setId($id){
+        // This method is required for put()
+        $this->organization['id'] = $id;
+    }
+
     public function addIdentifier($organization_identifier)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/'.$this->organization_id;
