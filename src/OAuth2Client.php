@@ -272,6 +272,8 @@ class OAuth2Client
             return $this->respondError($oauth2);
         }
 
+        $body->id = $id;
+
         $client = new Client();
         $headers = [
             'Content-Type' => 'application/json',
