@@ -11,7 +11,7 @@ class Location extends OAuth2Client
         'status' => 'active',
         'mode' => 'instance',
     ];
-
+    
     public function addIdentifier($location_identifier)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $this->organization_id;
@@ -55,7 +55,7 @@ class Location extends OAuth2Client
 
     public function addAddress()
     {
-        $this->location['address'][] = [
+        $this->location['address'] = [
             'use' => 'work',
             'type' => 'both',
             'line' => [

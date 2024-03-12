@@ -118,11 +118,22 @@ class OAuth2Client
         $status->save();
     }
 
+    public function respondError($message)
+    {
+        $statusCode = $message['statusCode'];
+        $res = $message['res'];
+        return [$statusCode, $res];
+    }
+
     public function get_by_id($resource, $id)
     {
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -160,6 +171,10 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -199,6 +214,10 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
 
@@ -209,7 +228,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.($resource == 'Bundle' ? '' : '/'.$resource);
-        $request = new Request('POST', $url, $headers, $body);
+        $request = new Request('POST', $url, $headers, json_encode($body));
 
         try {
             $res = $client->sendAsync($request)->wait();
@@ -246,8 +265,14 @@ class OAuth2Client
         $access_token = $this->token();
 
         if (! isset($access_token)) {
+            $oauth2 = [
+                'statusCode' => 401,
+                'res' => 'Unauthorized. Token not found',
+            ];
             return $this->respondError($oauth2);
         }
+
+        $body->id = $id;
 
         $client = new Client();
         $headers = [
@@ -256,7 +281,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.'/'.$resource.'/'.$id;
-        $request = new Request('PUT', $url, $headers, $body);
+        $request = new Request('PUT', $url, $headers, json_encode($body));
 
         try {
             $res = $client->sendAsync($request)->wait();
