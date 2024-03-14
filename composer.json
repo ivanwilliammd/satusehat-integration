@@ -1,16 +1,21 @@
 {
-    "name": "ivanwilliammd/satusehat-integration",
+    "name": "yudistirasd/satusehat-integration-multitenant",
     "description": "Build SATUSEHAT FHIR Object in Easy Way",
     "keywords": [
         "ivanwilliammd",
         "satusehat-integration"
     ],
-    "homepage": "https://github.com/ivanwilliammd/satusehat-integration",
+    "homepage": "https://github.com/yudistirasd/satusehat-integration-multitenant",
     "license": "MIT",
     "authors": [
         {
             "name": "ivanwilliammd",
             "email": "ivanwilliam.md@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "yudistirasd",
+            "email": "yudistira.sd2@gmail.com",
             "role": "Developer"
         }
     ],
@@ -41,7 +46,7 @@
     },
     "scripts": {
         "test": "vendor/bin/pest",
-            "test-coverage": "vendor/bin/pest --coverage",
+        "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {
