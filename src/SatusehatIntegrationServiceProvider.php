@@ -10,50 +10,32 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
     {
         // Publish Config
         $this->publishes([
-            __DIR__.'/../config/satusehatintegration.php' => config_path('satusehatintegration.php'),
+            __DIR__ . '/../config/satusehatintegration.php' => config_path('satusehatintegration.php'),
         ], 'config');
 
-        $this->mergeConfigFrom(__DIR__.'/../config/satusehatintegration.php', 'satusehatintegration');
+        $this->mergeConfigFrom(__DIR__ . '/../config/satusehatintegration.php', 'satusehatintegration');
 
-        // Publish Migrations for Token
-        if (! class_exists('CreateSatusehatTokenTable')) {
-            $timestamp = date('Y_m_d_His', time());
+        if ($this->app->runningInConsole()) {
+            $publishesMigrationsMethod = method_exists($this, 'publishesMigrations')
+                ? 'publishesMigrations'
+                : 'publishes';
 
-            $this->publishes([
-                __DIR__.'/../database/migrations/create_satusehat_token_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_token_table.php"),
-            ], 'migrations');
-        }
-
-        // Publish Migrations for Log
-        if (! class_exists('CreateSatusehatLogTable')) {
-            $timestamp = date('Y_m_d_His', time());
-
-            $this->publishes([
-                __DIR__.'/../database/migrations/create_satusehat_log_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_log_table.php"),
-            ], 'migrations');
-        }
-
-        // Publish Migrations for ICD10
-        if (! class_exists('CreateSatusehatIcd10Table')) {
-            $timestamp = date('Y_m_d_His', time());
-
-            $this->publishes([
-                __DIR__.'/../database/migrations/create_satusehat_icd10_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd10_table.php"),
-            ], 'icd10');
+            $this->{$publishesMigrationsMethod}([
+                __DIR__ . '/../database/migrations' => database_path('migrations'),
+            ], 'satusehat-migrations');
         }
 
         // Publish ICD-10 csv data
         $this->publishes([
-            __DIR__.'/../database/seeders/csv/icd10.csv.stub' => database_path('/seeders/csv/icd10.csv'),
+            __DIR__ . '/../database/seeders/csv/icd10.csv.stub' => database_path('/seeders/csv/icd10.csv'),
         ], 'icd10');
 
         // Publish Seeder for ICD10
-        if (! class_exists('Icd10Seeder')) {
+        if (!class_exists('Icd10Seeder')) {
             $this->publishes([
-                __DIR__.'/../database/seeders/Icd10Seeder.php.stub' => database_path('/seeders/Icd10Seeder.php'),
+                __DIR__ . '/../database/seeders/Icd10Seeder.php.stub' => database_path('/seeders/Icd10Seeder.php'),
             ], 'icd10');
         }
-
     }
 
     /**
