@@ -9,6 +9,7 @@ return [
     'log_table_name' => 'satusehat_log',
     'token_table_name' => 'satusehat_token',
     'icd10_table_name' => 'satusehat_icd10',
+    'profile_fasyankes_name' => 'satusehat_profile_fasyankes',
 
     /*
      * This is the database connection that will be used by the migration and
