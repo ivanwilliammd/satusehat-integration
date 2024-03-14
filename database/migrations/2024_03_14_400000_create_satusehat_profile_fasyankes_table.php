@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::connection(config('satusehatintegration.database_connection'))->create('satusehat_profile_fasyankes', function (Blueprint $table) {
             $table->uuid('id')->default(DB::raw('(gen_random_uuid())'))->primary();
+            $table->enum('env', ['DEV', 'STG', 'PROD'])->default('DEV');
             $table->string('kode', 11)->unique();
             $table->string('nama');
             $table->string('client_key');
