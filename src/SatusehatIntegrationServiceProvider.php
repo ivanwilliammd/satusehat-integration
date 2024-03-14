@@ -56,8 +56,10 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
 
     }
 
+    /**
+     * Register any application services.
+     */
     public function register()
     {
-        //
     }
 }
