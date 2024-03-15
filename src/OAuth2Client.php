@@ -150,7 +150,7 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if ($response->resourceType == 'OperationOutcome' | $response->total == 0) {
+            if ($response->resourceType == 'OperationOutcome') {
                 $id = 'Error '.$statusCode;
             }
             $this->log($id, 'GET', $url, null, json_encode($response));
