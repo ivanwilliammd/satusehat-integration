@@ -27,6 +27,8 @@ class OAuth2Client
 
     public string $organization_id;
 
+    public string $organization_type;
+
     public function __construct()
     {
         $dotenv = Dotenv::createUnsafeImmutable(getcwd());
@@ -51,6 +53,8 @@ class OAuth2Client
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
         }
+
+        $this->organization_type = getenv('ORG_TYPE') ?: 'dept';
 
         if ($this->organization_id == null) {
             return 'Add your organization_id at environment first';
