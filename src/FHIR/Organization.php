@@ -157,6 +157,7 @@ class Organization extends OAuth2Client
             $this->setPartOf();
         }
 
+        $this->setType($this->organization_type);
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
