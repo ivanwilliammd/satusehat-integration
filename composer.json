@@ -24,11 +24,10 @@
         "phpseclib/phpseclib": "^3.0",
         "vlucas/phpdotenv": "^5.5"
     },
-    "require-dev": {
-        "pestphp/pest": "*"
-    },
+    "require-dev": {},
     "suggest": {
-        "laravel/pint": "Minimalist Opionated Code Formatting Extension for PHP 8.0+"
+        "laravel/pint": "Minimalist Opionated Code Formatting Extension for PHP 8.0+",
+        "pestphp/pest": "Pest PHP Testing Framework"
     },
     "autoload": {
         "psr-4": {
