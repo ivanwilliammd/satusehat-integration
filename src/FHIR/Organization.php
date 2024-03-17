@@ -2,10 +2,17 @@
 
 namespace Satusehat\Integration\FHIR;
 
+use Satusehat\Integration\FHIR\Exception\FHIRException;
 use Satusehat\Integration\OAuth2Client;
 
 class Organization extends OAuth2Client
 {
+
+    private $orgType = [
+        ['code' => 'dept', 'display' => 'Hospital Department'],
+        ['code' => 'prov', 'display' => 'Healthcare Provider']
+    ];
+
     public $organization = [
         'resourceType' => 'Organization',
         'active' => true,
@@ -39,6 +46,29 @@ class Organization extends OAuth2Client
     public function setPartOf($partOf = null)
     {
         $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
+    }
+
+    public function setType($type)
+    {
+        if (!in_array($type, ['dept', 'prov'])) {
+            throw new FHIRException("Types of organizations currently supported : 'prov' | 'dept' ");
+        }
+
+        $organizationTypeIndex = array_search('prov', array_column($this->orgType, 'code'));
+
+        $display = $this->orgType[$organizationTypeIndex]['display'];
+
+        $this->organization['type'] = [
+            [
+                'coding' => [
+                    [
+                        'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
+                        'code' => $type,
+                        'display' => $display,
+                    ],
+                ]
+            ],
+        ];
     }
 
     public function addPhone($phone_number = null)
@@ -127,6 +157,7 @@ class Organization extends OAuth2Client
             $this->setPartOf();
         }
 
+        $this->setType($this->organization_type);
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
