@@ -1,5 +1,9 @@
 # Changelog
 
+v1.2.x : 
+- Bug fixing
+- Added / Splitted new functionality of Patient, Organization, Location, and OAuth2Client
+
 v1.1 :
 
 - Standardize json() function to result encoded one with pretty print and no escape sequence
