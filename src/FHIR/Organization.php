@@ -8,7 +8,7 @@ use Satusehat\Integration\OAuth2Client;
 class Organization extends OAuth2Client
 {
 
-    public $organizationType = [
+    private $orgType = [
         ['code' => 'dept', 'display' => 'Hospital Department'],
         ['code' => 'prov', 'display' => 'Healthcare Provider']
     ];
@@ -54,17 +54,19 @@ class Organization extends OAuth2Client
             throw new FHIRException("Types of organizations currently supported : 'prov' | 'dept' ");
         }
 
-        $organizationTypeIndex = array_search('prov', array_column($this->organizationType, 'code'));
+        $organizationTypeIndex = array_search('prov', array_column($this->orgType, 'code'));
 
-        $display = $this->organizationType[$organizationTypeIndex]['display'];
+        $display = $this->orgType[$organizationTypeIndex]['display'];
 
-        $this->organization['type'][] = [
-            'coding' => [
-                [
-                    'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
-                    'code' => $type,
-                    'display' => $display,
-                ],
+        $this->organization['type'] = [
+            [
+                'coding' => [
+                    [
+                        'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
+                        'code' => $type,
+                        'display' => $display,
+                    ],
+                ]
             ],
         ];
     }
@@ -155,6 +157,7 @@ class Organization extends OAuth2Client
             $this->setPartOf();
         }
 
+        $this->setType($this->organization_type);
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
