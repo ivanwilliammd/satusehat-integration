@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('id')->default(DB::raw('(gen_random_uuid())'))->primary();
             $table->enum('env', ['DEV', 'STG', 'PROD'])->default('DEV');
             $table->string('kode', 11)->unique();
+            $table->string('ihs_id');
             $table->string('nama');
             $table->string('client_key');
             $table->string('secret_key');

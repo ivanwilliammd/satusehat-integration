@@ -15,6 +15,7 @@ class CreateSatusehatTokenTable extends Migration
     {
         Schema::connection(config('satusehatintegration.database_connection'))->create(config('satusehatintegration.token_table_name'), function (Blueprint $table) {
             $table->string('environment');
+            $table->string('profile_fasyankes_kode', 11);
             $table->longText('token');
             $table->timestamps();
         });

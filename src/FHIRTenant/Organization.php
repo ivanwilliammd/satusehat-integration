@@ -1,14 +1,12 @@
 <?php
 
-namespace Satusehat\Integration\FHIR;
+namespace Satusehat\Integration\FHIRTenant;
 
 use Satusehat\Integration\FHIR\Exception\FHIRException;
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\OAuth2ClientTenant;
 
 class Organization extends OAuth2ClientTenant
 {
-
     private $orgType = [
         ['code' => 'dept', 'display' => 'Hospital Department'],
         ['code' => 'prov', 'display' => 'Healthcare Provider']
@@ -32,7 +30,7 @@ class Organization extends OAuth2ClientTenant
 
     public function addIdentifier($organization_identifier)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/' . $this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/' . $this->profile->organization_id;
         $identifier['value'] = $organization_identifier;
         $identifier['use'] = 'official';
 
@@ -46,7 +44,7 @@ class Organization extends OAuth2ClientTenant
 
     public function setPartOf($partOf = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
+        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->profile->organization_id);
     }
 
     public function setType($type)
@@ -76,7 +74,7 @@ class Organization extends OAuth2ClientTenant
     {
         $this->organization['telecom'][] = [
             'system' => 'phone',
-            'value' => $phone_number ? $phone_number : getenv('PHONE'),
+            'value' => $phone_number ? $phone_number : $this->profile->phone,
             'use' => 'work',
         ];
     }
@@ -85,7 +83,7 @@ class Organization extends OAuth2ClientTenant
     {
         $this->organization['telecom'][] = [
             'system' => 'email',
-            'value' => $email ? $email : getenv('EMAIL'),
+            'value' => $email ? $email : $this->profile->email,
             'use' => 'work',
         ];
     }
@@ -94,7 +92,7 @@ class Organization extends OAuth2ClientTenant
     {
         $this->organization['telecom'][] = [
             'system' => 'url',
-            'value' => $url ? $url : getenv('WEBSITE'),
+            'value' => $url ? $url : $this->profile->website,
             'use' => 'work',
         ];
     }
@@ -105,10 +103,10 @@ class Organization extends OAuth2ClientTenant
             'use' => 'work',
             'type' => 'both',
             'line' => [
-                getenv('ALAMAT'),
+                $this->profile->alamat,
             ],
-            'city' => getenv('KOTA'),
-            'postalCode' => getenv('KODEPOS'),
+            'city' => $this->profile->kota,
+            'postalCode' => $this->profile->kode_pos,
             'country' => 'ID',
             'extension' => [
                 [
@@ -116,19 +114,19 @@ class Organization extends OAuth2ClientTenant
                     'extension' => [
                         [
                             'url' => 'province',
-                            'valueCode' => getenv('KODE_PROVINSI'),
+                            'valueCode' => $this->profile->kode_provinsi,
                         ],
                         [
                             'url' => 'city',
-                            'valueCode' => getenv('KODE_KABUPATEN'),
+                            'valueCode' => $this->profile->kode_kabupaten,
                         ],
                         [
                             'url' => 'district',
-                            'valueCode' => getenv('KODE_KECAMATAN'),
+                            'valueCode' => $this->profile->kode_kecamatan,
                         ],
                         [
                             'url' => 'village',
-                            'valueCode' => getenv('KODE_KELURAHAN'),
+                            'valueCode' => $this->profile->kode_kelurahan,
                         ],
                     ],
                 ],
@@ -159,6 +157,7 @@ class Organization extends OAuth2ClientTenant
         }
 
         $this->setType($this->organization_type);
+
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
