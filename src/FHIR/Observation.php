@@ -142,6 +142,22 @@ class Observation extends OAuth2Client
     }
 
     /**
+     * Sets the performer of the observation.
+     *
+     * @param  string  $performerId The Satu Sehat ID of the performer.
+     * @param  string  $name The name of the performer.
+     * @return Observation The current observation instance.
+     */
+    public function setPerformer(string $performerId, string $name){
+        $this->observation['performer'][] = [
+            'reference' => "Practitioner/{$performerId}",
+            'display' => $name,
+        ];
+
+        return $this;
+    }
+
+    /**
      * Visit data where observation results are obtained
      *
      * @param  string  $encounterId The Satu Sehat Encounter ID of the encounter.

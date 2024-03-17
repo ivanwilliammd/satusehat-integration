@@ -111,7 +111,6 @@ class Encounter extends OAuth2Client
         
         $this->encounter['status'] = 'finished';
         $this->encounter['period']['end'] = $date;
-        $this->encounter['statusHistory'][0]['period']['end'] = $date;
         $this->encounter['statusHistory'][] = $statusHistory_finished;
     }
 

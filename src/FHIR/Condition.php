@@ -86,7 +86,7 @@ class Condition extends OAuth2Client
 
         $this->condition['code']['coding'][] = [
             'system' => 'http://hl7.org/fhir/sid/icd-10',
-            'code' => $code,
+            'code' => strtoupper($code),
             'display' => $display,
         ];
     }
@@ -151,7 +151,7 @@ class Condition extends OAuth2Client
 
         // ICD-10 is required
         if (! array_key_exists('code', $this->condition)) {
-            return 'Please use condition->addIcd10($code, $display) to pass the data';
+            return 'Please use condition->addCode($code, $display) to pass the data';
         }
 
         return json_encode($this->condition, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
