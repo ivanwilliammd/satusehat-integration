@@ -1,6 +1,7 @@
 # Changelog
 
-v1.2.x : 
+v1.2.0 : 
+- Backlog Compatilibity with Laravel 8+ (PHP 7.4) / Laravel 9 (PHP 8.0+) / Laravel 10 (PHP 8.1+)
 - Bug fixing
 - Added / Splitted new functionality of Patient, Organization, Location, and OAuth2Client
 
