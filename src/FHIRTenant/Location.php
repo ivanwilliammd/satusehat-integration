@@ -115,8 +115,8 @@ class Location extends OAuth2ClientTenant
     public function addPosition($latitude = null, $longitude = null)
     {
         $this->location['position'] = [
-            'latitude' => $latitude ? $latitude : $this->profile->lat,
-            'longitude' => $longitude ? $longitude : $this->profile->long,
+            'latitude' => doubleval($latitude ? $latitude : $this->profile->lat),
+            'longitude' => doubleval($longitude ? $longitude : $this->profile->long),
         ];
     }
 
