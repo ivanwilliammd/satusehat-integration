@@ -122,7 +122,7 @@ class Location extends OAuth2Client
 
     public function setManagingOrganization($managing_organization = null)
     {
-        $this->location['managingOrganization']['reference'] = 'Organization/'.$managing_organization ? $managing_organization : $this->organization_id;
+        $this->location['managingOrganization']['reference'] = 'Organization/' . ($managing_organization ? $managing_organization : $this->organization_id);
     }
 
     public function json()
