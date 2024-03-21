@@ -122,7 +122,7 @@ class Location extends OAuth2Client
 
     public function setManagingOrganization($managing_organization = null)
     {
-        $this->location['managingOrganization']['reference'] = 'Organization/'.$managing_organization ? $managing_organization : $this->organization_id;
+        $this->location['managingOrganization']['reference'] = 'Organization/' . ($managing_organization ? $managing_organization : $this->organization_id);
     }
 
     public function json()
@@ -133,27 +133,27 @@ class Location extends OAuth2Client
         $this->addAddress();
 
         // Add physicalType if not exist
-        if (array_key_exists('physicalType', $this->location)) {
+        if (!array_key_exists('physicalType', $this->location)) {
             $this->addPhysicalType();
         }
 
         // Add latitude & longitude if not exist
-        if (array_key_exists('position', $this->location)) {
+        if (!array_key_exists('position', $this->location)) {
             $this->addPosition();
         }
 
         // Add default managing organization from parent (registered sarana)
-        if (array_key_exists('managingOrganization', $this->location)) {
+        if (!array_key_exists('managingOrganization', $this->location)) {
             $this->setManagingOrganization();
         }
 
         // Name is required
-        if (! array_key_exists('name', $this->location)) {
+        if (!array_key_exists('name', $this->location)) {
             return 'Please use location->setName($location_name) to pass the data';
         }
 
         // Identifier is required
-        if (! array_key_exists('identifier', $this->location)) {
+        if (!array_key_exists('identifier', $this->location)) {
             return 'Please use location->addIdentifier($location_identifier) to pass the data';
         }
 
