@@ -26,7 +26,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Credits
 1. [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
 2. [Syaeful](https://github.com/SyaefulKai)
-3. [Yogi Pristiawan](https://github.com/YogiPristiawan)
+3. [Yudistira](https://github.com/yudistirasd)
+4. [Yogi Pristiawan](https://github.com/YogiPristiawan)
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
