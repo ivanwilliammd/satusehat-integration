@@ -17,7 +17,7 @@ return [
      * non environment variable
      */
 
-     'ss_parameter_override' => true,
+     'ss_parameter_override' => false,
 
     /*
      * This is the database connection that will be used by the migration and
