@@ -1,7 +1,9 @@
 # Changelog
 
-v2.0.x :
+v2.1.x : 
+- Added Kode Wilayah Indonesia (KodWilId) class
 
+v2.0.x :
 - Splitted terminology model
 - Added new migration database, and seeder
 - Expanded Practitioner GET Model
