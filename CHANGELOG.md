@@ -1,11 +1,13 @@
 # Changelog
 
-v2.1.x : 
+v2.1.x :
+
 - Added Kode Wilayah Indonesia (KodWilId) class
-- Minor default parameter of ```ss_parameter_override``` to false in satusehat config file
+- Minor default parameter of `ss_parameter_override` to false in satusehat config file
 - Updated .env.example
 
 v2.0.x :
+
 - Splitted terminology model
 - Added new migration database, and seeder
 - Expanded Practitioner GET Model
@@ -62,6 +64,7 @@ class BaseController extends Controller
     }
 }
 
+
 ```
 v1.2.x :
 
@@ -90,6 +93,16 @@ v0.15 :
 - Last v0 series internally tested for creating OAuth 2
 - Shipped basic method for GET by NIK function
 - Shipped POST / PUT on FHIR object directly at Encounter, Condition, Organization, Location
+
+## 2.1.0 - Minor Adjustment + Kode Wilayah Indonesia Inclusion - 2024-03-22
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.0.1...2.1.0
+
+v2.1.x :
+
+- Added Kode Wilayah Indonesia (KodWilId) class
+- Minor default parameter of `ss_parameter_override` to false in satusehat config file
+- Updated .env.example
 
 ## Major Terminology Update and Multitenancy Support with Overloadding - 2024-03-22
 
@@ -150,6 +163,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 ```
 ## 1.2.1 - 2024-03-22
