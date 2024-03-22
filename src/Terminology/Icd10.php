@@ -1,6 +1,6 @@
 <?php
 
-namespace Satusehat\Integration\Models;
+namespace Satusehat\Integration\Terminology;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +23,7 @@ class Icd10 extends Model
     public function __construct(array $attributes = [])
     {
         if (! isset($this->connection)) {
-            $this->setConnection(config('satusehatintegration.database_connection'));
+            $this->setConnection(config('satusehatintegration.database_connection_master'));
         }
 
         if (! isset($this->table)) {
@@ -33,7 +33,7 @@ class Icd10 extends Model
         parent::__construct($attributes);
     }
 
-    protected $primaryKey = 'icd10_code';
+    protected $primaryKey = 'id';
 
     public $incrementing = false;
 

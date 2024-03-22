@@ -11,7 +11,7 @@ class Location extends OAuth2Client
         'status' => 'active',
         'mode' => 'instance',
     ];
-    
+
     public function addIdentifier($location_identifier)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $this->organization_id;
@@ -24,6 +24,31 @@ class Location extends OAuth2Client
     {
         $this->location['name'] = $location_name;
         $this->location['description'] = $location_name;
+    }
+
+    public function setStatus($status = 'active')
+    {
+        $this->location['status'] = $status ?? 'active';
+    }
+
+    public function setOperationalStatus($operational_status = 'U')
+    {
+        $operational_status = $operational_status ?? 'U';
+
+        $display = [
+            'U' => 'Unoccupied',
+            'O' => 'Occupied',
+            'C' => 'Closed',
+            'H' => 'Housekeeping',
+            'I' => 'Isolated',
+            'K' => 'Contaminated',
+        ];
+
+        $this->location['operationalStatus'] = [
+            'system' => 'http://terminology.hl7.org/CodeSystem/v2-0116',
+            'code' => $operational_status,
+            'display' => $display[$operational_status],
+        ];
     }
 
     public function addPhone($phone_number = null)
@@ -53,16 +78,15 @@ class Location extends OAuth2Client
         ];
     }
 
-    public function addAddress()
+    public function setAddress($address_line = null, $postal_code = null, $city_name = null, $village_code = null)
     {
         $this->location['address'] = [
             'use' => 'work',
-            'type' => 'both',
             'line' => [
-                getenv('ALAMAT'),
+                $address_line ?? getenv('ALAMAT', ''),
             ],
-            'city' => getenv('KOTA'),
-            'postalCode' => getenv('KODEPOS'),
+            'city' => $city_name ?? getenv('KOTA', ''),
+            'postalCode' => $postal_code ?? getenv('KODEPOS', ''),
             'country' => 'ID',
             'extension' => [
                 [
@@ -70,19 +94,19 @@ class Location extends OAuth2Client
                     'extension' => [
                         [
                             'url' => 'province',
-                            'valueCode' => getenv('KODE_PROVINSI'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 2) : getenv('KODE_PROVINSI', ''),
                         ],
                         [
                             'url' => 'city',
-                            'valueCode' => getenv('KODE_KABUPATEN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) :getenv('KODE_KABUPATEN', ''),
                         ],
                         [
                             'url' => 'district',
-                            'valueCode' => getenv('KODE_KECAMATAN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 6) : getenv('KODE_KECAMATAN', ''),
                         ],
                         [
                             'url' => 'village',
-                            'valueCode' => getenv('KODE_KELURAHAN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 8) : getenv('KODE_KELURAHAN', ''),
                         ],
                     ],
                 ],
@@ -122,25 +146,25 @@ class Location extends OAuth2Client
 
     public function setManagingOrganization($managing_organization = null)
     {
-        $this->location['managingOrganization']['reference'] = 'Organization/' . ($managing_organization ? $managing_organization : $this->organization_id);
+        $this->location['managingOrganization']['reference'] = 'Organization/' . $managing_organization;
+    }
+
+    public function setPartOf($part_of = null)
+    {
+        $this->location['partOf']['reference'] = 'Location/'.$part_of;
     }
 
     public function json()
     {
-        $this->addPhone();
-        $this->addEmail();
-        $this->addUrl();
-        $this->addAddress();
-
         // Add physicalType if not exist
         if (!array_key_exists('physicalType', $this->location)) {
             $this->addPhysicalType();
         }
 
-        // Add latitude & longitude if not exist
-        if (!array_key_exists('position', $this->location)) {
-            $this->addPosition();
-        }
+        // // Add latitude & longitude if not exist
+        // if (!array_key_exists('position', $this->location)) {
+        //     $this->addPosition();
+        // }
 
         // Add default managing organization from parent (registered sarana)
         if (!array_key_exists('managingOrganization', $this->location)) {
@@ -153,7 +177,7 @@ class Location extends OAuth2Client
         }
 
         // Identifier is required
-        if (!array_key_exists('identifier', $this->location)) {
+        if (! array_key_exists('identifier', $this->location)) {
             return 'Please use location->addIdentifier($location_identifier) to pass the data';
         }
 
@@ -162,7 +186,7 @@ class Location extends OAuth2Client
 
     public function post()
     {
-        $payload = json_decode($this->json());
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_post('Location', $payload);
 
         return [$statusCode, $res];
@@ -170,7 +194,9 @@ class Location extends OAuth2Client
 
     public function put($id)
     {
-        $payload = json_decode($this->json());
+        $this->location['id'] = $id;
+        $payload = $this->json();
+        // dd($payload);
         [$statusCode, $res] = $this->ss_put('Location', $id, $payload);
 
         return [$statusCode, $res];

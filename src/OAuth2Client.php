@@ -27,24 +27,34 @@ class OAuth2Client
 
     public string $organization_id;
 
+    public $oauth2_error = [
+        'statusCode' => 401,
+        'res' => 'Unauthorized. Token not found',
+    ];
+
     public function __construct()
     {
         $dotenv = Dotenv::createUnsafeImmutable(getcwd());
         $dotenv->safeLoad();
 
-        if (getenv('SATUSEHAT_ENV') == 'PROD') {
+        $this->override = config('satusehatintegration.ss_parameter_override');
+
+        $this->satusehat_env = $this->override ? null : getenv('SATUSEHAT_ENV');
+
+
+        if ($this->satusehat_env == 'PROD') {
             $this->auth_url = getenv('SATUSEHAT_AUTH_PROD', 'https://api-satusehat.kemkes.go.id/oauth2/v1');
             $this->base_url = getenv('SATUSEHAT_FHIR_PROD', 'https://api-satusehat.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_PROD');
             $this->client_secret = getenv('CLIENTSECRET_PROD');
             $this->organization_id = getenv('ORGID_PROD');
-        } elseif (getenv('SATUSEHAT_ENV') == 'STG') {
+        } elseif ($this->satusehat_env == 'STG') {
             $this->auth_url = getenv('SATUSEHAT_AUTH_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1');
             $this->base_url = getenv('SATUSEHAT_FHIR_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_STG');
             $this->client_secret = getenv('CLIENTSECRET_STG');
             $this->organization_id = getenv('ORGID_STG');
-        } elseif (getenv('SATUSEHAT_ENV') == 'DEV') {
+        } elseif ($this->satusehat_env == 'DEV') {
             $this->auth_url = getenv('SATUSEHAT_AUTH_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1');
             $this->base_url = getenv('SATUSEHAT_FHIR_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1');
             $this->client_id = getenv('CLIENTID_DEV');
@@ -52,14 +62,14 @@ class OAuth2Client
             $this->organization_id = getenv('ORGID_DEV');
         }
 
-        if ($this->organization_id == null) {
+        if ($this->override == false && $this->organization_id == null) {
             return 'Add your organization_id at environment first';
         }
     }
 
     public function token()
     {
-        $token = SatusehatToken::where('environment', getenv('SATUSEHAT_ENV'))->orderBy('created_at', 'desc')
+        $token = SatusehatToken::where('environment', $this->satusehat_env)->where('client_id', $this->client_id)->orderBy('created_at', 'desc')
             ->where('created_at', '>', now()->subMinutes(50))->first();
 
         if ($token) {
@@ -88,19 +98,22 @@ class OAuth2Client
 
             if (isset($contents->access_token)) {
                 SatusehatToken::create([
-                    'environment' => getenv('SATUSEHAT_ENV'),
+                    'environment' => $this->satusehat_env,
+                    'client_id' => $this->client_id,
                     'token' => $contents->access_token,
                 ]);
 
                 return $contents->access_token;
             } else {
-                // return $this->respondError($oauth2);
+                return $this->respondError($this->oauth2_error);
                 return null;
             }
         } catch (ClientException $e) {
             // error.
             $res = json_decode($e->getResponse()->getBody()->getContents());
             $issue_information = $res->issue[0]->details->text;
+
+            $this->log($issue_information, 'POST Token', $url, null, (array) $res);
 
             return $issue_information;
         }
@@ -129,12 +142,8 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
-            $oauth2 = [
-                'statusCode' => 401,
-                'res' => 'Unauthorized. Token not found',
-            ];
-            return $this->respondError($oauth2);
+        if (!isset($access_token)) {
+            return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
@@ -150,10 +159,10 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if ($response->resourceType == 'OperationOutcome') {
+            if ($response->resourceType == 'OperationOutcome' | $response->total == 0) {
                 $id = 'Error '.$statusCode;
             }
-            $this->log($id, 'GET', $url, null, json_encode($response));
+            $this->log($id, 'GET', $url, null, (array) $response);
 
             return [$statusCode, $response];
         } catch (ClientException $e) {
@@ -170,12 +179,8 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
-            $oauth2 = [
-                'statusCode' => 401,
-                'res' => 'Unauthorized. Token not found',
-            ];
-            return $this->respondError($oauth2);
+        if (!isset($access_token)) {
+            return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
@@ -213,12 +218,8 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
-            $oauth2 = [
-                'statusCode' => 401,
-                'res' => 'Unauthorized. Token not found',
-            ];
-            return $this->respondError($oauth2);
+        if (!isset($access_token)) {
+            return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
@@ -228,7 +229,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.($resource == 'Bundle' ? '' : '/'.$resource);
-        $request = new Request('POST', $url, $headers, json_encode($body));
+        $request = new Request('POST', $url, $headers, $body);
 
         try {
             $res = $client->sendAsync($request)->wait();
@@ -244,14 +245,14 @@ class OAuth2Client
                     $id = $response->id;
                 }
             }
-            $this->log($id, 'POST', $url, (array) $body, (array) $response);
+            $this->log($id, 'POST', $url, (array) json_decode($body), (array) $response);
 
             return [$statusCode, $response];
         } catch (ClientException $e) {
             $statusCode = $e->getResponse()->getStatusCode();
             $res = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->log('Error '.$statusCode, 'POST', $url, (array) $body, (array) $res);
+            $this->log('Error '.$statusCode, 'POST', $url, (array) json_decode($body), (array) $res);
 
             return [$statusCode, $res];
         }
@@ -264,15 +265,9 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
-            $oauth2 = [
-                'statusCode' => 401,
-                'res' => 'Unauthorized. Token not found',
-            ];
-            return $this->respondError($oauth2);
+        if (!isset($access_token)) {
+            return $this->respondError($this->oauth2_error);
         }
-
-        $body->id = $id;
 
         $client = new Client();
         $headers = [
@@ -281,7 +276,7 @@ class OAuth2Client
         ];
 
         $url = $this->base_url.'/'.$resource.'/'.$id;
-        $request = new Request('PUT', $url, $headers, json_encode($body));
+        $request = new Request('PUT', $url, $headers, $body);
 
         try {
             $res = $client->sendAsync($request)->wait();
@@ -293,7 +288,7 @@ class OAuth2Client
             } else {
                 $id = $response->id;
             }
-            $this->log($id, 'PUT', $url, (array) $body, (array) $response);
+            $this->log($id, 'PUT', $url, (array) json_decode($body), (array) $response);
 
             return [$statusCode, $response];
         } catch (ClientException $e) {

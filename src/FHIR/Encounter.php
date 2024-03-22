@@ -2,7 +2,7 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Models\Icd10;
+use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
 
 class Encounter extends OAuth2Client
@@ -19,14 +19,14 @@ class Encounter extends OAuth2Client
 
     private function statusHistoryValidate($arr, $status)
     {
-        
+
         $lookingAt = $arr['statusHistory'];
         foreach ($lookingAt as $data) {
             if ($data['status'] === $status) {
-                return true; 
+                return true;
             }
         }
-        return false; 
+        return false;
     }
 
     public function setArrived($timestamp)
@@ -100,7 +100,7 @@ class Encounter extends OAuth2Client
         }
 
         $date = date("Y-m-d\TH:i:sP", strtotime($timestamp));
-            
+
         $statusHistory_finished = [
             'status' => 'finished',
             'period' => [
@@ -108,7 +108,7 @@ class Encounter extends OAuth2Client
                 'end' => $date,
             ]
         ];
-        
+
         $this->encounter['status'] = 'finished';
         $this->encounter['period']['end'] = $date;
         $this->encounter['statusHistory'][] = $statusHistory_finished;

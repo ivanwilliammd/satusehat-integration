@@ -21,7 +21,7 @@ class Patient extends OAuth2Client
         $identifier['use'] = 'official';
         $identifier['system'] = 'https://fhir.kemkes.go.id/id/' . $identifier_type;
         $identifier['value'] = $identifier_value;
-        
+
         $this->patient['identifier'][] = $identifier;
 
     }
@@ -49,7 +49,7 @@ class Patient extends OAuth2Client
 
     public function setBirthDate($date) {
         // YYYY-MM-DD
-        $this->patient['birthDate'] = $date; 
+        $this->patient['birthDate'] = $date;
     }
 
     public function setDeceased($bool){
@@ -57,7 +57,7 @@ class Patient extends OAuth2Client
     }
 
     public function setAddress($address_detail){
-        
+
         $address = [
             'use' => 'home',
             'line' => [

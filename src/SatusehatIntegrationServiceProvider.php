@@ -33,7 +33,7 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        // Publish Migrations for ICD10
+        // Publish Migrations for ICD 10
         if (! class_exists('CreateSatusehatIcd10Table')) {
             $timestamp = date('Y_m_d_His', time());
 
@@ -42,16 +42,37 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             ], 'icd10');
         }
 
-        // Publish ICD-10 csv data
+        // Publish ICD 10 csv data
         $this->publishes([
             __DIR__.'/../database/seeders/csv/icd10.csv.stub' => database_path('/seeders/csv/icd10.csv'),
         ], 'icd10');
 
-        // Publish Seeder for ICD10
+        // Publish Seeder for ICD 10
         if (! class_exists('Icd10Seeder')) {
             $this->publishes([
                 __DIR__.'/../database/seeders/Icd10Seeder.php.stub' => database_path('/seeders/Icd10Seeder.php'),
             ], 'icd10');
+        }
+
+        // Publish Migrations for ICD 9 CM
+        if (! class_exists('CreateSatusehatIcd9cmTable')) {
+            $timestamp = date('Y_m_d_His', time());
+
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_satusehat_icd9cm_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd9cm_table.php"),
+            ], 'icd9cm');
+        }
+
+        // Publish ICD 9 CM csv data
+        $this->publishes([
+            __DIR__.'/../database/seeders/csv/icd9cm.csv.stub' => database_path('/seeders/csv/icd9cm.csv'),
+        ], 'icd9cm');
+
+        // Publish Seeder for ICD 9 CM
+        if (! class_exists('Icd9cmSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/Icd9cmSeeder.php.stub' => database_path('/seeders/Icd9cmSeeder.php'),
+            ], 'icd9cm');
         }
 
     }

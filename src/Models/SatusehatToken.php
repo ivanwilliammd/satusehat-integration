@@ -19,7 +19,7 @@ class SatusehatToken extends Model
     public function __construct(array $attributes = [])
     {
         if (! isset($this->connection)) {
-            $this->setConnection(config('satusehatintegration.database_connection'));
+            $this->setConnection(config('satusehatintegration.database_connection_satusehat'));
         }
 
         if (! isset($this->table)) {
@@ -33,5 +33,5 @@ class SatusehatToken extends Model
 
     public $incrementing = false;
 
-    protected $casts = ['environment' => 'string', 'token' => 'string'];
+    protected $casts = ['environment' => 'string', 'client_id' => 'string', 'token' => 'string'];
 }

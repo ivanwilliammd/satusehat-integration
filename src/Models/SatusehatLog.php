@@ -25,7 +25,7 @@ class SatusehatLog extends Model
     public function __construct(array $attributes = [])
     {
         if (! isset($this->connection)) {
-            $this->setConnection(config('satusehatintegration.database_connection'));
+            $this->setConnection(config('satusehatintegration.database_connection_satusehat'));
         }
 
         if (! isset($this->table)) {
