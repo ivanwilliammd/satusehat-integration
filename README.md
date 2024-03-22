@@ -6,8 +6,11 @@
 
 This unofficial SATUSEHAT FHIR PHP Library to help generate FHIR resources JSON and sent it via [SATUSEHAT API](https://satusehat.kemkes.go.id/platform).
 
+## Example Laravel 10 Project with SATUSEHAT Integration
+See ```satusehat-integration``` library in action [here](https://github.com/ivanwilliammd/satusehat-laravel-example)
+
 ## Want to contribute?
-See how to contribute at this [page](CONTRIBUTING.md).<be>
+See how to contribute at this [page](CONTRIBUTING.md).<br>
 
 ## Quick Installation
 See Quick Installation Instructions [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Installation)<br>
