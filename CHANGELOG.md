@@ -1,12 +1,14 @@
 # Changelog
 
-v2.0.x : 
+v2.0.x :
+
 - Splitted terminology model
 - Added new migration database, and seeder
 - Expanded Practitioner GET Model
-- Updated satusehat config file to support multitenancy with overloading in Controller using ```http://github.com/mpociot/teamwork``` package
+- Updated satusehat config file to support multitenancy with overloading in Controller using `http://github.com/mpociot/teamwork` package
 
-Example of overloaded BaseController in Laravel 8+: 
+Example of overloaded BaseController in Laravel 8+:
+
 ```php
 <?php
 
@@ -55,8 +57,8 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
-```
 
+```
 v1.2.x :
 
 - Backlog Compatilibity with Laravel 8+ (PHP 7.4) / Laravel 9 (PHP 8.0+) / Laravel 10 (PHP 8.1+)
@@ -85,6 +87,67 @@ v0.15 :
 - Shipped basic method for GET by NIK function
 - Shipped POST / PUT on FHIR object directly at Encounter, Condition, Organization, Location
 
+## Major Terminology Update and Multitenancy Support with Overloadding - 2024-03-22
+
+v2.0.x :
+
+- Splitted terminology model
+- Added new migration database, and seeder
+- Expanded Practitioner GET Model
+- Updated satusehat config file to support multitenancy with overloading in Controller using `http://github.com/mpociot/teamwork` package
+
+Example of overloaded BaseController in Laravel 8+:
+
+```php
+<?php
+
+namespace App\Http\Controllers\Satusehat;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+// Auth
+use Illuminate\Support\Facades\Auth;
+
+class BaseController extends Controller
+{
+    //
+
+    public function overrideEnvironment($ss_oauth2){
+
+        $this->currentTeam= Auth::user()->currentTeam;
+        $ss_oauth2->satusehat_env = $this->currentTeam->ss_environment;
+
+        // Override construct parameter
+        if($this->currentTeam){
+            if($ss_oauth2->satusehat_env == 'PROD'){
+                $ss_oauth2->auth_url = getenv('SATUSEHAT_AUTH_PROD', 'https://api-satusehat.kemkes.go.id/oauth2/v1');
+                $ss_oauth2->base_url = getenv('SATUSEHAT_FHIR_PROD', 'https://api-satusehat.kemkes.go.id/fhir-r4/v1');
+                $ss_oauth2->client_id = $this->currentTeam->ss_prod_client_id;
+                $ss_oauth2->client_secret = $this->currentTeam->ss_prod_client_secret;
+                $ss_oauth2->organization_id = $this->currentTeam->ss_prod_organization_id;
+            } elseif($ss_oauth2->satusehat_env == 'STG'){
+                $ss_oauth2->auth_url = getenv('SATUSEHAT_AUTH_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1');
+                $ss_oauth2->base_url = getenv('SATUSEHAT_FHIR_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1');
+                $ss_oauth2->client_id = $this->currentTeam->ss_stg_client_id;
+                $ss_oauth2->client_secret = $this->currentTeam->ss_stg_client_secret;
+                $ss_oauth2->organization_id = $this->currentTeam->ss_stg_organization_id;
+            } elseif($ss_oauth2->satusehat_env == 'DEV'){
+                $ss_oauth2->auth_url = getenv('SATUSEHAT_AUTH_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1');
+                $ss_oauth2->base_url = getenv('SATUSEHAT_FHIR_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1');
+                $ss_oauth2->client_id = $this->currentTeam->ss_dev_client_id;
+                $ss_oauth2->client_secret = $this->currentTeam->ss_dev_client_secret;
+                $ss_oauth2->organization_id = $this->currentTeam->ss_dev_organization_id;
+            } else {
+                return redirect()->route('admin.home')->withDanger('Anda belum menambahkan settingan environment SATUSEHAT pada Database.');
+            }
+        }
+
+        return $ss_oauth2;
+    }
+}
+
+```
 ## 1.2.1 - 2024-03-22
 
 ### What's Changed
