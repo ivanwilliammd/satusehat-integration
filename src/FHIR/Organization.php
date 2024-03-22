@@ -7,7 +7,6 @@ use Satusehat\Integration\OAuth2Client;
 
 class Organization extends OAuth2Client
 {
-
     private $orgType = [
         ['code' => 'dept', 'display' => 'Hospital Department'],
         ['code' => 'prov', 'display' => 'Healthcare Provider']
@@ -15,18 +14,7 @@ class Organization extends OAuth2Client
 
     public $organization = [
         'resourceType' => 'Organization',
-        'active' => true,
-        'type' => [
-            [
-                'coding' => [
-                    [
-                        'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
-                        'code' => 'dept',
-                        'display' => 'Hospital Department',
-                    ],
-                ],
-            ]
-        ],
+        'active' => true
     ];
 
     public function addIdentifier($organization_identifier)
@@ -43,12 +31,27 @@ class Organization extends OAuth2Client
         $this->organization['name'] = $organization_name;
     }
 
-    public function setPartOf($partOf = null)
+    public function setOperationalStatus($operational_status = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
+        $this->organization['extension'][] = [
+            'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/operationalStatus',
+            'valueCodeableConcept' => [
+                'coding' => [
+                    [
+                        'system' => 'https://fhir.kemkes.go.id/r4/CodeSystem/operational-status',
+                        'code' => $operational_status ? $operational_status : getenv('OPERATIONAL_STATUS', 'active'),
+                    ],
+                ],
+            ],
+        ];
     }
 
-    public function setType($type)
+    public function setPartOf($partOf = null)
+    {
+        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);;
+    }
+
+    public function setType($type = 'dept')
     {
         if (!in_array($type, ['dept', 'prov'])) {
             throw new FHIRException("Types of organizations currently supported : 'prov' | 'dept' ");
@@ -98,16 +101,16 @@ class Organization extends OAuth2Client
         ];
     }
 
-    public function addAddress()
+    public function addAddress($address_line = null, $postal_code = null, $city_name = null, $village_code = null)
     {
         $this->organization['address'][] = [
             'use' => 'work',
             'type' => 'both',
             'line' => [
-                getenv('ALAMAT'),
+                $address_line ?? getenv('ALAMAT', ''),
             ],
-            'city' => getenv('KOTA'),
-            'postalCode' => getenv('KODEPOS'),
+            'city' => $city_name ?? getenv('KOTA', ''),
+            'postalCode' => $postal_code ?? getenv('KODEPOS', ''),
             'country' => 'ID',
             'extension' => [
                 [
@@ -115,19 +118,19 @@ class Organization extends OAuth2Client
                     'extension' => [
                         [
                             'url' => 'province',
-                            'valueCode' => getenv('KODE_PROVINSI'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 2) : getenv('KODE_PROVINSI', ''),
                         ],
                         [
                             'url' => 'city',
-                            'valueCode' => getenv('KODE_KABUPATEN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) :getenv('KODE_KABUPATEN', ''),
                         ],
                         [
                             'url' => 'district',
-                            'valueCode' => getenv('KODE_KECAMATAN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 6) : getenv('KODE_KECAMATAN', ''),
                         ],
                         [
                             'url' => 'village',
-                            'valueCode' => getenv('KODE_KELURAHAN'),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 8) : getenv('KODE_KELURAHAN', ''),
                         ],
                     ],
                 ],
@@ -137,33 +140,43 @@ class Organization extends OAuth2Client
 
     public function json()
     {
-        $this->addPhone();
-        $this->addEmail();
-        $this->addUrl();
-        $this->addAddress();
+        // Add Organization type
+        $this->organization['type'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
+                    'code' => 'dept',
+                    'display' => 'Hospital Department',
+                ],
+            ],
+        ];
 
         // Identifier is required
-        if (! array_key_exists('identifier', $this->organization)) {
+        if (!array_key_exists('identifier', $this->organization)) {
             return 'Please use organization->addIdentifier($organization_identifier) to pass the data';
         }
 
         // Name is required
-        if (! array_key_exists('name', $this->organization)) {
+        if (!array_key_exists('name', $this->organization)) {
             return 'Please use organization->setName($organization_name) to pass the data';
         }
 
         // Set default Organization part.Of
-        if (! array_key_exists('partOf', $this->organization)) {
+        if (!array_key_exists('partOf', $this->organization)) {
             $this->setPartOf();
         }
 
-        $this->setType($this->organization_type);
+        // Set default Organization type
+        if (!array_key_exists('type', $this->organization)) {
+            $this->setType($this->organization_type);
+        }
+
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     public function post()
     {
-        $payload = json_decode($this->json());
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_post('Organization', $payload);
 
         return [$statusCode, $res];
@@ -171,7 +184,9 @@ class Organization extends OAuth2Client
 
     public function put($id)
     {
-        $payload = json_decode($this->json());
+        $this->organization['id'] = $id;
+
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('Organization', $id, $payload);
 
         return [$statusCode, $res];
