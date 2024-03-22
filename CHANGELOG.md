@@ -1,10 +1,18 @@
 # Changelog
 
-v1.2.0 :
+v2.0.x : 
+- Splitted terminology model
+- Added new migration database, and seeder
+- Expanded Practitioner GET Model
+
+v1.2.x :
 
 - Backlog Compatilibity with Laravel 8+ (PHP 7.4) / Laravel 9 (PHP 8.0+) / Laravel 10 (PHP 8.1+)
 - Bug fixing
-- Added / Splitted new functionality of Patient, Organization, Location, and OAuth2Client
+- Splitted Encounter statusHistory
+- Added functionality of Patient,
+- Minor adjustmnent of Organization, Location, and OAuth2Client
+- Minor bug fix
 
 v1.1 :
 
