@@ -2,6 +2,8 @@
 
 v2.1.x : 
 - Added Kode Wilayah Indonesia (KodWilId) class
+- Minor default parameter of ```ss_parameter_override``` to false in satusehat config file
+- Updated .env.example
 
 v2.0.x :
 - Splitted terminology model
