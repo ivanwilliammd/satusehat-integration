@@ -13,7 +13,7 @@ class CreateSatusehatLogTable extends Migration
      */
     public function up()
     {
-        Schema::connection(config('satusehatintegration.database_connection'))->create(config('satusehatintegration.log_table_name'), function (Blueprint $table) {
+        Schema::connection(config('satusehatintegration.database_connection_satusehat'))->create(config('satusehatintegration.log_table_name'), function (Blueprint $table) {
             $table->string('response_id')->nullable();
             $table->string('action');
             $table->string('url');
@@ -31,6 +31,6 @@ class CreateSatusehatLogTable extends Migration
      */
     public function down()
     {
-        Schema::connection(config('satusehatintegration.database_connection'))->dropIfExists(config('satusehatintegration.log_table_name'));
+        Schema::connection(config('satusehatintegration.database_connection_satusehat'))->dropIfExists(config('satusehatintegration.log_table_name'));
     }
 }

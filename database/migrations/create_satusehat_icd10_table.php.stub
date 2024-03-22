@@ -13,7 +13,8 @@ class CreateSatusehatIcd10Table extends Migration
      */
     public function up()
     {
-        Schema::connection(config('satusehatintegration.database_connection'))->create(config('satusehatintegration.icd10_table_name'), function (Blueprint $table) {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.icd10_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('icd10_code');
             $table->longText('icd10_en');
             $table->longText('icd10_id')->nullable();
@@ -29,6 +30,6 @@ class CreateSatusehatIcd10Table extends Migration
      */
     public function down()
     {
-        Schema::connection(config('satusehatintegration.database_connection'))->dropIfExists(config('satusehatintegration.icd10_table_name'));
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.icd10_table_name'));
     }
 }
