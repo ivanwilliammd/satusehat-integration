@@ -25,6 +25,19 @@ v0.15 :
 - Shipped basic method for GET by NIK function
 - Shipped POST / PUT on FHIR object directly at Encounter, Condition, Organization, Location
 
+## 1.2.1 - 2024-03-22
+
+### What's Changed
+
+* feat: setType organization by @yudistirasd in https://github.com/ivanwilliammd/satusehat-integration/pull/14
+* #fix FHIR Location by @yudistirasd in https://github.com/ivanwilliammd/satusehat-integration/pull/19
+
+### New Contributors
+
+* @yudistirasd made their first contribution in https://github.com/ivanwilliammd/satusehat-integration/pull/14
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/1.2.0...1.2.1
+
 ## 1.2.0 - 2024-03-17
 
 ### What's Changed
