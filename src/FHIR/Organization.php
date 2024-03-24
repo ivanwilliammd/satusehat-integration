@@ -9,12 +9,12 @@ class Organization extends OAuth2Client
 {
     private array $orgType = [
         ['code' => 'dept', 'display' => 'Hospital Department'],
-        ['code' => 'prov', 'display' => 'Healthcare Provider']
+        ['code' => 'prov', 'display' => 'Healthcare Provider'],
     ];
 
     public array $organization = [
         'resourceType' => 'Organization',
-        'active' => true
+        'active' => true,
     ];
 
     public function addIdentifier($organization_identifier)
@@ -48,12 +48,12 @@ class Organization extends OAuth2Client
 
     public function setPartOf($partOf = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);;
+        $this->organization['partOf']['reference'] = 'Organization/'.($partOf ? $partOf : $this->organization_id);
     }
 
     public function setType($type = 'dept')
     {
-        if (!in_array($type, ['dept', 'prov'])) {
+        if (! in_array($type, ['dept', 'prov'])) {
             throw new FHIRException("Types of organizations currently supported : 'prov' | 'dept' ");
         }
 
@@ -69,7 +69,7 @@ class Organization extends OAuth2Client
                         'code' => $type,
                         'display' => $display,
                     ],
-                ]
+                ],
             ],
         ];
     }
@@ -122,7 +122,7 @@ class Organization extends OAuth2Client
                         ],
                         [
                             'url' => 'city',
-                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) :getenv('KODE_KABUPATEN', ''),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) : getenv('KODE_KABUPATEN', ''),
                         ],
                         [
                             'url' => 'district',
@@ -152,22 +152,22 @@ class Organization extends OAuth2Client
         ];
 
         // Identifier is required
-        if (!array_key_exists('identifier', $this->organization)) {
+        if (! array_key_exists('identifier', $this->organization)) {
             return 'Please use organization->addIdentifier($organization_identifier) to pass the data';
         }
 
         // Name is required
-        if (!array_key_exists('name', $this->organization)) {
+        if (! array_key_exists('name', $this->organization)) {
             return 'Please use organization->setName($organization_name) to pass the data';
         }
 
         // Set default Organization part.Of
-        if (!array_key_exists('partOf', $this->organization)) {
+        if (! array_key_exists('partOf', $this->organization)) {
             $this->setPartOf();
         }
 
         // Set default Organization type
-        if (!array_key_exists('type', $this->organization)) {
+        if (! array_key_exists('type', $this->organization)) {
             $this->setType($this->organization_type);
         }
 

@@ -41,7 +41,6 @@ class OAuth2Client
 
         $this->satusehat_env = $this->override ? null : getenv('SATUSEHAT_ENV');
 
-
         if ($this->satusehat_env == 'PROD') {
             $this->auth_url = getenv('SATUSEHAT_AUTH_PROD', 'https://api-satusehat.kemkes.go.id/oauth2/v1');
             $this->base_url = getenv('SATUSEHAT_FHIR_PROD', 'https://api-satusehat.kemkes.go.id/fhir-r4/v1');
@@ -106,6 +105,7 @@ class OAuth2Client
                 return $contents->access_token;
             } else {
                 return $this->respondError($this->oauth2_error);
+
                 return null;
             }
         } catch (ClientException $e) {
@@ -135,6 +135,7 @@ class OAuth2Client
     {
         $statusCode = $message['statusCode'];
         $res = $message['res'];
+
         return [$statusCode, $res];
     }
 
@@ -142,7 +143,7 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (!isset($access_token)) {
+        if (! isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
@@ -179,7 +180,7 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (!isset($access_token)) {
+        if (! isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
@@ -218,7 +219,7 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (!isset($access_token)) {
+        if (! isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
@@ -265,7 +266,7 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (!isset($access_token)) {
+        if (! isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 

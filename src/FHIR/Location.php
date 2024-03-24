@@ -14,7 +14,7 @@ class Location extends OAuth2Client
 
     public function addIdentifier($location_identifier)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/' . $this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/location/'.$this->organization_id;
         $identifier['value'] = $location_identifier;
 
         $this->location['identifier'][] = $identifier;
@@ -98,7 +98,7 @@ class Location extends OAuth2Client
                         ],
                         [
                             'url' => 'city',
-                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) :getenv('KODE_KABUPATEN', ''),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 4) : getenv('KODE_KABUPATEN', ''),
                         ],
                         [
                             'url' => 'district',
@@ -146,7 +146,7 @@ class Location extends OAuth2Client
 
     public function setManagingOrganization($managing_organization = null)
     {
-        $this->location['managingOrganization']['reference'] = 'Organization/' . $managing_organization;
+        $this->location['managingOrganization']['reference'] = 'Organization/'.$managing_organization;
     }
 
     public function setPartOf($part_of = null)
@@ -157,7 +157,7 @@ class Location extends OAuth2Client
     public function json()
     {
         // Add physicalType if not exist
-        if (!array_key_exists('physicalType', $this->location)) {
+        if (! array_key_exists('physicalType', $this->location)) {
             $this->addPhysicalType();
         }
 
@@ -167,12 +167,12 @@ class Location extends OAuth2Client
         // }
 
         // Add default managing organization from parent (registered sarana)
-        if (!array_key_exists('managingOrganization', $this->location)) {
+        if (! array_key_exists('managingOrganization', $this->location)) {
             $this->setManagingOrganization();
         }
 
         // Name is required
-        if (!array_key_exists('name', $this->location)) {
+        if (! array_key_exists('name', $this->location)) {
             return 'Please use location->setName($location_name) to pass the data';
         }
 

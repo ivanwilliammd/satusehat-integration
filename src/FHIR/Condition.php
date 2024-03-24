@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\Terminology\Icd10;
 
 class Condition extends OAuth2Client
 {
