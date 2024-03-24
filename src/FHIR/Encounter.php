@@ -7,7 +7,7 @@ use Satusehat\Integration\OAuth2Client;
 
 class Encounter extends OAuth2Client
 {
-    public $encounter = ['resourceType' => 'Encounter'];
+    public array $encounter = ['resourceType' => 'Encounter'];
 
     public function addRegistrationId($registration_id)
     {
