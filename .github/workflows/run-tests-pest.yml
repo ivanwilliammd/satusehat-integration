@@ -3,11 +3,11 @@ name: Tests
 on:
   push:
     paths:
-      - "**.php"
-      - ".github/workflows/run-tests.yml"
-      - "phpunit.xml.dist"
-      - "composer.json"
-      - "composer.lock"
+      - '**.php'
+      - '.github/workflows/run-tests.yml'
+      - 'phpunit.xml.dist'
+      - 'composer.json'
+      - 'composer.lock'
 
 jobs:
   test:
@@ -45,4 +45,4 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/pest --ci
