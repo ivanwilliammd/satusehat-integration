@@ -1,6 +1,7 @@
 # Changelog
 
 v2.2.x :
+
 - Change test to use PHPUnit 9 for support of 7.4, 8.1, 8.2, 8.3
 
 v2.1.x :
@@ -68,6 +69,7 @@ class BaseController extends Controller
 }
 
 
+
 ```
 v1.2.x :
 
@@ -96,6 +98,14 @@ v0.15 :
 - Last v0 series internally tested for creating OAuth 2
 - Shipped basic method for GET by NIK function
 - Shipped POST / PUT on FHIR object directly at Encounter, Condition, Organization, Location
+
+## 2.2.0 - Ensuring full compatibility from PHP 7.4, 8.1, 8.2, 8.3 - 2024-03-24
+
+### What's Changed
+
+* [WIP] Backward compatibility to PHP-7.4 by @YogiPristiawan in https://github.com/ivanwilliammd/satusehat-integration/pull/22
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.1.0...2.2.0
 
 ## 2.1.0 - Minor Adjustment + Kode Wilayah Indonesia Inclusion - 2024-03-22
 
@@ -166,6 +176,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 ```
