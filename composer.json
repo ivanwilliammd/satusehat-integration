@@ -25,11 +25,11 @@
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
-        "pestphp/pest": "^1.0|^2.0"
+        "phpunit/phpunit": "^9.0"
     },
     "suggest": {
         "laravel/pint": "Minimalist Opionated Code Formatting Extension for PHP 8.0+",
-        "pestphp/pest": "Pest PHP Testing Framework"
+        "pestphp/pest": "Pest PHP Testing Framework for PHP 8.0+"
     },
     "autoload": {
         "psr-4": {
