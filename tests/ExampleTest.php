@@ -1,5 +1,9 @@
 <?php
 
-it('can test', function () {
-    expect(true)->toBeTrue();
-});
+namespace VendorName\Skeleton\Tests;
+
+use PHPUnit\Framework\TestCase;
+
+class ExampleTest extends TestCase
+{
+}
