@@ -9,7 +9,7 @@ use Satusehat\Integration\OAuth2Client;
 
 class Observation extends OAuth2Client
 {
-    private $observation = ['resourceType' => 'Observation'];
+    private array $observation = ['resourceType' => 'Observation'];
 
     /**
      * Sets a status to the observation.
@@ -56,22 +56,26 @@ class Observation extends OAuth2Client
     /**
      * Adds a category to the observation.
      *
-     * @param  string  $code The code of the category.
-     * @param  string  $display The display name of the category.
+     * @param  string  $category the code of the category
      * @return Observation The updated observation object.
      */
-    public function addCategory(ObservationCategory $category): Observation
+    public function addCategory(string $category): Observation
     {
-        match ($category) {
-            ObservationCategory::VitalSigns => $display = 'Vital Signs'
-        };
+        $display = '';
+        $code = '';
+        switch ($category) {
+            case 'vital-signs':
+                $display = 'Vital Signs';
+                $code = 'vital-signs';
+                break;
+        }
 
         // NOTE: we currently only support 'vital-signs'
         $this->observation['category'][] = [
             'coding' => [
                 [
                     'system' => 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code' => $category->value,
+                    'code' => $code,
                     'display' => $display,
                 ],
             ],
@@ -84,41 +88,51 @@ class Observation extends OAuth2Client
      * Adds an observation code to the observation.
      * If more than one code is added, the last one will be used.
      *
-     * @param  ObservationCode  $code The valid observation code to add.
+     * @param  string  $code The valid observation code to add.
      * @return Observation Returns the updated observation object.
      */
-    public function addCode(ObservationCode $code): Observation
+    public function addCode(string $code): Observation
     {
-        match ($code) {
-            ObservationCode::Sistole => $code = [
-                'system' => 'http://loinc.org',
-                'code' => ObservationCode::Sistole->value,
-                'display' => 'Systolic blood pressure',
-            ],
-            ObservationCode::Diastole => $code = [
-                'system' => 'http://loinc.org',
-                'code' => ObservationCode::Diastole->value,
-                'display' => 'Diastolic blood pressure',
-            ],
-            ObservationCode::HeartRate => $code = [
-                'system' => 'http://loinc.org',
-                'code' => ObservationCode::HeartRate->value,
-                'display' => 'Heart rate',
-            ],
-            ObservationCode::Temperature => $code = [
-                'system' => 'http://loinc.org',
-                'code' => ObservationCode::Temperature->value,
-                'display' => 'Body temperature',
-            ],
-            ObservationCode::RespiratoryRate => $code = [
-                'system' => 'http://loinc.org',
-                'code' => ObservationCode::RespiratoryRate->value,
-                'display' => 'Respiratory rate',
-            ],
-        };
+        $code = [
+            'system' => 'http://loinc.org',
+            'code' => '',
+            'display' => ''
+        ];
+
+        $display = '';
+        $code = '';
+        switch ($code) {
+            case '8480-6':
+                $display = 'Systolic blood pressure';
+                $code = '8480-6';
+                break;
+            case '8462-4':
+                $display = 'Diastolic blood pressure';
+                $code = '8462-4';
+                break;
+            case '8867-4':
+                $display = 'Heart rate';
+                $code = '8867-4';
+                break;
+            case '8310-5':
+                $display = 'Body temperature';
+                $code = '8310-5';
+                break;
+            case '9279-1':
+                $display = 'Respiratory rate';
+                $code = '9279-1';
+                break;
+        }
 
         $this->observation['code'] = [
-            'coding' => [$code],
+            'coding' => [
+                [
+                    'system' => 'http://loinc.org',
+                    'code' => $code,
+                    'display' => $display,
+                ],
+
+            ],
         ];
 
         return $this;
@@ -148,7 +162,8 @@ class Observation extends OAuth2Client
      * @param  string  $name The name of the performer.
      * @return Observation The current observation instance.
      */
-    public function setPerformer(string $performerId, string $name){
+    public function setPerformer(string $performerId, string $name)
+    {
         $this->observation['performer'][] = [
             'reference' => "Practitioner/{$performerId}",
             'display' => $name,
@@ -167,7 +182,7 @@ class Observation extends OAuth2Client
     {
         $this->observation['encounter'] = [
             'reference' => "Encounter/{$encounterId}",
-            'display' => ! empty($display) ? $display : "Kunjungan {$encounterId}",
+            'display' => !empty($display) ? $display : "Kunjungan {$encounterId}",
         ];
 
         return $this;
@@ -180,23 +195,23 @@ class Observation extends OAuth2Client
      */
     public function json(): string
     {
-        if (! array_key_exists('status', $this->observation)) {
+        if (!array_key_exists('status', $this->observation)) {
             throw new FHIRMissingProperty('Status is required.');
         }
 
-        if (! array_key_exists('category', $this->observation)) {
+        if (!array_key_exists('category', $this->observation)) {
             throw new FHIRMissingProperty('Category is required.');
         }
 
-        if (! array_key_exists('code', $this->observation)) {
+        if (!array_key_exists('code', $this->observation)) {
             throw new FHIRMissingProperty('Code is required.');
         }
 
-        if (! array_key_exists('subject', $this->observation)) {
+        if (!array_key_exists('subject', $this->observation)) {
             throw new FHIRMissingProperty('Subject is required.');
         }
 
-        if (! array_key_exists('encounter', $this->observation)) {
+        if (!array_key_exists('encounter', $this->observation)) {
             throw new FHIRMissingProperty('Encounter is required.');
         }
 
