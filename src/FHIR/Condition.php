@@ -7,7 +7,7 @@ use Satusehat\Integration\OAuth2Client;
 
 class Condition extends OAuth2Client
 {
-    public $condition = ['resourceType' => 'Condition'];
+    public array $condition = ['resourceType' => 'Condition'];
 
     public function addClinicalStatus($clinical_status = 'active')
     {

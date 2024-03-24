@@ -7,7 +7,7 @@ use Satusehat\Integration\OAuth2Client;
 class Patient extends OAuth2Client
 {
 
-    public $patient = [
+    public array $patient = [
         'resourceType' => 'Patient',
         'meta' => [
             'profile' => [

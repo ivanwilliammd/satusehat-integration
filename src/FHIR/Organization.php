@@ -7,12 +7,12 @@ use Satusehat\Integration\OAuth2Client;
 
 class Organization extends OAuth2Client
 {
-    private $orgType = [
+    private array $orgType = [
         ['code' => 'dept', 'display' => 'Hospital Department'],
         ['code' => 'prov', 'display' => 'Healthcare Provider']
     ];
 
-    public $organization = [
+    public array $organization = [
         'resourceType' => 'Organization',
         'active' => true
     ];

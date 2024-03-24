@@ -6,7 +6,7 @@ use Satusehat\Integration\OAuth2Client;
 
 class Location extends OAuth2Client
 {
-    public $location = [
+    public array $location = [
         'resourceType' => 'Location',
         'status' => 'active',
         'mode' => 'instance',
