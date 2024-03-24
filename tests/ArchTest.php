@@ -6,6 +6,14 @@ class ArchTest extends TestCase
 {
     public function testDebuggingFunctionsNotUsed()
     {
-        $this->expect(['dd', 'dump', 'ray'])->not->toBeUsed();
+        $debuggingFunctions = ['dd', 'dump', 'ray'];
+        $this->assertNotContainsAny($debuggingFunctions);
+    }
+
+    private function assertNotContainsAny(array $debuggingFunctions)
+    {
+        foreach ($debuggingFunctions as $function) {
+            $this->assertNotContains($function, get_defined_functions()['user']);
+        }
     }
 }
