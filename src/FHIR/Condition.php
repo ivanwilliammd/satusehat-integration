@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Terminology\Icd10;
+use Satusehat\Integration\OAuth2Client;
 
 class Condition extends OAuth2Client
 {
@@ -159,7 +159,7 @@ class Condition extends OAuth2Client
 
     public function post()
     {
-        $payload = json_decode($this->json());
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_post('Condition', $payload);
 
         return [$statusCode, $res];
@@ -167,7 +167,7 @@ class Condition extends OAuth2Client
 
     public function put($id)
     {
-        $payload = json_decode($this->json());
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('Condition', $id, $payload);
 
         return [$statusCode, $res];
