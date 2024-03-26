@@ -70,6 +70,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -98,6 +99,14 @@ v0.15 :
 - Last v0 series internally tested for creating OAuth 2
 - Shipped basic method for GET by NIK function
 - Shipped POST / PUT on FHIR object directly at Encounter, Condition, Organization, Location
+
+## 2.2.1 - Ensuring consistency of $this->json() - 2024-03-26
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/ivanwilliammd/satusehat-integration/pull/23
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.2.0...2.2.1
 
 ## 2.2.0 - Ensuring full compatibility from PHP 7.4, 8.1, 8.2, 8.3 - 2024-03-24
 
@@ -176,6 +185,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
