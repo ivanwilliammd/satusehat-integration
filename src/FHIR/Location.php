@@ -20,10 +20,10 @@ class Location extends OAuth2Client
         $this->location['identifier'][] = $identifier;
     }
 
-    public function setName($location_name)
+    public function setName($location_name, $location_description = null)
     {
         $this->location['name'] = $location_name;
-        $this->location['description'] = $location_name;
+        $this->location['description'] = ($location_description == null ? $location_name : $location_description);
     }
 
     public function setStatus($status = 'active')
