@@ -1,17 +1,17 @@
 # Changelog
 
-v2.2.x :
+## v2.3.x : 
+- Initiation of bundle support
 
+## v2.2.x :
 - Change test to use PHPUnit 9 for support of 7.4, 8.1, 8.2, 8.3
 
-v2.1.x :
-
+## v2.1.x :
 - Added Kode Wilayah Indonesia (KodWilId) class
 - Minor default parameter of `ss_parameter_override` to false in satusehat config file
 - Updated .env.example
 
-v2.0.x :
-
+## v2.0.x :
 - Splitted terminology model
 - Added new migration database, and seeder
 - Expanded Practitioner GET Model
