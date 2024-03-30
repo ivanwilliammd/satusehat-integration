@@ -1,17 +1,29 @@
 # Changelog
 
-## v2.3.x : 
+## 2.3.0 - Initiation of bundle support - 2024-03-30
+
+### What's Changed
+
+* feat: Encounter & Condition bundle by @SyaefulKai in https://github.com/ivanwilliammd/satusehat-integration/pull/26
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.2.1...2.3.0
+
+## v2.3.x :
+
 - Initiation of bundle support
 
 ## v2.2.x :
+
 - Change test to use PHPUnit 9 for support of 7.4, 8.1, 8.2, 8.3
 
 ## v2.1.x :
+
 - Added Kode Wilayah Indonesia (KodWilId) class
 - Minor default parameter of `ss_parameter_override` to false in satusehat config file
 - Updated .env.example
 
 ## v2.0.x :
+
 - Splitted terminology model
 - Added new migration database, and seeder
 - Expanded Practitioner GET Model
@@ -67,6 +79,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
@@ -185,6 +198,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
