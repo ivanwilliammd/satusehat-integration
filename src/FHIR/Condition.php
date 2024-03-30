@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\Terminology\Icd10;
 
 class Condition extends OAuth2Client
 {
@@ -97,10 +97,10 @@ class Condition extends OAuth2Client
         $this->condition['subject']['display'] = $name;
     }
 
-    public function setEncounter($encounterId, $display = null)
+    public function setEncounter($encounterId, $display = null, $bundle = false)
     {
-        $this->condition['encounter']['reference'] = 'Encounter/'.$encounterId;
-        $this->condition['encounter']['display'] = $display ? $display : 'Kunjungan '.$encounterId;
+        $this->condition['encounter']['reference'] = ($bundle ? 'urn:uuid:' : 'Encounter/') . $encounterId;
+        $this->condition['encounter']['display'] = $display ? $display : 'Kunjungan ' . $encounterId;
     }
 
     public function setOnsetDateTime($onset_date_time = null)
@@ -159,7 +159,7 @@ class Condition extends OAuth2Client
 
     public function post()
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_post('Condition', $payload);
 
         return [$statusCode, $res];
@@ -167,7 +167,7 @@ class Condition extends OAuth2Client
 
     public function put($id)
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_put('Condition', $id, $payload);
 
         return [$statusCode, $res];

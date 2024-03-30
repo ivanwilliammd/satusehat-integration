@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\Terminology\Icd10;
 
 class Encounter extends OAuth2Client
 {
@@ -11,7 +11,7 @@ class Encounter extends OAuth2Client
 
     public function addRegistrationId($registration_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter/' . $this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/encounter/'.$this->organization_id;
         $identifier['value'] = $registration_id;
 
         $this->encounter['identifier'][] = $identifier;
@@ -26,12 +26,13 @@ class Encounter extends OAuth2Client
                 return true;
             }
         }
+
         return false;
     }
 
     public function setArrived($timestamp)
     {
-        if (!isset($this->encounter['statusHistory'])) {
+        if (! isset($this->encounter['statusHistory'])) {
             $this->encounter['statusHistory'] = [];
         }
 
@@ -41,7 +42,7 @@ class Encounter extends OAuth2Client
             return;
         }
 
-        $statusHistory_arrived =  [
+        $statusHistory_arrived = [
             'status' => 'arrived',
             'period' => [
                 'start' => date("Y-m-d\TH:i:sP", strtotime($timestamp)),
@@ -56,7 +57,7 @@ class Encounter extends OAuth2Client
     public function setInProgress($timestamp_start, $timestamp_end)
     {
 
-        if (!isset($this->encounter['statusHistory'])) {
+        if (! isset($this->encounter['statusHistory'])) {
             return 'Please use $this->setArrived first';
         }
 
@@ -75,10 +76,9 @@ class Encounter extends OAuth2Client
             'status' => 'in-progress',
             'period' => [
                 'start' => $atomTimestamp['start'],
-                'end' => $atomTimestamp['end']
-            ]
+                'end' => $atomTimestamp['end'],
+            ],
         ];
-
 
         $this->encounter['status'] = 'in-progress';
         $this->encounter['period']['end'] = $atomTimestamp['end'];
@@ -89,7 +89,7 @@ class Encounter extends OAuth2Client
     public function setFinished($timestamp)
     {
 
-        if (!isset($this->encounter['statusHistory'])) {
+        if (! isset($this->encounter['statusHistory'])) {
             return 'Please use $this->setArrived first';
         }
 
@@ -106,7 +106,7 @@ class Encounter extends OAuth2Client
             'period' => [
                 'start' => $date,
                 'end' => $date,
-            ]
+            ],
         ];
 
         $this->encounter['status'] = 'finished';
@@ -150,13 +150,13 @@ class Encounter extends OAuth2Client
 
     public function setSubject($subjectId, $name)
     {
-        $this->encounter['subject']['reference'] = 'Patient/' . $subjectId;
+        $this->encounter['subject']['reference'] = 'Patient/'.$subjectId;
         $this->encounter['subject']['display'] = $name;
     }
 
     public function addParticipant($participantId, $name, $type = 'ATND', $display = 'attender')
     {
-        $participant['individual']['reference'] = 'Practitioner/' . $participantId;
+        $participant['individual']['reference'] = 'Practitioner/'.$participantId;
         $participant['individual']['display'] = $name;
         $participant['type'][]['coding'][] = [
             'system' => 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
@@ -169,7 +169,7 @@ class Encounter extends OAuth2Client
 
     public function addLocation($locationId, $name)
     {
-        $location['location']['reference'] = 'Location/' . $locationId;
+        $location['location']['reference'] = 'Location/'.$locationId;
         $location['location']['display'] = $name;
 
         $this->encounter['location'][] = $location;
@@ -177,24 +177,24 @@ class Encounter extends OAuth2Client
 
     public function setServiceProvider()
     {
-        $this->encounter['serviceProvider']['reference'] = 'Organization/' . $this->organization_id;
+        $this->encounter['serviceProvider']['reference'] = 'Organization/'.$this->organization_id;
     }
 
-    public function addDiagnosis($id, $code, $display = null)
+    public function addDiagnosis($id, $code, $display = null, $bundle = false)
     {
         // Look in database if display is null
         $code_check = Icd10::where('icd10_code', $code)->first();
 
         // Handling if incomplete code / display
-        if (!$code_check) {
+        if (! $code_check) {
             return 'Kode ICD-10 invalid';
         }
 
         $display = $display ? $display : $code_check->icd10_en;
 
         // Create Encounter.diagnosis content
-        $diagnosis['condition']['reference'] = 'Condition/' . $id;
-        $diagnosis['condition']['display'] = 'Condition/' . $display;
+        $diagnosis['condition']['reference'] = ($bundle ? 'urn:uuid:' : 'Condition/') . $id;
+        $diagnosis['condition']['display'] = $display;
         $diagnosis['use']['coding'][] = [
             'system' => 'http://terminology.hl7.org/CodeSystem/diagnosis-role',
             'code' => 'DD',
@@ -202,7 +202,7 @@ class Encounter extends OAuth2Client
         ];
 
         // Determine ranking
-        if (!array_key_exists('diagnosis', $this->encounter)) {
+        if (! array_key_exists('diagnosis', $this->encounter)) {
             $rank = 1;
         } else {
             $rank = count($this->encounter['diagnosis']) + 1;
@@ -215,32 +215,32 @@ class Encounter extends OAuth2Client
     public function json()
     {
         // Status is required
-        if (!array_key_exists('status', $this->encounter)) {
+        if (! array_key_exists('status', $this->encounter)) {
             return 'Please use encounter->statusHistory([timestamp array]) to add the status';
         }
 
         // Class is required
-        if (!array_key_exists('class', $this->encounter)) {
+        if (! array_key_exists('class', $this->encounter)) {
             return 'Please use encounter->setConsultationMethod($method) to pass the data';
         }
 
         // Subject is required
-        if (!array_key_exists('subject', $this->encounter)) {
+        if (! array_key_exists('subject', $this->encounter)) {
             return 'Please use encounter->setSubject($subjectId, $name) to pass the data';
         }
 
         // Participant is required
-        if (!array_key_exists('participant', $this->encounter)) {
+        if (! array_key_exists('participant', $this->encounter)) {
             return 'Please use encounter->addParticipant($participantId, $name) to pass the data';
         }
 
         // Location is required
-        if (!array_key_exists('location', $this->encounter)) {
+        if (! array_key_exists('location', $this->encounter)) {
             return 'Please use encounter->addLocation($locationId, $name) to pass the data';
         }
 
         // Add default ServiceProvider
-        if (!array_key_exists('serviceProvider', $this->encounter)) {
+        if (! array_key_exists('serviceProvider', $this->encounter)) {
             $this->setServiceProvider();
         }
 
@@ -249,7 +249,7 @@ class Encounter extends OAuth2Client
 
     public function post()
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_post('Encounter', $payload);
 
         return [$statusCode, $res];
@@ -257,7 +257,7 @@ class Encounter extends OAuth2Client
 
     public function put($id)
     {
-        $payload = $this->json();
+        $payload = json_decode($this->json());
         [$statusCode, $res] = $this->ss_put('Encounter', $id, $payload);
 
         return [$statusCode, $res];

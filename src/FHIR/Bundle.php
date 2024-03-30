@@ -50,10 +50,10 @@ class Bundle extends OAuth2Client
         $condition_uuid = $this->uuidV4();
 
         // Membuat referensi condition ke encounter saat ini
-        $condition->setEncounter($this->encounter_id);
+        $condition->setEncounter($this->encounter_id, '', true);
         
-        // Menambahkan diagnosis ke encounter
-        $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code']);
+        // Membuat referensi condition di encounter
+        $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code'], '', true);
 
         if(!isset($this->bundle['entry'][0])){
             $this->bundle['entry'][0] = [
