@@ -11,10 +11,10 @@ class Bundle extends OAuth2Client
     public array $bundle = [
         'resourceType' => 'Bundle',
         'type' => 'transaction',
-        'entry' => []
+        'entry' => [],
     ];
 
-    public $encounter_id;
+    public $encounter_id, $encounter;
 
     private function uuidV4()
     {
@@ -37,70 +37,46 @@ class Bundle extends OAuth2Client
     public function addEncounter(Encounter $encounter)
     {
         $this->encounter_id = $this->uuidV4();
-        $encounter_bundle = [
-            'fullUrl' => 'urn:uuid:' . $this->encounter_id,
-            'resource' => json_decode($encounter->json()),
-            'request' => [
-                'method' => 'POST',
-                'url' => 'Encounter',
-            ]
-        ];
-
-        $this->bundle['entry'][] = $encounter_bundle;
+        $this->encounter = $encounter;
     }
 
     public function addCondition(Condition $condition)
     {
+        
         if (!isset($this->encounter_id)) {
             throw new FHIRException("Please call addEncounter method first before addCondition.");
         }
 
-        // Membuat referensi ke encounter saat ini
+        $condition_uuid = $this->uuidV4();
+
+        // Membuat referensi condition ke encounter saat ini
         $condition->setEncounter($this->encounter_id);
         
-        // Melakukan penambahan data diagnosis ke dalam encounter
-        foreach ($this->bundle['entry'] as &$entry) {
-            if (isset($entry['resource']) && $entry['resource']->resourceType === 'Encounter') {
+        // Menambahkan diagnosis ke encounter
+        $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code']);
 
-                $condition_uuid = $this->uuidV4();
-
-                $rank = isset($entry['resource']->diagnosis) ? count($entry['resource']->diagnosis) + 1 : 1;
-
-                $diagnosis = [
-                    'condition' => [
-                        'reference' => 'urn:uuid:' . $condition_uuid,
-                        'display' => $condition->condition['code']['coding'][0]['display'],
-                    ],
-                    'use' => [
-                        'coding' => [
-                            [
-                                'system' => 'http://terminology.hl7.org/CodeSystem/diagnosis-role',
-                                'code' => 'DD',
-                                'display' => 'Discharge diagnosis'
-                            ]
-                        ]
-                    ],
-                    'rank' => $rank,
-                ];
-
-                if (!isset($entry['resource']->diagnosis)) {
-                    $entry['resource']->diagnosis = [];
-                }
-
-                $entry['resource']->diagnosis[] = $diagnosis;
-                $condition_bundle = [
-                    'fullUrl' => 'urn:uuid:' . $condition_uuid,
-                    'resource' => json_decode($condition->json()),
-                    'request' => [
-                        'method' => 'POST',
-                        'url' => 'Condition'
-                    ],
-                ];
-                $this->bundle['entry'][] = $condition_bundle;
-
-                break;
-            }
+        if(!isset($this->bundle['entry'][0])){
+            $this->bundle['entry'][0] = [
+                'fullUrl' => 'urn:uuid:' . $this->encounter_id,
+                'resource' => '',
+                'request' => [
+                    'method' => 'POST',
+                    'url' => 'Encounter'
+                ]
+            ];
         }
+
+        $this->bundle['entry'][0]['resource'] = json_decode($this->encounter->json());
+        
+        $this->bundle['entry'][] = [
+            'fullUrl' => 'urn:uuid:' . $condition_uuid,
+            'resource' => json_decode($condition->json()),
+            'request' => [
+                'method' => 'POST',
+                'url' => 'Condition',
+            ]
+        ];
+
     }
 
     public function post()
