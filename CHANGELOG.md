@@ -21,6 +21,7 @@
 ## v2.3.x :
 
 - Initiation of bundle support
+- Minor Bug fix
 
 ## v2.2.x :
 
