@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\Terminology\Icd10;
 
 class Encounter extends OAuth2Client
 {
@@ -26,6 +26,7 @@ class Encounter extends OAuth2Client
                 return true;
             }
         }
+
         return false;
     }
 
@@ -41,7 +42,7 @@ class Encounter extends OAuth2Client
             return;
         }
 
-        $statusHistory_arrived =  [
+        $statusHistory_arrived = [
             'status' => 'arrived',
             'period' => [
                 'start' => date("Y-m-d\TH:i:sP", strtotime($timestamp)),
@@ -75,10 +76,9 @@ class Encounter extends OAuth2Client
             'status' => 'in-progress',
             'period' => [
                 'start' => $atomTimestamp['start'],
-                'end' => $atomTimestamp['end']
-            ]
+                'end' => $atomTimestamp['end'],
+            ],
         ];
-
 
         $this->encounter['status'] = 'in-progress';
         $this->encounter['period']['end'] = $atomTimestamp['end'];
@@ -106,7 +106,7 @@ class Encounter extends OAuth2Client
             'period' => [
                 'start' => $date,
                 'end' => $date,
-            ]
+            ],
         ];
 
         $this->encounter['status'] = 'finished';
@@ -180,7 +180,7 @@ class Encounter extends OAuth2Client
         $this->encounter['serviceProvider']['reference'] = 'Organization/' . $this->organization_id;
     }
 
-    public function addDiagnosis($id, $code, $display = null)
+    public function addDiagnosis($id, $code, $display = null, $bundle = false)
     {
         // Look in database if display is null
         $code_check = Icd10::where('icd10_code', $code)->first();
@@ -193,8 +193,8 @@ class Encounter extends OAuth2Client
         $display = $display ? $display : $code_check->icd10_en;
 
         // Create Encounter.diagnosis content
-        $diagnosis['condition']['reference'] = 'Condition/' . $id;
-        $diagnosis['condition']['display'] = 'Condition/' . $display;
+        $diagnosis['condition']['reference'] = ($bundle ? 'urn:uuid:' : 'Condition/') . $id;
+        $diagnosis['condition']['display'] = $display;
         $diagnosis['use']['coding'][] = [
             'system' => 'http://terminology.hl7.org/CodeSystem/diagnosis-role',
             'code' => 'DD',

@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\Terminology\Icd10;
 use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\Terminology\Icd10;
 
 class Condition extends OAuth2Client
 {
@@ -78,7 +78,7 @@ class Condition extends OAuth2Client
         $code_check = Icd10::where('icd10_code', $code)->first();
 
         // Handling if incomplete code / display
-        if (! $code_check) {
+        if (!$code_check) {
             return 'Kode ICD-10 invalid';
         }
 
@@ -93,64 +93,64 @@ class Condition extends OAuth2Client
 
     public function setSubject($subjectId, $name)
     {
-        $this->condition['subject']['reference'] = 'Patient/'.$subjectId;
+        $this->condition['subject']['reference'] = 'Patient/' . $subjectId;
         $this->condition['subject']['display'] = $name;
     }
 
-    public function setEncounter($encounterId, $display = null)
+    public function setEncounter($encounterId, $display = null, $bundle = false)
     {
-        $this->condition['encounter']['reference'] = 'Encounter/'.$encounterId;
-        $this->condition['encounter']['display'] = $display ? $display : 'Kunjungan '.$encounterId;
+        $this->condition['encounter']['reference'] = ($bundle ? 'urn:uuid:' : 'Encounter/') . $encounterId;
+        $this->condition['encounter']['display'] = $display ? $display : 'Kunjungan ' . $encounterId;
     }
 
     public function setOnsetDateTime($onset_date_time = null)
     {
         $this->condition['onsetDateTime'] = $onset_date_time ?
-                                                date("Y-m-d\TH:i:sP", strtotime($onset_date_time)) :
-                                                date("Y-m-d\TH:i:sP");
+            date("Y-m-d\TH:i:sP", strtotime($onset_date_time)) :
+            date("Y-m-d\TH:i:sP");
     }
 
     public function setRecordedDate($recorded_date = null)
     {
         $this->condition['recordedDate'] = $recorded_date ?
-                                                date("Y-m-d\TH:i:sP", strtotime($recorded_date)) :
-                                                date("Y-m-d\TH:i:sP");
+            date("Y-m-d\TH:i:sP", strtotime($recorded_date)) :
+            date("Y-m-d\TH:i:sP");
     }
 
     public function json()
     {
         // Add default clinical status
-        if (! array_key_exists('clinicalStatus', $this->condition)) {
+        if (!array_key_exists('clinicalStatus', $this->condition)) {
             $this->addClinicalStatus();
         }
 
         // Add default category
-        if (! array_key_exists('category', $this->condition)) {
+        if (!array_key_exists('category', $this->condition)) {
             $this->addCategory();
         }
 
         // Add default OnsetDateTime
-        if (! array_key_exists('onsetDateTime', $this->condition)) {
+        if (!array_key_exists('onsetDateTime', $this->condition)) {
             $this->setOnsetDateTime();
         }
 
         // Add default RecordedDate
-        if (! array_key_exists('recordedDate', $this->condition)) {
+        if (!array_key_exists('recordedDate', $this->condition)) {
             $this->setRecordedDate();
         }
 
         // Subject is required
-        if (! array_key_exists('subject', $this->condition)) {
+        if (!array_key_exists('subject', $this->condition)) {
             return 'Please use condition->setSubject($subjectId, $name) to pass the data';
         }
 
         // Encounter is required
-        if (! array_key_exists('encounter', $this->condition)) {
+        if (!array_key_exists('encounter', $this->condition)) {
             return 'Please use condition->setEncounter($encounterId) to pass the data';
         }
 
         // ICD-10 is required
-        if (! array_key_exists('code', $this->condition)) {
+        if (!array_key_exists('code', $this->condition)) {
             return 'Please use condition->addCode($code, $display) to pass the data';
         }
 
