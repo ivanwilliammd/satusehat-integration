@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.3.1 - 2024-03-31
+
+### What's Changed
+
+* fix: Encounter & Condition bundle by @SyaefulKai in https://github.com/ivanwilliammd/satusehat-integration/pull/27
+* Linkage of urn:uuid between Encounter & Condition
+* Updated wiki
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.3.0...2.3.1
+
 ## 2.3.0 - Initiation of bundle support - 2024-03-30
 
 ### What's Changed
@@ -79,6 +89,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
@@ -198,6 +209,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
