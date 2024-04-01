@@ -4,6 +4,7 @@ namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Terminology\Icd10;
+use Satusehat\Integration\FHIR\Exception\FHIRException;
 
 class Condition extends OAuth2Client
 {
@@ -79,7 +80,7 @@ class Condition extends OAuth2Client
 
         // Handling if incomplete code / display
         if (!$code_check) {
-            return 'Kode ICD-10 invalid';
+            throw new FHIRException('Kode ICD10 tidak ditemukan');
         }
 
         $display = $display ? $display : $code_check->icd10_en;
