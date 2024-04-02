@@ -42,7 +42,7 @@ class Bundle extends OAuth2Client
 
     public function addCondition(Condition $condition)
     {
-        
+
         if (!isset($this->encounter_id)) {
             throw new FHIRException("Please call addEncounter method first before addCondition.");
         }
@@ -51,7 +51,7 @@ class Bundle extends OAuth2Client
 
         // Membuat referensi condition ke encounter saat ini
         $condition->setEncounter($this->encounter_id, '', true);
-        
+
         // Membuat referensi condition di encounter
         $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code'], '', true);
 
@@ -67,7 +67,7 @@ class Bundle extends OAuth2Client
         }
 
         $this->bundle['entry'][0]['resource'] = json_decode($this->encounter->json());
-        
+
         $this->bundle['entry'][] = [
             'fullUrl' => 'urn:uuid:' . $condition_uuid,
             'resource' => json_decode($condition->json()),
@@ -76,7 +76,11 @@ class Bundle extends OAuth2Client
                 'url' => 'Condition',
             ]
         ];
+    }
 
+    public function json()
+    {
+        return json_encode($this->bundle, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     public function post()
