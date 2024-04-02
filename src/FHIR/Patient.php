@@ -239,7 +239,7 @@ class Patient extends OAuth2Client
 
         // Name is required
         if (! array_key_exists('name', $this->patient)) {
-            throw new FHIRException('Please use patient->setName($organization_name) to pass the data');
+            throw new FHIRException('Please use patient->setName('patient name') to pass the data');
         }
 
         // Address is required

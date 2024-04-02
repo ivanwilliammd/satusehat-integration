@@ -27,7 +27,7 @@ class OAuth2Client
 
     public string $organization_id;
 
-    public string $override;
+    public bool $override;
 
     public string $satusehat_env;
 
