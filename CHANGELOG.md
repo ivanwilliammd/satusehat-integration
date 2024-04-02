@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.2 - 2024-04-02
+
+### What's Changed
+
+* improvement: Condition throw exception error by @SyaefulKai in https://github.com/ivanwilliammd/satusehat-integration/pull/29
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.3.1...2.3.2
+
 ## 2.3.1 - 2024-03-31
 
 ### What's Changed
@@ -90,6 +98,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
@@ -210,6 +219,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
