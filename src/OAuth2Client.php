@@ -27,6 +27,10 @@ class OAuth2Client
 
     public string $organization_id;
 
+    public string $override;
+
+    public string $satusehat_env;
+
     public $oauth2_error = [
         'statusCode' => 401,
         'res' => 'Unauthorized. Token not found',
@@ -237,9 +241,20 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
+            if($resource === 'Patient'){
+                if($response->success === true){
+                    $id = $response->data->patient_id;
+                    $this->log($id, 'POST', $url, (array) json_decode($body), (array) $response);
+                    return [$statusCode, $response];
+                } else {
+                    $id = 'error' . $statusCode;
+                }
+            }
+
             if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
                 $id = 'Error '.$statusCode;
-            } else {
+            } 
+            else {
                 if ($resource == 'Bundle') {
                     $id = 'Success '.$statusCode;
                 } else {
