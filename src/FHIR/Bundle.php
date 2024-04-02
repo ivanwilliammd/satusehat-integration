@@ -85,7 +85,7 @@ class Bundle extends OAuth2Client
 
     public function post()
     {
-        $payload = $this->bundle;
+        $payload = $this->json();
         [$statusCode, $res] = $this->ss_post('Bundle', $payload);
 
         return [$statusCode, $res];
