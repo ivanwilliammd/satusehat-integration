@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.3.3 - 2024-04-02
+
+### What's Changed
+
+* updated json function inside bundle by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/34
+
+### New Contributors
+
+* @ivanwilliammd made their contribution in https://github.com/ivanwilliammd/satusehat-integration/pull/34
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.3.2...2.3.3
+
 ## 2.3.2 - 2024-04-02
 
 ### What's Changed
@@ -98,6 +110,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
@@ -219,6 +232,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
