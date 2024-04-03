@@ -27,6 +27,10 @@ class OAuth2Client
 
     public string $organization_id;
 
+    public bool $override;
+
+    public string $satusehat_env;
+
     public $oauth2_error = [
         'statusCode' => 401,
         'res' => 'Unauthorized. Token not found',
@@ -237,13 +241,39 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
-                $id = 'Error '.$statusCode;
+            if($resource === 'Patient'){
+                // Patient
+
+                // Get patient identifer
+                $patient_obj = json_decode($body);
+                $url = $patient_obj->identifier[0]->system;
+                $parsed_url = parse_url($url, PHP_URL_PATH);
+                $exploded_url = explode('/', $parsed_url);
+                $identifier_type = $exploded_url[2];
+
+                if($identifier_type === 'nik'){
+                    if($response->success !== true){
+                        $id = 'Error ' . $statusCode;
+                    }
+                    $id = $response->data->patient_id;
+                } else if($identifier_type === 'nik-ibu'){
+                    if($response->create_patient->success !== true){
+                        $id = 'Error ' . $statusCode;
+                    }
+                    $id = $response->create_patient->data->patient_id;
+                }
+
             } else {
-                if ($resource == 'Bundle') {
-                    $id = 'Success '.$statusCode;
-                } else {
-                    $id = $response->id;
+                // Other than patient
+                if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
+                    $id = 'Error '.$statusCode;
+                } 
+                else {
+                    if ($resource == 'Bundle') {
+                        $id = 'Success '.$statusCode;
+                    } else {
+                        $id = $response->id;
+                    }
                 }
             }
             $this->log($id, 'POST', $url, (array) json_decode($body), (array) $response);

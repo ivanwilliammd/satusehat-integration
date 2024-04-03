@@ -130,7 +130,7 @@ class Organization extends OAuth2Client
                         ],
                         [
                             'url' => 'village',
-                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 8) : getenv('KODE_KELURAHAN', ''),
+                            'valueCode' => $village_code ? substr(str_replace('.', '', $village_code), 0, 10) : getenv('KODE_KELURAHAN', ''),
                         ],
                     ],
                 ],
