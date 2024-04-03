@@ -242,23 +242,38 @@ class OAuth2Client
             $response = json_decode($res->getBody()->getContents());
 
             if($resource === 'Patient'){
-                if($response->success === true){
-                    $id = $response->data->patient_id;
-                    $this->log($id, 'POST', $url, (array) json_decode($body), (array) $response);
-                    return [$statusCode, $response];
-                } else {
-                    $id = 'error' . $statusCode;
-                }
-            }
+                // Patient
 
-            if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
-                $id = 'Error '.$statusCode;
-            } 
-            else {
-                if ($resource == 'Bundle') {
-                    $id = 'Success '.$statusCode;
-                } else {
-                    $id = $response->id;
+                // Get patient identifer
+                $patient_obj = json_decode($body);
+                $url = $patient_obj->identifier[0]->system;
+                $parsed_url = parse_url($url, PHP_URL_PATH);
+                $exploded_url = explode('/', $parsed_url);
+                $identifier_type = $exploded_url[2];
+
+                if($identifier_type === 'nik'){
+                    if($response->success !== true){
+                        $id = 'Error ' . $statusCode;
+                    }
+                    $id = $response->data->patient_id;
+                } else if($identifier_type === 'nik-ibu'){
+                    if($response->create_patient->success !== true){
+                        $id = 'Error ' . $statusCode;
+                    }
+                    $id = $response->create_patient->data->patient_id;
+                }
+
+            } else {
+                // Other than patient
+                if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
+                    $id = 'Error '.$statusCode;
+                } 
+                else {
+                    if ($resource == 'Bundle') {
+                        $id = 'Success '.$statusCode;
+                    } else {
+                        $id = $response->id;
+                    }
                 }
             }
             $this->log($id, 'POST', $url, (array) json_decode($body), (array) $response);
