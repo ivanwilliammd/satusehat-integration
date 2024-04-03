@@ -19,6 +19,10 @@ class Patient extends OAuth2Client
 
     public function addIdentifier($identifier_type, $identifier_value)
     {
+        if($identifier_type !== 'nik' && $identifier_type !== 'nik-ibu'){
+            throw new FHIRException("\$patient->addIdentifier error. Currently, we only support 'nik' or 'nik-ibu' usage.");
+        }
+
         $identifier['use'] = 'official';
         $identifier['system'] = 'https://fhir.kemkes.go.id/id/'.$identifier_type;
         $identifier['value'] = $identifier_value;
@@ -37,6 +41,7 @@ class Patient extends OAuth2Client
 
     public function addTelecom($telecom_value, $telecom_system = 'phone', $telecom_use = 'mobile')
     {
+
         $telecom['system'] = $telecom_system; // https://www.hl7.org/fhir/valueset-contact-point-system.html
         $telecom['value'] = $telecom_value;
         $telecom['use'] = $telecom_use; // https://www.hl7.org/fhir/valueset-contact-point-use.html
@@ -192,9 +197,6 @@ class Patient extends OAuth2Client
 
     public function setCommunication($code = 'id-ID', $display = 'Indonesian', bool $preferred = true)
     {
-        /**
-         * Default is now Indonesian
-         */
         $communication['language'] = [
             'coding' => [
                 [
@@ -239,7 +241,7 @@ class Patient extends OAuth2Client
 
         // Name is required
         if (! array_key_exists('name', $this->patient)) {
-            throw new FHIRException('Please use patient->setName('patient name') to pass the data');
+            throw new FHIRException('Please use patient->setName($organization_name) to pass the data');
         }
 
         // Address is required
@@ -247,13 +249,13 @@ class Patient extends OAuth2Client
             throw new FHIRException('Please use patient->setAddress($address_detail) to pass the data');
         }
 
-        // Communication is required
-        if(! array_key_exists('communication', $this->patient)) {
-            throw new FHIRException('Please use patient->setCommunication($code, $display, $preffered) to pass the data');
+        // Telecom is required
+        if(! array_key_exists('telecom', $this->patient)){
+            throw new FHIRException('Please use patinet->addTelecom("phone_number") to pass the data');
         }
 
         // Multiple birth is required
-        if(! array_key_exists('multipleBirthInteger', $this->patient) && ! array_key_exists('multipleBirthBoolean', $this->patient)) {
+        if(! array_key_exists('multipleBirthInteger', $this->patient)) {
             throw new FHIRException('Please use patient->setMultipleBirth({integer/boolean}) to pass the data');
         }
 
