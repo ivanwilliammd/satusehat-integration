@@ -92,7 +92,7 @@ class OAuth2Client
         ];
 
         // Create session
-        $url = $this->auth_url.'/accesstoken?grant_type=client_credentials';
+        $url = $this->auth_url . '/accesstoken?grant_type=client_credentials';
         $request = new Request('POST', $url, $headers);
 
         try {
@@ -147,16 +147,16 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
+        if (!isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '.$access_token,
+            'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url.'/'.$resource.'/'.$id;
+        $url = $this->base_url . '/' . $resource . '/' . $id;
         $request = new Request('GET', $url, $headers);
 
         try {
@@ -165,7 +165,7 @@ class OAuth2Client
             $response = json_decode($res->getBody()->getContents());
 
             if ($response->resourceType == 'OperationOutcome' | $response->total == 0) {
-                $id = 'Error '.$statusCode;
+                $id = 'Error ' . $statusCode;
             }
             $this->log($id, 'GET', $url, null, (array) $response);
 
@@ -174,7 +174,7 @@ class OAuth2Client
             $statusCode = $e->getResponse()->getStatusCode();
             $res = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->log('Error '.$statusCode, 'GET', $url, null, (array) $res);
+            $this->log('Error ' . $statusCode, 'GET', $url, null, (array) $res);
 
             return [$statusCode, $res];
         }
@@ -184,16 +184,16 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
+        if (!isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
         $headers = [
-            'Authorization' => 'Bearer '.$access_token,
+            'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url.'/'.$resource.'?identifier=https://fhir.kemkes.go.id/id/nik|'.$nik;
+        $url = $this->base_url . '/' . $resource . '?identifier=https://fhir.kemkes.go.id/id/nik|' . $nik;
         $request = new Request('GET', $url, $headers);
 
         try {
@@ -213,7 +213,48 @@ class OAuth2Client
             $statusCode = $e->getResponse()->getStatusCode();
             $res = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->log('Error '.$statusCode, 'GET', $url, null, (array) $res);
+            $this->log('Error ' . $statusCode, 'GET', $url, null, (array) $res);
+
+            return [$statusCode, $res];
+        }
+    }
+
+    public function ss_get($resource, $queryString)
+    {
+
+        $access_token = $this->token();
+
+        if (!isset($access_token)) {
+            return $this->respondError($this->oauth2_error);
+        }
+
+        $client = new Client();
+        $headers = [
+            'Authorization' => 'Bearer ' . $access_token,
+        ];
+
+        $url = $this->base_url . '/' . $resource . '?' . $queryString;
+
+        $request = new Request('GET', $url, $headers);
+
+        try {
+            $res = $client->sendAsync($request)->wait();
+            $statusCode = $res->getStatusCode();
+            $response = json_decode($res->getBody()->getContents());
+
+            if ($response->resourceType == 'OperationOutcome' | $response->total == 0) {
+                $id = 'Not Found';
+            } else {
+                $id = $response->entry['0']->resource->id;
+            }
+            $this->log($id, 'GET', $url, null, (array) $response);
+
+            return [$statusCode, $response];
+        } catch (ClientException $e) {
+            $statusCode = $e->getResponse()->getStatusCode();
+            $res = json_decode($e->getResponse()->getBody()->getContents());
+
+            $this->log('Error ' . $statusCode, 'GET', $url, null, (array) $res);
 
             return [$statusCode, $res];
         }
@@ -223,17 +264,17 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
+        if (!isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
         $headers = [
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer '.$access_token,
+            'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url.($resource == 'Bundle' ? '' : '/'.$resource);
+        $url = $this->base_url . ($resource == 'Bundle' ? '' : '/' . $resource);
         $request = new Request('POST', $url, $headers, $body);
 
         try {
@@ -241,7 +282,7 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if($resource === 'Patient'){
+            if ($resource === 'Patient') {
                 // Patient
 
                 // Get patient identifer
@@ -251,26 +292,24 @@ class OAuth2Client
                 $exploded_url = explode('/', $parsed_url);
                 $identifier_type = $exploded_url[2];
 
-                if($identifier_type === 'nik'){
-                    if($response->success !== true){
+                if ($identifier_type === 'nik') {
+                    if ($response->success !== true) {
                         $id = 'Error ' . $statusCode;
                     }
                     $id = $response->data->patient_id;
-                } else if($identifier_type === 'nik-ibu'){
-                    if($response->create_patient->success !== true){
+                } else if ($identifier_type === 'nik-ibu') {
+                    if ($response->create_patient->success !== true) {
                         $id = 'Error ' . $statusCode;
                     }
                     $id = $response->create_patient->data->patient_id;
                 }
-
             } else {
                 // Other than patient
                 if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
-                    $id = 'Error '.$statusCode;
-                } 
-                else {
+                    $id = 'Error ' . $statusCode;
+                } else {
                     if ($resource == 'Bundle') {
-                        $id = 'Success '.$statusCode;
+                        $id = 'Success ' . $statusCode;
                     } else {
                         $id = $response->id;
                     }
@@ -283,7 +322,7 @@ class OAuth2Client
             $statusCode = $e->getResponse()->getStatusCode();
             $res = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->log('Error '.$statusCode, 'POST', $url, (array) json_decode($body), (array) $res);
+            $this->log('Error ' . $statusCode, 'POST', $url, (array) json_decode($body), (array) $res);
 
             return [$statusCode, $res];
         }
@@ -296,17 +335,17 @@ class OAuth2Client
     {
         $access_token = $this->token();
 
-        if (! isset($access_token)) {
+        if (!isset($access_token)) {
             return $this->respondError($this->oauth2_error);
         }
 
         $client = new Client();
         $headers = [
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer '.$access_token,
+            'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url.'/'.$resource.'/'.$id;
+        $url = $this->base_url . '/' . $resource . '/' . $id;
         $request = new Request('PUT', $url, $headers, $body);
 
         try {
@@ -315,7 +354,7 @@ class OAuth2Client
             $response = json_decode($res->getBody()->getContents());
 
             if ($response->resourceType == 'OperationOutcome' || $statusCode >= 400) {
-                $id = 'Error '.$statusCode;
+                $id = 'Error ' . $statusCode;
             } else {
                 $id = $response->id;
             }
@@ -326,7 +365,7 @@ class OAuth2Client
             $statusCode = $e->getResponse()->getStatusCode();
             $res = json_decode($e->getResponse()->getBody()->getContents());
 
-            $this->log('Error '.$statusCode, 'PUT', $url, null, (array) $res);
+            $this->log('Error ' . $statusCode, 'PUT', $url, null, (array) $res);
 
             return [$statusCode, $res];
         }
