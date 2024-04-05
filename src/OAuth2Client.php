@@ -65,7 +65,7 @@ class OAuth2Client
             $this->organization_id = getenv('ORGID_DEV');
         }
 
-        if ($this->override == false && $this->organization_id == null) {
+        if (!$this->override && $this->organization_id == null) {
             return 'Add your organization_id at environment first';
         }
     }
