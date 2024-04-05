@@ -109,8 +109,6 @@ class OAuth2Client
                 return $contents->access_token;
             } else {
                 return $this->respondError($this->oauth2_error);
-
-                return null;
             }
         } catch (ClientException $e) {
             // error.
