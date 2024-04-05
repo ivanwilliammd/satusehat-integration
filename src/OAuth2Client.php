@@ -17,9 +17,11 @@ class OAuth2Client
 
     public $practitioner_dev = ['10009880728', '10006926841', '10001354453', '10010910332', '10018180913', '10002074224', '10012572188', '10018452434', '10014058550', '10001915884'];
 
+    public string $base_url;
+
     public string $auth_url;
 
-    public string $base_url;
+    public string $fhir_url;
 
     public string $client_id;
 
@@ -46,24 +48,31 @@ class OAuth2Client
         $this->satusehat_env = $this->override ? null : getenv('SATUSEHAT_ENV');
 
         if ($this->satusehat_env == 'PROD') {
-            $this->auth_url = getenv('SATUSEHAT_AUTH_PROD', 'https://api-satusehat.kemkes.go.id/oauth2/v1');
-            $this->base_url = getenv('SATUSEHAT_FHIR_PROD', 'https://api-satusehat.kemkes.go.id/fhir-r4/v1');
+            $base_url = getenv('SATUSEHAT_BASE_URL_PROD') ?: 'https://api-satusehat.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_PROD');
             $this->client_secret = getenv('CLIENTSECRET_PROD');
             $this->organization_id = getenv('ORGID_PROD');
         } elseif ($this->satusehat_env == 'STG') {
-            $this->auth_url = getenv('SATUSEHAT_AUTH_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1');
-            $this->base_url = getenv('SATUSEHAT_FHIR_STG', 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1');
+            $base_url = getenv('SATUSEHAT_BASE_URL_STG') ?: 'https://api-satusehat-stg.dto.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_STG');
             $this->client_secret = getenv('CLIENTSECRET_STG');
             $this->organization_id = getenv('ORGID_STG');
         } elseif ($this->satusehat_env == 'DEV') {
-            $this->auth_url = getenv('SATUSEHAT_AUTH_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/oauth2/v1');
-            $this->base_url = getenv('SATUSEHAT_FHIR_DEV', 'https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1');
+            $base_url = getenv('SATUSEHAT_BASE_URL_DEV') ?: 'https://api-satusehat-dev.dto.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_DEV');
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
         }
+
+        $authEndpoint = getenv('SATUSEHAT_AUTH_ENDPOINT') ?: '/oauth2/v1';
+        $fhirEndpoint = getenv('SATUSEHAT_FHIR_ENDPOINT') ?: '/fhir-r4/v1';
+
+
+        $this->base_url = $base_url;
+        // // untuk handle versioning endpoint
+        $this->auth_url = $base_url . $authEndpoint;
+        $this->fhir_url = $base_url . $fhirEndpoint;
+
 
         if (!$this->override && $this->organization_id == null) {
             return 'Add your organization_id at environment first';
@@ -154,7 +163,7 @@ class OAuth2Client
             'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url . '/' . $resource . '/' . $id;
+        $url = $this->fhir_url . '/' . $resource . '/' . $id;
         $request = new Request('GET', $url, $headers);
 
         try {
@@ -272,7 +281,7 @@ class OAuth2Client
             'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url . ($resource == 'Bundle' ? '' : '/' . $resource);
+        $url = $this->fhir_url . ($resource == 'Bundle' ? '' : '/' . $resource);
         $request = new Request('POST', $url, $headers, $body);
 
         try {
@@ -343,7 +352,7 @@ class OAuth2Client
             'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url . '/' . $resource . '/' . $id;
+        $url = $this->fhir_url . '/' . $resource . '/' . $id;
         $request = new Request('PUT', $url, $headers, $body);
 
         try {
