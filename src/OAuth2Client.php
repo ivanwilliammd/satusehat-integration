@@ -17,21 +17,19 @@ class OAuth2Client
 
     public $practitioner_dev = ['10009880728', '10006926841', '10001354453', '10010910332', '10018180913', '10002074224', '10012572188', '10018452434', '10014058550', '10001915884'];
 
-    public string $base_url;
+    public $base_url;
+    public $auth_url;
 
-    public string $auth_url;
+    public $fhir_url;
 
-    public string $fhir_url;
+    public $client_id;
+    public $client_secret;
 
-    public string $client_id;
+    public $organization_id;
 
-    public string $client_secret;
+    public $override;
 
-    public string $organization_id;
-
-    public bool $override;
-
-    public string $satusehat_env;
+    public $satusehat_env;
 
     public $oauth2_error = [
         'statusCode' => 401,
@@ -48,30 +46,31 @@ class OAuth2Client
         $this->satusehat_env = $this->override ? null : getenv('SATUSEHAT_ENV');
 
         if ($this->satusehat_env == 'PROD') {
-            $base_url = getenv('SATUSEHAT_BASE_URL_PROD') ?: 'https://api-satusehat.kemkes.go.id';
+            $this->base_url = getenv('SATUSEHAT_BASE_URL_PROD') ?: 'https://api-satusehat.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_PROD');
             $this->client_secret = getenv('CLIENTSECRET_PROD');
             $this->organization_id = getenv('ORGID_PROD');
         } elseif ($this->satusehat_env == 'STG') {
-            $base_url = getenv('SATUSEHAT_BASE_URL_STG') ?: 'https://api-satusehat-stg.dto.kemkes.go.id';
+            $this->base_url = getenv('SATUSEHAT_BASE_URL_STG') ?: 'https://api-satusehat-stg.dto.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_STG');
             $this->client_secret = getenv('CLIENTSECRET_STG');
             $this->organization_id = getenv('ORGID_STG');
         } elseif ($this->satusehat_env == 'DEV') {
-            $base_url = getenv('SATUSEHAT_BASE_URL_DEV') ?: 'https://api-satusehat-dev.dto.kemkes.go.id';
+            $this->base_url = getenv('SATUSEHAT_BASE_URL_DEV') ?: 'https://api-satusehat-dev.dto.kemkes.go.id';
             $this->client_id = getenv('CLIENTID_DEV');
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
         }
 
+        $this->base_url = $this->override ? null : $this->base_url;
+
         $authEndpoint = getenv('SATUSEHAT_AUTH_ENDPOINT') ?: '/oauth2/v1';
         $fhirEndpoint = getenv('SATUSEHAT_FHIR_ENDPOINT') ?: '/fhir-r4/v1';
 
 
-        $this->base_url = $base_url;
         // // untuk handle versioning endpoint
-        $this->auth_url = $base_url . $authEndpoint;
-        $this->fhir_url = $base_url . $fhirEndpoint;
+        $this->auth_url = $this->base_url . $authEndpoint;
+        $this->fhir_url = $this->base_url . $fhirEndpoint;
 
 
         if (!$this->override && $this->organization_id == null) {
