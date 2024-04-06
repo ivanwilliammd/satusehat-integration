@@ -226,7 +226,14 @@ class OAuth2Client
         }
     }
 
-    public function ss_get($resource, $queryString)
+    /**
+     * Get request to satu sehat master data resource
+     *
+     * @param [type] $resource
+     * @param [type] $queryString
+     * @return void
+     */
+    public function ss_kfa_get($resource, $queryString)
     {
 
         $access_token = $this->token();
@@ -249,11 +256,12 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if ($response->resourceType == 'OperationOutcome' | $response->total == 0) {
+            if (!empty($response) && $response->total == 0) {
                 $id = 'Not Found';
             } else {
-                $id = $response->entry['0']->resource->id;
+                $id = 'KFA_GET_' . time();
             }
+
             $this->log($id, 'GET', $url, null, (array) $response);
 
             return [$statusCode, $response];
