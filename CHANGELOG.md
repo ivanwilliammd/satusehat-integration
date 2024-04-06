@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.4.0 - 2024-04-03
+
+### What's Changed
+
+* Update: OAuth2Client, Patient, and Organization by @SyaefulKai in https://github.com/ivanwilliammd/satusehat-integration/pull/36
+* Added compatibility for Patient Post with identifier `nik-ibu`
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.3.3...2.4.0
+
 ## 2.3.3 - 2024-04-02
 
 ### What's Changed
@@ -110,6 +119,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
@@ -232,6 +242,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
