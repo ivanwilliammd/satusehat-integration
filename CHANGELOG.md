@@ -1,5 +1,9 @@
 # Changelog
 
+
+* Added: API KFA
+* Updated : OAuth parameter changed from base_url to fhir_url
+
 ## 2.4.0 - 2024-04-03
 
 ### What's Changed
