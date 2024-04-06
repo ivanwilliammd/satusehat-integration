@@ -9,7 +9,16 @@ class KFA extends OAuth2Client
 {
     private array $identifier = ['kfa', 'lkpp', 'nie'];
 
-    public function getProducts(string $productType, int $page = 1, int $size = 100, string $keyword = null)
+    /**
+     * Get paginated KFA Products
+     *
+     * @param string $productType currently available : 'alkes' | 'farmasi'
+     * @param integer $page min 1 no max
+     * @param integer $size min 1 max 1000
+     * @param string|null $keyword
+     * @return void
+     */
+    public function getProducts(string $productType, string $keyword = null, int $page = 1, int $size = 100)
     {
         if (empty($productType)) {
             throw new FHIRException("Product type required", 422);
@@ -20,7 +29,11 @@ class KFA extends OAuth2Client
         }
 
         if ($size > 1000) {
-            throw new FHIRException("Maximum size record 1000/request");
+            throw new FHIRException("Maximum size record 1000/request", 422);
+        }
+
+        if ($page < 1 || $size < 1) {
+            throw new FHIRException("Page / Size cannot be blank.");
         }
 
         $queryStringBuilder = [
@@ -35,6 +48,6 @@ class KFA extends OAuth2Client
 
         $queryString = http_build_query($queryStringBuilder);
 
-        return $this->ss_get('kfa-v2/product', $queryString);
+        return $this->ss_kfa_get('kfa-v2/products/all', $queryString);
     }
 }
