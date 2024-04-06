@@ -1,6 +1,6 @@
 <?php
 
-namespace Satusehat\Integration\FHIR;
+namespace Satusehat\Integration\Terminology;
 
 use Satusehat\Integration\FHIR\Exception\FHIRException;
 use Satusehat\Integration\OAuth2Client;
