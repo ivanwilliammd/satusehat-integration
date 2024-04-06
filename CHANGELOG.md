@@ -1,8 +1,19 @@
 # Changelog
 
+* Added: API KFA
+* Updated : OAuth parameter changed from base_url to fhir_url
+
+## 2.5.0 - 2024-04-06
+
+### What's Changed
 
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
+* KFA Integration by @yudistirasd in https://github.com/ivanwilliammd/satusehat-integration/pull/38
+* 31 api kfa by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/39
+* updated v2.5.0 by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/40
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.4.0...2.5.0
 
 ## 2.4.0 - 2024-04-03
 
@@ -132,6 +143,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -246,6 +258,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
