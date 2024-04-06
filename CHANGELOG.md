@@ -3,6 +3,14 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.5.1 - 2024-04-06
+
+### What's Changed
+
+* hotfix multitenancy feature and strictly typed OAuthClient.php by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/42
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.5.0...2.5.1
+
 ## 2.5.0 - 2024-04-06
 
 ### What's Changed
@@ -144,6 +152,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -258,6 +267,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
