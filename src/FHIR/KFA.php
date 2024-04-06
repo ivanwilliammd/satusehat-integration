@@ -10,6 +10,32 @@ class KFA extends OAuth2Client
     private array $identifier = ['kfa', 'lkpp', 'nie'];
 
     /**
+     * Get Detail KFA Product
+     *
+     * @param string $identifier currently available stroed in : $identifier
+     * @param string $code
+     * @return void
+     */
+    public function getProduct(string $identifier, string $code)
+    {
+        if (!in_array($identifier, $this->identifier)) {
+            throw new FHIRException("Identifier currently available : " . implode("','", $this->identifier));
+        }
+
+        if (empty($code)) {
+            throw new FHIRException("code product required", 422);
+        }
+
+        $queryStringBuilder = [
+            'identifier' => $identifier,
+            'code' => $code
+        ];
+
+        $queryString = http_build_query($queryStringBuilder);
+
+        return $this->ss_kfa_get("products?", $queryString);
+    }
+    /**
      * Get paginated KFA Products
      *
      * @param string $productType currently available : 'alkes' | 'farmasi'
@@ -33,7 +59,7 @@ class KFA extends OAuth2Client
         }
 
         if ($page < 1 || $size < 1) {
-            throw new FHIRException("Page / Size cannot be blank.");
+            throw new FHIRException("Page / Size can't be blank.");
         }
 
         $queryStringBuilder = [
@@ -48,6 +74,6 @@ class KFA extends OAuth2Client
 
         $queryString = http_build_query($queryStringBuilder);
 
-        return $this->ss_kfa_get('kfa-v2/products/all', $queryString);
+        return $this->ss_kfa_get('products/all?', $queryString);
     }
 }

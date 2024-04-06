@@ -247,7 +247,7 @@ class OAuth2Client
             'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url . '/' . $resource . '?' . $queryString;
+        $url = $this->base_url . '/kfa-v2/' . $resource . $queryString;
 
         $request = new Request('GET', $url, $headers);
 
@@ -256,10 +256,20 @@ class OAuth2Client
             $statusCode = $res->getStatusCode();
             $response = json_decode($res->getBody()->getContents());
 
-            if (!empty($response) && $response->total == 0) {
-                $id = 'Not Found';
-            } else {
-                $id = 'KFA_GET_' . time();
+            if ($resource == 'products/all?') {
+                if (!empty($response) && empty($response->total)) {
+                    $id = 'Not Found';
+                } else {
+                    $id  = 'KFA_GET_' . $resource;
+                }
+            }
+
+            if ($resource == 'products?') {
+                if (!empty($response) && empty($response->result)) {
+                    $id = 'Not Found';
+                } else {
+                    $id  = 'KFA_GET_' . $resource;
+                }
             }
 
             $this->log($id, 'GET', $url, null, (array) $response);
