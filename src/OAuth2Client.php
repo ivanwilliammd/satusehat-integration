@@ -259,7 +259,7 @@ class OAuth2Client
                 if (!empty($response) && empty($response->total)) {
                     $id = 'Not Found';
                 } else {
-                    $id  = 'KFA_GET_' . $resource;
+                    $id  = 'Kfa_GET_' . $resource;
                 }
             }
 
@@ -267,7 +267,7 @@ class OAuth2Client
                 if (!empty($response) && empty($response->result)) {
                     $id = 'Not Found';
                 } else {
-                    $id  = 'KFA_GET_' . $resource;
+                    $id  = 'Kfa_GET_' . $resource;
                 }
             }
 

@@ -5,12 +5,12 @@ namespace Satusehat\Integration\Terminology;
 use Satusehat\Integration\FHIR\Exception\FHIRException;
 use Satusehat\Integration\OAuth2Client;
 
-class KFA extends OAuth2Client
+class Kfa extends OAuth2Client
 {
     private array $identifier = ['kfa', 'lkpp', 'nie'];
 
     /**
-     * Get Detail KFA Product
+     * Get Detail Kfa Product
      *
      * @param string $identifier currently available stroed in : $identifier
      * @param string $code
@@ -36,7 +36,7 @@ class KFA extends OAuth2Client
         return $this->ss_kfa_get("products?", $queryString);
     }
     /**
-     * Get paginated KFA Products
+     * Get paginated Kfa Products
      *
      * @param string $productType currently available : 'alkes' | 'farmasi'
      * @param integer $page min 1 no max
