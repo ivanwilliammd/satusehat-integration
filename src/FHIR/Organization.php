@@ -168,7 +168,7 @@ class Organization extends OAuth2Client
 
         // Set default Organization type
         if (!array_key_exists('type', $this->organization)) {
-            $this->setType($this->organization_type);
+            $this->setType();
         }
 
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
