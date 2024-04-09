@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 // Guzzle HTTP Package
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
+use Satusehat\Integration\Exception\Helper\OAuth2ClientException;
 // SATUSEHAT Model & Log
 use Satusehat\Integration\Models\SatusehatLog;
 use Satusehat\Integration\Models\SatusehatToken;
@@ -60,6 +61,26 @@ class OAuth2Client
             $this->client_id = getenv('CLIENTID_DEV');
             $this->client_secret = getenv('CLIENTSECRET_DEV');
             $this->organization_id = getenv('ORGID_DEV');
+        }
+
+        if (empty($this->satusehat_env)) {
+            throw new OAuth2ClientException('Satu sehat environment is missing');
+        }
+
+        if (!in_array($this->satusehat_env, ['DEV', 'STG', 'PROD'])) {
+            throw new OAuth2ClientException('Satu sehat environment invalid, supported (DEV, STG, PROD). ' . $this->satusehat_env .  ' given.');
+        }
+
+        if ($this->satusehat_env == 'DEV' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
+            throw new OAuth2ClientException('Satu sehat environment defined as DEV, but CLIENTID_DEV / CLIENTSECRET_DEV / ORGID_DEV not set');
+        }
+
+        if ($this->satusehat_env == 'STG' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
+            throw new OAuth2ClientException('Satu sehat environment defined as STG, but CLIENTID_STG / CLIENTSECRET_STG / ORGID_STG not set');
+        }
+
+        if ($this->satusehat_env == 'PROD' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
+            throw new OAuth2ClientException('Satu sehat environment defined as PROD, but CLIENTID_PROD / CLIENTSECRET_PROD / ORGID_PROD not set');
         }
 
         $this->base_url = $this->override ? null : $this->base_url;
