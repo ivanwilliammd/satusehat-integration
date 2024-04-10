@@ -3,6 +3,16 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.6.0 - 2024-04-10
+
+### What's Changed
+
+* Refactor Exception Handling with some fix by @yudistirasd in https://github.com/ivanwilliammd/satusehat-integration/pull/44
+* 43 refactoring exception handlling by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/45
+* fixed OAuthClient.php by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/46
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.5.1...2.6.0
+
 ## 2.5.1 - 2024-04-06
 
 ### What's Changed
@@ -153,6 +163,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -267,6 +278,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
