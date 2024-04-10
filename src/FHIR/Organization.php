@@ -2,7 +2,7 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\FHIR\Exception\FHIRException;
+use Satusehat\Integration\Exception\FHIR\FHIRException;
 use Satusehat\Integration\OAuth2Client;
 
 class Organization extends OAuth2Client
@@ -19,7 +19,7 @@ class Organization extends OAuth2Client
 
     public function addIdentifier($organization_identifier)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/organization/' . $this->organization_id;
         $identifier['value'] = $organization_identifier;
         $identifier['use'] = 'official';
 
@@ -48,12 +48,12 @@ class Organization extends OAuth2Client
 
     public function setPartOf($partOf = null)
     {
-        $this->organization['partOf']['reference'] = 'Organization/'.($partOf ? $partOf : $this->organization_id);
+        $this->organization['partOf']['reference'] = 'Organization/' . ($partOf ? $partOf : $this->organization_id);
     }
 
     public function setType($type = 'dept')
     {
-        if (! in_array($type, ['dept', 'prov'])) {
+        if (!in_array($type, ['dept', 'prov'])) {
             throw new FHIRException("Types of organizations currently supported : 'prov' | 'dept' ");
         }
 
@@ -152,23 +152,23 @@ class Organization extends OAuth2Client
         ];
 
         // Identifier is required
-        if (! array_key_exists('identifier', $this->organization)) {
+        if (!array_key_exists('identifier', $this->organization)) {
             return 'Please use organization->addIdentifier($organization_identifier) to pass the data';
         }
 
         // Name is required
-        if (! array_key_exists('name', $this->organization)) {
+        if (!array_key_exists('name', $this->organization)) {
             return 'Please use organization->setName($organization_name) to pass the data';
         }
 
         // Set default Organization part.Of
-        if (! array_key_exists('partOf', $this->organization)) {
+        if (!array_key_exists('partOf', $this->organization)) {
             $this->setPartOf();
         }
 
         // Set default Organization type
-        if (! array_key_exists('type', $this->organization)) {
-            $this->setType($this->organization_type);
+        if (!array_key_exists('type', $this->organization)) {
+            $this->setType();
         }
 
         return json_encode($this->organization, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);

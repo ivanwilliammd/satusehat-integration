@@ -4,7 +4,7 @@ namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\FHIR\Enum\ObservationCategory;
 use Satusehat\Integration\FHIR\Enum\ObservationCode;
-use Satusehat\Integration\FHIR\Exception\FHIRMissingProperty;
+use Satusehat\Integration\Exception\FHIR\FHIRMissingProperty;
 use Satusehat\Integration\OAuth2Client;
 
 class Observation extends OAuth2Client
@@ -141,7 +141,7 @@ class Observation extends OAuth2Client
     /**
      * Sets the subject of the observation.
      *
-     * @param  string  $subjectId The Satu Sehat ID of the subject.
+     * @param  string  $subjectId The SATUSEHAT ID of the subject.
      * @param  string  $name The name of the subject.
      * @return Observation The current observation instance.
      */
@@ -158,7 +158,7 @@ class Observation extends OAuth2Client
     /**
      * Sets the performer of the observation.
      *
-     * @param  string  $performerId The Satu Sehat ID of the performer.
+     * @param  string  $performerId The SATUSEHAT ID of the performer.
      * @param  string  $name The name of the performer.
      * @return Observation The current observation instance.
      */
@@ -175,7 +175,7 @@ class Observation extends OAuth2Client
     /**
      * Visit data where observation results are obtained
      *
-     * @param  string  $encounterId The Satu Sehat Encounter ID of the encounter.
+     * @param  string  $encounterId The SATUSEHAT Encounter ID of the encounter.
      * @param  string  $display The display name of the encounter.
      */
     public function setEncounter(string $encounterId, string $display = null): Observation

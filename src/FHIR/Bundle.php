@@ -3,7 +3,7 @@
 namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\OAuth2Client;
-use Satusehat\Integration\FHIR\Exception\FHIRException;
+use Satusehat\Integration\Exception\FHIR\FHIRException;
 
 class Bundle extends OAuth2Client
 {
@@ -55,7 +55,7 @@ class Bundle extends OAuth2Client
         // Membuat referensi condition di encounter
         $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code'], '', true);
 
-        if(!isset($this->bundle['entry'][0])){
+        if (!isset($this->bundle['entry'][0])) {
             $this->bundle['entry'][0] = [
                 'fullUrl' => 'urn:uuid:' . $this->encounter_id,
                 'resource' => '',
