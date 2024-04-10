@@ -64,23 +64,23 @@ class OAuth2Client
         }
 
         if (empty($this->satusehat_env)) {
-            throw new OAuth2ClientException('Satu sehat environment is missing');
+            throw new OAuth2ClientException('SATUSEHAT environment is missing');
         }
 
         if (!in_array($this->satusehat_env, ['DEV', 'STG', 'PROD'])) {
-            throw new OAuth2ClientException('Satu sehat environment invalid, supported (DEV, STG, PROD). ' . $this->satusehat_env .  ' given.');
+            throw new OAuth2ClientException('SATUSEHAT environment invalid, supported (DEV, STG, PROD). ' . $this->satusehat_env .  ' given.');
         }
 
         if ($this->satusehat_env == 'DEV' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
-            throw new OAuth2ClientException('Satu sehat environment defined as DEV, but CLIENTID_DEV / CLIENTSECRET_DEV / ORGID_DEV not set');
+            throw new OAuth2ClientException('SATUSEHAT environment defined as DEV, but CLIENTID_DEV / CLIENTSECRET_DEV / ORGID_DEV not set');
         }
 
         if ($this->satusehat_env == 'STG' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
-            throw new OAuth2ClientException('Satu sehat environment defined as STG, but CLIENTID_STG / CLIENTSECRET_STG / ORGID_STG not set');
+            throw new OAuth2ClientException('SATUSEHAT environment defined as STG, but CLIENTID_STG / CLIENTSECRET_STG / ORGID_STG not set');
         }
 
         if ($this->satusehat_env == 'PROD' && (empty($this->client_id) || empty($this->client_secret || empty($this->organization_id)))) {
-            throw new OAuth2ClientException('Satu sehat environment defined as PROD, but CLIENTID_PROD / CLIENTSECRET_PROD / ORGID_PROD not set');
+            throw new OAuth2ClientException('SATUSEHAT environment defined as PROD, but CLIENTID_PROD / CLIENTSECRET_PROD / ORGID_PROD not set');
         }
 
         $this->base_url = $this->override ? null : $this->base_url;
@@ -247,7 +247,7 @@ class OAuth2Client
     }
 
     /**
-     * Get request to satu sehat master data resource
+     * Get request to SATUSEHAT master data resource
      *
      * @param [type] $resource
      * @param [type] $queryString
