@@ -4,7 +4,7 @@ namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Terminology\Icd10;
-use Satusehat\Integration\FHIR\Exception\FHIRException;
+use Satusehat\Integration\Exception\FHIR\FHIRException;
 
 class Condition extends OAuth2Client
 {

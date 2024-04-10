@@ -4,7 +4,7 @@ namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\FHIR\Enum\ObservationCategory;
 use Satusehat\Integration\FHIR\Enum\ObservationCode;
-use Satusehat\Integration\FHIR\Exception\FHIRMissingProperty;
+use Satusehat\Integration\Exception\FHIR\FHIRMissingProperty;
 use Satusehat\Integration\OAuth2Client;
 
 class Observation extends OAuth2Client

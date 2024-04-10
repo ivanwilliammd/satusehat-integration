@@ -2,15 +2,17 @@
 
 namespace Satusehat\Integration\Terminology;
 
-use Satusehat\Integration\FHIR\Exception\FHIRException;
+use Satusehat\Integration\Exception\Terminology\TerminologyException;
+use Satusehat\Integration\Exception\Terminology\TerminologyInvalidArgumentException;
+use Satusehat\Integration\Exception\Terminology\TerminologyMissingArgumentException;
 use Satusehat\Integration\OAuth2Client;
 
-class KFA extends OAuth2Client
+class Kfa extends OAuth2Client
 {
     private array $identifier = ['kfa', 'lkpp', 'nie'];
 
     /**
-     * Get Detail KFA Product
+     * Get Detail Kfa Product
      *
      * @param string $identifier currently available stroed in : $identifier
      * @param string $code
@@ -19,11 +21,7 @@ class KFA extends OAuth2Client
     public function getProduct(string $identifier, string $code)
     {
         if (!in_array($identifier, $this->identifier)) {
-            throw new FHIRException("Identifier currently available : " . implode("','", $this->identifier));
-        }
-
-        if (empty($code)) {
-            throw new FHIRException("code product required", 422);
+            throw new TerminologyInvalidArgumentException("Identifier currently available (" . implode(", ", $this->identifier) . "), $identifier given");
         }
 
         $queryStringBuilder = [
@@ -36,7 +34,7 @@ class KFA extends OAuth2Client
         return $this->ss_kfa_get("products?", $queryString);
     }
     /**
-     * Get paginated KFA Products
+     * Get paginated Kfa Products
      *
      * @param string $productType currently available : 'alkes' | 'farmasi'
      * @param integer $page min 1 no max
@@ -46,20 +44,16 @@ class KFA extends OAuth2Client
      */
     public function getProducts(string $productType, string $keyword = null, int $page = 1, int $size = 100)
     {
-        if (empty($productType)) {
-            throw new FHIRException("Product type required", 422);
-        }
-
         if (!in_array($productType, ['alkes', 'farmasi'])) {
-            throw new FHIRException("Product types of currently available for : 'alkes' | 'farmasi'", 422);
+            throw new TerminologyInvalidArgumentException("\$productType currently available (alkes | farmasi), $productType given.");
         }
 
         if ($size > 1000) {
-            throw new FHIRException("Maximum size record 1000/request", 422);
+            throw new TerminologyException("Maximum size record 1000/request, $size given.");
         }
 
         if ($page < 1 || $size < 1) {
-            throw new FHIRException("Page / Size can't be blank.");
+            throw new TerminologyInvalidArgumentException("Page / Size cant be blank.");
         }
 
         $queryStringBuilder = [

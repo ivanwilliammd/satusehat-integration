@@ -3,7 +3,7 @@
 namespace Satusehat\Integration\FHIR;
 
 use Satusehat\Integration\OAuth2Client;
-use Satusehat\Integration\FHIR\Exception\FHIRException;
+use Satusehat\Integration\Exception\FHIR\FHIRException;
 
 class Patient extends OAuth2Client
 {
@@ -19,16 +19,15 @@ class Patient extends OAuth2Client
 
     public function addIdentifier($identifier_type, $identifier_value)
     {
-        if($identifier_type !== 'nik' && $identifier_type !== 'nik-ibu'){
+        if ($identifier_type !== 'nik' && $identifier_type !== 'nik-ibu') {
             throw new FHIRException("\$patient->addIdentifier error. Currently, we only support 'nik' or 'nik-ibu' usage.");
         }
 
         $identifier['use'] = 'official';
-        $identifier['system'] = 'https://fhir.kemkes.go.id/id/'.$identifier_type;
+        $identifier['system'] = 'https://fhir.kemkes.go.id/id/' . $identifier_type;
         $identifier['value'] = $identifier_value;
 
         $this->patient['identifier'][] = $identifier;
-
     }
 
     public function setName($patient_name)
@@ -47,7 +46,6 @@ class Patient extends OAuth2Client
         $telecom['use'] = $telecom_use; // https://www.hl7.org/fhir/valueset-contact-point-use.html
 
         $this->patient['telecom'][] = $telecom;
-
     }
 
     public function setGender($gender)
@@ -120,7 +118,7 @@ class Patient extends OAuth2Client
          * $patient->setMaritalStatus('', 'UNK', 'Unknown') reference: https://www.hl7.org/fhir/valueset-marital-status.html
          */
         $status = strtolower($marital_status);
-        switch($status){
+        switch ($status) {
             case 'unmarried':
                 $marital_code = 'U';
                 $marital_display = 'Unmarried';
@@ -141,7 +139,7 @@ class Patient extends OAuth2Client
                 $marital_code = 'W';
                 $marital_display = 'Widowed';
                 break;
-            default: 
+            default:
         };
 
         $marital['coding'] = [
@@ -155,14 +153,13 @@ class Patient extends OAuth2Client
         $marital['text'] = $marital_display;
 
         $this->patient['maritalStatus'] = $marital;
-
     }
 
     public function setMultipleBirth($value)
     {
-        if(is_bool($value)){
+        if (is_bool($value)) {
             $this->patient['multipleBirthBoolean'] = $value;
-        } else if(is_int($value)){
+        } else if (is_int($value)) {
             $this->patient['multipleBirthInteger'] = $value;
         }
     }
@@ -192,7 +189,6 @@ class Patient extends OAuth2Client
         ];
 
         $this->patient['contact'][] = $emergency;
-
     }
 
     public function setCommunication($code = 'id-ID', $display = 'Indonesian', bool $preferred = true)
@@ -235,33 +231,32 @@ class Patient extends OAuth2Client
     {
 
         // identifier is required
-        if (! array_key_exists('identifier', $this->patient)) {
+        if (!array_key_exists('identifier', $this->patient)) {
             throw new FHIRException('Please use patient->addIdentifier($identifier_type, $identifier_value) to pass the data');
         }
 
         // Name is required
-        if (! array_key_exists('name', $this->patient)) {
+        if (!array_key_exists('name', $this->patient)) {
             throw new FHIRException('Please use patient->setName($organization_name) to pass the data');
         }
 
         // Address is required
-        if (! array_key_exists('address', $this->patient)) {
+        if (!array_key_exists('address', $this->patient)) {
             throw new FHIRException('Please use patient->setAddress($address_detail) to pass the data');
         }
 
         // Telecom is required
-        if(! array_key_exists('telecom', $this->patient)){
+        if (!array_key_exists('telecom', $this->patient)) {
             throw new FHIRException('Please use patinet->addTelecom("phone_number") to pass the data');
         }
 
         // Multiple birth is required
-        if(! array_key_exists('multipleBirthInteger', $this->patient)) {
+        if (!array_key_exists('multipleBirthInteger', $this->patient)) {
             throw new FHIRException('Please use patient->setMultipleBirth({integer/boolean}) to pass the data');
         }
 
 
         return json_encode($this->patient, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-
     }
 
     public function post()

@@ -1,12 +1,12 @@
 <?php
 
-namespace Satusehat\Integration\FHIR\Exception;
+namespace Satusehat\Integration\Exception\FHIR;
 
 class FHIRInvalidPropertyValue extends FHIRException
 {
     public function __construct($message)
     {
-        $message = 'FHIR Invalid Property Value: '.$message;
+        $message = 'FHIR Invalid Property Value: ' . $message;
 
         parent::__construct($message);
     }
