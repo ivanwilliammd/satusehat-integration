@@ -220,7 +220,7 @@ class OAuth2Client
             'Authorization' => 'Bearer ' . $access_token,
         ];
 
-        $url = $this->base_url . '/' . $resource . '?identifier=https://fhir.kemkes.go.id/id/nik|' . $nik;
+        $url = $this->fhir_url . '/' . $resource . '?identifier=https://fhir.kemkes.go.id/id/nik|' . $nik;
         $request = new Request('GET', $url, $headers);
 
         try {
