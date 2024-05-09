@@ -3,6 +3,20 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.7.0 - 2024-05-09
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/ivanwilliammd/satusehat-integration/pull/47
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/ivanwilliammd/satusehat-integration/pull/48
+* Fix  seach patient by nik by @widialjatsiyah in https://github.com/ivanwilliammd/satusehat-integration/pull/50
+
+### New Contributors
+
+* @widialjatsiyah made their first contribution in https://github.com/ivanwilliammd/satusehat-integration/pull/50
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.6.0...2.7.0
+
 ## 2.6.0 - 2024-04-10
 
 ### What's Changed
@@ -164,6 +178,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -278,6 +293,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
