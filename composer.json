@@ -25,7 +25,8 @@
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "laravel/laravel": "^8.0|^9.0|^10.0|^11.0"
     },
     "suggest": {
         "laravel/pint": "Minimalist Opionated Code Formatting Extension for PHP 8.0+",
