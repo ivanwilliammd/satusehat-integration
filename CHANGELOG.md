@@ -3,6 +3,12 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.8.0 - 2024-07-02
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.7.0...2.8.0
+
+- Add composer.json declaration to support php 8.2+ / 8.3+
+
 ## 2.7.0 - 2024-05-09
 
 ### What's Changed
@@ -179,6 +185,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -293,6 +300,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
