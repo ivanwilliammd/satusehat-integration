@@ -3,6 +3,12 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.8.3 - 2024-07-02
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.8.2...2.8.3
+
+- Full updated dependencies for Laravel 11 (Illuminate 11)
+
 ## 2.8.0 - 2024-07-02
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.7.0...2.8.0
@@ -186,6 +192,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -300,6 +307,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
