@@ -3,6 +3,15 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.9.0 - 2024-07-20
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/ivanwilliammd/satusehat-integration/pull/54
+* Fixed put function for for encounter, condition, location, observation
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.8.3...2.9.0
+
 ## 2.8.3 - 2024-07-02
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.8.2...2.8.3
@@ -193,6 +202,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -307,6 +317,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
