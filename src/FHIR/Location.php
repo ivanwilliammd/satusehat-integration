@@ -195,6 +195,7 @@ class Location extends OAuth2Client
     public function put($id)
     {
         $this->location['id'] = $id;
+
         $payload = $this->json();
         // dd($payload);
         [$statusCode, $res] = $this->ss_put('Location', $id, $payload);

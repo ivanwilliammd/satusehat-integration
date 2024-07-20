@@ -168,6 +168,8 @@ class Condition extends OAuth2Client
 
     public function put($id)
     {
+        $this->condition['id'] = $id;
+
         $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('Condition', $id, $payload);
 

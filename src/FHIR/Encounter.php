@@ -257,6 +257,8 @@ class Encounter extends OAuth2Client
 
     public function put($id)
     {
+        $this->encounter['id'] = $id;
+
         $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('Encounter', $id, $payload);
 

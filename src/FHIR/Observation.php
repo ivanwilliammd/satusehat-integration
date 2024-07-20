@@ -228,6 +228,8 @@ class Observation extends OAuth2Client
 
     public function put($id)
     {
+        $this->observation['id'] = $id;
+
         $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('Observation', $id, $payload);
 
