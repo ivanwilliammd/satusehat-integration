@@ -86,7 +86,7 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
 
         // Publish Kode Wilayah Indonesia csv data
         $this->publishes([
-            __DIR__ . '/../database/seeders/csv/kode_wilayah_indonesia.csv.stub' => database_path('/seeders/csv/icd10.csv'),
+            __DIR__ . '/../database/seeders/csv/kode_wilayah_indonesia.csv.stub' => database_path('/seeders/csv/kode_wilayah_indonesia.csv'),
         ], 'kodewilayahindonesia');
 
         // Publish Seeder for Kode Wilayah Indonesia
