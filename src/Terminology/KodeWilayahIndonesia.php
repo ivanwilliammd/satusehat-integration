@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property string $kode_wilayah
  * @property string $nama_wilayah
- * @property bool $active
+ * @property int $level
+ * @property string|null $parent
+ * @property string|null $state
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
@@ -34,7 +36,13 @@ class KodeWilayahIndonesia extends Model
 
     protected $primaryKey = 'id';
 
-    public $incrementing = false;
+    public $incrementing = true; // Sesuaikan dengan 'bigIncrements' di migration
 
-    protected $casts = ['kode_wilayah' => 'string', 'nama_wilayah' => 'string'];
+    protected $casts = [
+        'kode_wilayah' => 'string',
+        'nama_wilayah' => 'string',
+        'level' => 'integer',
+        'parent' => 'string',
+        'state' => 'string',
+    ];
 }
