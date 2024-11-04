@@ -21,6 +21,7 @@ class CreateKodeWilayahIndonesiaTable extends Migration
             $table->string('nama_wilayah'); // Nama wilayah
             $table->string('parent')->nullable(); // Parent wilayah (kode - nama wilayah)
             $table->string('state')->nullable(); // State atau negara bagian
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
