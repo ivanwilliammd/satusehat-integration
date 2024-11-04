@@ -3,6 +3,12 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.9.5 - 2024-11-04
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.3...2.9.5
+
+Hotfix by @ivanwilliammd for kode wilayah Indonesia migration --> 2.9.x feat by @IrsyadProject)
+
 ## 2.9.3 - 2024-11-04
 
 ### What's Changed
@@ -234,6 +240,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -348,6 +355,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
