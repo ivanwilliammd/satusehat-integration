@@ -3,6 +3,20 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.9.5 - 2024-11-04
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.3...2.9.5
+
+Hotfix by @ivanwilliammd for kode wilayah Indonesia migration --> 2.9.x feat by @IrsyadProject)
+
+## 2.9.3 - 2024-11-04
+
+### What's Changed
+
+* Update CSV data kode wilayah dari KEMENDAGRI Tahun 2023, update migration & seeder kode wilayah by @IrsyadProject in https://github.com/ivanwilliammd/satusehat-integration/pull/59
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.2...2.9.3
+
 ## 2.9.2 - 2024-10-10
 
 ### What's Changed
@@ -225,6 +239,8 @@ class BaseController extends Controller
 
 
 
+
+
 ```
 v1.2.x :
 
@@ -339,6 +355,8 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
+
 
 
 
