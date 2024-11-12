@@ -140,16 +140,6 @@ class Organization extends OAuth2Client
 
     public function json()
     {
-        // Add Organization type
-        $this->organization['type'][] = [
-            'coding' => [
-                [
-                    'system' => 'http://terminology.hl7.org/CodeSystem/organization-type',
-                    'code' => 'dept',
-                    'display' => 'Hospital Department',
-                ],
-            ],
-        ];
 
         // Identifier is required
         if (!array_key_exists('identifier', $this->organization)) {
