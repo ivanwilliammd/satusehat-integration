@@ -241,9 +241,9 @@ class Patient extends OAuth2Client
         }
 
         // Address is required
-        if (!array_key_exists('address', $this->patient)) {
-            throw new FHIRException('Please use patient->setAddress($address_detail) to pass the data');
-        }
+        // if (!array_key_exists('address', $this->patient)) {
+        //     throw new FHIRException('Please use patient->setAddress($address_detail) to pass the data');
+        // }
 
         // Telecom is required
         if (!array_key_exists('telecom', $this->patient)) {
