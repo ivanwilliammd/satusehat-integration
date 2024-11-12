@@ -3,6 +3,15 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.9.6 - 2024-11-12
+
+### What's Changed
+
+* Disable required address in Patient by @IrsyadProject in https://github.com/ivanwilliammd/satusehat-integration/pull/60
+* Hotfix organization by @yudistirasd ft. @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/62
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.5...2.9.6
+
 ## 2.9.5 - 2024-11-04
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.3...2.9.5
@@ -241,6 +250,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -355,6 +365,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
