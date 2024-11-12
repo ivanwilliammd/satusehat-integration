@@ -14,7 +14,7 @@ class KodeWilayahIndonesiaSeeder extends CsvSeeder
     public function __construct(){
         $this->file = base_path().'/database/seeders/csv/kode_wilayah_indonesia.csv';
         $this->tablename = config('satusehatintegration.kode_wilayah_indonesia_table_name');
-        $this->delimiter = ',';
+        $this->delimiter = ';';
     }
 
     public function run()
