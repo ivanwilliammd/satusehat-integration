@@ -127,6 +127,7 @@ class Location extends OAuth2Client
             'ca' => 'Cabinet',
             'rd' => 'Road',
             'area' => 'Area',
+            'bd' => 'Bed'
         ];
 
         $this->location['physicalType']['coding'][] = [
