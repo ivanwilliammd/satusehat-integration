@@ -2,25 +2,26 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Exception\FHIR\FHIRException;
+use Satusehat\Integration\OAuth2Client;
 
 class Bundle extends OAuth2Client
 {
-
     public array $bundle = [
         'resourceType' => 'Bundle',
         'type' => 'transaction',
         'entry' => [],
     ];
 
-    public $encounter_id, $encounter;
+    public $encounter_id;
+
+    public $encounter;
 
     private function uuidV4()
     {
         $data = openssl_random_pseudo_bytes(16);
-        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-        $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+        $data[6] = chr(ord($data[6]) & 0x0F | 0x40);
+        $data[8] = chr(ord($data[8]) & 0x3F | 0x80);
         $uuid = bin2hex($data);
         $formatted_uuid = sprintf(
             '%s-%s-%s-%s-%s',
@@ -43,8 +44,8 @@ class Bundle extends OAuth2Client
     public function addCondition(Condition $condition)
     {
 
-        if (!isset($this->encounter_id)) {
-            throw new FHIRException("Please call addEncounter method first before addCondition.");
+        if (! isset($this->encounter_id)) {
+            throw new FHIRException('Please call addEncounter method first before addCondition.');
         }
 
         $condition_uuid = $this->uuidV4();
@@ -55,26 +56,26 @@ class Bundle extends OAuth2Client
         // Membuat referensi condition di encounter
         $this->encounter->addDiagnosis($condition_uuid, $condition->condition['code']['coding'][0]['code'], '', true);
 
-        if (!isset($this->bundle['entry'][0])) {
+        if (! isset($this->bundle['entry'][0])) {
             $this->bundle['entry'][0] = [
-                'fullUrl' => 'urn:uuid:' . $this->encounter_id,
+                'fullUrl' => 'urn:uuid:'.$this->encounter_id,
                 'resource' => '',
                 'request' => [
                     'method' => 'POST',
-                    'url' => 'Encounter'
-                ]
+                    'url' => 'Encounter',
+                ],
             ];
         }
 
         $this->bundle['entry'][0]['resource'] = json_decode($this->encounter->json());
 
         $this->bundle['entry'][] = [
-            'fullUrl' => 'urn:uuid:' . $condition_uuid,
+            'fullUrl' => 'urn:uuid:'.$condition_uuid,
             'resource' => json_decode($condition->json()),
             'request' => [
                 'method' => 'POST',
                 'url' => 'Condition',
-            ]
+            ],
         ];
     }
 

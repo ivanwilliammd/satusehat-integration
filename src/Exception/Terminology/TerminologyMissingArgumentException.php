@@ -2,6 +2,4 @@
 
 namespace Satusehat\Integration\Exception\Terminology;
 
-class TerminologyMissingArgumentException extends TerminologyException
-{
-}
+class TerminologyMissingArgumentException extends TerminologyException {}

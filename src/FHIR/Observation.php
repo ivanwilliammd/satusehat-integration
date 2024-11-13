@@ -2,8 +2,6 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\FHIR\Enum\ObservationCategory;
-use Satusehat\Integration\FHIR\Enum\ObservationCode;
 use Satusehat\Integration\Exception\FHIR\FHIRMissingProperty;
 use Satusehat\Integration\OAuth2Client;
 
@@ -14,7 +12,7 @@ class Observation extends OAuth2Client
     /**
      * Sets a status to the observation.
      *
-     * @param  string  $status The status to add. Defaults to "final".
+     * @param  string  $status  The status to add. Defaults to "final".
      * @return Observation Returns the current instance of the Observation class.
      */
     public function setStatus($status = 'final'): Observation
@@ -56,7 +54,7 @@ class Observation extends OAuth2Client
     /**
      * Adds a category to the observation.
      *
-     * @param  string  $category the code of the category
+     * @param  string  $category  the code of the category
      * @return Observation The updated observation object.
      */
     public function addCategory(string $category): Observation
@@ -88,7 +86,7 @@ class Observation extends OAuth2Client
      * Adds an observation code to the observation.
      * If more than one code is added, the last one will be used.
      *
-     * @param  string  $code The valid observation code to add.
+     * @param  string  $code  The valid observation code to add.
      * @return Observation Returns the updated observation object.
      */
     public function addCode(string $code): Observation
@@ -96,7 +94,7 @@ class Observation extends OAuth2Client
         $code = [
             'system' => 'http://loinc.org',
             'code' => '',
-            'display' => ''
+            'display' => '',
         ];
 
         $display = '';
@@ -141,8 +139,8 @@ class Observation extends OAuth2Client
     /**
      * Sets the subject of the observation.
      *
-     * @param  string  $subjectId The SATUSEHAT ID of the subject.
-     * @param  string  $name The name of the subject.
+     * @param  string  $subjectId  The SATUSEHAT ID of the subject.
+     * @param  string  $name  The name of the subject.
      * @return Observation The current observation instance.
      */
     public function setSubject(string $subjectId, string $name): Observation
@@ -158,8 +156,8 @@ class Observation extends OAuth2Client
     /**
      * Sets the performer of the observation.
      *
-     * @param  string  $performerId The SATUSEHAT ID of the performer.
-     * @param  string  $name The name of the performer.
+     * @param  string  $performerId  The SATUSEHAT ID of the performer.
+     * @param  string  $name  The name of the performer.
      * @return Observation The current observation instance.
      */
     public function setPerformer(string $performerId, string $name)
@@ -175,14 +173,14 @@ class Observation extends OAuth2Client
     /**
      * Visit data where observation results are obtained
      *
-     * @param  string  $encounterId The SATUSEHAT Encounter ID of the encounter.
-     * @param  string  $display The display name of the encounter.
+     * @param  string  $encounterId  The SATUSEHAT Encounter ID of the encounter.
+     * @param  string  $display  The display name of the encounter.
      */
-    public function setEncounter(string $encounterId, string $display = null): Observation
+    public function setEncounter(string $encounterId, ?string $display = null): Observation
     {
         $this->observation['encounter'] = [
             'reference' => "Encounter/{$encounterId}",
-            'display' => !empty($display) ? $display : "Kunjungan {$encounterId}",
+            'display' => ! empty($display) ? $display : "Kunjungan {$encounterId}",
         ];
 
         return $this;
@@ -195,23 +193,23 @@ class Observation extends OAuth2Client
      */
     public function json(): string
     {
-        if (!array_key_exists('status', $this->observation)) {
+        if (! array_key_exists('status', $this->observation)) {
             throw new FHIRMissingProperty('Status is required.');
         }
 
-        if (!array_key_exists('category', $this->observation)) {
+        if (! array_key_exists('category', $this->observation)) {
             throw new FHIRMissingProperty('Category is required.');
         }
 
-        if (!array_key_exists('code', $this->observation)) {
+        if (! array_key_exists('code', $this->observation)) {
             throw new FHIRMissingProperty('Code is required.');
         }
 
-        if (!array_key_exists('subject', $this->observation)) {
+        if (! array_key_exists('subject', $this->observation)) {
             throw new FHIRMissingProperty('Subject is required.');
         }
 
-        if (!array_key_exists('encounter', $this->observation)) {
+        if (! array_key_exists('encounter', $this->observation)) {
             throw new FHIRMissingProperty('Encounter is required.');
         }
 

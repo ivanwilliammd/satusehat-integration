@@ -2,8 +2,8 @@
 
 namespace Satusehat\Integration\FHIR;
 
-use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\Exception\FHIR\FHIRException;
+use Satusehat\Integration\OAuth2Client;
 
 class Patient extends OAuth2Client
 {
@@ -24,7 +24,7 @@ class Patient extends OAuth2Client
         }
 
         $identifier['use'] = 'official';
-        $identifier['system'] = 'https://fhir.kemkes.go.id/id/' . $identifier_type;
+        $identifier['system'] = 'https://fhir.kemkes.go.id/id/'.$identifier_type;
         $identifier['value'] = $identifier_value;
 
         $this->patient['identifier'][] = $identifier;
@@ -59,7 +59,7 @@ class Patient extends OAuth2Client
         $this->patient['birthDate'] = $date;
     }
 
-    public function setDeceased(Bool $bool)
+    public function setDeceased(bool $bool)
     {
         $this->patient['deceasedBoolean'] = $bool;
     }
@@ -140,7 +140,7 @@ class Patient extends OAuth2Client
                 $marital_display = 'Widowed';
                 break;
             default:
-        };
+        }
 
         $marital['coding'] = [
             [
@@ -159,7 +159,7 @@ class Patient extends OAuth2Client
     {
         if (is_bool($value)) {
             $this->patient['multipleBirthBoolean'] = $value;
-        } else if (is_int($value)) {
+        } elseif (is_int($value)) {
             $this->patient['multipleBirthInteger'] = $value;
         }
     }
@@ -231,12 +231,12 @@ class Patient extends OAuth2Client
     {
 
         // identifier is required
-        if (!array_key_exists('identifier', $this->patient)) {
+        if (! array_key_exists('identifier', $this->patient)) {
             throw new FHIRException('Please use patient->addIdentifier($identifier_type, $identifier_value) to pass the data');
         }
 
         // Name is required
-        if (!array_key_exists('name', $this->patient)) {
+        if (! array_key_exists('name', $this->patient)) {
             throw new FHIRException('Please use patient->setName($organization_name) to pass the data');
         }
 
@@ -246,15 +246,14 @@ class Patient extends OAuth2Client
         // }
 
         // Telecom is required
-        if (!array_key_exists('telecom', $this->patient)) {
+        if (! array_key_exists('telecom', $this->patient)) {
             throw new FHIRException('Please use patinet->addTelecom("phone_number") to pass the data');
         }
 
         // Multiple birth is required
-        if (!array_key_exists('multipleBirthInteger', $this->patient)) {
+        if (! array_key_exists('multipleBirthInteger', $this->patient)) {
             throw new FHIRException('Please use patient->setMultipleBirth({integer/boolean}) to pass the data');
         }
-
 
         return json_encode($this->patient, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
@@ -263,6 +262,7 @@ class Patient extends OAuth2Client
     {
         $payload = $this->json();
         [$statusCode, $res] = $this->ss_post('Patient', $payload);
+
         return [$statusCode, $res];
     }
 }
