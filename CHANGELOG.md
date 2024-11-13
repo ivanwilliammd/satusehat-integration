@@ -3,6 +3,14 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 2.9.7 - 2024-11-13
+
+### What's Changed
+
+* Add new physical location type ( Bed ) by @yudistirasd in https://github.com/ivanwilliammd/satusehat-integration/pull/63
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.6...2.9.7
+
 ## 2.9.6 - 2024-11-12
 
 ### What's Changed
@@ -251,6 +259,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -365,6 +374,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
