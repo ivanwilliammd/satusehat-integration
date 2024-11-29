@@ -4,7 +4,7 @@ namespace Database\Seeders;
 use JeroenZwart\CsvSeeder\CsvSeeder;
 use DB;
 
-class Icd10Seeder extends CsvSeeder
+class LoincSeeder extends CsvSeeder
 {
     /**
      * Run the database seeds.
