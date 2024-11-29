@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 class ArchTest extends TestCase
 {
-    public function testDebuggingFunctionsNotUsed()
+    public function test_debugging_functions_not_used()
     {
         $debuggingFunctions = ['dd', 'dump', 'ray'];
         $this->assertNotContainsAny($debuggingFunctions);
