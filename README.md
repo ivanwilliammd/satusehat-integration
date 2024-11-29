@@ -27,6 +27,8 @@ Fully documented usage guide could be found on the Usage Wiki section [here](htt
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Credits
+
+Active contributor:
 1. [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
 2. [Irsyad](https://github.com/IrsyadProject)
 3. [Syaeful](https://github.com/SyaefulKai)
