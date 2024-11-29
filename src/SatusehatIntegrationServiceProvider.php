@@ -75,6 +75,28 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             ], 'icd9cm');
         }
 
+        // Publish LOINC & LOINC answer csv data
+        $this->publishes([
+            __DIR__.'/../database/seeders/csv/loinc.csv.stub' => database_path('/seeders/csv/loinc.csv'),
+        ], 'loinc');
+
+        $this->publishes([
+            __DIR__.'/../database/seeders/csv/loinc_answer.csv.stub' => database_path('/seeders/csv/loinc_answer.csv'),
+        ], 'loinc');
+
+        // Publish Seeder for LOINC & LOINC Answer
+        if (! class_exists('LoincSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/LoincSeeder.php.stub' => database_path('/seeders/LoincSeeder.php'),
+            ], 'loinc');
+        }
+
+        if (! class_exists('LoincAnswerSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/LoincAnswerSeeder.php.stub' => database_path('/seeders/LoincAnswerSeeder.php'),
+            ], 'loinc');
+        }
+
         // Publish Migrations for Kode Wilayah Indonesia
         if (! class_exists('CreateKodeWilayahIndonesiaTable')) {
             $timestamp = date('Y_m_d_His', time());
