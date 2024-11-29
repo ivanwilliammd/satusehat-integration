@@ -3,6 +3,14 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 3.0.0 - 2024-11-29
+
+### What's Changed
+
+* 64 loinc terminology by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/65
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.8...3.0.0
+
 ## 2.9.8 - 2024-11-14
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.7...2.9.8
@@ -267,6 +275,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -381,6 +390,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
