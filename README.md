@@ -5,7 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
 - This unofficial SATUSEHAT FHIR PHP Library to help generate SATUSEHAT FHIR-ready JSON, using profile established by [SATUSEHAT Documentation](https://satusehat.kemkes.go.id/platform/docs).
-- This repository use case is rapidly developing and need help. Please kindly contribute or sponsor if this project help you integrate to SATUSEHAT.
+- This repository is rapidly developing and need help. Please kindly comment in [Issue](https://github.com/ivanwilliammd/satusehat-integration/issues) section to contribute or Sponsor this project.
 
 ## Example Laravel 10 Project with SATUSEHAT Integration
 See ```satusehat-integration``` library in action [here](https://github.com/ivanwilliammd/satusehat-laravel-example)
