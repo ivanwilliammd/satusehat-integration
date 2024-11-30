@@ -307,7 +307,11 @@ class MedicationTerminology
         "discharge" => "Discharge"
     );
 
-
+    public array $course_of_therapy_type = array(
+        "continuous" => "Continuous long term therapy",
+        "acute" => "Short course (acute) therapy",
+        "seasonal" => "Seasonal",
+    );
 
     public function __construct()
     {
@@ -315,6 +319,7 @@ class MedicationTerminology
         $this->drug_form = $this->drug_form;
         $this->medicationrequest_status_reason = $this->medicationrequest_status_reason;
         $this->medicationrequest_category = $this->medicationrequest_category;
+        $this->course_of_therapy_type = $this->course_of_therapy_type;
     }
 
 }

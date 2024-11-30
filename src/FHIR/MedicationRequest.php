@@ -18,6 +18,7 @@ class MedicationRequest extends OAuth2Client
     public $drug_form;
     public $medicationrequest_status_reason;
     public $medicationrequest_category;
+    public $course_of_therapy_type;
 
     # Declare general terminology
     public $performer_role;
@@ -31,6 +32,7 @@ class MedicationRequest extends OAuth2Client
         $this->drug_form = $medication_terminology->drug_form;
         $this->medicationrequest_status_reason = $medication_terminology->medicationrequest_status_reason;
         $this->medicationrequest_category = $medication_terminology->medicationrequest_category;
+        $this->course_of_therapy_type = $medication_terminology->course_of_therapy_type;
 
         $this->performer_role = $occupation->performer_role;
     }
@@ -192,6 +194,42 @@ class MedicationRequest extends OAuth2Client
     public function addBasedOn($reference)
     {
         $this->medication_request['basedOn']['reference'] = $reference;
+    }
+
+    public function setCourseOfTherapyType($course)
+    {
+        $this->medication_request['courseOfTherapyType']['coding'][] = [
+            'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy',
+            'code' => $course,
+            'display' => $this->course_of_therapy_type[$course],
+        ];
+    }
+
+    public function addInsurance($insurance)
+    {
+        $this->medication_request['insurance']['reference'] = $insurance;
+    }
+
+    public function addNote($note)
+    {
+        $this->medication_request['note'][] = [
+            'text' => $note,
+        ];
+    }
+
+    public function addDosageInstruction($sequence = 1, $route, $timing_code, $patientInstruction, $as_needed = false, $dose_value, $dose_unit)
+    {
+
+        $dosage_instruction = [
+            'sequence' => $sequence,
+            'patientInstruction' => $patientInstruction,
+            'asNeededBoolean' => $as_needed,
+            'timing' => $timing, # perlu di cherry pick yang umum
+            'route' => $route, # ATC
+            'doseAndRate' => $doseAndRate,
+        ];
+
+        $this->medication_request['dosageInstruction'][] = $dosage_instruction;
     }
 
     public function addContained(Medication $medication)
