@@ -361,7 +361,7 @@ class Medication extends OAuth2Client
         $amount['numerator']['code'] = $numerator_unit;
 
         $amount['denominator']['value'] = $denominator;
-        $amount['denominator']['system'] = 'http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm';
+        $amount['denominator']['system'] = $this->drug_form[$denominator_unit]['system'];
         $amount['denominator']['code'] = $denominator_unit;
     }
 
@@ -387,6 +387,10 @@ class Medication extends OAuth2Client
         $ingredient['strength']['numerator']['value'] = $numerator;
         $ingredient['strength']['numerator']['system'] = 'http://unitsofmeasure.org';
         $ingredient['strength']['numerator']['code'] = $numerator_unit;
+
+        $ingredient['strength']['denominator']['value'] = $denominator;
+        $ingredient['strength']['denominator']['system'] = $this->drug_form[$denominator_unit]['system'];
+        $ingredient['strength']['denominator']['code'] = $denominator_unit;
 
         $this->medication['ingredient'][] = $ingredient;
     }
@@ -425,4 +429,28 @@ class Medication extends OAuth2Client
 
         $this->medication['extension'][] = $medicationType;
     }
+
+    public function json()
+    {
+        return json_encode($this->medication, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    }
+
+    public function post()
+    {
+        $payload = $this->json();
+        [$statusCode, $res] = $this->ss_post('Medication', $payload);
+
+        return [$statusCode, $res];
+    }
+
+    public function put($id)
+    {
+        $this->medication['id'] = $id;
+
+        $payload = $this->json();
+        [$statusCode, $res] = $this->ss_put('Medication', $id, $payload);
+
+        return [$statusCode, $res];
+    }
+
 }
