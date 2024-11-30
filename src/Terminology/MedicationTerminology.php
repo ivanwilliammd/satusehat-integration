@@ -284,10 +284,37 @@ class MedicationTerminology
         "VAGINALDOSE" => array("display" => "Vaginal dose form", "system" => "http://snomed.info/sct")
     );
 
+    public array $medicationrequest_status_reason = array(
+        "altchoice" => "Try another treatment first",
+        "clarif" => "Prescription requires clarification",
+        "drughigh" => "Drug level too high",
+        "hospadm" => "Admission to hospital",
+        "labint" => "Lab interference issues",
+        "non-avail" => "Patient not available",
+        "preg" => "Parent is pregnant/breast feeding",
+        "salg" => "Allergy",
+        "sddi" => "Drug interacts with another drug",
+        "sdupther" => "Duplicate therapy",
+        "sintol" => "Suspected intolerance",
+        "surg" => "Patient scheduled for surgery",
+        "washout" => "Waiting for old drug to wash out"
+    );
+
+    public array $medicationrequest_category = array(
+        "inpatient" => "Inpatient",
+        "outpatient" => "Outpatient",
+        "community" => "Community",
+        "discharge" => "Discharge"
+    );
+
+
+
     public function __construct()
     {
         $this->medication_form = $this->medication_form;
         $this->drug_form = $this->drug_form;
+        $this->medicationrequest_status_reason = $this->medicationrequest_status_reason;
+        $this->medicationrequest_category = $this->medicationrequest_category;
     }
 
 }

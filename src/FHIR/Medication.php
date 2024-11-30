@@ -9,6 +9,7 @@ use Satusehat\Integration\Terminology\MedicationTerminology;
 
 class Medication extends OAuth2Client
 {
+    # Declare required terminology
     public $medication_form;
     public $drug_form;
 
