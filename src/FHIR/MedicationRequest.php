@@ -288,7 +288,7 @@ class MedicationRequest extends OAuth2Client
         $this->medication_request['dispenseRequest'] = $dispense_request;
     }
 
-    public function setSubstitution($allowed = false, $reason = 'G')
+    public function setSubstitution($allowed = true, $reason = 'G')
     {
         $substitution['allowedBoolean'] = $allowed;
 
