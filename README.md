@@ -7,12 +7,7 @@
 ## Introduction
 - This unofficial SATUSEHAT FHIR PHP Library to help generate SATUSEHAT FHIR-ready JSON, using profile established by [SATUSEHAT Documentation](https://satusehat.kemkes.go.id/platform/docs).
 - This repository is rapidly developing and need help. Please kindly comment in [Issue](https://github.com/ivanwilliammd/satusehat-integration/issues) section to contribute or Sponsor this project.
-
-## Supported resource
-| Prerequisite    | Terminology    | Resource |
-| ----------- | ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+- Features supported --> see [Wiki](https://github.com/ivanwilliammd/satusehat-integration/wiki/Features)
 
 ## SATUSEHAT dissemination summary
 - Update (19/9/2024) : Medication is attached to MedicationRequest and MedicationDispense
