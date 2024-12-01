@@ -225,7 +225,7 @@ class MedicationRequest extends OAuth2Client
         ];
     }
 
-    public function addDosageInstruction($sequence = 1, $route_code, $timing_code, $patientInstruction, $as_needed = false, $dose_value, $dose_unit)
+    public function addDosageInstruction($sequence = 1, $route_code, $timing_code, $patientInstruction, $as_needed = false, $dose_value = null, $dose_unit = null)
     {
         $dosage_instruction['sequence'] = $sequence;
         $dosage_instruction['patientInstruction'] = $patientInstruction;
@@ -237,14 +237,17 @@ class MedicationRequest extends OAuth2Client
         $doseAndRate_type_coding['display'] = 'Ordered';
 
         $doseAndRate_type['coding'][] = $doseAndRate_type_coding;
-
-        $doseAndRate_quantity['value'] = $dose_value;
-        $doseAndRate_quantity['code'] = $dose_unit;
-        $doseAndRate_quantity['system'] = $this->drug_form[$dose_unit]['system'];
-        $doseAndRate_quantity['unit'] = $this->drug_form[$dose_unit]['display'];
-
         $doseAndRate_singular['type'] = $doseAndRate_type;
-        $doseAndRate_singular['doseQuantity'] = $doseAndRate_quantity;
+
+        // If dose_value or dose_unit is not declared, skip
+        if (isset($dose_value) && isset($dose_unit)) {
+            $doseAndRate_quantity['value'] = $dose_value;
+            $doseAndRate_quantity['code'] = $dose_unit;
+            $doseAndRate_quantity['system'] = $this->drug_form[$dose_unit]['system'];
+            $doseAndRate_quantity['unit'] = $this->drug_form[$dose_unit]['display'];
+
+            $doseAndRate_singular['doseQuantity'] = $doseAndRate_quantity;
+        }
 
         $dosage_instruction['doseAndRate'][] = $doseAndRate_singular;
 
