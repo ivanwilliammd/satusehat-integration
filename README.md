@@ -12,7 +12,7 @@
 ## SATUSEHAT dissemination summary
 - Update (19/9/2024) : Medication is attached to MedicationRequest and MedicationDispense
 - Update (21/11/2024):
-    - SATUSEHAT implements multiple role access with restriction on each API service --> [Resource Access] (https://drive.google.com/file/d/1bs8uU_nIuNqHohnRfTvFHx0o2qOgAYabAz0ptUC3w9s/view)
+    - SATUSEHAT implements multiple role access with restriction on each API service --> [Resource Access](https://drive.google.com/file/d/1bs8uU_nIuNqHohnRfTvFHx0o2qOgAYabAz0ptUC3w9s/view)
     - Data privacy security update, which will censored Patient and Practitioner name
     - Patient and Practitioner reference in ```Encounter.subject.display``` and ```Encounter.participant.individual``` must be same with Master Patient Index (Patient GET) and Master Nakes Index (Practitioner GET)
 
