@@ -19,6 +19,10 @@ class MedicationRequest extends OAuth2Client
     public $medicationrequest_status_reason;
     public $medicationrequest_category;
     public $course_of_therapy_type;
+    public $time_interval;
+    public $substitution_reason;
+    public $route;
+    public $timing;
 
     # Declare general terminology
     public $performer_role;
@@ -33,6 +37,10 @@ class MedicationRequest extends OAuth2Client
         $this->medicationrequest_status_reason = $medication_terminology->medicationrequest_status_reason;
         $this->medicationrequest_category = $medication_terminology->medicationrequest_category;
         $this->course_of_therapy_type = $medication_terminology->course_of_therapy_type;
+        $this->time_interval = $medication_terminology->time_interval;
+        $this->substitution_reason = $medication_terminology->substitution_reason;
+        $this->route = $medication_terminology->route;
+        $this->timing = $medication_terminology->timing;
 
         $this->performer_role = $occupation->performer_role;
     }
@@ -217,19 +225,82 @@ class MedicationRequest extends OAuth2Client
         ];
     }
 
-    public function addDosageInstruction($sequence = 1, $route, $timing_code, $patientInstruction, $as_needed = false, $dose_value, $dose_unit)
+    public function addDosageInstruction($sequence = 1, $route_code, $timing_code, $patientInstruction, $as_needed = false, $dose_value, $dose_unit)
     {
+        $dosage_instruction['sequence'] = $sequence;
+        $dosage_instruction['patientInstruction'] = $patientInstruction;
+        $dosage_instruction['asNeededBoolean'] = $as_needed;
+        $dosage_instruction['timing']['code'] = $timing_code;
 
-        $dosage_instruction = [
-            'sequence' => $sequence,
-            'patientInstruction' => $patientInstruction,
-            'asNeededBoolean' => $as_needed,
-            'timing' => $timing, # perlu di cherry pick yang umum
-            'route' => $route, # ATC
-            'doseAndRate' => $doseAndRate,
-        ];
+        $doseAndRate_type_coding['system'] = 'http://terminology.hl7.org/CodeSystem/dose-rate-type';
+        $doseAndRate_type_coding['code'] = 'ordered';
+        $doseAndRate_type_coding['display'] = 'Ordered';
+
+        $doseAndRate_type['coding'][] = $doseAndRate_type_coding;
+
+        $doseAndRate_quantity['value'] = $dose_value;
+        $doseAndRate_quantity['code'] = $dose_unit;
+        $doseAndRate_quantity['system'] = $this->drug_form[$dose_unit]['system'];
+        $doseAndRate_quantity['unit'] = $this->drug_form[$dose_unit]['display'];
+
+        $doseAndRate_singular['type'] = $doseAndRate_type;
+        $doseAndRate_singular['doseQuantity'] = $doseAndRate_quantity;
+
+        $dosage_instruction['doseAndRate'][] = $doseAndRate_singular;
+
+        $route_coding['system'] = 'http://snomed.info/sct';
+        $route_coding['code'] = $route_code;
+        $route_coding['display'] = $this->route[$route_code];
+
+        $dosage_instruction['route']['coding'] = $route_coding;
+
+        $timing_coding['system'] = 'http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation';
+        $timing_coding['code'] = $timing_code;
+        $timing_coding['display'] = $this->timing[$timing_code];
+
+        $dosage_instruction['timing']['coding'][] = $timing_coding;
 
         $this->medication_request['dosageInstruction'][] = $dosage_instruction;
+    }
+
+    public function setDispenseRequest($quantity, $unit, $iter = 0, $validityPeriodStart, $validityPeriodEnd, $expectedSupplyDurationNum, $expectedSupplyDurationUnit)
+    {
+        $dispense_request['numberOfRepeatsAllowed'] = $iter;
+
+        $dispense_request['quantity']['value'] = $quantity;
+        $dispense_request['quantity']['code'] = $unit;
+        $dispense_request['quantity']['system'] = $this->drug_form[$unit]['system'];
+        $dispense_request['quantity']['unit'] = $this->drug_form[$unit]['display'];
+
+        $dispense_request['validityPeriod']['start'] = date('Y-m-d\TH:i:sP', strtotime($validityPeriodStart));
+        $dispense_request['validityPeriod']['end'] = date('Y-m-d\TH:i:sP', strtotime($validityPeriodEnd));
+
+        # If expectedSupplyDurationUnit or expectedSupplyDurationNum is not declared skip
+        if (isset($expectedSupplyDurationUnit) && isset($expectedSupplyDurationNum)) {
+            $dispense_request['expectedSupplyDuration']['value'] = $expectedSupplyDurationNum;
+            $dispense_request['expectedSupplyDuration']['code'] = $expectedSupplyDurationUnit;
+            $dispense_request['expectedSupplyDuration']['system'] = 'http://unitsofmeasure.org';
+            $dispense_request['expectedSupplyDuration']['unit'] = $this->time_interval[$expectedSupplyDurationUnit];
+        }
+
+        $dispense_request['performer']['reference'] = 'Organization/'.$this->organization_id;
+
+        $this->medication_request['dispenseRequest'] = $dispense_request;
+    }
+
+    public function setSubstitution($allowed = false, $reason = 'G')
+    {
+        $substitution['allowedBoolean'] = $allowed;
+
+        if ($reason) {
+            $substitution['reason']['coding'][] = [
+                'system' => 'http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution',
+                'code' => 'G',
+                'display' => $this->substitution_reason[$reason],
+            ];
+        }
+
+        $this->medication_request['substitution'] = $substitution;
     }
 
     public function addContained(Medication $medication)
