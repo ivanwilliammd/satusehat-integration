@@ -5,8 +5,14 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
 - This unofficial SATUSEHAT FHIR PHP Library to help generate SATUSEHAT FHIR-ready JSON, using profile established by [SATUSEHAT Documentation](https://satusehat.kemkes.go.id/platform/docs).
-- Update (29/11/2024): SATUSEHAT now implement multiple role access with restriction on each API service --> [Resource Access](https://drive.google.com/file/d/1bs8uU_nIuNqHohnRfTvFHx0o2qOgAYabAz0ptUC3w9s/view)
 - This repository is rapidly developing and need help. Please kindly comment in [Issue](https://github.com/ivanwilliammd/satusehat-integration/issues) section to contribute or Sponsor this project.
+
+## SATUSEHAT dissemination summary
+- Update (19/9/2024) : Medication is attached to MedicationRequest and MedicationDispense
+- Update (21/11/2024):
+    - SATUSEHAT implements multiple role access with restriction on each API service --> [Resource Access] https://drive.google.com/file/d/1bs8uU_nIuNqHohnRfTvFHx0o2qOgAYabAz0ptUC3w9s/view)
+    - Data privacy security update, which will censored Patient and Practitioner name
+    - Patient and Practitioner reference in ```Encounter.subject.display``` and ```Encounter.participant.individual``` must be same with Master Patient Index (Patient GET) and Master Nakes Index (Practitioner GET)
 
 ## Example Laravel 10 Project with SATUSEHAT Integration
 See ```satusehat-integration``` library in action [here](https://github.com/ivanwilliammd/satusehat-laravel-example)
