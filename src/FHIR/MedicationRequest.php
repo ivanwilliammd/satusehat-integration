@@ -158,7 +158,7 @@ class MedicationRequest extends OAuth2Client
 
     public function setPerformer($performerId, $name)
     {
-        $this->medication_request['performer']['reference'] = 'Practitioner/'.$performer;
+        $this->medication_request['performer']['reference'] = 'Practitioner/'.$performerId;
         $this->medication_request['performer']['display'] = $name;
     }
 
@@ -173,7 +173,7 @@ class MedicationRequest extends OAuth2Client
 
     public function setRecorder($recorderId, $name)
     {
-        $this->medication_request['recorder']['reference'] = 'Practitioner/'.$recorder;
+        $this->medication_request['recorder']['reference'] = 'Practitioner/'.$recorderId;
         $this->medication_request['recorder']['display'] = $name;
     }
 
