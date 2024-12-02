@@ -520,7 +520,7 @@ class MedicationTerminology
         16857009 => "Vaginal route",
     );
 
-    public array $routes = array(
+    public array $route = array(
         "implant" => "Implant",
         "Inhal" => "Inhalation",
         "Instill" => "Instillation",
