@@ -170,7 +170,7 @@ class MedicationRequest extends OAuth2Client
 
     public function setPerformerType($performer_type)
     {
-        $this->medication_request['performerType'][] = [
+        $this->medication_request['performerType'] = [
             'coding' => [
                 [
                     'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-performer-type',
@@ -278,7 +278,7 @@ class MedicationRequest extends OAuth2Client
 
         $dosage_instruction['doseAndRate'][] = $doseAndRate_singular;
 
-        $dosage_instruction['route'][] = [
+        $dosage_instruction['route'] = [
             'coding' => [
                 [
                     'system' => 'http://www.whocc.no/atc',
@@ -288,7 +288,7 @@ class MedicationRequest extends OAuth2Client
             ],
         ];
 
-        $dosage_instruction['timing']['code'][] = [
+        $dosage_instruction['timing']['code'] = [
             'coding' => [
                 [
                     'system' => 'http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation',

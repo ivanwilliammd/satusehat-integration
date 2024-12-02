@@ -47,7 +47,7 @@ class Medication extends OAuth2Client
 
     public function setCode($code = null, $display = null)
     {
-        $this->medication['code'][] = [
+        $this->medication['code'] = [
             'coding' => [
                 [
                     'system' => 'http://sys-ids.kemkes.go.id/kfa',
@@ -75,7 +75,7 @@ class Medication extends OAuth2Client
             throw new FHIRException("Medication form code not found");
         }
 
-        $this->medication['form'][] = [
+        $this->medication['form'] = [
             'coding' => [
                 [
                     'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-form',
@@ -171,7 +171,7 @@ class Medication extends OAuth2Client
         );
 
         $medicationType['url'] = 'https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType';
-        $medicationType['valueCodeableConcept'][] = [
+        $medicationType['valueCodeableConcept'] = [
             'coding' => [
                 [
                     'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-type',
