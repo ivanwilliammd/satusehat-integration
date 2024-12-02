@@ -232,7 +232,6 @@ class MedicationRequest extends OAuth2Client
         $dosage_instruction['sequence'] = $sequence;
         $dosage_instruction['patientInstruction'] = $patientInstruction;
         $dosage_instruction['asNeededBoolean'] = $as_needed;
-        $dosage_instruction['timing']['code'] = $timing_code;
 
         $doseAndRate_type_coding['system'] = 'http://terminology.hl7.org/CodeSystem/dose-rate-type';
         $doseAndRate_type_coding['code'] = 'ordered';
