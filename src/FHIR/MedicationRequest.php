@@ -376,7 +376,7 @@ class MedicationRequest extends OAuth2Client
 
     public function put($id)
     {
-        $this->medication['id'] = $id;
+        $this->medication_request['id'] = $id;
 
         $payload = $this->json();
         [$statusCode, $res] = $this->ss_put('MedicationRequest', $id, $payload);
