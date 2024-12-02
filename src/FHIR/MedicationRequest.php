@@ -120,10 +120,10 @@ class MedicationRequest extends OAuth2Client
         $this->medication_request['reportedReference']['reference'] = $reference;
     }
 
-    public function setMedicationReference($reference)
+    public function setMedicationReference($reference, $display)
     {
         $this->medication_request['medicationReference']['reference'] = $reference;
-        $this->medication_request['medicationReference']['display'] = $reference;
+        $this->medication_request['medicationReference']['display'] = $display;
     }
 
     public function setSubject($subjectId, $name)
