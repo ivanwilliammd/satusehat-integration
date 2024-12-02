@@ -240,12 +240,13 @@ class MedicationRequest extends OAuth2Client
         $doseAndRate_type['coding'][] = $doseAndRate_type_coding;
         $doseAndRate_singular['type'] = $doseAndRate_type;
 
-        // If dose_value or dose_unit is not declared, skip
+        // If dose_value or dose_unit is not declared, skip this assignment
+        // Normally only used for partial dose, so only UOM supported in here, e.g. 5 mL
         if (isset($dose_value) && isset($dose_unit)) {
             $doseAndRate_quantity['value'] = $dose_value;
             $doseAndRate_quantity['code'] = $dose_unit;
-            $doseAndRate_quantity['system'] = $this->drug_form[$dose_unit]['system'];
-            $doseAndRate_quantity['unit'] = $this->drug_form[$dose_unit]['display'];
+            $doseAndRate_quantity['system'] = 'http://unitsofmeasure.org';
+            $doseAndRate_quantity['unit'] = $dose_unit;
 
             $doseAndRate_singular['doseQuantity'] = $doseAndRate_quantity;
         }
