@@ -31,6 +31,11 @@ class Medication extends OAuth2Client
         ],
     ];
 
+    public function setId($id)
+    {
+        $this->medication['id'] = $id;
+    }
+
     public function addIdentifier($medication_id)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/medication/'.$this->organization_id;
