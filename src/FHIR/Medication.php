@@ -75,7 +75,7 @@ class Medication extends OAuth2Client
         }
 
         $this->medication['form']['coding'][] = [
-            'system' => 'http://terminology.hl7.org/CodeSystem/medication-form-codes.html',
+            'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-form',
             'code' => $code,
             'display' => $this->medication_form[$code],
         ];
