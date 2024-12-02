@@ -152,7 +152,7 @@ class MedicationRequest extends OAuth2Client
 
     public function setRequester($requesterId, $name)
     {
-        $this->medication_request['requester']['reference'] = 'Practitioner/'.$requester;
+        $this->medication_request['requester']['reference'] = 'Practitioner/'.$requesterId;
         $this->medication_request['requester']['display'] = $name;
     }
 
