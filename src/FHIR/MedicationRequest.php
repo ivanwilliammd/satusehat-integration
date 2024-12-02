@@ -98,11 +98,12 @@ class MedicationRequest extends OAuth2Client
 
     public function addCategory($category = 'outpatient')
     {
-        $this->medication_request['category']['coding'][] = [
+        $medicationrequest_category['coding'][] = [
             'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-category',
             'code' => $category,
             'display' => $this->medicationrequest_category[$category],
         ];
+        $this->medication_request['category'][] = $medicationrequest_category;
     }
 
     public function setPriority($priority = 'routine')
@@ -164,11 +165,12 @@ class MedicationRequest extends OAuth2Client
 
     public function setPerformerType($performer_type)
     {
-        $this->medication_request['performerType']['coding'][] = [
-            'system' => 'http://snomed.info/sct',
+        $medicationrequest_performer_type['coding'][] = [
+            'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-performer-type',
             'code' => $performer_type,
             'display' => $this->performer_role[$performer_type],
         ];
+        $this->medication_request['performerType'][] = $medicationrequest_performer_type;
     }
 
     public function setRecorder($recorderId, $name)
@@ -189,16 +191,18 @@ class MedicationRequest extends OAuth2Client
 
         $display = $display ? $display : $code_check->icd10_en;
 
-        $this->medication_request['reasonCode']['coding'][] = [
+        $medicationrequest_reasonCode['coding'][] = [
             'system' => 'http://hl7.org/fhir/sid/icd-10',
             'code' => strtoupper($code),
             'display' => $display,
         ];
+
+        $this->medication_request['reasonCode'][] = $medicationrequest_reasonCode;
     }
 
     public function addReasonReference($reference)
     {
-        $this->medication_request['reasonReference']['reference'] = 'Condition/'.$reference;
+        $this->medication_request['reasonReference'][]['reference'] = 'Condition/'.$reference;
     }
 
     public function addBasedOn($reference)
@@ -257,7 +261,7 @@ class MedicationRequest extends OAuth2Client
         $route_coding['code'] = $route_code;
         $route_coding['display'] = $this->route[$route_code];
 
-        $dosage_instruction['route']['coding'] = $route_coding;
+        $dosage_instruction['route']['coding'][] = $route_coding;
 
         $timing_coding['system'] = 'http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation';
         $timing_coding['code'] = $timing_code;
