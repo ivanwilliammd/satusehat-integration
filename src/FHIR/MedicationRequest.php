@@ -50,19 +50,19 @@ class MedicationRequest extends OAuth2Client
     ];
 
 
-    public function addPrescriptionIdentifier($identifier)
+    public function addPrescriptionIdentifier($prescription_id)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription/'.$this->organization_id;
-        $identifier['value'] = $identifier;
+        $identifier['value'] = $prescription_id;
         $identifier['use'] = 'official';
 
         $this->medication_request['identifier'][] = $identifier;
     }
 
-    public function addPrescriptionItemIdentifier($identifier)
+    public function addPrescriptionItemIdentifier($prescription_item_id)
     {
         $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription-item/'.$this->organization_id;
-        $identifier['value'] = $identifier;
+        $identifier['value'] = $prescription_item_id;
         $identifier['use'] = 'official';
 
         $this->medication_request['identifier'][] = $identifier;
