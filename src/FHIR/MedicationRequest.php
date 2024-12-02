@@ -132,7 +132,7 @@ class MedicationRequest extends OAuth2Client
         $this->medication_request['subject']['display'] = $name;
     }
 
-    public function setEncounter($encounterId, $name)
+    public function setEncounter($encounterId, $display = null, $bundle = false)
     {
         $this->medication_request['encounter']['reference'] = ($bundle ? 'urn:uuid:' : 'Encounter/').$encounterId;
         $this->medication_request['encounter']['display'] = $display ? $display : 'Kunjungan '.$encounterId;
