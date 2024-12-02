@@ -281,7 +281,7 @@ class MedicationRequest extends OAuth2Client
         $dosage_instruction['route'][] = [
             'coding' => [
                 [
-                    'system' => 'http://snomed.info/sct',
+                    'system' => 'http://www.whocc.no/atc',
                     'code' => $route_code,
                     'display' => $this->route[$route_code],
                 ],

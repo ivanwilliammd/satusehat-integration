@@ -354,7 +354,7 @@ class MedicationTerminology
         "MO" => "monthly",
     );
 
-    public array $route = array(
+    public array $route_snomed = array(
         697971008 => "Arteriovenous fistula route",
         420254004 => "Body cavity route",
         54471007 => "Buccal route",
@@ -518,6 +518,39 @@ class MedicationTerminology
         90028008 => "Urethral route",
         420168000 => "Urostomy route",
         16857009 => "Vaginal route",
+    );
+
+    public array $routes = array(
+        "implant" => "Implant",
+        "Inhal" => "Inhalation",
+        "Instill" => "Instillation",
+        "N" => "Nasal",
+        "O" => "Oral",
+        "P" => "Parenteral",
+        "R" => "Rectal",
+        "SL" => "Sublingual/Buccal/Oromucosal",
+        "TD" => "Transdermal",
+        "V" => "Vaginal",
+        "Inhal.powder" => "Inhalation Powder",
+        "Inhal.aerosol" => "Inhalation Aerosol",
+        "Inhal.solution" => "Inhalation Solution",
+        "urethral" => "Urethral",
+        "TD patch" => "Transdermal Patch",
+        "intravesical" => "Intravesical",
+        "Instill.solution" => "Instillation Solution",
+        "lamella" => "Lamella",
+        "oral aerosol" => "Oral Aerosol",
+        "s.c. implant" => "S.C. Implant",
+        "ocular" => "Ocular",
+        "otic" => "Otic",
+        "cutaneous" => "Cutaneous",
+        "inj.subcutaneous" => "Injection Subcutaneous",
+        "inj.intramuscular" => "Injection Intramuscular",
+        "inj.intravenous" => "Injection Intravenous",
+        "inj.intrathecal" => "Injection Intrathecal",
+        "Chewing Gum" => "Chewing Gum",
+        "ointment" => "Ointment",
+        "stomatologic" => "Stomatologic"
     );
 
     public function __construct()
