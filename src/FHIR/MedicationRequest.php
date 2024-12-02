@@ -82,13 +82,15 @@ class MedicationRequest extends OAuth2Client
 
     public function setStatusReason($status_code = null)
     {
-        $medicationrequest_status_reason = [
-            'system' => 'http://sys-ids.kemkes.go.id/status-reason',
-            'code' => $status_code,
-            'display' => $this->medicationrequest_status_reason[$status_code],
+        $this->medication_request['statusReason'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://sys-ids.kemkes.go.id/status-reason',
+                    'code' => $status_code,
+                    'display' => $this->medicationrequest_status_reason[$status_code],
+                ],
+            ],
         ];
-
-        $this->medication_request['statusReason']['coding'][] = $medicationrequest_status_reason;
     }
 
     public function setIntent($intent = 'order')
@@ -222,10 +224,14 @@ class MedicationRequest extends OAuth2Client
 
     public function setCourseOfTherapyType($course)
     {
-        $this->medication_request['courseOfTherapyType']['coding'][] = [
-            'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy',
-            'code' => $course,
-            'display' => $this->course_of_therapy_type[$course],
+        $this->medication_request['courseOfTherapyType'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy',
+                    'code' => $course,
+                    'display' => $this->course_of_therapy_type[$course],
+                ],
+            ],
         ];
     }
 
@@ -247,11 +253,16 @@ class MedicationRequest extends OAuth2Client
         $dosage_instruction['patientInstruction'] = $patientInstruction;
         $dosage_instruction['asNeededBoolean'] = $as_needed;
 
-        $doseAndRate_type_coding['system'] = 'http://terminology.hl7.org/CodeSystem/dose-rate-type';
-        $doseAndRate_type_coding['code'] = 'ordered';
-        $doseAndRate_type_coding['display'] = 'Ordered';
+        $doseAndRate_type = [
+            'coding' => [
+                [
+                    'system' => 'http://terminology.hl7.org/CodeSystem/dose-rate-type',
+                    'code' => 'ordered',
+                    'display' => 'Ordered',
+                ],
+            ],
+        ];
 
-        $doseAndRate_type['coding'][] = $doseAndRate_type_coding;
         $doseAndRate_singular['type'] = $doseAndRate_type;
 
         // If dose_value or dose_unit is not declared, skip this assignment
