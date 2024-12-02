@@ -177,7 +177,7 @@ class MedicationRequest extends OAuth2Client
         $this->medication_request['recorder']['display'] = $name;
     }
 
-    public function addReasonCode($reason_code)
+    public function addReasonCode($code, $display = null)
     {
         // Only accept ICD10 code
         $code_check = Icd10::where('icd10_code', $code)->first();
@@ -191,7 +191,7 @@ class MedicationRequest extends OAuth2Client
 
         $this->medication_request['reasonCode']['coding'][] = [
             'system' => 'http://hl7.org/fhir/sid/icd-10',
-            'code' => strtoupper($reason_code),
+            'code' => strtoupper($code),
             'display' => $display,
         ];
     }
