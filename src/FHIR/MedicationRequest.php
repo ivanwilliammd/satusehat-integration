@@ -310,7 +310,7 @@ class MedicationRequest extends OAuth2Client
 
     public function addContained(Medication $medication)
     {
-        $this->medication_request['contained'][] = $medication;
+        $this->medication_request['contained'][] = json_decode($medication->json(), true);
     }
 
     public function json()
