@@ -116,10 +116,14 @@ class Medication extends OAuth2Client
             throw new FHIRException("Item display is required");
         }
 
-        $ingredient['item']['coding'][] = [
-            'system' => 'http://sys-ids.kemkes.go.id/kfa',
+        $ingredient['itemCodableConcept'] = [
+            'coding' => [
+                [
+                    'system' => 'http://sys-ids.kemkes.go.id/kfa',
             'code' => $itemCode,
             'display' => $itemDisplay,
+                ],
+            ],
         ];
 
         $ingredient['isActive'] = true;
