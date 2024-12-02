@@ -29,6 +29,8 @@ class MedicationRequest extends OAuth2Client
 
     public function __construct()
     {
+        parent::__construct();
+
         $medication_terminology = new MedicationTerminology();
         $occupation = new Occupation();
 

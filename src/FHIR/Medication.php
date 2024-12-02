@@ -15,6 +15,8 @@ class Medication extends OAuth2Client
 
     public function __construct()
     {
+        parent::__construct();
+
         $medication_terminology = new MedicationTerminology();
         $this->medication_form = $medication_terminology->medication_form;
         $this->drug_form = $medication_terminology->drug_form;
