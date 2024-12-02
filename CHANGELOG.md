@@ -3,6 +3,15 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 3.2.4 - 2024-12-02
+
+### What's Changed
+
+* updated construct in Medication & MedicationRequest by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/108
+* updated addIdentifier in Medication & MedicationRequest by @ivanwilliammd in https://github.com/ivanwilliammd/satusehat-integration/pull/107
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/3.2.2...3.2.4
+
 ## 3.2.2 - 2024-12-01
 
 ### What's Changed
@@ -295,6 +304,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -409,6 +419,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
