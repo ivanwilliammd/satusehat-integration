@@ -47,14 +47,15 @@ class Medication extends OAuth2Client
 
     public function setCode($code = null, $display = null)
     {
-        $coding['system'] = 'http://sys-ids.kemkes.go.id/kfa';
-        $coding['code'] = $code;
-
-        if ($display) {
-            $coding['display'] = $display;
-        }
-
-        $this->medication['code']['coding'][] = $coding;
+        $this->medication['code'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://sys-ids.kemkes.go.id/kfa',
+                    'code' => $code,
+                    'display' => $display,
+                ],
+            ],
+        ];
     }
 
     public function setStatus($status = 'active')
@@ -74,11 +75,16 @@ class Medication extends OAuth2Client
             throw new FHIRException("Medication form code not found");
         }
 
-        $this->medication['form']['coding'][] = [
-            'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-form',
-            'code' => $code,
-            'display' => $this->medication_form[$code],
+        $this->medication['form'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-form',
+                    'code' => $code,
+                    'display' => $this->medication_form[$code],
+                ],
+            ],
         ];
+
     }
 
     public function setAmount($numerator = null, $numerator_unit = null, $denominator = 1, $denominator_unit = null)
@@ -120,8 +126,8 @@ class Medication extends OAuth2Client
             'coding' => [
                 [
                     'system' => 'http://sys-ids.kemkes.go.id/kfa',
-            'code' => $itemCode,
-            'display' => $itemDisplay,
+                    'code' => $itemCode,
+                    'display' => $itemDisplay,
                 ],
             ],
         ];
@@ -165,10 +171,14 @@ class Medication extends OAuth2Client
         );
 
         $medicationType['url'] = 'https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType';
-        $medicationType['valueCodeableConcept']['coding'][] = [
-            'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-type',
-            'code' => $code,
-            'display' => $medicationTypeOption[$code],
+        $medicationType['valueCodeableConcept'][] = [
+            'coding' => [
+                [
+                    'system' => 'http://terminology.kemkes.go.id/CodeSystem/medication-type',
+                    'code' => $code,
+                    'display' => $medicationTypeOption[$code],
+                ],
+            ],
         ];
 
         $this->medication['extension'][] = $medicationType;
