@@ -3,6 +3,11 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 3.3.0 - stable - 2024-12-02
+
+- Major fix of MedicationTerminology, MedicationRequest, Medication
+  **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/3.2.9...3.3.0
+
 ## 3.2.9 - 2024-12-02
 
 ### What's Changed
@@ -318,6 +323,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -432,6 +438,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
