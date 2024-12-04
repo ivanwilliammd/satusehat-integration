@@ -120,4 +120,13 @@ class ServiceRequest extends OAuth2Client
 
         return [$statusCode, $res];
     }
+
+    public function put($id)
+    {
+        $this->service_request['id'] = $id;
+
+        $payload = $this->json();
+        [$statusCode, $res] = $this->ss_put("ServiceRequest", $id, $payload);
+        return [$statusCode, $res];
+    }
 }
