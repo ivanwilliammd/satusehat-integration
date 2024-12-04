@@ -5,15 +5,6 @@ namespace Satusehat\Integration\Terminology;
 
 class ServiceRequestTerminology
 {
-
-    public array $service_request_code;
-
-    public function __construct()
-    {
-        $procedureTerminology = new ProcedureTerminology();
-        $this->service_request_code = $procedureTerminology->procedure_code;
-    }
-
     /**
      * https://hl7.org/fhir/R4/valueset-request-status.html
      */

@@ -19,7 +19,6 @@ class ServiceRequest extends OAuth2Client
      */
     public $request_status;
     public $request_intent;
-    public $request_code;
 
     public function __construct()
     {
@@ -29,7 +28,6 @@ class ServiceRequest extends OAuth2Client
 
         $this->request_status = $terminology->service_request_status;
         $this->request_intent = $terminology->service_request_intent;
-        $this->request_code = $terminology->service_request_code;
         
     }
 
