@@ -54,7 +54,7 @@ class MedicationRequest extends OAuth2Client
 
     public function addPrescriptionIdentifier($prescription_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription/'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription/' . $this->organization_id;
         $identifier['value'] = $prescription_id;
         $identifier['use'] = 'official';
 
@@ -63,7 +63,7 @@ class MedicationRequest extends OAuth2Client
 
     public function addPrescriptionItemIdentifier($prescription_item_id)
     {
-        $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription-item/'.$this->organization_id;
+        $identifier['system'] = 'http://sys-ids.kemkes.go.id/prescription-item/' . $this->organization_id;
         $identifier['value'] = $prescription_item_id;
         $identifier['use'] = 'official';
 
@@ -128,20 +128,20 @@ class MedicationRequest extends OAuth2Client
 
     public function setMedicationReference($reference, $display)
     {
-        $this->medication_request['medicationReference']['reference'] = $reference;
+        $this->medication_request['medicationReference']['reference'] = 'Medication/' . $reference;
         $this->medication_request['medicationReference']['display'] = $display;
     }
 
     public function setSubject($subjectId, $name)
     {
-        $this->medication_request['subject']['reference'] = 'Patient/'.$subjectId;
+        $this->medication_request['subject']['reference'] = 'Patient/' . $subjectId;
         $this->medication_request['subject']['display'] = $name;
     }
 
     public function setEncounter($encounterId, $display = null, $bundle = false)
     {
-        $this->medication_request['encounter']['reference'] = ($bundle ? 'urn:uuid:' : 'Encounter/').$encounterId;
-        $this->medication_request['encounter']['display'] = $display ? $display : 'Kunjungan '.$encounterId;
+        $this->medication_request['encounter']['reference'] = ($bundle ? 'urn:uuid:' : 'Encounter/') . $encounterId;
+        $this->medication_request['encounter']['display'] = $display ? $display : 'Kunjungan ' . $encounterId;
     }
 
     public function addSupportingInformation($reference)
@@ -158,13 +158,13 @@ class MedicationRequest extends OAuth2Client
 
     public function setRequester($requesterId, $name)
     {
-        $this->medication_request['requester']['reference'] = 'Practitioner/'.$requesterId;
+        $this->medication_request['requester']['reference'] = 'Practitioner/' . $requesterId;
         $this->medication_request['requester']['display'] = $name;
     }
 
     public function setPerformer($performerId, $name)
     {
-        $this->medication_request['performer']['reference'] = 'Practitioner/'.$performerId;
+        $this->medication_request['performer']['reference'] = 'Practitioner/' . $performerId;
         $this->medication_request['performer']['display'] = $name;
     }
 
@@ -183,7 +183,7 @@ class MedicationRequest extends OAuth2Client
 
     public function setRecorder($recorderId, $name)
     {
-        $this->medication_request['recorder']['reference'] = 'Practitioner/'.$recorderId;
+        $this->medication_request['recorder']['reference'] = 'Practitioner/' . $recorderId;
         $this->medication_request['recorder']['display'] = $name;
     }
 
@@ -213,7 +213,7 @@ class MedicationRequest extends OAuth2Client
     public function addReasonReference($reference)
     {
         $this->medication_request['reasonReference'][] = [
-            'reference' => 'Condition/'.$reference,
+            'reference' => 'Condition/' . $reference,
         ];
     }
 
@@ -321,7 +321,7 @@ class MedicationRequest extends OAuth2Client
             $dispense_request['expectedSupplyDuration']['unit'] = $this->time_interval[$expectedSupplyDurationUnit];
         }
 
-        $dispense_request['performer']['reference'] = 'Organization/'.$this->organization_id;
+        $dispense_request['performer']['reference'] = 'Organization/' . $this->organization_id;
 
         $this->medication_request['dispenseRequest'] = $dispense_request;
     }
