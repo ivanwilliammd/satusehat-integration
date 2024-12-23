@@ -89,7 +89,7 @@ class Observation extends OAuth2Client
      * @param  string  $code  The valid observation code to add.
      * @return Observation Returns the updated observation object.
      */
-    public function addCode(string $code): Observation
+    public function addCode(string $observationCode): Observation
     {
         $code = [
             'system' => 'http://loinc.org',
@@ -99,7 +99,7 @@ class Observation extends OAuth2Client
 
         $display = '';
         $code = '';
-        switch ($code) {
+        switch ($observationCode) {
             case '8480-6':
                 $display = 'Systolic blood pressure';
                 $code = '8480-6';
