@@ -21,7 +21,8 @@
 See ```satusehat-integration``` library in action [here](https://github.com/ivanwilliammd/satusehat-laravel-example)
 
 ## Want to contribute?
-See how to contribute at this [page](CONTRIBUTING.md).<br>
+- See how to contribute at this [page](CONTRIBUTING.md).<br>
+- All contribution will be reviewed by @ivanwilliammd. Any invalid pull request will be commented, and decided directly whether will need further correction or directly closed as invalid.
 
 ## Quick Installation
 See Quick Installation Instructions [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Installation)<br>
@@ -39,12 +40,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
-Active contributor:
+Active contributor (> 1 PR per quarter):
 1. [dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
-2. [Irsyad](https://github.com/IrsyadProject)
-3. [Syaeful](https://github.com/SyaefulKai)
-4. [Yogi Pristiawan](https://github.com/YogiPristiawan)
-5. [Yudistira](https://github.com/yudistirasd)
+2. ... Looking for volunteer for active contribution ...
 
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
