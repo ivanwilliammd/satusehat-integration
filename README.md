@@ -4,9 +4,8 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/ivanwilliammd/satusehat-integration/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ivanwilliammd/satusehat-integration/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
-- This is a free library, kept open-source, and maintained by the community.
-- Robust features and support are available at a premium subscription package.
-- Contact me at [ivan.harsono@ivanmd.id](mailto:ivan.harsono@ivanmd.id)
+- This library is open-source and community-maintained, offered as-is without warranty or support from repository [owner](https://github.com/ivanwilliammd). To enhance sustainability and address the growing demand for support and future feature, a freemium/subscription-based package is now implemented in 2025.
+- Advanced features and support are available through a premium subscription package. For more information, contact: [ivan.harsono@ivanmd.id](mailto:ivan.harsono@ivanmd.id)
 
 ## Introduction
 - This unofficial SATUSEHAT FHIR PHP Library to help generate SATUSEHAT FHIR-ready JSON, using profile established by [SATUSEHAT Documentation](https://satusehat.kemkes.go.id/platform/docs).
