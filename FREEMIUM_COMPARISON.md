@@ -1,11 +1,8 @@
 ## Here is the comparison between Free and Premium features
-
-[Subscribe now](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) for premium features and support : 
-
 *Last updated: 2025-01-30 09:00 WIB*
 
-### Bagaimana langkah untuk langganan premium
-1. Calon klien mengirimkan email untuk pertanyaan awal, yang akan dibalas dalam 1x24 jam.
+### Bagaimana langkah berlangganan premium
+1. Calon klien mengirimkan [email (klik disini)](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) untuk pertanyaan awal, yang akan dibalas dalam 1x24 jam.
 2. Pada sesi awal, akan diadakan sesi **konsultasi diagnostik berbayar** antara konsultan dengan calon klien untuk mengetahui kebutuhan integrasi dan dukungan yang Anda butuhkan. (1x sesi konsultasi diagnostik akan dibayar di muka)
 3. Setelah sesi konsultasi diagnostik berbayar, calon klien akan menerima **proposal penawaran/quotation** yang berisi rincian biaya langganan dan dukungan yang akan diterima dengan skema     
    - **Skema pemakaian library:** perpetual jual putus/*one-time payment* atau berlangganan tahunan.
@@ -103,3 +100,5 @@
 - **⚠️**: Partial use-case supported.
 - **🚀**: On development, coming soon
 - **❌**: Not supported
+
+[Subscribe now](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) for premium features and support.
