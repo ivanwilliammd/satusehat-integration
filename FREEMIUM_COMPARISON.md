@@ -30,7 +30,7 @@
 |4 | KFA API (v2) |  | ✅ |
 |5 | LOINC and LOINC Answer: for Lab & Radiology | ✅ | ✅ |
 |6 | SNOMED-CT | ❌ | ✅ |
-|7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ | 🚀 Coming soon |
+|7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ | ✅ |
 |8 | Units of Measure | ❌ | ✅ |
 |9 | CVX (CDC Vaccine Codes) | ❌ | ✅ |
 |10 | Terminology Kemkes (upd. Apr 2023) | ❌ | ✅ |
