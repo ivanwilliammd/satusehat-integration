@@ -27,7 +27,7 @@
 |1 | ICD-10: Diagnosis | ✅ | ✅ |
 |2 | ICD-9CM: Procedure | ✅ | ✅ |
 |3 | Kode Wilayah Indonesia | ✅ | ✅ |
-|4 | KFA API (v2) |  | ✅ |
+|4 | KFA API (v2) | ✅ | ✅ |
 |5 | LOINC and LOINC Answer: for Lab & Radiology | ❌ | ✅ |
 |6 | SNOMED-CT | ❌ | ✅ |
 |7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ | ✅ |
