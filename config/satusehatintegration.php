@@ -12,9 +12,6 @@ return [
     'icd10_table_name' => 'satusehat_icd10',
     'icd9cm_table_name' => 'satusehat_icd9cm',
 
-    'loinc_table_name' => 'satusehat_loinc',
-    'loinc_answer_table_name' => 'satusehat_loinc_answer',
-
     'kode_wilayah_indonesia_table_name' => 'kode_wilayah_indonesia',
 
     /*

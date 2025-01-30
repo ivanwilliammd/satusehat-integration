@@ -28,7 +28,7 @@
 |2 | ICD-9CM: Procedure | ✅ | ✅ |
 |3 | Kode Wilayah Indonesia | ✅ | ✅ |
 |4 | KFA API (v2) |  | ✅ |
-|5 | LOINC and LOINC Answer: for Lab & Radiology | ✅ | ✅ |
+|5 | LOINC and LOINC Answer: for Lab & Radiology | ❌ | ✅ |
 |6 | SNOMED-CT | ❌ | ✅ |
 |7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ | ✅ |
 |8 | Units of Measure | ❌ | ✅ |
@@ -49,7 +49,7 @@
 | 8 | Identitas - Anggota Keluarga/Wali | ❌ | ✅ |
 | 9 | Klinis - Pemeriksaan tanda-tanda vital | ✅ | ✅ |
 | 10 | Klinis - Pemeriksaan fisik | ❌ | ✅ |
-| 11 | Klinis - Peresepan Obat | ✅ | ✅ |
+| 11 | Klinis - Peresepan Obat | ❌ | ✅ |
 | 12 | Klinis - Edukasi | ❌ | ✅ |
 | 13 | Klinis - Pemberian Tindakan | ❌ | ✅ |
 | 14 | Klinis - Prognosis | ❌ | ✅ |
