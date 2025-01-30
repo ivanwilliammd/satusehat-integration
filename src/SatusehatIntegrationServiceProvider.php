@@ -59,7 +59,6 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             $timestamp = date('Y_m_d_His', time());
 
             $this->publishes([
-            $this->publishes([
                 __DIR__.'/../database/migrations/create_satusehat_icd9cm_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd9cm_table.php"),
             ], 'icd9cm');
         }
