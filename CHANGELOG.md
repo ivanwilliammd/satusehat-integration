@@ -3,6 +3,195 @@
 * Added: API KFA
 * Updated : OAuth parameter changed from base_url to fhir_url
 
+## 3.0.0-stable - 2025-01-30
+
+Full 3.0.0 stable version (tested and synchronized with [FREEMIUM_COMPARISON.md](https://github.com/ivanwilliammd/satusehat-integration/blob/main/FREEMIUM_COMPARISON.md)
+
+### Kualitas Kode dan Dukungan
+
+|  | Free |
+|----------|------|
+| Functional Testing | ⚠️ |
+| Code Quality Check | ❌ |
+| Dukungan integrasi | ❌ |
+| Tanya Jawab | ❌ |
+| Pelatihan FHIR | ❌ |
+| Pelatihan Terminologi | ❌ |
+
+### Integrasi Terminologi
+
+|  | Terminologi | Free |
+|---|-------------|------|
+|1 | ICD-10: Diagnosis | ✅ |
+|2 | ICD-9CM: Procedure | ✅ |
+|3 | Kode Wilayah Indonesia | ✅ |
+|4 | KFA API (v2) | ✅ |
+|5 | LOINC and LOINC Answer: for Lab & Radiology | ❌ |
+|6 | SNOMED-CT | ❌ |
+|7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ |
+|8 | Units of Measure | ❌ |
+|9 | CVX (CDC Vaccine Codes) | ❌ |
+|10 | Terminology Kemkes (upd. Apr 2023) | ❌ |
+|11 | FHIR Value Set dan Terminology | ❌ |
+
+### Integrasi dasar SATUSEHAT
+
+|  | Fitur | Free |
+|---|-------------|------|
+| 1 | Basic - Otentikasi | ✅ |
+| 2 | Basic - KYC Centang Biru | ✅ |
+| 3 | Data - Batch/Bundle Kunjungan Diagnosis | ✅ |
+| 4 | Pencarian - ID Tenaga Kesehatan | ✅ |
+| 5 | Pencarian - ID Pasien | ✅ |
+| 6 | Manajemen - Lokasi | ✅ |
+| 7 | Manajemen - Suborganisasi | ✅ |
+| 8 | Identitas - Anggota Keluarga/Wali | ❌ |
+| 9 | Klinis - Pemeriksaan tanda-tanda vital | ⚠️ |
+| 10 | Klinis - Pemeriksaan fisik | ❌ |
+| 11 | Klinis - Peresepan Obat | ❌ |
+| 12 | Klinis - Edukasi | ❌ |
+| 13 | Klinis - Pemberian Tindakan | ❌ |
+| 14 | Klinis - Prognosis | ❌ |
+| 15 | Klinis - Pencatatan Alergi | ❌ |
+| 16 | Klinis - Pencatatan Medikasi | ❌ |
+| 17 | Klinis - Imunisasi | ❌ |
+| 18 | Klinis - Asesmen Risiko | ❌ |
+| 19 | Klinis - Asuhan Keperawatan | ❌ |
+| 20 | Klinis - Rencana Perawatan | ❌ |
+| 21 | Klinis - Rencana Follow-up | ❌ |
+| 22 | Logistik - Order Gizi | ❌ |
+| 23 | Logistik - Pengaturan Bed | ❌ |
+| 24 | Logistik - Manajemen tugas (Task) | ❌ |
+| 25 | Logistik - Peralatan (Device) Diagnostik / Terapetik | ❌ |
+| 26 | Penunjang - Farmasi Dispense Obat | ❌ |
+| 27 | Penunjang - Laboratorium | ❌ |
+| 28 | Penunjang - Radiologi (diluar router) | ❌ |
+| 29 | Penunjang - Pelaporan genetik | ❌ |
+| 30 | Pembiayaan - Billing dan Invoice | ❌ |
+| 31 | Pembiayaan - Klaim Swasta | ❌ |
+| 32 | Pembiayaan - Klaim BPJS | ❌ |
+| 33 | Lain-lain - Kuesioner | ❌ |
+
+### Use-case Implementasi
+
+|  | Fitur | Free |
+|---|-------------|------|
+| 1 | Dasar - Layanan Rawat Jalan | ❌ |
+| 2 | Dasar - Layanan Rawat Inap | ❌ |
+| 3 | Dasar - Layanan Gawat Darurat | ❌ |
+| 4 | Rujukan - Nomor Resep National | ❌ |
+| 5 | Rujukan - Sampel laboratorium | ❌ |
+| 6 | Rujukan - Sampel Skrining Hipotiroid Kongenital | ❌ |
+| 7 | Layanan khusus - Gigi | ❌ |
+| 8 | Layanan primer - Antenatal Care | ❌ |
+| 9 | Layanan primer - Intranatal Care | ❌ |
+| 10 | Layanan primer - Postnatal Care | ❌ |
+| 11 | Layanan primer - Gizi | ❌ |
+| 12 | Layanan primer - Skrining PTM | ❌ |
+| 13 | Layanan primer - Tuberkulosis | ❌ |
+| 14 | BGSi - Registri Kanker | ❌ |
+| 15 | BGSi - Registri Jantung | ❌ |
+| 16 | BGSi - Registri Stroke | ❌ |
+| 17 | BGSi - Registri Uronefrologi | ❌ |
+| 18 | BGSi - Registri Mata | ❌ |
+
+### Penjelasan Simbol:
+
+- **✅**: Semua metode (GET, POST, PUT) didukung.
+- **⚠️**: Dukungan kasus penggunaan sebagian.
+- **❌**: Tidak didukung.### Kualitas Kode dan Dukungan
+  |  | Free |
+  |----------|------|
+  | Functional Testing | ⚠️ |
+  | Code Quality Check | ❌ |
+  | Dukungan integrasi | ❌ |
+  | Tanya Jawab | ❌ |
+  | Pelatihan FHIR | ❌ |
+  | Pelatihan Terminologi | ❌ |
+
+### Integrasi Terminologi
+
+|  | Terminologi | Free |
+|---|-------------|------|
+|1 | ICD-10: Diagnosis | ✅ |
+|2 | ICD-9CM: Procedure | ✅ |
+|3 | Kode Wilayah Indonesia | ✅ |
+|4 | KFA API (v2) | ✅ |
+|5 | LOINC and LOINC Answer: for Lab & Radiology | ❌ |
+|6 | SNOMED-CT | ❌ |
+|7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ |
+|8 | Units of Measure | ❌ |
+|9 | CVX (CDC Vaccine Codes) | ❌ |
+|10 | Terminology Kemkes (upd. Apr 2023) | ❌ |
+|11 | FHIR Value Set dan Terminology | ❌ |
+
+### Integrasi dasar SATUSEHAT
+
+|  | Fitur | Free |
+|---|-------------|------|
+| 1 | Basic - Otentikasi | ✅ |
+| 2 | Basic - KYC Centang Biru | ✅ |
+| 3 | Data - Batch/Bundle Kunjungan Diagnosis | ✅ |
+| 4 | Pencarian - ID Tenaga Kesehatan | ✅ |
+| 5 | Pencarian - ID Pasien | ✅ |
+| 6 | Manajemen - Lokasi | ✅ |
+| 7 | Manajemen - Suborganisasi | ✅ |
+| 8 | Identitas - Anggota Keluarga/Wali | ❌ |
+| 9 | Klinis - Pemeriksaan tanda-tanda vital | ⚠️ |
+| 10 | Klinis - Pemeriksaan fisik | ❌ |
+| 11 | Klinis - Peresepan Obat | ❌ |
+| 12 | Klinis - Edukasi | ❌ |
+| 13 | Klinis - Pemberian Tindakan | ❌ |
+| 14 | Klinis - Prognosis | ❌ |
+| 15 | Klinis - Pencatatan Alergi | ❌ |
+| 16 | Klinis - Pencatatan Medikasi | ❌ |
+| 17 | Klinis - Imunisasi | ❌ |
+| 18 | Klinis - Asesmen Risiko | ❌ |
+| 19 | Klinis - Asuhan Keperawatan | ❌ |
+| 20 | Klinis - Rencana Perawatan | ❌ |
+| 21 | Klinis - Rencana Follow-up | ❌ |
+| 22 | Logistik - Order Gizi | ❌ |
+| 23 | Logistik - Pengaturan Bed | ❌ |
+| 24 | Logistik - Manajemen tugas (Task) | ❌ |
+| 25 | Logistik - Peralatan (Device) Diagnostik / Terapetik | ❌ |
+| 26 | Penunjang - Farmasi Dispense Obat | ❌ |
+| 27 | Penunjang - Laboratorium | ❌ |
+| 28 | Penunjang - Radiologi (diluar router) | ❌ |
+| 29 | Penunjang - Pelaporan genetik | ❌ |
+| 30 | Pembiayaan - Billing dan Invoice | ❌ |
+| 31 | Pembiayaan - Klaim Swasta | ❌ |
+| 32 | Pembiayaan - Klaim BPJS | ❌ |
+| 33 | Lain-lain - Kuesioner | ❌ |
+
+### Use-case Implementasi
+
+|  | Fitur | Free |
+|---|-------------|------|
+| 1 | Dasar - Layanan Rawat Jalan | ❌ |
+| 2 | Dasar - Layanan Rawat Inap | ❌ |
+| 3 | Dasar - Layanan Gawat Darurat | ❌ |
+| 4 | Rujukan - Nomor Resep National | ❌ |
+| 5 | Rujukan - Sampel laboratorium | ❌ |
+| 6 | Rujukan - Sampel Skrining Hipotiroid Kongenital | ❌ |
+| 7 | Layanan khusus - Gigi | ❌ |
+| 8 | Layanan primer - Antenatal Care | ❌ |
+| 9 | Layanan primer - Intranatal Care | ❌ |
+| 10 | Layanan primer - Postnatal Care | ❌ |
+| 11 | Layanan primer - Gizi | ❌ |
+| 12 | Layanan primer - Skrining PTM | ❌ |
+| 13 | Layanan primer - Tuberkulosis | ❌ |
+| 14 | BGSi - Registri Kanker | ❌ |
+| 15 | BGSi - Registri Jantung | ❌ |
+| 16 | BGSi - Registri Stroke | ❌ |
+| 17 | BGSi - Registri Uronefrologi | ❌ |
+| 18 | BGSi - Registri Mata | ❌ |
+
+### Penjelasan Simbol:
+
+- **✅**: Semua metode (GET, POST, PUT) didukung.
+- **⚠️**: Dukungan kasus penggunaan sebagian.
+- **❌**: Tidak didukung.
+
 ## 3.3.1 - 2024-12-23
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/3.3.0...3.3.1
@@ -334,6 +523,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -448,6 +638,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
