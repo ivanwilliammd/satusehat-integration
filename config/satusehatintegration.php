@@ -10,7 +10,6 @@ return [
     'token_table_name' => 'satusehat_token',
 
     'icd10_table_name' => 'satusehat_icd10',
-    'icd9cm_table_name' => 'satusehat_icd9cm',
 
     'kode_wilayah_indonesia_table_name' => 'kode_wilayah_indonesia',
 

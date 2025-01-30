@@ -54,27 +54,6 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
             ], 'icd10');
         }
 
-        // Publish Migrations for ICD 9 CM
-        if (! class_exists('CreateSatusehatIcd9cmTable')) {
-            $timestamp = date('Y_m_d_His', time());
-
-            $this->publishes([
-                __DIR__.'/../database/migrations/create_satusehat_icd9cm_table.php.stub' => database_path("/migrations/{$timestamp}_create_satusehat_icd9cm_table.php"),
-            ], 'icd9cm');
-        }
-
-        // Publish ICD 9 CM csv data
-        $this->publishes([
-            __DIR__.'/../database/seeders/csv/icd9cm.csv.stub' => database_path('/seeders/csv/icd9cm.csv'),
-        ], 'icd9cm');
-
-        // Publish Seeder for ICD 9 CM
-        if (! class_exists('Icd9cmSeeder')) {
-            $this->publishes([
-                __DIR__.'/../database/seeders/Icd9cmSeeder.php.stub' => database_path('/seeders/Icd9cmSeeder.php'),
-            ], 'icd9cm');
-        }
-
         // Publish Migrations for Kode Wilayah Indonesia
         if (! class_exists('CreateKodeWilayahIndonesiaTable')) {
             $timestamp = date('Y_m_d_His', time());
