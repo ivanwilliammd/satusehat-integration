@@ -2,7 +2,16 @@
 
 [Subscribe now](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) for premium features and support : 
 
-*Last updated: 2025-01-28 15:00 WIB*
+*Last updated: 2025-01-30 09:00 WIB*
+
+### Bagaimana langkah untuk langganan premium
+1. Calon klien mengirimkan email untuk pertanyaan awal, yang akan dibalas dalam 1x24 jam.
+2. Pada sesi awal, akan diadakan sesi **konsultasi diagnostik berbayar** antara konsultan dengan calon klien untuk mengetahui kebutuhan integrasi dan dukungan yang Anda butuhkan. (1x sesi konsultasi diagnostik akan dibayar di muka)
+3. Setelah sesi konsultasi diagnostik berbayar, calon klien akan menerima **proposal penawaran/quotation** yang berisi rincian biaya langganan dan dukungan yang akan diterima dengan skema     
+   - **Skema pemakaian library:** perpetual jual putus/*one-time payment* atau berlangganan tahunan.
+   - **Dukungan yang diperlukan:** maintenance, konsultasi/pendampingan/training cara integrasi, pelatihan, dan atau dukungan teknis.
+4. Calon klien dapat memilih untuk **setuju** atau **menolak** penawaran.
+5. Apabila calon klien **setuju dengan penawaran**, maka akan diterbitkan **invoice**, dan klien wajib melunasi invoice sebelum waktu tenggat untuk mendapatkan **receipt** (bukti tanda lunas), beserta SLA dan kesepakatan.
 
 ### Kualitas Kode dan Dukungan
 |  | Free | Premium |
@@ -23,12 +32,12 @@
 |3 | Kode Wilayah Indonesia | ✅ | ✅ |
 |4 | KFA API (v2) |  | ✅ |
 |5 | LOINC and LOINC Answer: for Lab & Radiology | ✅ | ✅ |
-|6 | SNOMED-CT | ❌ | 🚀 Coming soon |
+|6 | SNOMED-CT | ❌ | ✅ |
 |7 | KPTL (Kode Pembiayaan Tindakan dan Layanan Kesehatan) | ❌ | 🚀 Coming soon |
-|8 | Units of Measure | ❌ | 🚀 Coming soon |
-|9 | CVX (CDC Vaccine Codes) | ❌ | 🚀 Coming soon |
-|10 | Terminology Kemkes | ❌ | 🚀 Coming soon |
-|11 | FHIR Value Set | ❌ | 🚀 Coming soon |
+|8 | Units of Measure | ❌ | ✅ |
+|9 | CVX (CDC Vaccine Codes) | ❌ | ✅ |
+|10 | Terminology Kemkes (upd. Apr 2023) | ❌ | ✅ |
+|11 | FHIR Value Set dan Terminology | ❌ | ✅ |
 
 ### Integrasi dasar SATUSEHAT
 |  | Fitur | Free | Premium |
