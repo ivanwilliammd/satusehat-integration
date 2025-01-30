@@ -47,7 +47,7 @@
 | 6 | Manajemen - Lokasi | ✅ | ✅ |
 | 7 | Manajemen - Suborganisasi | ✅ | ✅ |
 | 8 | Identitas - Anggota Keluarga/Wali | ❌ | ✅ |
-| 9 | Klinis - Pemeriksaan tanda-tanda vital | ✅ | ✅ |
+| 9 | Klinis - Pemeriksaan tanda-tanda vital | ⚠️ | ✅ |
 | 10 | Klinis - Pemeriksaan fisik | ❌ | ✅ |
 | 11 | Klinis - Peresepan Obat | ❌ | ✅ |
 | 12 | Klinis - Edukasi | ❌ | ✅ |
