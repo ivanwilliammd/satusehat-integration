@@ -1,5 +1,6 @@
 # Changelog
 
+
 ## 2.9.8 - 2024-11-14
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/2.9.7...2.9.8
@@ -271,6 +272,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -385,6 +387,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
