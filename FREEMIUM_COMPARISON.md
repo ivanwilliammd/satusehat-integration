@@ -76,27 +76,30 @@
 | 32 | Pembiayaan - Klaim BPJS | ❌ | 🚀 Coming soon |
 | 33 | Lain-lain - Kuesioner | ❌ | ✅ |
 
-### Use-case Khusus
+### Use-case Implementasi
 |  | Fitur | Free | Premium |
 |---|-------------|------|---------|
-| 1 | Rujukan - Nomor Resep National | ❌ | ⚠️ |
-| 2 | Rujukan - Sampel laboratorium | ❌ | ✅ |
-| 3 | Rujukan - Sampel Skrining Hipotiroid Kongenital | ❌ | ✅ |
-| 4 | Layanan khusus - Gigi | ❌ | ✅ |
-| 5 | Layanan primer - Antenatal Care | ❌ | ✅ |
-| 6 | Layanan primer - Intranatal Care | ❌ | ✅ |
-| 7 | Layanan primer - Postnatal Care | ❌ | ✅ |
-| 8 | Layanan primer - Gizi | ❌ | ✅ |
-| 9 | Layanan primer - Skrining PTM | ❌ | ✅ |
-| 10 | Layanan primer - Tuberkulosis | ❌ | ✅ |
-| 11 | BGSi - Registri Kanker | ❌ | ✅ |
-| 12 | BGSi - Registri Jantung | ❌ | ✅ |
-| 13 | BGSi - Registri Stroke | ❌ | ✅ |
-| 14 | BGSi - Registri Uronefrologi | ❌ | ✅ |
-| 15 | BGSi - Registri Mata | ❌ | ✅ |
+| 1 | Dasar - Layanan Rawat Jalan | ❌ | ✅ |
+| 2 | Dasar - Layanan Rawat Inap | ❌ | ✅ |
+| 3 | Dasar - Layanan Gawat Darurat | ❌ | ✅ |
+| 4 | Rujukan - Nomor Resep National | ❌ | ⚠️ |
+| 5 | Rujukan - Sampel laboratorium | ❌ | ✅ |
+| 6 | Rujukan - Sampel Skrining Hipotiroid Kongenital | ❌ | ✅ |
+| 7 | Layanan khusus - Gigi | ❌ | ✅ |
+| 8 | Layanan primer - Antenatal Care | ❌ | ✅ |
+| 9 | Layanan primer - Intranatal Care | ❌ | ✅ |
+| 10 | Layanan primer - Postnatal Care | ❌ | ✅ |
+| 11 | Layanan primer - Gizi | ❌ | ✅ |
+| 12 | Layanan primer - Skrining PTM | ❌ | ✅ |
+| 13 | Layanan primer - Tuberkulosis | ❌ | ✅ |
+| 14 | BGSi - Registri Kanker | ❌ | ✅ |
+| 15 | BGSi - Registri Jantung | ❌ | ✅ |
+| 16 | BGSi - Registri Stroke | ❌ | ✅ |
+| 17 | BGSi - Registri Uronefrologi | ❌ | ✅ |
+| 18 | BGSi - Registri Mata | ❌ | ✅ |
 
 ### Explanation of the Column:
 - **✅**: All methods (GET, POST, PUT) are checked.
-- **⚠️**: Partial use-case may be supported, but not all.
+- **⚠️**: Partial use-case supported.
 - **🚀**: On development, coming soon
 - **❌**: Not supported
