@@ -1,6 +1,9 @@
 ## Here is the comparison between Free and Premium features
 *Last updated: 2025-01-30 12:00 WIB*
 
+Premium (closed source) package name: 
+FHIRVel-SS (FHIR Laravel library based on SATUSEHAT Profile)
+
 ### Bagaimana langkah berlangganan premium
 1. Calon klien mengirimkan [email (klik disini)](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) untuk pertanyaan awal, yang akan dibalas dalam 1x24 jam.
 2. Pada sesi awal, akan diadakan sesi **konsultasi diagnostik berbayar** antara konsultan dengan calon klien untuk mengetahui kebutuhan integrasi dan dukungan yang Anda butuhkan. (1x sesi konsultasi diagnostik akan dibayar di muka)
