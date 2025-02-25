@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.1.0-stable - 2025-02-25
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/ivanwilliammd/satusehat-integration/pull/141
+* Updated support for Laravel 12
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/3.0.0-stable...3.1.0-stable
+
 ## 3.0.0-stable - 2025-01-30
 
 FULLY Tested functionality for Fase 1 Rawat Jalan SATUSEHAT
@@ -371,6 +380,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -485,6 +495,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
