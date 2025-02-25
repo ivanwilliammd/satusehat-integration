@@ -17,9 +17,9 @@
     "require": {
         "php": "^7.4|^8.0|^8.1|^8.2|^8.3",
         "guzzlehttp/guzzle": "^7.8",
-        "illuminate/config": "^8.0|^9.0|^10.0|^11.0",
-        "illuminate/database": "^8.0|^9.0|^10.0|^11.0",
-        "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+        "illuminate/config": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/database": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
         "jeroenzwart/laravel-csv-seeder": "^1.6",
         "phpseclib/phpseclib": "^3.0",
         "vlucas/phpdotenv": "^5.5"
