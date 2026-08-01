@@ -12,6 +12,15 @@ use Satusehat\Integration\Exception\Helper\OAuth2ClientException;
 use Satusehat\Integration\Models\SatusehatLog;
 use Satusehat\Integration\Models\SatusehatToken;
 
+// Resolve base path for Dotenv — works standalone or inside Laravel
+function ss_base_path(string $path = ''): string
+{
+    if (function_exists('base_path')) {
+        return base_path($path);
+    }
+    return rtrim(getcwd() ?: __DIR__, '/') . ($path ? '/' . ltrim($path, '/') : '');
+}
+
 class OAuth2Client
 {
     public $patient_dev = ['P02478375538', 'P02428473601', 'P03647103112', 'P01058967035', 'P01836748436', 'P01654557057', 'P00805884304', 'P00883356749', 'P00912894463'];
@@ -41,7 +50,8 @@ class OAuth2Client
 
     public function __construct()
     {
-        $dotenv = Dotenv::createUnsafeImmutable(getcwd());
+        $basePath = ss_base_path();
+        $dotenv = Dotenv::createImmutable($basePath);
         $dotenv->safeLoad();
 
         $this->override = config('satusehatintegration.ss_parameter_override');
