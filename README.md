@@ -1,51 +1,139 @@
-# Build SATUSEHAT FHIR Object in Easy Way
+# SATUSEHAT Integration Library
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
-[![Tests](https://img.shields.io/github/actions/workflow/status/ivanwilliammd/satusehat-integration/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ivanwilliammd/satusehat-integration/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration.svg?style=flat-square)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
+> **Build SATUSEHAT FHIR R4 objects with ease — open source Laravel PHP library.**
 
-* This library is open-source and community-maintained, offered as-is without warranty or support from the repository [owner](https://github.com/ivanwilliammd). To enhance sustainability and address the growing demand for support and feature requests, a freemium/subscription-based package was implemented in 2025. For more information, contact: [ivan.harsono@ivanmd.id](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.)
-* Feature comparison (perbandingan fitur Free VS Premium) --> click [here](FREEMIUM_COMPARISON.md)
+[![Latest Version](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
+[![Laravel](https://img.shields.io/badge/Laravel-8–13-blue)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-7.4–8.3-purple)](https://php.net)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/ivanwilliammd/satusehat-integration)](https://github.com/ivanwilliammd/satusehat-integration)
 
-## Introduction
-- This unofficial SATUSEHAT FHIR PHP Library to help generate SATUSEHAT FHIR-ready JSON, using profile established by [SATUSEHAT Documentation](https://satusehat.kemkes.go.id/platform/docs).
-- This repository is rapidly developing and need help. Please kindly comment in [Issue](https://github.com/ivanwilliammd/satusehat-integration/issues) section to contribute or Sponsor this project.
-- Features supported --> see [Wiki](https://github.com/ivanwilliammd/satusehat-integration/wiki/Features)
-- Error type from SATUSEHAT --> see [PUBLISHED - Dokumen Kamus Rule Number (Error Code)](https://docs.google.com/spreadsheets/d/1vnYFL2Ho1lICEgWmE2HFwkbEgiRvw1uaYBBW8NvwzjI/edit?gid=927500518#gid=927500518)
+---
 
-## SATUSEHAT dissemination summary
-- Update (19/9/2024) : Medication is attached to MedicationRequest and MedicationDispense
-- Update (21/11/2024):
-    - SATUSEHAT implements multiple role access with restriction on each API service --> [Resource Access](https://drive.google.com/file/d/1bs8uU_nIuNqHohnRfTvFHx0o2qOgAYabAz0ptUC3w9s/view)
-    - Data privacy security update, which will censored Patient and Practitioner name
-    - Patient and Practitioner reference in ```Encounter.subject.display``` and ```Encounter.participant.individual``` must be same with Master Patient Index (Patient GET) and Master Nakes Index (Practitioner GET)
+## Overview
 
-## Example Laravel 10 Project with SATUSEHAT Integration
-See ```satusehat-integration``` library in action [here](https://github.com/ivanwilliammd/satusehat-laravel-example)
+`satusehat-integration` is an **open-source** Laravel PHP library that makes integrating with **SATUSEHAT** (Indonesia's national health data platform, powered by FHIR R4) simple and developer-friendly.
 
-## Want to contribute?
-- See how to contribute at this [page](CONTRIBUTING.md).<br>
-- All contribution will be reviewed by [@ivanwilliammd](https://github.com/ivanwilliammd). Any invalid pull request will be commented, and decided directly whether will need further correction or directly closed as invalid.
+Built on the official [SATUSEHAT Platform Guidelines](https://satusehat.kemkes.go.id/platform/docs), it provides:
+- OAuth2 authentication with SATUSEHAT IAM
+- FHIR R4 resource object builders (Patient, Encounter, Condition, Observation, etc.)
+- Bundle operations for multi-resource transactions
+- KYC / Centang Biru verification
+- Master data: ICD-10, Kode Wilayah Indonesia, KFA v2
 
-## Quick Installation
-See Quick Installation Instructions [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Installation)<br>
-Feel your first time using this library at Onboarding page [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Onboarding)
+---
 
-## Features
-See the feature Wiki page [here](https://github.com/ivanwilliammd/satusehat-integration/wiki/Features)
+## Quick Start
 
-## Full usage guide
-Fully documented usage guide could be found on the Usage Wiki section [here](https://github.com/ivanwilliammd/SATUSEHAT-integration/wiki/Usage)
+```bash
+composer require ivanwilliammd/satusehat-integration
+```
 
-## Changelog
+```env
+# .env
+SATUSEHAT_ENV=DEV          # DEV | STG | PROD
+SATUSEHAT_BASE_URL_DEV=https://api-satusehat-dev.dto.kemkes.go.id
+CLIENTID_DEV=your_client_id
+CLIENTSECRET_DEV=your_client_secret
+ORGID_DEV=your_org_id
+```
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+```php
+use Satusehat\Integration\OAuth2Client;
+use Satusehat\Integration\FHIR\FhirPatient;
+use Satusehat\Integration\FHIR\FhirEncounter;
 
-## Credits
+$client = new OAuth2Client();
 
-Active contributor (> 1 PR per quarter):
-1. [Dr. dr. Ivan William Harsono, MTI](https://github.com/ivanwilliammd)
-2. ... Looking for volunteer for active contribution ...
+// Build & post Patient
+$patient = (new FhirPatient)
+    ->setNik('3312345678901234')
+    ->setName('John Doe')
+    ->setGender('male')
+    ->setBirthDate('1990-01-15')
+    ->setAddress('Jl. Sudirman No.1', 'Jakarta Selatan', 'DKI Jakarta')
+    ->setPhone('081234567890');
+
+[$status, $resp] = $client->ss_post('Patient', $patient->build());
+
+// Build & post Encounter
+$encounter = (new FhirEncounter)
+    ->setStatus('finished')
+    ->setClassCode('AMB')
+    ->setSubjectReference("Patient/{$resp['id']}", 'John Doe')
+    ->setParticipantIndividual('Practitioner/10009880728', 'Dr. Smith')
+    ->setPeriodStart(now()->toIso8601String())
+    ->setReasonText('Pemeriksaan umum');
+
+[$status, $encResp] = $client->ss_post('Encounter', $encounter->build());
+```
+
+---
+
+## FHIR Resources Supported
+
+| # | Resource | GET | POST | PUT |
+|---|----------|-----|------|-----|
+| 1 | Patient | ✅ | ✅ | ✅ |
+| 2 | Practitioner | ✅ | ✅ | ✅ |
+| 3 | Organization | ✅ | ✅ | ✅ |
+| 4 | Location | ✅ | ✅ | ✅ |
+| 5 | Encounter | ✅ | ✅ | ✅ |
+| 6 | Condition | ✅ | ✅ | ✅ |
+| 7 | Observation | ✅ | ✅ | ✅ |
+| 8 | Bundle | — | ✅ | — |
+
+> **Coming soon (Phase 3 roadmap):** Procedure, MedicationRequest, MedicationDispense, ServiceRequest, Specimen, DiagnosticReport, AllergicIntolerance, ClinicalImpression, CarePlan, Goal, NutritionOrder, Composition, Immunization, and more.
+
+---
+
+## Master Data Included
+
+| Data | Seeder | CSV |
+|------|--------|-----|
+| ICD-10 (18,547 codes) | ✅ | ✅ |
+| Kode Wilayah Indonesia (91,592 entries) | ✅ | ✅ |
+
+---
+
+## Documentation
+
+| Page | Description |
+|------|-------------|
+| [Installation](https://github.com/ivanwilliammd/satusehat-integration/wiki/Installation) | composer require, publish config, env setup |
+| [Usage](https://github.com/ivanwilliammd/satusehat-integration/wiki/Usage) | OAuth, Patient, Encounter, Condition, Bundle, KFA |
+| [Features](https://github.com/ivanwilliammd/satusehat-integration/wiki/Features) | Full feature matrix |
+| [Onboarding](https://github.com/ivanwilliammd/satusehat-integration/wiki/Onboarding) | SATUSEHAT developer account setup |
+| [Wiki](https://github.com/ivanwilliammd/satusehat-integration/wiki) | Full documentation |
+
+---
+
+## Example Projects
+
+- [satusehat-laravel-example](https://github.com/ivanwilliammd/satusehat-laravel-example) — Laravel 10 full integration example
+
+---
+
+## Open Source Roadmap
+
+This library is actively developed. See [ROADMAP.md](ROADMAP.md) for the full phased release plan from v3.x → v5.0.
+
+---
+
+## Upgrade Notes
+
+### v3.2.0 (Laravel 13)
+- ✅ Added Laravel 13 support (`illuminate/* ^13.0`)
+- ✅ Fixed Dotenv path resolution — `base_path()` used inside Laravel, `getcwd()` fallback for standalone
+- ✅ Replaced deprecated `Dotenv::createUnsafeImmutable` → `Dotenv::createImmutable`
+
+### v3.0.0
+- Multi-role access with per-API restrictions
+- Privacy: Patient/Practitioner name censorship
+- `Encounter.subject.display` and `Encounter.participant.individual` must match Master Patient Index / Master Nakes Index
+
+---
 
 ## License
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+MIT — see [LICENSE](LICENSE)
