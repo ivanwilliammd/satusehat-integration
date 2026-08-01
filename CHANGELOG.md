@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.2.0 — Laravel 13 Support - 2026-08-01
+
+### What's New
+
+**Laravel 13 Support**
+
+- Bump `illuminate/config`, `illuminate/database`, `illuminate/support` to `^13.0`
+- Fix Dotenv path: use `base_path()` when inside Laravel, fallback to `getcwd()` for standalone
+- Replace deprecated `Dotenv::createUnsafeImmutable` with `Dotenv::createImmutable`
+
+### Upgrade
+
+```bash
+composer update ivanwilliammd/satusehat-integration
+
+```
+### Compatibility
+
+| Laravel | Package Version |
+|---------|---------------|
+| 8–12   | 2.8.x – 3.1.x |
+| 13      | 3.2.0+        |
+
 ## 3.1.0-stable - 2025-02-25
 
 ### What's Changed
@@ -381,6 +404,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -495,6 +519,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
