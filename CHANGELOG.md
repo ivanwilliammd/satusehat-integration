@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.3.0 — Add ClinicalImpression FHIR class - 2026-08-01
+
+### What's New
+
+**FHIR Resource: ClinicalImpression**
+
+Phase 3 migration from `fhirvel-ss` — one resource at a time.
+
+See [ROADMAP.md](https://github.com/ivanwilliammd/satusehat-integration/blob/main/ROADMAP.md).
+
+```bash
+composer update ivanwilliammd/satusehat-integration
+
+```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
 ### What's New
@@ -14,6 +28,7 @@
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 ```
 ### Compatibility
@@ -405,6 +420,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -519,6 +535,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
