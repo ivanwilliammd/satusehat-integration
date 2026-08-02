@@ -12,7 +12,7 @@ Specimen            | done     | -         | copied from fhirvel-ss
 PractitionerRole    | done     | -         | copied from fhirvel-ss
 DocumentReference   | done     | -         | copied from fhirvel-ss
 ClinicalImpression | done  | -         | -
-CarePlan            | pending  | -         | -
+CarePlan | done  | -         | -
 Goal                | pending  | -         | -
 NutritionOrder      | pending  | -         | -
 Composition         | pending  | -         | -
