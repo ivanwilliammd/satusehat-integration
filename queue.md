@@ -13,7 +13,7 @@ PractitionerRole    | done     | -         | copied from fhirvel-ss
 DocumentReference   | done     | -         | copied from fhirvel-ss
 ClinicalImpression | done  | -         | -
 CarePlan | done  | -         | -
-Goal                | pending  | -         | -
+Goal | done  | -         | -
 NutritionOrder      | pending  | -         | -
 Composition         | pending  | -         | -
 Immunization        | pending  | -         | -
