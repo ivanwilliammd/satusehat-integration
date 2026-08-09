@@ -14,7 +14,7 @@ DocumentReference   | done     | -         | copied from fhirvel-ss
 ClinicalImpression | done  | -         | -
 CarePlan | done  | -         | -
 Goal | done  | -         | -
-NutritionOrder      | pending  | -         | -
+NutritionOrder | done  | -         | -
 Composition         | pending  | -         | -
 Immunization        | pending  | -         | -
 Account             | pending  | -         | -
