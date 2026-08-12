@@ -15,7 +15,7 @@ ClinicalImpression | done  | -         | -
 CarePlan | done  | -         | -
 Goal | done  | -         | -
 NutritionOrder | done  | -         | -
-Composition         | pending  | -         | -
+Composition | done  | -         | -
 Immunization        | pending  | -         | -
 Account             | pending  | -         | -
 Device              | pending  | -         | -
