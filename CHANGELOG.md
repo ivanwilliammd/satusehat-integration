@@ -1,5 +1,17 @@
 # Changelog
 
+## v3.3.3 — Add Composition FHIR class - 2026-08-12
+
+### What's New
+
+**FHIR Resource: Composition**
+
+Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwilliammd/satusehat-integration/blob/main/ROADMAP.md).
+
+```bash
+composer update ivanwilliammd/satusehat-integration
+
+```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
 ### What's New
@@ -10,6 +22,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 ```
 ## v3.3.1 — Add Goal FHIR class - 2026-08-05
@@ -24,6 +37,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 composer update ivanwilliammd/satusehat-integration
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -35,6 +49,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -55,6 +70,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -70,6 +86,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -469,6 +486,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -583,6 +601,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
