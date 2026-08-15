@@ -1,6 +1,8 @@
 # Changelog
 
-## v4.0.0 — Phase 1: FHIR R4 DataType Architecture Refactor - 2026-08-15
+## v4.0.1 — Phase 1: FHIR R4 DataType Architecture Refactor - 2026-08-15
+
+**NOTE:** v4.0.0 was blocked by Packagist (stable version immutability). Use v4.0.1.
 
 ### What's New
 
