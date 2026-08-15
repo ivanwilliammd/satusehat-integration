@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\DataType;
 
+/**
+ * @property string|null $system
+ * @property string|null $version
+ * @property string|null $code
+ * @property string|null $display
+ * @property bool|null $userSelected
+ */
 class Coding extends DataType
 {
     public ?string $system = null;
@@ -19,15 +26,10 @@ class Coding extends DataType
         ?string $version = null,
         ?bool $userSelected = null
     ) {
-        $this->system = $this->str($system);
-        $this->code = $this->str($code);
-        $this->display = $this->str($display);
-        $this->version = $this->str($version);
-        $this->userSelected = $this->bool($userSelected);
-    }
-
-    public function toArray(): array
-    {
-        return array_filter(get_object_vars($this), fn($v) => $v !== null && $v !== []);
+        $this->system = $system;
+        $this->code = $code;
+        $this->display = $display;
+        $this->version = $version;
+        $this->userSelected = $userSelected;
     }
 }

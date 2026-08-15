@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\DataType;
 
+/**
+ * @property float|null $value
+ * @property string|null $comparator
+ * @property string|null $unit
+ * @property string|null $system
+ * @property string|null $code
+ */
 class SimpleQuantity extends Quantity
 {
     public function __construct(
@@ -12,6 +19,9 @@ class SimpleQuantity extends Quantity
         ?string $system = null,
         ?string $code = null
     ) {
-        parent::__construct($value, $unit, $system, $code, null);
+        $this->value = $value;
+        $this->unit = $unit;
+        $this->system = $system;
+        $this->code = $code;
     }
 }

@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\DataType;
 
+/**
+ * @property string|null $start
+ * @property string|null $end
+ */
 class Period extends DataType
 {
-    public ?string $start = null; // dateTime
-    public ?string $end = null;   // dateTime
+    public ?string $start = null;
+    public ?string $end = null;
 
     public function __construct(?string $start = null, ?string $end = null)
     {
-        $this->start = $this->dt($start);
-        $this->end = $this->dt($end);
-    }
-
-    public function toArray(): array
-    {
-        return array_filter(get_object_vars($this), fn($v) => $v !== null && $v !== []);
+        $this->start = $start;
+        $this->end = $end;
     }
 }

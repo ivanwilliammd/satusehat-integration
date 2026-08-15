@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\DataType;
 
+/**
+ * @property Quantity|null $numerator
+ * @property Quantity|null $denominator
+ */
 class Ratio extends DataType
 {
     public ?Quantity $numerator = null;
