@@ -1,5 +1,80 @@
 # Changelog
 
+## v4.0.0 — Phase 1: FHIR R4 DataType Architecture Refactor - 2026-08-15
+
+### What's New
+
+#### 31 FHIR R4 DataType Classes
+
+Core: Coding, CodeableConcept, Identifier, Period, ContactPoint, Address, HumanName, Reference
+Quantity: Quantity, SimpleQuantity, Range, Ratio, Age, Count, Distance, Duration, Money
+Structured: Attachment, Narrative, Annotation, Timing, TimingRepeat, Dosage, DosageDoseAndRate
+Utility: Extension, Signature, RelatedArtifact, Expression, TriggerDefinition, DataRequirement, ParameterDefinition
+
+#### SSRequest — HTTP Client
+
+- get/post/put/delete returning SSResponse
+- Auto token-refresh on HTTP 401 (up to 5 retries)
+- HTTP 429 with Retry-After header handling
+- Exponential backoff: 2^n seconds, max 5 retries, capped at 60s
+
+#### SSResponse — Response Wrapper
+
+- isSuccess() / isError() for HTTP status check
+- getErrorMessages() extracts FHIR OperationOutcome issue messages
+- getResourceId() for response ID extraction
+
+#### 17 PayloadBuilder Classes
+
+Builder.php (abstract base) + PayloadBuilderPatient, Encounter, Observation, Condition, Procedure, MedicationRequest, Organization, Practitioner, PractitionerRole, Location, Bundle, CarePlan, Composition, ClinicalImpression, Goal, NutritionOrder
+
+#### Breaking Changes
+
+- DataType base class now has recursive toArray()
+- SSRequest/SSResponse replaces raw ss_post/ss_get return format
+
+## v4.0.0 — Phase 1: DataType Architecture Refactor - 2026-08-15
+
+### Breaking Changes
+
+- **DataType base class** now has recursive `toArray()` — nested `DataType` objects are serialized properly. Classes relying on shallow `toArray()` output may need adjustment.
+- **SSRequest/SSResponse** replaces raw `ss_post/ss_get` return format — old `$client->ss_post()` returning `[$statusCode, $response]` is deprecated in favor of `SSResponse` objects.
+
+### What's New
+
+**31 FHIR R4 DataType classes** (`src/DataType/`):
+
+- Core: `Coding`, `CodeableConcept`, `Identifier`, `Period`, `ContactPoint`, `Address`, `HumanName`, `Reference`
+- Quantity: `Quantity`, `SimpleQuantity`, `Range`, `Ratio`, `Age`, `Count`, `Distance`, `Duration`, `Money`
+- Structured: `Attachment`, `Narrative`, `Annotation`, `Timing`, `TimingRepeat`, `Dosage`, `DosageDoseAndRate`
+- Utility: `Extension`, `Signature`, `RelatedArtifact`, `Expression`, `TriggerDefinition`, `DataRequirement`, `ParameterDefinition`
+
+**SSRequest** (`src/SSRequest/SSRequest.php`):
+
+- HTTP client with `get/post/put/delete` → returns `SSResponse`
+- Auto token-refresh on HTTP 401 (up to 5 retries)
+- HTTP 429 with `Retry-After` header handling
+- Exponential backoff: 2^n seconds, max 5 retries, capped at 60s
+- Configurable timeout, SSL verify, custom headers
+
+**SSResponse** (`src/SSResponse/SSResponse.php`):
+
+- `isSuccess()` / `isError()` for HTTP status check
+- `getErrorMessages()` extracts FHIR OperationOutcome issue messages
+- `getResourceId()` / `get(resourceType)` for response ID extraction
+
+**12 PayloadBuilder classes** (`src/Builder/`):
+
+- `Builder.php` — abstract base with fluent `set()` / `push()` / `merge()` / `build()`
+- `PayloadBuilderPatient`, `Encounter`, `Observation`, `Condition`, `Procedure`, `MedicationRequest`, `Organization`, `Practitioner`, `PractitionerRole`, `Location`, `Bundle`, `CarePlan`, `Composition`, `ClinicalImpression`, `Goal`, `NutritionOrder`
+- Fluent API: `->setSubject($ref)->setStatus('active')->build()`
+- Polymorphic setters for FHIR `[x]` elements (e.g., `setValueQuantity()`, `setOnsetDateTime()`)
+- All fields typed with DataType objects
+
+```bash
+composer update ivanwilliammd/satusehat-integration
+
+```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
 ### What's New
@@ -23,7 +98,6 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 ```bash
 composer update ivanwilliammd/satusehat-integration
 
-
 ```
 ## v3.3.1 — Add Goal FHIR class - 2026-08-05
 
@@ -38,6 +112,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -49,6 +124,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -71,6 +147,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -86,6 +163,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -487,6 +565,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -601,6 +680,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
