@@ -1,5 +1,29 @@
 # Changelog
 
+## v4.2.0 - 2026-08-16
+
+### v4.2.0 — Phase 2: Full PayloadBuilder Migration
+
+#### 21 new PayloadBuilders (migrated from fhirvel-ss)
+
+Account, AllergyIntolerance, DiagnosticReport, DocumentReference, EpisodeOfCare, FamilyMemberHistory, GenomicStudy, Group, Immunization, Medication, MedicationAdministration, MedicationDispense, MedicationStatement, MolecularSequence, QuestionnaireResponse, RelatedPerson, RiskAssessment, ServiceRequest, Specimen, Substance, Task
+
+#### Core fixes
+
+- **SSRequest**: add `patch()` method — PATCH verb support for FHIR conditional updates
+- **Builder**: add `json()` base method — validates + throws on error
+- **PayloadBuilderBundle**: complete rewrite — type constants, search/history/batch entry helpers, pagination links, `validate()`, `json()`
+
+#### Pattern
+
+All PayloadBuilders: immutable chainable setters → `->json()` → SSRequest HTTP call
+
+#### Changelog
+
+- SSRequest: `get()`, `post()`, `put()`, `patch()`, `delete()`, `postBundle()`
+- All 38 resource PayloadBuilders with typed DataType params
+- Backward compatible
+
 ## v4.1.0 - 2026-08-16
 
 ### v4.1.0 — Device Migration (Phase 3, Phase 1 Compliant)
@@ -92,6 +116,7 @@ Builder.php (abstract base) + PayloadBuilderPatient, Encounter, Observation, Con
 composer update ivanwilliammd/satusehat-integration
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -105,6 +130,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 composer update ivanwilliammd/satusehat-integration
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -116,6 +142,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 ```
@@ -134,6 +161,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -145,6 +173,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -171,6 +200,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -186,6 +216,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -591,6 +622,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -705,6 +737,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
