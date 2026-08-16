@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.1.0 - 2026-08-16
+
+### v4.1.0 — Device Migration (Phase 3, Phase 1 Compliant)
+
+#### FHIR Device
+
+- Add **PayloadBuilderDevice**: fluent API using DataType classes (Identifier, CodeableConcept, Reference, Annotation)
+- Refactor Device.php: static build() returning PayloadBuilderDevice, chainable setters, json() validates required fields (status, manufacturer, type)
+- Backward compatible with old OAuth2Client/SSRequest pattern
+
+#### Breaking Changes
+
+- Device::build() now returns PayloadBuilderDevice (use ->json() to serialize)
+- Old Device::ss_send() deprecated — use SSRequest::post() with ->json() output
+
 ## v4.0.1 — Phase 1: FHIR R4 DataType Architecture Refactor - 2026-08-15
 
 **NOTE:** v4.0.0 was blocked by Packagist (stable version immutability). Use v4.0.1.
@@ -76,6 +91,7 @@ Builder.php (abstract base) + PayloadBuilderPatient, Encounter, Observation, Con
 ```bash
 composer update ivanwilliammd/satusehat-integration
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -88,6 +104,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 ```bash
 composer update ivanwilliammd/satusehat-integration
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -99,6 +116,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 ```
 ## v3.3.1 — Add Goal FHIR class - 2026-08-05
@@ -115,6 +133,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -126,6 +145,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -150,6 +170,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -165,6 +186,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -568,6 +590,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -682,6 +705,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
