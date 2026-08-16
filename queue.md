@@ -16,7 +16,7 @@ CarePlan | done  | -         | -
 Goal | done  | -         | -
 NutritionOrder | done  | -         | -
 Composition | done  | -         | -
-Immunization        | pending  | -         | -
+Immunization        | done     | -         | migrated from fhirvel-ss
 Account             | pending  | -         | -
 Device              | pending  | -         | -
 EpisodeOfCare       | pending  | -         | -
