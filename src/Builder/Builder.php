@@ -28,4 +28,14 @@ abstract class Builder
     {
         return array_filter($this->data, fn($v) => $v !== null && $v !== []);
     }
+
+    /**
+     * Return JSON-serializable array. Override in subclass for validation.
+     * @return array<string, mixed>
+     * @throws \RuntimeException
+     */
+    public function json(): array
+    {
+        return $this->build();
+    }
 }

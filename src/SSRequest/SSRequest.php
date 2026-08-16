@@ -107,6 +107,22 @@ class SSRequest
         return $this->request('DELETE', $fullUrl, $body);
     }
 
+    public function patch(string $url, array $patchPayload): SSResponse
+    {
+        $fullUrl = $this->buildUrl($url);
+
+        return $this->request('PATCH', $fullUrl, $patchPayload);
+    }
+
+    // -------------------------------------------------------------------------
+    // Batch / Transaction (Bundle POST)
+    // -------------------------------------------------------------------------
+
+    public function postBundle(string $url, array $bundlePayload): SSResponse
+    {
+        return $this->post($url, $bundlePayload);
+    }
+
     // -------------------------------------------------------------------------
     // Token resolution
     // -------------------------------------------------------------------------
@@ -160,7 +176,7 @@ class SSRequest
 
         $options = ['headers' => $headers];
 
-        if ($body !== null && in_array($method, ['POST', 'PUT', 'DELETE'], true)) {
+        if ($body !== null && in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'], true)) {
             $options['body'] = json_encode($body, JSON_THROW_ON_ERROR);
         }
 
