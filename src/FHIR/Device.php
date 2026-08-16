@@ -2,41 +2,49 @@
 
 namespace Satusehat\Integration\FHIR;
 
+use Satusehat\Integration\Builder\PayloadBuilderDevice;
 use Satusehat\Integration\Exception\FHIR\FHIRMissingProperty;
 use Satusehat\Integration\OAuth2Client;
 
+/**
+ * Device FHIR R4 Resource
+ * @link https://www.hl7.org/fhir/device.html
+ *
+ * Uses PayloadBuilderDevice for clean typed building.
+ * Backward compatible: still extends OAuth2Client for old SSRequest pattern.
+ */
 class Device extends OAuth2Client
 {
     public array $device = ['resourceType' => 'Device'];
 
     public function addIdentifier($system, $value)
     {
-        $identifier = [
+        $this->device['identifier'][] = [
             'system' => $system,
             'value' => $value,
         ];
-
-        $this->device['identifier'][] = $identifier;
+        return $this;
     }
 
     public function setStatus($status)
     {
         $this->device['status'] = $status;
+        return $this;
     }
 
     public function setManufacturer($manufacturer)
     {
         $this->device['manufacturer'] = $manufacturer;
+        return $this;
     }
 
-    public function addDeviceName($name, $type)
+    public function addDeviceName($name, $type = 'user-friendly-name')
     {
-        $deviceName = [
+        $this->device['deviceName'][] = [
             'name' => $name,
             'type' => $type,
         ];
-
-        $this->device['deviceName'][] = $deviceName;
+        return $this;
     }
 
     public function setType($code, $display)
@@ -50,51 +58,55 @@ class Device extends OAuth2Client
                 ],
             ],
         ];
+        return $this;
     }
 
     public function setPatient($reference, $display = null)
     {
-        $this->device['patient'] = [
-            'reference' => $reference,
-        ];
-
+        $this->device['patient'] = ['reference' => $reference];
         if ($display !== null) {
             $this->device['patient']['display'] = $display;
         }
+        return $this;
     }
 
     public function setOwner($reference, $display = null)
     {
-        $this->device['owner'] = [
-            'reference' => $reference,
-        ];
-
+        $this->device['owner'] = ['reference' => $reference];
         if ($display !== null) {
             $this->device['owner']['display'] = $display;
         }
+        return $this;
     }
 
     public function setLocation($reference, $display = null)
     {
-        $this->device['location'] = [
-            'reference' => $reference,
-        ];
-
+        $this->device['location'] = ['reference' => $reference];
         if ($display !== null) {
             $this->device['location']['display'] = $display;
         }
+        return $this;
     }
 
     public function setSerialNumber($value)
     {
         $this->device['serialNumber'] = $value;
+        return $this;
     }
 
     public function addNote($text)
     {
-        $this->device['note'][] = [
-            'text' => $text,
-        ];
+        $this->device['note'][] = ['text' => $text];
+        return $this;
+    }
+
+    /**
+     * Build using PayloadBuilderDevice (Phase 1 pattern).
+     * Returns the builder instance for chaining.
+     */
+    public static function build(): PayloadBuilderDevice
+    {
+        return new PayloadBuilderDevice();
     }
 
     public function json()
@@ -102,11 +114,9 @@ class Device extends OAuth2Client
         if (! array_key_exists('status', $this->device)) {
             throw new FHIRMissingProperty('Device.status is required');
         }
-
         if (! array_key_exists('manufacturer', $this->device)) {
             throw new FHIRMissingProperty('Device.manufacturer is required');
         }
-
         if (! array_key_exists('type', $this->device)) {
             throw new FHIRMissingProperty('Device.type is required');
         }
@@ -116,19 +126,14 @@ class Device extends OAuth2Client
 
     public function post()
     {
-        $payload = $this->json();
-        [$statusCode, $res] = $this->ss_post('Device', $payload);
-
+        [$statusCode, $res] = $this->ss_post('Device', $this->json());
         return [$statusCode, $res];
     }
 
     public function put($id)
     {
         $this->device['id'] = $id;
-
-        $payload = $this->json();
-        [$statusCode, $res] = $this->ss_put('Device', $id, $payload);
-
+        [$statusCode, $res] = $this->ss_put('Device', $id, $this->json());
         return [$statusCode, $res];
     }
 }
