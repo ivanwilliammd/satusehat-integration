@@ -93,7 +93,7 @@ class NutritionOrderTest extends TestCase
         $pref = new CodeableConcept();
         $pref->addCoding(new Coding('http://snomed.info/sct', '228273006', 'Vegetarian'));
         $result = $builder->addFoodPreferenceModifier($pref)->build();
-        $this->assertSame('228273006', $result['foodPreferenceModifier'][0]['coding'][0]->code);
+        $this->assertSame('228273006', $result['foodPreferenceModifier'][0]['coding'][0]['code']);
     }
 
     public function test_add_exclude_food_modifier()
@@ -102,7 +102,7 @@ class NutritionOrderTest extends TestCase
         $exclude = new CodeableConcept();
         $exclude->addCoding(new Coding('http://snomed.info/sct', '102259006', 'Exclude nuts'));
         $result = $builder->addExcludeFoodModifier($exclude)->build();
-        $this->assertSame('102259006', $result['excludeFoodModifier'][0]['coding'][0]->code);
+        $this->assertSame('102259006', $result['excludeFoodModifier'][0]['coding'][0]['code']);
     }
 
     public function test_set_oral_diet_type()
@@ -110,7 +110,6 @@ class NutritionOrderTest extends TestCase
         $builder = new PayloadBuilderNutritionOrder;
         $type = new CodeableConcept();
         $type->addCoding(new Coding('http://snomed.info/sct', '386128009', 'Low sodium diet'));
-        // Builder doesn't properly support nested paths, just verify no error
         $result = $builder->setOralDietType($type)->build();
         $this->assertIsArray($result);
     }
@@ -119,7 +118,6 @@ class NutritionOrderTest extends TestCase
     {
         $builder = new PayloadBuilderNutritionOrder;
         $schedule = new Timing();
-        // Builder doesn't properly support nested paths, just verify no error
         $result = $builder->addOralDietSchedule($schedule)->build();
         $this->assertIsArray($result);
     }

@@ -60,7 +60,7 @@ class ImmunizationTest extends TestCase
         $vaccineCode = new CodeableConcept();
         $vaccineCode->addCoding(new Coding('http://snomed.info/sct', '93001282', 'COVID-19 Vaccine'));
         $result = $builder->setVaccineCode($vaccineCode)->build();
-        $this->assertSame('93001282', $result['vaccineCode']['coding'][0]->code);
+        $this->assertSame('93001282', $result['vaccineCode']['coding'][0]['code']);
     }
 
     public function test_set_vaccine_code_from_code()
@@ -197,7 +197,7 @@ class ImmunizationTest extends TestCase
         $reason = new CodeableConcept();
         $reason->addCoding(new Coding('http://snomed.info/sct', '429060002', 'No drug allergy'));
         $result = $builder->addReasonCode($reason)->build();
-        $this->assertSame('429060002', $result['reasonCode'][0]['coding'][0]->code);
+        $this->assertSame('429060002', $result['reasonCode'][0]['coding'][0]['code']);
     }
 
     public function test_set_route()
@@ -206,14 +206,14 @@ class ImmunizationTest extends TestCase
         $route = new CodeableConcept();
         $route->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration', 'IM', 'Intramuscular'));
         $result = $builder->setRoute($route)->build();
-        $this->assertSame('IM', $result['route']['coding'][0]->code);
+        $this->assertSame('IM', $result['route']['coding'][0]['code']);
     }
 
     public function test_set_route_from_code()
     {
         $builder = new PayloadBuilderImmunization;
         $result = $builder->setRouteFromCode('IM', 'Intramuscular')->build();
-        $this->assertSame('IM', $result['route']['coding'][0]->code);
+        $this->assertSame('IM', $result['route']['coding'][0]['code']);
         $this->assertSame('Intramuscular', $result['route']['coding'][0]['display']);
     }
 

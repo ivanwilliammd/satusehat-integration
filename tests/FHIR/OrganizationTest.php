@@ -61,7 +61,7 @@ class OrganizationTest extends TestCase
         $type = new CodeableConcept();
         $type->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/organization-type', 'prov', 'Healthcare Provider'));
         $result = $builder->setType($type)->build();
-        $this->assertSame('prov', $result['type']['coding'][0]->code);
+        $this->assertSame('prov', $result['type']['coding'][0]['code']);
     }
 
     public function test_add_telecom()

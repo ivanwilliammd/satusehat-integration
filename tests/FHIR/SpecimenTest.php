@@ -47,7 +47,7 @@ class SpecimenTest extends TestCase
         $type = new CodeableConcept();
         $type->addCoding(new Coding('http://snomed.info/sct', '119364003', 'Serum sample'));
         $result = $builder->setType($type)->build();
-        $this->assertSame('119364003', $result['type']['coding'][0]->code);
+        $this->assertSame('119364003', $result['type']['coding'][0]['code']);
     }
 
     public function test_set_subject()
@@ -94,7 +94,7 @@ class SpecimenTest extends TestCase
         $fastingStatus = new CodeableConcept();
         $fastingStatus->addCoding(new Coding('http://snomed.info/sct', '15170003', 'Fasting'));
         $result = $builder->setFastingStatusCodeableConcept($fastingStatus)->build();
-        $this->assertSame('15170003', $result['collection']['fastingStatusCodeableConcept']['coding'][0]->code);
+        $this->assertSame('15170003', $result['collection']['fastingStatusCodeableConcept']['coding'][0]['code']);
     }
 
     public function test_set_method()
@@ -103,7 +103,7 @@ class SpecimenTest extends TestCase
         $method = new CodeableConcept();
         $method->addCoding(new Coding('http://snomed.info/sct', '27845005', 'Venipuncture'));
         $result = $builder->setMethod($method)->build();
-        $this->assertSame('27845005', $result['collection']['method']['coding'][0]->code);
+        $this->assertSame('27845005', $result['collection']['method']['coding'][0]['code']);
     }
 
     public function test_set_quantity()
@@ -121,7 +121,7 @@ class SpecimenTest extends TestCase
         $bodySite = new CodeableConcept();
         $bodySite->addCoding(new Coding('http://snomed.info/sct', '49852007', 'Left antecubital fossa'));
         $result = $builder->setBodySite($bodySite)->build();
-        $this->assertSame('49852007', $result['collection']['bodySite']['coding'][0]->code);
+        $this->assertSame('49852007', $result['collection']['bodySite']['coding'][0]['code']);
     }
 
     public function test_add_condition()

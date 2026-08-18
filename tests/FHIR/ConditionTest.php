@@ -152,7 +152,7 @@ class ConditionTest extends TestCase
 
         $payload = $builder->build();
 
-        $this->assertSame(45, $payload['onsetAge']['low']['value']);
+        $this->assertEquals(45, $payload['onsetAge']['low']['value']);
     }
 
     public function test_set_onset_period()

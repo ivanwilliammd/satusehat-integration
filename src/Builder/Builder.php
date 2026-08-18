@@ -10,6 +10,18 @@ abstract class Builder
 
     protected function set(string $key, mixed $value): void
     {
+        if (str_contains($key, '/')) {
+            $keys = explode('/', $key);
+            $ref = &$this->data;
+            foreach (array_slice($keys, 0, -1) as $k) {
+                if (!isset($ref[$k]) || !is_array($ref[$k])) {
+                    $ref[$k] = [];
+                }
+                $ref = &$ref[$k];
+            }
+            $ref[array_slice($keys, -1)[0]] = $value;
+            return;
+        }
         $this->data[$key] = $value;
     }
 

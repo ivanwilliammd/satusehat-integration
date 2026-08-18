@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Satusehat\Integration\Builder\PayloadBuilderPractitionerRole;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\ContactPoint;
+use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Period;
 use Satusehat\Integration\DataType\Reference;
@@ -78,7 +79,7 @@ class PractitionerRoleTest extends TestCase
     public function test_add_code()
     {
         $code = new CodeableConcept;
-        $code->addCoding('http://terminology.hl7.org/CodeSystem/v2-0360', 'MD', 'Doctor of Medicine');
+        $code->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v2-0360', 'MD', 'Doctor of Medicine'));
 
         $builder = new PayloadBuilderPractitionerRole;
         $builder->addCode($code);
@@ -92,7 +93,7 @@ class PractitionerRoleTest extends TestCase
     public function test_add_specialty()
     {
         $specialty = new CodeableConcept;
-        $specialty->addCoding('http://snomed.info/sct', '394814009', 'General Practice');
+        $specialty->addCoding(new Coding('http://snomed.info/sct', '394814009', 'General Practice'));
 
         $builder = new PayloadBuilderPractitionerRole;
         $builder->addSpecialty($specialty);
@@ -129,7 +130,7 @@ class PractitionerRoleTest extends TestCase
 
     public function test_add_telecom()
     {
-        $telecom = new ContactPoint('phone', 'work', '0213456789');
+        $telecom = new ContactPoint('phone', '0213456789', 'work');
         $builder = new PayloadBuilderPractitionerRole;
         $builder->addTelecom($telecom);
 

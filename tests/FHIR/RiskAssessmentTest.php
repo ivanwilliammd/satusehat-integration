@@ -47,7 +47,7 @@ class RiskAssessmentTest extends TestCase
         $code = new CodeableConcept();
         $code->addCoding(new Coding('http://snomed.info/sct', '123456', 'Risk assessment code'));
         $result = $builder->setCode($code)->build();
-        $this->assertSame('123456', $result['code']['coding'][0]->code);
+        $this->assertSame('123456', $result['code']['coding'][0]['code']);
     }
 
     public function test_set_subject()
@@ -112,7 +112,7 @@ class RiskAssessmentTest extends TestCase
         $outcome = new CodeableConcept();
         $outcome->addCoding(new Coding('http://snomed.info/sct', '38955003', 'Stroke'));
         $result = $builder->addPrediction($outcome, 0.25)->build();
-        $this->assertSame('38955003', $result['prediction'][0]['outcome']['coding'][0]->code);
+        $this->assertSame('38955003', $result['prediction'][0]['outcome']['coding'][0]['code']);
         $this->assertSame(0.25, $result['prediction'][0]['probabilityDecimal']);
     }
 
@@ -127,7 +127,7 @@ class RiskAssessmentTest extends TestCase
         $result = $builder->addPrediction($outcome, 0.75, $qualitativeRisk, 2.5)->build();
         
         $this->assertSame(0.75, $result['prediction'][0]['probabilityDecimal']);
-        $this->assertSame('high', $result['prediction'][0]['qualitativeRisk']['coding'][0]->code);
+        $this->assertSame('high', $result['prediction'][0]['qualitativeRisk']['coding'][0]['code']);
         $this->assertSame(2.5, $result['prediction'][0]['relativeRisk']);
     }
 

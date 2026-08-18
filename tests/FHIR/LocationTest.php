@@ -47,7 +47,7 @@ class LocationTest extends TestCase
         $status = new CodeableConcept();
         $status->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v2-0307', 'CI', 'Closed - Imminent'));
         $result = $builder->setOperationalStatus($status)->build();
-        $this->assertSame('CI', $result['operationalStatus']['coding'][0]->code);
+        $this->assertSame('CI', $result['operationalStatus']['coding'][0]['code']);
     }
 
     public function test_set_name()
@@ -80,7 +80,7 @@ class LocationTest extends TestCase
         $type = new CodeableConcept();
         $type->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/location-type', 'ICU', 'Intensive Care Unit'));
         $result = $builder->setType($type)->build();
-        $this->assertSame('ICU', $result['type']['coding'][0]->code);
+        $this->assertSame('ICU', $result['type']['coding'][0]['code']);
     }
 
     public function test_add_telecom()
@@ -111,7 +111,7 @@ class LocationTest extends TestCase
         $physType = new CodeableConcept();
         $physType->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/location-physical-type', 'ro', 'Room'));
         $result = $builder->setPhysicalType($physType)->build();
-        $this->assertSame('ro', $result['physicalType']['coding'][0]->code);
+        $this->assertSame('ro', $result['physicalType']['coding'][0]['code']);
     }
 
     public function test_set_position_all_params()

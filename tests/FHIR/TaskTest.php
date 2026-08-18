@@ -75,10 +75,10 @@ class TaskTest extends TestCase
     public function test_set_intent_invalid_value_throws_exception()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid intent: unknown');
+        $this->expectExceptionMessage('Invalid intent: invalid');
 
         $builder = new PayloadBuilderTask;
-        $builder->setIntent('unknown');
+        $builder->setIntent('invalid');
     }
 
     public function test_set_priority()

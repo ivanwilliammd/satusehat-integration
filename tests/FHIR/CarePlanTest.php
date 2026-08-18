@@ -236,6 +236,6 @@ class CarePlanTest extends TestCase
                           ->setSubject(new Reference('Patient/1'));
 
         $this->assertInstanceOf(PayloadBuilderCarePlan::class, $result);
-        $this->assertCount(5, $builder->build());
+        $this->assertCount(6, $builder->build());
     }
 }

@@ -49,7 +49,7 @@ class MedicationTest extends TestCase
         $code = new CodeableConcept();
         $code->addCoding(new Coding('http://www.whocc.no/atc', 'N02BE01', 'Paracetamol'));
         $result = $builder->setCode($code)->build();
-        $this->assertSame('N02BE01', $result['code']['coding'][0]->code);
+        $this->assertSame('N02BE01', $result['code']['coding'][0]['code']);
     }
 
     public function test_set_status()
@@ -73,7 +73,7 @@ class MedicationTest extends TestCase
         $form = new CodeableConcept();
         $form->addCoding(new Coding('http://standardterms.edqm.eu', '10219000', 'Tablet'));
         $result = $builder->setForm($form)->build();
-        $this->assertSame('10219000', $result['form']['coding'][0]->code);
+        $this->assertSame('10219000', $result['form']['coding'][0]['code']);
     }
 
     public function test_add_ingredient_basic()
@@ -82,7 +82,7 @@ class MedicationTest extends TestCase
         $item = new CodeableConcept();
         $item->addCoding(new Coding('http://www.whocc.no/atc', 'N02BE01', 'Paracetamol'));
         $result = $builder->addIngredient($item, true)->build();
-        $this->assertSame('N02BE01', $result['ingredient'][0]['itemCodeableConcept']['coding'][0]->code);
+        $this->assertSame('N02BE01', $result['ingredient'][0]['itemCodeableConcept']['coding'][0]['code']);
         $this->assertTrue($result['ingredient'][0]['isActive']);
     }
 

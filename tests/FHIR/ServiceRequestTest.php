@@ -62,7 +62,7 @@ class ServiceRequestTest extends TestCase
         $category = new CodeableConcept();
         $category->addCoding(new Coding('http://snomed.info/sct', '108252007', 'Laboratory procedure'));
         $result = $builder->addCategory($category)->build();
-        $this->assertSame('108252007', $result['category'][0]['coding'][0]->code);
+        $this->assertSame('108252007', $result['category'][0]['coding'][0]['code']);
     }
 
     public function test_set_priority()
@@ -85,7 +85,7 @@ class ServiceRequestTest extends TestCase
         $code = new CodeableConcept();
         $code->addCoding(new Coding('http://loinc.org', '24323-8', 'Glucose [Moles/volume] in Serum or Plasma'));
         $result = $builder->setCode($code)->build();
-        $this->assertSame('24323-8', $result['code']['coding'][0]->code);
+        $this->assertSame('24323-8', $result['code']['coding'][0]['code']);
     }
 
     public function test_set_quantity_quantity()
@@ -149,7 +149,7 @@ class ServiceRequestTest extends TestCase
         $reasonCode = new CodeableConcept();
         $reasonCode->addCoding(new Coding('http://snomed.info/sct', '166072009', 'Blood glucose elevated'));
         $result = $builder->addReasonCode($reasonCode)->build();
-        $this->assertSame('166072009', $result['reasonCode'][0]['coding'][0]->code);
+        $this->assertSame('166072009', $result['reasonCode'][0]['coding'][0]['code']);
     }
 
     public function test_add_supporting_info()

@@ -89,7 +89,7 @@ class MedicationAdministrationTest extends TestCase
         $reason = new CodeableConcept();
         $reason->addCoding(new Coding('http://snomed.info/sct', '282100009', 'Premedication given'));
         $result = $builder->addReasonCode($reason)->build();
-        $this->assertSame('282100009', $result['reasonCode'][0]['coding'][0]->code);
+        $this->assertSame('282100009', $result['reasonCode'][0]['coding'][0]['code']);
     }
 
     public function test_set_request()
@@ -112,8 +112,8 @@ class MedicationAdministrationTest extends TestCase
         $result = $builder->setDosage($dose, $route, $site)->build();
 
         $this->assertSame(500.0, $result['dosage']['dose']['value']);
-        $this->assertSame('PO', $result['dosage']['route']['coding'][0]->code);
-        $this->assertSame('344001', $result['dosage']['site']['coding'][0]->code);
+        $this->assertSame('PO', $result['dosage']['route']['coding'][0]['code']);
+        $this->assertSame('344001', $result['dosage']['site']['coding'][0]['code']);
     }
 
     public function test_add_contained()

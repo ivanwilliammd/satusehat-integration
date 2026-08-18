@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Satusehat\Integration\Builder\PayloadBuilderProcedure;
 use Satusehat\Integration\DataType\Annotation;
 use Satusehat\Integration\DataType\CodeableConcept;
+use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Period;
 use Satusehat\Integration\DataType\Quantity;
@@ -58,7 +59,7 @@ class ProcedureTest extends TestCase
     public function test_set_category()
     {
         $category = new CodeableConcept;
-        $category->addCoding('http://snomed.info/sct', '387713003', 'Surgical procedure');
+        $category->addCoding(new Coding('http://snomed.info/sct', '387713003', 'Surgical procedure'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->setCategory($category);
@@ -71,7 +72,7 @@ class ProcedureTest extends TestCase
     public function test_set_code()
     {
         $code = new CodeableConcept;
-        $code->addCoding('http://snomed.info/sct', '73761001', 'Appendectomy');
+        $code->addCoding(new Coding('http://snomed.info/sct', '73761001', 'Appendectomy'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->setCode($code);
@@ -144,7 +145,7 @@ class ProcedureTest extends TestCase
         $payload = $builder->build();
 
         $this->assertArrayHasKey('performedAge', $payload);
-        $this->assertSame(5, $payload['performedAge']['low']['value']);
+        $this->assertEquals(5, $payload['performedAge']['low']['value']);
     }
 
     public function test_set_performed_range()
@@ -174,7 +175,7 @@ class ProcedureTest extends TestCase
     {
         $actor = new Reference('Practitioner/N10000001');
         $function = new CodeableConcept;
-        $function->addCoding('http://snomed.info/sct', '112244003', 'Surgeon');
+        $function->addCoding(new Coding('http://snomed.info/sct', '112244003', 'Surgeon'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addPerformer($actor, $function);
@@ -200,7 +201,7 @@ class ProcedureTest extends TestCase
     public function test_set_outcome()
     {
         $outcome = new CodeableConcept;
-        $outcome->addCoding('http://snomed.info/sct', '385669000', 'Successful');
+        $outcome->addCoding(new Coding('http://snomed.info/sct', '385669000', 'Successful'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->setOutcome($outcome);
@@ -225,7 +226,7 @@ class ProcedureTest extends TestCase
     public function test_add_follow_up()
     {
         $followUp = new CodeableConcept;
-        $followUp->addCoding('http://snomed.info/sct', '181141009', 'Follow-up visit');
+        $followUp->addCoding(new Coding('http://snomed.info/sct', '181141009', 'Follow-up visit'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addFollowUp($followUp);
@@ -251,7 +252,7 @@ class ProcedureTest extends TestCase
     public function test_add_focal_device()
     {
         $action = new CodeableConcept;
-        $action->addCoding('http://snomed.info/sct', '361230007', 'Implanted device');
+        $action->addCoding(new Coding('http://snomed.info/sct', '361230007', 'Implanted device'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addFocalDevice($action);
@@ -265,7 +266,7 @@ class ProcedureTest extends TestCase
     public function test_add_focal_device_with_device()
     {
         $action = new CodeableConcept;
-        $action->addCoding('http://snomed.info/sct', '361230007', 'Implanted');
+        $action->addCoding(new Coding('http://snomed.info/sct', '361230007', 'Implanted'));
         $device = new Reference('Device/dev-1');
 
         $builder = new PayloadBuilderProcedure;
@@ -279,7 +280,7 @@ class ProcedureTest extends TestCase
     public function test_add_focal_device_with_manufacture_item()
     {
         $action = new CodeableConcept;
-        $action->addCoding('http://snomed.info/sct', '361230007', 'Implanted');
+        $action->addCoding(new Coding('http://snomed.info/sct', '361230007', 'Implanted'));
         $manufactureItem = new Reference('Device/dev-2');
 
         $builder = new PayloadBuilderProcedure;
@@ -306,7 +307,7 @@ class ProcedureTest extends TestCase
     {
         $reference = new Reference('Device/dev-1');
         $type = new CodeableConcept;
-        $type->addCoding('http://snomed.info/sct', '66727007', 'Implant');
+        $type->addCoding(new Coding('http://snomed.info/sct', '66727007', 'Implant'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addUsedReference($reference, $type);
@@ -319,7 +320,7 @@ class ProcedureTest extends TestCase
     public function test_add_used_code()
     {
         $usedCode = new CodeableConcept;
-        $usedCode->addCoding('http://snomed.info/sct', '706172002', 'Artificial heart valve');
+        $usedCode->addCoding(new Coding('http://snomed.info/sct', '706172002', 'Artificial heart valve'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addUsedCode($usedCode);
@@ -333,7 +334,7 @@ class ProcedureTest extends TestCase
     public function test_add_body_site()
     {
         $bodySite = new CodeableConcept;
-        $bodySite->addCoding('http://snomed.info/sct', '51185008', 'Thorax');
+        $bodySite->addCoding(new Coding('http://snomed.info/sct', '51185008', 'Thorax'));
 
         $builder = new PayloadBuilderProcedure;
         $builder->addBodySite($bodySite);

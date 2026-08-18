@@ -5,6 +5,7 @@ namespace Satusehat\Integration\Tests\FHIR;
 use PHPUnit\Framework\TestCase;
 use Satusehat\Integration\Builder\PayloadBuilderQuestionnaireResponse;
 use Satusehat\Integration\DataType\CodeableConcept;
+use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\Reference;
 
 class QuestionnaireResponseTest extends TestCase
@@ -141,7 +142,7 @@ class QuestionnaireResponseTest extends TestCase
     public function test_add_item()
     {
         $answer = new CodeableConcept;
-        $answer->addCoding('http://snomed.info/sct', '373066001', 'Yes');
+        $answer->addCoding(new Coding('http://snomed.info/sct', '373066001', 'Yes'));
 
         $builder = new PayloadBuilderQuestionnaireResponse;
         $builder->addItem('q1', 'Apakah Anda merasa sehat?', $answer);
@@ -157,7 +158,7 @@ class QuestionnaireResponseTest extends TestCase
     public function test_add_item_without_text()
     {
         $answer = new CodeableConcept;
-        $answer->addCoding('http://snomed.info/sct', '373066001', 'Yes');
+        $answer->addCoding(new Coding('http://snomed.info/sct', '373066001', 'Yes'));
 
         $builder = new PayloadBuilderQuestionnaireResponse;
         $builder->addItem('q1', null, $answer);
@@ -169,8 +170,8 @@ class QuestionnaireResponseTest extends TestCase
 
     public function test_add_multiple_items()
     {
-        $answer1 = (new CodeableConcept)->addCoding('http://snomed.info/sct', '373066001', 'Yes');
-        $answer2 = (new CodeableConcept)->addCoding('http://snomed.info/sct', '373067005', 'No');
+        $answer1 = (new CodeableConcept)->addCoding(new Coding('http://snomed.info/sct', '373066001', 'Yes'));
+        $answer2 = (new CodeableConcept)->addCoding(new Coding('http://snomed.info/sct', '373067005', 'No'));
 
         $builder = new PayloadBuilderQuestionnaireResponse;
         $builder->addItem('q1', 'Q1', $answer1);

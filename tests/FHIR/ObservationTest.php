@@ -52,7 +52,7 @@ class ObservationTest extends TestCase
         $category = new CodeableConcept();
         $category->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/observation-category', 'laboratory', 'Laboratory'));
         $result = $builder->addCategory($category)->build();
-        $this->assertSame('laboratory', $result['category'][0]['coding'][0]->code);
+        $this->assertSame('laboratory', $result['category'][0]['coding'][0]['code']);
     }
 
     public function test_set_code()
@@ -61,7 +61,7 @@ class ObservationTest extends TestCase
         $code = new CodeableConcept();
         $code->addCoding(new Coding('http://loinc.org', '2345-7', 'Glucose'));
         $result = $builder->setCode($code)->build();
-        $this->assertSame('2345-7', $result['code']['coding'][0]->code);
+        $this->assertSame('2345-7', $result['code']['coding'][0]['code']);
     }
 
     public function test_set_subject()
@@ -125,7 +125,7 @@ class ObservationTest extends TestCase
         $value = new CodeableConcept();
         $value->addCoding(new Coding('http://snomed.info/sct', 'some-code', 'Some display'));
         $result = $builder->setValueCodeableConcept($value)->build();
-        $this->assertSame('some-code', $result['valueCodeableConcept']['coding'][0]->code);
+        $this->assertSame('some-code', $result['valueCodeableConcept']['coding'][0]['code']);
     }
 
     public function test_set_value_string()
@@ -189,7 +189,7 @@ class ObservationTest extends TestCase
         $interpretation = new CodeableConcept();
         $interpretation->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation', 'H', 'High'));
         $result = $builder->addInterpretation($interpretation)->build();
-        $this->assertSame('H', $result['interpretation'][0]['coding'][0]->code);
+        $this->assertSame('H', $result['interpretation'][0]['coding'][0]['code']);
     }
 
     public function test_add_note()
@@ -206,7 +206,7 @@ class ObservationTest extends TestCase
         $bodySite = new CodeableConcept();
         $bodySite->addCoding(new Coding('http://snomed.info/sct', '344001', 'Mouth'));
         $result = $builder->addBodySite($bodySite)->build();
-        $this->assertSame('344001', $result['bodySite'][0]['coding'][0]->code);
+        $this->assertSame('344001', $result['bodySite'][0]['coding'][0]['code']);
     }
 
     public function test_set_method()
@@ -215,7 +215,7 @@ class ObservationTest extends TestCase
         $method = new CodeableConcept();
         $method->addCoding(new Coding('http://snomed.info/sct', '271865001', 'Immunofluorescence assay'));
         $result = $builder->setMethod($method)->build();
-        $this->assertSame('271865001', $result['method']['coding'][0]->code);
+        $this->assertSame('271865001', $result['method']['coding'][0]['code']);
     }
 
     public function test_set_specimen()
@@ -253,7 +253,7 @@ class ObservationTest extends TestCase
         $value = new Quantity(120.0, 'mg/dL');
 
         $result = $builder->addComponent($code, $value)->build();
-        $this->assertSame('2345-7', $result['component'][0]['code']['coding'][0]->code);
+        $this->assertSame('2345-7', $result['component'][0]['code']['coding'][0]['code']);
         $this->assertSame(120.0, $result['component'][0]['valueQuantity']['value']);
     }
 

@@ -51,7 +51,7 @@ class GoalTest extends TestCase
         $desc = new CodeableConcept();
         $desc->addCoding(new Coding('http://snomed.info/sct', '424144002', 'Current smoking daily consumption'));
         $result = $builder->setDescription($desc)->build();
-        $this->assertSame('424144002', $result['description']['coding'][0]->code);
+        $this->assertSame('424144002', $result['description']['coding'][0]['code']);
     }
 
     public function test_set_subject()
@@ -100,7 +100,7 @@ class GoalTest extends TestCase
         $cc = new CodeableConcept();
         $cc->addCoding(new Coding('http://snomed.info/sct', '123456', 'Test concept'));
         $result = $builder->addTargetDetailCodeableConcept($cc)->build();
-        $this->assertSame('123456', $result['target'][0]['detailCodeableConcept']['coding'][0]->code);
+        $this->assertSame('123456', $result['target'][0]['detailCodeableConcept']['coding'][0]['code']);
     }
 
     public function test_add_target_range()
@@ -110,8 +110,8 @@ class GoalTest extends TestCase
         $high = new Quantity(140.0, null, 'mmHg', 'http://unitsofmeasure.org', 'mmHg');
         $range = new Range($low, $high);
         $result = $builder->addTargetRange($range)->build();
-        $this->assertSame(100.0, $result['target'][0]['detailRange']['low']->value);
-        $this->assertSame(140.0, $result['target'][0]['detailRange']['high']->value);
+        $this->assertSame(100.0, $result['target'][0]['detailRange']['low']['value']);
+        $this->assertSame(140.0, $result['target'][0]['detailRange']['high']['value']);
     }
 
     public function test_set_status_reason()

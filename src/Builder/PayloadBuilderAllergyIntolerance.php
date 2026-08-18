@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\Builder;
 
+use Satusehat\Integration\DataType\CodeableConcept;
+use Satusehat\Integration\DataType\Coding;
+use Satusehat\Integration\DataType\Identifier;
+use Satusehat\Integration\DataType\Reference;
+
 /**
  * AllergyIntolerance FHIR R4 Resource Builder
  * @link https://www.hl7.org/fhir/allergyintolerance.html
@@ -17,12 +22,9 @@ class PayloadBuilderAllergyIntolerance extends Builder
         $this->data['resourceType'] = $this->resourceType;
     }
 
-    public function addIdentifier(string $system, string $value): self
+    public function addIdentifier(Identifier $identifier): self
     {
-        $this->push('identifier', [
-            'system' => $system,
-            'value' => $value,
-        ]);
+        $this->push('identifier', $identifier->toArray());
         return $this;
     }
 
@@ -70,51 +72,21 @@ class PayloadBuilderAllergyIntolerance extends Builder
         return $this;
     }
 
-    public function setCode(string $code, string $display, ?string $text = null): self
+    public function setCode(CodeableConcept $code): self
     {
-        $codeData = [
-            'coding' => [
-                [
-                    'system' => 'http://snomed.info/sct',
-                    'code' => $code,
-                    'display' => $display,
-                ],
-            ],
-        ];
-
-        if ($text !== null) {
-            $codeData['text'] = $text;
-        }
-
-        $this->set('code', $codeData);
+        $this->set('code', $code->toArray());
         return $this;
     }
 
-    public function setPatient(string $reference, ?string $display = null): self
+    public function setPatient(Reference $patient): self
     {
-        $patient = [
-            'reference' => $reference,
-        ];
-
-        if ($display !== null) {
-            $patient['display'] = $display;
-        }
-
-        $this->set('patient', $patient);
+        $this->set('patient', $patient->toArray());
         return $this;
     }
 
-    public function setEncounter(string $reference, ?string $display = null): self
+    public function setEncounter(Reference $encounter): self
     {
-        $encounter = [
-            'reference' => $reference,
-        ];
-
-        if ($display !== null) {
-            $encounter['display'] = $display;
-        }
-
-        $this->set('encounter', $encounter);
+        $this->set('encounter', $encounter->toArray());
         return $this;
     }
 
@@ -130,19 +102,15 @@ class PayloadBuilderAllergyIntolerance extends Builder
         return $this;
     }
 
-    public function setRecorder(string $reference): self
+    public function setRecorder(Reference $recorder): self
     {
-        $this->set('recorder', [
-            'reference' => $reference,
-        ]);
+        $this->set('recorder', $recorder->toArray());
         return $this;
     }
 
-    public function setAsserter(string $reference): self
+    public function setAsserter(Reference $asserter): self
     {
-        $this->set('asserter', [
-            'reference' => $reference,
-        ]);
+        $this->set('asserter', $asserter->toArray());
         return $this;
     }
 
@@ -161,35 +129,17 @@ class PayloadBuilderAllergyIntolerance extends Builder
     }
 
     public function addReaction(
-        array $substance,
-        array $manifestation,
+        CodeableConcept $substance,
+        CodeableConcept $manifestation,
         ?string $description = null,
         ?string $onset = null,
         ?string $severity = null,
-        ?array $exposureRoute = null,
+        ?CodeableConcept $exposureRoute = null,
         ?string $note = null
     ): self {
         $reaction = [
-            'substance' => [
-                'coding' => [
-                    [
-                        'system' => 'http://snomed.info/sct',
-                        'code' => $substance['code'],
-                        'display' => $substance['display'],
-                    ],
-                ],
-            ],
-            'manifestation' => [
-                [
-                    'coding' => [
-                        [
-                            'system' => 'http://snomed.info/sct',
-                            'code' => $manifestation['code'],
-                            'display' => $manifestation['display'],
-                        ],
-                    ],
-                ],
-            ],
+            'substance' => $substance->toArray(),
+            'manifestation' => [$manifestation->toArray()],
         ];
 
         if ($description !== null) {
@@ -205,21 +155,11 @@ class PayloadBuilderAllergyIntolerance extends Builder
         }
 
         if ($exposureRoute !== null) {
-            $reaction['exposureRoute'] = [
-                'coding' => [
-                    [
-                        'system' => 'http://snomed.info/sct',
-                        'code' => $exposureRoute['code'],
-                        'display' => $exposureRoute['display'],
-                    ],
-                ],
-            ];
+            $reaction['exposureRoute'] = $exposureRoute->toArray();
         }
 
         if ($note !== null) {
-            $reaction['note'] = [
-                ['text' => $note],
-            ];
+            $reaction['note'] = [['text' => $note]];
         }
 
         $this->push('reaction', $reaction);

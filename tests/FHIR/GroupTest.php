@@ -70,7 +70,7 @@ class GroupTest extends TestCase
         $code = new CodeableConcept();
         $code->addCoding(new Coding('http://snomed.info/sct', '721915009', 'Procedure group'));
         $result = $builder->setCode($code)->build();
-        $this->assertSame('721915009', $result['code']['coding'][0]->code);
+        $this->assertSame('721915009', $result['code']['coding'][0]['code']);
     }
 
     public function test_set_name()

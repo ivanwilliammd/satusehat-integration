@@ -7,6 +7,7 @@ use Satusehat\Integration\Builder\PayloadBuilderRelatedPerson;
 use Satusehat\Integration\DataType\Address;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\ContactPoint;
+use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\HumanName;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Reference;
@@ -68,7 +69,7 @@ class RelatedPersonTest extends TestCase
     public function test_add_relationship()
     {
         $relationship = new CodeableConcept;
-        $relationship->addCoding('http://terminology.hl7.org/CodeSystem/v2-0131', 'MTH', 'Mother');
+        $relationship->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v2-0131', 'MTH', 'Mother'));
 
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addRelationship($relationship);
@@ -81,7 +82,7 @@ class RelatedPersonTest extends TestCase
 
     public function test_add_name()
     {
-        $name = new HumanName('Siti Aminah');
+        $name = new HumanName(null, [], null, 'Siti Aminah');
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addName($name);
 
@@ -93,7 +94,7 @@ class RelatedPersonTest extends TestCase
 
     public function test_add_telecom()
     {
-        $telecom = new ContactPoint('phone', 'home', '081234999999');
+        $telecom = new ContactPoint('phone', '081234999999', 'home');
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addTelecom($telecom);
 
@@ -125,10 +126,11 @@ class RelatedPersonTest extends TestCase
 
     public function test_add_address()
     {
-        $address = new Address('home');
-        $address->addLine('Jl. Merdeka No. 5');
-        $address->setCity('Bandung');
-        $address->setPostalCode('40111');
+        $address = new Address();
+        $address->use = 'home';
+        $address->line[] = 'Jl. Merdeka No. 5';
+        $address->city = 'Bandung';
+        $address->postalCode = '40111';
 
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addAddress($address);
@@ -143,7 +145,7 @@ class RelatedPersonTest extends TestCase
     public function test_add_communication_default_preferred()
     {
         $language = new CodeableConcept;
-        $language->addCoding('urn:ietf:bcp:47', 'id-ID', 'Indonesian');
+        $language->addCoding(new Coding('urn:ietf:bcp:47', 'id-ID', 'Indonesian'));
 
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addCommunication($language);
@@ -158,7 +160,7 @@ class RelatedPersonTest extends TestCase
     public function test_add_communication_explicit_preferred()
     {
         $language = new CodeableConcept;
-        $language->addCoding('urn:ietf:bcp:47', 'en-US', 'English');
+        $language->addCoding(new Coding('urn:ietf:bcp:47', 'en-US', 'English'));
 
         $builder = new PayloadBuilderRelatedPerson;
         $builder->addCommunication($language, false);

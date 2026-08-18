@@ -166,7 +166,7 @@ class PatientTest extends TestCase
 
         $payload = $builder->build();
 
-        $this->assertSame('M', $payload['maritalStatus']['coding'][0]->code);
+        $this->assertSame('M', $payload['maritalStatus']['coding'][0]['code']);
     }
 
     public function test_add_communication()
@@ -180,7 +180,7 @@ class PatientTest extends TestCase
         $payload = $builder->build();
 
         $this->assertArrayHasKey('communication', $payload);
-        $this->assertSame('id-ID', $payload['communication'][0]['language']['coding'][0]->code);
+        $this->assertSame('id-ID', $payload['communication'][0]['language']['coding'][0]['code']);
         $this->assertTrue($payload['communication'][0]['preferred']);
     }
 
@@ -211,7 +211,7 @@ class PatientTest extends TestCase
 
         $this->assertArrayHasKey('contact', $payload);
         $this->assertSame('Ani Wijaya', $payload['contact'][0]['name']['text']);
-        $this->assertSame('C', $payload['contact'][0]['relationship'][0]['coding'][0]->code);
+        $this->assertSame('C', $payload['contact'][0]['relationship'][0]['coding'][0]['code']);
     }
 
     public function test_add_contact_with_address()

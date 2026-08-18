@@ -246,6 +246,6 @@ class ClinicalImpressionTest extends TestCase
                           ->setSubject(new Reference('Patient/1'));
 
         $this->assertInstanceOf(PayloadBuilderClinicalImpression::class, $result);
-        $this->assertCount(3, $builder->build());
+        $this->assertCount(4, $builder->build());
     }
 }
