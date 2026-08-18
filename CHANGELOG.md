@@ -1,5 +1,17 @@
 # Changelog
 
+## v4.2.1 - 2026-08-18
+
+### v4.2.1 — Test Compatibility Fix
+
+#### Fix
+
+- **OAuth2Client**: add ss_config() helper — checks function_exists before calling Laravel config() helper. Returns default when unavailable (e.g. in CI unit tests without Laravel bootstrap).
+
+#### Files changed
+
+- src/OAuth2Client.php: +ss_config helper, replace config() call
+
 ## v4.2.0 - 2026-08-16
 
 ### v4.2.0 — Phase 2: Full PayloadBuilder Migration
@@ -117,6 +129,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -131,6 +144,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -142,6 +156,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -162,6 +177,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -173,6 +189,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -201,6 +218,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -216,6 +234,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -623,6 +642,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -737,6 +757,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
