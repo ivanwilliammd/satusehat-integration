@@ -16,11 +16,10 @@ abstract class DataType
 
     /**
      * Recursively convert nested DataType objects to arrays.
-     * Arrays are traversed; scalars and nulls are returned as-is.
      * @param mixed $value
      * @return mixed
      */
-    protected function toArrayRecursive(mixed $value): mixed
+    protected function toArrayRecursive($value)
     {
         if ($value === null || is_scalar($value)) {
             return $value;
