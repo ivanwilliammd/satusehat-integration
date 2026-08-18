@@ -21,6 +21,20 @@ function ss_base_path(string $path = ''): string
     return rtrim(getcwd() ?: __DIR__, '/') . ($path ? '/' . ltrim($path, '/') : '');
 }
 
+/**
+ * Config helper — falls back gracefully when Laravel config() is unavailable (e.g. in tests).
+ * @param string $key Dot-notation config key (e.g. 'satusehatintegration.ss_parameter_override')
+ * @param mixed $default
+ * @return mixed
+ */
+function ss_config(string $key, mixed $default = null): mixed
+{
+    if (function_exists('config')) {
+        return config($key, $default);
+    }
+    return $default;
+}
+
 class OAuth2Client
 {
     public $patient_dev = ['P02478375538', 'P02428473601', 'P03647103112', 'P01058967035', 'P01836748436', 'P01654557057', 'P00805884304', 'P00883356749', 'P00912894463'];
@@ -54,7 +68,7 @@ class OAuth2Client
         $dotenv = Dotenv::createImmutable($basePath);
         $dotenv->safeLoad();
 
-        $this->override = config('satusehatintegration.ss_parameter_override');
+        $this->override = ss_config('satusehatintegration.ss_parameter_override');
 
         $this->satusehat_env = $this->override ? null : getenv('SATUSEHAT_ENV');
 
