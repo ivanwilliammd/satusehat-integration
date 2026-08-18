@@ -17,7 +17,7 @@ Goal | done  | -         | -
 NutritionOrder | done  | -         | -
 Composition | done  | -         | -
 Immunization        | done     | -         | migrated from fhirvel-ss
-Account             | pending  | -         | -
+Account | done  | -         | -
 Device              | pending  | -         | -
 EpisodeOfCare       | pending  | -         | -
 FamilyMemberHistory | pending  | -         | -
