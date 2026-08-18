@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.3.2 - 2026-08-18
+
+### v4.3.2 — PHP 7.4 Compatibility Fix
+
+#### Fix
+
+Replace all `: static` return type with `: self` in DataType classes.
+
+`static` return type is PHP 8.1+ syntax — causes parse error on PHP 7.4.
+`self` has identical behavior for final DataType classes.
+
+10 files: CodeableConcept, Timing, TimingRepeat, Dosage, DosageDoseAndRate, Extension, Signature, DataRequirement, RelatedArtifact, TriggerDefinition.
+
+composer.json + CI now actually support PHP 7.4 as claimed.
+
 ## v4.3.1 - 2026-08-18
 
 ### v4.3.1 — Test Suite Stabilization
@@ -180,6 +195,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -198,6 +214,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -209,6 +226,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -237,6 +255,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -248,6 +267,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -284,6 +304,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -299,6 +320,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -714,6 +736,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -828,6 +851,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
