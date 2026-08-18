@@ -1,5 +1,23 @@
 # Changelog
 
+## v4.3.0 - 2026-08-18
+
+### v4.3.0 — Full Unit Test Suite + Builder Bug Fixes
+
+#### Tests
+
+- 38 test files in tests/FHIR/ covering all PayloadBuilder resources
+- AllergyIntolerance, Bundle, CarePlan, ClinicalImpression, Composition, Condition, Device, DiagnosticReport, DocumentReference, Encounter, EpisodeOfCare, FamilyMemberHistory, GenomicStudy, Goal, Group, Immunization, Location, Medication (+Administration, +Dispense, +Statement, +Request), MolecularSequence, NutritionOrder, Observation, Organization, Patient, Practitioner, PractitionerRole, Procedure, QuestionnaireResponse, RelatedPerson, RiskAssessment, ServiceRequest, Specimen, Substance, Task
+- tests/bootstrap.php: use putenv() so OAuth2Client::getenv() picks up env vars in CI
+
+#### Fixes
+
+- PayloadBuilderImmunization: fix CodeableConcept constructor (takes string params, not Coding[])
+
+#### CI
+
+- Matrix: PHP 7.4, 8.1, 8.2, 8.3 on ubuntu + windows
+
 ## v4.2.2 - 2026-08-18
 
 ### v4.2.2 — CI Test Bootstrap Fix
@@ -140,6 +158,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -156,6 +175,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -167,6 +187,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -191,6 +212,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -202,6 +224,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -234,6 +257,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -249,6 +273,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -660,6 +685,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -774,6 +800,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
