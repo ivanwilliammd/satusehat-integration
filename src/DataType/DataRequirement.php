@@ -18,31 +18,31 @@ class DataRequirement extends DataType
     /** @var array[] */
     public array $sort = [];
 
-    public function addProfile(string $profile): static
+    public function addProfile(string $profile): self
     {
         $this->profile[] = $profile;
         return $this;
     }
 
-    public function setSubject($subject): static
+    public function setSubject($subject): self
     {
         $this->subject = $subject;
         return $this;
     }
 
-    public function addCodeFilter(array $filter): static
+    public function addCodeFilter(array $filter): self
     {
         $this->codeFilter[] = $filter;
         return $this;
     }
 
-    public function addDateFilter(array $filter): static
+    public function addDateFilter(array $filter): self
     {
         $this->dateFilter[] = $filter;
         return $this;
     }
 
-    public function addSort(array $sort): static
+    public function addSort(array $sort): self
     {
         $this->sort[] = $sort;
         return $this;

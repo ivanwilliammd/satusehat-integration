@@ -12,19 +12,19 @@ class DosageDoseAndRate extends DataType
     /** @var Range|Ratio|SimpleQuantity|null */
     public $rate = null;
 
-    public function setType(CodeableConcept $type): static
+    public function setType(CodeableConcept $type): self
     {
         $this->type = $type;
         return $this;
     }
 
-    public function setDose($dose): static
+    public function setDose($dose): self
     {
         $this->dose = $dose;
         return $this;
     }
 
-    public function setRate($rate): static
+    public function setRate($rate): self
     {
         $this->rate = $rate;
         return $this;

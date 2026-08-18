@@ -20,13 +20,13 @@ class TriggerDefinition extends DataType
         $this->type = $type;
     }
 
-    public function setEventTiming($eventTiming): static
+    public function setEventTiming($eventTiming): self
     {
         $this->eventTiming = $eventTiming;
         return $this;
     }
 
-    public function setEventData(DataRequirement $eventData): static
+    public function setEventData(DataRequirement $eventData): self
     {
         $this->eventData = $eventData;
         return $this;

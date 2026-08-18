@@ -26,25 +26,25 @@ class TimingRepeat extends DataType
     public array $when = [];
     public ?int $offset = null;
 
-    public function setBounds($bounds): static
+    public function setBounds($bounds): self
     {
         $this->bounds = $bounds;
         return $this;
     }
 
-    public function addDayOfWeek(string $day): static
+    public function addDayOfWeek(string $day): self
     {
         $this->dayOfWeek[] = $day;
         return $this;
     }
 
-    public function addTimeOfDay(string $time): static
+    public function addTimeOfDay(string $time): self
     {
         $this->timeOfDay[] = $time;
         return $this;
     }
 
-    public function addWhen(string $when): static
+    public function addWhen(string $when): self
     {
         $this->when[] = $when;
         return $this;

@@ -23,7 +23,7 @@ class RelatedArtifact extends DataType
         $this->display = $display;
     }
 
-    public function setDocument(Attachment $document): static
+    public function setDocument(Attachment $document): self
     {
         $this->document = $document;
         return $this;

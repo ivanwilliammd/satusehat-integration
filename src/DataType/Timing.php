@@ -15,19 +15,19 @@ class Timing extends DataType
     {
     }
 
-    public function addEvent(string $event): static
+    public function addEvent(string $event): self
     {
         $this->event[] = $event;
         return $this;
     }
 
-    public function setRepeat(TimingRepeat $repeat): static
+    public function setRepeat(TimingRepeat $repeat): self
     {
         $this->repeat = $repeat;
         return $this;
     }
 
-    public function setCode(CodeableConcept $code): static
+    public function setCode(CodeableConcept $code): self
     {
         $this->code = $code;
         return $this;

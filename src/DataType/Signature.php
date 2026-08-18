@@ -15,19 +15,19 @@ class Signature extends DataType
     public ?string $sigFormat = null;
     public ?string $data = null;
 
-    public function addType(Coding $type): static
+    public function addType(Coding $type): self
     {
         $this->type[] = $type;
         return $this;
     }
 
-    public function setWho(Reference $who): static
+    public function setWho(Reference $who): self
     {
         $this->who = $who;
         return $this;
     }
 
-    public function setOnBehalfOf(Reference $onBehalfOf): static
+    public function setOnBehalfOf(Reference $onBehalfOf): self
     {
         $this->onBehalfOf = $onBehalfOf;
         return $this;

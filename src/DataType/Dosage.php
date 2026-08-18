@@ -21,49 +21,49 @@ class Dosage extends DataType
     {
     }
 
-    public function setSequence(int $sequence): static
+    public function setSequence(int $sequence): self
     {
         $this->sequence = $sequence;
         return $this;
     }
 
-    public function setText(string $text): static
+    public function setText(string $text): self
     {
         $this->text = $text;
         return $this;
     }
 
-    public function setTiming(Timing $timing): static
+    public function setTiming(Timing $timing): self
     {
         $this->timing = $timing;
         return $this;
     }
 
-    public function setAsNeeded(bool $asNeeded): static
+    public function setAsNeeded(bool $asNeeded): self
     {
         $this->asNeeded = $asNeeded;
         return $this;
     }
 
-    public function setSite(CodeableConcept $site): static
+    public function setSite(CodeableConcept $site): self
     {
         $this->site = $site;
         return $this;
     }
 
-    public function setRoute(CodeableConcept $route): static
+    public function setRoute(CodeableConcept $route): self
     {
         $this->route = $route;
         return $this;
     }
 
-    public function setMethod(CodeableConcept $method): static
+    public function setMethod(CodeableConcept $method): self
     {
         $this->method = $method;
         return $this;
     }
 
-    public function addDoseAndRate(DosageDoseAndRate $doseAndRate): static
+    public function addDoseAndRate(DosageDoseAndRate $doseAndRate): self
     {
         $this->doseAndRate[] = $doseAndRate;
         return $this;

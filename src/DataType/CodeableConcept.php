@@ -19,7 +19,7 @@ class CodeableConcept extends DataType
         $this->text = $text;
     }
 
-    public function addCoding(Coding $coding): static
+    public function addCoding(Coding $coding): self
     {
         $this->coding[] = $coding;
         return $this;

@@ -16,7 +16,7 @@ class Extension extends DataType
         $this->value = $value;
     }
 
-    public function setValue($value): static
+    public function setValue($value): self
     {
         $this->value = $value;
         return $this;
