@@ -19,10 +19,17 @@ if (! function_exists('base_path')) {
     }
 }
 
-// Required by OAuth2Client::__construct()
-// Dotenv will load real .env if present; these defaults satisfy __construct()
-$_ENV['SATUSEHAT_ENV'] = $_ENV['SATUSEHAT_ENV'] ?? 'STG';
-$_ENV['SATUSEHAT_BASE_URL_STG'] = $_ENV['SATUSEHAT_BASE_URL_STG'] ?? 'https://api-satusehat-stg.dto.kemkes.go.id';
-$_ENV['CLIENTID_STG'] = $_ENV['CLIENTID_STG'] ?? 'test-client-id';
-$_ENV['CLIENTSECRET_STG'] = $_ENV['CLIENTSECRET_STG'] ?? 'test-client-secret';
-$_ENV['ORGID_STG'] = $_ENV['ORGID_STG'] ?? 'test-org-id';
+// Required by OAuth2Client::__construct().
+// OAuth2Client uses getenv() (not $_ENV), so we MUST use putenv().
+$testEnv = [
+    'SATUSEHAT_ENV' => 'STG',
+    'SATUSEHAT_BASE_URL_STG' => 'https://api-satusehat-stg.dto.kemkes.go.id',
+    'CLIENTID_STG' => 'test-client-id',
+    'CLIENTSECRET_STG' => 'test-client-secret',
+    'ORGID_STG' => 'test-org-id',
+];
+foreach ($testEnv as $key => $value) {
+    putenv("{$key}={$value}");
+    $_ENV[$key] = $value;
+    $_SERVER[$key] = $value;
+}

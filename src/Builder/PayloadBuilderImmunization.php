@@ -222,14 +222,12 @@ class PayloadBuilderImmunization extends Builder
      */
     public function setRouteFromCode(string $routeCode, ?string $display = null): self
     {
-        //ponytail: add route terminology lookup when MedicationTerminology is migrated
-        $route = new CodeableConcept(
-            coding: [new Coding(
-                system: 'http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration',
-                code: $routeCode,
-                display: $display ?? $routeCode,
-            )]
-        );
+        $route = new CodeableConcept();
+        $route->addCoding(new Coding(
+            'http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration',
+            $routeCode,
+            $display ?? $routeCode,
+        ));
         $this->set('route', $route->toArray());
         return $this;
     }
