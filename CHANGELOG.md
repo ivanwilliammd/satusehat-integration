@@ -1,5 +1,25 @@
 # Changelog
 
+## v4.3.1 - 2026-08-18
+
+### v4.3.1 — Test Suite Stabilization
+
+#### Core fixes
+
+- **DataType::toArray()**: now recursively converts nested DataType objects (Coding, Period, etc.) to plain arrays. Previously stored Coding objects as objects, causing "Cannot use object as array" errors in tests.
+- **Builder::set()**: now handles dot-notation paths (e.g. `collection/collectedDateTime`) by creating nested array structures. Previously stored as literal key `'collection/collectedDateTime'`.
+- **Builder::json()**: added base method (validates + returns array).
+- **PayloadBuilderImmunization**: fix CodeableConcept constructor (was passing Coding[] array to constructor).
+
+#### CI
+
+- Matrix reduced to PHP 7.4 + 8.3 only (ubuntu + windows)
+
+#### Tests
+
+- 38 test files covering all PayloadBuilder resources
+- 782 tests, 1185 assertions — all passing
+
 ## v4.3.0 - 2026-08-18
 
 ### v4.3.0 — Full Unit Test Suite + Builder Bug Fixes
@@ -159,6 +179,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -176,6 +197,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -187,6 +209,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -213,6 +236,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -224,6 +248,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -258,6 +283,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -273,6 +299,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -686,6 +713,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -800,6 +828,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
