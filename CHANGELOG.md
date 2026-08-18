@@ -1,5 +1,14 @@
 # Changelog
 
+## v4.2.2 - 2026-08-18
+
+### v4.2.2 — CI Test Bootstrap Fix
+
+#### Fixes
+
+- phpunit.xml.dist: bootstrap=vendor/autoload.php → tests/bootstrap.php (was ignoring config() + base_path() stubs)
+- tests/bootstrap.php: add SATUSEHAT_ENV=STG + credential stubs so OAuth2Client::__construct() no longer throws on missing env in CI
+
 ## v4.2.1 - 2026-08-18
 
 ### v4.2.1 — Test Compatibility Fix
@@ -130,6 +139,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -145,6 +155,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -156,6 +167,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -178,6 +190,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -189,6 +202,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -219,6 +233,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -234,6 +249,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -643,6 +659,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -757,6 +774,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
