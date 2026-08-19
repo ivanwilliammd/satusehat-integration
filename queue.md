@@ -11,15 +11,15 @@ AllergyIntolerance  | done     | -         | copied from fhirvel-ss
 Specimen            | done     | -         | copied from fhirvel-ss
 PractitionerRole    | done     | -         | copied from fhirvel-ss
 DocumentReference   | done     | -         | copied from fhirvel-ss
-ClinicalImpression | done  | -         | -
-CarePlan | done  | -         | -
-Goal | done  | -         | -
-NutritionOrder | done  | -         | -
-Composition | done  | -         | -
+ClinicalImpression  | done     | -         | -
+CarePlan            | done     | -         | -
+Goal                | done     | -         | -
+NutritionOrder      | done     | -         | -
+Composition         | done     | -         | -
 Immunization        | done     | -         | migrated from fhirvel-ss
-Account | done  | -         | -
-Device              | pending  | -         | -
-EpisodeOfCare       | pending  | -         | -
+Account             | done     | -         | -
+Device              | done     | -         | migrated from fhirvel-ss
+EpisodeOfCare       | done     | -         | migrated from fhirvel-ss
 FamilyMemberHistory | pending  | -         | -
 GenomicStudy        | pending  | -         | -
 Group               | pending  | -         | -
