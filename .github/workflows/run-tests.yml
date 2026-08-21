@@ -10,17 +10,18 @@ on:
       - "composer.lock"
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+
+  # ── Unix: all PHP versions (pcntl available) ──
+  test-unix:
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
         php: [7.4, 8.3]
         stability: [prefer-lowest, prefer-stable]
 
-    name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: Unix / PHP ${{ matrix.php }} / ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
@@ -41,8 +42,39 @@ jobs:
       - name: Install dependencies
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
-      - name: List Installed Dependencies
-        run: composer show -D
+      - name: Execute tests
+        run: vendor/bin/phpunit
+
+  # ── Windows: PHP 8.3+ only (pcntl unavailable) ──
+  test-windows:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [8.3]
+        stability: [prefer-lowest, prefer-stable]
+
+    name: Windows / PHP ${{ matrix.php }} / ${{ matrix.stability }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          coverage: none
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
         run: vendor/bin/phpunit
