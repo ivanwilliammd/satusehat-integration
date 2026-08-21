@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.7.0 — Phase 3: Medication + MedicationTerminology - 2026-08-22
+
+### What's Changed
+
+#### Phase 3: FHIR Resource Migration (Round 1)
+
+**Migrated from `fhirvel-ss`:**
+
+- `src/FHIR/Medication.php` — Drug/medication reference, KFA code system, ingredient strength, batch, MedicationType extension
+- `src/Terminology/MedicationTerminology.php` — medication_form, drug_form, route, reason_medication_given, medication_statement_category, drug_therapy_status
+
+**Coverage:** `Medication` is a prerequisite for `MedicationAdministration`, `MedicationRequest`, `MedicationDispense`, `MedicationStatement` (Phase 3 batch v4.8.0+).
+
+---
+
 ## v4.6.0 — Phase 2: Durable Queue + Transaction Logger - 2026-08-21
 
 ### What's Changed
