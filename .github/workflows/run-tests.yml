@@ -11,25 +11,16 @@ on:
 
 jobs:
 
-  # ── Unix: PHP 7.4 (prefer-lowest only) + PHP 8.3 (full matrix) ──
-  # Note: prefer-stable on 7.4 installs PHP 8.3+ deps → skip it for 7.4.
-  # prefer-lowest re-resolves from composer.json and picks v8.x of illuminate/* on 7.4.
+  # ── Unix ──
   test-unix:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
-        php: [7.4, 8.3]
-        stability: [prefer-lowest]
-        include:
-          - php: 8.3
-            stability: prefer-stable
-        exclude:
-          - php: 8.3
-            stability: prefer-lowest
+        php: [8.0, 8.3]
 
-    name: Unix / PHP ${{ matrix.php }} / ${{ matrix.stability }}
+    name: Unix / PHP ${{ matrix.php }}
 
     steps:
       - name: Checkout code
@@ -48,22 +39,21 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+        run: composer install --prefer-dist --no-interaction
 
       - name: Execute tests
         run: vendor/bin/phpunit
 
-  # ── Windows: PHP 8.3 only (pcntl unavailable on Windows) ──
+  # ── Windows (pcntl unavailable — PHP 8.0+ only) ──
   test-windows:
     runs-on: windows-latest
     timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
-        php: [8.3]
-        stability: [prefer-lowest, prefer-stable]
+        php: [8.0, 8.3]
 
-    name: Windows / PHP ${{ matrix.php }} / ${{ matrix.stability }}
+    name: Windows / PHP ${{ matrix.php }}
 
     steps:
       - name: Checkout code
@@ -82,7 +72,7 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+        run: composer install --prefer-dist --no-interaction
 
       - name: Execute tests
         run: vendor/bin/phpunit

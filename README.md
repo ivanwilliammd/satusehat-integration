@@ -2,8 +2,8 @@
 
 > **Build SATUSEHAT FHIR R4 objects with ease — open source Laravel PHP library.**
 
-[![PHP](https://img.shields.io/badge/PHP-8.1%2B-purple)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-8–13-blue)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.0%2B-purple)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-9%E2%80%9313-blue)](https://laravel.com)
 [![FHIR R4](https://img.shields.io/badge/FHIR-R4-orange)](https://hl7.org/fhir/R4/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![GitHub Actions](https://github.com/ivanwilliammd/satusehat-integration/workflows/CI/badge.svg)](https://github.com/ivanwilliammd/satusehat-integration/actions)
@@ -17,8 +17,8 @@
 
 Built on the official [SATUSEHAT Platform Guidelines](https://satusehat.kemkes.go.id/platform/docs), it provides:
 - OAuth2 authentication with SATUSEHAT IAM
-- 31 composable **DataType** classes (Coding, CodeableConcept, Identifier, Reference, etc.)
-- 16 **PayloadBuilder** classes for FHIR R4 resources (Patient, Encounter, Observation, Condition, Procedure, etc.)
+- 32 composable **DataType** classes (Coding, CodeableConcept, Identifier, Reference, etc.)
+- 38 **PayloadBuilder** classes for FHIR R4 resources (Patient, Encounter, Observation, Condition, Procedure, etc.)
 - **SSRequest / SSResponse** — typed HTTP client with auto token-refresh, retry logic, and structured response handling
 - Bundle operations for multi-resource transactions
 - Master data: ICD-10, Kode Wilayah Indonesia, KFA v2
@@ -320,7 +320,7 @@ if ($resp->isSuccess()) {
 
 ## Supported FHIR Resources
 
-All 16 resources fully implemented via PayloadBuilder classes:
+All 38 resources fully implemented via PayloadBuilder classes:
 
 | # | Resource | GET | POST | PUT |
 |---|----------|-----|------|-----|
@@ -340,6 +340,28 @@ All 16 resources fully implemented via PayloadBuilder classes:
 | 14 | ClinicalImpression | ✅ | ✅ | ✅ |
 | 15 | Goal | ✅ | ✅ | ✅ |
 | 16 | NutritionOrder | ✅ | ✅ | ✅ |
+| 17 | AllergyIntolerance | ✅ | ✅ | ✅ |
+| 18 | Device | ✅ | ✅ | ✅ |
+| 19 | DiagnosticReport | ✅ | ✅ | ✅ |
+| 20 | DocumentReference | ✅ | ✅ | ✅ |
+| 21 | EpisodeOfCare | ✅ | ✅ | ✅ |
+| 22 | FamilyMemberHistory | ✅ | ✅ | ✅ |
+| 23 | GenomicStudy | ✅ | ✅ | ✅ |
+| 24 | Group | ✅ | ✅ | ✅ |
+| 25 | Immunization | ✅ | ✅ | ✅ |
+| 26 | Medication | ✅ | ✅ | ✅ |
+| 27 | MedicationAdministration | ✅ | ✅ | ✅ |
+| 28 | MedicationDispense | ✅ | ✅ | ✅ |
+| 29 | MedicationStatement | ✅ | ✅ | ✅ |
+| 30 | MolecularSequence | ✅ | ✅ | ✅ |
+| 31 | QuestionnaireResponse | ✅ | ✅ | ✅ |
+| 32 | RelatedPerson | ✅ | ✅ | ✅ |
+| 33 | RiskAssessment | ✅ | ✅ | ✅ |
+| 34 | ServiceRequest | ✅ | ✅ | ✅ |
+| 35 | Specimen | ✅ | ✅ | ✅ |
+| 36 | Substance | ✅ | ✅ | ✅ |
+| 37 | Task | ✅ | ✅ | ✅ |
+| 38 | Account | ✅ | ✅ | ✅ |
 
 ---
 
