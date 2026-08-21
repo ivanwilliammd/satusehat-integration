@@ -198,39 +198,122 @@ class PayloadBuilderBundle extends Builder
 
     /**
      * Batch/transaction entry with request headers.
+     *
+     * @param array|null $resource Resource body (null for GET/DELETE)
+     * @param string $fullUrl Full URL for this entry
+     * @param string $method HTTP method: GET | POST | PUT | PATCH | DELETE
+     * @param string $url Relative or absolute URL
+     * @param string|null $ifMatch ETag for conditional update (PUT/PATCH)
+     * @param string|null $ifNoneMatch ETag to skip if exists (conditional create)
+     * @param string|null $ifNoneExist Conditional header for POST (create if not exists)
      */
     public function addBatchEntry(
-        array $resource,
+        ?array $resource,
         string $fullUrl,
-        string $method, // GET | POST | PUT | PATCH | DELETE
+        string $method,
         string $url,
         ?string $ifMatch = null,
-        ?string $IfNoneMatch = null,
-        ?string $IfNoneExist = null
+        ?string $ifNoneMatch = null,
+        ?string $ifNoneExist = null
     ): self {
         $request = [
             'method' => $method,
             'url' => $url,
         ];
 
-        if ($IfNoneMatch !== null) {
-            $request['ifNoneMatch'] = $IfNoneMatch;
+        if ($ifMatch !== null) {
+            $request['ifMatch'] = $ifMatch;
         }
-        if ($IfNoneExist !== null) {
-            $request['ifNoneExist'] = $IfNoneExist;
+        if ($ifNoneMatch !== null) {
+            $request['ifNoneMatch'] = $ifNoneMatch;
         }
-        if ($IfNoneMatch !== null) {
-            $request['ifNoneMatch'] = $IfNoneMatch;
+        if ($ifNoneExist !== null) {
+            $request['ifNoneExist'] = $ifNoneExist;
         }
 
         $entry = [
             'fullUrl' => $fullUrl,
-            'resource' => $resource,
             'request' => $request,
         ];
 
+        if ($resource !== null) {
+            $entry['resource'] = $resource;
+        }
+
         $this->push('entry', $entry);
         return $this;
+    }
+
+    /**
+     * Transaction entry (type defaults to transaction, convenience wrapper).
+     */
+    public function addTransactionEntry(
+        ?array $resource,
+        string $fullUrl,
+        string $method,
+        string $url,
+        ?string $ifMatch = null,
+        ?string $ifNoneMatch = null,
+        ?string $ifNoneExist = null
+    ): self {
+        $this->setType(self::TYPE_TRANSACTION);
+        return $this->addBatchEntry($resource, $fullUrl, $method, $url, $ifMatch, $ifNoneMatch, $ifNoneExist);
+    }
+
+    /**
+     * Batch-only entry with request but no response expectation (server doesn't return body).
+     */
+    public function addBatchOnlyEntry(
+        ?array $resource,
+        string $fullUrl,
+        string $method,
+        string $url,
+        ?string $ifMatch = null,
+        ?string $ifNoneMatch = null,
+        ?string $ifNoneExist = null
+    ): self {
+        $request = [
+            'method' => $method,
+            'url' => $url,
+        ];
+
+        if ($ifMatch !== null) {
+            $request['ifMatch'] = $ifMatch;
+        }
+        if ($ifNoneMatch !== null) {
+            $request['ifNoneMatch'] = $ifNoneMatch;
+        }
+        if ($ifNoneExist !== null) {
+            $request['ifNoneExist'] = $ifNoneExist;
+        }
+
+        $entry = [
+            'fullUrl' => $fullUrl,
+            'request' => $request,
+        ];
+
+        if ($resource !== null) {
+            $entry['resource'] = $resource;
+        }
+
+        $this->push('entry', $entry);
+        return $this;
+    }
+
+    /**
+     * Convenience helper for GET entry (no resource body).
+     */
+    public function addGetEntry(string $fullUrl, string $url, ?string $ifNoneMatch = null): self
+    {
+        return $this->addBatchEntry(null, $fullUrl, 'GET', $url, null, $ifNoneMatch);
+    }
+
+    /**
+     * Convenience helper for DELETE entry (no resource body).
+     */
+    public function addDeleteEntry(string $fullUrl, string $url, ?string $ifMatch = null): self
+    {
+        return $this->addBatchEntry(null, $fullUrl, 'DELETE', $url, $ifMatch);
     }
 
     /**
