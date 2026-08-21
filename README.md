@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![GitHub Actions](https://github.com/ivanwilliammd/satusehat-integration/workflows/CI/badge.svg)](https://github.com/ivanwilliammd/satusehat-integration/actions)
 [![Latest Version](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
+[![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
 ---
 
