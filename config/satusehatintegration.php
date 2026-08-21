@@ -27,4 +27,14 @@ return [
      */
     'database_connection_master' => env('DB_CONNECTION_MASTER', 'mysql'),
     'database_connection_satusehat' => env('DB_CONNECTION', 'mysql'),
+
+    /*
+     * Enable or disable automatic transaction logging to satusehat_log.
+     */
+    'log_enabled' => env('SATUSEHAT_LOG_ENABLED', true),
+
+    /*
+     * User ID used when no authenticated user is present (system-level calls).
+     */
+    'user_id' => env('SATUSEHAT_LOG_USER_ID', 'system'),
 ];

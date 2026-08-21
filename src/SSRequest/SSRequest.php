@@ -7,6 +7,7 @@ namespace Satusehat\Integration\SSRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
+use Satusehat\Integration\Models\SatusehatLog;
 use Satusehat\Integration\OAuth2Client;
 use Satusehat\Integration\SSResponse\SSResponse;
 
@@ -46,7 +47,10 @@ class SSRequest
     ) {
         $this->oauth2 = $oauth2;
         $this->token = $token;
-        $this->config = $config;
+        $this->config = array_merge(
+            ['log_enabled' => config('satusehatintegration.log_enabled', true)],
+            $config
+        );
 
         $this->timeout = (int) ($config['timeout'] ?? 30);
         $this->maxRetries = (int) ($config['maxRetries'] ?? 5);
@@ -196,7 +200,7 @@ class SSRequest
         try {
             $response = $this->http->request($method, $url, $options);
 
-            return $this->buildResponse($response);
+            return $this->buildResponse($response, $method, $url, $body);
         } catch (ClientException $e) {
             $response = $e->getResponse();
 
@@ -292,13 +296,19 @@ class SSRequest
         return $full . (str_contains($full, '?') ? '&' : '?') . http_build_query($params);
     }
 
-    private function buildResponse(ResponseInterface $response): SSResponse
+    private function buildResponse(ResponseInterface $response, ?string $method = null, ?string $url = null, ?array $requestBody = null): SSResponse
     {
         $statusCode = $response->getStatusCode();
         $content = $response->getBody()->getContents();
         $bodyArray = json_decode($content, true) ?? [];
 
-        return new SSResponse($statusCode, $bodyArray, $content);
+        $ssResponse = new SSResponse($statusCode, $bodyArray, $content);
+
+        if ($method !== null && $url !== null) {
+            $this->logTransaction($method, $url, $requestBody, $bodyArray, $statusCode);
+        }
+
+        return $ssResponse;
     }
 
     private function sleep(int $seconds): void
@@ -312,6 +322,26 @@ class SSRequest
 
         if (function_exists('sleep')) {
             sleep($seconds);
+        }
+    }
+
+    private function logTransaction(string $action, string $url, ?array $payload, array $response, int $httpCode): void
+    {
+        if (! ($this->config['log_enabled'] ?? true)) {
+            return;
+        }
+
+        try {
+            (new SatusehatLog())->create([
+                'action' => $action,
+                'url' => $url,
+                'payload' => $payload,
+                'response' => $response,
+                'http_code' => $httpCode,
+                'user_id' => config('satusehatintegration.user_id', 'system'),
+            ]);
+        } catch (\Throwable) {
+            // Silently ignore logging failures — never crash a request over a missing table.
         }
     }
 }
