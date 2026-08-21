@@ -11,7 +11,9 @@ on:
 
 jobs:
 
-  # ── Unix: all PHP versions (pcntl available) ──
+  # ── Unix: PHP 7.4 (prefer-lowest only) + PHP 8.3 (full matrix) ──
+  # Note: prefer-stable on 7.4 installs PHP 8.3+ deps → skip it for 7.4.
+  # prefer-lowest re-resolves from composer.json and picks v8.x of illuminate/* on 7.4.
   test-unix:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -19,7 +21,10 @@ jobs:
       fail-fast: true
       matrix:
         php: [7.4, 8.3]
-        stability: [prefer-lowest, prefer-stable]
+        stability: [prefer-lowest]
+        include:
+          - php: 8.3
+            stability: prefer-stable
 
     name: Unix / PHP ${{ matrix.php }} / ${{ matrix.stability }}
 
@@ -45,7 +50,7 @@ jobs:
       - name: Execute tests
         run: vendor/bin/phpunit
 
-  # ── Windows: PHP 8.3+ only (pcntl unavailable) ──
+  # ── Windows: PHP 8.3 only (pcntl unavailable on Windows) ──
   test-windows:
     runs-on: windows-latest
     timeout-minutes: 5
