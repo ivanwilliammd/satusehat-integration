@@ -1,5 +1,65 @@
 # Changelog
 
+## v4.6.0 — Phase 2: Durable Queue + Transaction Logger - 2026-08-21
+
+### What's Changed
+
+#### Phase 2: Durable Queue System
+
+**New:** SQLite-compatible durable queue (no Redis required).
+
+**SatusehatQueue Model** (`src/Models/SatusehatQueue.php`):
+
+- Status flow: `pending` → `processing` → `success` | `failed` | `dlq`
+- Exponential backoff: `attempts^2 * 30` seconds, max 5 min
+- Retriable codes: 408, 429, 500, 502, 503, 504
+- Auto-DLQ after `max_attempts` exceeded
+- Idempotency key (UUID) for deduplication
+- Deferred scheduling (`scheduled_at`)
+
+**Artisan Commands:**
+
+```bash
+# Process pending queue (cron every minute)
+php artisan satusehat:process-queue --once --limit=50
+
+# Enqueue from CLI or code
+php artisan satusehat:enqueue POST Bundle --payload='{"resourceType":"Bundle",...}'
+
+# Status dashboard
+php artisan satusehat:queue-status
+php artisan satusehat:queue-status --dlq
+
+# Re-queue failed/dlq entries
+php artisan satusehat:process-queue --reset
+
+```
+**Service Provider Enhancements:**
+
+- `schedule()`: auto-registers `satusehat:process-queue --once` every minute
+- Auto-publish queue migration via `--queue` tag
+- Commands auto-registered for `php artisan`
+
+#### Transaction Logging (Wired)
+
+- **SSRequest**: every HTTP call now logged to `satusehat_log` table
+- Configurable: `SATUSEHAT_LOG_ENABLED=false` to disable
+- Logs: action, url, payload, response, http_code, user_id
+
+#### Config Additions
+
+```env
+SATUSEHAT_LOG_ENABLED=true
+SATUSEHAT_LOG_USER_ID=system
+SATUSEHAT_QUEUE_TABLE=satusehat_queue
+SATUSEHAT_QUEUE_MAX_ATTEMPTS=5
+
+```
+
+---
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/v4.5.0...v4.6.0
+
 ## v4.5.0 — Non-Core Resources + FHIR PATCH + BundleResponse - 2026-08-21
 
 ### What's Changed
@@ -82,6 +142,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -296,6 +357,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -319,6 +381,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -330,6 +393,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -368,6 +432,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -379,6 +444,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -425,6 +491,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -440,6 +507,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -865,6 +933,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -979,6 +1048,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
