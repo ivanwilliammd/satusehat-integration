@@ -114,6 +114,13 @@ class SSRequest
         return $this->request('PATCH', $fullUrl, $patchPayload);
     }
 
+    public function patchFhirPath(string $url, array $fhirPathPayload): SSResponse
+    {
+        $fullUrl = $this->buildUrl($url);
+
+        return $this->doRequest('PATCH', $fullUrl, $fhirPathPayload, 'application/fhir+json');
+    }
+
     // -------------------------------------------------------------------------
     // Batch / Transaction (Bundle POST)
     // -------------------------------------------------------------------------
@@ -165,13 +172,19 @@ class SSRequest
         return $this->doRequest($method, $url, $body);
     }
 
-    private function doRequest(string $method, string $url, ?array $body = null): SSResponse
+    private function doRequest(string $method, string $url, ?array $body = null, ?string $contentType = null): SSResponse
     {
         $token = $this->getToken();
 
         $headers = $this->defaultHeaders;
         if ($token !== null) {
             $headers['Authorization'] = 'Bearer ' . $token;
+        }
+
+        if ($method === 'PATCH') {
+            $headers['Content-Type'] = $contentType ?? 'application/json-patch+json';
+        } elseif ($contentType !== null) {
+            $headers['Content-Type'] = $contentType;
         }
 
         $options = ['headers' => $headers];
