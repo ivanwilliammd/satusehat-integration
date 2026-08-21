@@ -1,5 +1,47 @@
 # Changelog
 
+## v4.5.0 — Non-Core Resources + FHIR PATCH + BundleResponse - 2026-08-21
+
+### What's Changed
+
+#### New FHIR Resources (Non-Core)
+
+12 new resources — 12 FHIR classes + 12 PayloadBuilder classes:
+
+- **Coverage** — Insurance/payer coverage
+- **CoverageEligibilityRequest / Response** — Eligibility check
+- **Claim / ClaimResponse** — Claims submission
+- **ChargeItem / ChargeItemDefinition / ChargeItemResponse** — Billing items
+- **PaymentNotice / PaymentReconciliation** — Payment tracking
+- **Invoice** — Billing invoice
+- **ImagingStudy** — Imaging study reference
+
+#### FHIR PATCH Support
+
+- **SSRequest**: `PATCH` now uses `Content-Type: application/json-patch+json` (FHIR R4 spec)
+- **SSRequest**: Added `patchFhirPath()` for FHIRPath Patch format (`application/fhir+json`)
+
+#### Bundle Enhancements (PayloadBuilderBundle)
+
+- Fixed: duplicate `ifNoneMatch` → now correctly sets `ifMatch` for conditional PUT/PATCH
+- Added: `ifMatch` support in `addBatchEntry()`
+- Added: `addTransactionEntry()` — convenience wrapper for transaction bundles
+- Added: `addBatchOnlyEntry()` — request-only entry (no response expectation)
+- Added: `addGetEntry()` / `addDeleteEntry()` — convenience helpers for GET/DELETE entries
+- Fixed: GET/DELETE entries no longer require `resource` body
+
+#### BundleResponse Parser (New)
+
+- `BundleResponse` class to parse batch/transaction responses
+- Per-entry status, resource ID, ETag, OperationOutcome extraction
+- `getSuccessEntries()` / `getFailedEntries()` helpers
+- `isAllSuccess()` for atomic bundle validation
+
+
+---
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/v4.4.0...v4.5.0
+
 ## v4.4.0 — Phase 3: Account, DiagnosticReport, EpisodeOfCare + CI Matrix Fix - 2026-08-21
 
 ### What's Changed
@@ -40,6 +82,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 ```
@@ -252,6 +295,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -274,6 +318,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -285,6 +330,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -321,6 +367,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -332,6 +379,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -376,6 +424,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -391,6 +440,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -814,6 +864,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -928,6 +979,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
