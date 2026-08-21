@@ -1,5 +1,35 @@
 # Changelog
 
+## v4.4.0 — Phase 3: Account, DiagnosticReport, EpisodeOfCare + CI Matrix Fix - 2026-08-21
+
+### What's Changed
+
+#### New FHIR Resources (Phase 3)
+
+- **Account** — FHIR R4 Account resource class
+- **DiagnosticReport** — FHIR R4 DiagnosticReport resource class
+- **EpisodeOfCare** — FHIR R4 EpisodeOfCare resource class
+
+#### CI / Build
+
+- **Unix + Windows matrix** — `pcntl` is Unix-only; Windows now runs PHP 8.0 + 8.3 without it
+- **PHP version matrix** — Corrected to PHP 8.0 + 8.3 only (removed PHP 7.4, which requires PHP 8.0+ runtime)
+- **prefer-stable only** — Dropped `prefer-lowest` from base matrix to avoid `illuminate/*` PHP 8.0+ dependency conflicts
+
+#### Syntax
+
+- **Union types removed** — `float|int` in `PayloadBuilderImmunization`, `string|DateTimeInterface` in `PayloadBuilderBundle` (PHP 7.4 compat, not tested in CI)
+
+#### Docs
+
+- **README** — PHP 8.0+, 32 DataTypes, 38 PayloadBuilders, 38 FHIR Resources
+- **Wiki** — Features, FHIR-Resources, Installation updated to reflect v4.4.0
+
+
+---
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/v4.3.3...v4.4.0
+
 ## v3.3.4 — Add Account FHIR class - 2026-08-18
 
 ### What's New
@@ -10,6 +40,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 ```
 ## v4.3.3 - 2026-08-18
@@ -220,6 +251,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -241,6 +273,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -252,6 +285,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -286,6 +320,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -297,6 +332,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -339,6 +375,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -354,6 +391,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -775,6 +813,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -889,6 +928,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
