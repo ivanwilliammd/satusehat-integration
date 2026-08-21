@@ -130,8 +130,11 @@ class PayloadBuilderImmunization extends Builder
      * @param string $system
      * @param string $code UCUM code e.g. 'ml'
      */
-    public function setDoseQuantity(float|int $value, string $unit, string $system = 'http://unitsofmeasure.org', string $code = 'ml'): self
+    public function setDoseQuantity($value, string $unit, string $system = 'http://unitsofmeasure.org', string $code = 'ml'): self
     {
+        if (!is_float($value) && !is_int($value)) {
+            throw new \InvalidArgumentException('DoseQuantity value must be float or int');
+        }
         $this->set('doseQuantity', [
             'value' => $value,
             'unit' => $unit,

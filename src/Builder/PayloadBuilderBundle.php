@@ -89,7 +89,7 @@ class PayloadBuilderBundle extends Builder
         return $this;
     }
 
-    public function setTimestamp(string|DateTimeInterface $timestamp): self
+    public function setTimestamp($timestamp): self
     {
         $this->timestampAutoSet = false;
         $this->set('timestamp', $timestamp instanceof DateTimeInterface
