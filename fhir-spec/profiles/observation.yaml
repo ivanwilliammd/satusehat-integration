@@ -1,0 +1,39 @@
+resourceType: Observation
+profile: satusehat-observation
+description: SATUSEHAT Observation profile — lab results, vitals
+baseResource: Observation
+fields:
+  status:
+    type: string
+    required: true
+    enum: [registered, preliminary, final, amended, corrected, cancelled, entered-in-error, unknown]
+  category:
+    type: CodeableConcept[]
+    required: true
+    description: Lab results typically use "laboratory" category
+  code:
+    type: CodeableConcept
+    required: true
+    description: LOINC code for the test
+  subject:
+    type: Reference
+    required: true
+    description: Reference to Patient
+  effectiveDateTime:
+    type: string (datetime)
+    required: false
+  valueQuantity:
+    type: Quantity
+    required: false
+    description: Numeric result with unit
+  valueCodeableConcept:
+    type: CodeableConcept
+    required: false
+    description: Coded result
+  interpretation:
+    type: CodeableConcept[]
+    required: false
+    description: Abnormal flags (H, L, N)
+  referenceRange:
+    type: object[]
+    required: false

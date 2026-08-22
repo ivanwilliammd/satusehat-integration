@@ -1,0 +1,18 @@
+type: Identifier
+description: FHIR R4 Identifier — unique id for person/thing
+fields:
+  use:
+    type: string
+    required: false
+    enum: [usual, official, temp, secondary, old]
+  type:
+    type: CodeableConcept
+    required: false
+  system:
+    type: string
+    required: false
+    description: URI of the identifier namespace (e.g. http://sys-accounts.id MRN)
+  value:
+    type: string
+    required: false
+    description: The value that is the identifier

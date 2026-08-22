@@ -1,0 +1,23 @@
+resourceType: Specimen
+profile: satusehat-specimen
+description: SATUSEHAT Specimen profile — lab specimen
+baseResource: Specimen
+fields:
+  identifier:
+    type: Identifier[]
+    required: false
+  status:
+    type: string
+    required: true
+    enum: [available, unavailable, unsatisfactory, entered-in-error]
+  type:
+    type: CodeableConcept
+    required: false
+    description: Kind of material (e.g. blood, urine)
+  subject:
+    type: Reference
+    required: true
+    description: Reference to Patient
+  receivedTime:
+    type: string (datetime)
+    required: false

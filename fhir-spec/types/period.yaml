@@ -1,0 +1,11 @@
+type: Period
+description: FHIR R4 Period — time interval
+fields:
+  start:
+    type: string (datetime)
+    required: false
+    description: Start of the time period (ISO 8601)
+  end:
+    type: string (datetime)
+    required: false
+    description: End of the time period (ISO 8601)

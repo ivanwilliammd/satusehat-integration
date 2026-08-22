@@ -1,0 +1,18 @@
+type: Coding
+description: FHIR R4 Coding — a code with system/version/display
+fields:
+  system:
+    type: string
+    required: false
+    description: URI of the code system (e.g. http://snomed.info/sct)
+  version:
+    type: string
+    required: false
+  code:
+    type: string
+    required: false
+    description: Symbol in syntax defined by the system
+  display:
+    type: string
+    required: false
+    description: Representation defined by the system

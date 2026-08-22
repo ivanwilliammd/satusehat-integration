@@ -1,0 +1,21 @@
+type: Quantity
+description: FHIR R4 Quantity — number with unit
+fields:
+  value:
+    type: number
+    required: false
+  comparator:
+    type: string
+    required: false
+    enum: ["<", "<=", ">=", ">"]
+  unit:
+    type: string
+    required: false
+  system:
+    type: string
+    required: false
+    description: URI of the unit system (e.g. http://unitsofmeasure.org)
+  code:
+    type: string
+    required: false
+    description: Coded form of the unit

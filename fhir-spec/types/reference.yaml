@@ -1,0 +1,14 @@
+type: Reference
+description: FHIR R4 Reference — link to another resource
+fields:
+  reference:
+    type: string
+    required: false
+    description: Literal reference (e.g. Patient/123)
+  type:
+    type: string
+    required: false
+    description: URL-encoded type (e.g. Patient)
+  display:
+    type: string
+    required: false

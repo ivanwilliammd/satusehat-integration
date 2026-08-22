@@ -1,0 +1,20 @@
+resourceType: Encounter
+profile: satusehat-encounter
+description: SATUSEHAT Encounter profile — patient encounter/visit
+baseResource: Encounter
+fields:
+  status:
+    type: string
+    required: true
+    enum: [planned, arrived, triaged, in-progress, onleave, finished, cancelled]
+  class:
+    type: Coding
+    required: true
+    description: Type of encounter (e.g. ambulatory, emergency)
+  subject:
+    type: Reference
+    required: true
+    description: Reference to Patient
+  period:
+    type: Period
+    required: false

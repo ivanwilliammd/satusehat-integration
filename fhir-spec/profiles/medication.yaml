@@ -1,0 +1,23 @@
+resourceType: Medication
+profile: satusehat-medication
+description: SATUSEHAT Medication profile — drug/medicine
+baseResource: Medication
+fields:
+  identifier:
+    type: Identifier[]
+    required: false
+  code:
+    type: CodeableConcept
+    required: true
+    description: KFA code for the medication
+  status:
+    type: string
+    required: false
+    enum: [active, inactive, entered-in-error]
+  manufacturer:
+    type: Reference
+    required: false
+  form:
+    type: CodeableConcept
+    required: false
+    description: Tablet, injection, etc.

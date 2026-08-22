@@ -1,0 +1,25 @@
+type: HumanName
+description: FHIR R4 HumanName — name of a person
+fields:
+  use:
+    type: string
+    required: false
+    enum: [usual, official, temp, nickname, anonymous, old, maiden]
+  text:
+    type: string
+    required: false
+    description: Text representation of the full name
+  family:
+    type: string
+    required: false
+    description: Family name (last name)
+  given:
+    type: string[]
+    required: false
+    description: Given names (first, middle)
+  prefix:
+    type: string[]
+    required: false
+  suffix:
+    type: string[]
+    required: false

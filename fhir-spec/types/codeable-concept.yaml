@@ -1,0 +1,10 @@
+type: CodeableConcept
+description: FHIR R4 CodeableConcept — coded description
+fields:
+  coding:
+    type: Coding[]
+    required: false
+  text:
+    type: string
+    required: false
+    description: Plain text representation

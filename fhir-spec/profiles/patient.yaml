@@ -1,0 +1,30 @@
+resourceType: Patient
+profile: satusehat-patient
+description: SATUSEHAT Patient profile — Indonesian national health patient
+baseResource: Patient
+fields:
+  identifier:
+    type: Identifier[]
+    required: true
+    description: NIK (Nomor Induk Kependudukan) as KTP identifier
+  active:
+    type: boolean
+    required: false
+    default: true
+  name:
+    type: HumanName[]
+    required: true
+  gender:
+    type: string
+    required: true
+    enum: [male, female, other, unknown]
+  birthDate:
+    type: string
+    required: true
+    format: date (YYYY-MM-DD)
+  address:
+    type: Address[]
+    required: false
+  telecom:
+    type: ContactPoint[]
+    required: false

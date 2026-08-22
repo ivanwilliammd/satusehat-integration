@@ -1,0 +1,33 @@
+type: Address
+description: FHIR R4 Address — postal address
+fields:
+  use:
+    type: string
+    required: false
+    enum: [home, work, temp, old, billing]
+  type:
+    type: string
+    required: false
+    enum: [postal, physical, both]
+  text:
+    type: string
+    required: false
+  line:
+    type: string[]
+    required: false
+  city:
+    type: string
+    required: false
+  district:
+    type: string
+    required: false
+  state:
+    type: string
+    required: false
+  postalCode:
+    type: string
+    required: false
+  country:
+    type: string
+    required: false
+    description: ISO 3166 2-letter code
