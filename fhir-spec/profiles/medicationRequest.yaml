@@ -1,0 +1,25 @@
+resourceType: MedicationRequest
+profile: satusehat-medicationrequest
+description: SATUSEHAT MedicationRequest profile scaffold. Update from fhir-docs canonical cardinality + SATUSEHAT terminology.
+baseResource: MedicationRequest
+status: scaffold
+source:
+  fhir_r4: https://hl7.org/fhir/R4/medicationrequest.html
+  satusehat_docs: https://satusehat.kemkes.go.id/platform/docs
+fields:
+  status:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  intent:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  medication[x]:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  subject:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+terminology:
+  # TODO: map required CodeSystem/ValueSet from SATUSEHAT docs
+search_parameters:
+  # TODO: map supported SATUSEHAT search/query params

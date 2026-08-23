@@ -1,0 +1,16 @@
+resourceType: NutritionOrder
+profile: satusehat-nutritionorder
+description: SATUSEHAT NutritionOrder profile scaffold. Update from fhir-docs canonical cardinality + SATUSEHAT terminology.
+baseResource: NutritionOrder
+status: scaffold
+source:
+  fhir_r4: https://hl7.org/fhir/R4/nutritionorder.html
+  satusehat_docs: https://satusehat.kemkes.go.id/platform/docs
+fields:
+  # TODO: fill from FHIR R4 StructureDefinition + SATUSEHAT profile docs
+  id:
+    required: false
+terminology:
+  # TODO: map required CodeSystem/ValueSet from SATUSEHAT docs
+search_parameters:
+  # TODO: map supported SATUSEHAT search/query params

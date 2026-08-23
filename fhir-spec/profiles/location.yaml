@@ -1,0 +1,22 @@
+resourceType: Location
+profile: satusehat-location
+description: SATUSEHAT Location profile scaffold. Update from fhir-docs canonical cardinality + SATUSEHAT terminology.
+baseResource: Location
+status: scaffold
+source:
+  fhir_r4: https://hl7.org/fhir/R4/location.html
+  satusehat_docs: https://satusehat.kemkes.go.id/platform/docs
+fields:
+  identifier:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  name:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  status:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+terminology:
+  # TODO: map required CodeSystem/ValueSet from SATUSEHAT docs
+search_parameters:
+  # TODO: map supported SATUSEHAT search/query params

@@ -1,0 +1,19 @@
+resourceType: Practitioner
+profile: satusehat-practitioner
+description: SATUSEHAT Practitioner profile scaffold. Update from fhir-docs canonical cardinality + SATUSEHAT terminology.
+baseResource: Practitioner
+status: scaffold
+source:
+  fhir_r4: https://hl7.org/fhir/R4/practitioner.html
+  satusehat_docs: https://satusehat.kemkes.go.id/platform/docs
+fields:
+  identifier:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+  name:
+    required: true
+    source: FHIR R4 / SATUSEHAT docs — verify profile-specific cardinality
+terminology:
+  # TODO: map required CodeSystem/ValueSet from SATUSEHAT docs
+search_parameters:
+  # TODO: map supported SATUSEHAT search/query params
