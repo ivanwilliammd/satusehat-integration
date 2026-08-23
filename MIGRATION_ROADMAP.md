@@ -18,8 +18,8 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 |---|---------|---------|--------|-------|
 | 1 | Medication | P1 | done | Drug/medication reference |
 | 2 | MedicationRequest | P1 | pending | Prescription order |
-| 3 | MedicationAdministration | P1 | pending | Drug administration event |
-| 4 | MedicationDispense | P1 | pending | Dispensing event |
+| 3 | MedicationAdministration | P1 | done | Drug administration event |
+| 4 | MedicationDispense | P1 | done | Dispensing event |
 | 5 | MedicationStatement | P1 | pending | Medication record |
 | 6 | Procedure | P1 | pending | Clinical procedure |
 | 7 | Immunization | P1 | pending | Immunization record |
