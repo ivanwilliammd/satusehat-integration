@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — SearchQueryBuilder
+
+### Added
+
+- `SearchQueryBuilder` — validated FHIR search/query builder using repo-supported resource allowlist
+- `resources/search-parameters.json` — generated HL7 FHIR R4 search parameter allowlist filtered to the 50 `fhir-spec/profiles` resources
+- `fhir-docs/search-query-builder.md` — usage docs for validated resource search
+
+---
+
 ## v4.8.0 — Migration: MedicationAdministration + MedicationDispense - 2026-08-23
 
 ### What's Changed
