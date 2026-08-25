@@ -1,8 +1,15 @@
 # Changelog
 
-## v4.8.1 - 2026-08-25
+## v4.8.2 - 2026-08-26
 
-Migrated Immunization and Specimen resources.
+Completed PayloadBuilder methods for Immunization and Specimen — full test coverage (782 tests, 1185 assertions).
+
+### Fixed
+
+- `PayloadBuilderSpecimen` — completed methods: `setId`, `addIdentifier`, `setStatus`, `setType`, `setSubject`, `setReceivedTime`, `setCollectedDateTime`, `setCollector`, `setFastingStatusCodeableConcept`, `setMethod`, `setQuantity`, `setBodySite`, `addCondition`, `addProcessing`, `addExtension`, `addTransportedTime`, `addTransportedPerson`, `addReceivedPerson`.
+- `PayloadBuilderImmunization` — completed methods: `setMetaProfile`, `setId`, `addIdentifier`, `setStatus` (enum validation, throws `FHIRInvalidPropertyValue` on invalid), `setVaccineCode`, `setVaccineCodeFromCode` (code validation + throws), `setPatient` (optional display override), `setOccurrenceDateTime`, `addPerformer` (optional function), `setDoseQuantity` (with system/code), `setLocation` (optional display override), `setLotNumber`, `setRecorded`, `setPrimarySource`, `addProtocolApplied` (with optional series), `addReasonCode`, `setRoute`, `setRouteFromCode`, `addExtension`.
+- `PayloadBuilderMedicationAdministration` — accepts `Reference`, `Identifier`, `Period`, `Quantity`, `CodeableConcept` typed inputs.
+- `PayloadBuilderMedicationDispense` — accepts full `Patient/xxx`, `Encounter/xxx` references; missing methods completed.
 
 ## Unreleased — SearchQueryBuilder
 
