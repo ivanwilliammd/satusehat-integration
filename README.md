@@ -6,7 +6,7 @@
 [![Laravel](https://img.shields.io/badge/Laravel-9%E2%80%9313-blue)](https://laravel.com)
 [![FHIR R4](https://img.shields.io/badge/FHIR-R4-orange)](https://hl7.org/fhir/R4/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![GitHub Actions](https://github.com/ivanwilliammd/satusehat-integration/workflows/CI/badge.svg)](https://github.com/ivanwilliammd/satusehat-integration/actions)
+[![GitHub Actions](https://github.com/ivanwilliammd/satusehat-integration/workflows/Tests/badge.svg)](https://github.com/ivanwilliammd/satusehat-integration/actions)
 [![Latest Version](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 [![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
@@ -323,58 +323,58 @@ if ($resp->isSuccess()) {
 
 All 51 resources fully implemented via PayloadBuilder classes. Core (✅) + Non-Core (💼):
 
-|| # | Resource | GET | POST | PUT | PATCH | Notes |
-||---|----------|-----|------|-----|-------|-------|
-|| 1 | Patient | ✅ | ✅ | ✅ | ✅ | MPI |
-|| 2 | Practitioner | ✅ | ✅ | ✅ | ✅ | SDMK |
-|| 3 | PractitionerRole | ✅ | ✅ | ✅ | ✅ | |
-|| 4 | Organization | ✅ | ✅ | ✅ | ✅ | MSI |
-|| 5 | Location | ✅ | ✅ | ✅ | ✅ | |
-|| 6 | Encounter | ✅ | ✅ | ✅ | ✅ | |
-|| 7 | Condition | ✅ | ✅ | ✅ | ✅ | |
-|| 8 | Observation | ✅ | ✅ | ✅ | ✅ | |
-|| 9 | Procedure | ✅ | ✅ | ✅ | ✅ | |
-|| 10 | MedicationRequest | ✅ | ✅ | ✅ | ✅ | |
-|| 11 | Bundle | — | ✅ | — | — | batch/transaction |
-|| 12 | CarePlan | ✅ | ✅ | ✅ | ✅ | |
-|| 13 | Composition | ✅ | ✅ | ✅ | ✅ | RME |
-|| 14 | ClinicalImpression | ✅ | ✅ | ✅ | ✅ | |
-|| 15 | Goal | ✅ | ✅ | ✅ | ✅ | |
-|| 16 | NutritionOrder | ✅ | ✅ | ✅ | ✅ | |
-|| 17 | AllergyIntolerance | ✅ | ✅ | ✅ | ✅ | |
-|| 18 | Device | ✅ | ✅ | ✅ | ✅ | |
-|| 19 | DiagnosticReport | ✅ | ✅ | ✅ | ✅ | |
-|| 20 | DocumentReference | ✅ | ✅ | ✅ | ✅ | |
-|| 21 | EpisodeOfCare | ✅ | ✅ | ✅ | ✅ | |
-|| 22 | FamilyMemberHistory | ✅ | ✅ | ✅ | ✅ | |
-|| 23 | GenomicStudy | ✅ | ✅ | ✅ | ✅ | |
-|| 24 | Group | ✅ | ✅ | ✅ | ✅ | |
-|| 25 | Immunization | ✅ | ✅ | ✅ | ✅ | |
-|| 26 | Medication | ✅ | ✅ | ✅ | ✅ | |
-|| 27 | MedicationAdministration | ✅ | ✅ | ✅ | ✅ | |
-|| 28 | MedicationDispense | ✅ | ✅ | ✅ | ✅ | |
-|| 29 | MedicationStatement | ✅ | ✅ | ✅ | ✅ | |
-|| 30 | MolecularSequence | ✅ | ✅ | ✅ | ✅ | |
-|| 31 | QuestionnaireResponse | ✅ | ✅ | ✅ | ✅ | |
-|| 32 | RelatedPerson | ✅ | ✅ | ✅ | ✅ | |
-|| 33 | RiskAssessment | ✅ | ✅ | ✅ | ✅ | |
-|| 34 | ServiceRequest | ✅ | ✅ | ✅ | ✅ | |
-|| 35 | Specimen | ✅ | ✅ | ✅ | ✅ | |
-|| 36 | Substance | ✅ | ✅ | ✅ | ✅ | |
-|| 37 | Task | ✅ | ✅ | ✅ | ✅ | |
-|| 38 | Account | ✅ | ✅ | ✅ | ✅ | |
-|| 39 | ImagingStudy | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 40 | Coverage | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 41 | CoverageEligibilityRequest | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 42 | CoverageEligibilityResponse | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 43 | Claim | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 44 | ClaimResponse | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 45 | ChargeItem | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 46 | ChargeItemDefinition | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 47 | ChargeItemResponse | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 48 | PaymentNotice | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 49 | PaymentReconciliation | 💼 | 💼 | 💼 | 💼 | non-core |
-|| 50 | Invoice | 💼 | 💼 | 💼 | 💼 | non-core |
+| # | Resource | GET | POST | PUT | PATCH | Notes |
+|---|----------|-----|------|-----|-------|-------|
+| 1 | Patient | ✅ | ✅ | ✅ | ✅ | MPI |
+| 2 | Practitioner | ✅ | ✅ | ✅ | ✅ | SDMK |
+| 3 | PractitionerRole | ✅ | ✅ | ✅ | ✅ | |
+| 4 | Organization | ✅ | ✅ | ✅ | ✅ | MSI |
+| 5 | Location | ✅ | ✅ | ✅ | ✅ | |
+| 6 | Encounter | ✅ | ✅ | ✅ | ✅ | |
+| 7 | Condition | ✅ | ✅ | ✅ | ✅ | |
+| 8 | Observation | ✅ | ✅ | ✅ | ✅ | |
+| 9 | Procedure | ✅ | ✅ | ✅ | ✅ | |
+| 10 | MedicationRequest | ✅ | ✅ | ✅ | ✅ | |
+| 11 | Bundle | — | ✅ | — | — | batch/transaction |
+| 12 | CarePlan | ✅ | ✅ | ✅ | ✅ | |
+| 13 | Composition | ✅ | ✅ | ✅ | ✅ | RME |
+| 14 | ClinicalImpression | ✅ | ✅ | ✅ | ✅ | |
+| 15 | Goal | ✅ | ✅ | ✅ | ✅ | |
+| 16 | NutritionOrder | ✅ | ✅ | ✅ | ✅ | |
+| 17 | AllergyIntolerance | ✅ | ✅ | ✅ | ✅ | |
+| 18 | Device | ✅ | ✅ | ✅ | ✅ | |
+| 19 | DiagnosticReport | ✅ | ✅ | ✅ | ✅ | |
+| 20 | DocumentReference | ✅ | ✅ | ✅ | ✅ | |
+| 21 | EpisodeOfCare | ✅ | ✅ | ✅ | ✅ | |
+| 22 | FamilyMemberHistory | ✅ | ✅ | ✅ | ✅ | |
+| 23 | GenomicStudy | ✅ | ✅ | ✅ | ✅ | |
+| 24 | Group | ✅ | ✅ | ✅ | ✅ | |
+| 25 | Immunization | ✅ | ✅ | ✅ | ✅ | |
+| 26 | Medication | ✅ | ✅ | ✅ | ✅ | |
+| 27 | MedicationAdministration | ✅ | ✅ | ✅ | ✅ | |
+| 28 | MedicationDispense | ✅ | ✅ | ✅ | ✅ | |
+| 29 | MedicationStatement | ✅ | ✅ | ✅ | ✅ | |
+| 30 | MolecularSequence | ✅ | ✅ | ✅ | ✅ | |
+| 31 | QuestionnaireResponse | ✅ | ✅ | ✅ | ✅ | |
+| 32 | RelatedPerson | ✅ | ✅ | ✅ | ✅ | |
+| 33 | RiskAssessment | ✅ | ✅ | ✅ | ✅ | |
+| 34 | ServiceRequest | ✅ | ✅ | ✅ | ✅ | |
+| 35 | Specimen | ✅ | ✅ | ✅ | ✅ | |
+| 36 | Substance | ✅ | ✅ | ✅ | ✅ | |
+| 37 | Task | ✅ | ✅ | ✅ | ✅ | |
+| 38 | Account | ✅ | ✅ | ✅ | ✅ | |
+| 39 | ImagingStudy | 💼 | 💼 | 💼 | 💼 | non-core |
+| 40 | Coverage | 💼 | 💼 | 💼 | 💼 | non-core |
+| 41 | CoverageEligibilityRequest | 💼 | 💼 | 💼 | 💼 | non-core |
+| 42 | CoverageEligibilityResponse | 💼 | 💼 | 💼 | 💼 | non-core |
+| 43 | Claim | 💼 | 💼 | 💼 | 💼 | non-core |
+| 44 | ClaimResponse | 💼 | 💼 | 💼 | 💼 | non-core |
+| 45 | ChargeItem | 💼 | 💼 | 💼 | 💼 | non-core |
+| 46 | ChargeItemDefinition | 💼 | 💼 | 💼 | 💼 | non-core |
+| 47 | ChargeItemResponse | 💼 | 💼 | 💼 | 💼 | non-core |
+| 48 | PaymentNotice | 💼 | 💼 | 💼 | 💼 | non-core |
+| 49 | PaymentReconciliation | 💼 | 💼 | 💼 | 💼 | non-core |
+| 50 | Invoice | 💼 | 💼 | 💼 | 💼 | non-core |
 
 ---
 
