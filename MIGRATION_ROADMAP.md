@@ -22,9 +22,9 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 | 4 | MedicationDispense | P1 | done | Dispensing event |
 | 5 | MedicationStatement | P1 | pending | Medication record |
 | 6 | Procedure | P1 | pending | Clinical procedure |
-| 7 | Immunization | P1 | pending | Immunization record |
+| 7 | Immunization | P1 | done | Immunization record |
 | 8 | Observation | P1 | done | Lab results, vitals |
-| 9 | Specimen | P1 | pending | Lab specimen |
+| 9 | Specimen | P1 | done | Lab specimen |
 | 10 | Task | P1 | pending | Workflow task |
 | 11 | Group | P2 | pending | Patient grouping |
 | 12 | RelatedPerson | P1 | pending | Personal relationship |
