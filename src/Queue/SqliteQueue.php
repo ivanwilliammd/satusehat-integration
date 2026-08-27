@@ -370,6 +370,15 @@ class SqliteQueue implements QueueInterface
         );
     }
 
+    /**
+     * Expose PDO for monitoring tools.
+     * Use sparingly — direct PDO bypasses queue abstraction.
+     */
+    public function pdo(): \PDO
+    {
+        return $this->pdo;
+    }
+
     private function decode(array $row): array
     {
         if ($row['bundle_payload'] !== null && $row['bundle_payload'] !== '') {

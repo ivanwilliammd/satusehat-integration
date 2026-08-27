@@ -7,16 +7,16 @@ namespace Satusehat\Integration\Queue;
 /**
  * Queue worker — processes pending jobs using an HTTP client.
  *
- * Handles OAuth2 token lifecycle, retry backoff, DLQ routing.
- * Framework-agnostic: works with or without Laravel.
+ * Handles OAuth2 token lifecycle, retry backoff, DLQ routing, rate limiting.
+ * Framework-agnostic: standalone PHP or Laravel.
  *
  * Usage (standalone):
- *   $pdo = new PDO('sqlite:' . $dbPath);
+ *   $pdo  = new PDO('sqlite:' . $dbPath);
  *   $queue = new SqliteQueue($pdo);
- *   $worker = new Worker($queue, $oauth2Config);
+ *   $worker = new Worker($queue, $oauth2Config, rateLimiter: new RateLimiter(300));
  *   $worker->process(50);
  *
- * Usage (Laravel — via artisan command):
+ * Usage (Laravel):
  *   See Console/Commands/ProcessSatusehatQueue.php
  */
 class Worker
@@ -28,15 +28,21 @@ class Worker
     private int $succeeded = 0;
     private int $failed = 0;
     private int $dlq = 0;
+    private RateLimiter $rateLimiter;
 
     /**
      * @param QueueInterface $queue
-     * @param array $oauth2Config  ['client_id', 'client_secret', 'base_url', 'fhir_url']
+     * @param array $oauth2Config ['client_id', 'client_secret', 'base_url', 'fhir_url']
+     * @param RateLimiter|null $rateLimiter Per-process rate limiter (default: 300 RPM)
      */
-    public function __construct(QueueInterface $queue, array $oauth2Config)
-    {
+    public function __construct(
+        QueueInterface $queue,
+        array $oauth2Config,
+        ?RateLimiter $rateLimiter = null,
+    ) {
         $this->queue = $queue;
         $this->oauth2Config = $oauth2Config;
+        $this->rateLimiter = $rateLimiter ?? new RateLimiter(300);
     }
 
     // ── Main loop ─────────────────────────────────────────────────
@@ -85,37 +91,56 @@ class Worker
     public function handleJob(array $job): QueueResult
     {
         try {
+            $this->rateLimiter->wait();
             $response = $this->send($job);
             $httpCode = $response['http_code'] ?? 0;
             $body = $response['body'] ?? '';
             $location = $response['location'] ?? '';
 
+            // Classify response
+            $parsed = is_string($body) && $body !== ''
+                ? json_decode($body, true) ?: $body
+                : $body;
+            $classified = ErrorClassifier::classify($httpCode, $parsed);
+
             // 2xx → success
-            if ($httpCode >= 200 && $httpCode < 300) {
+            if ($classified['category'] === ErrorClassifier::CAT_SUCCESS) {
                 $this->queue->markSuccess($job['id'], $response, $location);
-                return QueueResult::success(
-                    $job['id'],
-                    $response,
-                    $job['attempts'] + 1
-                );
+                return QueueResult::success($job['id'], $response, $job['attempts'] + 1);
             }
 
-            // Non-retriable 4xx → DLQ
-            if ($httpCode >= 400 && $httpCode < 500 && !in_array($httpCode, [408, 429], true)) {
-                $error = $this->extractError($body);
-                $this->queue->markDlq($job['id'], $error, $response);
-                return QueueResult::dlq($job['id'], $error, $response, $job['attempts'] + 1);
+            // 401 → token likely expired — invalidate + let markFailed requeue
+            if ($classified['category'] === ErrorClassifier::CAT_UNAUTHORIZED) {
+                $this->tokenCache = null;
             }
 
-            // Retriable: 408, 429, 5xx → failed (will be requeued by markFailed)
-            $error = $this->extractError($body);
-            $this->queue->markFailed($job['id'], $error, $response);
-            return QueueResult::failed(
-                $job['id'],
-                $error,
-                $response,
-                $job['attempts'] + 1
-            );
+            // 429 with Retry-After → honor it before requeue
+            if ($classified['category'] === ErrorClassifier::CAT_RATE_LIMITED) {
+                $retryAfter = RateLimiter::parseRetryAfter($response['retry_after'] ?? null);
+                if ($retryAfter !== null && $retryAfter > 0) {
+                    $this->queue->markFailed($job['id'], $classified['detail'], $response);
+                    // Override scheduled_at with Retry-After value
+                    $pdo = $this->queue->pdo();
+                    $stmt = $pdo->prepare(
+                        "UPDATE satusehat_queue
+                         SET scheduled_at = datetime('now', :sec || ' seconds'),
+                             updated_at = datetime('now')
+                         WHERE id = :id AND status = 'pending'"
+                    );
+                    $stmt->execute([':sec' => (int) $retryAfter, ':id' => $job['id']]);
+                    return QueueResult::failed($job['id'], $classified['detail'], $response, $job['attempts'] + 1);
+                }
+            }
+
+            // Non-retryable → DLQ
+            if (!$classified['retryable']) {
+                $this->queue->markDlq($job['id'], $classified['detail'], $response);
+                return QueueResult::dlq($job['id'], $classified['detail'], $response, $job['attempts'] + 1);
+            }
+
+            // Retryable → failed (SqliteQueue handles backoff scheduling)
+            $this->queue->markFailed($job['id'], $classified['detail'], $response);
+            return QueueResult::failed($job['id'], $classified['detail'], $response, $job['attempts'] + 1);
 
         } catch (\Throwable $e) {
             $this->queue->markFailed($job['id'], $e->getMessage(), []);
@@ -166,7 +191,9 @@ class Worker
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
         }
 
-        $body = curl_exec($ch);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+
+        $raw = curl_exec($ch);
         $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $error = curl_error($ch);
         curl_close($ch);
@@ -175,13 +202,26 @@ class Worker
             throw new \RuntimeException("cURL error: {$error}");
         }
 
+        $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        $headerStr = is_string($raw) ? substr($raw, 0, $headerSize) : '';
+        $body = is_string($raw) ? substr($raw, $headerSize) : '';
+
+        $retryAfter = null;
+        foreach (explode("\r\n", $headerStr) as $line) {
+            if (str_starts_with(strtolower($line), 'retry-after:')) {
+                $retryAfter = trim(substr($line, 11));
+                break;
+            }
+        }
+
         $location = $this->extractLocation($body, $httpCode);
 
         return [
-            'body'      => is_string($body) ? $body : '',
-            'http_code' => $httpCode,
-            'location'  => $location,
-            'response'  => $body ? json_decode($body, true) : null,
+            'body'         => $body,
+            'http_code'    => $httpCode,
+            'location'     => $location,
+            'retry_after'  => $retryAfter,
+            'response'     => $body !== '' ? json_decode($body, true) : null,
         ];
     }
 

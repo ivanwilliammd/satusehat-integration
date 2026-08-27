@@ -1,12 +1,10 @@
 # SATUSEHAT Integration Library
 
-> **Build SATUSEHAT FHIR R4 objects with ease — open source Laravel PHP library.**
+> **Open-source PHP library for integrating with SATUSEHAT** — Indonesia's national health data platform powered by FHIR R4. Works standalone (native PHP) or with Laravel.
 
-[![PHP](https://img.shields.io/badge/PHP-8.0%2B-purple)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-9%E2%80%9313-blue)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.1%2B-purple)](https://php.net)
 [![FHIR R4](https://img.shields.io/badge/FHIR-R4-orange)](https://hl7.org/fhir/R4/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![GitHub Actions](https://github.com/ivanwilliammd/satusehat-integration/workflows/Tests/badge.svg)](https://github.com/ivanwilliammd/satusehat-integration/actions)
 [![Latest Version](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 [![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 
@@ -14,15 +12,17 @@
 
 ## Overview
 
-`satusehat-integration` is an **open-source** Laravel PHP library for integrating with **SATUSEHAT** — Indonesia's national health data platform powered by FHIR R4.
+`satusehat-integration` is an **open-source** PHP library for integrating with **SATUSEHAT** — Indonesia's national health data platform powered by FHIR R4.
 
-Built on the official [SATUSEHAT Platform Guidelines](https://satusehat.kemkes.go.id/platform/docs), it provides:
-- OAuth2 authentication with SATUSEHAT IAM
-- 32 composable **DataType** classes (Coding, CodeableConcept, Identifier, Reference, etc.)
-- 51 **PayloadBuilder** classes for FHIR R4 resources (core + non-core: Coverage, Claim, Invoice, etc.)
-- **SSRequest / SSResponse** — typed HTTP client with auto token-refresh, retry logic, and structured response handling
-- Bundle operations for multi-resource transactions
+Built on the official [SATUSEHAT Platform Guidelines](https://satusehat.kemkes.go.id/platform/docs). Ships with:
+- **32 DataType** classes — composable FHIR R4 value objects
+- **51 PayloadBuilder** classes — fluent builders for all FHIR resources
+- **SSRequest / SSResponse** — HTTP client with OAuth2 + retry
+- **Durable queue + worker** — SQLite-backed, retry/DLQ, rate limiting, monitoring
+- **SSValidationError** — maps 558 SATUSEHAT validation rule codes to human messages
 - Master data: ICD-10, Kode Wilayah Indonesia, KFA v2
+
+Deploy as standalone PHP or integrate with Laravel via the service provider.
 
 ---
 
@@ -106,6 +106,59 @@ if ($resp->isSuccess()) {
         // handle error
     }
 }
+```
+
+### Queue + Worker
+
+Durable SQLite queue with background worker. Handles retry, DLQ, rate limiting, and monitoring. Works standalone (no Laravel needed).
+
+```php
+use Satusehat\Integration\Queue\SqliteQueue;
+use Satusehat\Integration\Queue\Worker;
+use Satusehat\Integration\Queue\RateLimiter;
+use Satusehat\Integration\Queue\QueueMonitor;
+
+// Setup
+$pdo   = new PDO('sqlite:' . __DIR__ . '/queue.db');
+$queue = new SqliteQueue($pdo);
+
+// Enqueue a FHIR resource
+$job = $queue->enqueue(
+    method: 'POST',
+    resourceType: 'Patient',
+    url: 'Patient',
+    payload: $patientPayload,
+    idempotencyKey: 'patient:12345:create',
+    userId: 'system',
+);
+
+// Process with worker (300 RPM rate limit)
+$worker = new Worker($queue, [
+    'client_id'     => $_ENV['SS_CLIENT_ID'],
+    'client_secret' => $_ENV['SS_CLIENT_SECRET'],
+    'base_url'     => 'https://api-satusehat-stg.dto.kemkes.go.id',
+    'fhir_url'     => 'https://api-satusehat-stg.dto.kemkes.go.id/fhir-r4/v1',
+], new RateLimiter(300));
+
+$result = $worker->process(50); // process up to 50 jobs
+print_r($result);
+
+// Monitor
+$monitor = new QueueMonitor($queue);
+print_r($monitor->healthCheck());
+```
+
+**Status flow:** `pending → processing → success | failed (auto-retry) | dlq`
+
+**Error classification:** 401 (retry+token refresh), 429 (honor Retry-After), 422/400/403/404/409/412 (DLQ), 5xx (retry)
+
+**Artisan commands (Laravel):**
+```bash
+php artisan ss:enqueue POST Patient --payload='{}'
+php artisan ss:worker --batch=50
+php artisan ss:stats
+php artisan ss:dead-letters
+php artisan ss:requeue {id}
 ```
 
 ---
