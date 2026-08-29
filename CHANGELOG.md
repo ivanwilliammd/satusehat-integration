@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.9.0 - 2026-08-29
+
+Migrated MedicationRequest + Procedure resources from fhirvel-ss to satusehat-integration.
+
 ## v4.8.2 - 2026-08-26
 
 Completed PayloadBuilder methods for Immunization and Specimen — full test coverage (782 tests, 1185 assertions).
@@ -110,6 +114,7 @@ php artisan satusehat:process-queue --reset
 
 
 
+
 ```
 **Service Provider Enhancements:**
 
@@ -130,6 +135,7 @@ SATUSEHAT_LOG_ENABLED=true
 SATUSEHAT_LOG_USER_ID=system
 SATUSEHAT_QUEUE_TABLE=satusehat_queue
 SATUSEHAT_QUEUE_MAX_ATTEMPTS=5
+
 
 
 
@@ -222,6 +228,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -444,6 +451,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -471,6 +479,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -482,6 +491,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -528,6 +538,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -539,6 +550,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -593,6 +605,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -608,6 +621,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -1041,6 +1055,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -1155,6 +1170,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
