@@ -15,7 +15,7 @@ jobs:
         run: composer validate
 
       - name: Install dependencies
-        run: composer install --no-dev --no-interaction
+        run: composer install --prefer-dist --no-interaction
 
       - name: Test
         run: vendor/bin/phpunit
