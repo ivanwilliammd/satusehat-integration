@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate composer.json
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --no-dev --no-interaction
+
+      - name: Test
+        run: vendor/bin/phpunit
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Packagist webhook fires automatically on GitHub tag push.
+      # Add webhook at: https://github.com/ivanwilliammd/satusehat-integration/settings/hooks
+      # Payload URL: https://packagist.org/api/github/ivanwilliammd/satusehat-integration
+      # Events: Releases
