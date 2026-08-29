@@ -90,3 +90,4 @@ Each release: **2 resources per 2 days**
 | v4.4.0 | 2026-08-18 | Account, DiagnosticReport, EpisodeOfCare |
 | v4.5.0 | 2026-08-18 | Non-core resources (12) + FHIR PATCH + BundleResponse |
 | v4.6.0 | 2026-08-18 | Phase 2: Durable queue + transaction logger |
+| v4.9.0 | 2026-08-29 | MedicationRequest + Procedure |
