@@ -1,0 +1,948 @@
+﻿Code;Descriptive_Name;Code_System;Definition;Date_Created;Synonym;Status;Kind_of_Quantity;Date_Revised;ConceptID;Dimension
+%;Percent [General Fraction Unit];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;%;Active;General Fraction Unit;2005-08-24;Percent;1
+%/100{WBC};PercentPer100WBC [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% per 100 WBC;Active;Number Fraction Units;2005-08-24;PercentPer100WBC;1
+%{0to3Hours};Percent0to3Hours [General Fraction Unit];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% 0-3 h;Active;General Fraction Unit;2005-08-24;Percent0to3Hours;1
+%{Abnormal};PercentAbnormal [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Abnormal;Active;Number Fraction Units;2005-08-24;PercentAbnormal;1
+%{Activity};PercentActivity [Catalytic Fraction Or Arbitrary Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Activity;Active;Catalytic Fraction Or Arbitrary Fraction Units;2005-08-24;PercentActivity;1
+%{BasalActivity};PercentBasalActivity [Catalytic Fraction Or Arbitrary Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Basal Activity;Active;Catalytic Fraction Or Arbitrary Fraction Units;2005-08-24;PercentBasalActivity;1
+%{Binding};PercentBinding [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Binding;Active;Mass Or Substance Fraction Units;2005-08-24;PercentBinding;1
+%{Blockade};PercentBlockade [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Blockade;Active;Number Fraction Units;2005-08-24;PercentBlockade;1
+%{Bound};PercentBound [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Bound;Active;Mass Or Substance Fraction Units;2005-08-24;PercentBound;1
+%{Carboxyhemoglobin};PercentCarboxyhemoglobin [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% CO Hgb;Active;Mass Or Substance Fraction Units;2005-08-24;PercentCarboxyhemoglobin;1
+%{EosSeen};PercentEosinophilsSeen [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% EOS Seen;Active;Number Fraction Units;2005-08-24;PercentEosinophilsSeen;1
+%{Excretion};PercentExcretion [Mass Or Substance Rate Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Excretion;Active;Mass Or Substance Rate Fraction Units;2005-08-24;PercentExcretion;1
+%{FetalErythrocytes};PercentFetalErythrocytes [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Fetal RBC;Active;Number Fraction Units;2005-08-24;PercentFetalErythrocytes;1
+%{Hemoglobin};PercentHemoglobin [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Hgb;Active;Mass Or Substance Fraction Units;2005-08-24;PercentHemoglobin;1
+%{HemoglobinA1C};PercentHemoglobinA1C [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Hgb A1C;Active;Mass Or Substance Fraction Units;2005-08-24;PercentHemoglobinA1C;1
+%{HemoglobinSaturation};PercentHemoglobinSaturation [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Hgb SAT;Active;Mass Or Substance Fraction Units;2005-08-24;PercentHemoglobinSaturation;1
+%{Hemolysis};PercentHemolysis [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Hemolysis;Active;Number Fraction Units;2005-08-24;PercentHemolysis;1
+%{Inhibition};PercentInhibition [Catalytic Fraction Or Arbitrary Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Inhibition;Active;Catalytic Fraction Or Arbitrary Fraction Units;2005-08-24;PercentInhibition;1
+%{Normal};PercentNormal [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Normal;Active;Number Fraction Units;2005-08-24;PercentNormal;1
+%{NormalPooledPlasma};PercentNormalPooledPlasma [Catalytic Fraction Or Arbitrary Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Normal Pooled Plasma;Active;Catalytic Fraction Or Arbitrary Fraction Units;2005-08-24;PercentNormalPooledPlasma;1
+%{ofBacteria};PercentofBacteria [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Bacteria;Active;Number Fraction Units;2005-08-24;PercentofBacteria;1
+%{OfLymphocytes};PercentOfLymphocytes [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Lymphs;Active;Number Fraction Units;2005-08-24;PercentOfLymphocytes;1
+%{OfWBCs};PercentOfWBCs [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% WBCs;Active;Number Fraction Units;2005-08-24;PercentOfWBCs;1
+%{Oxygen};PercentOxygen [Volume Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Oxygen;Active;Volume Fraction Units;2005-08-24;PercentOxygen;1
+%{Positive};PercentPositive [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Positive;Active;Number Fraction Units;2005-08-24;PercentPositive;1
+%{SpermMotility};PercentSpermMotility [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Sperm Motility;Active;Number Fraction Units;2005-08-24;PercentSpermMotility;1
+%{Total};PercentTotal [General Fraction Unit];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% of Total;Active;General Fraction Unit;2005-08-24;PercentTotal;1
+%{TotalProtein};PercentTotalProtein [Mass Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Total Protein;Active;Mass Or Substance Fraction Units;2005-08-24;PercentTotalProtein;1
+%{Uptake};PercentUptake [Mass Or Substance Rate Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;% Uptake;Active;Mass Or Substance Rate Fraction Units;2005-08-24;PercentUptake;1
+%{vol};VolumePercent [Volume Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Volume %;Active;Volume Fraction Units;2005-08-24;VolumePercent;1
+/[arb`U];PerArbitraryUnit [Arbitrary Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/Arbitrary Unit;Active;Arbitrary Number Units;2005-08-24;PerArbitraryUnit;[arb]-1
+/{Entity};PerEntity [Entitic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/Entity;Active;Entitic Number Units;2005-08-24;PerEntity;1
+/{tot};PerTotalCount [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/Total;Active;Unity;2005-08-24;PerTotalCount;1
+/10*10;PerTenGiga [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/10^10;Active;Number Fraction Units;2005-08-24;PerTenGiga;1
+/10*12;PerTrillion [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/10^12;Active;Number Fraction Units;2005-08-24;PerTrillion;1
+/10*12{rbc};PerTrillionRedBloodCells [Entitic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/10^12 RBCs;Active;Entitic Number Units;2005-08-24;PerTrillionRedBloodCells;1
+/10*6;PerMillion [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/10^6;Active;Number Fraction Units;2005-08-24;PerMillion;1
+/10*9;PerBillion [Number Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/10^9;Active;Number Fraction Units;2005-08-24;PerBillion;1
+/100;Per100 [Entitic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/100;Active;Entitic Number Units;2005-08-24;Per100;1
+/100{Spermatozoa};Per100Spermatozoa [Entitic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/100 Sperm;Active;Entitic Number Units;2005-08-24;Per100Spermatozoa;1
+/100{WBC};Per100WBC [Entitic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/100 WBCs;Active;Entitic Number Units;2005-08-24;Per100WBC;1
+/dL;PerDeciLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/dL;Active;Number Concentration Units;2005-08-24;PerDeciLiter;L-13
+/g;PerGram [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g;Active;Number Content Units;2005-08-24;PerGram;M-1
+/g{creat};PerGramCreatinine [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g Cre;Active;Number Content Units;2005-08-24;PerGramCreatinine;M-1
+/g{HGB};PerGramHemoglobin [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g Hgb;Active;Number Content Units;2005-08-24;PerGramHemoglobin;M-1
+/g{tot`nit};PerGramTotalNitrogen [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g Total Nitrogen;Active;Number Content Units;2005-08-24;PerGramTotalNitrogen;M-1
+/g{tot`prot};PerGramTotalProtein [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g Total Protein;Active;Number Content Units;2005-08-24;PerGramTotalProtein;M-1
+/g{wet`tis};PerGramWetTissue [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/g Wet Tissue;Active;Number Content Units;2005-08-24;PerGramWetTissue;M-1
+/kg;PerKiloGram [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/kg;Active;Number Content Units;2005-08-24;PerKiloGram;M-1
+/kg{body`wt};PerKiloGramBodyWeight [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/kg Body Weight;Active;Number Content Units;2005-08-24;PerKiloGramBodyWeight;M-1
+/L;PerLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/L;Active;Number Concentration Units;2005-08-24;PerLiter;L-14
+/m2;PerSquareMeter [Areic Number Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/m^2;Active;Areic Number Units;2005-08-24;PerSquareMeter;L-2
+/mg;PerMilliGram [Number Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg;Active;Number Content Units;2005-08-24;PerMilliGram;M-1
+/mL;PerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/mL;Active;Number Concentration Units;2005-08-24;PerMilliLiter;L-5
+/uL;PerMicroLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/uL;Active;Most Common Healthcare Units;2005-08-12;PerMicroLiter;L-3
+/uL;PerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;/mm^3;Active;Number Concentration Units;2005-08-24;PerMicroLiter;L-3
+[Ch];French [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;French Unit;Active;English Length Units;2005-08-24;French;L
+[cin_i];CubicInch [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;in^3;Active;English Volume Units;2005-08-24;CubicInch;L3
+[cup_us];Cup [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Cup;Active;English Volume Units;2005-08-24;Cup;L3
+[degF];DegreesFahrenheit [Temperature Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;F;Active;Temperature Units;2005-08-24;DegreesFahrenheit;q
+[dr_av];Dram [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;dr;Active;English Mass Units;2005-08-24;Dram;M
+[fdr_us];FluidDram [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fl dr;Active;English Volume Units;2005-08-24;FluidDram;L3
+[foz_us];FluidOunce [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fl oz;Active;English Volume Units;2005-08-24;FluidOunce;L3
+[ft_i];Feet [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ft;Active;English Length Units;2005-08-24;Feet;L
+[fth_i];Fathom [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fathom;Active;English Length Units;2005-08-24;Fathom;L
+[gal_us];Gallon [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;gal;Active;English Volume Units;2005-08-24;Gallon;L3
+[gr];Grain [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;gr;Active;English Mass Units;2005-08-24;Grain;M
+[in_i];Inch [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;in;Active;English Length Units;2005-08-24;Inch;L
+[iU];InternationalUnit [Arbitrary Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU;Active;Arbitrary Units;2005-08-24;InternationalUnit;[arb]
+[iU]/dL;InternationalUnitsPerDeciLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/dL;Active;Arbitrary Concentration Units;2005-08-24;InternationalUnitsPerDeciLiter;L-3[arb]
+[iU]/g;InternationalUnitsPerGram [Arbitrary Concentration Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/g;Active;Arbitrary Concentration Content Units;2005-08-24;InternationalUnitsPerGram;M-1[arb]
+[iU]/g{Hgb};InternationalUnitsPerGramHemoglobin [Arbitrary Concentration Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/g Hgb;Active;Arbitrary Concentration Content Units;2005-08-24;InternationalUnitsPerGramHemoglobin;M-1[arb]
+[iU]/kg;InternationalUnitsPerKilogram [Arbitrary Concentration Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/kg;Active;Arbitrary Concentration Content Units;2005-08-24;InternationalUnitsPerKilogram;M-1[arb]
+[iU]/L;InternationalUnitsPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/L;Active;Most Common Healthcare Units;2005-08-12;InternationalUnitsPerLiter;L-3[arb]
+[iU]/L;InternationalUnitsPerLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/L;Active;Arbitrary Concentration Units;2005-08-24;InternationalUnitsPerLiter;L-3[arb]
+[iU]/mL;InternationalUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IU/mL;Active;Arbitrary Concentration Units;2005-08-24;InternationalUnitsPerMilliLiter;L-3[arb]
+[lb_av];Pound [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;lb;Active;English Mass Units;2005-08-24;Pound;M
+[lg];Log10 [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;log 10;Active;Unity;2005-08-24;Log10;1
+[mi_i];StatuteMile [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mi;Active;English Length Units;2005-08-24;StatuteMile;L
+[nmi_i];NauticalMile [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;n mile;Active;English Length Units;2005-08-24;NauticalMile;L
+[oz_av];Ounce [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;oz;Active;English Mass Units;2005-08-24;Ounce;M
+[oz_tr];TroyOunce [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;tr oz;Active;English Mass Units;2005-08-24;TroyOunce;M
+[pH];pH [pH Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pH;Active;pH Units;2005-08-24;pH;[pH]
+[pt_us];Pint [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pt;Active;English Volume Units;2005-08-24;Pint;L3
+[qt_us];Quart [English Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;qt;Active;English Volume Units;2005-08-24;Quart;L3
+[sft_i];SquareFeet [English Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ft^2;Active;English Area Units;2005-08-24;SquareFeet;L2
+[sin_i];SquareInch [English Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;in^2;Active;English Area Units;2005-08-24;SquareInch;L2
+[ston_av];Ton [English Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Ton;Active;English Mass Units;2005-08-24;Ton;M
+[syd_i];SquareYard [English Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;yd^2;Active;English Area Units;2005-08-24;SquareYard;L2
+[yd_i];Yard [English Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;yd;Active;English Length Units;2005-08-24;Yard;L
+{AHG}eq/mL;AHGEquivalentsPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;AHG eq/mL;Active;Substance Concentration Units;2005-08-24;AHGEquivalentsPerMilliLiter;L-3N
+{BoneCollagen}eq/mmol{Cre};BoneCollagenEquivalentsPerMilliMoleCreatinine [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;BCE/mmol Cre;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;BoneCollagenEquivalentsPerMilliMoleCreatinine;1
+{BoneCollagen}eq/umol{Cre};BoneCollagenEquivalentsPerMicroMoleCreatinine [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;BCE/umol Cre;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;BoneCollagenEquivalentsPerMicroMoleCreatinine;1
+{Cells}/uL;CellsPerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cells/uL;Active;Number Concentration Units;2005-08-24;CellsPerMicroLiter;L-3
+{cfu}/mL;ColonyFormingUnitsPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cfu/mL;Active;Number Concentration Units;2005-08-24;ColonyFormingUnitsPerMilliLiter;L-12
+{ComplementCh50}U/mL;ComplementCh50UnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;CH50 U/mL;Active;Arbitrary Concentration Units;2005-08-24;ComplementCh50UnitsPerMilliLiter;L-3[arb]
+{Copies}/mL;CopiesPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Copies/mL;Active;Number Concentration Units;2005-08-24;CopiesPerMilliLiter;L-7
+{Ehrlich_U}/100g;EhrlichUnitsPer100Gram [Arbitrary Concentration Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;EU/100 g;Active;Arbitrary Concentration Content Units;2005-08-24;EhrlichUnitsPer100Gram;M-1[arb]
+{Ehrlich_U}/dL;EhrlichUnitsPerDeciLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;EU/dL;Active;Arbitrary Concentration Units;2005-08-24;EhrlichUnitsPerDeciLiter;L-3[arb]
+{Elisa_U}/mL;ElisaUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Elisa U/mL;Active;Arbitrary Concentration Units;2005-08-24;ElisaUnitsPerMilliLiter;L-3[arb]
+{IgAPhospholipid}U/mL;IgAPhospholipidUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IgA Phospholipid U/mL;Active;Arbitrary Concentration Units;2005-08-24;IgAPhospholipidUnitsPerMilliLiter;L-3[arb]
+{IgGPhospholipid}U/mL;IgGPhospholipidUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IgG Phospholipid U/mL;Active;Arbitrary Concentration Units;2005-08-24;IgGPhospholipidUnitsPerMilliLiter;L-3[arb]
+{IgMPhospholipid}U/mL;IgMPhospholipidUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;IgM Phospholipid U/mL;Active;Arbitrary Concentration Units;2005-08-24;IgMPhospholipidUnitsPerMilliLiter;L-3[arb]
+{rbc}/uL;RedBloodCellsPerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;RBC/mm^3;Active;Number Concentration Units;2005-08-24;RedBloodCellsPerMicroLiter;L-3
+{Relative}%;RelativePercent [General Fraction Unit];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Relative %;Active;General Fraction Unit;2005-08-24;RelativePercent;1
+{Spermatozoa}/mL;SpermatozoaPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Sperm/mL;Active;Number Concentration Units;2005-08-24;SpermatozoaPerMilliLiter;L-6
+10*12/L;TrillionPerLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^12/L;Active;Number Concentration Units;2005-08-24;TrillionPerLiter;L-17
+10*3;Thousand [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^3;Active;Unity;2005-08-24;Thousand;1
+10*3.{RBC};ThousandRedBloodCells [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^3 RBCs;Active;Unity;2005-08-24;ThousandRedBloodCells;1
+10*3/L;ThousandPerLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^3/L;Active;Number Concentration Units;2005-08-24;ThousandPerLiter;L-15
+10*3/mL;ThousandPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^3/mL;Active;Number Concentration Units;2005-08-24;ThousandPerMilliLiter;L-8
+10*3/uL;ThousandsPerMicroLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;K/uL, x10^3/mm^3;Active;Most Common Healthcare Units;2005-08-12;ThousandsPerMicroLiter;L-3
+10*3/uL;ThousandsPerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^3/uL;Active;Number Concentration Units;2005-08-24;ThousandsPerMicroLiter;L-3
+10*3{Copies}/mL;ThousandCopiesPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^3 copies/mL;Active;Number Concentration Units;2005-08-24;ThousandCopiesPerMilliLiter;L-9
+10*5;OneHundredThousand [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^5;Active;Unity;2005-08-24;OneHundredThousand;1
+10*6;Million [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^6;Active;Unity;2005-08-24;Million;1
+10*6.[iU];MillionInternationalUnit [Arbitrary Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^6  IU;Active;Arbitrary Units;2005-08-24;MillionInternationalUnit;[arb]
+10*6.eq/mL;MillionEquivalentsPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^6 eq/mL;Active;Substance Concentration Units;2005-08-24;MillionEquivalentsPerMilliLiter;L-3N
+10*6/{Specimen};MillionPerSpecimen [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^6/spec;Active;Unity;2005-08-24;MillionPerSpecimen;1
+10*6/L;MillionPerLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^6/L;Active;Number Concentration Units;2005-08-24;MillionPerLiter;L-16
+10*6/mL;MillionPerMilliLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^6/mL;Active;Number Concentration Units;2005-08-24;MillionPerMilliLiter;L-10
+10*6/uL;MillionsPerMicroLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;M/uL, x10^6/mm^3;Active;Most Common Healthcare Units;2005-08-12;MillionsPerMicroLiter;L-3
+10*6/uL;MillionsPerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^6/uL;Active;Number Concentration Units;2005-08-24;MillionsPerMicroLiter;L-3
+10*8;TenToEighth [Unity];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;x10^8;Active;Unity;2005-08-24;TenToEighth;1
+10*9/L;BillionPerLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^9/L;Active;Number Concentration Units;2005-08-24;BillionPerLiter;L-18
+10*9/mL;BillionsPerMilliliter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^9/mL;Active;Number Concentration Units;2005-08-24;BillionsPerMilliliter;L-11
+10*9/uL;BillionsPerMicroLiter [Number Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;10^9/uL;Active;Number Concentration Units;2005-08-24;BillionsPerMicroLiter;L-4
+a;Year [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;yr;Active;Time Units;2005-08-24;Year;T
+Cel;DegreesCelsius [Temperature Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;C;Active;Temperature Units;2005-08-24;DegreesCelsius;q
+cg;CentiGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cg;Active;SI Mass Units;2005-08-24;CentiGram;M
+cL;CentiLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cL;Active;SI Volume Units;2005-08-24;CentiLiter;L3
+cm;CentiMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cm;Active;SI Length Units;2005-08-24;CentiMeter;L
+cm2;SquareCentiMeter [SI Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cm^2;Active;SI Area Units;2005-08-24;SquareCentiMeter;L2
+d;Day [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;d;Active;Time Units;2005-08-24;Day;T
+deg;DegreesOfArc [Plane Angle Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Deg;Active;Plane Angle Units;2005-08-24;DegreesOfArc;1
+dg;DeciGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;dg;Active;SI Mass Units;2005-08-24;DeciGram;M
+dL;DeciLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;dL;Active;SI Volume Units;2005-08-24;DeciLiter;L3
+dm;DeciMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;dm;Active;SI Length Units;2005-08-24;DeciMeter;L
+eq;Equivalent [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;eq;Active;Substance Units;2005-08-24;Equivalent;N
+eq/L;EquivalentsPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;eg/L;Active;Substance Concentration Units;2005-08-24;EquivalentsPerLiter;L-3N
+eq/mL;EquivalentsPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;eq/mL;Active;Substance Concentration Units;2005-08-24;EquivalentsPerMilliLiter;L-3N
+eq/mmol;EquivalentsPerMilliMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;eq/mmol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;EquivalentsPerMilliMole;1
+eq/umol;EquivalentsPerMicroMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;eq/umol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;EquivalentsPerMicroMole;1
+fg;FemtoGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fg;Active;SI Mass Units;2005-08-24;FemtoGram;M
+fL;FemtoLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fL;Active;Most Common Healthcare Units;2005-08-12;FemtoLiter;L-3
+fL;FemtoLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fL;Active;SI Volume Units;2005-08-24;FemtoLiter;L3
+fm;FemtoMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fm;Active;SI Length Units;2005-08-24;FemtoMeter;L
+fmol;Femtomole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fmol;Active;Substance Units;2005-08-24;Femtomole;N
+fmol/g;FemtoMolesPerGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fmol/gm;Active;Substance Content Units;2005-08-24;FemtoMolesPerGram;M-1N
+fmol/mg;FemtoMolesPerMilliGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fmol/mg;Active;Substance Content Units;2005-08-24;FemtoMolesPerMilliGram;M-1N
+fmol/mL;FemtoMolesPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;fmol/mL;Active;Substance Concentration Units;2005-08-24;FemtoMolesPerMilliLiter;L-3N
+g;Gram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g;Active;SI Mass Units;2005-08-24;Gram;M
+g.m;GramMeter [Massive Distance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Gram Meter;Active;Massive Distance Units;2005-08-24;GramMeter;LM
+g.m/({hb}.m2);GramMeterPerHeartbeatPerSquareMeter [Lineic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Gram Meter/Heartbeat/m^2;Active;Lineic Mass Units;2005-08-24;GramMeterPerHeartbeatPerSquareMeter;L-1M
+g.m/{hb};GramMeterPerHeartbeat [Massive Distance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Gram Meter/Heartbeat;Active;Massive Distance Units;2005-08-24;GramMeterPerHeartbeat;LM
+g/[100]g;GramsPer100Gram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/100g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;GramsPer100Gram;1
+g/{TotalWeight};GramsPerTotalWeight [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/Total Weight;Active;SI Mass Units;2005-08-24;GramsPerTotalWeight;M
+g/dL;GramsPerDeciLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/dL;Active;Most Common Healthcare Units;2005-08-12;GramsPerDeciLiter;L-3M
+g/dL;GramsPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/dL;Active;Mass Concentration Units;2005-08-24;GramsPerDeciLiter;L-3M
+g/g;GramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;GramsPerGram;1
+g/g{Cre};GramsPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/g Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;GramsPerGramCreatinine;1
+g/kg;GramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/kg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;GramsPerKiloGram;1
+g/L;GramsPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/L;Active;Most Common Healthcare Units;2005-08-12;GramsPerLiter;L-3M
+g/L;GramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/L;Active;Mass Concentration Units;2005-08-24;GramsPerLiter;L-3M
+g/m2;GramsPerSquareMeter [Areic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/m^2;Active;Areic Mass Units;2005-08-24;GramsPerSquareMeter;L-2M
+g/mL;GramsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/mL;Active;Most Common Healthcare Units;2005-08-12;GramsPerMilliLiter;L-3M
+g/mL;GramsPerMilliLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;g/mL;Active;Mass Concentration Units;2005-08-24;GramsPerMilliLiter;L-3M
+h;Hour [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;h;Active;Time Units;2005-08-24;Hour;T
+hL;HectoLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;hL;Active;SI Volume Units;2005-08-24;HectoLiter;L3
+K;DegreesKelvin [Temperature Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;K;Active;Temperature Units;2005-08-24;DegreesKelvin;q
+K/W;KelvinPerWatt [Thermal Resistance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;K/Watt;Active;Thermal Resistance Units;2005-08-24;KelvinPerWatt;L-2M-1T3q
+k[iU]/mL;KiloInternationalUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kIU/mL;Active;Arbitrary Concentration Units;2005-08-24;KiloInternationalUnitsPerMilliLiter;L-3[arb]
+kat/kg;KatalPerKilogram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kat/kg;Active;Substance Rate Content Units;2005-08-24;KatalPerKilogram;M-1T-1N
+kCal/[oz_av];KiloCaloriesPerOunce [Energy Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kCal/oz;Active;Energy Content Units;2005-08-24;KiloCaloriesPerOunce;L2T-2
+kg;KiloGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kg;Active;SI Mass Units;2005-08-24;KiloGram;M
+kg/L;KiloGramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kg/L;Active;Mass Concentration Units;2005-08-24;KiloGramsPerLiter;L-3M
+kg/m2;KiloGramsPerSquareMeter [Areic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kg/m^2;Active;Areic Mass Units;2005-08-24;KiloGramsPerSquareMeter;L-2M
+kg/m3;KiloGramsPerCubicMeter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kg/m^3;Active;Mass Concentration Units;2005-08-24;KiloGramsPerCubicMeter;L-3M
+kg/mol;KiloGramsPerMole [Molar Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kg/mol;Active;Molar Mass Units;2005-08-24;KiloGramsPerMole;MN-1
+kL;KiloLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kL;Active;SI Volume Units;2005-08-24;KiloLiter;L3
+km;KiloMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;km;Active;SI Length Units;2005-08-24;KiloMeter;L
+kPa;KiloPascal [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kPa;Active;Most Common Healthcare Units;2005-08-12;KiloPascal;L-1MT-2
+ks;KiloSecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ks;Active;Time Units;2005-08-24;KiloSecond;T
+kU/g;KiloUnitsPerGram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;kU/g;Active;Substance Rate Content Units;2005-08-24;KiloUnitsPerGram;M-1T-1N
+L;Liter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;L;Active;SI Volume Units;2005-08-24;Liter;L3
+L.s2/s;LiterSquareSecondPerSecond [Volume Duration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;L s^2/s;Active;Volume Duration Units;2005-08-24;LiterSquareSecondPerSecond;L3T
+L/kg;LitersPerKilogram [Volume Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;L/kg;Active;Volume Content Units;2005-08-24;LitersPerKilogram;L3M-1
+m;Meter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;m;Active;SI Length Units;2005-08-24;Meter;L
+m[iU]/L;MilliInternationalUnitsPerLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mIU/L;Active;Arbitrary Concentration Units;2005-08-24;MilliInternationalUnitsPerLiter;L-3[arb]
+m[iU]/mL;MilliInternationalUnitsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mIU/mL;Active;Most Common Healthcare Units;2005-08-12;MilliInternationalUnitsPerMilliLiter;L-3[arb]
+m[iU]/mL;MilliInternationalUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mIU/mL;Active;Arbitrary Concentration Units;2005-08-24;MilliInternationalUnitsPerMilliLiter;L-3[arb]
+m2;SquareMeter [SI Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;m^2;Active;SI Area Units;2005-08-24;SquareMeter;L2
+meq;MilliEquivalent [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq;Active;Substance Units;2005-08-24;MilliEquivalent;N
+meq/{Specimen};MilliEquivalentsPerSpecimen [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq/Spec;Active;Substance Units;2005-08-24;MilliEquivalentsPerSpecimen;N
+meq/dL;MilliEquivalentsPerDeciLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meg/dL;Active;Substance Concentration Units;2005-08-24;MilliEquivalentsPerDeciLiter;L-3N
+meq/g;MilliEquivalentsPerGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq/g;Active;Substance Content Units;2005-08-24;MilliEquivalentsPerGram;M-1N
+meq/g{Cre};MilliEquivalentsPerGramCreatinine [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq/g Cre;Active;Substance Content Units;2005-08-24;MilliEquivalentsPerGramCreatinine;M-1N
+meq/kg;MilliEquivalentsPerKiloGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq/kg;Active;Substance Content Units;2005-08-24;MilliEquivalentsPerKiloGram;M-1N
+meq/L;MilliEquivalentsPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mEq/L;Active;Most Common Healthcare Units;2005-08-12;MilliEquivalentsPerLiter;L-3N
+meq/L;MilliEquivalentsPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meg/L;Active;Substance Concentration Units;2005-08-24;MilliEquivalentsPerLiter;L-3N
+meq/m2;MilliEquivalentsPerSquareMeter [Areic Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meg/m^2;Active;Areic Substance Units;2005-08-24;MilliEquivalentsPerSquareMeter;L-2N
+meq/mL;MilliEquivalentPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;meq/mL;Active;Substance Concentration Units;2005-08-24;MilliEquivalentPerMilliLiter;L-3N
+mg;MilliGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg;Active;SI Mass Units;2005-08-24;MilliGram;M
+mg/{TotalVolume};MilliGramPerTotalVolume [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/Total Volume;Active;SI Mass Units;2005-08-24;MilliGramPerTotalVolume;M
+mg/{Volume};MilliGramsPerVolume [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/Volume;Active;SI Mass Units;2005-08-24;MilliGramsPerVolume;M
+mg/dL;MilliGramsPerDeciLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/dL;Active;Most Common Healthcare Units;2005-08-12;MilliGramsPerDeciLiter;L-3M
+mg/dL;MilliGramsPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/dL;Active;Mass Concentration Units;2005-08-24;MilliGramsPerDeciLiter;L-3M
+mg/g;MilliGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MilliGramsPerGram;1
+mg/g{Cre};MilliGramPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/g Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MilliGramPerGramCreatinine;1
+mg/kg;MilliGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/kg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MilliGramsPerKiloGram;1
+mg/L;MilliGramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/L;Active;Mass Concentration Units;2005-08-24;MilliGramsPerLiter;L-3M
+mg/m2;MilliGramsPerSquareMeter [Areic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/m^2;Active;Areic Mass Units;2005-08-24;MilliGramsPerSquareMeter;L-2M
+mg/m3;MilliGramsPerCubicMeter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/m^3;Active;Mass Concentration Units;2005-08-24;MilliGramsPerCubicMeter;L-3M
+mg/mg;MilliGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/mg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MilliGramsPerMilliGram;1
+mg/mg{Cre};MilligramsPerMilligramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/mg Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MilligramsPerMilligramCreatinine;
+mg/mL;MilliGramsPerMilliLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg/mL;Active;Mass Concentration Units;2005-08-24;MilliGramsPerMilliLiter;L-3M
+mg{Phenylketones}/dL;MilliGramsPhenylketonesPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mg Phe/dL;Active;Mass Concentration Units;2005-08-24;MilliGramsPhenylketonesPerDeciLiter;L-3M
+min;Minute [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;min;Active;Time Units;2005-08-24;Minute;T
+mL;MilliLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mL;Active;SI Volume Units;2005-08-24;MilliLiter;L3
+mL/{h`b};MilliLitersPerHeartbeat [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mL/heart beat;Active;SI Volume Units;2005-08-24;MilliLitersPerHeartbeat;L3
+mL/dL;MilliLitersPerDeciLiter [Volume Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;cc/dL;Active;Volume Fraction Units;2005-08-24;MilliLitersPerDeciLiter;1
+mL/kg;MilliLitersPerKiloGram [Volume Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mL/kg;Active;Volume Content Units;2005-08-24;MilliLitersPerKiloGram;L3M-1
+mm;MilliMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mm;Active;SI Length Units;2005-08-24;MilliMeter;L
+mm[Hg];MilliMetersOfMercury [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mm Hg;Active;Most Common Healthcare Units;2005-08-12;MilliMetersOfMercury;L-1MT-2
+mm2;SquareMilliMeter [SI Area Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mm^2;Active;SI Area Units;2005-08-24;SquareMilliMeter;L2
+mmol;MilliMole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol;Active;Substance Units;2005-08-24;MilliMole;N
+mmol/{TotalVolume};MilliMolesPerTotalVolume [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/Total Volume;Active;Substance Units;2005-08-24;MilliMolesPerTotalVolume;N
+mmol/dL;MilliMolesPerDeciLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/dL;Active;Substance Concentration Units;2005-08-24;MilliMolesPerDeciLiter;L-3N
+mmol/g;MilliMolesPerGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/g;Active;Substance Content Units;2005-08-24;MilliMolesPerGram;M-1N
+mmol/kg;MilliMolesPerKiloGram [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/kg;Active;Most Common Healthcare Units;2005-08-12;MilliMolesPerKiloGram;M-1N
+mmol/kg;MilliMolesPerKiloGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/kg;Active;Substance Content Units;2005-08-24;MilliMolesPerKiloGram;M-1N
+mmol/L;MilliMolesPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/L;Active;Most Common Healthcare Units;2005-08-12;MilliMolesPerLiter;L-3N
+mmol/L;MilliMolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/L;Active;Substance Concentration Units;2005-08-24;MilliMolesPerLiter;L-3N
+mmol/m2;MilliMolesPerSquareMeter [Areic Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/m^2;Active;Areic Substance Units;2005-08-24;MilliMolesPerSquareMeter;L-2N
+mmol/mol;MilliMolesPerMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/mol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;MilliMolesPerMole;1
+mmol/mol{Cre};MilliMolesPerMoleCreatinine [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mmol/mol Cre;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;MilliMolesPerMoleCreatinine;1
+mo;Month [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Mo;Active;Time Units;2005-08-24;Month;T
+mol;Mole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mol;Active;Substance Units;2005-08-24;Mole;N
+mol/kg;MolesPerKiloGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mol/kg;Active;Substance Content Units;2005-08-24;MolesPerKiloGram;M-1N
+mol/L;MolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mol/L;Active;Substance Concentration Units;2005-08-24;MolesPerLiter;L-3N
+mol/m3;MolesPerCubicMeter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mol/m^3;Active;Substance Concentration Units;2005-08-24;MolesPerCubicMeter;L-3N
+mol/mL;MolesPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mol/mL;Active;Substance Concentration Units;2005-08-24;MolesPerMilliLiter;L-3N
+mosm;MilliOsmole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mosm;Active;Substance Units;2005-08-24;MilliOsmole;N
+mosm/kg;MilliOsmolesPerKiloGram [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mOsm/kg;Active;Most Common Healthcare Units;2005-08-12;MilliOsmolesPerKiloGram;M-1N
+mosm/kg;MilliOsmolesPerKiloGram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mosm/kg;Active;Substance Rate Content Units;2005-08-24;MilliOsmolesPerKiloGram;M-1T-1N
+mosm/L;MilliOsmolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mOsm/L;Active;Substance Concentration Units;2005-08-24;MilliOsmolesPerLiter;L-3N
+ms;MilliSecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ms;Active;Time Units;2005-08-24;MilliSecond;T
+Ms;Megasecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Ms;Active;Time Units;2005-08-24;Megasecond;T
+mU/g;MilliUnitsPerGram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mU/g;Active;Substance Rate Content Units;2005-08-24;MilliUnitsPerGram;M-1T-1N
+mU/g{Hgb};MilliUnitsPerGramHemoglobin [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mU/g Hgb;Active;Substance Rate Content Units;2005-08-24;MilliUnitsPerGramHemoglobin;M-1T-1N
+mU/mg;MilliUnitsPerMilligram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mU/mg;Active;Substance Rate Content Units;2005-08-24;MilliUnitsPerMilligram;M-1T-1N
+mU/mg{Cre};MilliUnitsPerMilliGramCreatinine [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;mU/mg Cre;Active;Substance Rate Content Units;2005-08-24;MilliUnitsPerMilliGramCreatinine;M-1T-1N
+ng;NanoGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng;Active;SI Mass Units;2005-08-24;NanoGram;M
+ng/dL;NanoGramsPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/dL;Active;Mass Concentration Units;2005-08-24;NanoGramsPerDeciLiter;L-3M
+ng/g;NanoGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;NanoGramsPerGram;1
+ng/g{Cre};NanoGramsPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/g Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;NanoGramsPerGramCreatinine;1
+ng/kg;NanoGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/kg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;NanoGramsPerKiloGram;1
+ng/L;NanoGramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/L;Active;Mass Concentration Units;2005-08-24;NanoGramsPerLiter;L-3M
+ng/m2;NanoGramsPerSquareMeter [Areic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/m^2;Active;Areic Mass Units;2005-08-24;NanoGramsPerSquareMeter;L-2M
+ng/mg;NanoGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/mg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;NanoGramsPerMilliGram;1
+ng/mg{Protein};NanoGramsPerMilliGramProtein [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/mg Prot;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;NanoGramsPerMilliGramProtein;1
+ng/mL;NanoGramsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/mL;Active;Most Common Healthcare Units;2005-08-12;NanoGramsPerMilliLiter;L-3M
+ng/mL;NanoGramsPerMilliLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/mL;Active;Mass Concentration Units;2005-08-24;NanoGramsPerMilliLiter;L-3M
+ng/mL{rbc};NanoGramsPerMilliLiterRedBloodCells [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ng/mL RBCs;Active;Mass Concentration Units;2005-08-24;NanoGramsPerMilliLiterRedBloodCells;L-3M
+nL;NanoLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nL;Active;SI Volume Units;2005-08-24;NanoLiter;L3
+nm;NanoMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nm;Active;SI Length Units;2005-08-24;NanoMeter;L
+nmol;NanoMole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol;Active;Substance Units;2005-08-24;NanoMole;N
+nmol/dL;NanoMolesPerDeciLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/dL;Active;Substance Concentration Units;2005-08-24;NanoMolesPerDeciLiter;L-3N
+nmol/g;NanoMolesPerGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/g;Active;Substance Content Units;2005-08-24;NanoMolesPerGram;M-1N
+nmol/g{Cre};NanoMolesPerGramCreatinine [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/g Cre;Active;Substance Content Units;2005-08-24;NanoMolesPerGramCreatinine;M-1N
+nmol/L;NanoMolesPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/L;Active;Most Common Healthcare Units;2005-08-12;NanoMolesPerLiter;L-3N
+nmol/L;NanoMolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/L;Active;Substance Concentration Units;2005-08-24;NanoMolesPerLiter;L-3N
+nmol/mg;NanoMolesPerMilliGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/mg;Active;Substance Content Units;2005-08-24;NanoMolesPerMilliGram;M-1N
+nmol/mL;NanoMolesPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/mL;Active;Substance Concentration Units;2005-08-24;NanoMolesPerMilliLiter;L-3N
+nmol/mmol;NanoMolesPerMilliMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/mmol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;NanoMolesPerMilliMole;1
+nmol/mmol{Cre};NanoMolesPerMilliMoleCreatinine [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/mmol Cre;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;NanoMolesPerMilliMoleCreatinine;1
+nmol/mol;NanoMolesPerMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;nmol/mol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;NanoMolesPerMole;1
+ns;NanoSecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ns;Active;Time Units;2005-08-24;NanoSecond;T
+osm/kg;OsmolesPerKiloGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Osm/kg;Active;Substance Content Units;2005-08-24;OsmolesPerKiloGram;M-1N
+osm/L;OsmolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Osm/L;Active;Substance Concentration Units;2005-08-24;OsmolesPerLiter;L-3N
+pg;PicoGrams [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg;Active;Most Common Healthcare Units;2005-08-12;PicoGrams;M
+pg;PicoGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg;Active;SI Mass Units;2005-08-24;PicoGram;M
+pg/dL;PicoGramsPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg/dL;Active;Mass Concentration Units;2005-08-24;PicoGramsPerDeciLiter;L-3M
+pg/L;PicoGramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg/L;Active;Mass Concentration Units;2005-08-24;PicoGramsPerLiter;L-3M
+pg/mL;PicoGramsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg/mL;Active;Most Common Healthcare Units;2005-08-12;PicoGramsPerMilliLiter;L-3M
+pg/mL;PicoGramsPerMilliLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg/mL;Active;Mass Concentration Units;2005-08-24;PicoGramsPerMilliLiter;L-3M
+pg/mm;PicoGramsPerMilliMeter [Lineic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pg/mm;Active;Lineic Mass Units;2005-08-24;PicoGramsPerMilliMeter;L-1M
+pL;PicoLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pL;Active;SI Volume Units;2005-08-24;PicoLiter;L3
+pm;PicoMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pm;Active;SI Length Units;2005-08-24;PicoMeter;L
+pmol;PicoMole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol;Active;Substance Units;2005-08-24;PicoMole;N
+pmol/dL;PicoMolesPerDeciLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol/dL;Active;Substance Concentration Units;2005-08-24;PicoMolesPerDeciLiter;L-3N
+pmol/L;PicoMolesPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol/L;Active;Most Common Healthcare Units;2005-08-12;PicoMolesPerLiter;L-3N
+pmol/L;PicoMolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol/L;Active;Substance Concentration Units;2005-08-24;PicoMolesPerLiter;L-3N
+pmol/mL;PicoMolesPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol/mL;Active;Substance Concentration Units;2005-08-24;PicoMolesPerMilliLiter;L-3N
+pmol/umol;PicoMolesPerMicroMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;pmol/umol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;PicoMolesPerMicroMole;1
+ps;PicoSecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ps;Active;Time Units;2005-08-24;PicoSecond;T
+s;Second [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;sec;Active;Time Units;2005-08-24;Second;T
+t;MetricTon [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;Metric Ton;Active;SI Mass Units;2005-08-24;MetricTon;M
+U/g;UnitsPerGram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;U/g;Active;Substance Rate Content Units;2005-08-24;UnitsPerGram;M-1T-1N
+U/g{Cre};UnitsPerGramCreatinine [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;U/g Cre;Active;Substance Rate Content Units;2005-08-24;UnitsPerGramCreatinine;M-1T-1N
+U/g{Hgb};UnitsPerGramHemoglobin [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;U/g Hgb;Active;Substance Rate Content Units;2005-08-24;UnitsPerGramHemoglobin;M-1T-1N
+U/L;UnitsPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;U/L;Active;Most Common Healthcare Units;2005-08-12;UnitsPerLiter;L-3[arb]
+u[iU];MicroInternationalUnit [Arbitrary Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;uIU;Active;Arbitrary Units;2005-08-24;MicroInternationalUnit;[arb]
+u[iU]/mL;MicroInternationalUnitsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;uIU/mL;Active;Most Common Healthcare Units;2005-08-12;MicroInternationalUnitsPerMilliLiter;L-3[arb]
+u[iU]/mL;MicroInternationalUnitsPerMilliLiter [Arbitrary Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;uIU/mL;Active;Arbitrary Concentration Units;2005-08-24;MicroInternationalUnitsPerMilliLiter;L-3[arb]
+ueq;MicroEquivalent [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ueq;Active;Substance Units;2005-08-24;MicroEquivalent;N
+ueq/L;MicroEquivalentsPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ueg/L;Active;Substance Concentration Units;2005-08-24;MicroEquivalentsPerLiter;L-3N
+ueq/mL;MicroEquivalentsPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ueq/mL;Active;Substance Concentration Units;2005-08-24;MicroEquivalentsPerMilliLiter;L-3N
+ug;MicroGram [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug;Active;SI Mass Units;2005-08-24;MicroGram;M
+ug/[100]g;MicroGramPer100Gram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/100 g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramPer100Gram;1
+ug/{Specimen};MicroGramsPerSpecimen [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/Spec;Active;SI Mass Units;2005-08-24;MicroGramsPerSpecimen;M
+ug/{TotalVolume};MicroGramsPerTotalVolume [SI Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/Total Volume;Active;SI Mass Units;2005-08-24;MicroGramsPerTotalVolume;M
+ug/dL;MicroGramsPerDeciLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/dL;Active;Most Common Healthcare Units;2005-08-12;MicroGramsPerDeciLiter;L-3M
+ug/dL;MicroGramsPerDeciLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/dL;Active;Mass Concentration Units;2005-08-24;MicroGramsPerDeciLiter;0
+ug/dL{rbc};MicroGramsPerDeciLiterRedBloodCells [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/dL RBCs;Active;Mass Concentration Units;2005-08-24;MicroGramsPerDeciLiterRedBloodCells;L-3M
+ug/g;MicroGramsPerGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/g;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerGram;1
+ug/g{Cre};MicroGramPerGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/g Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramPerGramCreatinine;1
+ug/g{DryWeight};MicroGramPerGramDryWeight [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/g Dry Weight;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramPerGramDryWeight;1
+ug/g{Hgb};MicroGramsPerGramHemoglobin [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/g Hgb;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerGramHemoglobin;1
+ug/kg;MicroGramsPerKiloGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/kg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerKiloGram;1
+ug/L;MicroGramsPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/L;Active;Most Common Healthcare Units;2005-08-12;MicroGramsPerLiter;L-3M
+ug/L;MicroGramsPerLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/L;Active;Mass Concentration Units;2005-08-24;MicroGramsPerLiter;L-3M
+ug/m2;MicroGramsPerSquareMeter [Areic Mass Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/m^2;Active;Areic Mass Units;2005-08-24;MicroGramsPerSquareMeter;L-2M
+ug/mg;MicroGramsPerMilliGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/mg;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerMilliGram;1
+ug/mg{Cre};MicroGramsPerMilliGramCreatinine [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/mg Cre;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerMilliGramCreatinine;1
+ug/mL;MicroGramsPerMilliLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/mL;Active;Most Common Healthcare Units;2005-08-12;MicroGramsPerMilliLiter;L-3M
+ug/mL;MicroGramsPerMilliLiter [Mass Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/mL;Active;Mass Concentration Units;2005-08-24;MicroGramsPerMilliLiter;L-3M
+ug/ng;MicroGramsPerNanoGram [Mass Ratio Or Mass Fraction Or Mass Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;ug/ng;Active;Mass Ratio Or Mass Fraction Or Mass Content Units;2005-08-24;MicroGramsPerNanoGram;1
+uL;MicroLiter [SI Volume Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;uL;Active;SI Volume Units;2005-08-24;MicroLiter;L3
+um;MicroMeter [SI Length Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;um;Active;SI Length Units;2005-08-24;MicroMeter;L
+umol;MicroMole [Substance Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol;Active;Substance Units;2005-08-24;MicroMole;N
+umol/dL;MicroMolesPerDeciLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/dL;Active;Substance Concentration Units;2005-08-24;MicroMolesPerDeciLiter;L-3N
+umol/g;MicroMolesPerGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/g;Active;Substance Content Units;2005-08-24;MicroMolesPerGram;M-1N
+umol/g{Cre};MicroMolesPerGramCreatinine [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/g Cre;Active;Substance Content Units;2005-08-24;MicroMolesPerGramCreatinine;M-1N
+umol/g{Hgb};MicroMolesPerGramHemoglobin [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/g Hgb;Active;Substance Content Units;2005-08-24;MicroMolesPerGramHemoglobin;M-1N
+umol/L;MicroMolesPerLiter [Most Common Healthcare Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/L;Active;Most Common Healthcare Units;2005-08-12;MicroMolesPerLiter;L-3N
+umol/L;MicroMolesPerLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/L;Active;Substance Concentration Units;2005-08-24;MicroMolesPerLiter;L-3N
+umol/mg;MicroMolesPerMilliGram [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/mg;Active;Substance Content Units;2005-08-24;MicroMolesPerMilliGram;M-1N
+umol/mg{Cre};MicroMolesPerMilliGramCreatinine [Substance Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/mg Cre;Active;Substance Content Units;2005-08-24;MicroMolesPerMilliGramCreatinine;M-1N
+umol/min/g;MicroMolesPerMinutePerGram [Substance Rate Content Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/min/g;Active;Substance Rate Content Units;2005-08-24;MicroMolesPerMinutePerGram;M-1T-1N
+umol/mL;MicroMolesPerMilliLiter [Substance Concentration Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/mL;Active;Substance Concentration Units;2005-08-24;MicroMolesPerMilliLiter;L-3N
+umol/mol;MicroMolesPerMole [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/mol;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;MicroMolesPerMole;1
+umol/mol{Cre};MicroMolesPerMoleCreatinine [Substance Ratio Or Substance Fraction Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;umol/mol Cre;Active;Substance Ratio Or Substance Fraction Units;2005-08-24;MicroMolesPerMoleCreatinine;1
+us;MicroSecond [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;us;Active;Time Units;2005-08-24;MicroSecond;T
+wk;Week [Time Units];PH_UnitsOfMeasure_UCUM_Expression;;2004-01-07;wk;Active;Time Units;2005-08-24;Week;T
+10*4/uL;10 thousand per microliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+10.L/(min.m2);10 liter per minute per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+10.L/min;10 liter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+10.uN.s/(cm5.m2);10 micronewton second per centimeter to the fifth power per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+24.h;24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+{absorbance};absorbance;UCUM_v1.5;;;;Active;;2020-06-17;;
+{activity};activity;UCUM_v1.5;;;;Active;;2020-06-17;;
+[AU];allergy unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{AHF'U};American Hospital Formulary unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+A/m;ampere per meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+[arb'U];arbitrary unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+[arb'U]/mL;arbitrary unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{ARU};aspirin response unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+atm;atmosphere;UCUM_v1.5;;;;Active;;2020-06-17;;
+ag/{cell};attogram per cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+bar;bar;UCUM_v1.5;;;;Active;;2020-06-17;;
+Bq;Becquerel;UCUM_v1.5;;;;Active;;2020-06-17;;
+[beth'U];Bethesda unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{binding_index};binding index;UCUM_v1.5;;;;Active;;2020-06-17;;
+[bdsk'U];Bodansky unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{breaths}/min;breaths per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+{CAG_repeats};CAG trinucleotide repeats;UCUM_v1.5;;;;Active;;2020-06-17;;
+cal;calorie;UCUM_v1.5;;;;Active;;2020-06-17;;
+{cells};cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+{cells}/[HPF];cells per high power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm[Hg];centimeter of mercury;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm[H2O];centimeter of water;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm[H2O]/L/s;centimeter of water per liter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm[H2O]/s/m;centimeter of water per second per meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm/s;centimeter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+cP;centipoise;UCUM_v1.5;;;;Active;;2020-06-17;;
+cSt;centistoke;UCUM_v1.5;;;;Active;;2020-06-17;;
+{delta_OD};change in (delta) optical density;UCUM_v1.5;;;;Active;;2020-06-17;;
+{clock_time};clock time e.g 12:30PM;UCUM_v1.5;;;;Active;;2020-06-17;;
+[CFU];colony forming unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+[CFU]/L;colony forming unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+[CFU]/mL;colony forming unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{CAE'U};complement activity enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{CH100'U};complement CH100 unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{copies};copies;UCUM_v1.5;;;;Active;;2020-06-17;;
+{copies}/ug;copies per microgram;UCUM_v1.5;;;;Active;;2020-06-17;;
+{count};count;UCUM_v1.5;;;;Active;;2020-06-17;;
+{CPM};counts per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+{CPM}/10*3{cell};counts per minute per thousand cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm3;cubic centimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+m3/s;cubic meter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ct_value};Cycle threshold value;UCUM_v1.5;;;;Active;;2020-06-17;;
+d/(7.d);day per 7 day;UCUM_v1.5;;;;Active;;2020-06-17;;
+d/wk;days per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+dB;decibel;UCUM_v1.5;;;;Active;;2020-06-17;;
+deg/s;degree per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+daL/min;dekaliter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+daL/min/m2;dekaliter per minute per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{dilution};dilution;UCUM_v1.5;;;;Active;;2020-06-17;;
+[diop];diopter;UCUM_v1.5;;;;Active;;2020-06-17;;
+[drp];drop (1/12 milliliter);UCUM_v1.5;;;;Active;;2020-06-17;;
+dyn.s/cm;dyne second per centimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+dyn.s/(cm.m2);dyne second per centimeter per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ehrlich'U};Ehrlich unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ehrlich'U}/100.g;Ehrlich unit per 100 gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ehrlich'U}/(2.h);Ehrlich unit per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ehrlich'U}/d;Ehrlich unit per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Ehrlich'U}/dL;Ehrlich unit per deciliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{EIA_index};EIA index;UCUM_v1.5;;;;Active;;2020-06-17;;
+{EIA_titer};EIA titer;UCUM_v1.5;;;;Active;;2020-06-17;;
+{EIA'U};EIA unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{EIA'U}/U;EIA unit per enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{EV};EIA value;UCUM_v1.5;;;;Active;;2020-06-17;;
+eV;electron Volt;UCUM_v1.5;;;;Active;;2020-06-17;;
+{ELISA'U};ELISA unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+U;enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10;enzyme unit per 10;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*10;enzyme unit per 10 billion;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*10{cells};enzyme unit per 10 billion cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/(10.g){feces};enzyme unit per 10 gram of feces;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/(12.h);enzyme unit per 12 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/(2.h);enzyme unit per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/(24.h);enzyme unit per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*9;enzyme unit per billion;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/d;enzyme unit per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/dL;enzyme unit per deciliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/g{creat};enzyme unit per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/g{Hb};enzyme unit per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/g{protein};enzyme unit per gram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/h;enzyme unit per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/kg{Hb};enzyme unit per kilogram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+U{25Cel}/L;enzyme unit per liter at 25 deg Celsius ;UCUM_v1.5;;;;Active;;2020-06-17;;
+U{37Cel}/L;enzyme unit per liter at 37 deg Celsius;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/mL;enzyme unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/mL{RBCs};enzyme unit per milliliter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/mmol{creat};enzyme unit per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*6;enzyme unit per million;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/min;enzyme unit per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/s;enzyme unit per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*12;enzyme unit per trillion;UCUM_v1.5;;;;Active;;2020-06-17;;
+U/10*12{RBCs};enzyme unit per trillion red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+erg;erg;UCUM_v1.5;;;;Active;;2020-06-17;;
+F;Farad;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ft_us]/[ft_us];feet (US) per feet (US);UCUM_v1.5;;;;Active;;2020-06-17;;
+fmol/L;femtomole per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+fmol/mg{cyt_prot};femtomole per milligram of cytosol protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+fmol/mg{prot};femtomole per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+{FIU};fluorescent intensity unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{fraction};fraction;UCUM_v1.5;;;;Active;;2020-06-17;;
+{GAA_repeats};GAA trinucleotide repeats;UCUM_v1.5;;;;Active;;2020-06-17;;
+{genomes}/mL;genomes per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Globules}/[HPF];globules (drops)  per high power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+g.m/{beat};gram meter per heart beat ;UCUM_v1.5;;;;Active;;2020-06-17;;
+g{creat};gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+g{Hb};gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+g{total_nit};gram of total nitrogen;UCUM_v1.5;;;;Active;;2020-06-17;;
+g{total_prot};gram of total protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+g{wet_tissue};gram of wet tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/kg/(8.h);gram per  kilogram per 8 hour ;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(100.g);gram per 100 gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(12.h);gram per 12 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(24.h);gram per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(3.d);gram per 3 days;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(4.h);gram per 4 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(48.h);gram per 48 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(5.h);gram per 5 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(6.h);gram per 6 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(72.h);gram per 72 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/(8.h){shift};gram per 8 hour shift;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/cm3;gram per cubic centimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/d;gram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/g{creat};gram per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/g{globulin};gram per gram of globulin;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/g{tissue};gram per gram of tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/h;gram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/h/m2;gram per hour per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/kg/(8.h){shift};gram per kilogram per 8 hour shift;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/kg/d;gram per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/kg/h;gram per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/kg/min;gram per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/mg;gram per milligram;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/mmol;gram per millimole;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/min;gram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/mol{creat};gram per mole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/{specimen};gram per specimen;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/cm2;gram per square centimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/{total_output};gram per total output;UCUM_v1.5;;;;Active;;2020-06-17;;
+g/{total_weight};gram per total weight;UCUM_v1.5;;;;Active;;2020-06-17;;
+Gy;Gray;UCUM_v1.5;;;;Active;;2020-06-17;;
+{beats}/min;heart beats per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+Hz;Hertz;UCUM_v1.5;;;;Active;;2020-06-17;;
+[HPF];high power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+h/d;hour per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+h/wk;hour per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+[APL'U]/mL;IgA anticardiolipin unit per milliliter**;UCUM_v1.5;;;;Active;;2020-06-17;;
+[APL'U];IgA anticardiolipin unit**;UCUM_v1.5;;;;Active;;2020-06-17;;
+{APS'U};IgA antiphosphatidylserine unit ;UCUM_v1.5;;;;Active;;2020-06-17;;
+[GPL'U]/mL;IgG anticardiolipin unit per milliliter**;UCUM_v1.5;;;;Active;;2020-06-17;;
+[GPL'U];IgG anticardiolipin unit**;UCUM_v1.5;;;;Active;;2020-06-17;;
+{GPS'U};IgG antiphosphatidylserine unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+[MPL'U]/mL;IgM anticardiolipin unit per milliliter**;UCUM_v1.5;;;;Active;;2020-06-17;;
+[MPL'U];IgM anticardiolipin unit**;UCUM_v1.5;;;;Active;;2020-06-17;;
+{MPS'U};IgM antiphosphatidylserine unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{MPS'U}/mL;IgM antiphosphatidylserine unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{ImmuneComplex'U};immune complex unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{ISR};immune status ratio;UCUM_v1.5;;;;Active;;2020-06-17;;
+{IFA_index};immunofluorescence assay index;UCUM_v1.5;;;;Active;;2020-06-17;;
+{IFA_titer};Immunofluorescence assay titer;UCUM_v1.5;;;;Active;;2020-06-17;;
+[in_i'H2O];inch (international) of water;UCUM_v1.5;;;;Active;;2020-06-17;;
+[in_us];inches (US);UCUM_v1.5;;;;Active;;2020-06-17;;
+{index_val};index value;UCUM_v1.5;;;;Active;;2020-06-17;;
+{index};index value;UCUM_v1.5;;;;Active;;2020-06-17;;
+{HA_titer};influenza hemagglutination titer;UCUM_v1.5;;;;Active;;2020-06-17;;
+{INR};international normalized ratio;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/(2.h);international unit per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/(24.h);international unit per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/10*9{RBCs};international unit per billion red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/d;international unit per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/g{Hb};international unit per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/h;international unit per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/kg/d;international unit per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/L{37Cel};international unit per liter at 37 degrees Celsius;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/mg{creat};international unit per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+[IU]/min;international unit per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+J;joule;UCUM_v1.5;;;;Active;;2020-06-17;;
+J/L;joule per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{JDF'U};Juvenile Diabetes Foundation unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{JDF'U}/L;Juvenile Diabetes Foundation unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{KCT'U};kaolin clotting time;UCUM_v1.5;;;;Active;;2020-06-17;;
+kat;katal;UCUM_v1.5;;;;Active;;2020-06-17;;
+kat/L;katal per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+kU;kilo enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+kU/L;kilo enzyme unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+kU/L{class};kilo enzyme unit per liter class;UCUM_v1.5;;;;Active;;2020-06-17;;
+kU/mL;kilo enzyme unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+k[IU]/L;kilo international unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+kcal;kilocalorie;UCUM_v1.5;;;;Active;;2020-06-17;;
+kcal/(24.h);kilocalorie per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+kcal/d;kilocalorie per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+kcal/h;kilocalorie per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+kcal/kg/(24.h);kilocalorie per kilogram per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+kg.m/s;kilogram meter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+kg/h;kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+kg/min;kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+kg/s;kilogram per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+kg/(s.m2);kilogram per second per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ka'U];King Armstrong unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{KRONU'U}/mL;Kronus unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+[knk'U];Kunkel unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/(24.h);liter per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/(8.h);liter per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/d;liter per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/h;liter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/L;liter per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/min;liter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/min/m2;liter per minute per sqaure meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/(min.m2);liter per minute per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/s;liter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+L/s/s2;liter per second per square second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Log_copies}/mL;log (base 10) copies per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Log_IU};log (base 10) international unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Log_IU}/mL;log (base 10) international unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Log};log base 10;UCUM_v1.5;;;;Active;;2020-06-17;;
+[LPF];low power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+lm;lumen;UCUM_v1.5;;;;Active;;2020-06-17;;
+lm.m2;lumen square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Lyme_index_value};Lyme index value;UCUM_v1.5;;;;Active;;2020-06-17;;
+[mclg'U];Maclagan unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+[MET].min/wk;metabolic equivalent minute per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+m/s;meter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+m/s2;meter per square second;UCUM_v1.5;;;;Active;;2020-06-17;;
+uU/g;micro enzyme unit per gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+uU/L;micro enzyme unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+uU/mL;micro enzyme unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{feces};microgram  per gram of feces;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug{FEU}/mL;microgram fibrinogen equivalent unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/(100.g);microgram per 100 gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/(24.h);microgram per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/(8.h);microgram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/m3;microgram per cubic meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/d;microgram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/dL{RBCs};microgram per deciliter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{creat};microgram per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{dry_tissue};microgram per gram of dry tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{dry_wt};microgram per gram of dry weight;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{hair};microgram per gram of hair;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{Hb};microgram per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/g{tissue};microgram per gram of tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/h;microgram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/kg/(8.h);microgram per kilogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/kg/d;microgram per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/kg/h;microgram per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/kg/min;microgram per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/L{RBCs};microgram per liter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/L/(24.h);microgram per liter per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/mg{creat};microgram per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/mL{class};microgram per milliliter class;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/mL{eqv};microgram per milliliter equivalent;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/mmol;microgram per millimole;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/mmol{creat};microgram per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/min;microgram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+ug/[sft_i];microgram per square foot (international);UCUM_v1.5;;;;Active;;2020-06-17;;
+u[IU]/L;microinternational unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+ukat;microkatal;UCUM_v1.5;;;;Active;;2020-06-17;;
+uL/(2.h);microliter per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+uL/h;microliter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol{BCE}/mol;micromole bone collagen equivalent per mole;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/(2.h);micromole per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/(24.h);micromole per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/(8.h);micromole per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/d;micromole per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/dL{GF};micromole per deciliter of glomerular filtrate;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/g{creat};micromole per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/g{Hb};micromole per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/h;micromole per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/kg;micromole per kilogram;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/kg{feces};micromole per kilogram of feces;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/L{RBCs};micromole per liter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/L/h;micromole per liter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/umol;micromole per micromole;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/umol{creat};micromole per micromole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mg{creat};micromole per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mL/min;micromole per milliliter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mmol;micromole per millimole;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mmol{creat};micromole per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/10*6{RBC};micromole per million red blood cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/min;micromole per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/min/g{mucosa};micromole per minute per gram of mucosa;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/min/g{prot};micromole per minute per gram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/min/L;micromole per minute per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mol{creat};micromole per mole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+umol/mol{Hb};micromole per mole of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+um/s;microns per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+uOhm;microOhm;UCUM_v1.5;;;;Active;;2020-06-17;;
+uV;microvolt;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/mL;milli  enzyme unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/mL/min;milli  enzyme unit per milliliter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/mmol{creat};milli  enzyme unit per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/mmol{RBCs};milli  enzyme unit per millimole of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/g{Hb};milli enzyme unit per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/g{prot};milli enzyme unit per gram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/L;milli enzyme unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mU/mg{creat};milli enzyme unit per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mA;milliampere;UCUM_v1.5;;;;Active;;2020-06-17;;
+mbar;millibar;UCUM_v1.5;;;;Active;;2020-06-17;;
+mbar/L/s;millibar per liter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+mbar.s/L;millibar second per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/(2.h);milliequivalent per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/(24.h);milliequivalent per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/(8.h);milliequivalent per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/d;milliequivalent per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/g{creat};milliequivalent per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/h;milliequivalent per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/kg/h;milliequivalent per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/min;milliequivalent per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+meq/{total_volume};milliequivalent per total volume;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg{FEU}/L;milligram fibrinogen equivalent unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(10.h);milligram per 10 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(12.h);milligram per 12 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(2.h);milligram per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(24.h);milligram per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(6.h);milligram per 6 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(72.h);milligram per 72 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/(8.h);milligram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/{collection};milligram per collection;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/d;milligram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/d/{1.73_m2};milligram per day per 1.73 square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/dL{RBCs};milligram per deciliter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/g{creat};milligram per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/g{dry_tissue};milligram per gram of dry tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/g{feces};milligram per gram of feces;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/g{tissue};milligram per gram of tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/g{wet_tissue};milligram per gram of wet tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/h;milligram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/kg/(8.h);milligram per kilogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/kg/d;milligram per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/kg/h;milligram per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/kg/min;milligram per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/L{RBCs};milligram per liter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/mg{creat};milligram per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/mmol;milligram per millimole;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/mmol{creat};milligram per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/min;milligram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/{specimen};milligram per specimen;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/{total_output};milligram per total output;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/{total_volume};milligram per total volume;UCUM_v1.5;;;;Active;;2020-06-17;;
+mg/wk;milligram per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL{fetal_RBCs};milliliter of fetal red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(10.h);milliliter per 10 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(12.h);milliliter per 12 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(2.h);milliliter per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(24.h);milliliter per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(4.h);milliliter per 4 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(5.h);milliliter per 5 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(6.h);milliliter per 6 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(72.h);milliliter per 72 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(8.h);milliliter per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/(8.h)/kg;milliliter per 8 hour per kilogram;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/cm[H2O];milliliter per centimeter of water;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/d;milliliter per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/{beat};milliliter per heart beat;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/{beat}/m2;milliliter per heart beat per  square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/h;milliliter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/kg/(8.h);milliliter per kilogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/kg/d;milliliter per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/kg/h;milliliter per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/kg/min;milliliter per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/mbar;milliliter per millibar;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/mm;milliliter per millimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/min;milliliter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/min/{1.73_m2};milliliter per minute per 1.73 square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/min/m2;milliliter per minute per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/s;milliliter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/[sin_i];milliliter per square inch (international);UCUM_v1.5;;;;Active;;2020-06-17;;
+mL/m2;milliliter per square meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mm[H2O];millimeter of water;UCUM_v1.5;;;;Active;;2020-06-17;;
+mm/h;millimeter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mm/min;millimeter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(12.h);millimole per 12 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(2.h);millimole per 2 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(24.h);millimole per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(5.h);millimole per 5 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(6.h);millimole per 6 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/(8.h);millimole per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/d;millimole per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/{ejaculate};millimole per ejaculate;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/g{creat};millimole per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/h;millimole per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/h/mg{Hb};millimole per hour per milligram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/h/mg{prot};millimole per hour per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/kg/(8.h);millimole per kilogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/kg/d;millimole per kilogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/kg/h;millimole per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/kg/min;millimole per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/L{RBCs};millimole per liter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/mmol;millimole per millimole;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/mmol{urea};millimole per millimole of urea;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/mmol{creat};millimole per millmole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/min;millimole per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/mol{creat};millimole per mole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/s/L;millimole per second per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/{specimen};millimole per specimen;UCUM_v1.5;;;;Active;;2020-06-17;;
+mmol/{total_vol};millimole per total volume;UCUM_v1.5;;;;Active;;2020-06-17;;
+10*6.[CFU]/L;million colony forming unit per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+10*6/(24.h);million per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+10*6/kg;million per kilogram;UCUM_v1.5;;;;Active;;2020-06-17;;
+mPa;millipascal;UCUM_v1.5;;;;Active;;2020-06-17;;
+mPa.s;millipascal second;UCUM_v1.5;;;;Active;;2020-06-17;;
+mV;millivolt;UCUM_v1.5;;;;Active;;2020-06-17;;
+mV/s;millivolt per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{minidrop}/min;minidrop per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+{minidrop}/s;minidrop per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+min/d;minute per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+min/wk;minute per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+mol/kg/s;mole per kilogram per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+mol/mol;mole per mole;UCUM_v1.5;;;;Active;;2020-06-17;;
+mol/s;mole per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/{platelet};molecule per platelet;UCUM_v1.5;;;;Active;;2020-06-17;;
+{mm/dd/yyyy};month-day-year;UCUM_v1.5;;;;Active;;2020-06-17;;
+{M.o.M};multiple of the median;UCUM_v1.5;;;;Active;;2020-06-17;;
+{mutation};mutation;UCUM_v1.5;;;;Active;;2020-06-17;;
+nU/mL;nanoenzyme unit per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nU/{RBC};nanoenzyme unit per red blood cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng{FEU}/mL;nanogram fibrinogen equivalent unit per milliliter ;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/(24.h);nanogram per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/(8.h);nanogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/d;nanogram per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/U;nanogram per enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/g{creat};nanogram per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/h;nanogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/kg/(8.h);nanogram per kilogram per 8 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/kg/h;nanogram per kilogram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/kg/min;nanogram per kilogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/mg{creat};nanogram per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/mg{prot};nanogram per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/mg/h;nanogram per milligram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/mL{RBCs};nanogram per milliliter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/mL/h;nanogram per milliliter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/10*6;nanogram per million;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/10*6{RBCs};nanogram per million red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/min;nanogram per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+ng/s;nanogram per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+nkat;nanokatal;UCUM_v1.5;;;;Active;;2020-06-17;;
+nm/s/L;nanometer per second per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol{BCE};nanomole bone collagen equivalent;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol{BCE}/L;nanomole bone collagen equivalent per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol{ATP};nanomole of ATP ;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/(24.h);nanomole per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/d;nanomole per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/dL{GF};nanomole per deciliter of glomerular filtrate;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/g{creat};nanomole per gram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/g{dry_wt};nanomole per gram of dry weight;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/h/L;nanomole per hour per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/h/mg{prot};nanomole per hour per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/h/mL;nanomole per hour per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/L{RBCs};nanomole per liter of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/L/mmol{creat};nanomole per liter per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/m/mg{prot};nanomole per meter per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/umol{creat};nanomole per micromole  of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mg{creat};nanomole per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mg{prot}/h;nanomole per milligram of protein per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mg/h;nanomole per milligram per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mL/h;nanomole per milliliter per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mL/min;nanomole per milliliter per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min;nanomole per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min/mg{Hb};nanomole per minute per milligram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min/mg{prot};nanomole per minute per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min/mg{protein};nanomole per minute per milligram protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min/mL;nanomole per minute per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/min/10*6{cells};nanomole per minute per million cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/mol{creat};nanomole per mole creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/nmol;nanomole per nanomole;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/s;nanomole per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+nmol/s/L;nanomole per second per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+N;Newton;UCUM_v1.5;;;;Active;;2020-06-17;;
+N.cm;Newton centimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+N.s;Newton second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#};number;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/a;number per annum (year);UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/d;number per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/g;number per gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/[HPF];number per high power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/L;number per liter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/[LPF];number per low power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/uL;number per microliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/mL;number per milliliter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/min;number per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+{#}/wk;number per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+Ohm;Ohm;UCUM_v1.5;;;;Active;;2020-06-17;;
+Ohm.m;Ohm meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+{OD_unit};optical density unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+osm;osmole;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Pan_Bio'U};panbio unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ppb];part per billion;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ppm];part per million;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ppm]{v/v};part per million in volume per volume;UCUM_v1.5;;;;Active;;2020-06-17;;
+[ppth];part per thousand;UCUM_v1.5;;;;Active;;2020-06-17;;
+[pptr];part per trillion;UCUM_v1.5;;;;Active;;2020-06-17;;
+/10*4{RBCs};per 10 thousand red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+/100{cells};per 100 cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+/100{neutrophils};per 100 neutrophils;UCUM_v1.5;;;;Active;;2020-06-17;;
+/100{WBCs};per 100 white blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+/[arb'U];per arbitrary unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+/cm[H2O];per centimeter of water;UCUM_v1.5;;;;Active;;2020-06-17;;
+/m3;per cubic meter;UCUM_v1.5;;;;Active;;2020-06-17;;
+/d;per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+/U;per enzyme unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+/g{Hb};per gram of hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+/g{tot_nit};per gram of total nitrogen;UCUM_v1.5;;;;Active;;2020-06-17;;
+/g{tot_prot};per gram of total protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+/g{wet_tis};per gram of wet tissue;UCUM_v1.5;;;;Active;;2020-06-17;;
+/[HPF];per high power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+/h;per hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+/[IU];per international unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+/kg{body_wt};per kilogram of body weight;UCUM_v1.5;;;;Active;;2020-06-17;;
+/[LPF];per low power field;UCUM_v1.5;;;;Active;;2020-06-17;;
+/mm;per millimeter;UCUM_v1.5;;;;Active;;2020-06-17;;
+/mmol{creat};per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+/min;per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+/mo;per month;UCUM_v1.5;;;;Active;;2020-06-17;;
+/{OIF};per oil immersion field;UCUM_v1.5;;;;Active;;2020-06-17;;
+/s;per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+/10*3;per thousand;UCUM_v1.5;;;;Active;;2020-06-17;;
+/10*3{RBCs};per thousand red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+/10*12{RBCs};per trillion red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+/(12.h);per twelve hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+/wk;per week;UCUM_v1.5;;;;Active;;2020-06-17;;
+/a;per year;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{loss_AChR};percent  loss of acetylcholine receptor;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{penetration};percent  penetration;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{aggregation};percent aggregation;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{at_60_min};percent at 60 minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{basal_activity};percent basal activity;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{blocked};percent blocked;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{breakdown};percent breakdown;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{deficient};percent deficient;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{dose};percent dose;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{Hb};percent hemoglobin;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{index};percent index;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{loss};percent loss;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{lysis};percent lysis;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{pooled_plasma};percent normal pooled plasma;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{bacteria};percent of bacteria;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{baseline};percent of baseline;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{cells};percent of cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{RBCs};percent of red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{WBCs};percent of white blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{reactive};percent reactive;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{recovery};percent recovery;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{reference};percent reference;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{residual};percent residual;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{response};percent response;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{saturation};percent saturation;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{viable};percent viable;UCUM_v1.5;;;;Active;;2020-06-17;;
+{percentile};percentile;UCUM_v1.5;;;;Active;;2020-06-17;;
+{phenotype};phenotype;UCUM_v1.5;;;;Active;;2020-06-17;;
+pg/{cell};picogram per cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+pg/mg;picogram per milligram;UCUM_v1.5;;;;Active;;2020-06-17;;
+pg/mg{creat};picogram per milligram of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+pg/mL{sLT};picogram per milliliter sulfidoleukotrienes;UCUM_v1.5;;;;Active;;2020-06-17;;
+pg/{RBC};picogram per red blood cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+pkat;picokatal;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/(24.h);picomole per 24 hour;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/d;picomole per day;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/g;picomole per gram;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/h/mg{prot};picomole per hour per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/H/mg{protein};picomole per hour per milligram protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/h/mL;picomole per hour per milliliter ;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/umol{creat};picomole per micromole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/mg{prot};picomole per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/mmol{creat};picomole per millimole of creatinine;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/min;picomole per minute;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/min/mg{prot};picomole per minute per milligram of protein;UCUM_v1.5;;;;Active;;2020-06-17;;
+pmol/{RBC};picomole per red blood cell;UCUM_v1.5;;;;Active;;2020-06-17;;
+pT;picotesla;UCUM_v1.5;;;;Active;;2020-06-17;;
+[psi];pound per square inch;UCUM_v1.5;;;;Active;;2020-06-17;;
+{ratio};ratio;UCUM_v1.5;;;;Active;;2020-06-17;;
+%{relative};relative percent;UCUM_v1.5;;;;Active;;2020-06-17;;
+{rel_saturation};relative saturation;UCUM_v1.5;;;;Active;;2020-06-17;;
+{risk};risk;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Rubella_virus};rubella virus;UCUM_v1.5;;;;Active;;2020-06-17;;
+{saturation};saturation;UCUM_v1.5;;;;Active;;2020-06-17;;
+{score};score;UCUM_v1.5;;;;Active;;2020-06-17;;
+s/{control};second per control;UCUM_v1.5;;;;Active;;2020-06-17;;
+{shift};shift;UCUM_v1.5;;;;Active;;2020-06-17;;
+Sv;Sievert;UCUM_v1.5;;;;Active;;2020-06-17;;
+{s_co_ratio};signal to cutoff ratio;UCUM_v1.5;;;;Active;;2020-06-17;;
+cm2/s;square centimeter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+dm2/s2;square decimeter per square second;UCUM_v1.5;;;;Active;;2020-06-17;;
+m2/s;square meter per second;UCUM_v1.5;;;;Active;;2020-06-17;;
+{STDV};standard deviation;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Tscore};t score;UCUM_v1.5;;;;Active;;2020-06-17;;
+[tbs_us];tablespoon (US);UCUM_v1.5;;;;Active;;2020-06-17;;
+[tsp_us];teaspoon (US);UCUM_v1.5;;;;Active;;2020-06-17;;
+10*3{RBCs};thousand red blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+{TSI_index};thyroid-stimulating immunoglobulin index;UCUM_v1.5;;;;Active;;2020-06-17;;
+{TmStp};time stamp;UCUM_v1.5;;;;Active;;2020-06-17;;
+{titer};titer;UCUM_v1.5;;;;Active;;2020-06-17;;
+[todd'U];Todd unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+Torr;"Torr 
+";UCUM_v1.5;;;;Active;;2020-06-17;;
+[tb'U];tuberculin unit;UCUM_v1.5;;;;Active;;2020-06-17;;
+V;volt;UCUM_v1.5;;;;Active;;2020-06-17;;
+Wb;Weber;UCUM_v1.5;;;;Active;;2020-06-17;;
+{WBCs};white blood cells;UCUM_v1.5;;;;Active;;2020-06-17;;
+{yyyy};year;UCUM_v1.5;;;;Active;;2020-06-17;;
+{Zscore};z score;UCUM_v1.5;;;;Active;;2020-06-17;;

@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFhirR4termTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.fhirr4term_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('fhir_id');
+            $table->string('url');
+            $table->string('version');
+            $table->string('name');
+            $table->string('title');
+            $table->string('status');
+            $table->boolean('experimental');
+            $table->text('description');
+            $table->string('date');
+            $table->string('publisher');
+            $table->string('content');
+            $table->string('concept_code_l1')->nullable();
+            $table->string('concept_display_l1')->nullable();
+            $table->text('concept_definition_l1')->nullable();
+            $table->string('concept_code_l2')->nullable();
+            $table->string('concept_display_l2')->nullable();
+            $table->text('concept_definition_l2')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.fhirr4term_table_name'));
+    }
+}

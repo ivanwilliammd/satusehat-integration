@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateKptlKamarTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.kptl_kamar_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_tindakan_dan_layanan');
+            $table->string('base_code');
+            $table->string('allowed_modifiers');
+            $table->string('kode_kptl');
+            $table->string('display');
+            $table->string('code_system');
+            $table->string('version');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.kptl_kamar_table_name'));
+    }
+}

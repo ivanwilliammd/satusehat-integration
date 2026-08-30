@@ -1,0 +1,29 @@
+<RiskAssessment xmlns="http://hl7.org/fhir"> doco
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Unique identifier for the assessment --></identifier>
+ <basedOn><!-- 0..1 Reference(Any) Request fulfilled by this assessment --></basedOn>
+ <parent><!-- 0..1 Reference(Any) Part of this occurrence --></parent>
+ <status value="[code]"/><!-- 1..1 registered | preliminary | final | amended + -->
+ <method><!-- 0..1 CodeableConcept Evaluation mechanism --></method>
+ <code><!-- 0..1 CodeableConcept Type of assessment --></code>
+ <subject><!-- 1..1 Reference(Patient|Group) Who/what does assessment apply to? --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Where was assessment performed? --></encounter>
+ <occurrence[x]><!-- 0..1 dateTime|Period When was assessment made? --></occurrence[x]>
+ <condition><!-- 0..1 Reference(Condition) Condition assessed --></condition>
+ <performer><!-- 0..1 Reference(Practitioner|PractitionerRole|Device) Who did assessment? --></performer>
+ <reasonCode><!-- 0..* CodeableConcept Why the assessment was necessary? --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport|
+   DocumentReference) Why the assessment was necessary? --></reasonReference>
+ <basis><!-- 0..* Reference(Any) Information used in assessment --></basis>
+ <prediction>  <!-- 0..* Outcome predicted -->
+  <outcome><!-- 0..1 CodeableConcept Possible outcome for the subject --></outcome>
+  <probability[x]><!-- 0..1 decimal|Range Likelihood of specified outcome --></probability[x]>
+  <qualitativeRisk><!-- 0..1 CodeableConcept Likelihood of specified outcome as a qualitative value --></qualitativeRisk>
+  <relativeRisk value="[decimal]"/><!-- 0..1 Relative likelihood -->
+  <when[x]><!-- 0..1 Period|Range Timeframe or age range --></when[x]>
+  <rationale value="[string]"/><!-- 0..1 Explanation of prediction -->
+ </prediction>
+ <mitigation value="[string]"/><!-- 0..1 How to reduce risk -->
+ <note><!-- 0..* Annotation Comments on the risk assessment --></note>
+</RiskAssessment>

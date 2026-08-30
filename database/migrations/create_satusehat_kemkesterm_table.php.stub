@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSatusehatKemkesTermTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.kemkesterm_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('resource_type');
+            $table->string('attribute_path');
+            $table->string('code');
+            $table->string('parent_code')->nullable();
+            $table->string('display');
+            $table->string('display_en');
+            $table->string('code_system');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.kemkesterm_table_name'));
+    }
+}

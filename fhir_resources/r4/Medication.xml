@@ -1,0 +1,19 @@
+<Medication xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business identifier for this medication --></identifier>
+ <code><!-- 0..1 CodeableConcept Codes that identify this medication --></code>
+ <status value="[code]"/><!-- 0..1 active | inactive | entered-in-error -->
+ <manufacturer><!-- 0..1 Reference(Organization) Manufacturer of the item --></manufacturer>
+ <form><!-- 0..1 CodeableConcept powder | tablets | capsule + --></form>
+ <amount><!-- 0..1 Ratio Amount of drug in package --></amount>
+ <ingredient>  <!-- 0..* Active or inactive ingredient -->
+  <item[x]><!-- 1..1 CodeableConcept|Reference(Substance|Medication) The actual ingredient or content --></item[x]>
+  <isActive value="[boolean]"/><!-- 0..1 Active ingredient indicator -->
+  <strength><!-- 0..1 Ratio Quantity of ingredient present --></strength>
+ </ingredient>
+ <batch>  <!-- 0..1 Details about packaged medications -->
+  <lotNumber value="[string]"/><!-- 0..1 Identifier assigned to batch -->
+  <expirationDate value="[dateTime]"/><!-- 0..1 When batch will expire -->
+ </batch>
+</Medication>

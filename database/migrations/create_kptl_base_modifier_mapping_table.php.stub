@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateKptlBaseModifierMappingTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.kptl_base_modifier_mapping_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('display');
+            $table->string('modifier_1')->nullable();
+            $table->string('modifier_2')->nullable();
+            $table->string('modifier_3')->nullable();
+            $table->string('modifier_4')->nullable();
+            $table->string('modifier_5')->nullable();
+            $table->string('base_code');
+            $table->string('modifier_code_1')->nullable();
+            $table->string('modifier_code_2')->nullable();
+            $table->string('modifier_code_3')->nullable();
+            $table->string('modifier_code_4')->nullable();
+            $table->string('modifier_code_5')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.kptl_base_modifier_mapping_table_name'));
+    }
+}

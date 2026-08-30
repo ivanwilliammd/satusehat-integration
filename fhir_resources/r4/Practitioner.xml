@@ -1,0 +1,19 @@
+<Practitioner xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier An identifier for the person as this agent --></identifier>
+ <active value="[boolean]"/><!-- 0..1 Whether this practitioner's record is in active use -->
+ <name><!-- 0..* HumanName The name(s) associated with the practitioner --></name>
+ <telecom><!-- 0..* ContactPoint A contact detail for the practitioner (that apply to all roles) --></telecom>
+ <address><!-- 0..* Address Address(es) of the practitioner that are not role specific (typically home address) --></address>
+ <gender value="[code]"/><!-- 0..1 male | female | other | unknown -->
+ <birthDate value="[date]"/><!-- 0..1 The date  on which the practitioner was born -->
+ <photo><!-- 0..* Attachment Image of the person --></photo>
+ <qualification>  <!-- 0..* Certification, licenses, or training pertaining to the provision of care -->
+  <identifier><!-- 0..* Identifier An identifier for this qualification for the practitioner --></identifier>
+  <code><!-- 1..1 CodeableConcept Coded representation of the qualification --></code>
+  <period><!-- 0..1 Period Period during which the qualification is valid --></period>
+  <issuer><!-- 0..1 Reference(Organization) Organization that regulates and issues the qualification --></issuer>
+ </qualification>
+ <communication><!-- 0..* CodeableConcept A language the practitioner can use in patient communication --></communication>
+</Practitioner>

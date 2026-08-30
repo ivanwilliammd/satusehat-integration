@@ -1,0 +1,1577 @@
+kategori_kelompok;item;modifier_code
+Analisis Urin;Urinalisis;AU001
+Analisis Urin;Esbach;AU002
+Analisis Urin;Hemoglobin urin;AU003
+Arah/Teknik Pemindaian;Anak;AP001
+Arah/Teknik Pemindaian;Pediatrik;AP002
+Arah/Teknik Pemindaian;AP/PA & Lateral;AP003
+Arah/Teknik Pemindaian;AP/PA & Top Lordotik;AP004
+Arah/Teknik Pemindaian;AP/PA/Lateral/Top;AP005
+Arah/Teknik Pemindaian;BMH (Bone Metabolic Health)/ Total body Composition;AP006
+Arah/Teknik Pemindaian;CITO (on site radiography);AP007
+Arah/Teknik Pemindaian;DBT (digital breast tomosynthesis);AP008
+Arah/Teknik Pemindaian;Enema;AP009
+Arah/Teknik Pemindaian;Follow Throught;AP010
+Arah/Teknik Pemindaian;Impingment Series;AP011
+Arah/Teknik Pemindaian;Implant Orthopedic Series;AP012
+Arah/Teknik Pemindaian;Instability;AP013
+Arah/Teknik Pemindaian;Lumbal Dinamic;AP014
+Arah/Teknik Pemindaian;Meal;AP015
+Arah/Teknik Pemindaian;Panoramic;AP016
+Arah/Teknik Pemindaian;Panoramic 3D;AP017
+Arah/Teknik Pemindaian;Rest;AP018
+Arah/Teknik Pemindaian;Sonde;AP019
+Arah/Teknik Pemindaian;Stereotactic biopsy/guided localization;AP020
+Arah/Teknik Pemindaian;Stress Test;AP021
+Arah/Teknik Pemindaian;Tomografi;AP022
+Arah/Teknik Pemindaian;Total Body Composition;AP023
+Arah/Teknik Pemindaian;Ultrasonografi Mammae;AP024
+Arah/Teknik Pemindaian;Vertebral Mophometry;AP025
+Arah/Teknik Pemindaian;Dengan Pesawat Panoramic;AP026
+Arah/Teknik Pemindaian;AP+Lateral;AP027
+Arah/Teknik Pemindaian;AP+Lateral+Towne;AP028
+Arah/Teknik Pemindaian;AP+Lateral+Waters;AP029
+Arah/Teknik Pemindaian;Stress Perfusion;AP030
+Arah/Teknik Pemindaian;BNO;AP031
+Arah/Teknik Pemindaian;BNO dengan Sonde;AP032
+Arah/Teknik Pemindaian;Waters;AP033
+Area Point of Care;Jantung;OC001
+Area Point of Care;Abdomen;OC002
+Area Point of Care;Airway;OC003
+Area Point of Care;Functional Hemodynamic Assesment;OC004
+Area Point of Care;Doppler cranial;OC005
+Area Point of Care;Paru;OC006
+Area Point of Care;Vaskular;OC007
+Area Point of Care;doppler cranial/vascular/jantung/paru/abdomen/airway;OC008
+Bahan Agregasi;Ristocetin;BA001
+Bahan Agregasi;ADP/TAT;BA002
+Bahan Embolan;Coil;BE001
+Bahan Embolan;Alkohol/polyvinyl alcohol (PVA)/beads;BE002
+Bahan Embolan;Cerebral-glue;BE003
+Bahan Embolan;Gelatine foam;BE004
+Bahan Embolan;Glue;BE005
+Bahan Embolan;Liquid embolic adhesive material (NBCA, etc);BE006
+Bahan Embolan;Liquid embolic non-adhesive material (Onyx, etc);BE007
+Bahan Embolan;Onyx;BE008
+Bahan Embolan;Vascular plug/balloon occluder;BE009
+Bahan Perawatan Gigi;Akrilik;BP001
+Bahan Perawatan Gigi;All Porcelain;BP002
+Bahan Perawatan Gigi;Bone graft dan atau membran;BP003
+Bahan Perawatan Gigi;Emax;BP004
+Bahan Perawatan Gigi;Metal;BP005
+Bahan Perawatan Gigi;MTA;BP006
+Bahan Perawatan Gigi;Ortholux;BP007
+Bahan Perawatan Gigi;Plat;BP008
+Bahan Perawatan Gigi;Porcelain Fused to Metal (PFM);BP009
+Bahan Perawatan Gigi;PRP/PRF;BP010
+Bahan Perawatan Gigi;Tambalan;BP011
+Bahan Perawatan Gigi;Zirconia;BP012
+Bahan Perawatan Gigi;Thermoplastis;BP013
+Bahan sklerosan;Bleomisin;BS001
+Bahan Sklerosan;Doksisiklin;BS002
+Bahan Sklerosan;Talc;BS003
+Bahan sklerosan;Triamsinolon;BS004
+Bahan sklerosan;Histoakril;BS005
+Bahan Tapping;Elastis (Neuromusculoskeletal);BT001
+Bahan Tapping;Rigid;BT002
+Cara Pemberian;Dioleskan;CP001
+Cara Pemberian;Disuntikkan 1-2 cc;CP002
+Cara Pemberian;Disuntikkan 3-4 cc;CP003
+Cara Pemberian;Intramuskular;CP004
+Cara Pemberian;Intratekal;CP005
+Cara Pemberian;Intravena;CP006
+Cara Pemberian;IV Bolus;CP007
+Cara Pemberian;Oral;CP008
+Cara Pemberian;Pervaginam;CP009
+Cara Pemberian;Subkutan;CP010
+Cara Pemberian;Sublingual;CP011
+Cara Pemberian;Transabdominal;CP012
+Cara Pemberian;Interstitial;CP013
+Cara Pemberian;Intrakaviter;CP014
+Cara Pemberian;Superficial/mould;CP015
+Cara Pemberian;Transkutan;CP016
+Cara Pemberian;Transvena;CP017
+Cara Pemberian;Enteral;CP018
+Cara Pemberian;Parenteral;CP019
+Cara Pemberian;Parenteral compounding;CP020
+Cara Pemberian;Intrakameral/COA/Bubble;CP021
+Cara Pemberian;Intrastromal Kornea;CP022
+Cara Pemberian;Intravitreal;CP023
+Cara Pemberian;Subkonjungtiva/Subkutis;CP024
+Cara Pemberian;Subtenon/Sclera;CP025
+Cara Pemberian;IM bolus;CP026
+Cara Pemberian;Intraperitoneal (HIPEC);CP027
+Cara Pemberian;Intraomaya;CP028
+Cara Pemberian;Injeksi;CP029
+Cara Pemberian;Ekstraoral;CP030
+Cara Pemberian;Intraoral;CP031
+Dimensi Gambar;2D;DG001
+Dimensi Gambar;3D;DG002
+Dimensi Gambar;4D;DG003
+Dimensi Gambar;2D/3D;DG004
+Dosis;>100-124 mCi;DO001
+Dosis;>10-14 mCi;DO002
+Dosis;>125-149 mCi;DO003
+Dosis;>150-199 mCi;DO004
+Dosis;>15-29 mCi;DO005
+Dosis;>30-49 mCi;DO006
+Dosis;>50-79 mCi;DO007
+Dosis;>5-9 mCi;DO008
+Dosis;>80-99 mCi;DO009
+Dosis;1 mCi;DO010
+Dosis;100 mCi;DO011
+Dosis;120 mCi;DO012
+Dosis;150 mCi;DO013
+Dosis;2 mCi;DO014
+Dosis;200 mCi;DO015
+Dosis;3 mCi;DO016
+Dosis;50 mCi;DO017
+Dosis;75 mCi;DO018
+Dosis;80 mCi;DO019
+Durasi Pelayanan/Tindakan;<3 jam;DP001
+Durasi Pelayanan/Tindakan;>3 jam;DP002
+Durasi Pelayanan/Tindakan;<1 jam;DP003
+Durasi Pelayanan/Tindakan;1-3 jam;DP004
+Durasi Pelayanan/Tindakan;14 Hari;DP005
+Durasi Pelayanan/Tindakan;48 Jam;DP006
+Durasi Pelayanan/Tindakan;7 Hari;DP007
+Durasi Pelayanan/Tindakan;72 Jam;DP008
+Durasi Pelayanan/Tindakan;Per hari standar;DP009
+Durasi Pelayanan/Tindakan;1 jam;DP010
+Durasi Pelayanan/Tindakan;12 jam;DP011
+Durasi Pelayanan/Tindakan;24 jam;DP012
+Durasi Pelayanan/Tindakan;4 jam;DP013
+Durasi Pelayanan/Tindakan;6 jam;DP014
+Durasi Pelayanan/Tindakan;6-8 jam;DP015
+Durasi Pelayanan/Tindakan;Jahit ulang besar (90 menit);DP016
+Durasi Pelayanan/Tindakan;Jahit ulang kecil (60 menit);DP017
+Durasi Pelayanan/Tindakan;Long exercise;DP018
+Durasi Pelayanan/Tindakan;Short exercise;DP019
+Durasi Pelayanan/Tindakan;Long term;DP020
+Durasi Pelayanan/Tindakan;2 hari;DP021
+Durasi Pelayanan/Tindakan;3 hari;DP022
+Durasi Pelayanan/Tindakan;4 hari;DP023
+Durasi Pelayanan/Tindakan;>1 jam;DP024
+Durasi Pelayanan/Tindakan;5 hari;DP025
+Durasi Pelayanan/Tindakan;semi-permanen/long-term/CDL Tunnelling;DP026
+Durasi Pelayanan/Tindakan;temporer/short-term;DP027
+Durasi Pelayanan/Tindakan;<30 menit;DP028
+Durasi Pelayanan/Tindakan;>30 menit;DP029
+Durasi Pelayanan/Tindakan;hemodialisis short-term/long-term;DP030
+Durasi Pelayanan/Tindakan;temporer dan semipermanen;DP031
+Durasi Pelayanan/Tindakan;4 sesi;DP032
+Durasi Pelayanan/Tindakan;2 sesi;DP033
+Durasi Pelayanan/Tindakan;3 sesi;DP034
+Durasi Pelayanan/Tindakan;1 sesi;DP035
+Durasi Pelayanan/Tindakan;6 sesi;DP036
+Durasi Pelayanan/Tindakan;6x pertemuan;DP037
+Durasi Pelayanan/Tindakan;12x pertemuan;DP038
+Durasi Pelayanan/Tindakan;30 menit-1 jam;DP039
+Durasi Pelayanan/Tindakan;<15 menit;DP040
+Durasi Pelayanan/Tindakan;>15 menit;DP041
+Durasi Terapi;Dosis rendah;DT001
+Durasi Terapi;Dosis tinggi;DT002
+Fungsi Rehabilitasi;Kateterisasi Intermiten Berkala atau Clean Intermittent Catheterization (CIC);FR001
+Fungsi Rehabilitasi;Transcranial Magnetic Stimulation (TMS);FR002
+Fungsi Rehabilitasi;Neuromuscular Activation System;FR003
+Intensitas Terapi;High Level;IT001
+Intensitas Terapi;Low Level;IT002
+Jarak Layanan;Dalam kota;JL001
+Jarak Layanan;Luar Kota;JL002
+Jenis Akses;Hemodialys Catheter Fibrin Occlusion;AK001
+Jenis Akses;Peritoneal Dialysis Catheter Fibrin Occlusion;AK002
+Jenis Akses;Eksterna;AK003
+Jenis Akses;Interna;AK004
+Jenis Akupresur;Badan;JA001
+Jenis Akupresur;Bayi;JA002
+Jenis Akupresur;Instrument-Assisted;JA003
+Jenis Akupresur;Vaccaria seed;JA004
+Jenis Akupunktur Invasif;Tanam Benang;AI001
+Jenis Akupunktur Invasif;Wajah Estetik Advance;AI002
+Jenis Akupunktur Laser;Intraarticular;AL001
+Jenis Akupunktur Laser;Intravaskular;AL002
+Jenis Akupunktur Laser;Laser Multilead;AL003
+Jenis Akupunktur Laser;Laser Portable;AL004
+Jenis Akupunktur Laser;Transcranial;AL005
+Jenis Akupunktur Listrik;Elektroakupunktur;AR001
+Jenis Akupunktur Listrik;Transcutaneous Electrical Acupoint Stimulation;AR002
+Jenis Akupunktur Manual;Kepala;AM001
+Jenis Akupunktur Manual;Obesitas;AM002
+Jenis Akupunktur Manual;"Mikroakupunktur 1 (Short; 20 menit)";AM003
+Jenis Akupunktur Manual;"Mikroakupunktur 2 (Moderate; 45 menit)";AM004
+Jenis Akupunktur Manual;"Mikroakupunktur 3 (Long; 60 menit)";AM005
+Jenis Akupunktur Manual;Cupping;AM006
+Jenis Akupunktur Manual;Fertilitas;AM007
+Jenis Akupunktur Manual;Kecantikan;AM008
+Jenis Akupunktur Manual;Manual Tubuh 1 posisi;AM009
+Jenis Akupunktur Manual;Manual Tubuh 2 posisi;AM010
+Jenis Akupunktur Manual;Press needle;AM011
+Jenis Akupunktur Ultrasound;Sonopunktur;AT001
+Jenis Alat;Dengan spekulum;DV001
+Jenis Alat;Scalpel;DV002
+Jenis Alat;Tanpa spekulum;DV003
+Jenis Alat;Balloon;DV004
+Jenis alat;Balloon+Stent (1 balon, 1 stent);DV005
+Jenis alat;Dengan graft;DV006
+Jenis Alat;Savary-Gilliard;DV007
+Jenis Alat;Single Balloon;DV008
+Jenis alat;tanpa graft;DV009
+Jenis Alat;Treadmill;DV010
+Jenis Alat;with shunt;DV011
+Jenis Alat;without shunt;DV012
+Jenis Alat;Dengan Stapler;DV013
+Jenis Alat;Dengan Mesh;DV014
+Jenis Alat;Tanpa Stapler (Konvensional);DV015
+Jenis Alat;Tanpa alat;DV016
+Jenis Alat;Bioelectrical impedance analysis;DV017
+Jenis Alat;DEXA/densitometri;DV018
+Jenis Alat;Musculoskeletal MRI/USG;DV019
+Jenis Alat;Single use;DV020
+Jenis Alat;Chamber;DV021
+Jenis Alat;dengan BIVAD;DV022
+Jenis Alat;dengan LVAD;DV023
+Jenis Alat;tanpa BIVAD;DV024
+Jenis Alat;tanpa LVAD;DV025
+Jenis Alat;NK Table/Leg Press/EN Tree dsb;DV026
+Jenis Alat;Tanpa Alat (Theraband, dumble);DV027
+Jenis Alat;mechanical compression;DV028
+Jenis Alat;tanpa alat, manual (MLDV);DV029
+Jenis Alat;Elektromyogram;DV030
+Jenis Alat;Sistometri Sederhana;DV031
+Jenis Alat;Urodinamik Uroflometri;DV032
+Jenis Alat;Uretral Pressure Profile/UPP;DV033
+Jenis Alat;Urodinamik Sistometrogram;DV034
+Jenis Alat;Bowel Diary Dan Anorectal;DV035
+Jenis Alat;Manometry;DV036
+Jenis Alat;Pressure Biofeedback;DV037
+Jenis Alat;Ergocycle (Arm/Leg);DV038
+Jenis Alat;Cybex;DV039
+Jenis Alat;Dinamometer;DV040
+Jenis Alat;Tanpa Alat (Miotom);DV041
+Jenis Alat;Tanpa Alat (MMT pada kasus kompleks);DV042
+Jenis Alat;Pinchmeter;DV043
+Jenis Alat;NK Table/EN Tree;DV044
+Jenis Alat;Standar;DV045
+Jenis Alat;Computerized/Robotic;DV046
+Jenis Alat;Fiberoptic Endoscopic Evaluation of Swallowing Study (FEES);DV047
+Jenis Alat;Video Fluoroskopi Swallowing Study (VFSS);DV048
+Jenis Alat;EMG;DV049
+Jenis Alat;Surface EMG;DV050
+Jenis alat;ECG telemetry;DV051
+Jenis alat;Menggunakan Oksigen;DV052
+Jenis Alat Angioplasti;alat atherectomy;AA001
+Jenis Alat Angioplasti;Drug-eluting/covered stent;AA002
+Jenis Alat Angioplasti;Bare stent;AA003
+Jenis Alat Angioplasti;Balloon;AA004
+Jenis Alat Angioplasti;Stent;AA005
+Jenis Alat Modalitas;Infra Red (IR);LM001
+Jenis Alat Modalitas;Magnetotherapy;LM002
+Jenis Alat Modalitas;Micro Wave Diathermy (MWD);LM003
+Jenis Alat Modalitas;NMES, Electrical Stimulation (ES), FES;LM004
+Jenis Alat Modalitas;Other Hydrotherapy;LM005
+Jenis Alat Modalitas;Parafin Bath;LM006
+Jenis Alat Modalitas;Short Wave Diathermy (SWD);LM007
+Jenis Alat Modalitas;Terapi Dingin;LM008
+Jenis Alat Modalitas;Transcutaneous Electrical Nerve Stimulation (TENS);LM009
+Jenis Alat Modalitas;Ultrasound Diathermy (USD);LM010
+Jenis Alat Modalitas;Whirlpool Treatment;LM011
+Jenis Analisa Feses;pH Feses;AF001
+Jenis Analisa Feses;Telur Cacing;AF002
+Jenis Analisa Feses;Amuba;AF003
+Jenis Analisa Feses;Darah Samar AB Monoklonal;AF004
+Jenis Analisa Feses;Darah Samar Feses;AF005
+Jenis Analisa Feses;Feses Lengkap;AF006
+Jenis Analisa Feses;Feses Lengkap Parasitologi;AF007
+Jenis Analisa Feses;Feses Rutin;AF008
+Jenis Analisa Feses;Feses Sterkobilin;AF009
+Jenis Analisa Feses;Khusus/Gastro;AF010
+Jenis Anestesi;Epidural;AN001
+Jenis Anestesi;Kaudal;AN002
+Jenis Anestesi;Sedasi;AN003
+Jenis Anestesi;Spinal;AN004
+Jenis Anestesi;Umum ETT;AN005
+Jenis Anestesi;Umum LMA;AN006
+Jenis Anestesi;Umum;AN007
+Jenis Asesmen Akupunktur;Akupunktur Abdomen;AS001
+Jenis Asesmen Akupunktur;Akupunktur Kulit Kepala;AS002
+Jenis Asesmen Akupunktur;Algometer;AS003
+Jenis Asesmen Akupunktur;INMAS;AS004
+Jenis Asesmen Akupunktur;Postural;AS005
+Jenis Asesmen Akupunktur;Sensasi Penjaruman;AS006
+Jenis Asesmen Akupunktur;Vascular Autonomic Signal Auriculo;AS007
+Jenis Biomarker;ALK;JB001
+Jenis Biomarker;dMMR;JB002
+Jenis Biomarker;IDHR132H;JB003
+Jenis Biomarker;PD-L1;JB004
+Jenis Elektroda Neurostimulator;Peripheral Neurostimulator Lead(s);EN001
+Jenis Elektroda Neurostimulator;Spinal Neurostimulator Lead(s);EN002
+Jenis Elektroda Neurostimulator;Dual Array;EN003
+Jenis Elektroda Neurostimulator;Single Array;EN004
+Jenis Fraktur;Distal femur fracture;JF001
+Jenis Fraktur;Distal tibia fracture;JF002
+Jenis Fraktur;Femoral neck fracture;JF003
+Jenis Fraktur;Femoral shaft fracture;JF004
+Jenis Fraktur;Humerus fracture;JF005
+Jenis Fraktur;Intertrochanter fracture;JF006
+Jenis Fraktur;Proximal tibia fracture;JF007
+Jenis Fraktur;Radius and/or ulna fracture;JF008
+Jenis Fraktur;Subtrochanter fracture;JF009
+Jenis Fraktur;Supracondyler humerus fracture;JF010
+Jenis Fraktur;Tibia shaft fracture;JF011
+Jenis Fraktur;pediatric femoral shaft fracture;JF012
+Jenis Fraktur;pediatric tibia shaft fracture;JF013
+Jenis Fraktur;Mandibula;JF014
+Jenis Fraktur;Panfasial/Wajah Multipel;JF015
+Jenis Fraktur;Lefort I;JF016
+Jenis Fraktur;Lefort II;JF017
+Jenis Fraktur;Lefort III;JF018
+Jenis Fungsi Tubuh;Berkemih;FT001
+Jenis Fungsi Tubuh;Defekasi;FT002
+Jenis Fungsi Tubuh;Kapasitas Fungsional Sistem Neuromuskular;FT003
+Jenis Fungsi Tubuh;Ketahanan Kardiorespirasi;FT004
+Jenis Fungsi Tubuh;Kekuatan otot;FT005
+Jenis Fungsi Tubuh;Kelenturan Tubuh (Flexibility), Koordinasi dan Daya Ledak Otot;FT006
+Jenis Fungsi Tubuh;Keseimbangan;FT007
+Jenis Fungsi Tubuh;Kognisi/Fungsi Luhur;FT008
+Jenis Fungsi Tubuh;Lingkup Gerak Sendi dan Fleksibilitas pada kasus kompleks;FT009
+Jenis Fungsi Tubuh;menelan dan bicara;FT010
+Jenis Fungsi Tubuh;Performa Saraf dan Otot;FT011
+Jenis Fungsi Tubuh;Pola Jalan;FT012
+Jenis Fungsi Tubuh;Postur/Kontrol Postur Computerized;FT013
+Jenis Fungsi Tubuh;Sensori Integrasi Dan Praksis;FT014
+Jenis Fungsi Tubuh;Neuromuskuloskeletal;FT015
+Jenis Fungsi Tubuh;Diafragma;FT016
+Jenis Fungsi Tubuh;Agility/Ketangkasan;FT017
+Jenis Fungsi Tubuh;Perawatan Diri/ADL-IADL;FT018
+Jenis Fungsi Tubuh;Fungsi Berkemih dan Defekasi;FT019
+Jenis Fungsi Tubuh;Fungsi Menelan;FT020
+Jenis Fungsi Tubuh;Fungsi Otot;FT021
+Jenis Fungsi Tubuh;Eksekusi;FT022
+Jenis Fungsi Tubuh;Kelainan Tungkai/Kaki;FT023
+Jenis Fungsi Tubuh;Komunikasi;FT024
+Jenis Fungsi Tubuh;Lokomotor;FT025
+Jenis Fungsi Tubuh;Makan dan Menelan;FT026
+Jenis Fungsi Tubuh;Paru;FT027
+Jenis Fungsi Tubuh;Postur/Kontrol Postur;FT028
+Jenis Fungsi Tubuh;Seksual;FT029
+Jenis Fungsi Tubuh;Tangan;FT030
+Jenis Gigi;Gigi decidui;JG001
+Jenis Gigi;Gigi permanen;JG002
+Jenis Hormon;ACTH;JH001
+Jenis Hormon;GnRH;JH002
+Jenis Hormon;Hormon pertumbuhan;JH003
+Jenis Implant;Branched;JI001
+Jenis Implant;Chimney;JI002
+Jenis Implant;Fenestrated;JI003
+Jenis Implant;Beban Emas (Goldweight);JI004
+Jenis Iritant;Non sitostatika;IR001
+Jenis Iritant;Sitostatika;IR002
+Jenis Kasus;Akut;KA001
+Jenis Kasus;Kronik;KA002
+Jenis Kasus;Non Residif;KA003
+Jenis Kasus;Residif;KA004
+Jenis Kasus Anestesi;Bedah saraf;TH001
+Jenis Kasus Anestesi;Transplan ginjal;TH002
+Jenis Kasus Anestesi;Transplan hepar;TH003
+Jenis Kasus Anestesi;Kembar siam;TH004
+Jenis Kasus Farmakologi Klinik;Clinical assessment/evaluasi hasil farmakogenomik dan rekomendasi terapi;FK001
+Jenis Kasus Farmakologi Klinik;Clinical assessment/evaluasi therapeutic drug monitoring (TDM);FK002
+Jenis Kasus Farmakologi Klinik;Farmakoekonomi;FK003
+Jenis Kasus Farmakologi Klinik;Kausalitas obat penyebab medication-related adverse event;FK004
+Jenis Kasus Farmakologi Klinik;Labeling atau de-labeling drug allergy;FK005
+Jenis Kasus Farmakologi Klinik;Obat baru/obat yang baru masuk formularium RS;FK006
+Jenis Kasus Farmakologi Klinik;Obat untuk menetapkan kebijakan penggunaan obat di faskes;FK007
+Jenis Kasus Farmakologi Klinik;Otorisasi pemberian obat non formularium;FK008
+Jenis Kasus Farmakologi Klinik;Pemberian antimikroba dan rekomendasi tata laksana resistensi antimikroba;FK009
+Jenis Kasus Farmakologi Klinik;Pemeriksaan toksikologi;FK010
+Jenis Kasus Farmakologi Klinik;Penggunaan obat;FK011
+Jenis Kasus Farmakologi Klinik;Polifarmasi dan interaksi obat;FK012
+Jenis Kasus Farmakologi Klinik;Status farmakokinetik pasien terhadap obat;FK013
+Jenis Kasus Farmakologi Klinik;Tata laksana penggunaan obat pada populasi khusus;FK014
+Jenis Kasus Forensik;Anak;KF001
+Jenis Kasus Forensik;Aborsi;KF002
+Jenis Kasus Forensik;Anak WNA;KF003
+Jenis Kasus Forensik;Aniaya berat;KF004
+Jenis Kasus Forensik;Aniaya ringan sedang;KF005
+Jenis Kasus Forensik;DNA Uji Paternitas;KF006
+Jenis Kasus Forensik;DNA/Sampel;KF007
+Jenis Kasus Forensik;Ekstraksi alat medis;KF008
+Jenis Kasus Forensik;Ekstraksi benda asing;KF009
+Jenis Kasus Forensik;Infanticide;KF010
+Jenis Kasus Forensik;Intoksikasi;KF011
+Jenis Kasus Forensik;Jenazah Pembusukan lanjut;KF012
+Jenis Kasus Forensik;Jenazah utuh;KF013
+Jenis Kasus Forensik;Kejahatan seksual;KF014
+Jenis Kasus Forensik;Keracunan;KF015
+Jenis Kasus Forensik;Muslim;KF016
+Jenis Kasus Forensik;Non muslim;KF017
+Jenis Kasus Forensik;Pasca Autopsi;KF018
+Jenis Kasus Forensik;Penyakit menular;KF019
+Jenis Kasus Forensik;Penyalahgunaan narkoba;KF020
+Jenis Kasus Forensik;Pidana KDRT;KF021
+Jenis Kasus Forensik;Pidana kejahatan khusus;KF022
+Jenis Kasus Forensik;Pidana lalu lintas;KF023
+Jenis Kasus Forensik;Pidana penganiayaan anak;KF024
+Jenis Kasus Forensik;Pidana penganiayaan ringan;KF025
+Jenis Kasus Forensik;Pidana umum;KF026
+Jenis Kasus Forensik;Sudden natural death;KF027
+Jenis Kasus Forensik;Sudden unnatural death;KF028
+Jenis Kasus Forensik;Undetermined death;KF029
+Jenis Kelainan Sendi;Dislokasi ligamen dan tendon;KS001
+Jenis Kelainan Sendi;Kekakuan/spasme/kontraktur sendi ekstremitas atas;KS002
+Jenis Kelainan Sendi;Kekakuan/spasme/kontraktur sendi ekstremitas bawah;KS003
+Jenis Kelainan/Penyakit;Repair Esofagus;NA001
+Jenis Kelainan/Penyakit;Repair Trakea;NA002
+Jenis Kelainan/Penyakit;Total Laringektomi;NA003
+Jenis Kelainan/Penyakit;Varises esofagus;NA004
+Jenis Kelainan/Penyakit;Hemoroid;NA005
+Jenis Kelainan/Penyakit;Hipertensi Porta;NA006
+Jenis Kelainan/Penyakit;Hemangioma;NA007
+Jenis Kelainan/Penyakit;Kelenjar Getah Bening Leher;NA008
+Jenis Kelainan/Penyakit;Kista Tiroid;NA009
+Jenis Kelainan/Penyakit;Nodul Tiroid;NA010
+Jenis Kelainan/Penyakit;Adenoma Paratiroid;NA011
+Jenis Kelainan/Penyakit;Tiroid;NA012
+Jenis Kelainan/Penyakit;Ekstremitas;NA013
+Jenis Kelainan/Penyakit;Pasien Dialisis Peritoneal;NA014
+Jenis Kelainan/Penyakit;Pasien Transplantasi Ginjal;NA015
+Jenis Kelainan/Penyakit;Massa Paru;NA016
+Jenis Komponen Darah;PRC;KD001
+Jenis Komponen Darah;Trombosit;KD002
+Jenis Koreksi Skoliosis;Double curve;SK001
+Jenis Koreksi Skoliosis;Severe curve;SK002
+Jenis Koreksi Skoliosis;Single curve;SK003
+Jenis Kunjungan Perawatan;One Visit;JK001
+Jenis Kunjungan Perawatan;Open Akses;JK002
+Jenis Kunjungan Perawatan;Preparasi;JK003
+Jenis Kunjungan Perawatan;Dressing;JK004
+Jenis Kunjungan Perawatan;Obturasi;JK005
+Jenis Layanan PA;Interpretasi;PY001
+Jenis Layanan PA;Tindakan+Interpretasi;PY002
+Jenis Layanan PA;Tindakan;PY003
+Jenis Layanan Rohani;Akhir hayat;LR001
+Jenis Layanan Rohani;Ibadah jenazah;LR002
+Jenis Layanan Rohani;On call;LR003
+Jenis Layanan Rohani;Paliatif;LR004
+Jenis Layanan Rohani;Pasien masuk;LR005
+Jenis Ligamen;AC joint instability;LI001
+Jenis Ligamen;ATFL/Deltoid injury;LI002
+Jenis Ligamen;elbow instability;LI003
+Jenis Ligamen;MCL/LCL injury;LI004
+Jenis Manajemen Nyeri;Balloon Compression;MN001
+Jenis Manajemen Nyeri;Facial/ Trigeminal Injection;MN002
+Jenis Manajemen Nyeri;Gliserol Injection;MN003
+Jenis Manajemen Nyeri;Occipital Injection;MN004
+Jenis Manajemen Nyeri;P.Paraverteb/Visceral Block;MN005
+Jenis Manajemen Nyeri;Percutaneus Kordotomi;MN006
+Jenis Manajemen Nyeri;PRPP injection;MN007
+Jenis Manajemen Nyeri;Radiofrekuensi;MN008
+Jenis Manajemen Nyeri;Adhesiolysis;MN009
+Jenis Manajemen Nyeri;Steroid;MN010
+Jenis Manajemen Nyeri;Lokal Anestesi;MN011
+Jenis Manajemen Nyeri;Neurolisis;MN012
+Jenis Manajemen Nyeri;Neurolisis Steroid/Ablasi;MN013
+Jenis Manajemen Nyeri;Agen Neurolitik;MN014
+Jenis Manajemen Nyeri;Cryoanalgesia;MN015
+Jenis Manajemen Nyeri;Radiofrequency Ablation;MN016
+Jenis Manajemen Nyeri;Cryotherapy;MN017
+Jenis Manipulasi;manipulasi lain (Manipulasi TMJ, Spine);JM001
+Jenis Manipulasi;Manipulasi ekstremitas;JM002
+Jenis Modifikasi Produk (Darah);Cuci/wash eritrosit (WE);MP001
+Jenis Modifikasi Produk (Darah);Cuci/wash eritrosit (WE) NAT;MP002
+Jenis Modifikasi Produk (Darah);Cuci/wash eritrosit (WE) NAT skrining antibodi;MP003
+Jenis Modifikasi Produk (Darah);Cuci/wash eritrosit (WE) skrining antibodi;MP004
+Jenis Modifikasi Produk (Darah);Leuko depleted;MP005
+Jenis Modifikasi Produk (Darah);Leuko depleted iradiasi;MP006
+Jenis Modifikasi Produk (Darah);Leuko depleted iradiasi NAT;MP007
+Jenis Modifikasi Produk (Darah);Leuko depleted NAT;MP008
+Jenis Modifikasi Produk (Darah);Leuko depleted/reduksi iradiasi NAT skrining antibodi;MP009
+Jenis Modifikasi Produk (Darah);Leuko depleted/reduksi iradiasi skrining antibodi;MP010
+Jenis Modifikasi Produk (Darah);Leuko depleted/reduksi NAT skrining antibodi;MP011
+Jenis Modifikasi Produk (Darah);Leuko depleted/reduksi skrining antibodi;MP012
+Jenis Modifikasi Produk (Darah);NAT;MP013
+Jenis Modifikasi Produk (Darah);NAT skrining antibodi;MP014
+Jenis Modifikasi Produk (Darah);Skrining antibodi;MP015
+Jenis Monitor Hemodinamik;Lainnya;MH001
+Jenis Monitor Hemodinamik;EV1000;MH002
+Jenis Monitor Hemodinamik;Hemosphere;MH003
+Jenis Monitor Hemodinamik;ICON;MH004
+Jenis Monitor Hemodinamik;LIDCO;MH005
+Jenis Monitor Hemodinamik;Mostcare;MH006
+Jenis Monitor Hemodinamik;PICCO;MH007
+Jenis Monitor Hemodinamik;USCOM;MH008
+Jenis Mutasi;1p/19q codeletion;MU001
+Jenis Mutasi;All-RAS (KRAS & NRAS);MU002
+Jenis Mutasi;BRAF;MU003
+Jenis Mutasi;EGFR;MU004
+Jenis Mutasi;IDH1/2;MU005
+Jenis Mutasi;KRAS;MU006
+Jenis Mutasi;Lainnya;MU007
+Jenis Mutasi;MGMT;MU008
+Jenis Mutasi;MSI;MU009
+Jenis Mutasi;NRAS;MU010
+Jenis Mutasi;PIK3CA;MU011
+Jenis Mutasi;gen sarkoma;MU012
+Jenis Neurostimulator;Neurostimulator Pulse Generator, Not Specified As Rechargeable Pulse Generator;NR001
+Jenis Neurostimulator;Rechargeable Neurostimulator Pulse Generator;NR002
+Jenis Neurostimulator;Other Neurostimulator Pulse Generator (Kecuali, Single Dan Dual Array Neurostimulator);NR003
+Jenis Neurostimulator;Skeletal Muscle Stimulator (Implantation, Insertion, Placement, Or Replacement Of Skeletal Muscle: Electrodes, Stimulator);NR004
+Jenis Obat;Rifampisin;OB001
+Jenis Obat;Aspirin;OB002
+Jenis Obat;Dapson;OB003
+Jenis Obat;Ofloksasin;OB004
+Jenis Obat;P2Y12;OB005
+Jenis Organ;Ginjal;OR001
+Jenis Organ;Panggul;OR002
+Jenis Organ;Prostat;OR003
+Jenis Organ;Antroduodenal;OR004
+Jenis Organ;Bahu;OR005
+Jenis Organ;Bokong;OR006
+Jenis Organ;Buli/Vesica Urinaria;OR007
+Jenis Organ;Dada/ Punggung/ Tungkai Kanan dan Kiri;OR008
+Jenis Organ;Ekstremitas atas atau bawah;OR009
+Jenis Organ;Esofagus;OR010
+Jenis Organ;Kaki;OR011
+Jenis Organ;Kaki/pergelangan kaki;OR012
+Jenis Organ;Lengan Atas Kanan dan Kiri;OR013
+Jenis Organ;Lutut;OR014
+Jenis Organ;Organ Urologi Lainnya;OR015
+Jenis Organ;Payudara;OR016
+Jenis Organ;Penis;OR017
+Jenis Organ;Pergelangan kaki;OR018
+Jenis Organ;Pergelangan Tangan;OR019
+Jenis Organ;Perut Atas/ Perut Bawah/ Pinggang/ Pinggul;OR020
+Jenis Organ;Rektal;OR021
+Jenis Organ;Siku;OR022
+Jenis Organ;Skrotum dan Lainnya;OR023
+Jenis Organ;Tangan;OR024
+Jenis Organ;Tangan dan jari;OR025
+Jenis Organ;Tangan dan pergelangan tangan;OR026
+Jenis Organ;Ureter;OR027
+Jenis Organ;Uretra;OR028
+Jenis Organ;Wajah Area Kecil (1 pipi/ double chin);OR029
+Jenis Organ;Wajah/Area Kecil (dahi/pelipis/pipi 1 area/dagu/nasolabial kanan kiri);OR030
+Jenis Organ;Kulit;OR031
+Jenis Organ;Lainnya;OR032
+Jenis Organ;Esofagus/gaster/colon/kulit;OR033
+Jenis Organ;Hati;OR034
+Jenis Organ;Sumsum Tulang;OR035
+Jenis Organ;Thoracoabdominal aorta;OR036
+Jenis Organ;Aortic root;OR037
+Jenis Organ;Pulmonal;OR038
+Jenis Organ;Tangan dan lengan bawah;OR039
+Jenis Organ;Ekstremitas;OR040
+Jenis Organ;Bronkus;OR041
+Jenis Organ;Diafragma;OR042
+Jenis Organ;Ductus torasikus;OR043
+Jenis Organ;Bronkopleura;OR044
+Jenis Organ;Parenkim paru;OR045
+Jenis Organ;Paru;OR046
+Jenis Organ;Trakea;OR047
+Jenis Organ;Bursa;OR048
+Jenis Organ;Sendi dan ligamen;OR049
+Jenis Organ;Sendi Tangan;OR050
+Jenis Organ;Sendi Temporomandibular;OR051
+Jenis Organ;Tendon;OR052
+Jenis Organ;Intramuscular;OR053
+Jenis Organ;Spinal, Anggota Gerak Atas, Anggota Gerak Bawah;OR054
+Jenis Organ;Leher;OR055
+Jenis Organ;Atas Lutut;OR056
+Jenis Organ;Bawah Lutut;OR057
+Jenis Organ;Kaki, Not Otherwise Specified;OR058
+Jenis Organ;Lengan Atas dan Bahu;OR059
+Jenis Organ;Lengan Bawah dan Tangan;OR060
+Jenis Organ;Lengan, Tidak pada Lengan Spesifik;OR061
+Jenis Organ;Carpal Tunnel;OR062
+Jenis Organ;Tarsal Tunnel;OR063
+Jenis Organ;Bursa Pada Tangan;OR064
+Jenis Organ;Soft Tissue Lain;OR065
+Jenis Organ;Sendi;OR066
+Jenis Organ;Soft tissue Tangan;OR067
+Jenis Organ;pilorus, duodenum, jejunum, ileum dan kolon;OR068
+Jenis Organ;Limpa;OR069
+Jenis Organ;Atas Siku;OR070
+Jenis Organ;Bawah Siku;OR071
+Jenis Organ;Ekstremitas Atas;OR072
+Jenis Organ;Ekstremitas Bawah;OR073
+Jenis Organ;Alveolar;OR074
+Jenis Organ;Maksila;OR075
+Jenis Organ;Abdomen;OR076
+Jenis Organ;Trunk;OR077
+Jenis Organ;Mandibula;OR078
+Jenis Panduan;USG;GU001
+Jenis Panduan;TEE;GU002
+Jenis Panduan;EKG;GU003
+Jenis Panduan;EUS;GU004
+Jenis Panduan;TBLB;GU005
+Jenis Panduan;Tanpa panduan;GU006
+Jenis Panduan;CT Scan;GU007
+Jenis Panduan;Fluoroskopi;GU008
+Jenis Panduan;C ARM;GU009
+Jenis Panduan;EMG;GU010
+Jenis Panduan;Radiologi Guided;GU011
+Jenis Panduan;Stimulator;GU012
+Jenis Pemeriksaan Forensik;Pemeriksaan dalam;PF001
+Jenis Pemeriksaan Forensik;Pemeriksaan luar;PF002
+Jenis Pemeriksaan Laboratorium;Albumin;LE001
+Jenis Pemeriksaan Laboratorium;Gangguan elektrolit;LE002
+Jenis Pemeriksaan Laboratorium;Gangguan mikronutrien;LE003
+Jenis Pemeriksaan Laboratorium;Laboratorium hormon;LE004
+Jenis Pemeriksaan Laboratorium;Laboratorium mineral;LE005
+Jenis Pemeriksaan Laboratorium;Laboratorium nutrigenomik;LE006
+Jenis Pemeriksaan Laboratorium;Laboratorium profil asam amino;LE007
+Jenis Pemeriksaan Laboratorium;Laboratorium profil asam lemak;LE008
+Jenis Pemeriksaan Laboratorium;Laboratorium vitamin;LE009
+Jenis Pengukuran;Semikuantitatif;PU001
+Jenis Pengukuran;antropometri khusus (berat badan estimasi, berat badan koreksi, berat badan adjusted);PU002
+Jenis Pengukuran;berat badan;PU003
+Jenis Pengukuran;indeks massa tubuh;PU004
+Jenis Pengukuran;knee height;PU005
+Jenis Pengukuran;Kualitatif;PU006
+Jenis Pengukuran;Kuantitatif;PU007
+Jenis Pengukuran;lingkar betis (calf circumference);PU008
+Jenis Pengukuran;lingkar kepala;PU009
+Jenis Pengukuran;lingkar pinggang/panggul;PU010
+Jenis Pengukuran;MUAC (Mid Upper Arm Circumference) atau Lingkar Lengan Atas;PU011
+Jenis Pengukuran;panjang lengan (armspan/demispan);PU012
+Jenis Pengukuran;tebal lipatan kulit;PU013
+Jenis Pengukuran;tinggi badan;PU014
+Jenis Pengukuran;Tinggi Lutut;PU015
+Jenis Perangkat;Orthotik;RG001
+Jenis Perangkat;Prosthetik;RG002
+Jenis Pewarnaan;GRAM LAIN-LAIN;PW001
+Jenis Pewarnaan;GRAM PUS;PW002
+Jenis Pewarnaan;GRAM SPUTUM;PW003
+Jenis Pewarnaan;Gram Swab;PW004
+Jenis Pewarnaan;KOH;PW005
+Jenis Pewarnaan;KOH BAHAN KLINIK;PW006
+Jenis Pewarnaan;KOH DARI JARINGAN;PW007
+Jenis Pewarnaan;LACTOPHENOL COTTON BLUE;PW008
+Jenis Pewarnaan;Lugol (Telur Cacing);PW009
+Jenis Pewarnaan;BTA MORBUS HANSEN;PW010
+Jenis Pewarnaan;DIFTERI (ALBERT/NEISSER);PW011
+Jenis Pewarnaan;PANEL IMS PRIA (DV)-(KOH, GRAM URETRA);PW012
+Jenis Pewarnaan;PANEL IMS WANITA DENGAN SPEKULUM (DV)- (KOH, GRAM CERVIX, VAGINA DAN URETRA);PW013
+Jenis Pewarnaan;PANEL IMS WANITA TANPA SPEKULUM (DV)- (KOH, GRAM CERVIX, VAGINA DAN URETRA);PW014
+Jenis Pewarnaan;Tahan Asam (Protozoa);PW015
+Jenis Pewarnaan;Tahan Asam Darah;PW016
+Jenis Pewarnaan;Tahan Asam Darah II;PW017
+Jenis Pewarnaan;Tahan Asam Darah III;PW018
+Jenis Pewarnaan;Tahan Asam Lain-lain;PW019
+Jenis Pewarnaan;Tahan Asam Lain-lain II;PW020
+Jenis Pewarnaan;Tahan Asam Lain-lain III;PW021
+Jenis Pewarnaan;Tahan Asam Pus;PW022
+Jenis Pewarnaan;Tahan Asam Pus II;PW023
+Jenis Pewarnaan;Tahan Asam Pus III;PW024
+Jenis Pewarnaan;Tahan Asam Sputum;PW025
+Jenis Pewarnaan;Tahan Asam Sputum II;PW026
+Jenis Pewarnaan;Tahan Asam Sputum III;PW027
+Jenis Pewarnaan;Tahan Asam Swab;PW028
+Jenis Pewarnaan;Tahan Asam Swab II;PW029
+Jenis Pewarnaan;Tahan Asam Swab III;PW030
+Jenis Pewarnaan;Tahan Asam Tinja;PW031
+Jenis Pewarnaan;Tahan Asam Tinja II;PW032
+Jenis Pewarnaan;Tahan Asam Tinja III;PW033
+Jenis Pewarnaan;Tahan Asam Urine;PW034
+Jenis Pewarnaan;Tahan Asam Urine II;PW035
+Jenis Pewarnaan;Tahan Asam Urine III;PW036
+Jenis Pewarnaan;Dye;PW037
+Jenis Pewarnaan;Hematoxylin dan Eosin (HE);PW038
+Jenis Psikoterapi;Bermain (Play psychotherapy);SR001
+Jenis Psikoterapi;Individual Lainnya (Other Individual Psychotherapy);SR002
+Jenis Psikoterapi;Verbal Eksploratif (Exploratory Verbal Psychotherapy);SR003
+Jenis Psikoterapi;Verbal Supportif (Supportive Verbal Psychotherapy);SR004
+Jenis Rehabilitasi;Kognisi Sosial;RH001
+Jenis Rehabilitasi;Napza;RH002
+Jenis Rekonstruksi;stage 2 for Bone/Soft tissue tumor;JR001
+Jenis Rekonstruksi;3D (per lembar film besar);JR002
+Jenis Rekonstruksi;Reconstruction with arthrodhesis for Periarticular Bone/Soft tissue tumor;JR003
+Jenis Rekonstruksi;Reconstruction with endoprosthesis;JR004
+Jenis Rekonstruksi;Reconstruction with non vascularized bone/soft tissue graft for Bone/Soft tissue tumor of upper;JR005
+Jenis Rekonstruksi;Reconstruction with non vascularized bone graft for Bone/Soft tissue tumor of lower extremity;JR006
+Jenis Rekonstruksi;Reconstruction with vascularized bone/soft tissue graft for Bone/Soft tissue tumor;JR007
+Jenis Rekonstruksi;Reconstruction with non vascularized bone graft;JR008
+Jenis Rekonstruksi;Reconstruction with plate reconstruction;JR009
+Jenis Rekonstruksi;Reconstruction with vascularized bone graft;JR010
+Jenis Rekonstruksi;stage 1 for Bone/Soft tissue tumor;JR011
+Jenis Rekonstruksi;Virtual Imaging (Bronchoscopy/Colonoscopy);JR012
+Jenis Rekonstruksi;Volumetri (per lembar film besar);JR013
+Jenis Rekonstruksi;Reconstruction with TMJ plate reconstruction;JR014
+Jenis Rekonstruksi;Reconstruction with Vascularized bone graft (micro)-defek BOYD T;JR015
+Jenis Rekonstruksi;Reconstruction with Ribs bone graft;JR016
+Jenis Rekonstruksi;Reconstruction with Silicone Plate;JR017
+Jenis Sendi;Large Joints;SE001
+Jenis Sendi;Small Joints;SE002
+Jenis Skrining;Awal;JS001
+Jenis Skrining;DPL;JS002
+Jenis Skrining;Hb;JS003
+Jenis Skrining;Konfirmasi;JS004
+Jenis Spesialistik USG;FER Kompleks Subspesialistik (RS Tipe A);SU001
+Jenis Spesialistik USG;FER Subspesialistik (RS Tipe BCD);SU002
+Jenis Spesialistik USG;Fetomaternal Kompleks Subspesialistik;SU003
+Jenis Spesialistik USG;Fetomaternal Subspesialistik;SU004
+Jenis Spesialistik USG;Ginekologi Spesialistik;SU005
+Jenis Spesialistik USG;Obstetri Dasar Terbatas (dokter umum layanan primer);SU006
+Jenis Spesialistik USG;Obstetri Spesialistik;SU007
+Jenis Spesialistik USG;Onkologi Ginekologi Kompleks Subspesialistik (RS Tipe A);SU008
+Jenis Spesialistik USG;Onkologi Ginekologi Subspesialistik (RS Tipe BCD);SU009
+Jenis Spesialistik USG;Uroginekologi Kompleks Subspesialistik (RS Tipe A);SU010
+Jenis Spesialistik USG;Uroginekologi Subspesialistik (RS Tipe BCD);SU011
+Jenis Spesimen;Cairan Kontaminasi urin, bilirubin;SP001
+Jenis Spesimen;Cairan Pleura;SP002
+Jenis Spesimen;Cairan Sendi;SP003
+Jenis Spesimen;Cairan tubuh lainnya;SP004
+Jenis Spesimen;Cairan Peritoneal;SP005
+Jenis Spesimen;Cairan Dialisis Peritoneal (CAPD);SP006
+Jenis Spesimen;Cairan CHYLOUS & PSEUDOCHYLOUS;SP007
+Jenis Spesimen;Cairan Empedu;SP008
+Jenis Spesimen;Kulit;SP009
+Jenis Spesimen;Plasma;SP010
+Jenis Spesimen;Saliva;SP011
+Jenis Spesimen;Serum;SP012
+Jenis Spesimen;Sputum;SP013
+Jenis Spesimen;Aspirat;SP014
+Jenis Spesimen;ASPIRAT PARU;SP015
+Jenis Spesimen;ASPIRAT TRAKEAL;SP016
+Jenis Spesimen;Bilasan Bronkus;SP017
+Jenis Spesimen;Blok Sel;SP018
+Jenis Spesimen;BRONCHOALVEOLAR LAVAGE;SP019
+Jenis Spesimen;Cairan;SP020
+Jenis Spesimen;Cairan Otak;SP021
+Jenis Spesimen;Cairan Asites;SP022
+Jenis Spesimen;Cairan Kista;SP023
+Jenis Spesimen;Cairan LCS;SP024
+Jenis Spesimen;Cairan Perikardium;SP025
+Jenis Spesimen;Cairan Sumsum Tulang;SP026
+Jenis Spesimen;Darah;SP027
+Jenis Spesimen;Darah Direk Maldi Tof;SP028
+Jenis Spesimen;FESES;SP029
+Jenis Spesimen;Genital;SP030
+Jenis Spesimen;GENITAL PRIA;SP031
+Jenis Spesimen;GENITAL WANITA;SP032
+Jenis Spesimen;Ginekologi Konvensional;SP033
+Jenis Spesimen;ISOLAT;SP034
+Jenis Spesimen;JARINGAN;SP035
+Jenis Spesimen;KORNEA/KONJUNGTIVA/VITREOUS;SP036
+Jenis Spesimen;KUKU;SP037
+Jenis Spesimen;LBC Ginekologi;SP038
+Jenis Spesimen;LBC Non Ginekologi;SP039
+Jenis Spesimen;LUKA;SP040
+Jenis Spesimen;LUKA BAKAR;SP041
+Jenis Spesimen;Luka Dalam;SP042
+Jenis Spesimen;MULUT;SP043
+Jenis Spesimen;Non Ginekologi;SP044
+Jenis Spesimen;Pap Smear LBC;SP045
+Jenis Spesimen;Pap Smear Konvensional;SP046
+Jenis Spesimen;Pap smear LBC dengan automated abnormal cell detection;SP047
+Jenis Spesimen;RAMBUT;SP048
+Jenis Spesimen;Cairan Sinovial;SP049
+Jenis Spesimen;Urin;SP050
+Jenis Spesimen;Kateter Intravaskular;SP051
+Jenis Spesimen;Pus;SP052
+Jenis Spesimen;Plasenta;SP053
+Jenis Spesimen;Produk Darah;SP054
+Jenis Spesimen;Swab;SP055
+Jenis Spesimen;Aspirat Suprapubik;SP056
+Jenis Spesimen;Saluran Nafas Bawah;SP057
+Jenis Spesimen;Swab Dasar Luka;SP058
+Jenis Spesimen;Spesimen Klinis;SP059
+Jenis Spesimen;Spesimen Lain-lain;SP060
+Jenis Spesimen;Darah Tali pusat postnatal;SP061
+Jenis Spesimen;Darah Tali pusat prenatal;SP062
+Jenis Spesimen;Darah tepi;SP063
+Jenis Spesimen;Darah Perifer;SP064
+Jenis Spesimen;Jaringan produk konsepsi (POC);SP065
+Jenis Spesimen;Pre-Natal;SP066
+Jenis Spesimen;Cairan Amnion;SP067
+Jenis Spesimen;FFPE;SP068
+Jenis Spesimen;LBC;SP069
+Jenis Spesimen;Kornea;SP070
+Jenis Spesimen;Konjungtiva;SP071
+Jenis Spesimen;Cairan Vitreous;SP072
+Jenis Spesimen;Produk Darah Direk Maldi Tof;SP073
+Jenis Spesimen;Lain-lain;SP074
+Jenis Stres;Stress Test;SJ001
+Jenis Stres;Pharmacological Stress-Only;SJ002
+Jenis Stres;Pharmacological Stress-Rest;SJ003
+Jenis Stres;Physical Stress-Only;SJ004
+Jenis Stres;Physical Stress-Rest;SJ005
+Jenis Stres;Rest-Only;SJ006
+Jenis Tatalaksana Nutrisi;Imunonutrisi;JN001
+Jenis Tatalaksana Nutrisi;Bariatrik;JN002
+Jenis Tatalaksana Nutrisi;Homecare;JN003
+Jenis Tatalaksana Nutrisi;Paliatif;JN004
+Jenis Tatalaksana Nutrisi;Perioperatif;JN005
+Jenis Tatalaksana Nutrisi;Transplantasi organ;JN006
+Jenis Terapi Fisik;Sendi lainnya;FI001
+Jenis Terapi Fisik;Spine;FI002
+Jenis Terapi Motivasi;Motivational Enhancement;MV001
+Jenis Terapi Motivasi;Interviewing;MV002
+Jenis Terapi Rehabilitasi;(BiPAP, NIPPV);RB001
+Jenis Terapi Rehabilitasi;Inhalasi (nebulizer);RB002
+Jenis Terapi Rehabilitasi;Musik (individu & grup);RB003
+Jenis Terapi Rehabilitasi;Okupasi Audiovisual Sensori Terintegrasi (Snoezelen);RB004
+Jenis Terapi Rehabilitasi;Okupasi Penanganan Gangguan Persepsi Kognisi, Sensori Integrasi;RB005
+Jenis Tes;Evaluasi Psikologis Lainnnya (Penulusuran Minat dan Bakat);TV001
+Jenis tes;Kematangan;TV002
+Jenis tes;Kepribadian;TV003
+Jenis tes;Neuropsikologis;TV004
+Jenis Tindakan Arthroscopic;Acromioplasty;TA001
+Jenis Tindakan Arthroscopic;ARIF for carpal fractures;TA002
+Jenis Tindakan Arthroscopic;Biceps tenotomy;TA003
+Jenis Tindakan Arthroscopic;Calcaneoplasty;TA004
+Jenis Tindakan Arthroscopic;Capsular release for shoulder stiffness/frozen shoulder;TA005
+Jenis Tindakan Arthroscopic;carpal ligament repair/reconstruction;TA006
+Jenis Tindakan Arthroscopic;Cartilage Repair and Cartilage Engineering Procedures (Hip/Knee/Ankle/Shoulder/Wrist);TA007
+Jenis Tindakan Arthroscopic;Deep gluteal syndrome release;TA008
+Jenis Tindakan Arthroscopic;DRUJ reconstruction;TA009
+Jenis Tindakan Arthroscopic;Excision os Trigonum;TA010
+Jenis Tindakan Arthroscopic;Extra Articular Impingement release;TA011
+Jenis Tindakan Arthroscopic;Ganglion Excision;TA012
+Jenis Tindakan Arthroscopic;Gluteus Medius Repair;TA013
+Jenis Tindakan Arthroscopic;Labral debridement;TA014
+Jenis Tindakan Arthroscopic;Labral Reconstruction;TA015
+Jenis Tindakan Arthroscopic;Labral Repair;TA016
+Jenis Tindakan Arthroscopic;Ligament reconstruction for Patellar ligament injury;TA017
+Jenis Tindakan Arthroscopic;Ligament repair/reconstruction for ankle ligament injury;TA018
+Jenis Tindakan Arthroscopic;Meniscus repair for Knee meniscus injury;TA019
+Jenis Tindakan Arthroscopic;Menisectomy for Knee meniscus injury;TA020
+Jenis Tindakan Arthroscopic;Osteoplasty for Impingement;TA021
+Jenis Tindakan Arthroscopic;Osteoplasty for intraarticular impingement;TA022
+Jenis Tindakan Arthroscopic;Plica release for Knee plica syndrome;TA023
+Jenis Tindakan Arthroscopic;Proximal hamstring tendon repair;TA024
+Jenis Tindakan Arthroscopic;Reconstruction for Knee ligament injury;TA025
+Jenis Tindakan Arthroscopic;Rekonstruction of carpal bone with bone;TA026
+Jenis Tindakan Arthroscopic;Release/reconstruction for Joint impingement;TA027
+Jenis Tindakan Arthroscopic;Release for Peripheral nerve entrapment;TA028
+Jenis Tindakan Arthroscopic;Repair for Rotator cuff injury;TA029
+Jenis Tindakan Arthroscopic;TFCC repair;TA030
+Jenis Tindakan Farmakopunktur;Obesitas;TF001
+Jenis Tindakan Farmakopunktur;Analgesia;TF002
+Jenis Uretroskop;Fleksibel;JU001
+Jenis Uretroskop;Non fleksibel;JU002
+Jenis Zat;Non Perak;JZ001
+Jenis Zat;Perak;JZ002
+Jumlah akses;1 akses;AC001
+Jumlah akses;2 akses;AC002
+Jumlah Alat;1 alat;MA001
+Jumlah Alat;2 alat;MA002
+Jumlah Alat;3 alat;MA003
+Jumlah Alat;4 alat;MA004
+Jumlah Alergen;10 Alergen;AG001
+Jumlah Alergen;20 Alergen;AG002
+Jumlah Alergen;30 Alergen;AG003
+Jumlah Antibodi;>5 antibodi;AD001
+Jumlah Antibodi;≤5 antibodi;AD002
+Jumlah Gigi;1-5 gigi;GG001
+Jumlah Gigi;1-10 gigi;GG002
+Jumlah Gigi;>10 gigi;GG003
+Jumlah Insisi Pendekatan;1 Approach;IP001
+Jumlah Insisi Pendekatan;2 Approach;IP002
+Jumlah Insisi Pendekatan;3 Approach;IP003
+Jumlah Jahitan;>10 jahitan;JJ001
+Jumlah Jahitan;Besar (>15 jahitan);JJ002
+Jumlah Jahitan;Kecil (1-7 jahitan);JJ003
+Jumlah Jahitan;Sedang (8-15 jahitan);JJ004
+Jumlah Jahitan;<10 jahitan;JJ005
+Jumlah Jahitan;<8 jahitan atau jahitan kontinyu kulit;JJ006
+Jumlah Kantong Darah;4 Kantong;KT001
+Jumlah Kantong Darah;5 Kantong;KT002
+Jumlah Kantong Darah;6 Kantong;KT003
+Jumlah Katup Jantung;1 katup;KJ001
+Jumlah Katup Jantung;2 katup;KJ002
+Jumlah Katup Jantung;3 katup;KJ003
+Jumlah Katup Jantung;4 katup;KJ004
+Jumlah Kuku;>3 kuku;KK001
+Jumlah Kuku;<= 3 kuku;KK002
+Jumlah Lesi;>10 lesi atau multiple regio tubuh;LS001
+Jumlah Lesi;>5 lesi;LS002
+Jumlah Lesi;Multiple;LS003
+Jumlah Lesi;1-2 lesi;LS004
+Jumlah Lesi;1-5 lesi atau 1 regio tubuh;LS005
+Jumlah Lesi;3-5 lesi;LS006
+Jumlah Lesi;6-10 lesi atau >1 regio tubuh;LS007
+Jumlah Lesi;1-5 lesi;LS008
+Jumlah Lesi;6-10 lesi;LS009
+Jumlah Lesi;>10 lesi;LS010
+Jumlah Oosit;>4 oosit/embrio;OO001
+Jumlah Oosit;≤4 oosit/embrio;OO002
+Jumlah Organ;<5 organ;NO001
+Jumlah Organ;>1 body parts;NO002
+Jumlah Organ;Multiple;NO003
+Jumlah Organ;≥5 organ;NO004
+Jumlah Organ;1 Body parts-kecuali kepala;NO005
+Jumlah Organ;1 body parts-kepala;NO006
+Jumlah Organ;1 Ekstremitas;NO007
+Jumlah Organ;1 organ;NO008
+Jumlah Organ;2 Ekstremitas;NO009
+Jumlah organ;2 organ;NO010
+Jumlah Organ;3 Ekstremitas;NO011
+Jumlah organ;3 organ;NO012
+Jumlah Organ;Single;NO013
+Jumlah Parameter;3 Parameter;PA001
+Jumlah Parameter;5 Parameter;PA002
+Jumlah Parameter;6 Parameter;PA003
+Jumlah Parameter;7 Parameter;PA004
+Jumlah Proyeksi;1 Proyeksi;NP001
+Jumlah Proyeksi;2 Proyeksi;NP002
+Jumlah Proyeksi;3 Proyeksi;NP003
+Jumlah Proyeksi;3 sites;NP004
+Jumlah Proyeksi;4 Proyeksi;NP005
+Jumlah Proyeksi;5 Proyeksi;NP006
+Jumlah Proyeksi;6 Proyeksi;NP007
+Jumlah Pulasan;1 jenis pulasan;PL001
+Jumlah Pulasan;2-3 jenis pulasan;PL002
+Jumlah Saluran Akar;1 saluran;RC001
+Jumlah Saluran Akar;2 saluran;RC002
+Jumlah Saluran Akar;3 saluran atau lebih;RC003
+Jumlah Slide/Blok;<5 slides;SL001
+Jumlah Slide/Blok;>15 blok/slide;SL002
+Jumlah Slide/Blok;>15 slides;SL003
+Jumlah Slide/Blok;1-2 blok/slide;SL004
+Jumlah Slide/Blok;3-15 blok/slide;SL005
+Jumlah Slide/Blok;5-15 slides;SL006
+Jumlah Sperma;ICSI (<5);SM001
+Jumlah Sperma;ICSI (>15);SM002
+Jumlah Sperma;ICSI (10-15);SM003
+Jumlah Sperma;ICSI (5-10);SM004
+Jumlah Tendon;<= 8;TN001
+Jumlah Tendon;>= 8;TN002
+Jumlah Tumor;>10 lokasi;TM001
+Jumlah Tumor;<4 lokasi;TM002
+Jumlah unit toksin;<10 iu;UT001
+Jumlah unit toksin;10-25 iu;UT002
+Jumlah unit toksin;26-50 iu;UT003
+Jumlah unit toksin;51-100 iu;UT004
+Jumlah Vessel;4 vessel;VS001
+Jumlah Vessel;6 vessel;VS002
+Kapasitas Fungsional;Return to activities;FG001
+Kapasitas Fungsional;Return to work;FG002
+Kategori Latihan Fisioterapi;Ketahanan Kardiorespirasi;LF001
+Kategori Latihan Fisioterapi;Kontrol Postur;LF002
+Kategori Latihan Fisioterapi;Back and Neck Exercise;LF003
+Kategori Latihan Fisioterapi;Daya Ledak (Power);LF004
+Kategori Latihan Fisioterapi;Daya Tahan;LF005
+Kategori Latihan Fisioterapi;Developmental Activities Training);LF006
+Kategori Latihan Fisioterapi;Kembali Fungsi Motorik;LF007
+Kategori Latihan Fisioterapi;Keseimbangan;LF008
+Kategori Latihan Fisioterapi;ketangkasan;LF009
+Kategori Latihan Fisioterapi;Koordinasi;LF010
+Kategori Latihan Fisioterapi;Lokomosi;LF011
+Kategori Latihan Fisioterapi;Mekanika Tubuh;LF012
+Kategori Latihan Fisioterapi;Motor Training;LF013
+Kategori Latihan Fisioterapi;Movement Pattern Training;LF014
+Kategori Latihan Fisioterapi;Neuromusculer re-learning;LF015
+Kategori Latihan Fisioterapi;Stabilisasi Postur;LF016
+Kategori Latihan Fisioterapi;Stabilitas;LF017
+Kategori Latihan Fisioterapi;Teknik-teknik rileksasi;LF018
+Kategori Latihan Fisioterapi;Ulang Sensori;LF019
+Kategori Latihan Fisioterapi;Vestibular;LF020
+Kategori Latihan Fisioterapi;Feldenkrais Method;LF021
+Kategori Latihan Fisioterapi;GMI;LF022
+Kategori Latihan Fisioterapi;Biofeedback Exercise;LF023
+Kategori Latihan Fisioterapi;Bobath;LF024
+Kategori Latihan Fisioterapi;DNS;LF025
+Kategori Latihan Fisioterapi;Movement;LF026
+Kategori Latihan Fisioterapi;MRP;LF027
+Kategori Latihan Fisioterapi;MRT;LF028
+Kategori Latihan Fisioterapi;Mulligan Concept;LF029
+Kategori Latihan Fisioterapi;NDT;LF030
+Kategori Latihan Fisioterapi;Osteoporosis;LF031
+Kategori Latihan Fisioterapi;PNF;LF032
+Kategori Latihan Fisioterapi;Scoliosis;LF033
+Kategori Latihan Fisioterapi;Sling Exercise Therapy;LF034
+Kategori Latihan Fisioterapi;System Impairment Exercise;LF035
+Kategori Latihan Fisioterapi;Assisted Exercise in Pool;LF036
+Kategori Latihan Fisioterapi;Ambulasi dan Gait Training;LF037
+Kategori Latihan Fisioterapi;Ambulasi Risiko Tinggi pada pasien rawat jalan;LF038
+Kategori Latihan Fisioterapi;Bicara Esofageal;LF039
+Kategori Latihan Fisioterapi;Return to Work dan Return to Activities;LF040
+Kategori Latihan Fisioterapi;Jalan Menggunakan Orthosis, Prosthesis, dan Alat Bantu Jalan;LF041
+Kategori Latihan Fisioterapi;Kombinasi;LF042
+Kategori Latihan Fisioterapi;Pasif lainnya (CPM, dll);LF043
+Kategori Latihan Fisioterapi;Peregangan Otot atau Tendon (Aktif);LF044
+Kategori Latihan Fisioterapi;Pernafasan;LF045
+Kategori Latihan Fisioterapi;Prenatal;LF046
+Kategori Latihan Fisioterapi;Alat Lainnya;LF047
+Kategori Latihan Fisioterapi;Assistive;LF048
+Kategori Latihan Fisioterapi;Dengan Ortosis;LF049
+Kategori Latihan Fisioterapi;Prostesis;LF050
+Kategori Latihan Fisioterapi;Adaptive;LF051
+Kategori Latihan Fisioterapi;Tanpa Ortosis;LF052
+Kategori Latihan Fisioterapi;Ketahanan Kardiorespirasi Risiko Tinggi;LF053
+Kategori Latihan Fisioterapi;Latihan lain-lain;LF054
+Kategori Pasien;Pediatrik;PC001
+Kategori Pasien;Dewasa;PC002
+Kategori Pasien;Ibu Hamil (SC);PC003
+Kategori Pasien;Neonatus;PC004
+Kategori Pasien;Pria;PC005
+Kategori Pasien;Wanita;PC006
+Kategori Pasien;Anak;PC007
+Kategori Pasien;Anak dan Remaja;PC008
+Kategori Pasien;Lansia;PC009
+Kategori Pasien;Orang Tua/Keluarga;PC010
+Kategori Pasien;Kelompok (>5 orang);PC011
+Kategori Pasien;Keluarga (2-3 orang);PC012
+Kategori Pasien;Individu;PC013
+Kategori Pasien;Caregiver;PC014
+Kategori Pasien;Anak berkebutuhan Khusus;PC015
+Kategori Pasien;<3 bulan;PC016
+Kategori Pasien;>4 tahun/relaps;PC017
+Kategori Pasien;1 - 4 tahun;PC018
+Kategori Pasien;3 bulan - 1 tahun;PC019
+Kelas Perawatan Pasien;Kelas 1;KP001
+Kelas Perawatan Pasien;Kelas 2;KP002
+Kelas Perawatan Pasien;Kelas 3;KP003
+Kewarganegaraan;WNA;KW001
+Kewarganegaraan;WNI;KW002
+Kompleksitas;Besar;KM001
+Kompleksitas;Lanjutan;KM002
+Kompleksitas;Dasar;KM003
+Kompleksitas;Ringan;KM004
+Kompleksitas;Sedang;KM005
+Kompleksitas;Berat;KM006
+Kompleksitas;Simpel;KM007
+Kompleksitas;Kompleks;KM008
+Kompleksitas;Rendah;KM009
+Kompleksitas;Tinggi;KM010
+Kompleksitas;Khusus;KM011
+Kompleksitas;Superselektif;KM012
+Kompleksitas;1 channel;KM013
+Kompleksitas;2 channel;KM014
+Kompleksitas;3 channel;KM015
+Kompleksitas;1-2 layer;KM016
+Kompleksitas;2-4 layer;KM017
+Kompleksitas;>4 layer;KM018
+Kompleksitas;Common Case;KM019
+Kompleksitas;Dalam;KM020
+Kompleksitas;Hybrid;KM021
+Kompleksitas;1;KM022
+Kompleksitas;2;KM023
+Kompleksitas;3;KM024
+Kompleksitas;4;KM025
+Kompleksitas;Kasus Berat;KM026
+Kompleksitas;Kasus Berat dengan Penyulit;KM027
+Kompleksitas;Advance;KM028
+Kompleksitas;Sederhana 1 (advancement);KM029
+Kompleksitas;Sederhana 2 (pedicled skin flap, keystone flap);KM030
+Kompleksitas;Kompleks 1 (lebih dari 1 flap, keystone flap 2 sisi);KM031
+Kompleksitas;Kompleks 2 (myocutan flap, keystone flap di atas 2 sisi);KM032
+Kompleksitas;Primary;KM033
+Kompleksitas;Complicated;KM034
+Kompleksitas;Selektif;KM035
+Kompleksitas;Komplikasi;KM036
+Kompleksitas;Premium;KM037
+Kompleksitas;Sedang I;KM038
+Kompleksitas;Sedang II;KM039
+Kompleksitas;golongan reserve;KM040
+Kompleksitas;golongan watch;KM041
+Kompleksitas;Multiple;KM042
+Kompleksitas;Lengkap;KM043
+Kompleksitas;Prosedural;KM044
+Level Amputasi;Minor kaki diabetik;VA001
+Level Amputasi;Mayor kaki diabetik;VA002
+Level Amputasi;Panggul;VA003
+Level Amputasi;Di atas lutut (knee);VA004
+Level Amputasi;Di bawah lutut (knee);VA005
+Level Amputasi;Di atas siku (elbow);VA006
+Level Amputasi;Di bawah siku (elbow);VA007
+Level Amputasi;Di atas/di bawah lutut;VA008
+Level Amputasi;Di atas/di bawah siku;VA009
+Level Amputasi;Forequarter;VA010
+Level Amputasi;Jari;VA011
+Level Amputasi;Jari kaki;VA012
+Level Amputasi;Jari tangan;VA013
+Level Amputasi;Polydactily;VA014
+Level Amputasi;Polydactily (with reconstruction);VA015
+Level Amputasi;Bahu;VA016
+Level Amputasi;Tangan;VA017
+Level Amputasi;Pelvis;VA018
+Level reparasi;Ringan (<25%);LV001
+Level reparasi;Sedang (25-60%);LV002
+Lokasi Eksplorasi Vaskular;Perifer;EV001
+Lokasi Eksplorasi Vaskular;Ekstremitas;EV002
+Lokasi Eksplorasi Vaskular;Intraabdomen;EV003
+Lokasi Eksplorasi Vaskular;Leher;EV004
+Lokasi Eksplorasi Vaskular;Craniocervical;EV005
+Lokasi Eksplorasi Vaskular;Spinal;EV006
+Lokasi Eksplorasi Vaskular;Intrakranial;EV007
+Lokasi Eksplorasi Vaskular;Transarterial;EV008
+Lokasi Eksplorasi Vaskular;Transarterial-transvena;EV009
+Lokasi Eksplorasi Vaskular;Intraarterial-transvena;EV010
+Lokasi Eksplorasi Vaskular;Aorta Abdominal;EV011
+Lokasi Eksplorasi Vaskular;Arkus Aorta – Carotis - Vertebralis;EV012
+Lokasi Eksplorasi Vaskular;Arteri Renalis;EV013
+Lokasi Eksplorasi Vaskular;Ekstremitas Atas;EV014
+Lokasi Eksplorasi Vaskular;Ekstremitas Bawah;EV015
+Lokasi Eksplorasi Vaskular;Penile;EV016
+Lokasi Humerus;Intercondyler;LH001
+Lokasi Humerus;Proximal/supracondyler;LH002
+Lokasi Humerus;Shaft-plate;LH003
+Lokasi Olecranon;Plate and screw/shortening;OL001
+Lokasi Olecranon;Tension band wiring;OL002
+Lokasi Pemotongan Tulang;Medialis;LP001
+Lokasi Pemotongan Tulang;Paramedial;LP002
+Lokasi Pemotongan Tulang;Percutaneus;LP003
+Lokasi Shunt;Brachiocephalica;LO001
+Lokasi Shunt;Basilica;LO002
+Lokasi Shunt;Radial (Brescia Cimino);LO003
+Lokasi Shunt;thoracoamnion;LO004
+Lokasi Shunt;vesiko-amnion;LO005
+Lokasi Tindakan;Dalam RS;LT001
+Lokasi Tindakan;Luar RS (dalam kota);LT002
+Lokasi Tindakan;luar RS (lainnya, sesuai jarak dan rute);LT003
+Lokasi Tindakan;luar RS (luar kota);LT004
+Lokasi Tindakan;Interhospital;LT005
+Lokasi Tindakan;Intrahospital;LT006
+Lokasi Tindakan;Di dalam kamar operasi;LT007
+Lokasi Tindakan;di dalam pengadilan;LT008
+Lokasi Tindakan;Di luar kamar operasi;LT009
+Lokasi Tindakan;di luar pengadilan;LT010
+Lokasi Tindakan;di rawat jalan;LT011
+Lokasi Tindakan;di ruang bersalin;LT012
+Lokasi Tindakan;di ruang operasi;LT013
+Lokasi Tindakan;office;LT014
+Lokasi Tindakan;Bedside;LT015
+Lokasi Tindakan;di ruang intensif;LT016
+Lokasi Tindakan;di ruang perawatan;LT017
+Lokasi Tindakan;di luar ruang intensif;LT018
+Luas Area Tindakan;<1/4 luas area kepala;LA001
+Luas Area Tindakan;>1 regio tubuh;LA002
+Luas Area Tindakan;>1/2 luas area kepala;LA003
+Luas Area Tindakan;Sedang;LA004
+Luas Area Tindakan;Simpel;LA005
+Luas Area Tindakan;Marginal;LA006
+Luas Area Tindakan;Segmental;LA007
+Luas Area Tindakan;Total;LA008
+Luas Area Tindakan;<1/2 wajah;LA009
+Luas Area Tindakan;1 rahang;LA010
+Luas Area Tindakan;1 regio tubuh;LA011
+Luas Area Tindakan;1/2 wajah;LA012
+Luas Area Tindakan;1/4-1/2 luas area kepala;LA013
+Luas Area Tindakan;2 rahang;LA014
+Luas Area Tindakan;Completion;LA015
+Luas Area Tindakan;Deep;LA016
+Luas Area Tindakan;Luas;LA017
+Luas Area Tindakan;Parsial;LA018
+Luas Area Tindakan;Posteralateral;LA019
+Luas Area Tindakan;Radikal;LA020
+Luas Area Tindakan;Radikal klasik;LA021
+Luas Area Tindakan;Radikal Modifikasi;LA022
+Luas Area Tindakan;Seluruh wajah;LA023
+Luas Area Tindakan;Superfisial;LA024
+Luas Area Tindakan;Supra Omohyoid;LA025
+Luas Area Tindakan;Upper Neck;LA026
+Luas Area Tindakan;>1 Segmen;LA027
+Luas Area Tindakan;1 Segmen;LA028
+Luas Area Tindakan;Selektif;LA029
+Luas Area Tindakan;Hemi Arch;LA030
+Luas Area Tindakan;Partial Arch;LA031
+Luas Area Tindakan;Total Arch;LA032
+Luas Area Tindakan;Whole body;LA033
+Luas Area Tindakan;Subtotal;LA034
+Luas Luka Bakar;>30%;LB001
+Luas Luka Bakar;<15%;LB002
+Luas Luka Bakar;15-30%;LB003
+Metode Ablasi;Laser intra janin;MB001
+Metode Ablasi;Laser per fetoskopi;MB002
+Metode Ablasi;Non Thermal;MB003
+Metode Ablasi;Radiofrekuensi intra janin;MB004
+Metode Ablasi;Thermal;MB005
+Metode Ablasi;Laser;MB006
+Metode Analisis;Interpretasi;DA001
+Metode Analisis;Pemeriksaan;DA002
+Metode Intubasi;Double lumen;MI001
+Metode Intubasi;Metode lainnya;MI002
+Metode Intubasi;Retrograde Intubation;MI003
+Metode Intubasi;Videolaryngoscopy;MI004
+Metode Modalitas;Terapi magnet;OM001
+Metode Modalitas;Diathermy (terapi panas dalam);OM002
+Metode Modalitas;Terapi electrical;OM003
+Metode Modalitas;Terapi Air;OM004
+Metode Modalitas;Terapi panas superfisial;OM005
+Metode Modalitas;Terapi Dingin;OM006
+Metode Modifikasi;Adang;MM001
+Metode Modifikasi;Martin;MM002
+Metode Modifikasi;Non modifikasi;MM003
+Metode Pewarnaan;Sudan Black B/SBB;MW001
+Metode Pewarnaan;FE (Sumsum Tulang);MW002
+Metode Pewarnaan;MPO/Lepehne;MW003
+Metode Pewarnaan;Napthyl Asetat;MW004
+Metode Pewarnaan;Neutrophil Alkaline Phospatase (NAP);MW005
+Metode Pewarnaan;Periodic Acid Schiff;MW006
+Metode Stimulus Visual;Full field;SV001
+Metode Stimulus Visual;Multifokal;SV002
+Metode Tindakan/Layanan;Konvensional;MD001
+Metode Tindakan/Layanan;Semiotomatis;MD002
+Metode Tindakan/Layanan;STSG;MD003
+Metode Tindakan/Layanan;Tunnel;MD004
+Metode Tindakan/Layanan;Eksisional;MD005
+Metode Tindakan/Layanan;FTSG;MD006
+Metode Tindakan/Layanan;GCMS;MD007
+Metode Tindakan/Layanan;Insisional;MD008
+Metode Tindakan/Layanan;LC-MSMS;MD009
+Metode Tindakan/Layanan;Manual;MD010
+Metode Tindakan/Layanan;Non tunnel;MD011
+Metode Tindakan/Layanan;Otomatis;MD012
+Metode Tindakan/Layanan;Surface;MD013
+Metode Tindakan/Layanan;With Needle;MD014
+Metode Tindakan/Layanan;TVT (trans vaginal tape);MD015
+Metode Tindakan/Layanan;TOT (trans obturator tape);MD016
+Metode Tindakan/Layanan;Direk;MD017
+Metode Tindakan/Layanan;Indirek;MD018
+Metode Tindakan/Layanan;Implantation;MD019
+Metode Tindakan/Layanan;Explantation;MD020
+Metode Tindakan/Layanan;Dengan filter;MD021
+Metode Tindakan/Layanan;tanpa filter;MD022
+Metode Uji Fungsi;Gait Analysis (Instrumental);OU001
+Metode Uji Fungsi;Gait Analysis (Observasional);OU002
+Metode Uji Fungsi;Analisis Gas;OU003
+Metode Uji Fungsi;Lapangan;OU004
+Mikrobiologi Lingkungan;PADA PERMUKAAN BENDA DAN IDENTIFIKASI MIKROBA;ML001
+Mikrobiologi Lingkungan;ENDOTOKSIN KUALITATIF;ML002
+Mikrobiologi Lingkungan;MIKROBIOLOGI AIR;ML003
+Mikrobiologi Lingkungan;MIKROBIOLOGI ALAT MASAK/ ALAT MAKAN;ML004
+Mikrobiologi Lingkungan;MIKROBIOLOGI MAKANAN;ML005
+Mikrobiologi Lingkungan;PADA PERMUKAAN BENDA;ML006
+Mikrobiologi Lingkungan;STERILITAS CAIRAN PRODUK FARMASI;ML007
+Mikrobiologi Lingkungan;STERILITAS PRODUK CSSD;ML008
+Mikrobiologi Lingkungan;UDARA (CFU/M3);ML009
+Mikrobiologi Lingkungan;UDARA (CFU/M3) DAN IDENTIFIKASI MIKROBA;ML010
+Moda Transportasi;Laut dan udara;MT001
+Moda Transportasi;Luar negeri;MT002
+Panjang Tapping;>2.5 m;PT001
+Panjang Tapping;<2.5;PT002
+Pendekatan;Endoskopi;PD001
+Pendekatan;Terbuka;PD002
+Pendekatan;Bedah robotik;PD003
+Pendekatan;Laparoskopi;PD004
+Pendekatan;Laparotomi;PD005
+Pendekatan;Laparoskopi tingkat 1;PD006
+Pendekatan;Laparoskopi tingkat 2 (dengan penyulit, perlekatan hebat);PD007
+Pendekatan;Periarterial;PD008
+Pendekatan;Robotic assisted laparoscopy;PD009
+Pendekatan;Torakoskopi;PD010
+Pendekatan;Tertutup;PD011
+Pendekatan;Perc Facet Denervation;PD012
+Pendekatan;Percutaneus Rhizotomy/PRGR;PD013
+Pendekatan;Histeroskopi;PD014
+Pendekatan;Aspiration thrombectomy;PD015
+Pendekatan;Pharmacomecanical thrombectomy;PD016
+Pendekatan;Torakotomi;PD017
+Pendekatan;Minimal invasif;PD018
+Pendekatan;Flebektomi;PD019
+Pendekatan;Angiojet;PD020
+Pendekatan;Dynamic;PD021
+Pendekatan;Static;PD022
+Pendekatan;Robotik;PD023
+Pengaturan Kamar;dengan tekanan negatif;RM001
+Pengaturan Kamar;tanpa tekanan negatif;RM002
+Penggunaan Jarum;Baru;PJ001
+Penggunaan Jarum;Reuse;PJ002
+Penyebab;Non Trauma;PN001
+Penyebab;Pada Trauma;PN002
+Prosedur Pemindaian;Dengan Kontras;RP001
+Prosedur Pemindaian;Tanpa Kontras;RP002
+Prosedur Psikolog;Psikoterapi Bermain (Play psychotherapy);RS001
+Radiofarmaka;Ac-225 DOTATATE;RF001
+Radiofarmaka;Ac-225 PSMA;RF002
+Radiofarmaka;F-18 DOPA;RF003
+Radiofarmaka;F-18 FDG;RF004
+Radiofarmaka;F-18 NaF;RF005
+Radiofarmaka;F-18 PSMA;RF006
+Radiofarmaka;FMISO;RF007
+Radiofarmaka;Ga-67 citrate;RF008
+Radiofarmaka;Ga-68 DOTATATE;RF009
+Radiofarmaka;Ga-68 FAPI;RF010
+Radiofarmaka;Ga-68 PSMA;RF011
+Radiofarmaka;I-123;RF012
+Radiofarmaka;I-123 Ioflupane (DaTscan);RF013
+Radiofarmaka;I-131;RF014
+Radiofarmaka;I-131 mIBG;RF015
+Radiofarmaka;Lu-177 DOTATATE;RF016
+Radiofarmaka;Lu-177 PSMA;RF017
+Radiofarmaka;P-32;RF018
+Radiofarmaka;Rh-188;RF019
+Radiofarmaka;Sm-153;RF020
+Radiofarmaka;Sm-153 EDTMP;RF021
+Radiofarmaka;Tc-99m Ciprofloxacin;RF022
+Radiofarmaka;Tc-99m ECD;RF023
+Radiofarmaka;Tc-99m Ethambutol;RF024
+Radiofarmaka;Tc-99m HMPAO;RF025
+Radiofarmaka;Tc-99m Hynic-TOC;RF026
+Radiofarmaka;Tc-99m pertechnetate;RF027
+Radiofarmaka;Tc-99m PSMA;RF028
+Radiofarmaka;Tc-99m Sestamibi;RF029
+Radiofarmaka;Tc-99m Trodat;RF030
+Radiofarmaka;Tc-99m Ubiquicidin;RF031
+Radiofarmaka;Tc-99m WBC;RF032
+Radiofarmaka;Y-90;RF033
+Radiofarmaka;Na-131;RF034
+Radiofarmaka;FDOPA;RF035
+Rute Rekonstruksi Vaskular;Aorto iliaka femora;RV001
+Rute Rekonstruksi Vaskular;Aorto subklavia karotis;RV002
+Rute Rekonstruksi Vaskular;Arteri intraabdominal;RV003
+Rute Rekonstruksi Vaskular;Vaskular perifer ekstra anatomikal;RV004
+Satuan Biaya;Per gigi;SB001
+Satuan Biaya;Per regio;SB002
+Satuan Biaya;Per unit;SB003
+Satuan Biaya;Besar;SB004
+Satuan Biaya;Kecil;SB005
+Satuan Biaya;per kedatangan;SB006
+Satuan Biaya;per 35x kedatangan;SB007
+Satuan Biaya;per 5x kedatangan;SB008
+Satuan Biaya;per 3x kedatangan;SB009
+Satuan Biaya;per 9x kedatangan;SB010
+Sisi tubuh;Unilateral;ST001
+Sisi Tubuh;Atas (Superior) Supra levator;ST002
+Sisi Tubuh;Atas dan Bawah;ST003
+Sisi Tubuh;Bawah (Inferior) Infra levator;ST004
+Sisi Tubuh;Belakang (Posterior);ST005
+Sisi Tubuh;Bilateral;ST006
+Sisi Tubuh;C1-C2;ST007
+Sisi Tubuh;Depan (Anterior);ST008
+Sisi Tubuh;Bawah;ST009
+Sisi Tubuh;Luar wajah;ST010
+Sisi Tubuh;Atas;ST011
+Sisi Tubuh;Wajah;ST012
+Sisi Tubuh;Wajah dan luar wajah;ST013
+Sisi Tubuh;Wajah terbatas;ST014
+Sisi Tubuh;Kanan;ST015
+Sisi Tubuh;Kiri;ST016
+Sisi Tubuh;Lateral;ST017
+Spesialisasi kamar;Jantung;RO001
+Spesialisasi kamar;Respirasi;RO002
+Spesialisasi kamar;Pediatrik;RO003
+Spesialisasi kamar;Neonatus;RO004
+Status kamar;Isolasi;KR001
+Status kamar;non isolasi;KR002
+Status pasien;Baru;PS001
+Status pasien;Lama;PS002
+Status Transplantasi;Donor;TL001
+Status Transplantasi;Resipien;TL002
+Substansi Injeksi;Botox;IN001
+Substansi Injeksi;PRP;IN002
+Substansi Injeksi;BMC;IN003
+Substansi Injeksi;Stem Cell;IN004
+Substansi Injeksi;Triamcinolone;IN005
+Substansi Injeksi;Secretome;IN006
+Sumber Sel Punca;Allogenic;SC001
+Sumber Sel Punca;Autologous;SC002
+Target Saraf;Ankle Joint Block;SA001
+Target Saraf;Genu Joint Block;SA002
+Target Saraf;Medial Nerve Block;SA003
+Target Saraf;N.Cranialis/Spinalis Perifer;SA004
+Target Saraf;Plexus Brachialis/LbSacralis;SA005
+Target Saraf;Radial Nerve Block;SA006
+Target Saraf;Sacro Iliac Joint Block;SA007
+Target Saraf;Shoulder Joint Block;SA008
+Target Saraf;Ulnar Nerve Block;SA009
+Target Saraf;Wrist Joint Block;SA010
+Target Saraf;Celiac plexus;SA011
+Target Saraf;Ilumbosacral;SA012
+Target Saraf;Lumbar Facet Joint;SA013
+Target Saraf;Lumbar Interlaminal;SA014
+Target Saraf;Lumbar Intradiscal;SA015
+Target Saraf;Lumbar Medial Branch;SA016
+Target Saraf;Lumbar Sympathetic;SA017
+Target Saraf;Lumbar Transforaminal;SA018
+Target Saraf;Sacral;SA019
+Target Saraf;Sacral Epidural;SA020
+Target Saraf;Sacral Transforaminal;SA021
+Target Saraf;Cervical Dorsal Root Ganglion;SA022
+Target Saraf;Cervical Epidural;SA023
+Target Saraf;Cervical Facet Joint;SA024
+Target Saraf;Cervical Interlaminar;SA025
+Target Saraf;Cervical Medial Branch;SA026
+Target Saraf;Cervical Sympathetic;SA027
+Target Saraf;Cervical Sympathetic Ganglion;SA028
+Target Saraf;Cervical;SA029
+Target Saraf;Thorakal;SA030
+Target Saraf;Thorakal Facet Joint;SA031
+Target Saraf;Thorakal Interlaminar;SA032
+Target Saraf;Thorakal Medial Branch;SA033
+Target Saraf;Thorakal Transforaminal;SA034
+Target Saraf;Intercostal;SA035
+Target Saraf;Lumbar Sacral;SA036
+Target Saraf;Lumbar;SA037
+Target Saraf;Pleksus Brachialis/N. Fasialis;SA038
+Target Saraf;Spinal;SA039
+Target Saraf;Occipital;SA040
+Target Saraf;Spinal Epidural;SA041
+Target Saraf;Spinal Facet Join;SA042
+Target Saraf;Spinal Medial Branch;SA043
+Target Saraf;Spinal Transforaminal;SA044
+Target Saraf;Stellate Ganglion;SA045
+Target Saraf;Thorakal epidural;SA046
+Target Saraf;Trigeminal Ganglion;SA047
+Target Saraf;Lumbar Epidural;SA048
+Target Saraf;Thorakal Sympathetic;SA049
+Target Saraf;Thorakal Interaminar;SA050
+Target Saraf;Canalis spinalis;SA051
+Target Saraf;Saraf Simpatetik;SA052
+Target Saraf;Saraf Perifer;SA053
+Tatalaksana Gangguan;Artikulasi;TG001
+Tatalaksana Gangguan;Bahasa Tidak Spesifik (Termasuk Disleksia, Dispraksia);TG002
+Tatalaksana Gangguan;Gangguan Berbahasa;TG003
+Tatalaksana Gangguan;Fonasi/Produksi Suara;TG004
+Tatalaksana Gangguan;Kelancaran Bicara;TG005
+Tatalaksana Gangguan;Makan dan Menelan;TG006
+Tatalaksana Gangguan;Proses Bicara pada Kelainan Kraniofacial;TG007
+Tatalaksana Gangguan;Keterlambatan Bahasa Bicara;TG008
+Teknik Hemodialisis;Konvensional;HD001
+Teknik Hemodialisis;Slow Efficiency Dialysis (SLED);HD002
+Teknik Hemodialisis;Hemodialisis Hemoperfusi (HDHP);HD003
+Teknik Pencitraan;Dual Phase;TC001
+Teknik Pencitraan;Dual Tracer;TC002
+Teknik Pencitraan;PET;TC003
+Teknik Pencitraan;SPECT;TC004
+Teknik Pencitraan;Perfusion Scan;TC005
+Teknik Pencitraan;Ventilation Scan;TC006
+Teknik Pencitraan;Ventilation-Perfusion (VQ) Scan;TC007
+Teknik Pencitraan;Captopril;TC008
+Teknik Pencitraan;Conventional;TC009
+Teknik Pencitraan;Diuretic;TC010
+Teknik Pencitraan;CT Scan;TC011
+Teknik Pencitraan;CT Scan Stimulator;TC012
+Teknik Pencitraan;Hybrid Imaging;TC013
+Teknik Pencitraan;Kedokteran Nuklir;TC014
+Teknik Pencitraan;MRI;TC015
+Teknik Pencitraan;Multi Modalitas;TC016
+Teknik Pencitraan;Radiografi Konvensional;TC017
+Teknik Pencitraan;Radiografi Konvensional Kontras;TC018
+Teknik Tindakan;imaging intravaskular (OCT/IVUS);TD001
+Teknik Tindakan;Injeksi Trombolitik Intraperitoneal;TD002
+Teknik Tindakan;Physiologic study (IFR/FFR);TD003
+Teknik Tindakan;Therapeutic Plasma Exchange;TD004
+Teknik Tindakan;Dengan CPB;TD005
+Teknik Tindakan;Tanpa CPB;TD006
+Teknik Tindakan;Dengan BT Shunt;TD007
+Teknik Tindakan;Tanpa BT Shunt;TD008
+Teknik Tindakan;LASIK;TD009
+Teknik Tindakan;Lenticular Refractive Surgery;TD010
+Teknik Tindakan;dengan tub silikon;TD011
+Teknik Tindakan;dengan Keterlibatan Margo;TD012
+Teknik Tindakan;tanpa Keterlibatan Margo;TD013
+Teknik Tindakan;Packing;TD014
+Teknik Tindakan;Suture;TD015
+Teknik Tindakan;On-line;TD016
+Teknik Tindakan;EBER-ISH;TD017
+Teknik Tindakan;HER2-ISH;TD018
+Teknik Tindakan;Lainnya;TD019
+Teknik Tindakan;poly-L-lysine;TD020
+Teknik Tindakan;anastomosis roux en y;TD021
+Teknik Tindakan Enukleasi;with Ball Orbital Implant;EL001
+Teknik Tindakan Enukleasi;with DFG;EL002
+Teknik Tindakan Enukleasi;with Orbital Implant;EL003
+Teknik Tindakan Radioterapi;Stereotactic Radiosurgery;RT001
+Teknik Tindakan Radioterapi;IMRT;RT002
+Teknik Tindakan Radioterapi;SRS/TBI/TSEBT;RT003
+Teknik Tindakan Radioterapi;SRT/SBRT;RT004
+Teknik Tindakan Radioterapi;IGRT;RT005
+Teknik Tindakan Radioterapi;IMRT/VMAT;RT006
+Teknik Tindakan Radioterapi;Teknik Khusus;RT007
+Teknik Tindakan Radioterapi;Stereotactic Radiotherapy;RT008
+Tindakan Pengambilan Spesimen;Puncture-BMP/BMA;NS001
+Tindakan Pengambilan Spesimen;Biopsy-BMB;NS002
+Tindakan Tambahan;Brow Lift;TB001
+Tindakan Tambahan;Dengan Bronkodiilator;TB002
+Tindakan Tambahan;Tanpa Bronkodilator;TB003
+Tindakan Tambahan;Temporal Lift;TB004
+Tindakan Tambahan;Dengan Tatalaksana PH;TB005
+Tindakan Tambahan;Konno Procedure;TB006
+Tindakan Tambahan;Imaging intrakoroner;TB007
+Tindakan Tambahan;Uji fungsional;TB008
+Tindakan Tambahan;Dengan PA;TB009
+Tindakan Tambahan;Tanpa PA;TB010
+Tindakan Tambahan;Dengan repair katup atau repair PA;TB011
+Tindakan Tambahan;Tanpa repair katup atau repair PA;TB012
+Tindakan Tambahan;Dengan angiography;TB013
+Tindakan Tambahan;Tanpa angiography;TB014
+Tindakan Tambahan;Tanpa Tatalaksana PH;TB015
+Tindakan Tambahan;dengan suntik;TB016
+Tindakan Tambahan;tanpa suntik;TB017
+Tindakan tambahan;Injeksi Intracameral (tanpa obat);TB018
+Tindakan Tambahan;Injeksi Intravitreal;TB019
+Tindakan Tambahan;Cryotherapy;TB020
+Tindakan Tambahan;Cryotherapy + Injeksi Intravitreal;TB021
+Tindakan Tambahan;Injeksi Intravena Kemoterapi;TB022
+Tindakan Tambahan;Laser Indirect Ophthalmoscopy (LIO);TB023
+Tindakan Tambahan;Laser Indirect Ophthalmoscopy (LIO) + Cryotherapy;TB024
+Tindakan Tambahan;Lid sparring;TB025
+Tindakan Tambahan;Rhinoplasty;TB026
+Tindakan Tambahan;DCR;TB027
+Tindakan Tambahan;dengan skin graft/skin flap;TB028
+Tindakan tambahan;dengan fiksasi;TB029
+Tindakan tambahan;tanpa fiksasi;TB030
+Tindakan Tambahan;Encircling band;TB031
+Tindakan Tambahan;Macular surgery;TB032
+Tindakan Tambahan;Heavy fluid;TB033
+Tindakan Tambahan;Macular surgery+Heavy fluid;TB034
+Tingkat Keahlian;Spesialis;KH001
+Tingkat Keahlian;Subspesialis;KH002
+Tingkat Reseksi;Tingkat 1;RE001
+Tingkat Reseksi;Tingkat 2;RE002
+Tingkat Reseksi;Tingkat 3;RE003
+TT;Serial;TT001
+TT;Non serial;TT002
+Tujuan Pemeriksaan;Terapeutik;EO001
+Tujuan Pemeriksaan;Diagnostik;EO002
+Tujuan Pemeriksaan;FNA;EO003
+Tujuan Pemeriksaan;Skrining;EO004
+Tujuan Pemeriksaan;Terapeutik biliary drainage;EO005
+Tujuan Pemeriksaan;Operatif;EO006
+Ukuran Bahan;Besar;UB001
+Ukuran Bahan;Kecil;UB002
+Ukuran Bahan;Sedang;UB003
+Ukuran Cryo Trobe;1.1 mm;CT001
+Ukuran Cryo Trobe;1.7 mm;CT002
+Ukuran Defek Tulang;>2 cm;DF001
+Ukuran Defek Tulang;<2 cm;DF002
+Ukuran Film;Besar;UF001
+Ukuran Film;Sedang;UF002
+Ukuran Film;Kecil;UF003
+Ukuran Jaringan;besar (diameter terbesar 6-10 cm/volume maksimal 50 cc);UJ001
+Ukuran Jaringan;kecil (diameter terbesar ≤2cm/volume maksimal 5 cc);UJ002
+Ukuran Jaringan;khusus (diameter terbesar >10 cm/volume maksimal >50 cc);UJ003
+Ukuran Jaringan;sedang (diameter terbesar 3-5cm/volume maksimal 25 cc);UJ004
+Ukuran Kelopak Mata;Kecil;UK001
+Ukuran Kelopak Mata;Besar;UK002
+Ukuran Lesi/Luka;>10 cm;UL001
+Ukuran Lesi/Luka;>3 cm;UL002
+Ukuran Lesi/Luka;<3 cm;UL003
+Ukuran Lesi/Luka;Besar (>10 cm);UL004
+Ukuran Lesi/Luka;Kecil (1-5 cm);UL005
+Ukuran Lesi/Luka;Sedang (6-10 cm);UL006
+Ukuran Lesi/Luka;<10 cm;UL007
+Ukuran Lesi/Luka;3-6 cm;UL008
+Ukuran Lesi/Luka;Luas 1 regio tubuh atau lebih;UL009
+Ukuran Lesi/Luka;Panjang hingga 12 cm;UL010
+Ukuran Lesi/Luka;Panjang hingga 3 cm;UL011
+Ukuran Lesi/Luka;Panjang hingga 6 cm;UL012
+Ukuran Lesi/Luka;<6 cm;UL013
+Ukuran Lesi/Luka;>6 cm;UL014
+Ukuran Lesi/Luka;>11 cm;UL015
+Volume Obat;0.1 mL-0.5 mL;VO001
+Volume Obat;>= 4 vial;VO002
+Volume Obat;>1 mL;VO003
+Volume Obat;<= 25 unit;VO004
+Volume Obat;0.6 mL-1 mL;VO005
+Volume Obat;1 vial;VO006
+Volume Obat;100-200 unit;VO007
+Volume Obat;2-3 vial;VO008
+Volume Obat;26-50 unit;VO009
+Volume Obat;51-100 unit;VO010
+Volume Obat;1.1 mL-2 mL;VO011
+Waktu Tindakan/Pelayanan;Lanjutan;WA001
+Waktu Tindakan/Pelayanan;Awal (inisiasi);WA002
+Waktu Tindakan/Pelayanan;Di luar operasi (ext);WA003
+Waktu Tindakan/Pelayanan;Harian;WA004
+Waktu Tindakan/Pelayanan;Intraoperatif;WA005
+Waktu Tindakan/Pelayanan;Pasca bedah;WA006
+Waktu Tindakan/Pelayanan;Pra bedah;WA007
+Waktu Tindakan/Pelayanan;Dalam Jam Kerja;WA008
+Waktu Tindakan/Pelayanan;Luar Jam Kerja;WA009
+Waktu Tindakan/Pelayanan;Cito;WA010
+Waktu Tindakan/Pelayanan;Elektif;WA011
+Waktu Tindakan/Pelayanan;Ulang;WA012

@@ -1,0 +1,958 @@
+﻿resource_type;attribute_path;code;parent_code;display;display_en;code_system
+Encounter;Encounter.hospitalization.dischargeDisposition;exp-lt48h;;Meninggal < 48 jam;Meninggal < 48 jam;http://terminology.kemkes.go.id/CodeSystem/discharge-disposition
+Encounter;Encounter.hospitalization.dischargeDisposition;exp-gt48h;;Meninggal > 48 jam;Meninggal > 48 jam;http://terminology.kemkes.go.id/CodeSystem/discharge-disposition
+Encounter;Encounter.identifier.system ;K1A;;Kunjungan K1 akses;Kunjungan K1 akses;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K1M;;Kunjungan K1 murni;Kunjungan K1 murni;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K2;;Kunjungan K2;Kunjungan K2;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K3;;Kunjungan K3;Kunjungan K3;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K4;;Kunjungan K4;Kunjungan K4;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K5;;Kunjungan K5;Kunjungan K5;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;K6;;Kunjungan K6;Kunjungan K6;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/ANC
+Encounter;Encounter.identifier.system ;KN1;;Kunjungan KN1;Kunjungan KN1;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/neonate
+Encounter;Encounter.identifier.system ;KN2;;Kunjungan KN2;Kunjungan KN2;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/neonate
+Encounter;Encounter.identifier.system ;KN3;;Kunjungan KN3;Kunjungan KN3;http://terminology.kemkes.go.id/CodeSystem/episodeofcare/neonate
+Encounter;Encounter.identifier.system ;KF1;;KF 1 (6 jam-2 hari);KF 1 (6 jam-2 hari);http://terminology.kemkes.go.id/CodeSystem/episodeofcare/puerperium
+Encounter;Encounter.identifier.system ;KF2;;KF 2 (3 - 7 hari);KF 2 (3 - 7 hari);http://terminology.kemkes.go.id/CodeSystem/episodeofcare/puerperium
+Encounter;Encounter.identifier.system ;KF3;;KF 3 (8 - 28 hari);KF 3 (8 - 28 hari);http://terminology.kemkes.go.id/CodeSystem/episodeofcare/puerperium
+Encounter;Encounter.identifier.system ;KF4;;KF 4 (29 - 42 hari);KF 4 (29 - 42 hari);http://terminology.kemkes.go.id/CodeSystem/episodeofcare/puerperium
+Procedure;Procedure.code;ED000001;;"Edukasi Proses penyakit, diagnosis, dan rencana asuhan;";"Edukasi Proses penyakit, diagnosis, dan rencana asuhan;";http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000002;;Edukasi obat-obatan;Edukasi obat-obatan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000003;;Edukasi Rehabilitasi Medis;Edukasi Rehabilitasi Medis;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000004;;Edukasi Manajemen Nyeri;Edukasi Manajemen Nyeri;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000005;;Edukasi Gizi;Edukasi Gizi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000006;;Edukasi Cuci Tangan;Edukasi Cuci Tangan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000007;;Edukasi Penggunaan Alat Medis;Edukasi Penggunaan Alat Medis;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000008;;Edukasi Tanda Bahaya Kehamilan, Bersalin dan Nifas;Edukasi Tanda Bahaya Kehamilan, Bersalin dan Nifas;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000009;;Edukasi IMD dan ASI Eksklusif;Edukasi IMD dan ASI Eksklusif;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000010;;Edukasi PHBS;Edukasi PHBS;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000011;;Edukasi KB pasca salin;Edukasi KB pasca salin;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;ED000012;;Edukasi lainnya ;Edukasi lainnya ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;PC000001;;Perawatan Tali Pusat ;Perawatan Tali Pusat ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;PC000002;;Pemberian Salep Antibiotik Mata;Pemberian Salep Antibiotik Mata;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;PC000003;;Manajemen Terpadu Bayi Muda (MTBM);Manajemen Terpadu Bayi Muda (MTBM);http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Procedure;Procedure.code;PC000004;;KB Pasca Persalinan;KB Pasca Persalinan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Condition;Condition.code;MN000001;;Stabil;Stabil;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Condition;Condition.code;MN000002;;Tidak stabil;Tidak stabil;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Condition;Condition.code;MN000003;;Perbaikan;Perbaikan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;ANC.SS.DE1;;Taksiran Berat Janin (TBJ);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE2;;Pernapasan;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE3;;Lingkar Lengan Atas (LILA);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE13;;Trimester ke;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE26;;Pemeriksaan Fisik Konjungtiva;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE27;;Pemeriksaan Fisik Sklera;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE28;;Pemeriksaan Fisik Leher;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE29;;Pemeriksaan Fisik Area Mulut;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE30;;Pemeriksaan Fisik Telinga Hidung dan Tenggorokan (THT);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE31;;Pemeriksaan Fisik Dada (Jantung);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE32;;Pemeriksaan Fisik Dada (Paru);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE33;;Pemeriksaan Fisik Perut;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE34;;Pemeriksaan Fisik Tungkai;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE36;;Gestational sac (GS) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE37;;Fetal Crown Rump Length (CRL) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE38;;Denyut Jantung Janin (DJJ) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE40;;Hari Perkiraan Lahir (HPL) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE41;;Letak Janin USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE42;;Head Circumference (HC) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE43;;Abdominal Circumference (AC) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE44;;Femur Length (FL) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE45;;Berat janin USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE46;;Kepala Terhadap PAP;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE53;;Jarak kehamilan;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE56;;Waktu Kematian;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE58;;IMT Sebelum Hamil;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE59;;Biparietal Diameter (BPD) USG;;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;ANC.SS.DE4;;Denyut Jantung Janin (DJJ);;http://terminology.kemkes.go.id/CodeSystem/anc-custom-codes
+Observation;Observation.code;OC000001;;Jarak kehamilan;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000002;;Kepala Terhadap PAP;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000003;;Jumlah Janin;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000004;;Letak Janin (USG);;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000005;;Indeks Berat Badan menurut Panjang Badan (z-score);;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000006;;Indeks Berat Badan menurut Tinggi Badan (z-score);;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000007;;Lama Perawatan;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000008;;Status Pertumbuhan dan Perkembangan;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000009;;Mendapatkan Makanan Pendamping ASI (MPASI);;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000010;;Indeks Massa Tubuh Sebelum Hamil;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000011;;Target Kenaikan Berat Badan;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000012;;Kenaikan Berat Badan Adekuat;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000013;;Penolong Persalinan;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000014;;Memiliki Buku KIA;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000015;;Konseling Perawatan Bayi Baru Lahir;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000016;;Waktu Inisiasi Menyusui Dini;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000017;;Produksi ASI;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000018;;Onset Kala III;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000019;;Onset Kala IV;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000020;;Tanda Infeksi Perineum;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;OC000025;;Tanda Infeksi Luka Jahitan Sectio Caesaria;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.code;X099080;;Titer Anti-ABO;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099081;;Sugar Water Test/Sucrose Water Test;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099082;;Badan inklusi Hb H;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099083;;Protein C kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099084;;Protein S kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099085;;Retraksi bekuan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099086;;Volume serum;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099087;;Konsistensi bekuan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099088;;Waktu trombin serial;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099089;;Waktu trombin 20 menit kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099090;;Waktu trombin 20 menit pasien;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099091;;Waktu trombin 40 menit kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099092;;Waktu trombin 40 menit pasien;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099093;;Waktu trombin 60 menit kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099094;;Waktu trombin 60 menit pasien;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099095;;Tes fungsi trombosit P2Y12 Base;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099096;;Immunophenotyping leukemia;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099097;;Immunophenotyping leukemia akut;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099098;;Immunophenotyping leukemia kronis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099099;;Sel lemak;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099100;;Giant metamielosit;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099101;;Giant stab;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099102;;Hipersegmentasi (> 6);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099103;;Hipogranulasi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099104;;Vakuolisasi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099105;;Anomali Pelger-Huest;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099106;;Karioreksis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099107;;Sel mitosis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099108;;Sel tak dikenal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099109;;Limfosit Abnormal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099110;;Lain-lain (Hapusan sumsum tulang);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099111;;Saran;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099112;;Hitung jenis darah;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099113;;Rasio hitung neutrofil-limfosit (NLCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099114;;Agregasi trombosit ADP 1 uM;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099115;;Agregasi trombosit ADP 2 uM;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099116;;Masa laten (Asam arakidonat);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099117;;Kecepatan agregasi (Asam arakidonat);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099118;;Index agregasi (Asam arakidonat);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099119;;Masa laten (Platelet activation factor);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099120;;Kecepatan agregasi (Platelet activation factor);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099121;;Index agregasi (Platelet activation factor);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099122;;% Agregasi (Platelet activation factor);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099123;;Masa laten;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099124;;Kecepatan agregasi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099125;;Index agregasi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099126;;Mixed APTT kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099127;;Faktor IX kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099128;;Fakotr VIII kontrol;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099129;;ANA Profile;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099130;;Human MSTN (Myostatin);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099131;;LE Cell Test;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099132;;CD14;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099133;;CD20;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099134;;CD45 absolut;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099135;;CD 4 - CD 8;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099136;;IgE spesifik ikan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099137;;Anti RA - 33;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099138;;HIV Western Blot;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099139;;Antigen M. tuberculosis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099140;;IgG Anti Mycoplasma;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099141;;IgG Anti Mycoplasma;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099142;;IgM Anti Mycoplasma;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099143;;IgM Anti Mycoplasma;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099144;;Antigen Salmonella paratyphi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099145;;IgA Anti EBV EBNA;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099146;;IgM Anti PGL-1;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099147;;IgG Anti PGL-1;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099148;;Clostridium difficile GDH;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099149;;Antigenemia CMV urine;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099150;;Analisis cairan otak;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099151;;Analisis kimia cairan otak;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099152;;Leukemia phenotyping cairan otak;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099153;;Analisis cairan empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099154;;Sel lain cairan empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099155;;Rasio bilirubin cairan empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099156;;Analisis batu empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099157;;Kolesterol batu empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099158;;Bilirubin total batu empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099159;;Kalsium batu empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099160;;Kalsium batu empedu;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099161;;Analisis cairan sendi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099162;;Analisis cairan tubuh;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099163;;Rasio protein cairan tubuh/serum;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099164;;Pandy's test cairan tubuh;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099165;;Analisa cairan peritoneal dialisis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099166;;Analisa cairan peritoneal dialisis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099167;;Analisis cairan perikardial;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099168;;Hitung jenis cairan perikardial;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099169;;Analisis cairan pleura;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099170;;Analisis batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099171;;Bau batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099172;;Kalsium batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099173;;Magnesium batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099174;;Fosfat batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099175;;Amonium batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099176;;Kesimpulan batu ginjal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099177;;Lama menikah;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099178;;Diperiksa;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099179;;Bau;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099180;;Sel spermiogenesis;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099181;;Akrosomal kecil;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099182;;Akrosomal besar;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099183;;Kesimpulan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099184;;Direct Mixed Antiglobulin Reaction (Direct MAR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099185;;Indirect Mixed Antiglobulin Reaction (Indirect MAR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099186;;Uji Fragmentasi DNA;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099187;;Pemeriksaan feses lengkap;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099188;;Pus feses;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099189;;Berminyak;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099190;;Berbusa;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099191;;Bau feses;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099192;;Eritrosit feses;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099193;;Bakteri;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099194;;Sisa makanan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099195;;Lain-lain;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099196;;Growth Hormone Basal;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099197;;Growth Hormone Exercise;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099198;;Free Light Chain Kappa;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099199;;Free Light Chain Lambda;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099200;;Anti Mullerian Hormone (AMH);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099201;;Imunofiksasi Light Chain kesimpulan;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099202;;Laktat Dehidrogenase (LDH) baseline;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099203;;Kunkel;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099204;;C peptide 2 jam PP;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099205;;Beta Crosslap (CTx);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099206;;Status antioksidan total;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099207;;Fetuin A;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099208;;Adrenomedullin (ADM);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099209;;Sel blas urine;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099210;;Fosfatase alkali baseline;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099211;;Amilase pankreatik;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099212;;Kolinesterase baseline;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099213;;Mikrofilaria;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099214;;Pewarnaan bakteri tahan asam kulit;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099215;;Lactobacillus;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099216;;Morbiluncus;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099217;;Gardnerella;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099218;;Biakan Shigella feses;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099219;;Kapreomisin 2,5 Î¼g/ml (Uji resistansi);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099220;;Kapreomisin 40,0 Î¼g/ml (Uji resistansi);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099221;;Ravuconazole (Uji resistansi);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099222;;Ciclopirox (Uji resistansi);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099223;;Gen N dan Orf 1ab SARS CoV-2 RNA (TCM);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099224;;H1N1 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099225;;HPV 40 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099226;;HPV 43 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099227;;HPV 54 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099228;;HPV 61 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099229;;HPV 62 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099230;;HPV 71 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099231;;HPV 72 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099232;;HPV 81 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099233;;HPV 83 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099234;;HPV 84 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099235;;HPV 85 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099236;;HPV 89 (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099237;;Influenza virus A (H3N2) (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099238;;Metapneumovirus (subtypes A and B) (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099239;;Poliovirus (PCR);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099240;;5p15 deletion (Cri-du-chat);;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099241;;Tes IVA;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099242;;CT urografi nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099243;;Guidance angioplasti balon transluminal arteri perifer;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099244;;Guidance angioplasti balon transluminal ginjal atau arteri viseral lain;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099245;;Guidance angioplasti balon transluminal vena;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099246;;Guidance percutaneous transhepatic biliary drainage dengan monitoring kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099247;;MR abdomen atas dinamik dengan kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099248;;MR abdomen atas dinamik nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099249;;MR cochlea dan DTI dengan kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099250;;MR cochlea dan DTI nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099251;;MR DTI kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099252;;MR DTI nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099253;;MR whole abdomen dynamic dengan kontras IV;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099254;;MR whole abdomen dynamic nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099255;;MR whole spine dengan kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099256;;MRCP dynamic nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099257;;MRCP dynamic nonkontras diikuti dengan kontras IV;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099258;;RF epididimografi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099259;;RF genitografi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099260;;RF guidance pemasangan alat pacu jantung;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099261;;RF ventrikulografi jantung;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099262;;US doppler superfisial;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099263;;US genu bilateral dengan kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099264;;US genu dengan kontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099265;;US kanalis spinalis dan isi;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099266;;US muskuloskeletal ipsilateral;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099267;;US muskuloskeletal superfisial;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099268;;XR schedel AP dan lateral nonkontras;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099269;;XR thorakolumbal AP, lateral, oblique kanan dan kiri;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.code;X099270;;XR thorakolumbal oblique;;http://terminology.kemkes.go.id/CodeSystem/examination
+Observation;Observation.interpretation;BMI-Normal;;Normal weight;;http://terminology.kemkes.go.id/CodeSystem/ObservationInterpretatiion
+Observation;Observation.interpretation;BMI-SevereUnder;;Severely Underweight;;http://terminology.kemkes.go.id/CodeSystem/ObservationInterpretation
+Observation;Observation.interpretation;OI000001;;Gizi Buruk;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000002;;Gizi Kurang;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000003;;Gizi Baik;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000004;;Risiko Gizi Lebih;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000005;;Gizi Lebih;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000006;;Obesitas;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000007;;Berat Badan Sangat Kurang;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000008;;Berat Badan Kurang;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000009;;Berat Badan Normal;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000010;;Risiko Berat Badan Lebih;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000011;;Sangat Pendek;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000012;;Pendek;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000013;;Normal;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000014;;Tinggi;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000015;;Normocephaly;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000016;;Sesuai Usia;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000017;;Tidak Sesuai Usia;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.interpretation;OI000018;;Kurang Energi Kronis (KEK) ;;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000001;;Masuk panggul;Masuk panggul;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000002;;Belum masuk panggul;Belum masuk panggul;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000003;;Presentasi Kepala;Presentasi Kepala;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000004;;Presentasi Bokong;Presentasi Bokong;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000005;;Letak Lintang;Letak Lintang;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000006;;Intrauteri;Intrauteri;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000007;;Ekstrauteri;Ekstrauteri;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000008;;5â€“9 kg;5â€“9 kg;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000009;;7â€“11.5 kg;7â€“11.5 kg;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000010;;11.5â€“16 kg;11.5â€“16 kg;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000011;;12.5â€“18 kg;12.5â€“18 kg;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000012;;Dukun;Dukun;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000013;;Lebih dari Lima;Lebih dari Lima;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000014;;Kurang dari 1 Jam;Kurang dari 1 Jam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000015;;Lebih dari 1 Jam;Lebih dari 1 Jam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000016;;Produksi ASI ada;Produksi ASI ada;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000017;;Produksi ASI ada tapi sedikit;Produksi ASI ada tapi sedikit;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000018;;Produksi ASI tidak ada;Produksi ASI tidak ada;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000019;;Frekuensi his;Frekuensi his;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000020;;Intensitas his;Intensitas his;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000021;;Durasi lama his;Durasi lama his;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000022;;Interval his;Interval his;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000023;;Datangnya his;Datangnya his;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000024;;Lokia berbau normal;Lokia berbau normal;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000025;;Lokia berbau amis/busuk;Lokia berbau amis/busuk;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000026;;Laceration of perineum during delivery involving vaginal mucosa and perineal skin;Laceration of perineum during delivery involving vaginal mucosa and perineal skin;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000027;;Laceration of perineum during delivery involving perineum muscles;Laceration of perineum during delivery involving perineum muscles;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;OV000028;;Laceration of perineum during delivery involving anal epithelium;Laceration of perineum during delivery involving anal epithelium;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000001;;Alert;Alert;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000002;;Voice;Voice;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000003;;Pain;Pain;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000004;;Unresponsive;Unresponsive;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000005;;Gelisah;Gelisah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Observation;Observation.valueCodeableConcept;TK000006;;Acute Confusional States;Acute Confusional States;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Medication;Medication.form;BS001;;Aerosol Foam;Aerosol Foam;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS002;;Aerosol Metered Dose;Aerosol Metered Dose;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS003;;Aerosol Spray;Aerosol Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS004;;Oral Spray;Oral Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS005;;Buscal Spray;Buscal Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS006;;Transdermal Spray;Transdermal Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS007;;Topical Spray;Topical Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS008;;Serbuk Spray;Serbuk Spray;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS009;;Eliksir;Eliksir;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS010;;Emulsi;Emulsi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS011;;Enema;Enema;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS012;;Gas;Gas;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS013;;Gel;Gel;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS014;;Gel Mata;Gel Mata;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS015;;Granul Effervescent;Granul Effervescent;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS016;;Granula;Granula;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS017;;Intra Uterine Device (IUD);Intra Uterine Device (IUD);http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS018;;Implant;Implant;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS019;;Kapsul;Kapsul;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS020;;Kapsul Lunak;Kapsul Lunak;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS021;;Kapsul Pelepasan Lambat;Kapsul Pelepasan Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS022;;Kaplet;Kaplet;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS023;;Kaplet Salut Selaput;Kaplet Salut Selaput;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS024;;Kaplet Salut Enterik;Kaplet Salut Enterik;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS025;;Kaplet Salut Gula;Kaplet Salut Gula;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS026;;Kaplet Pelepasan Lambat;Kaplet Pelepasan Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS027;;Kaplet Pelepasan Cepat;Kaplet Pelepasan Cepat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS028;;Kaplet Kunyah;Kaplet Kunyah;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS029;;Kaplet Kunyah Salut Selaput;Kaplet Kunyah Salut Selaput;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS030;;Krim;Krim;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS031;;Krim Lemak;Krim Lemak;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS032;;Larutan;Larutan;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS033;;Larutan Inhalasi;Larutan Inhalasi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS034;;Larutan Injeksi;Larutan Injeksi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS035;;Infus;Infus;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS036;;Obat Kumur;Obat Kumur;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS037;;Ovula;Ovula;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS038;;Pasta;Pasta;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS039;;Pil;Pil;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS040;;Patch;Patch;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS041;;Pessary;Pessary;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS042;;Salep;Salep;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS043;;Salep Mata;Salep Mata;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS044;;Sampo;Sampo;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS045;;Semprot Hidung;Semprot Hidung;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS046;;Serbuk Aerosol;Serbuk Aerosol;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS047;;Serbuk Oral;Serbuk Oral;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS048;;Serbuk Inhaler;Serbuk Inhaler;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS049;;Serbuk Injeksi;Serbuk Injeksi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS050;;Serbuk Injeksi Liofilisasi;Serbuk Injeksi Liofilisasi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS051;;Serbuk Infus;Serbuk Infus;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS052;;Serbuk Obat Luar / Serbuk Tabur;Serbuk Obat Luar / Serbuk Tabur;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS053;;Serbuk Steril;Serbuk Steril;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS054;;Serbuk Effervescent;Serbuk Effervescent;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS055;;Sirup;Sirup;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS056;;Sirup Kering;Sirup Kering;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS057;;Sirup Kering Pelepasan Lambat;Sirup Kering Pelepasan Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS058;;Subdermal Implants;Subdermal Implants;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS059;;Supositoria;Supositoria;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS060;;Suspensi;Suspensi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS061;;Suspensi Injeksi;Suspensi Injeksi;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS062;;Suspensi / Cairan Obat Luar;Suspensi / Cairan Obat Luar;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS063;;Cairan Steril;Cairan Steril;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS064;;Cairan Mata;Cairan Mata;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS065;;Cairan Diagnostik;Cairan Diagnostik;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS066;;Tablet;Tablet;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS067;;Tablet Effervescent;Tablet Effervescent;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS068;;Tablet Hisap;Tablet Hisap;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS069;;Tablet Kunyah;Tablet Kunyah;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS070;;Tablet Pelepasan Cepat;Tablet Pelepasan Cepat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS071;;Tablet Pelepasan Lambat;Tablet Pelepasan Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS072;;Tablet Disintegrasi Oral;Tablet Disintegrasi Oral;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS073;;Tablet Dispersibel;Tablet Dispersibel;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS074;;Tablet Cepat Larut;Tablet Cepat Larut;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS075;;Tablet Salut Gula;Tablet Salut Gula;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS076;;Tablet Salut Enterik;Tablet Salut Enterik;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS077;;Tablet Salut Selaput;Tablet Salut Selaput;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS078;;Tablet Sublingual;Tablet Sublingual;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS079;;Tablet Sublingual Pelepasan Lambat;Tablet Sublingual Pelepasan Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS080;;Tablet Vaginal;Tablet Vaginal;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS081;;Tablet Lapis;Tablet Lapis;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS082;;Tablet Lapis Lepas Lambat;Tablet Lapis Lepas Lambat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS083;;Chewing Gum;Chewing Gum;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS084;;Tetes Mata;Tetes Mata;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS085;;Tetes Hidung;Tetes Hidung;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS086;;Tetes Telinga;Tetes Telinga;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS087;;Tetes Oral (Oral Drops);Tetes Oral (Oral Drops);http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS088;;Tetes Mata Dan Telinga;Tetes Mata Dan Telinga;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS089;;Transdermal;Transdermal;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS090;;Transdermal Urethral;Transdermal Urethral;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS091;;Tulle/Plester Obat;Tulle/Plester Obat;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS092;;Vaginal Cream;Vaginal Cream;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS093;;Vaginal Gel;Vaginal Gel;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS094;;Vaginal Douche;Vaginal Douche;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS095;;Vaginal Ring;Vaginal Ring;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.form;BS096;;Vaginal Tissue;Vaginal Tissue;http://terminology.kemkes.go.id/CodeSystem/medication-form
+Medication;Medication.extension.valueCodableConcept.coding (medicationType);NC;;Non-compound ;Non-compound ;http://terminology.kemkes.go.id/CodeSystem/medication-type
+Medication;Medication.extension.valueCodableConcept.coding (medicationType);SD;;Gives of such doses;Gives of such doses;http://terminology.kemkes.go.id/CodeSystem/medication-type
+Medication;Medication.extension.valueCodableConcept.coding (medicationType);EP;;Divide into equal parts;Divide into equal parts;http://terminology.kemkes.go.id/CodeSystem/medication-type
+ServiceRequest;ServiceRequest.code;TL000001;;Rawat inap;Rawat inap;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+ServiceRequest;ServiceRequest.code;X099080;;Titer Anti-ABO;Titer Anti-ABO;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099081;;Sugar Water Test/Sucrose Water Test;Sugar Water Test/Sucrose Water Test;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099082;;Badan inklusi Hb H;Badan inklusi Hb H;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099083;;Protein C kontrol;Protein C kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099084;;Protein S kontrol;Protein S kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099085;;Retraksi bekuan;Retraksi bekuan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099086;;Volume serum;Volume serum;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099087;;Konsistensi bekuan;Konsistensi bekuan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099088;;Waktu trombin serial;Waktu trombin serial;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099089;;Waktu trombin 20 menit kontrol;Waktu trombin 20 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099090;;Waktu trombin 20 menit pasien;Waktu trombin 20 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099091;;Waktu trombin 40 menit kontrol;Waktu trombin 40 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099092;;Waktu trombin 40 menit pasien;Waktu trombin 40 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099093;;Waktu trombin 60 menit kontrol;Waktu trombin 60 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099094;;Waktu trombin 60 menit pasien;Waktu trombin 60 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099095;;Tes fungsi trombosit P2Y12 Base;Tes fungsi trombosit P2Y12 Base;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099096;;Immunophenotyping leukemia;Immunophenotyping leukemia;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099097;;Immunophenotyping leukemia akut;Immunophenotyping leukemia akut;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099098;;Immunophenotyping leukemia kronis;Immunophenotyping leukemia kronis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099099;;Sel lemak;Sel lemak;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099100;;Giant metamielosit;Giant metamielosit;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099101;;Giant stab;Giant stab;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099102;;Hipersegmentasi (> 6);Hipersegmentasi (> 6);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099103;;Hipogranulasi;Hipogranulasi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099104;;Vakuolisasi;Vakuolisasi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099105;;Anomali Pelger-Huest;Anomali Pelger-Huest;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099106;;Karioreksis;Karioreksis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099107;;Sel mitosis;Sel mitosis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099108;;Sel tak dikenal;Sel tak dikenal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099109;;Limfosit Abnormal;Limfosit Abnormal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099110;;Lain-lain (Hapusan sumsum tulang);Lain-lain (Hapusan sumsum tulang);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099112;;Hitung jenis darah;Hitung jenis darah;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099113;;Rasio hitung neutrofil-limfosit (NLCR);Rasio hitung neutrofil-limfosit (NLCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099114;;Agregasi trombosit ADP 1 uM;Agregasi trombosit ADP 1 uM;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099115;;Agregasi trombosit ADP 2 uM;Agregasi trombosit ADP 2 uM;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099116;;Masa laten (Asam arakidonat);Masa laten (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099117;;Kecepatan agregasi (Asam arakidonat);Kecepatan agregasi (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099118;;Index agregasi (Asam arakidonat);Index agregasi (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099119;;Masa laten (Platelet activation factor);Masa laten (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099120;;Kecepatan agregasi (Platelet activation factor);Kecepatan agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099121;;Index agregasi (Platelet activation factor);Index agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099122;;% Agregasi (Platelet activation factor);% Agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099123;;Masa laten;Masa laten;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099124;;Kecepatan agregasi;Kecepatan agregasi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099125;;Index agregasi;Index agregasi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099126;;Mixed APTT kontrol;Mixed APTT kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099127;;Faktor IX kontrol;Faktor IX kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099128;;Fakotr VIII kontrol;Fakotr VIII kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099129;;ANA Profile;ANA Profile;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099130;;Human MSTN (Myostatin);Human MSTN (Myostatin);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099131;;LE Cell Test;LE Cell Test;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099132;;CD14;CD14;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099133;;CD20;CD20;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099134;;CD45 absolut;CD45 absolut;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099135;;CD 4 - CD 8;CD 4 - CD 8;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099136;;IgE spesifik ikan;IgE spesifik ikan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099137;;Anti RA - 33;Anti RA - 33;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099138;;HIV Western Blot;HIV Western Blot;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099139;;Antigen M. tuberculosis;Antigen M. tuberculosis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099140;;IgG Anti Mycoplasma;IgG Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099141;;IgG Anti Mycoplasma;IgG Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099142;;IgM Anti Mycoplasma;IgM Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099143;;IgM Anti Mycoplasma;IgM Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099144;;Antigen Salmonella paratyphi;Antigen Salmonella paratyphi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099145;;IgA Anti EBV EBNA;IgA Anti EBV EBNA;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099146;;IgM Anti PGL-1;IgM Anti PGL-1;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099147;;IgG Anti PGL-1;IgG Anti PGL-1;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099148;;Clostridium difficile GDH;Clostridium difficile GDH;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099149;;Antigenemia CMV urine;Antigenemia CMV urine;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099150;;Analisis cairan otak;Analisis cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099151;;Analisis kimia cairan otak;Analisis kimia cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099152;;Leukemia phenotyping cairan otak;Leukemia phenotyping cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099153;;Analisis cairan empedu;Analisis cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099154;;Sel lain cairan empedu;Sel lain cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099155;;Rasio bilirubin cairan empedu;Rasio bilirubin cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099156;;Analisis batu empedu;Analisis batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099157;;Kolesterol batu empedu;Kolesterol batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099158;;Bilirubin total batu empedu;Bilirubin total batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099159;;Kalsium batu empedu;Kalsium batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099160;;Kalsium batu empedu;Kalsium batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099161;;Analisis cairan sendi;Analisis cairan sendi;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099162;;Analisis cairan tubuh;Analisis cairan tubuh;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099163;;Rasio protein cairan tubuh/serum;Rasio protein cairan tubuh/serum;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099164;;Pandy's test cairan tubuh;Pandy's test cairan tubuh;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099165;;Analisa cairan peritoneal dialisis;Analisa cairan peritoneal dialisis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099166;;Analisa cairan peritoneal dialisis;Analisa cairan peritoneal dialisis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099167;;Analisis cairan perikardial;Analisis cairan perikardial;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099168;;Hitung jenis cairan perikardial;Hitung jenis cairan perikardial;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099169;;Analisis cairan pleura;Analisis cairan pleura;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099170;;Analisis batu ginjal;Analisis batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099171;;Bau batu ginjal;Bau batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099172;;Kalsium batu ginjal;Kalsium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099173;;Magnesium batu ginjal;Magnesium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099174;;Fosfat batu ginjal;Fosfat batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099175;;Amonium batu ginjal;Amonium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099176;;Kesimpulan batu ginjal;Kesimpulan batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099177;;Lama menikah;Lama menikah;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099178;;Diperiksa;Diperiksa;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099179;;Bau;Bau;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099180;;Sel spermiogenesis;Sel spermiogenesis;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099181;;Akrosomal kecil;Akrosomal kecil;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099182;;Akrosomal besar;Akrosomal besar;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099183;;Kesimpulan;Kesimpulan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099184;;Direct Mixed Antiglobulin Reaction (Direct MAR);Direct Mixed Antiglobulin Reaction (Direct MAR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099185;;Indirect Mixed Antiglobulin Reaction (Indirect MAR);Indirect Mixed Antiglobulin Reaction (Indirect MAR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099186;;Uji Fragmentasi DNA;Uji Fragmentasi DNA;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099187;;Pemeriksaan feses lengkap;Pemeriksaan feses lengkap;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099188;;Pus feses;Pus feses;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099189;;Berminyak;Berminyak;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099190;;Berbusa;Berbusa;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099191;;Bau feses;Bau feses;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099192;;Eritrosit feses;Eritrosit feses;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099193;;Bakteri;Bakteri;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099194;;Sisa makanan;Sisa makanan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099195;;Lain-lain;Lain-lain;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099196;;Growth Hormone Basal;Growth Hormone Basal;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099197;;Growth Hormone Exercise;Growth Hormone Exercise;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099198;;Free Light Chain Kappa;Free Light Chain Kappa;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099199;;Free Light Chain Lambda;Free Light Chain Lambda;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099200;;Anti Mullerian Hormone (AMH);Anti Mullerian Hormone (AMH);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099201;;Imunofiksasi Light Chain kesimpulan;Imunofiksasi Light Chain kesimpulan;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099202;;Laktat Dehidrogenase (LDH) baseline;Laktat Dehidrogenase (LDH) baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099203;;Kunkel;Kunkel;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099204;;C peptide 2 jam PP;C peptide 2 jam PP;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099205;;Beta Crosslap (CTx);Beta Crosslap (CTx);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099206;;Status antioksidan total;Status antioksidan total;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099207;;Fetuin A;Fetuin A;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099208;;Adrenomedullin (ADM);Adrenomedullin (ADM);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099209;;Sel blas urine;Sel blas urine;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099210;;Fosfatase alkali baseline;Fosfatase alkali baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099211;;Amilase pankreatik;Amilase pankreatik;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099212;;Kolinesterase baseline;Kolinesterase baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099213;;Mikrofilaria;Mikrofilaria;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099214;;Pewarnaan bakteri tahan asam kulit;Pewarnaan bakteri tahan asam kulit;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099215;;Lactobacillus;Lactobacillus;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099216;;Morbiluncus;Morbiluncus;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099217;;Gardnerella;Gardnerella;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099218;;Biakan Shigella feses;Biakan Shigella feses;http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099219;;Kapreomisin 2,5 Î¼g/ml (Uji resistansi);Kapreomisin 2,5 Î¼g/ml (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099220;;Kapreomisin 40,0 Î¼g/ml (Uji resistansi);Kapreomisin 40,0 Î¼g/ml (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099221;;Ravuconazole (Uji resistansi);Ravuconazole (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099222;;Ciclopirox (Uji resistansi);Ciclopirox (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099223;;Gen N dan Orf 1ab SARS CoV-2 RNA (TCM);Gen N dan Orf 1ab SARS CoV-2 RNA (TCM);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099224;;H1N1 (PCR);H1N1 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099225;;HPV 40 (PCR);HPV 40 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099226;;HPV 43 (PCR);HPV 43 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099227;;HPV 54 (PCR);HPV 54 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099228;;HPV 61 (PCR);HPV 61 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099229;;HPV 62 (PCR);HPV 62 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099230;;HPV 71 (PCR);HPV 71 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099231;;HPV 72 (PCR);HPV 72 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099232;;HPV 81 (PCR);HPV 81 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099233;;HPV 83 (PCR);HPV 83 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099234;;HPV 84 (PCR);HPV 84 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099235;;HPV 85 (PCR);HPV 85 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099236;;HPV 89 (PCR);HPV 89 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099237;;Influenza virus A (H3N2) (PCR);Influenza virus A (H3N2) (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099238;;Metapneumovirus (subtypes A and B) (PCR);Metapneumovirus (subtypes A and B) (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099239;;Poliovirus (PCR);Poliovirus (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099240;;5p15 deletion (Cri-du-chat);5p15 deletion (Cri-du-chat);http://terminology.kemkes.go.id/CodeSystem/examination
+ServiceRequest;ServiceRequest.code;X099241;;Tes IVA;Tes IVA;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099080;;Titer Anti-ABO;Titer Anti-ABO;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099081;;Sugar Water Test/Sucrose Water Test;Sugar Water Test/Sucrose Water Test;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099082;;Badan inklusi Hb H;Badan inklusi Hb H;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099083;;Protein C kontrol;Protein C kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099084;;Protein S kontrol;Protein S kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099085;;Retraksi bekuan;Retraksi bekuan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099086;;Volume serum;Volume serum;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099087;;Konsistensi bekuan;Konsistensi bekuan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099088;;Waktu trombin serial;Waktu trombin serial;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099089;;Waktu trombin 20 menit kontrol;Waktu trombin 20 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099090;;Waktu trombin 20 menit pasien;Waktu trombin 20 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099091;;Waktu trombin 40 menit kontrol;Waktu trombin 40 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099092;;Waktu trombin 40 menit pasien;Waktu trombin 40 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099093;;Waktu trombin 60 menit kontrol;Waktu trombin 60 menit kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099094;;Waktu trombin 60 menit pasien;Waktu trombin 60 menit pasien;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099095;;Tes fungsi trombosit P2Y12 Base;Tes fungsi trombosit P2Y12 Base;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099096;;Immunophenotyping leukemia;Immunophenotyping leukemia;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099097;;Immunophenotyping leukemia akut;Immunophenotyping leukemia akut;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099098;;Immunophenotyping leukemia kronis;Immunophenotyping leukemia kronis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099099;;Sel lemak;Sel lemak;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099100;;Giant metamielosit;Giant metamielosit;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099101;;Giant stab;Giant stab;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099102;;Hipersegmentasi (> 6);Hipersegmentasi (> 6);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099103;;Hipogranulasi;Hipogranulasi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099104;;Vakuolisasi;Vakuolisasi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099105;;Anomali Pelger-Huest;Anomali Pelger-Huest;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099106;;Karioreksis;Karioreksis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099107;;Sel mitosis;Sel mitosis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099108;;Sel tak dikenal;Sel tak dikenal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099109;;Limfosit Abnormal;Limfosit Abnormal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099110;;Lain-lain (Hapusan sumsum tulang);Lain-lain (Hapusan sumsum tulang);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099111;;Saran;Saran;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099112;;Hitung jenis darah;Hitung jenis darah;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099113;;Rasio hitung neutrofil-limfosit (NLCR);Rasio hitung neutrofil-limfosit (NLCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099114;;Agregasi trombosit ADP 1 uM;Agregasi trombosit ADP 1 uM;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099115;;Agregasi trombosit ADP 2 uM;Agregasi trombosit ADP 2 uM;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099116;;Masa laten (Asam arakidonat);Masa laten (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099117;;Kecepatan agregasi (Asam arakidonat);Kecepatan agregasi (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099118;;Index agregasi (Asam arakidonat);Index agregasi (Asam arakidonat);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099119;;Masa laten (Platelet activation factor);Masa laten (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099120;;Kecepatan agregasi (Platelet activation factor);Kecepatan agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099121;;Index agregasi (Platelet activation factor);Index agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099122;;% Agregasi (Platelet activation factor);% Agregasi (Platelet activation factor);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099123;;Masa laten;Masa laten;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099124;;Kecepatan agregasi;Kecepatan agregasi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099125;;Index agregasi;Index agregasi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099126;;Mixed APTT kontrol;Mixed APTT kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099127;;Faktor IX kontrol;Faktor IX kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099128;;Fakotr VIII kontrol;Fakotr VIII kontrol;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099129;;ANA Profile;ANA Profile;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099130;;Human MSTN (Myostatin);Human MSTN (Myostatin);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099131;;LE Cell Test;LE Cell Test;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099132;;CD14;CD14;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099133;;CD20;CD20;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099134;;CD45 absolut;CD45 absolut;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099135;;CD 4 - CD 8;CD 4 - CD 8;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099136;;IgE spesifik ikan;IgE spesifik ikan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099137;;Anti RA - 33;Anti RA - 33;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099138;;HIV Western Blot;HIV Western Blot;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099139;;Antigen M. tuberculosis;Antigen M. tuberculosis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099140;;IgG Anti Mycoplasma;IgG Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099141;;IgG Anti Mycoplasma;IgG Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099142;;IgM Anti Mycoplasma;IgM Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099143;;IgM Anti Mycoplasma;IgM Anti Mycoplasma;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099144;;Antigen Salmonella paratyphi;Antigen Salmonella paratyphi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099145;;IgA Anti EBV EBNA;IgA Anti EBV EBNA;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099146;;IgM Anti PGL-1;IgM Anti PGL-1;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099147;;IgG Anti PGL-1;IgG Anti PGL-1;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099148;;Clostridium difficile GDH;Clostridium difficile GDH;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099149;;Antigenemia CMV urine;Antigenemia CMV urine;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099150;;Analisis cairan otak;Analisis cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099151;;Analisis kimia cairan otak;Analisis kimia cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099152;;Leukemia phenotyping cairan otak;Leukemia phenotyping cairan otak;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099153;;Analisis cairan empedu;Analisis cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099154;;Sel lain cairan empedu;Sel lain cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099155;;Rasio bilirubin cairan empedu;Rasio bilirubin cairan empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099156;;Analisis batu empedu;Analisis batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099157;;Kolesterol batu empedu;Kolesterol batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099158;;Bilirubin total batu empedu;Bilirubin total batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099159;;Kalsium batu empedu;Kalsium batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099160;;Kalsium batu empedu;Kalsium batu empedu;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099161;;Analisis cairan sendi;Analisis cairan sendi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099162;;Analisis cairan tubuh;Analisis cairan tubuh;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099163;;Rasio protein cairan tubuh/serum;Rasio protein cairan tubuh/serum;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099164;;Pandy's test cairan tubuh;Pandy's test cairan tubuh;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099165;;Analisa cairan peritoneal dialisis;Analisa cairan peritoneal dialisis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099166;;Analisa cairan peritoneal dialisis;Analisa cairan peritoneal dialisis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099167;;Analisis cairan perikardial;Analisis cairan perikardial;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099168;;Hitung jenis cairan perikardial;Hitung jenis cairan perikardial;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099169;;Analisis cairan pleura;Analisis cairan pleura;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099170;;Analisis batu ginjal;Analisis batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099171;;Bau batu ginjal;Bau batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099172;;Kalsium batu ginjal;Kalsium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099173;;Magnesium batu ginjal;Magnesium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099174;;Fosfat batu ginjal;Fosfat batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099175;;Amonium batu ginjal;Amonium batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099176;;Kesimpulan batu ginjal;Kesimpulan batu ginjal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099177;;Lama menikah;Lama menikah;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099178;;Diperiksa;Diperiksa;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099179;;Bau;Bau;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099180;;Sel spermiogenesis;Sel spermiogenesis;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099181;;Akrosomal kecil;Akrosomal kecil;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099182;;Akrosomal besar;Akrosomal besar;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099183;;Kesimpulan;Kesimpulan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099184;;Direct Mixed Antiglobulin Reaction (Direct MAR);Direct Mixed Antiglobulin Reaction (Direct MAR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099185;;Indirect Mixed Antiglobulin Reaction (Indirect MAR);Indirect Mixed Antiglobulin Reaction (Indirect MAR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099186;;Uji Fragmentasi DNA;Uji Fragmentasi DNA;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099187;;Pemeriksaan feses lengkap;Pemeriksaan feses lengkap;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099188;;Pus feses;Pus feses;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099189;;Berminyak;Berminyak;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099190;;Berbusa;Berbusa;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099191;;Bau feses;Bau feses;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099192;;Eritrosit feses;Eritrosit feses;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099193;;Bakteri;Bakteri;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099194;;Sisa makanan;Sisa makanan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099195;;Lain-lain;Lain-lain;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099196;;Growth Hormone Basal;Growth Hormone Basal;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099197;;Growth Hormone Exercise;Growth Hormone Exercise;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099198;;Free Light Chain Kappa;Free Light Chain Kappa;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099199;;Free Light Chain Lambda;Free Light Chain Lambda;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099200;;Anti Mullerian Hormone (AMH);Anti Mullerian Hormone (AMH);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099201;;Imunofiksasi Light Chain kesimpulan;Imunofiksasi Light Chain kesimpulan;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099202;;Laktat Dehidrogenase (LDH) baseline;Laktat Dehidrogenase (LDH) baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099203;;Kunkel;Kunkel;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099204;;C peptide 2 jam PP;C peptide 2 jam PP;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099205;;Beta Crosslap (CTx);Beta Crosslap (CTx);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099206;;Status antioksidan total;Status antioksidan total;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099207;;Fetuin A;Fetuin A;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099208;;Adrenomedullin (ADM);Adrenomedullin (ADM);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099209;;Sel blas urine;Sel blas urine;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099210;;Fosfatase alkali baseline;Fosfatase alkali baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099211;;Amilase pankreatik;Amilase pankreatik;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099212;;Kolinesterase baseline;Kolinesterase baseline;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099213;;Mikrofilaria;Mikrofilaria;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099214;;Pewarnaan bakteri tahan asam kulit;Pewarnaan bakteri tahan asam kulit;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099215;;Lactobacillus;Lactobacillus;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099216;;Morbiluncus;Morbiluncus;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099217;;Gardnerella;Gardnerella;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099218;;Biakan Shigella feses;Biakan Shigella feses;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099219;;Kapreomisin 2,5 Î¼g/ml (Uji resistansi);Kapreomisin 2,5 Î¼g/ml (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099220;;Kapreomisin 40,0 Î¼g/ml (Uji resistansi);Kapreomisin 40,0 Î¼g/ml (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099221;;Ravuconazole (Uji resistansi);Ravuconazole (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099222;;Ciclopirox (Uji resistansi);Ciclopirox (Uji resistansi);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099223;;Gen N dan Orf 1ab SARS CoV-2 RNA (TCM);Gen N dan Orf 1ab SARS CoV-2 RNA (TCM);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099224;;H1N1 (PCR);H1N1 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099225;;HPV 40 (PCR);HPV 40 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099226;;HPV 43 (PCR);HPV 43 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099227;;HPV 54 (PCR);HPV 54 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099228;;HPV 61 (PCR);HPV 61 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099229;;HPV 62 (PCR);HPV 62 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099230;;HPV 71 (PCR);HPV 71 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099231;;HPV 72 (PCR);HPV 72 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099232;;HPV 81 (PCR);HPV 81 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099233;;HPV 83 (PCR);HPV 83 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099234;;HPV 84 (PCR);HPV 84 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099235;;HPV 85 (PCR);HPV 85 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099236;;HPV 89 (PCR);HPV 89 (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099237;;Influenza virus A (H3N2) (PCR);Influenza virus A (H3N2) (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099238;;Metapneumovirus (subtypes A and B) (PCR);Metapneumovirus (subtypes A and B) (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099239;;Poliovirus (PCR);Poliovirus (PCR);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099240;;5p15 deletion (Cri-du-chat);5p15 deletion (Cri-du-chat);http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099241;;Tes IVA;Tes IVA;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099242;;CT urografi nonkontras;CT urografi nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099243;;Guidance angioplasti balon transluminal arteri perifer;Guidance angioplasti balon transluminal arteri perifer;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099244;;Guidance angioplasti balon transluminal ginjal atau arteri viseral lain;Guidance angioplasti balon transluminal ginjal atau arteri viseral lain;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099245;;Guidance angioplasti balon transluminal vena;Guidance angioplasti balon transluminal vena;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099246;;Guidance percutaneous transhepatic biliary drainage dengan monitoring kontras;Guidance percutaneous transhepatic biliary drainage dengan monitoring kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099247;;MR abdomen atas dinamik dengan kontras;MR abdomen atas dinamik dengan kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099248;;MR abdomen atas dinamik nonkontras;MR abdomen atas dinamik nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099249;;MR cochlea dan DTI dengan kontras;MR cochlea dan DTI dengan kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099250;;MR cochlea dan DTI nonkontras;MR cochlea dan DTI nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099251;;MR DTI kontras;MR DTI kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099252;;MR DTI nonkontras;MR DTI nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099253;;MR whole abdomen dynamic dengan kontras IV;MR whole abdomen dynamic dengan kontras IV;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099254;;MR whole abdomen dynamic nonkontras;MR whole abdomen dynamic nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099255;;MR whole spine dengan kontras;MR whole spine dengan kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099256;;MRCP dynamic nonkontras;MRCP dynamic nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099257;;MRCP dynamic nonkontras diikuti dengan kontras IV;MRCP dynamic nonkontras diikuti dengan kontras IV;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099258;;RF epididimografi;RF epididimografi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099259;;RF genitografi;RF genitografi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099260;;RF guidance pemasangan alat pacu jantung;RF guidance pemasangan alat pacu jantung;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099261;;RF ventrikulografi jantung;RF ventrikulografi jantung;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099262;;US doppler superfisial;US doppler superfisial;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099263;;US genu bilateral dengan kontras;US genu bilateral dengan kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099264;;US genu dengan kontras;US genu dengan kontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099265;;US kanalis spinalis dan isi;US kanalis spinalis dan isi;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099266;;US muskuloskeletal ipsilateral;US muskuloskeletal ipsilateral;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099267;;US muskuloskeletal superfisial;US muskuloskeletal superfisial;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099268;;XR schedel AP dan lateral nonkontras;XR schedel AP dan lateral nonkontras;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099269;;XR thorakolumbal AP, lateral, oblique kanan dan kiri;XR thorakolumbal AP, lateral, oblique kanan dan kiri;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.code;X099270;;XR thorakolumbal oblique;XR thorakolumbal oblique;http://terminology.kemkes.go.id/CodeSystem/examination
+DiagnosticReport;DiagnosticReport.conclusionCode;BMI-Normal;;Normal weight;Normal weight;http://terminology.kemkes.go.id/CodeSystem/ObservationInterpretatiion
+DiagnosticReport;DiagnosticReport.conclusionCode;BMI-SevereUnder;;Severely Underweight;Severely Underweight;http://terminology.kemkes.go.id/CodeSystem/ObservationInterpretation
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000001;;Gizi Buruk;Gizi Buruk;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000002;;Gizi Kurang;Gizi Kurang;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000003;;Gizi Baik;Gizi Baik;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000004;;Risiko Gizi Lebih;Risiko Gizi Lebih;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000005;;Gizi Lebih;Gizi Lebih;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000006;;Obesitas;Obesitas;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000007;;Berat Badan Sangat Kurang;Berat Badan Sangat Kurang;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000008;;Berat Badan Kurang;Berat Badan Kurang;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000009;;Berat Badan Normal;Berat Badan Normal;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000010;;Risiko Berat Badan Lebih;Risiko Berat Badan Lebih;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000011;;Sangat Pendek;Sangat Pendek;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000012;;Pendek;Pendek;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000013;;Normal;Normal;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000014;;Tinggi;Tinggi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000015;;Normocephaly;Normocephaly;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000016;;Sesuai Usia;Sesuai Usia;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000017;;Tidak Sesuai Usia;Tidak Sesuai Usia;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+DiagnosticReport;DiagnosticReport.conclusionCode;OI000018;;Kurang Energi Kronis (KEK) ;Kurang Energi Kronis (KEK) ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000001;;Rumput bermuda;Rumput bermuda;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000002;;Rumput timotius;Rumput timotius;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000003;;Akasia;Akasia;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000004;;Minyak kelapa sawit;Minyak kelapa sawit;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000005;;Tungau debu;Tungau debu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000006;;Tungau bahan pangan;Tungau bahan pangan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000007;;Tungau Perabotan Rumah;Tungau Perabotan Rumah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000008;;Tungau tepung, beras;Tungau tepung, beras;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000009;;Kapuk;Kapuk;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000010;;Racun lebah madu;Racun lebah madu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000011;;Kecoa jerman;Kecoa jerman;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000012;;Candida albicans;Candida albicans;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000013;;Tepung terigu;Tepung terigu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000014;;Ragi;Ragi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000015;;Ikan kod ;Ikan kod ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000016;;Salmon;Salmon;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000017;;Daging bebek ;Daging bebek ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000018;;Daging sapi;Daging sapi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000019;;Daging ayam;Daging ayam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000020;;Daging domba ;Daging domba ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000021;;Keju cheedar;Keju cheedar;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000022;;Kopi;Kopi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000023;;Nasi putih;Nasi putih;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000024;;Kuning telur ;Kuning telur ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000025;;Kerang ;Kerang ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000026;;Kacang merah;Kacang merah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000027;;Kacang hijau;Kacang hijau;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000028;;Bulu ayam;Bulu ayam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000029;;Kacang polong;Kacang polong;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000030;;Tepung gandum;Tepung gandum;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000031;;Makerel;Makerel;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000032;;Kerang simping;Kerang simping;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000033;;Susu kambing;Susu kambing;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000034;;Paprika;Paprika;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000035;;Kubis;Kubis;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000036;;Adas;Adas;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000037;;Selada;Selada;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000038;;Labu;Labu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000039;;Lobak;Lobak;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000040;;Timun jepang/Zucchini;Timun jepang/Zucchini;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000041;;Gandum kuda/buckwheat;Gandum kuda/buckwheat;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000042;;Sarden;Sarden;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.code;AL000043;;Debu rumah;Debu rumah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000001;;Rumput bermuda;Rumput bermuda;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000002;;Rumput timotius;Rumput timotius;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000003;;Akasia;Akasia;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000004;;Minyak kelapa sawit;Minyak kelapa sawit;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000005;;Tungau debu;Tungau debu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000006;;Tungau bahan pangan;Tungau bahan pangan;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000007;;Tungau Perabotan Rumah;Tungau Perabotan Rumah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000008;;Tungau tepung, beras;Tungau tepung, beras;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000009;;Kapuk;Kapuk;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000010;;Racun lebah madu;Racun lebah madu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000011;;Kecoa jerman;Kecoa jerman;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000012;;Candida albicans;Candida albicans;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000013;;Tepung terigu;Tepung terigu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000014;;Ragi;Ragi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000015;;Ikan kod ;Ikan kod ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000016;;Salmon;Salmon;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000017;;Daging bebek ;Daging bebek ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000018;;Daging sapi;Daging sapi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000019;;Daging ayam;Daging ayam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000020;;Daging domba ;Daging domba ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000021;;Keju cheedar;Keju cheedar;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000022;;Kopi;Kopi;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000023;;Nasi putih;Nasi putih;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000024;;Kuning telur ;Kuning telur ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000025;;Kerang ;Kerang ;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000026;;Kacang merah;Kacang merah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000027;;Kacang hijau;Kacang hijau;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000028;;Bulu ayam;Bulu ayam;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000029;;Kacang polong;Kacang polong;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000030;;Tepung gandum;Tepung gandum;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000031;;Makerel;Makerel;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000032;;Kerang simping;Kerang simping;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000033;;Susu kambing;Susu kambing;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000034;;Paprika;Paprika;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000035;;Kubis;Kubis;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000036;;Adas;Adas;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000037;;Selada;Selada;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000038;;Labu;Labu;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000039;;Lobak;Lobak;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000040;;Timun jepang/Zucchini;Timun jepang/Zucchini;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000041;;Gandum kuda/buckwheat;Gandum kuda/buckwheat;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000042;;Sarden;Sarden;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+AllergyIntolerance;AllergyIntolerance.reaction.substance;AL000043;;Debu rumah;Debu rumah;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+ClinicalImpression;ClinicalImpression.prognosisCodeableConcept;PR000001;;Prognosis baik;Prognosis baik;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+ClinicalImpression;ClinicalImpression.prognosisCodeableConcept;PR000002;;Prognosis dubia et bonam / cenderung baik;Prognosis dubia et bonam / cenderung baik;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+ClinicalImpression;ClinicalImpression.prognosisCodeableConcept;PR000003;;Prognosis dubia et malam / cenderung tidak baik;Prognosis dubia et malam / cenderung tidak baik;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+ClinicalImpression;ClinicalImpression.prognosisCodeableConcept;PR000004;;Prognosis tidak baik;Prognosis tidak baik;http://terminology.kemkes.go.id/CodeSystem/clinical-term
+Organization;Organization.type;101;;Tempat Praktik Mandiri Tenaga Kesehatan;Tempat Praktik Mandiri Tenaga Kesehatan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;102;;Pusat Kesehatan Masyarakat;Pusat Kesehatan Masyarakat;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;103;;Klinik;Klinik;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;104;;Rumah Sakit;Rumah Sakit;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;105;;Apotek;Apotek;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;106;;Unit Transfusi Darah;Unit Transfusi Darah;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;107;;Laboratorium Kesehatan;Laboratorium Kesehatan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;108;;Optikal;Optikal;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;109;;Fasilitas Pelayanan Kedokteran untuk Kepentingan Hukum;Fasilitas Pelayanan Kedokteran untuk Kepentingan Hukum;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;110;;Fasilitas Pelayanan Kesehatan Tradisional;Fasilitas Pelayanan Kesehatan Tradisional;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;111;;Balai Kesehatan;Balai Kesehatan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;112;;Fasilitas Pelayanan Kesehatan Lainnya;Fasilitas Pelayanan Kesehatan Lainnya;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;113;;Industri Farmasi;Industri Farmasi;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;114;;Industri Alkes;Industri Alkes;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;115;;Industri PKRT;Industri PKRT;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;116;;Industri Kosmetika;Industri Kosmetika;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;117;;Industri Obat Tradisional;Industri Obat Tradisional;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;118;;Usaha Kecil & Mikro Obat Tradisional;Usaha Kecil & Mikro Obat Tradisional;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;119;;Industri Rumah Tangga Pangan;Industri Rumah Tangga Pangan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;120;;Industri Rumah Tangga Alkes PKRT;Industri Rumah Tangga Alkes PKRT;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;121;;Pedagang Besar Farmasi;Pedagang Besar Farmasi;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;122;;Penyalur Alkes PKRT;Penyalur Alkes PKRT;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;123;;Toko Obat;Toko Obat;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;124;;Toko Alkes PKRT;Toko Alkes PKRT;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;125;;Rumah Duka;Rumah Duka;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;126;;Institusi Pendidikan Tenaga Kesehatan;Institusi Pendidikan Tenaga Kesehatan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;127;;Institusi Diklat dan Pengembangan SDMK;Institusi Diklat dan Pengembangan SDMK;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;128;;Institusi Pendidikan Lainnya;Institusi Pendidikan Lainnya;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;129;;Dinas Kesehatan;Dinas Kesehatan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;130;;Posyandu Prima;Posyandu Prima;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;131;;Posyandu;Posyandu;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;132;;Sentra Vaksinasi / Pos Imunisasi Lainnya;Sentra Vaksinasi / Pos Imunisasi Lainnya;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;133;;Sekolah;Sekolah;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;134;;Kantor Kesehatan Pelabuhan;Kantor Kesehatan Pelabuhan;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;135;;Instalasi Farmasi;Instalasi Farmasi;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Organization;Organization.type;136;;Sarana Pembuangan Limbah Medis;Sarana Pembuangan Limbah Medis;http://terminology.kemkes.go.id/CodeSystem/organization-type
+Location;Location.physicalType;vir;;Virtual ;Virtual ;http://terminology.kemkes.go.id/CodeSystem/location-physical-type
+Immunization;Immunization.programEligibility;1;;Diverifikasi;Diverifikasi;http://terminology.kemkes.go.id/CodeSystem/immunization-program-eligibility
+Immunization;Immunization.programEligibility;2;;Belum diverifikasi;Belum diverifikasi;http://terminology.kemkes.go.id/CodeSystem/immunization-program-eligibility
+Immunization;Immunization.programEligibility;3;;Butuh verifikasi tambahan;Butuh verifikasi tambahan;http://terminology.kemkes.go.id/CodeSystem/immunization-program-eligibility
+Immunization;Immunization.programEligibility;4;;Bukan sasaran/duplikasi;Bukan sasaran/duplikasi;http://terminology.kemkes.go.id/CodeSystem/immunization-program-eligibility
+Immunization;Immunization.reasonCode;IM-Program;;Imunisasi Program;Imunisasi Program;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Rutin;;Imunisasi Program Rutin;Imunisasi Program Rutin;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Dasar;;Imunisasi Program Rutin Dasar;Imunisasi Program Rutin Dasar;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Lanjutan;;Imunisasi Program Rutin Lanjutan;Imunisasi Program Rutin Lanjutan;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Baduta;;Imunisasi Program Rutin Lanjutan Bawah Dua Tahun;Imunisasi Program Rutin Lanjutan Bawah Dua Tahun;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-SD;;Imunisasi Program Rutin Lanjutan Sekolah Dasar;Imunisasi Program Rutin Lanjutan Sekolah Dasar;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-WUS;;Imunisasi Program Rutin Lanjutan Wanita Usia Subur;Imunisasi Program Rutin Lanjutan Wanita Usia Subur;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Tambahan;;Imunisasi Program Tambahan;Imunisasi Program Tambahan;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Khusus;;Imunisasi Program Khusus;Imunisasi Program Khusus;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Pilihan;;Imunisasi Pilihan;Imunisasi Pilihan;http://terminology.kemkes.go.id/CodeSystem/immunization-reason
+Immunization;Immunization.reasonCode;IM-Ideal;;Imunisasi Ideal;Imunisasi Ideal;http://terminology.kemkes.go.id/CodeSystem/immunization-routine-timing
+Immunization;Immunization.reasonCode;IM-Kejar;;Imunisasi Kejar;Imunisasi Kejar;http://terminology.kemkes.go.id/CodeSystem/immunization-routine-timing
+EpisodeOfCare;EpisodeOfCare.type;ANC;;Antenatal Care;Antenatal Care;http://terminology.kemkes.go.id/CodeSystem/episodeofcare-type
+EpisodeOfCare;EpisodeOfCare.type;PNC;;Postnatal Care;Postnatal Care;http://terminology.kemkes.go.id/CodeSystem/episodeofcare-type
+EpisodeOfCare;EpisodeOfCare.type;Neonate;;Neonate;Neonate;http://terminology.kemkes.go.id/CodeSystem/episodeofcare-type
+EpisodeOfCare;EpisodeOfCare.type;TB-SO;;Tuberkulosis Sensitif Obat ;Tuberkulosis Sensitif Obat ;http://terminology.kemkes.go.id/CodeSystem/episodeofcare-type
+EpisodeOfCare;EpisodeOfCare.type;TB-RO;;Tuberkulosis Resisten Obat ;Tuberkulosis Resisten Obat ;http://terminology.kemkes.go.id/CodeSystem/episodeofcare-type
+CarePlan;CarePlan.category;CP000001;;Tatalaksana weight faltering;Tatalaksana weight faltering;http://terminology.kemkes.go.id/CodeSystem/care-plan-category
+CarePlan;CarePlan.category;CP000002;;Tatalaksana gizi kurang ;Tatalaksana gizi kurang ;http://terminology.kemkes.go.id/CodeSystem/care-plan-category
+CarePlan;CarePlan.category;CP000003;;Tatalaksana gizi buruk;Tatalaksana gizi buruk;http://terminology.kemkes.go.id/CodeSystem/care-plan-category

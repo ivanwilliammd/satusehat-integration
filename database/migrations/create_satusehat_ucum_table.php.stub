@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSatusehatUcumTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.ucum_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('code');
+            $table->string('descriptive_name');
+            $table->string('code_system');
+            $table->text('definition')->nullable();
+            $table->date('date_created')->nullable();
+            $table->string('synonym')->nullable();
+            $table->string('status');
+            $table->string('kind_of_quantity');
+            $table->date('date_revised')->nullable();
+            $table->string('concept_id');
+            $table->string('dimension');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.ucum_table_name'));
+    }
+}

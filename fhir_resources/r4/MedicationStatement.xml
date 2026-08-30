@@ -1,0 +1,23 @@
+<MedicationStatement xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External identifier --></identifier>
+ <basedOn><!-- 0..* Reference(MedicationRequest|CarePlan|ServiceRequest) Fulfils plan, proposal or order --></basedOn>
+ <partOf><!-- 0..* Reference(MedicationAdministration|MedicationDispense|
+   MedicationStatement|Procedure|Observation) Part of referenced event --></partOf>
+ <status value="[code]"/><!-- 1..1 active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken -->
+ <statusReason><!-- 0..* CodeableConcept Reason for current status --></statusReason>
+ <category><!-- 0..1 CodeableConcept Type of medication usage --></category>
+ <medication[x]><!-- 1..1 CodeableConcept|Reference(Medication) What medication was taken --></medication[x]>
+ <subject><!-- 1..1 Reference(Patient|Group) Who is/was taking  the medication --></subject>
+ <context><!-- 0..1 Reference(Encounter|EpisodeOfCare) Encounter / Episode associated with MedicationStatement --></context>
+ <effective[x]><!-- 0..1 dateTime|Period The date/time or interval when the medication is/was/will be taken --></effective[x]>
+ <dateAsserted value="[dateTime]"/><!-- 0..1 When the statement was asserted? -->
+ <informationSource><!-- 0..1 Reference(Patient|Practitioner|PractitionerRole|
+   RelatedPerson|Organization) Person or organization that provided the information about the taking of this medication --></informationSource>
+ <derivedFrom><!-- 0..* Reference(Any) Additional supporting information --></derivedFrom>
+ <reasonCode><!-- 0..* CodeableConcept Reason for why the medication is being/was taken --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport) Condition or observation that supports why the medication is being/was taken --></reasonReference>
+ <note><!-- 0..* Annotation Further information about the statement --></note>
+ <dosage><!-- 0..* Dosage Details of how medication is/was taken or should be taken --></dosage>
+</MedicationStatement>

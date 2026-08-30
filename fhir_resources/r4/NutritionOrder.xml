@@ -1,0 +1,54 @@
+<NutritionOrder xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Identifiers assigned to this order --></identifier>
+ <instantiatesCanonical><!-- 0..* canonical(ActivityDefinition|PlanDefinition) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <instantiates value="[uri]"/><!-- 0..* Instantiates protocol or definition -->
+ <status value="[code]"/><!-- 1..1 draft | active | on-hold | revoked | completed | entered-in-error | unknown -->
+ <intent value="[code]"/><!-- 1..1 proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option -->
+ <patient><!-- 1..1 Reference(Patient) The person who requires the diet, formula or nutritional supplement --></patient>
+ <encounter><!-- 0..1 Reference(Encounter) The encounter associated with this nutrition order --></encounter>
+ <dateTime value="[dateTime]"/><!-- 1..1 Date and time the nutrition order was requested -->
+ <orderer><!-- 0..1 Reference(Practitioner|PractitionerRole) Who ordered the diet, formula or nutritional supplement --></orderer>
+ <allergyIntolerance><!-- 0..* Reference(AllergyIntolerance) List of the patient's food and nutrition-related allergies and intolerances --></allergyIntolerance>
+ <foodPreferenceModifier><!-- 0..* CodeableConcept Order-specific modifier about the type of food that should be given --></foodPreferenceModifier>
+ <excludeFoodModifier><!-- 0..* CodeableConcept Order-specific modifier about the type of food that should not be given --></excludeFoodModifier>
+ <oralDiet>  <!-- ?? 0..1 Oral diet components -->
+  <type><!-- 0..* CodeableConcept Type of oral diet or diet restrictions that describe what can be consumed orally --></type>
+  <schedule><!-- 0..* Timing Scheduled frequency of diet --></schedule>
+  <nutrient>  <!-- 0..* Required  nutrient modifications -->
+   <modifier><!-- 0..1 CodeableConcept Type of nutrient that is being modified --></modifier>
+   <amount><!-- 0..1 Quantity(SimpleQuantity) Quantity of the specified nutrient --></amount>
+  </nutrient>
+  <texture>  <!-- 0..* Required  texture modifications -->
+   <modifier><!-- 0..1 CodeableConcept Code to indicate how to alter the texture of the foods, e.g. pureed --></modifier>
+   <foodType><!-- 0..1 CodeableConcept Concepts that are used to identify an entity that is ingested for nutritional purposes --></foodType>
+  </texture>
+  <fluidConsistencyType><!-- 0..* CodeableConcept The required consistency of fluids and liquids provided to the patient --></fluidConsistencyType>
+  <instruction value="[string]"/><!-- 0..1 Instructions or additional information about the oral diet -->
+ </oralDiet>
+ <supplement>  <!-- ?? 0..* Supplement components -->
+  <type><!-- 0..1 CodeableConcept Type of supplement product requested --></type>
+  <productName value="[string]"/><!-- 0..1 Product or brand name of the nutritional supplement -->
+  <schedule><!-- 0..* Timing Scheduled frequency of supplement --></schedule>
+  <quantity><!-- 0..1 Quantity(SimpleQuantity) Amount of the nutritional supplement --></quantity>
+  <instruction value="[string]"/><!-- 0..1 Instructions or additional information about the oral supplement -->
+ </supplement>
+ <enteralFormula>  <!-- ?? 0..1 Enteral formula components -->
+  <baseFormulaType><!-- 0..1 CodeableConcept Type of enteral or infant formula --></baseFormulaType>
+  <baseFormulaProductName value="[string]"/><!-- 0..1 Product or brand name of the enteral or infant formula -->
+  <additiveType><!-- 0..1 CodeableConcept Type of modular component to add to the feeding --></additiveType>
+  <additiveProductName value="[string]"/><!-- 0..1 Product or brand name of the modular additive -->
+  <caloricDensity><!-- 0..1 Quantity(SimpleQuantity) Amount of energy per specified volume that is required --></caloricDensity>
+  <routeofAdministration><!-- 0..1 CodeableConcept How the formula should enter the patient's gastrointestinal tract --></routeofAdministration>
+  <administration>  <!-- 0..* Formula feeding instruction as structured data -->
+   <schedule><!-- 0..1 Timing Scheduled frequency of enteral feeding --></schedule>
+   <quantity><!-- 0..1 Quantity(SimpleQuantity) The volume of formula to provide --></quantity>
+   <rate[x]><!-- 0..1 Quantity(SimpleQuantity)|Ratio Speed with which the formula is provided per period of time --></rate[x]>
+  </administration>
+  <maxVolumeToDeliver><!-- 0..1 Quantity(SimpleQuantity) Upper limit on formula volume per unit of time --></maxVolumeToDeliver>
+  <administrationInstruction value="[string]"/><!-- 0..1 Formula feeding instructions expressed as text -->
+ </enteralFormula>
+ <note><!-- 0..* Annotation Comments --></note>
+</NutritionOrder>

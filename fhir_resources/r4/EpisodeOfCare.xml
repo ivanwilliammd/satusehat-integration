@@ -1,0 +1,23 @@
+<EpisodeOfCare xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business Identifier(s) relevant for this EpisodeOfCare --></identifier>
+ <status value="[code]"/><!-- 1..1 planned | waitlist | active | onhold | finished | cancelled | entered-in-error -->
+ <statusHistory>  <!-- 0..* Past list of status codes (the current status may be included to cover the start date of the status) -->
+  <status value="[code]"/><!-- 1..1 planned | waitlist | active | onhold | finished | cancelled | entered-in-error -->
+  <period><!-- 1..1 Period Duration the EpisodeOfCare was in the specified status --></period>
+ </statusHistory>
+ <type><!-- 0..* CodeableConcept Type/class  - e.g. specialist referral, disease management --></type>
+ <diagnosis>  <!-- 0..* The list of diagnosis relevant to this episode of care -->
+  <condition><!-- 1..1 Reference(Condition) Conditions/problems/diagnoses this episode of care is for --></condition>
+  <role><!-- 0..1 CodeableConcept Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge â€¦) --></role>
+  <rank value="[positiveInt]"/><!-- 0..1 Ranking of the diagnosis (for each role type) -->
+ </diagnosis>
+ <patient><!-- 1..1 Reference(Patient) The patient who is the focus of this episode of care --></patient>
+ <managingOrganization><!-- 0..1 Reference(Organization) Organization that assumes care --></managingOrganization>
+ <period><!-- 0..1 Period Interval during responsibility is assumed --></period>
+ <referralRequest><!-- 0..* Reference(ServiceRequest) Originating Referral Request(s) --></referralRequest>
+ <careManager><!-- 0..1 Reference(Practitioner|PractitionerRole) Care manager/care coordinator for the patient --></careManager>
+ <team><!-- 0..* Reference(CareTeam) Other practitioners facilitating this episode of care --></team>
+ <account><!-- 0..* Reference(Account) The set of accounts that may be used for billing for this EpisodeOfCare --></account>
+</EpisodeOfCare>

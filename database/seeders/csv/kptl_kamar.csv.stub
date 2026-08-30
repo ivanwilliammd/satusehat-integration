@@ -1,0 +1,24 @@
+nama_tindakan_dan_layanan;base_code;allowed_modifiers;kode_kptl;display;code_system;version
+Kamar Regular;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR002.x.x;Kamar Regular, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+Isolasi Tekanan Negatif;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR001.RM001.x;Kamar Regular, x, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+Isolasi Tanpa Tekanan Negatif;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR001.RM002.x;Kamar Regular, x, Isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+ICU;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.x.KR002.x.x;ICU, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+ICU Tekanan Negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.x.KR002.RM001.x;ICU, x, Non isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+ICU Tanpa Tekanan Negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.x.KR002.RM002.x;ICU, x, Non isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+ICU Isolasi dengan tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.x.KR001.RM001.x;ICU, x, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+ICU Isolasi tanpa tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.x.KR001.RM002.x;ICU, x, Isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+ICCU/ICVCU;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO001.KR002.x.x;ICU, Jantung, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+RICU;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO002.KR002.x.x;ICU, Respirasi, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+PICU;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO003.KR002.x.x;ICU, Pediatrik, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+PICU dengan tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO003.KR002.RM001.x;ICU, Pediatrik, Non isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+PICU tanpa tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO003.KR002.RM002.x;ICU, Pediatrik, Non isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+PICU Isolasi dengan tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO003.KR001.RM001.x;ICU, Pediatrik, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+PICU Isolasi tanpa tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO003.KR001.RM002.x;ICU, Pediatrik, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+NICU;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO004.KR002.x.x;ICU, Neonatus, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+NICU dengan tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO004.KR002.RM001.x;ICU, Neonatus, Non isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+NICU tanpa tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO004.KR002.RM002.x;ICU, Neonatus, Non isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+NICU Isolasi dengan tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO004.KR001.RM001.x;ICU, Neonatus, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+NICU Isolasi tanpa tekanan negatif;ICU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20001.RO004.KR001.RM002.x;ICU, Neonatus, Isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.4
+HCU;HCU;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20002.x.KR002.x.x;HCU, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+OK;OK;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20003.x.KR002.x.x;OK, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
+VK;VK;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20004.x.KR002.x.x;VK, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1

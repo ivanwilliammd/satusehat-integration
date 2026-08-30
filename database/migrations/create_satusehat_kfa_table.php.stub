@@ -1,0 +1,50 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSatusehatKfaTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.kfa_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('kfa_code');
+            $table->string('product_template');
+            $table->string('display_name');
+            $table->string('brand');
+            $table->string('uom_drug_form');
+            $table->string('drug_form_hl7');
+            $table->string('medication_form');
+            $table->string('medication_form_code');
+            $table->integer('logistic_dose');
+            $table->string('drug_class');
+            $table->string('atc_class');
+            $table->boolean('fornas');
+            $table->float('lkpp_price')->nullable();
+            $table->string('izin_edar')->nullable();
+            $table->float('het')->nullable();
+            $table->string('manufacturer');
+            $table->boolean('lkpp_show');
+            $table->string('tag')->nullable();
+            $table->string('status');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection(config('satusehatintegration.database_connection_master'))->dropIfExists(config('satusehatintegration.kfa_table_name'));
+    }
+}

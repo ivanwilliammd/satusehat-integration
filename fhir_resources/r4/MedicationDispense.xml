@@ -1,0 +1,37 @@
+<MedicationDispense xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External identifier --></identifier>
+ <partOf><!-- 0..* Reference(Procedure) Event that dispense is part of --></partOf>
+ <status value="[code]"/><!-- 1..1 preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown -->
+ <statusReason[x]><!-- 0..1 CodeableConcept|Reference(DetectedIssue) Why a dispense was not performed --></statusReason[x]>
+ <category><!-- 0..1 CodeableConcept Type of medication dispense --></category>
+ <medication[x]><!-- 1..1 CodeableConcept|Reference(Medication) What medication was supplied --></medication[x]>
+ <subject><!-- 0..1 Reference(Patient|Group) Who the dispense is for --></subject>
+ <context><!-- 0..1 Reference(Encounter|EpisodeOfCare) Encounter / Episode associated with event --></context>
+ <supportingInformation><!-- 0..* Reference(Any) Information that supports the dispensing of the medication --></supportingInformation>
+ <performer>  <!-- 0..* Who performed event -->
+  <function><!-- 0..1 CodeableConcept Who performed the dispense and what they did --></function>
+  <actor><!-- 1..1 Reference(Practitioner|PractitionerRole|Organization|Patient|
+    Device|RelatedPerson) Individual who was performing --></actor>
+ </performer>
+ <location><!-- 0..1 Reference(Location) Where the dispense occurred --></location>
+ <authorizingPrescription><!-- 0..* Reference(MedicationRequest) Medication order that authorizes the dispense --></authorizingPrescription>
+ <type><!-- 0..1 CodeableConcept Trial fill, partial fill, emergency fill, etc. --></type>
+ <quantity><!-- 0..1 Quantity(SimpleQuantity) Amount dispensed --></quantity>
+ <daysSupply><!-- 0..1 Quantity(SimpleQuantity) Amount of medication expressed as a timing amount --></daysSupply>
+ <whenPrepared value="[dateTime]"/><!-- 0..1 When product was packaged and reviewed -->
+ <whenHandedOver value="[dateTime]"/><!-- 0..1 When product was given out -->
+ <destination><!-- 0..1 Reference(Location) Where the medication was sent --></destination>
+ <receiver><!-- 0..* Reference(Patient|Practitioner) Who collected the medication --></receiver>
+ <note><!-- 0..* Annotation Information about the dispense --></note>
+ <dosageInstruction><!-- 0..* Dosage How the medication is to be used by the patient or administered by the caregiver --></dosageInstruction>
+ <substitution>  <!-- 0..1 Whether a substitution was performed on the dispense -->
+  <wasSubstituted value="[boolean]"/><!-- 1..1 Whether a substitution was or was not performed on the dispense -->
+  <type><!-- 0..1 CodeableConcept Code signifying whether a different drug was dispensed from what was prescribed --></type>
+  <reason><!-- 0..* CodeableConcept Why was substitution made --></reason>
+  <responsibleParty><!-- 0..* Reference(Practitioner|PractitionerRole) Who is responsible for the substitution --></responsibleParty>
+ </substitution>
+ <detectedIssue><!-- 0..* Reference(DetectedIssue) Clinical issue with action --></detectedIssue>
+ <eventHistory><!-- 0..* Reference(Provenance) A list of relevant lifecycle events --></eventHistory>
+</MedicationDispense>

@@ -1,0 +1,80 @@
+<MolecularSequence xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Unique ID for this particular sequence. This is a FHIR-defined id --></identifier>
+ <type value="[code]"/><!-- 0..1 aa | dna | rna -->
+ <coordinateSystem value="[integer]"/><!-- 1..1 Base number of coordinate system (0 for 0-based numbering or coordinates, inclusive start, exclusive end, 1 for 1-based numbering, inclusive start, inclusive end) -->
+ <patient><!-- 0..1 Reference(Patient) Who and/or what this is about --></patient>
+ <specimen><!-- 0..1 Reference(Specimen) Specimen used for sequencing --></specimen>
+ <device><!-- 0..1 Reference(Device) The method for sequencing --></device>
+ <performer><!-- 0..1 Reference(Organization) Who should be responsible for test result --></performer>
+ <quantity><!-- 0..1 Quantity The number of copies of the sequence of interest.  (RNASeq) --></quantity>
+ <referenceSeq>  <!-- 0..1 A sequence used as reference -->
+  <chromosome><!-- 0..1 CodeableConcept Chromosome containing genetic finding --></chromosome>
+  <genomeBuild value="[string]"/><!-- 0..1 The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37' -->
+  <orientation value="[code]"/><!-- 0..1 sense | antisense -->
+  <referenceSeqId><!-- 0..1 CodeableConcept Reference identifier --></referenceSeqId>
+  <referenceSeqPointer><!-- 0..1 Reference(MolecularSequence) A pointer to another MolecularSequence entity as reference sequence --></referenceSeqPointer>
+  <referenceSeqString value="[string]"/><!-- 0..1 A string to represent reference sequence -->
+  <strand value="[code]"/><!-- 0..1 watson | crick -->
+  <windowStart value="[integer]"/><!-- 0..1 Start position of the window on the  reference sequence -->
+  <windowEnd value="[integer]"/><!-- 0..1 End position of the window on the reference sequence -->
+ </referenceSeq>
+ <variant>  <!-- 0..* Variant in sequence -->
+  <start value="[integer]"/><!-- 0..1 Start position of the variant on the  reference sequence -->
+  <end value="[integer]"/><!-- 0..1 End position of the variant on the reference sequence -->
+  <observedAllele value="[string]"/><!-- 0..1 Allele that was observed -->
+  <referenceAllele value="[string]"/><!-- 0..1 Allele in the reference sequence -->
+  <cigar value="[string]"/><!-- 0..1 Extended CIGAR string for aligning the sequence with reference bases -->
+  <variantPointer><!-- 0..1 Reference(Observation) Pointer to observed variant information --></variantPointer>
+ </variant>
+ <observedSeq value="[string]"/><!-- 0..1 Sequence that was observed -->
+ <quality>  <!-- 0..* An set of value as quality of sequence -->
+  <type value="[code]"/><!-- 1..1 indel | snp | unknown -->
+  <standardSequence><!-- 0..1 CodeableConcept Standard sequence for comparison --></standardSequence>
+  <start value="[integer]"/><!-- 0..1 Start position of the sequence -->
+  <end value="[integer]"/><!-- 0..1 End position of the sequence -->
+  <score><!-- 0..1 Quantity Quality score for the comparison --></score>
+  <method><!-- 0..1 CodeableConcept Method to get quality --></method>
+  <truthTP value="[decimal]"/><!-- 0..1 True positives from the perspective of the truth data -->
+  <queryTP value="[decimal]"/><!-- 0..1 True positives from the perspective of the query data -->
+  <truthFN value="[decimal]"/><!-- 0..1 False negatives -->
+  <queryFP value="[decimal]"/><!-- 0..1 False positives -->
+  <gtFP value="[decimal]"/><!-- 0..1 False positives where the non-REF alleles in the Truth and Query Call Sets match -->
+  <precision value="[decimal]"/><!-- 0..1 Precision of comparison -->
+  <recall value="[decimal]"/><!-- 0..1 Recall of comparison -->
+  <fScore value="[decimal]"/><!-- 0..1 F-score -->
+  <roc>  <!-- 0..1 Receiver Operator Characteristic (ROC) Curve -->
+   <score value="[integer]"/><!-- 0..* Genotype quality score -->
+   <numTP value="[integer]"/><!-- 0..* Roc score true positive numbers -->
+   <numFP value="[integer]"/><!-- 0..* Roc score false positive numbers -->
+   <numFN value="[integer]"/><!-- 0..* Roc score false negative numbers -->
+   <precision value="[decimal]"/><!-- 0..* Precision of the GQ score -->
+   <sensitivity value="[decimal]"/><!-- 0..* Sensitivity of the GQ score -->
+   <fMeasure value="[decimal]"/><!-- 0..* FScore of the GQ score -->
+  </roc>
+ </quality>
+ <readCoverage value="[integer]"/><!-- 0..1 Average number of reads representing a given nucleotide in the reconstructed sequence -->
+ <repository>  <!-- 0..* External repository which contains detailed report related with observedSeq in this resource -->
+  <type value="[code]"/><!-- 1..1 directlink | openapi | login | oauth | other -->
+  <url value="[uri]"/><!-- 0..1 URI of the repository -->
+  <name value="[string]"/><!-- 0..1 Repository's name -->
+  <datasetId value="[string]"/><!-- 0..1 Id of the dataset that used to call for dataset in repository -->
+  <variantsetId value="[string]"/><!-- 0..1 Id of the variantset that used to call for variantset in repository -->
+  <readsetId value="[string]"/><!-- 0..1 Id of the read -->
+ </repository>
+ <pointer><!-- 0..* Reference(MolecularSequence) Pointer to next atomic sequence --></pointer>
+ <structureVariant>  <!-- 0..* Structural variant -->
+  <variantType><!-- 0..1 CodeableConcept Structural variant change type  --></variantType>
+  <exact value="[boolean]"/><!-- 0..1 Does the structural variant have base pair resolution breakpoints? -->
+  <length value="[integer]"/><!-- 0..1 Structural variant length -->
+  <outer>  <!-- 0..1 Structural variant outer -->
+   <start value="[integer]"/><!-- 0..1 Structural variant outer start -->
+   <end value="[integer]"/><!-- 0..1 Structural variant outer end -->
+  </outer>
+  <inner>  <!-- 0..1 Structural variant inner -->
+   <start value="[integer]"/><!-- 0..1 Structural variant inner start -->
+   <end value="[integer]"/><!-- 0..1 Structural variant inner end -->
+  </inner>
+ </structureVariant>
+</MolecularSequence>

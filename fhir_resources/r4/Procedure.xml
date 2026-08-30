@@ -1,0 +1,44 @@
+<Procedure xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External Identifiers for this procedure --></identifier>
+ <instantiatesCanonical><!-- 0..* canonical(PlanDefinition|ActivityDefinition|
+   Measure|OperationDefinition|Questionnaire) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <basedOn><!-- 0..* Reference(CarePlan|ServiceRequest) A request for this procedure --></basedOn>
+ <partOf><!-- 0..* Reference(Procedure|Observation|MedicationAdministration) Part of referenced event --></partOf>
+ <status value="[code]"/><!-- 1..1 preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown -->
+ <statusReason><!-- 0..1 CodeableConcept Reason for current status --></statusReason>
+ <category><!-- 0..1 CodeableConcept Classification of the procedure --></category>
+ <code><!-- 0..1 CodeableConcept Identification of the procedure --></code>
+ <subject><!-- 1..1 Reference(Patient|Group) Who the procedure was performed on --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter created as part of --></encounter>
+ <performed[x]><!-- 0..1 dateTime|Period|string|Age|Range When the procedure was performed --></performed[x]>
+ <recorder><!-- 0..1 Reference(Patient|RelatedPerson|Practitioner|
+   PractitionerRole) Who recorded the procedure --></recorder>
+ <asserter><!-- 0..1 Reference(Patient|RelatedPerson|Practitioner|
+   PractitionerRole) Person who asserts this procedure --></asserter>
+ <performer>  <!-- 0..* The people who performed the procedure -->
+  <function><!-- 0..1 CodeableConcept Type of performance --></function>
+  <actor><!-- 1..1 Reference(Practitioner|PractitionerRole|Organization|Patient|
+    RelatedPerson|Device) The reference to the practitioner --></actor>
+  <onBehalfOf><!-- 0..1 Reference(Organization) Organization the device or practitioner was acting for --></onBehalfOf>
+ </performer>
+ <location><!-- 0..1 Reference(Location) Where the procedure happened --></location>
+ <reasonCode><!-- 0..* CodeableConcept Coded reason procedure performed --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|Procedure|
+   DiagnosticReport|DocumentReference) The justification that the procedure was performed --></reasonReference>
+ <bodySite><!-- 0..* CodeableConcept Target body sites --></bodySite>
+ <outcome><!-- 0..1 CodeableConcept The result of procedure --></outcome>
+ <report><!-- 0..* Reference(DiagnosticReport|DocumentReference|Composition) Any report resulting from the procedure --></report>
+ <complication><!-- 0..* CodeableConcept Complication following the procedure --></complication>
+ <complicationDetail><!-- 0..* Reference(Condition) A condition that is a result of the procedure --></complicationDetail>
+ <followUp><!-- 0..* CodeableConcept Instructions for follow up --></followUp>
+ <note><!-- 0..* Annotation Additional information about the procedure --></note>
+ <focalDevice>  <!-- 0..* Manipulated, implanted, or removed device -->
+  <action><!-- 0..1 CodeableConcept Kind of change to device --></action>
+  <manipulated><!-- 1..1 Reference(Device) Device that was changed --></manipulated>
+ </focalDevice>
+ <usedReference><!-- 0..* Reference(Device|Medication|Substance) Items used during procedure --></usedReference>
+ <usedCode><!-- 0..* CodeableConcept Coded items used during the procedure --></usedCode>
+</Procedure>

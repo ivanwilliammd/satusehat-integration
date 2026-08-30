@@ -1,0 +1,30 @@
+<Location xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Unique code or number identifying the location to its users --></identifier>
+ <status value="[code]"/><!-- 0..1 active | suspended | inactive -->
+ <operationalStatus><!-- 0..1 Coding The operational status of the location (typically only for a bed/room) --></operationalStatus>
+ <name value="[string]"/><!-- 0..1 Name of the location as used by humans -->
+ <alias value="[string]"/><!-- 0..* A list of alternate names that the location is known as, or was known as, in the past -->
+ <description value="[string]"/><!-- 0..1 Additional details about the location that could be displayed as further information to identify the location beyond its name -->
+ <mode value="[code]"/><!-- 0..1 instance | kind -->
+ <type><!-- 0..* CodeableConcept Type of function performed --></type>
+ <telecom><!-- 0..* ContactPoint Contact details of the location --></telecom>
+ <address><!-- 0..1 Address Physical location --></address>
+ <physicalType><!-- 0..1 CodeableConcept Physical form of the location --></physicalType>
+ <position>  <!-- 0..1 The absolute geographic location -->
+  <longitude value="[decimal]"/><!-- 1..1 Longitude with WGS84 datum -->
+  <latitude value="[decimal]"/><!-- 1..1 Latitude with WGS84 datum -->
+  <altitude value="[decimal]"/><!-- 0..1 Altitude with WGS84 datum -->
+ </position>
+ <managingOrganization><!-- 0..1 Reference(Organization) Organization responsible for provisioning and upkeep --></managingOrganization>
+ <partOf><!-- 0..1 Reference(Location) Another Location this one is physically a part of --></partOf>
+ <hoursOfOperation>  <!-- 0..* What days/times during a week is this location usually open -->
+  <daysOfWeek value="[code]"/><!-- 0..* mon | tue | wed | thu | fri | sat | sun -->
+  <allDay value="[boolean]"/><!-- 0..1 The Location is open all day -->
+  <openingTime value="[time]"/><!-- 0..1 Time that the Location opens -->
+  <closingTime value="[time]"/><!-- 0..1 Time that the Location closes -->
+ </hoursOfOperation>
+ <availabilityExceptions value="[string]"/><!-- 0..1 Description of availability exceptions -->
+ <endpoint><!-- 0..* Reference(Endpoint) Technical endpoints providing access to services operated for the location --></endpoint>
+</Location>

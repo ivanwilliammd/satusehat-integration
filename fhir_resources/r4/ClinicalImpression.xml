@@ -1,0 +1,32 @@
+<ClinicalImpression xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business identifier --></identifier>
+ <status value="[code]"/><!-- 1..1 in-progress | completed | entered-in-error -->
+ <statusReason><!-- 0..1 CodeableConcept Reason for current status --></statusReason>
+ <code><!-- 0..1 CodeableConcept Kind of assessment performed --></code>
+ <description value="[string]"/><!-- 0..1 Why/how the assessment was performed -->
+ <subject><!-- 1..1 Reference(Patient|Group) Patient or group assessed --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter created as part of --></encounter>
+ <effective[x]><!-- 0..1 dateTime|Period Time of assessment --></effective[x]>
+ <date value="[dateTime]"/><!-- 0..1 When the assessment was documented -->
+ <assessor><!-- 0..1 Reference(Practitioner|PractitionerRole) The clinician performing the assessment --></assessor>
+ <previous><!-- 0..1 Reference(ClinicalImpression) Reference to last assessment --></previous>
+ <problem><!-- 0..* Reference(Condition|AllergyIntolerance) Relevant impressions of patient state --></problem>
+ <investigation>  <!-- 0..* One or more sets of investigations (signs, symptoms, etc.) -->
+  <code><!-- 1..1 CodeableConcept A name/code for the set --></code>
+  <item><!-- 0..* Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|
+    DiagnosticReport|RiskAssessment|ImagingStudy|Media) Record of a specific investigation --></item>
+ </investigation>
+ <protocol value="[uri]"/><!-- 0..* Clinical Protocol followed -->
+ <summary value="[string]"/><!-- 0..1 Summary of the assessment -->
+ <finding>  <!-- 0..* Possible or likely findings and diagnoses -->
+  <itemCodeableConcept><!-- 0..1 CodeableConcept What was found --></itemCodeableConcept>
+  <itemReference><!-- 0..1 Reference(Condition|Observation|Media) What was found --></itemReference>
+  <basis value="[string]"/><!-- 0..1 Which investigations support finding -->
+ </finding>
+ <prognosisCodeableConcept><!-- 0..* CodeableConcept Estimate of likely outcome --></prognosisCodeableConcept>
+ <prognosisReference><!-- 0..* Reference(RiskAssessment) RiskAssessment expressing likely outcome --></prognosisReference>
+ <supportingInfo><!-- 0..* Reference(Any) Information supporting the clinical impression --></supportingInfo>
+ <note><!-- 0..* Annotation Comments made about the ClinicalImpression --></note>
+</ClinicalImpression>

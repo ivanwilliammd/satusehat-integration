@@ -1,0 +1,59 @@
+<CarePlan xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External Ids for this plan --></identifier>
+ <instantiatesCanonical><!-- 0..* canonical(PlanDefinition|Questionnaire|Measure|
+   ActivityDefinition|OperationDefinition) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <basedOn><!-- 0..* Reference(CarePlan) Fulfills CarePlan --></basedOn>
+ <replaces><!-- 0..* Reference(CarePlan) CarePlan replaced by this CarePlan --></replaces>
+ <partOf><!-- 0..* Reference(CarePlan) Part of referenced CarePlan --></partOf>
+ <status value="[code]"/><!-- 1..1 draft | active | on-hold | revoked | completed | entered-in-error | unknown -->
+ <intent value="[code]"/><!-- 1..1 proposal | plan | order | option -->
+ <category><!-- 0..* CodeableConcept Type of plan --></category>
+ <title value="[string]"/><!-- 0..1 Human-friendly name for the care plan -->
+ <description value="[string]"/><!-- 0..1 Summary of nature of plan -->
+ <subject><!-- 1..1 Reference(Patient|Group) Who the care plan is for --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter created as part of --></encounter>
+ <period><!-- 0..1 Period Time period plan covers --></period>
+ <created value="[dateTime]"/><!-- 0..1 Date record was first recorded -->
+ <author><!-- 0..1 Reference(Patient|Practitioner|PractitionerRole|Device|
+   RelatedPerson|Organization|CareTeam) Who is the designated responsible party --></author>
+ <contributor><!-- 0..* Reference(Patient|Practitioner|PractitionerRole|Device|
+   RelatedPerson|Organization|CareTeam) Who provided the content of the care plan --></contributor>
+ <careTeam><!-- 0..* Reference(CareTeam) Who's involved in plan? --></careTeam>
+ <addresses><!-- 0..* Reference(Condition) Health issues this plan addresses --></addresses>
+ <supportingInfo><!-- 0..* Reference(Any) Information considered as part of plan --></supportingInfo>
+ <goal><!-- 0..* Reference(Goal) Desired outcome of plan --></goal>
+ <activity>  <!-- 0..* Action to occur as part of plan -->
+  <outcomeCodeableConcept><!-- 0..* CodeableConcept Results of the activity --></outcomeCodeableConcept>
+  <outcomeReference><!-- 0..* Reference(Any) Appointment, Encounter, Procedure, etc. --></outcomeReference>
+  <progress><!-- 0..* Annotation Comments about the activity status/progress --></progress>
+  <reference><!-- ?? 0..1 Reference(Appointment|CommunicationRequest|DeviceRequest|
+    MedicationRequest|NutritionOrder|Task|ServiceRequest|VisionPrescription|
+    RequestGroup) Activity details defined in specific resource --></reference>
+  <detail>  <!-- ?? 0..1 In-line definition of activity -->
+   <kind value="[code]"/><!-- 0..1 Appointment | CommunicationRequest | DeviceRequest | MedicationRequest | NutritionOrder | Task | ServiceRequest | VisionPrescription -->
+   <instantiatesCanonical><!-- 0..* canonical(PlanDefinition|ActivityDefinition|
+     Questionnaire|Measure|OperationDefinition) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+   <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+   <code><!-- 0..1 CodeableConcept Detail type of activity --></code>
+   <reasonCode><!-- 0..* CodeableConcept Why activity should be done or why activity was prohibited --></reasonCode>
+   <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport|
+     DocumentReference) Why activity is needed --></reasonReference>
+   <goal><!-- 0..* Reference(Goal) Goals this activity relates to --></goal>
+   <status value="[code]"/><!-- 1..1 not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error -->
+   <statusReason><!-- 0..1 CodeableConcept Reason for current status --></statusReason>
+   <doNotPerform value="[boolean]"/><!-- 0..1 If true, activity is prohibiting action -->
+   <scheduled[x]><!-- 0..1 Timing|Period|string When activity is to occur --></scheduled[x]>
+   <location><!-- 0..1 Reference(Location) Where it should happen --></location>
+   <performer><!-- 0..* Reference(Practitioner|PractitionerRole|Organization|
+     RelatedPerson|Patient|CareTeam|HealthcareService|Device) Who will be responsible? --></performer>
+   <product[x]><!-- 0..1 CodeableConcept|Reference(Medication|Substance) What is to be administered/supplied --></product[x]>
+   <dailyAmount><!-- 0..1 Quantity(SimpleQuantity) How to consume/day? --></dailyAmount>
+   <quantity><!-- 0..1 Quantity(SimpleQuantity) How much to administer/supply/consume --></quantity>
+   <description value="[string]"/><!-- 0..1 Extra info describing activity to perform -->
+  </detail>
+ </activity>
+ <note><!-- 0..* Annotation Comments about the plan --></note>
+</CarePlan>

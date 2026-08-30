@@ -1,0 +1,25 @@
+<Group xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Unique id --></identifier>
+ <active value="[boolean]"/><!-- 0..1 Whether this group's record is in active use -->
+ <type value="[code]"/><!-- 1..1 person | animal | practitioner | device | medication | substance -->
+ <actual value="[boolean]"/><!-- ?? 1..1 Descriptive or actual -->
+ <code><!-- 0..1 CodeableConcept Kind of Group members --></code>
+ <name value="[string]"/><!-- 0..1 Label for Group -->
+ <quantity value="[unsignedInt]"/><!-- 0..1 Number of members -->
+ <managingEntity><!-- 0..1 Reference(Organization|RelatedPerson|Practitioner|
+   PractitionerRole) Entity that is the custodian of the Group's definition --></managingEntity>
+ <characteristic>  <!-- 0..* Include / Exclude group members by Trait -->
+  <code><!-- 1..1 CodeableConcept Kind of characteristic --></code>
+  <value[x]><!-- 1..1 CodeableConcept|boolean|Quantity|Range|Reference Value held by characteristic --></value[x]>
+  <exclude value="[boolean]"/><!-- 1..1 Group includes or excludes -->
+  <period><!-- 0..1 Period Period over which characteristic is tested --></period>
+ </characteristic>
+ <member>  <!-- ?? 0..* Who or what is in group -->
+  <entity><!-- 1..1 Reference(Patient|Practitioner|PractitionerRole|Device|
+    Medication|Substance|Group) Reference to the group member --></entity>
+  <period><!-- 0..1 Period Period member belonged to the group --></period>
+  <inactive value="[boolean]"/><!-- 0..1 If member is no longer in group -->
+ </member>
+</Group>

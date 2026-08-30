@@ -1,0 +1,34 @@
+<MedicationAdministration xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External identifier --></identifier>
+ <instantiates value="[uri]"/><!-- 0..* Instantiates protocol or definition -->
+ <partOf><!-- 0..* Reference(MedicationAdministration|Procedure) Part of referenced event --></partOf>
+ <status value="[code]"/><!-- 1..1 in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown -->
+ <statusReason><!-- 0..* CodeableConcept Reason administration not performed --></statusReason>
+ <category><!-- 0..1 CodeableConcept Type of medication usage --></category>
+ <medication[x]><!-- 1..1 CodeableConcept|Reference(Medication) What was administered --></medication[x]>
+ <subject><!-- 1..1 Reference(Patient|Group) Who received medication --></subject>
+ <context><!-- 0..1 Reference(Encounter|EpisodeOfCare) Encounter or Episode of Care administered as part of --></context>
+ <supportingInformation><!-- 0..* Reference(Any) Additional information to support administration --></supportingInformation>
+ <effective[x]><!-- 1..1 dateTime|Period Start and end time of administration --></effective[x]>
+ <performer>  <!-- 0..* Who performed the medication administration and what they did -->
+  <function><!-- 0..1 CodeableConcept Type of performance --></function>
+  <actor><!-- 1..1 Reference(Practitioner|PractitionerRole|Patient|RelatedPerson|
+    Device) Who performed the medication administration --></actor>
+ </performer>
+ <reasonCode><!-- 0..* CodeableConcept Reason administration performed --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport) Condition or observation that supports why the medication was administered --></reasonReference>
+ <request><!-- 0..1 Reference(MedicationRequest) Request administration performed against --></request>
+ <device><!-- 0..* Reference(Device) Device used to administer --></device>
+ <note><!-- 0..* Annotation Information about the administration --></note>
+ <dosage>  <!-- 0..1 Details of how medication was taken -->
+  <text value="[string]"/><!-- 0..1 Free text dosage instructions e.g. SIG -->
+  <site><!-- 0..1 CodeableConcept Body site administered to --></site>
+  <route><!-- 0..1 CodeableConcept Path of substance into body --></route>
+  <method><!-- 0..1 CodeableConcept How drug was administered --></method>
+  <dose><!-- 0..1 Quantity(SimpleQuantity) Amount of medication per dose --></dose>
+  <rate[x]><!-- 0..1 Ratio|Quantity(SimpleQuantity) Dose quantity per unit of time --></rate[x]>
+ </dosage>
+ <eventHistory><!-- 0..* Reference(Provenance) A list of events of interest in the lifecycle --></eventHistory>
+</MedicationAdministration>

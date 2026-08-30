@@ -1,0 +1,36 @@
+<Bundle xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <identifier><!-- 0..1 Identifier Persistent identifier for the bundle --></identifier>
+ <type value="[code]"/><!-- 1..1 document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection -->
+ <timestamp value="[instant]"/><!-- 0..1 When the bundle was assembled -->
+ <total value="[unsignedInt]"/><!-- ?? 0..1 If search, the total number of matches -->
+ <link>  <!-- 0..* Links related to this Bundle -->
+  <relation value="[string]"/><!-- 1..1 See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1 -->
+  <url value="[uri]"/><!-- 1..1 Reference details for the link -->
+ </link>
+ <entry>  <!-- 0..* Entry in the bundle - will have a resource or information -->
+  <link><!-- 0..* Content as for Bundle.link Links related to this entry --></link>
+  <fullUrl value="[uri]"/><!-- 0..1 URI for resource (Absolute URL server address or URI for UUID/OID) -->
+  <resource><!-- 0..1 Resource A resource in the bundle --></resource>
+  <search>  <!-- ?? 0..1 Search related information -->
+   <mode value="[code]"/><!-- 0..1 match | include | outcome - why this is in the result set -->
+   <score value="[decimal]"/><!-- 0..1 Search ranking (between 0 and 1) -->
+  </search>
+  <request>  <!-- ?? 0..1 Additional execution information (transaction/batch/history) -->
+   <method value="[code]"/><!-- 1..1 GET | HEAD | POST | PUT | DELETE | PATCH -->
+   <url value="[uri]"/><!-- 1..1 URL for HTTP equivalent of this entry -->
+   <ifNoneMatch value="[string]"/><!-- 0..1 For managing cache currency -->
+   <ifModifiedSince value="[instant]"/><!-- 0..1 For managing cache currency -->
+   <ifMatch value="[string]"/><!-- 0..1 For managing update contention -->
+   <ifNoneExist value="[string]"/><!-- 0..1 For conditional creates -->
+  </request>
+  <response>  <!-- ?? 0..1 Results of execution (transaction/batch/history) -->
+   <status value="[string]"/><!-- 1..1 Status response code (text optional) -->
+   <location value="[uri]"/><!-- 0..1 The location (if the operation returns a location) -->
+   <etag value="[string]"/><!-- 0..1 The Etag for the resource (if relevant) -->
+   <lastModified value="[instant]"/><!-- 0..1 Server's date time modified -->
+   <outcome><!-- 0..1 Resource OperationOutcome with hints and warnings (for batch/transaction) --></outcome>
+  </response>
+ </entry>
+ <signature><!-- 0..1 Signature Digital Signature --></signature>
+</Bundle>

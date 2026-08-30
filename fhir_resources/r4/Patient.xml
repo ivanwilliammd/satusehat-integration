@@ -1,0 +1,35 @@
+<Patient xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier An identifier for this patient --></identifier>
+ <active value="[boolean]"/><!-- 0..1 Whether this patient's record is in active use -->
+ <name><!-- 0..* HumanName A name associated with the patient --></name>
+ <telecom><!-- 0..* ContactPoint A contact detail for the individual --></telecom>
+ <gender value="[code]"/><!-- 0..1 male | female | other | unknown -->
+ <birthDate value="[date]"/><!-- 0..1 The date of birth for the individual -->
+ <deceased[x]><!-- 0..1 boolean|dateTime Indicates if the individual is deceased or not --></deceased[x]>
+ <address><!-- 0..* Address An address for the individual --></address>
+ <maritalStatus><!-- 0..1 CodeableConcept Marital (civil) status of a patient --></maritalStatus>
+ <multipleBirth[x]><!-- 0..1 boolean|integer Whether patient is part of a multiple birth --></multipleBirth[x]>
+ <photo><!-- 0..* Attachment Image of the patient --></photo>
+ <contact>  <!-- 0..* A contact party (e.g. guardian, partner, friend) for the patient -->
+  <relationship><!-- 0..* CodeableConcept The kind of relationship --></relationship>
+  <name><!-- 0..1 HumanName A name associated with the contact person --></name>
+  <telecom><!-- 0..* ContactPoint A contact detail for the person --></telecom>
+  <address><!-- 0..1 Address Address for the contact person --></address>
+  <gender value="[code]"/><!-- 0..1 male | female | other | unknown -->
+  <organization><!-- ?? 0..1 Reference(Organization) Organization that is associated with the contact --></organization>
+  <period><!-- 0..1 Period The period during which this contact person or organization is valid to be contacted relating to this patient --></period>
+ </contact>
+ <communication>  <!-- 0..* A language which may be used to communicate with the patient about his or her health -->
+  <language><!-- 1..1 CodeableConcept The language which can be used to communicate with the patient about his or her health --></language>
+  <preferred value="[boolean]"/><!-- 0..1 Language preference indicator -->
+ </communication>
+ <generalPractitioner><!-- 0..* Reference(Organization|Practitioner|
+   PractitionerRole) Patient's nominated primary care provider --></generalPractitioner>
+ <managingOrganization><!-- 0..1 Reference(Organization) Organization that is the custodian of the patient record --></managingOrganization>
+ <link>  <!-- 0..* Link to another patient resource that concerns the same actual person -->
+  <other><!-- 1..1 Reference(Patient|RelatedPerson) The other patient or related person resource that the link refers to --></other>
+  <type value="[code]"/><!-- 1..1 replaced-by | replaces | refer | seealso -->
+ </link>
+</Patient>

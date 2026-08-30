@@ -1,0 +1,23 @@
+<Account xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Account number --></identifier>
+ <status value="[code]"/><!-- 1..1 active | inactive | entered-in-error | on-hold | unknown -->
+ <type><!-- 0..1 CodeableConcept E.g. patient, expense, depreciation --></type>
+ <name value="[string]"/><!-- 0..1 Human-readable label -->
+ <subject><!-- 0..* Reference(Patient|Device|Practitioner|PractitionerRole|
+   Location|HealthcareService|Organization) The entity that caused the expenses --></subject>
+ <servicePeriod><!-- 0..1 Period Transaction window --></servicePeriod>
+ <coverage>  <!-- 0..* The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account -->
+  <coverage><!-- 1..1 Reference(Coverage) The party(s), such as insurances, that may contribute to the payment of this account --></coverage>
+  <priority value="[positiveInt]"/><!-- 0..1 The priority of the coverage in the context of this account -->
+ </coverage>
+ <owner><!-- 0..1 Reference(Organization) Entity managing the Account --></owner>
+ <description value="[string]"/><!-- 0..1 Explanation of purpose/use -->
+ <guarantor>  <!-- 0..* The parties ultimately responsible for balancing the Account -->
+  <party><!-- 1..1 Reference(Patient|RelatedPerson|Organization) Responsible entity --></party>
+  <onHold value="[boolean]"/><!-- 0..1 Credit or other hold applied -->
+  <period><!-- 0..1 Period Guarantee account during --></period>
+ </guarantor>
+ <partOf><!-- 0..1 Reference(Account) Reference to a parent Account --></partOf>
+</Account>

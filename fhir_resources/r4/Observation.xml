@@ -1,0 +1,48 @@
+<Observation xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business Identifier for observation --></identifier>
+ <basedOn><!-- 0..* Reference(CarePlan|DeviceRequest|ImmunizationRecommendation|
+   MedicationRequest|NutritionOrder|ServiceRequest) Fulfills plan, proposal or order --></basedOn>
+ <partOf><!-- 0..* Reference(MedicationAdministration|MedicationDispense|
+   MedicationStatement|Procedure|Immunization|ImagingStudy) Part of referenced event --></partOf>
+ <status value="[code]"/><!-- 1..1 registered | preliminary | final | amended + -->
+ <category><!-- 0..* CodeableConcept Classification of  type of observation --></category>
+ <code><!-- 1..1 CodeableConcept Type of observation (code / type) --></code>
+ <subject><!-- 0..1 Reference(Patient|Group|Device|Location) Who and/or what the observation is about --></subject>
+ <focus><!-- 0..* Reference(Any) What the observation is about, when it is not about the subject of record --></focus>
+ <encounter><!-- 0..1 Reference(Encounter) Healthcare event during which this observation is made --></encounter>
+ <effective[x]><!-- 0..1 dateTime|Period|Timing|instant Clinically relevant time/time-period for observation --></effective[x]>
+ <issued value="[instant]"/><!-- 0..1 Date/Time this version was made available -->
+ <performer><!-- 0..* Reference(Practitioner|PractitionerRole|Organization|
+   CareTeam|Patient|RelatedPerson) Who is responsible for the observation --></performer>
+ <value[x]><!-- ?? 0..1 Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|
+   SampledData|time|dateTime|Period Actual result --></value[x]>
+ <dataAbsentReason><!-- ?? 0..1 CodeableConcept Why the result is missing --></dataAbsentReason>
+ <interpretation><!-- 0..* CodeableConcept High, low, normal, etc. --></interpretation>
+ <note><!-- 0..* Annotation Comments about the observation --></note>
+ <bodySite><!-- 0..1 CodeableConcept Observed body part --></bodySite>
+ <method><!-- 0..1 CodeableConcept How it was done --></method>
+ <specimen><!-- 0..1 Reference(Specimen) Specimen used for this observation --></specimen>
+ <device><!-- 0..1 Reference(Device|DeviceMetric) (Measurement) Device --></device>
+ <referenceRange>  <!-- 0..* Provides guide for interpretation -->
+  <low><!-- ?? 0..1 Quantity(SimpleQuantity) Low Range, if relevant --></low>
+  <high><!-- ?? 0..1 Quantity(SimpleQuantity) High Range, if relevant --></high>
+  <type><!-- 0..1 CodeableConcept Reference range qualifier --></type>
+  <appliesTo><!-- 0..* CodeableConcept Reference range population --></appliesTo>
+  <age><!-- 0..1 Range Applicable age range, if relevant --></age>
+  <text value="[string]"/><!-- 0..1 Text based reference range in an observation -->
+ </referenceRange>
+ <hasMember><!-- 0..* Reference(Observation|QuestionnaireResponse|
+   MolecularSequence) Related resource that belongs to the Observation group --></hasMember>
+ <derivedFrom><!-- 0..* Reference(DocumentReference|ImagingStudy|Media|
+   QuestionnaireResponse|Observation|MolecularSequence) Related measurements the observation is made from --></derivedFrom>
+ <component>  <!-- 0..* Component results -->
+  <code><!-- 1..1 CodeableConcept Type of component observation (code / type) --></code>
+  <value[x]><!-- 0..1 Quantity|CodeableConcept|string|boolean|integer|Range|
+    Ratio|SampledData|time|dateTime|Period Actual component result --></value[x]>
+  <dataAbsentReason><!-- ?? 0..1 CodeableConcept Why the component result is missing --></dataAbsentReason>
+  <interpretation><!-- 0..* CodeableConcept High, low, normal, etc. --></interpretation>
+  <referenceRange><!-- 0..* Content as for Observation.referenceRange Provides guide for interpretation of component result --></referenceRange>
+ </component>
+</Observation>

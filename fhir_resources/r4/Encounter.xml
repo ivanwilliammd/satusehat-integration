@@ -1,0 +1,57 @@
+<Encounter xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Identifier(s) by which this encounter is known --></identifier>
+ <status value="[code]"/><!-- 1..1 planned | arrived | triaged | in-progress | onleave | finished | cancelled + -->
+ <statusHistory>  <!-- 0..* List of past encounter statuses -->
+  <status value="[code]"/><!-- 1..1 planned | arrived | triaged | in-progress | onleave | finished | cancelled + -->
+  <period><!-- 1..1 Period The time that the episode was in the specified status --></period>
+ </statusHistory>
+ <class><!-- 1..1 Coding Classification of patient encounter --></class>
+ <classHistory>  <!-- 0..* List of past encounter classes -->
+  <class><!-- 1..1 Coding inpatient | outpatient | ambulatory | emergency + --></class>
+  <period><!-- 1..1 Period The time that the episode was in the specified class --></period>
+ </classHistory>
+ <type><!-- 0..* CodeableConcept Specific type of encounter --></type>
+ <serviceType><!-- 0..1 CodeableConcept Specific type of service --></serviceType>
+ <priority><!-- 0..1 CodeableConcept Indicates the urgency of the encounter --></priority>
+ <subject><!-- 0..1 Reference(Patient|Group) The patient or group present at the encounter --></subject>
+ <episodeOfCare><!-- 0..* Reference(EpisodeOfCare) Episode(s) of care that this encounter should be recorded against --></episodeOfCare>
+ <basedOn><!-- 0..* Reference(ServiceRequest) The ServiceRequest that initiated this encounter --></basedOn>
+ <participant>  <!-- 0..* List of participants involved in the encounter -->
+  <type><!-- 0..* CodeableConcept Role of participant in encounter --></type>
+  <period><!-- 0..1 Period Period of time during the encounter that the participant participated --></period>
+  <individual><!-- 0..1 Reference(Practitioner|PractitionerRole|RelatedPerson) Persons involved in the encounter other than the patient --></individual>
+ </participant>
+ <appointment><!-- 0..* Reference(Appointment) The appointment that scheduled this encounter --></appointment>
+ <period><!-- 0..1 Period The start and end time of the encounter --></period>
+ <length><!-- 0..1 Duration Quantity of time the encounter lasted (less time absent) --></length>
+ <reasonCode><!-- 0..* CodeableConcept Coded reason the encounter takes place --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Procedure|Observation|
+   ImmunizationRecommendation) Reason the encounter takes place (reference) --></reasonReference>
+ <diagnosis>  <!-- 0..* The list of diagnosis relevant to this encounter -->
+  <condition><!-- 1..1 Reference(Condition|Procedure) The diagnosis or procedure relevant to the encounter --></condition>
+  <use><!-- 0..1 CodeableConcept Role that this diagnosis has within the encounter (e.g. admission, billing, discharge â€¦) --></use>
+  <rank value="[positiveInt]"/><!-- 0..1 Ranking of the diagnosis (for each role type) -->
+ </diagnosis>
+ <account><!-- 0..* Reference(Account) The set of accounts that may be used for billing for this Encounter --></account>
+ <hospitalization>  <!-- 0..1 Details about the admission to a healthcare service -->
+  <preAdmissionIdentifier><!-- 0..1 Identifier Pre-admission identifier --></preAdmissionIdentifier>
+  <origin><!-- 0..1 Reference(Location|Organization) The location/organization from which the patient came before admission --></origin>
+  <admitSource><!-- 0..1 CodeableConcept From where patient was admitted (physician referral, transfer) --></admitSource>
+  <reAdmission><!-- 0..1 CodeableConcept The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission --></reAdmission>
+  <dietPreference><!-- 0..* CodeableConcept Diet preferences reported by the patient --></dietPreference>
+  <specialCourtesy><!-- 0..* CodeableConcept Special courtesies (VIP, board member) --></specialCourtesy>
+  <specialArrangement><!-- 0..* CodeableConcept Wheelchair, translator, stretcher, etc. --></specialArrangement>
+  <destination><!-- 0..1 Reference(Location|Organization) Location/organization to which the patient is discharged --></destination>
+  <dischargeDisposition><!-- 0..1 CodeableConcept Category or kind of location after discharge --></dischargeDisposition>
+ </hospitalization>
+ <location>  <!-- 0..* List of locations where the patient has been -->
+  <location><!-- 1..1 Reference(Location) Location the encounter takes place --></location>
+  <status value="[code]"/><!-- 0..1 planned | active | reserved | completed -->
+  <physicalType><!-- 0..1 CodeableConcept The physical type of the location (usually the level in the location hierachy - bed room ward etc.) --></physicalType>
+  <period><!-- 0..1 Period Time period during which the patient was present at the location --></period>
+ </location>
+ <serviceProvider><!-- 0..1 Reference(Organization) The organization (facility) responsible for this encounter --></serviceProvider>
+ <partOf><!-- 0..1 Reference(Encounter) Another Encounter this encounter is part of --></partOf>
+</Encounter>

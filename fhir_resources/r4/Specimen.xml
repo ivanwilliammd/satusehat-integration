@@ -1,0 +1,37 @@
+<Specimen xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External Identifier --></identifier>
+ <accessionIdentifier><!-- 0..1 Identifier Identifier assigned by the lab --></accessionIdentifier>
+ <status value="[code]"/><!-- 0..1 available | unavailable | unsatisfactory | entered-in-error -->
+ <type><!-- 0..1 CodeableConcept Kind of material that forms the specimen --></type>
+ <subject><!-- 0..1 Reference(Patient|Group|Device|Substance|Location) Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device --></subject>
+ <receivedTime value="[dateTime]"/><!-- 0..1 The time when specimen was received for processing -->
+ <parent><!-- 0..* Reference(Specimen) Specimen from which this specimen originated --></parent>
+ <request><!-- 0..* Reference(ServiceRequest) Why the specimen was collected --></request>
+ <collection>  <!-- 0..1 Collection details -->
+  <collector><!-- 0..1 Reference(Practitioner|PractitionerRole) Who collected the specimen --></collector>
+  <collected[x]><!-- 0..1 dateTime|Period Collection time --></collected[x]>
+  <duration><!-- 0..1 Duration How long it took to collect specimen --></duration>
+  <quantity><!-- 0..1 Quantity(SimpleQuantity) The quantity of specimen collected --></quantity>
+  <method><!-- 0..1 CodeableConcept Technique used to perform collection --></method>
+  <bodySite><!-- 0..1 CodeableConcept Anatomical collection site --></bodySite>
+  <fastingStatus[x]><!-- 0..1 CodeableConcept|Duration Whether or how long patient abstained from food and/or drink --></fastingStatus[x]>
+ </collection>
+ <processing>  <!-- 0..* Processing and processing step details -->
+  <description value="[string]"/><!-- 0..1 Textual description of procedure -->
+  <procedure><!-- 0..1 CodeableConcept Indicates the treatment step  applied to the specimen --></procedure>
+  <additive><!-- 0..* Reference(Substance) Material used in the processing step --></additive>
+  <time[x]><!-- 0..1 dateTime|Period Date and time of specimen processing --></time[x]>
+ </processing>
+ <container>  <!-- 0..* Direct container of specimen (tube/slide, etc.) -->
+  <identifier><!-- 0..* Identifier Id for the container --></identifier>
+  <description value="[string]"/><!-- 0..1 Textual description of the container -->
+  <type><!-- 0..1 CodeableConcept Kind of container directly associated with specimen --></type>
+  <capacity><!-- 0..1 Quantity(SimpleQuantity) Container volume or size --></capacity>
+  <specimenQuantity><!-- 0..1 Quantity(SimpleQuantity) Quantity of specimen within container --></specimenQuantity>
+  <additive[x]><!-- 0..1 CodeableConcept|Reference(Substance) Additive associated with container --></additive[x]>
+ </container>
+ <condition><!-- 0..* CodeableConcept State of the specimen --></condition>
+ <note><!-- 0..* Annotation Comments --></note>
+</Specimen>

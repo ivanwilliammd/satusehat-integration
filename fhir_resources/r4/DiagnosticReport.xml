@@ -1,0 +1,28 @@
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business identifier for report --></identifier>
+ <basedOn><!-- 0..* Reference(CarePlan|ImmunizationRecommendation|
+   MedicationRequest|NutritionOrder|ServiceRequest) What was requested --></basedOn>
+ <status value="[code]"/><!-- 1..1 registered | partial | preliminary | final + -->
+ <category><!-- 0..* CodeableConcept Service category --></category>
+ <code><!-- 1..1 CodeableConcept Name/Code for this diagnostic report --></code>
+ <subject><!-- 0..1 Reference(Patient|Group|Device|Location) The subject of the report - usually, but not always, the patient --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Health care event when test ordered --></encounter>
+ <effective[x]><!-- 0..1 dateTime|Period Clinically relevant time/time-period for report --></effective[x]>
+ <issued value="[instant]"/><!-- 0..1 DateTime this version was made -->
+ <performer><!-- 0..* Reference(Practitioner|PractitionerRole|Organization|
+   CareTeam) Responsible Diagnostic Service --></performer>
+ <resultsInterpreter><!-- 0..* Reference(Practitioner|PractitionerRole|
+   Organization|CareTeam) Primary result interpreter --></resultsInterpreter>
+ <specimen><!-- 0..* Reference(Specimen) Specimens this report is based on --></specimen>
+ <result><!-- 0..* Reference(Observation) Observations --></result>
+ <imagingStudy><!-- 0..* Reference(ImagingStudy) Reference to full details of imaging associated with the diagnostic report --></imagingStudy>
+ <media>  <!-- 0..* Key images associated with this report -->
+  <comment value="[string]"/><!-- 0..1 Comment about the image (e.g. explanation) -->
+  <link><!-- 1..1 Reference(Media) Reference to the image source --></link>
+ </media>
+ <conclusion value="[string]"/><!-- 0..1 Clinical conclusion (interpretation) of test results -->
+ <conclusionCode><!-- 0..* CodeableConcept Codes for the clinical conclusion of test results --></conclusionCode>
+ <presentedForm><!-- 0..* Attachment Entire report as issued --></presentedForm>
+</DiagnosticReport>

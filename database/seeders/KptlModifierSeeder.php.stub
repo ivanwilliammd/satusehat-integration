@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Seeders;
+
+use JeroenZwart\CsvSeeder\CsvSeeder;
+use DB;
+
+class KptlModifierSeeder extends CsvSeeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function __construct(){
+        $this->file = base_path().'/database/seeders/csv/kptl_modifier.csv';
+        $this->tablename = config('satusehatintegration.kptl_modifier_table_name');
+        $this->delimiter = ';';
+    }
+
+    public function run()
+    {
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
+
+        parent::run();
+    }
+}

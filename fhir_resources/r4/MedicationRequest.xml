@@ -1,0 +1,54 @@
+<MedicationRequest xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External ids for this request --></identifier>
+ <status value="[code]"/><!-- 1..1 active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown -->
+ <statusReason><!-- 0..1 CodeableConcept Reason for current status --></statusReason>
+ <intent value="[code]"/><!-- 1..1 proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option -->
+ <category><!-- 0..* CodeableConcept Type of medication usage --></category>
+ <priority value="[code]"/><!-- 0..1 routine | urgent | asap | stat -->
+ <doNotPerform value="[boolean]"/><!-- 0..1 True if request is prohibiting action -->
+ <reported[x]><!-- 0..1 boolean|Reference(Patient|Practitioner|PractitionerRole|
+   RelatedPerson|Organization) Reported rather than primary record --></reported[x]>
+ <medication[x]><!-- 1..1 CodeableConcept|Reference(Medication) Medication to be taken --></medication[x]>
+ <subject><!-- 1..1 Reference(Patient|Group) Who or group medication request is for --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter created as part of encounter/admission/stay --></encounter>
+ <supportingInformation><!-- 0..* Reference(Any) Information to support ordering of the medication --></supportingInformation>
+ <authoredOn value="[dateTime]"/><!-- 0..1 When request was initially authored -->
+ <requester><!-- 0..1 Reference(Practitioner|PractitionerRole|Organization|
+   Patient|RelatedPerson|Device) Who/What requested the Request --></requester>
+ <performer><!-- 0..1 Reference(Practitioner|PractitionerRole|Organization|
+   Patient|Device|RelatedPerson|CareTeam) Intended performer of administration --></performer>
+ <performerType><!-- 0..1 CodeableConcept Desired kind of performer of the medication administration --></performerType>
+ <recorder><!-- 0..1 Reference(Practitioner|PractitionerRole) Person who entered the request --></recorder>
+ <reasonCode><!-- 0..* CodeableConcept Reason or indication for ordering or not ordering the medication --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation) Condition or observation that supports why the prescription is being written --></reasonReference>
+ <instantiatesCanonical value="[canonical]"/><!-- 0..* Instantiates FHIR protocol or definition -->
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <basedOn><!-- 0..* Reference(CarePlan|MedicationRequest|ServiceRequest|
+   ImmunizationRecommendation) What request fulfills --></basedOn>
+ <groupIdentifier><!-- 0..1 Identifier Composite request this is part of --></groupIdentifier>
+ <courseOfTherapyType><!-- 0..1 CodeableConcept Overall pattern of medication administration --></courseOfTherapyType>
+ <insurance><!-- 0..* Reference(Coverage|ClaimResponse) Associated insurance coverage --></insurance>
+ <note><!-- 0..* Annotation Information about the prescription --></note>
+ <dosageInstruction><!-- 0..* Dosage How the medication should be taken --></dosageInstruction>
+ <dispenseRequest>  <!-- 0..1 Medication supply authorization -->
+  <initialFill>  <!-- 0..1 First fill details -->
+   <quantity><!-- 0..1 Quantity(SimpleQuantity) First fill quantity --></quantity>
+   <duration><!-- 0..1 Duration First fill duration --></duration>
+  </initialFill>
+  <dispenseInterval><!-- 0..1 Duration Minimum period of time between dispenses --></dispenseInterval>
+  <validityPeriod><!-- 0..1 Period Time period supply is authorized for --></validityPeriod>
+  <numberOfRepeatsAllowed value="[unsignedInt]"/><!-- 0..1 Number of refills authorized -->
+  <quantity><!-- 0..1 Quantity(SimpleQuantity) Amount of medication to supply per dispense --></quantity>
+  <expectedSupplyDuration><!-- 0..1 Duration Number of days supply per dispense --></expectedSupplyDuration>
+  <performer><!-- 0..1 Reference(Organization) Intended dispenser --></performer>
+ </dispenseRequest>
+ <substitution>  <!-- 0..1 Any restrictions on medication substitution -->
+  <allowed[x]><!-- 1..1 boolean|CodeableConcept Whether substitution is allowed or not --></allowed[x]>
+  <reason><!-- 0..1 CodeableConcept Why should (not) substitution be made --></reason>
+ </substitution>
+ <priorPrescription><!-- 0..1 Reference(MedicationRequest) An order/prescription that is being replaced --></priorPrescription>
+ <detectedIssue><!-- 0..* Reference(DetectedIssue) Clinical Issue with action --></detectedIssue>
+ <eventHistory><!-- 0..* Reference(Provenance) A list of events of interest in the lifecycle --></eventHistory>
+</MedicationRequest>

@@ -1,0 +1,44 @@
+<Composition xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..1 Identifier Version-independent identifier for the Composition --></identifier>
+ <status value="[code]"/><!-- 1..1 preliminary | final | amended | entered-in-error -->
+ <type><!-- 1..1 CodeableConcept Kind of composition (LOINC if possible) --></type>
+ <category><!-- 0..* CodeableConcept Categorization of Composition --></category>
+ <subject><!-- 0..1 Reference(Any) Who and/or what the composition is about --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Context of the Composition --></encounter>
+ <date value="[dateTime]"/><!-- 1..1 Composition editing time -->
+ <author><!-- 1..* Reference(Practitioner|PractitionerRole|Device|Patient|
+   RelatedPerson|Organization) Who and/or what authored the composition --></author>
+ <title value="[string]"/><!-- 1..1 Human Readable name/title -->
+ <confidentiality value="[code]"/><!-- 0..1 As defined by affinity domain -->
+ <attester>  <!-- 0..* Attests to accuracy of composition -->
+  <mode value="[code]"/><!-- 1..1 personal | professional | legal | official -->
+  <time value="[dateTime]"/><!-- 0..1 When the composition was attested -->
+  <party><!-- 0..1 Reference(Patient|RelatedPerson|Practitioner|PractitionerRole|
+    Organization) Who attested the composition --></party>
+ </attester>
+ <custodian><!-- 0..1 Reference(Organization) Organization which maintains the composition --></custodian>
+ <relatesTo>  <!-- 0..* Relationships to other compositions/documents -->
+  <code value="[code]"/><!-- 1..1 replaces | transforms | signs | appends -->
+  <target[x]><!-- 1..1 Identifier|Reference(Composition) Target of the relationship --></target[x]>
+ </relatesTo>
+ <event>  <!-- 0..* The clinical service(s) being documented -->
+  <code><!-- 0..* CodeableConcept Code(s) that apply to the event being documented --></code>
+  <period><!-- 0..1 Period The period covered by the documentation --></period>
+  <detail><!-- 0..* Reference(Any) The event(s) being documented --></detail>
+ </event>
+ <section>  <!-- 0..* Composition is broken into sections -->
+  <title value="[string]"/><!-- 0..1 Label for section (e.g. for ToC) -->
+  <code><!-- 0..1 CodeableConcept Classification of section (recommended) --></code>
+  <author><!-- 0..* Reference(Practitioner|PractitionerRole|Device|Patient|
+    RelatedPerson|Organization) Who and/or what authored the section --></author>
+  <focus><!-- 0..1 Reference(Any) Who/what the section is about, when it is not about the subject of composition --></focus>
+  <text><!-- ?? 0..1 Narrative Text summary of the section, for human interpretation --></text>
+  <mode value="[code]"/><!-- 0..1 working | snapshot | changes -->
+  <orderedBy><!-- 0..1 CodeableConcept Order of section entries --></orderedBy>
+  <entry><!-- ?? 0..* Reference(Any) A reference to data that supports this section --></entry>
+  <emptyReason><!-- ?? 0..1 CodeableConcept Why the section is empty --></emptyReason>
+  <section><!-- ?? 0..* Content as for Composition.section Nested Section --></section>
+ </section>
+</Composition>

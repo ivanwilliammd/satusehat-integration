@@ -1,0 +1,50 @@
+<Immunization xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Business identifier --></identifier>
+ <status value="[code]"/><!-- 1..1 completed | entered-in-error | not-done -->
+ <statusReason><!-- 0..1 CodeableConcept Reason not done --></statusReason>
+ <vaccineCode><!-- 1..1 CodeableConcept Vaccine product administered --></vaccineCode>
+ <patient><!-- 1..1 Reference(Patient) Who was immunized --></patient>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter immunization was part of --></encounter>
+ <occurrence[x]><!-- 1..1 dateTime|string Vaccine administration date --></occurrence[x]>
+ <recorded value="[dateTime]"/><!-- 0..1 When the immunization was first captured in the subject's record -->
+ <primarySource value="[boolean]"/><!-- 0..1 Indicates context the data was recorded in -->
+ <reportOrigin><!-- 0..1 CodeableConcept Indicates the source of a secondarily reported record --></reportOrigin>
+ <location><!-- 0..1 Reference(Location) Where immunization occurred --></location>
+ <manufacturer><!-- 0..1 Reference(Organization) Vaccine manufacturer --></manufacturer>
+ <lotNumber value="[string]"/><!-- 0..1 Vaccine lot number -->
+ <expirationDate value="[date]"/><!-- 0..1 Vaccine expiration date -->
+ <site><!-- 0..1 CodeableConcept Body site vaccine  was administered --></site>
+ <route><!-- 0..1 CodeableConcept How vaccine entered body --></route>
+ <doseQuantity><!-- 0..1 Quantity(SimpleQuantity) Amount of vaccine administered --></doseQuantity>
+ <performer>  <!-- 0..* Who performed event -->
+  <function><!-- 0..1 CodeableConcept What type of performance was done --></function>
+  <actor><!-- 1..1 Reference(Practitioner|PractitionerRole|Organization) Individual or organization who was performing --></actor>
+ </performer>
+ <note><!-- 0..* Annotation Additional immunization notes --></note>
+ <reasonCode><!-- 0..* CodeableConcept Why immunization occurred --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport) Why immunization occurred --></reasonReference>
+ <isSubpotent value="[boolean]"/><!-- 0..1 Dose potency -->
+ <subpotentReason><!-- 0..* CodeableConcept Reason for being subpotent --></subpotentReason>
+ <education>  <!-- 0..* Educational material presented to patient -->
+  <documentType value="[string]"/><!-- 0..1 Educational material document identifier -->
+  <reference value="[uri]"/><!-- 0..1 Educational material reference pointer -->
+  <publicationDate value="[dateTime]"/><!-- 0..1 Educational material publication date -->
+  <presentationDate value="[dateTime]"/><!-- 0..1 Educational material presentation date -->
+ </education>
+ <programEligibility><!-- 0..* CodeableConcept Patient eligibility for a vaccination program --></programEligibility>
+ <fundingSource><!-- 0..1 CodeableConcept Funding source for the vaccine --></fundingSource>
+ <reaction>  <!-- 0..* Details of a reaction that follows immunization -->
+  <date value="[dateTime]"/><!-- 0..1 When reaction started -->
+  <detail><!-- 0..1 Reference(Observation) Additional information on reaction --></detail>
+  <reported value="[boolean]"/><!-- 0..1 Indicates self-reported reaction -->
+ </reaction>
+ <protocolApplied>  <!-- 0..* Protocol followed by the provider -->
+  <series value="[string]"/><!-- 0..1 Name of vaccine series -->
+  <authority><!-- 0..1 Reference(Organization) Who is responsible for publishing the recommendations --></authority>
+  <targetDisease><!-- 0..* CodeableConcept Vaccine preventatable disease being targetted --></targetDisease>
+  <doseNumber[x]><!-- 1..1 positiveInt|string Dose number within series --></doseNumber[x]>
+  <seriesDoses[x]><!-- 0..1 positiveInt|string Recommended number of doses for immunity --></seriesDoses[x]>
+ </protocolApplied>
+</Immunization>

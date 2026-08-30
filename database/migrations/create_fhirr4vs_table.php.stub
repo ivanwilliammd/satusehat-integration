@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFhirR4vsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create(config('satusehatintegration.fhirr4vs_table_name'), function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('fhir_id');
+            $table->string('url');
+            $table->string('version');
+            $table->string('name');
+            $table->string('title');
+            $table->string('status');
+            $table->boolean('experimental');
+            $table->text('description');
+            $table->string('date')->nullable();
+            $table->string('publisher');
+            $table->boolean('immutable')->nullable();
+            $table->string('compose_include_system')->nullable();
+            $table->string('compose_include_code')->nullable();
+            $table->string('compose_include_display')->nullable();
+            $table->string('compose_include_filter_property')->nullable();
+            $table->string('compose_include_filter_op')->nullable();
+            $table->string('compose_include_filter_value')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists(config('satusehatintegration.fhirr4vs_table_name'));
+    }
+}

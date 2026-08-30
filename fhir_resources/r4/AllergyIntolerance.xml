@@ -1,0 +1,30 @@
+<AllergyIntolerance xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External ids for this item --></identifier>
+ <clinicalStatus><!-- ?? 0..1 CodeableConcept active | inactive | resolved --></clinicalStatus>
+ <verificationStatus><!-- ?? 0..1 CodeableConcept unconfirmed | confirmed | refuted | entered-in-error --></verificationStatus>
+ <type value="[code]"/><!-- 0..1 allergy | intolerance - Underlying mechanism (if known) -->
+ <category value="[code]"/><!-- 0..* food | medication | environment | biologic -->
+ <criticality value="[code]"/><!-- 0..1 low | high | unable-to-assess -->
+ <code><!-- 0..1 CodeableConcept Code that identifies the allergy or intolerance --></code>
+ <patient><!-- 1..1 Reference(Patient) Who the sensitivity is for --></patient>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter when the allergy or intolerance was asserted --></encounter>
+ <onset[x]><!-- 0..1 dateTime|Age|Period|Range|string When allergy or intolerance was identified --></onset[x]>
+ <recordedDate value="[dateTime]"/><!-- 0..1 Date first version of the resource instance was recorded -->
+ <recorder><!-- 0..1 Reference(Practitioner|PractitionerRole|Patient|
+   RelatedPerson) Who recorded the sensitivity --></recorder>
+ <asserter><!-- 0..1 Reference(Patient|RelatedPerson|Practitioner|
+   PractitionerRole) Source of the information about the allergy --></asserter>
+ <lastOccurrence value="[dateTime]"/><!-- 0..1 Date(/time) of last known occurrence of a reaction -->
+ <note><!-- 0..* Annotation Additional text not captured in other fields --></note>
+ <reaction>  <!-- 0..* Adverse Reaction Events linked to exposure to substance -->
+  <substance><!-- 0..1 CodeableConcept Specific substance or pharmaceutical product considered to be responsible for event --></substance>
+  <manifestation><!-- 1..* CodeableConcept Clinical symptoms/signs associated with the Event --></manifestation>
+  <description value="[string]"/><!-- 0..1 Description of the event as a whole -->
+  <onset value="[dateTime]"/><!-- 0..1 Date(/time) when manifestations showed -->
+  <severity value="[code]"/><!-- 0..1 mild | moderate | severe (of event as a whole) -->
+  <exposureRoute><!-- 0..1 CodeableConcept How the subject was exposed to the substance --></exposureRoute>
+  <note><!-- 0..* Annotation Text about event not captured in other fields --></note>
+ </reaction>
+</AllergyIntolerance>

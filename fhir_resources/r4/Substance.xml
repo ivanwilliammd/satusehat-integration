@@ -1,0 +1,18 @@
+<Substance xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Unique identifier --></identifier>
+ <status value="[code]"/><!-- 0..1 active | inactive | entered-in-error -->
+ <category><!-- 0..* CodeableConcept What class/type of substance this is --></category>
+ <code><!-- 1..1 CodeableConcept What substance this is --></code>
+ <description value="[string]"/><!-- 0..1 Textual description of the substance, comments -->
+ <instance>  <!-- 0..* If this describes a specific package/container of the substance -->
+  <identifier><!-- 0..1 Identifier Identifier of the package/container --></identifier>
+  <expiry value="[dateTime]"/><!-- 0..1 When no longer valid to use -->
+  <quantity><!-- 0..1 Quantity(SimpleQuantity) Amount of substance in the package --></quantity>
+ </instance>
+ <ingredient>  <!-- 0..* Composition information about the substance -->
+  <quantity><!-- 0..1 Ratio Optional amount (concentration) --></quantity>
+  <substance[x]><!-- 1..1 CodeableConcept|Reference(Substance) A component of the substance --></substance[x]>
+ </ingredient>
+</Substance>

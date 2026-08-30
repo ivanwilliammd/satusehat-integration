@@ -1,0 +1,26 @@
+<QuestionnaireResponse xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..1 Identifier Unique id for this set of answers --></identifier>
+ <basedOn><!-- 0..* Reference(CarePlan|ServiceRequest) Request fulfilled by this QuestionnaireResponse --></basedOn>
+ <partOf><!-- 0..* Reference(Observation|Procedure) Part of this action --></partOf>
+ <questionnaire><!-- 0..1 canonical(Questionnaire) Form being answered --></questionnaire>
+ <status value="[code]"/><!-- 1..1 in-progress | completed | amended | entered-in-error | stopped -->
+ <subject><!-- 0..1 Reference(Any) The subject of the questions --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter created as part of --></encounter>
+ <authored value="[dateTime]"/><!-- 0..1 Date the answers were gathered -->
+ <author><!-- 0..1 Reference(Device|Practitioner|PractitionerRole|Patient|
+   RelatedPerson|Organization) Person who received and recorded the answers --></author>
+ <source><!-- 0..1 Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) The person who answered the questions --></source>
+ <item>  <!-- 0..* Groups and questions -->
+  <linkId value="[string]"/><!-- 1..1 Pointer to specific item from Questionnaire -->
+  <definition value="[uri]"/><!-- 0..1 ElementDefinition - details for the item -->
+  <text value="[string]"/><!-- 0..1 Name for group or question text -->
+  <answer>  <!-- 0..* The response(s) to the question -->
+   <value[x]><!-- 0..1 boolean|decimal|integer|date|dateTime|time|string|uri|
+     Attachment|Coding|Quantity|Reference(Any) Single-valued answer to the question --></value[x]>
+   <item><!-- 0..* Content as for QuestionnaireResponse.item Nested groups and questions --></item>
+  </answer>
+  <item><!-- 0..* Content as for QuestionnaireResponse.item Nested questionnaire response items --></item>
+ </item>
+</QuestionnaireResponse>

@@ -1,0 +1,48 @@
+<Task xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Task Instance Identifier --></identifier>
+ <instantiatesCanonical><!-- 0..1 canonical(ActivityDefinition) Formal definition of task --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..1 Formal definition of task -->
+ <basedOn><!-- 0..* Reference(Any) Request fulfilled by this task --></basedOn>
+ <groupIdentifier><!-- 0..1 Identifier Requisition or grouper id --></groupIdentifier>
+ <partOf><!-- 0..* Reference(Task) Composite task --></partOf>
+ <status value="[code]"/><!-- 1..1 draft | requested | received | accepted | + -->
+ <statusReason><!-- 0..1 CodeableConcept Reason for current status --></statusReason>
+ <businessStatus><!-- 0..1 CodeableConcept E.g. "Specimen collected", "IV prepped" --></businessStatus>
+ <intent value="[code]"/><!-- 1..1 unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option -->
+ <priority value="[code]"/><!-- 0..1 routine | urgent | asap | stat -->
+ <code><!-- 0..1 CodeableConcept Task Type --></code>
+ <description value="[string]"/><!-- 0..1 Human-readable explanation of task -->
+ <focus><!-- 0..1 Reference(Any) What task is acting on --></focus>
+ <for><!-- 0..1 Reference(Any) Beneficiary of the Task --></for>
+ <encounter><!-- 0..1 Reference(Encounter) Healthcare event during which this task originated --></encounter>
+ <executionPeriod><!-- 0..1 Period Start and end time of execution --></executionPeriod>
+ <authoredOn value="[dateTime]"/><!-- ?? 0..1 Task Creation Date -->
+ <lastModified value="[dateTime]"/><!-- ?? 0..1 Task Last Modified Date -->
+ <requester><!-- 0..1 Reference(Device|Organization|Patient|Practitioner|
+   PractitionerRole|RelatedPerson) Who is asking for task to be done --></requester>
+ <performerType><!-- 0..* CodeableConcept Requested performer --></performerType>
+ <owner><!-- 0..1 Reference(Practitioner|PractitionerRole|Organization|CareTeam|
+   HealthcareService|Patient|Device|RelatedPerson) Responsible individual --></owner>
+ <location><!-- 0..1 Reference(Location) Where task occurs --></location>
+ <reasonCode><!-- 0..1 CodeableConcept Why task is needed --></reasonCode>
+ <reasonReference><!-- 0..1 Reference(Any) Why task is needed --></reasonReference>
+ <insurance><!-- 0..* Reference(Coverage|ClaimResponse) Associated insurance coverage --></insurance>
+ <note><!-- 0..* Annotation Comments made about the task --></note>
+ <relevantHistory><!-- 0..* Reference(Provenance) Key events in history of the Task --></relevantHistory>
+ <restriction>  <!-- 0..1 Constraints on fulfillment tasks -->
+  <repetitions value="[positiveInt]"/><!-- 0..1 How many times to repeat -->
+  <period><!-- 0..1 Period When fulfillment sought --></period>
+  <recipient><!-- 0..* Reference(Patient|Practitioner|PractitionerRole|
+    RelatedPerson|Group|Organization) For whom is fulfillment sought? --></recipient>
+ </restriction>
+ <input>  <!-- 0..* Information used to perform task -->
+  <type><!-- 1..1 CodeableConcept Label for the input --></type>
+  <value[x]><!-- 1..1 * Content to use in performing the task --></value[x]>
+ </input>
+ <output>  <!-- 0..* Information produced as part of task -->
+  <type><!-- 1..1 CodeableConcept Label for output --></type>
+  <value[x]><!-- 1..1 * Result of output --></value[x]>
+ </output>
+</Task>

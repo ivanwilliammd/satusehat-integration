@@ -1,0 +1,30 @@
+<FamilyMemberHistory xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External Id(s) for this record --></identifier>
+ <instantiatesCanonical><!-- 0..* canonical(PlanDefinition|Questionnaire|
+   ActivityDefinition|Measure|OperationDefinition) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <status value="[code]"/><!-- 1..1 partial | completed | entered-in-error | health-unknown -->
+ <dataAbsentReason><!-- 0..1 CodeableConcept subject-unknown | withheld | unable-to-obtain | deferred --></dataAbsentReason>
+ <patient><!-- 1..1 Reference(Patient) Patient history is about --></patient>
+ <date value="[dateTime]"/><!-- 0..1 When history was recorded or last updated -->
+ <name value="[string]"/><!-- 0..1 The family member described -->
+ <relationship><!-- 1..1 CodeableConcept Relationship to the subject --></relationship>
+ <sex><!-- 0..1 CodeableConcept male | female | other | unknown --></sex>
+ <born[x]><!-- ?? 0..1 Period|date|string (approximate) date of birth --></born[x]>
+ <age[x]><!-- ?? 0..1 Age|Range|string (approximate) age --></age[x]>
+ <estimatedAge value="[boolean]"/><!-- ?? 0..1 Age is estimated? -->
+ <deceased[x]><!-- 0..1 boolean|Age|Range|date|string Dead? How old/when? --></deceased[x]>
+ <reasonCode><!-- 0..* CodeableConcept Why was family member history performed? --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|AllergyIntolerance|
+   QuestionnaireResponse|DiagnosticReport|DocumentReference) Why was family member history performed? --></reasonReference>
+ <note><!-- 0..* Annotation General note about related person --></note>
+ <condition>  <!-- 0..* Condition that the related person had -->
+  <code><!-- 1..1 CodeableConcept Condition suffered by relation --></code>
+  <outcome><!-- 0..1 CodeableConcept deceased | permanent disability | etc. --></outcome>
+  <contributedToDeath value="[boolean]"/><!-- 0..1 Whether the condition contributed to the cause of death -->
+  <onset[x]><!-- 0..1 Age|Range|Period|string When condition first manifested --></onset[x]>
+  <note><!-- 0..* Annotation Extra information about condition --></note>
+ </condition>
+</FamilyMemberHistory>

@@ -1,0 +1,27 @@
+<Goal xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier External Ids for this goal --></identifier>
+ <lifecycleStatus value="[code]"/><!-- 1..1 proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected -->
+ <achievementStatus><!-- 0..1 CodeableConcept in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable --></achievementStatus>
+ <category><!-- 0..* CodeableConcept E.g. Treatment, dietary, behavioral, etc. --></category>
+ <priority><!-- 0..1 CodeableConcept high-priority | medium-priority | low-priority --></priority>
+ <description><!-- 1..1 CodeableConcept Code or text describing goal --></description>
+ <subject><!-- 1..1 Reference(Patient|Group|Organization) Who this goal is intended for --></subject>
+ <start[x]><!-- 0..1 date|CodeableConcept When goal pursuit begins --></start[x]>
+ <target>  <!-- ?? 0..* Target outcome for the goal -->
+  <measure><!-- ?? 0..1 CodeableConcept The parameter whose value is being tracked --></measure>
+  <detail[x]><!-- ?? 0..1 Quantity|Range|CodeableConcept|string|boolean|integer|
+    Ratio The target value to be achieved --></detail[x]>
+  <due[x]><!-- 0..1 date|Duration Reach goal on or before --></due[x]>
+ </target>
+ <statusDate value="[date]"/><!-- 0..1 When goal status took effect -->
+ <statusReason value="[string]"/><!-- 0..1 Reason for current status -->
+ <expressedBy><!-- 0..1 Reference(Patient|Practitioner|PractitionerRole|
+   RelatedPerson) Who's responsible for creating Goal? --></expressedBy>
+ <addresses><!-- 0..* Reference(Condition|Observation|MedicationStatement|
+   NutritionOrder|ServiceRequest|RiskAssessment) Issues addressed by this goal --></addresses>
+ <note><!-- 0..* Annotation Comments about the goal --></note>
+ <outcomeCode><!-- 0..* CodeableConcept What result was achieved regarding the goal? --></outcomeCode>
+ <outcomeReference><!-- 0..* Reference(Observation) Observation that resulted from goal --></outcomeReference>
+</Goal>

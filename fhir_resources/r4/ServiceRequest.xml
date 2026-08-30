@@ -1,0 +1,40 @@
+<ServiceRequest xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <identifier><!-- 0..* Identifier Identifiers assigned to this order --></identifier>
+ <instantiatesCanonical><!-- 0..* canonical(ActivityDefinition|PlanDefinition) Instantiates FHIR protocol or definition --></instantiatesCanonical>
+ <instantiatesUri value="[uri]"/><!-- 0..* Instantiates external protocol or definition -->
+ <basedOn><!-- 0..* Reference(CarePlan|ServiceRequest|MedicationRequest) What request fulfills --></basedOn>
+ <replaces><!-- 0..* Reference(ServiceRequest) What request replaces --></replaces>
+ <requisition><!-- 0..1 Identifier Composite Request ID --></requisition>
+ <status value="[code]"/><!-- 1..1 draft | active | on-hold | revoked | completed | entered-in-error | unknown -->
+ <intent value="[code]"/><!-- 1..1 proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option -->
+ <category><!-- 0..* CodeableConcept Classification of service --></category>
+ <priority value="[code]"/><!-- 0..1 routine | urgent | asap | stat -->
+ <doNotPerform value="[boolean]"/><!-- 0..1 True if service/procedure should not be performed -->
+ <code><!-- 0..1 CodeableConcept What is being requested/ordered --></code>
+ <orderDetail><!-- ?? 0..* CodeableConcept Additional order information --></orderDetail>
+ <quantity[x]><!-- 0..1 Quantity|Ratio|Range Service amount --></quantity[x]>
+ <subject><!-- 1..1 Reference(Patient|Group|Location|Device) Individual or Entity the service is ordered for --></subject>
+ <encounter><!-- 0..1 Reference(Encounter) Encounter in which the request was created --></encounter>
+ <occurrence[x]><!-- 0..1 dateTime|Period|Timing When service should occur --></occurrence[x]>
+ <asNeeded[x]><!-- 0..1 boolean|CodeableConcept Preconditions for service --></asNeeded[x]>
+ <authoredOn value="[dateTime]"/><!-- 0..1 Date request signed -->
+ <requester><!-- 0..1 Reference(Practitioner|PractitionerRole|Organization|
+   Patient|RelatedPerson|Device) Who/what is requesting service --></requester>
+ <performerType><!-- 0..1 CodeableConcept Performer role --></performerType>
+ <performer><!-- 0..* Reference(Practitioner|PractitionerRole|Organization|
+   CareTeam|HealthcareService|Patient|Device|RelatedPerson) Requested performer --></performer>
+ <locationCode><!-- 0..* CodeableConcept Requested location --></locationCode>
+ <locationReference><!-- 0..* Reference(Location) Requested location --></locationReference>
+ <reasonCode><!-- 0..* CodeableConcept Explanation/Justification for procedure or service --></reasonCode>
+ <reasonReference><!-- 0..* Reference(Condition|Observation|DiagnosticReport|
+   DocumentReference) Explanation/Justification for service or service --></reasonReference>
+ <insurance><!-- 0..* Reference(Coverage|ClaimResponse) Associated insurance coverage --></insurance>
+ <supportingInfo><!-- 0..* Reference(Any) Additional clinical information --></supportingInfo>
+ <specimen><!-- 0..* Reference(Specimen) Procedure Samples --></specimen>
+ <bodySite><!-- 0..* CodeableConcept Location on Body --></bodySite>
+ <note><!-- 0..* Annotation Comments --></note>
+ <patientInstruction value="[string]"/><!-- 0..1 Patient or consumer-oriented instructions -->
+ <relevantHistory><!-- 0..* Reference(Provenance) Request provenance --></relevantHistory>
+</ServiceRequest>
