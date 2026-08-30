@@ -7,7 +7,7 @@ use Satusehat\Integration\OAuth2Client;
 
 class Observation extends OAuth2Client
 {
-    private array $observation = ['resourceType' => 'Observation'];
+    public array $observation = ['resourceType' => 'Observation'];
 
     /**
      * Sets a status to the observation.
