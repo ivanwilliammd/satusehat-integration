@@ -24,4 +24,10 @@ class CodeableConcept extends DataType
         $this->coding[] = $coding;
         return $this;
     }
+
+    public function setText(?string $text): self
+    {
+        $this->text = $text;
+        return $this;
+    }
 }
