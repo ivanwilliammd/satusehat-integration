@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.11.2 - 2026-08-31
+
+### v4.11.2 - 2026-09-02
+
+Migrated MedicationStatement + Task resources from fhirvel-ss to satusehat-integration.
+
+#### Added
+
+- `FHIR\MedicationStatement` — medication record with status, medicationReference, subject, context, effectiveDateTime, dosage instruction, contained medication
+- `PayloadBuilderMedicationStatement` — fluent builder: setId, addIdentifier, setStatus, addStatusReason, setCategory, setMedicationCodeableConcept, setMedicationReference, setSubject, setContext, setDateAsserted, setEffectiveDateTime, setEffectivePeriod, setInformationSource, setDerivedFrom, setReasonCode, setReasonReference, addNote, addDosageInstruction, addExtension
+- `FHIR\Task` — workflow task with status, intent, priority, description, for, encounter, authoredOn, lastModified, requester, owner, input, output
+- `PayloadBuilderTask` — fluent builder: setId, addIdentifier, setInstantiatesCanonical, setInstantiatesUri, setStatus, setStatusReason, setBusinessStatus, setIntent, setPriority, setCode, setDescription, setFocus, setFor, setEncounter, setExecutionPeriod, setAuthoredOn, setLastModified, setRequester, setOwner, setLocation, setReasonCode, setReasonReference, addInput, addOutput, addRestriction, addNote, addExtension
+
+**Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/v4.11.1...v4.11.2
+
 ## v4.10.0 - 2026-09-02
 
 Migrated MedicationStatement + Task resources from fhirvel-ss to satusehat-integration.
@@ -126,6 +141,7 @@ php artisan satusehat:process-queue --reset
 
 
 
+
 ```
 **Service Provider Enhancements:**
 
@@ -146,6 +162,7 @@ SATUSEHAT_LOG_ENABLED=true
 SATUSEHAT_LOG_USER_ID=system
 SATUSEHAT_QUEUE_TABLE=satusehat_queue
 SATUSEHAT_QUEUE_MAX_ATTEMPTS=5
+
 
 
 
@@ -239,6 +256,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -463,6 +481,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.3 — Add Composition FHIR class - 2026-08-12
 
@@ -491,6 +510,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.2 — Add NutritionOrder FHIR class - 2026-08-09
 
@@ -502,6 +522,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -550,6 +571,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## v3.3.0 — Add CarePlan FHIR class - 2026-08-02
 
@@ -561,6 +583,7 @@ Phase 3 migration from `fhirvel-ss`. See [ROADMAP.md](https://github.com/ivanwil
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -617,6 +640,7 @@ composer update ivanwilliammd/satusehat-integration
 
 
 
+
 ```
 ## 3.2.0 — Laravel 13 Support - 2026-08-01
 
@@ -632,6 +656,7 @@ composer update ivanwilliammd/satusehat-integration
 
 ```bash
 composer update ivanwilliammd/satusehat-integration
+
 
 
 
@@ -1067,6 +1092,7 @@ class BaseController extends Controller
 
 
 
+
 ```
 v1.2.x :
 
@@ -1181,6 +1207,7 @@ class BaseController extends Controller
         return $ss_oauth2;
     }
 }
+
 
 
 
