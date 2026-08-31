@@ -12,6 +12,14 @@ Migrated MedicationStatement + Task resources from fhirvel-ss to satusehat-integ
 - `PayloadBuilderMedicationStatement` — fluent builder: setId, addIdentifier, setStatus, addStatusReason, setCategory, setMedicationCodeableConcept, setMedicationReference, setSubject, setContext, setDateAsserted, setEffectiveDateTime, setEffectivePeriod, setInformationSource, setDerivedFrom, setReasonCode, setReasonReference, addNote, addDosageInstruction, addExtension
 - `FHIR\Task` — workflow task with status, intent, priority, description, for, encounter, authoredOn, lastModified, requester, owner, input, output
 - `PayloadBuilderTask` — fluent builder: setId, addIdentifier, setInstantiatesCanonical, setInstantiatesUri, setStatus, setStatusReason, setBusinessStatus, setIntent, setPriority, setCode, setDescription, setFocus, setFor, setEncounter, setExecutionPeriod, setAuthoredOn, setLastModified, setRequester, setOwner, setLocation, setReasonCode, setReasonReference, addInput, addOutput, addRestriction, addNote, addExtension
+- `PayloadBuilderBillingStatus` — NON-FHIR JSON: identifier, status, insurer, recipient, subject, request
+- `PayloadBuilderEndpoint` — FHIR R4: identifier, status, connectionType, name, managingOrganization, contact, period, payloadType, payloadMimeType, address, header
+- `PayloadBuilderPurificationDecision` — SATUSEHAT-specific NON-FHIR JSON: identifier, status, insurer, provider, claimResponse, created
+
+#### Fixed
+
+- MedicationStatement + Task builders: all reference/CodeableConcept methods now accept `string` args with auto-prefix (Patient/, Organization/, Medication/, Practitioner/, etc.) and proper `urn:`/`https://` guard
+- Task: `setStatus`/`setIntent` now throw `InvalidArgumentException` for invalid values
 
 **Full Changelog**: https://github.com/ivanwilliammd/satusehat-integration/compare/v4.11.1...v4.11.2
 
