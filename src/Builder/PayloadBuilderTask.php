@@ -114,7 +114,7 @@ class PayloadBuilderTask extends Builder
         if ($focus instanceof Reference) {
             $this->set('focus', $focus->toArray());
         } else {
-            if (strpos($focus, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $focus) && strpos($focus, '/') === false) {
                 $focus = 'QuestionnaireResponse/' . $focus;
             }
             $this->set('focus', array_filter(['reference' => $focus, 'display' => $display], fn($v) => $v !== null));
@@ -127,7 +127,7 @@ class PayloadBuilderTask extends Builder
         if ($for instanceof Reference) {
             $this->set('for', $for->toArray());
         } else {
-            if (strpos($for, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $for) && strpos($for, '/') === false) {
                 $for = 'Patient/' . $for;
             }
             $this->set('for', array_filter(['reference' => $for, 'display' => $display], fn($v) => $v !== null));
@@ -140,7 +140,7 @@ class PayloadBuilderTask extends Builder
         if ($encounter instanceof Reference) {
             $this->set('encounter', $encounter->toArray());
         } else {
-            if (strpos($encounter, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $encounter) && strpos($encounter, '/') === false) {
                 $encounter = 'Encounter/' . $encounter;
             }
             $this->set('encounter', array_filter(['reference' => $encounter, 'display' => $display], fn($v) => $v !== null));
@@ -171,7 +171,7 @@ class PayloadBuilderTask extends Builder
         if ($requester instanceof Reference) {
             $this->set('requester', $requester->toArray());
         } else {
-            if (strpos($requester, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $requester) && strpos($requester, '/') === false) {
                 $requester = 'Practitioner/' . $requester;
             }
             $this->set('requester', array_filter(['reference' => $requester, 'display' => $display], fn($v) => $v !== null));
@@ -179,15 +179,29 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function setOwner(Reference $owner): self
+    public function setOwner(string|Reference $owner, ?string $display = null): self
     {
-        $this->set('owner', $owner->toArray());
+        if ($owner instanceof Reference) {
+            $this->set('owner', $owner->toArray());
+        } else {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $owner) && strpos($owner, '/') === false) {
+                $owner = 'Practitioner/' . $owner;
+            }
+            $this->set('owner', array_filter(['reference' => $owner, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
-    public function setLocation(Reference $location): self
+    public function setLocation(string|Reference $location, ?string $display = null): self
     {
-        $this->set('location', $location->toArray());
+        if ($location instanceof Reference) {
+            $this->set('location', $location->toArray());
+        } else {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $location) && strpos($location, '/') === false) {
+                $location = 'Location/' . $location;
+            }
+            $this->set('location', array_filter(['reference' => $location, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
@@ -229,13 +243,15 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function addRestriction(Reference $requester, ?int $repetitions = null, ?Period $period = null): self
+    public function addRestriction(string|Reference $requester, ?int $repetitions = null, ?Period $period = null): self
     {
-        $restriction = [];
-
-        if ($requester !== null) {
-            $restriction['requester'] = $requester->toArray();
+        $ref = $requester instanceof Reference
+            ? $requester->toArray()['reference']
+            : $requester;
+        if (!preg_match('/^(urn:|https?:\/\/)/', $ref) && strpos($ref, '/') === false) {
+            $ref = 'Patient/' . $ref;
         }
+        $restriction = ['requester' => ['reference' => $ref]];
 
         if ($repetitions !== null) {
             $restriction['repetitions'] = $repetitions;

@@ -68,7 +68,7 @@ class PayloadBuilderMedicationStatement extends Builder
 
     public function setMedicationReference(string $reference, ?string $display = null): self
     {
-        if (strpos($reference, '/') === false) {
+        if (!preg_match('/^(urn:|https?:\/\/)/', $reference) && strpos($reference, '/') === false) {
             $reference = 'Medication/' . $reference;
         }
         $this->set('medicationReference', array_filter([
@@ -80,7 +80,7 @@ class PayloadBuilderMedicationStatement extends Builder
 
     public function setSubject(string $reference, ?string $display = null): self
     {
-        if (strpos($reference, '/') === false) {
+        if (!preg_match('/^(urn:|https?:\/\/)/', $reference) && strpos($reference, '/') === false) {
             $reference = 'Patient/' . $reference;
         }
         $this->set('subject', array_filter([
@@ -122,7 +122,7 @@ class PayloadBuilderMedicationStatement extends Builder
 
     public function setInformationSource(string $reference, ?string $display = null): self
     {
-        if (strpos($reference, '/') === false) {
+        if (!preg_match('/^(urn:|https?:\/\/)/', $reference) && strpos($reference, '/') === false) {
             $reference = 'Patient/' . $reference;
         }
         $this->set('informationSource', array_filter([
