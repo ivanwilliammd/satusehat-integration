@@ -20,12 +20,12 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 | 2 | MedicationRequest | P1 | done | Prescription order |
 | 3 | MedicationAdministration | P1 | done | Drug administration event |
 | 4 | MedicationDispense | P1 | done | Dispensing event |
-| 5 | MedicationStatement | P1 | pending | Medication record |
-| 6 | Procedure | P1 | done | Clinical procedure |
-| 7 | Immunization | P1 | done | Immunization record |
-| 8 | Observation | P1 | done | Lab results, vitals |
-| 9 | Specimen | P1 | done | Lab specimen |
-| 10 | Task | P1 | pending | Workflow task |
+|  5 | MedicationStatement | P1 | done | Medication record |
+|  6 | Procedure | P1 | done | Clinical procedure |
+|  7 | Immunization | P1 | done | Immunization record |
+|  8 | Observation | P1 | done | Lab results, vitals |
+|  9 | Specimen | P1 | done | Lab specimen |
+| 10 | Task | P1 | done | Workflow task |
 | 11 | Group | P2 | pending | Patient grouping |
 | 12 | RelatedPerson | P1 | pending | Personal relationship |
 | 13 | ServiceRequest | P2 | pending | Request for procedure |
@@ -91,3 +91,4 @@ Each release: **2 resources per 2 days**
 | v4.5.0 | 2026-08-18 | Non-core resources (12) + FHIR PATCH + BundleResponse |
 | v4.6.0 | 2026-08-18 | Phase 2: Durable queue + transaction logger |
 | v4.9.0 | 2026-08-29 | MedicationRequest + Procedure |
+| v4.10.0 | 2026-09-02 | MedicationStatement + Task |

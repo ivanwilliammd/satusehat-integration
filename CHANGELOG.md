@@ -1,5 +1,16 @@
 # Changelog
 
+## v4.10.0 - 2026-09-02
+
+Migrated MedicationStatement + Task resources from fhirvel-ss to satusehat-integration.
+
+### Added
+
+- `FHIR\MedicationStatement` — medication record with status, medicationReference, subject, context, effectiveDateTime, dosage instruction, contained medication
+- `PayloadBuilderMedicationStatement` — fluent builder: setId, addIdentifier, setStatus, addStatusReason, setCategory, setMedicationCodeableConcept, setMedicationReference, setSubject, setContext, setDateAsserted, setEffectiveDateTime, setEffectivePeriod, setInformationSource, setDerivedFrom, setReasonCode, setReasonReference, addNote, addDosageInstruction, addExtension
+- `FHIR\Task` — workflow task with status, intent, priority, description, for, encounter, authoredOn, lastModified, requester, owner, input, output
+- `PayloadBuilderTask` — fluent builder: setId, addIdentifier, setInstantiatesCanonical, setInstantiatesUri, setStatus, setStatusReason, setBusinessStatus, setIntent, setPriority, setCode, setDescription, setFocus, setFor, setEncounter, setExecutionPeriod, setAuthoredOn, setLastModified, setRequester, setOwner, setLocation, setReasonCode, setReasonReference, addInput, addOutput, addRestriction, addNote, addExtension
+
 ## v4.9.0 - 2026-08-29
 
 Migrated MedicationRequest + Procedure resources from fhirvel-ss to satusehat-integration.
