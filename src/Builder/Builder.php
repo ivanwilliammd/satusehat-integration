@@ -55,6 +55,48 @@ abstract class Builder
         $this->data[$key][] = $value;
     }
 
+    /**
+     * Set a CodeableConcept field with terminology casting support.
+     * Accepts: CodeableConcept object, "System:Code" string (e.g. "ICD10:A00", "LOINC:2951-2"),
+     *          "plain text" string, or raw array.
+     */
+    protected function setCodeable(string $key, $value, ?string $defaultSystem = null, ?string $defaultDisplay = null): void
+    {
+        if (is_string($value) && !str_contains($value, ':')) {
+            // plain text without system prefix → free-text CodeableConcept, or default system if provided
+            if ($defaultSystem !== null) {
+                $this->set($key, [
+                    'coding' => [['system' => $defaultSystem, 'code' => $value, 'display' => $defaultDisplay ?? $value]],
+                ]);
+                return;
+            }
+            $this->set($key, ['text' => $value]);
+            return;
+        }
+        if (is_string($value) && str_contains($value, ':')) {
+            // "System:Code" notation — use the Resolver
+            try {
+                $resolved = \Satusehat\Integration\Terminology\Resolver::resolve($value);
+                $this->set($key, $resolved->toArray());
+                return;
+            } catch (\Throwable $e) {
+                // Resolver unavailable or failed — fall back to text
+                $this->set($key, ['text' => $value]);
+                return;
+            }
+        }
+        if (is_array($value)) {
+            $this->set($key, $value);
+            return;
+        }
+        // CodeableConcept object or other — delegate to toArray if available
+        if (is_object($value) && method_exists($value, 'toArray')) {
+            $this->set($key, $value->toArray());
+            return;
+        }
+        $this->set($key, ['text' => (string) $value]);
+    }
+
     protected function merge(array $arr): void
     {
         $this->data = array_merge($this->data, $arr);

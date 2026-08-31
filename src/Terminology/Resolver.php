@@ -31,19 +31,12 @@ class Resolver
                     'UCUM' => 'http://unitsofmeasure.org',
                     default => $prefix
                 };
-                return new CodeableConcept([
-                    'coding' => [[
-                        'system' => $system,
-                        'code' => trim($code),
-                        'display' => trim($code)
-                    ]],
-                    'text' => trim($code)
-                ]);
+                return (new CodeableConcept())
+                    ->addCoding((new \Satusehat\Integration\DataType\Coding($system, trim($code), trim($code))))
+                    ->setText(trim($code));
             }
 
-            return new CodeableConcept([
-                'text' => $codeOrConcept
-            ]);
+            return (new CodeableConcept())->setText($codeOrConcept);
         }
 
         return $codeOrConcept;

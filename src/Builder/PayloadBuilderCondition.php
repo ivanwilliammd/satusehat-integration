@@ -54,15 +54,15 @@ class PayloadBuilderCondition extends Builder
         return $this;
     }
 
-    public function setSeverity(CodeableConcept $severity): self
+    public function setSeverity(CodeableConcept|string $severity): self
     {
-        $this->set('severity', $severity->toArray());
+        $this->setCodeable('severity', $severity);
         return $this;
     }
 
-    public function setCode(CodeableConcept $code): self
+    public function setCode(CodeableConcept|string $code): self
     {
-        $this->set('code', $code->toArray());
+        $this->setCodeable('code', $code);
         return $this;
     }
 

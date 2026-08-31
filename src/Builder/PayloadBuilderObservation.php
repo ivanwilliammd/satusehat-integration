@@ -45,15 +45,20 @@ class PayloadBuilderObservation extends Builder
         return $this;
     }
 
-    public function addCategory(CodeableConcept $category): self
+    public function addCategory(CodeableConcept|string $category): self
     {
+        if (is_string($category)) {
+            $cc = \Satusehat\Integration\Terminology\Resolver::resolve($category);
+            $this->push('category', $cc->toArray());
+            return $this;
+        }
         $this->push('category', $category->toArray());
         return $this;
     }
 
-    public function setCode(CodeableConcept $code): self
+    public function setCode(CodeableConcept|string $code): self
     {
-        $this->set('code', $code->toArray());
+        $this->setCodeable('code', $code);
         return $this;
     }
 
