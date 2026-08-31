@@ -42,9 +42,15 @@ class PayloadBuilderMedicationStatement extends Builder
         return $this;
     }
 
-    public function addStatusReason(CodeableConcept $statusReason): self
+    public function addStatusReason(string $code, ?string $display = null, ?string $system = null): self
     {
-        $this->push('statusReason', $statusReason->toArray());
+        $concept = [
+            'coding' => [['code' => $code, 'display' => $display ?? $code]],
+        ];
+        if ($system !== null) {
+            $concept['coding'][0]['system'] = $system;
+        }
+        $this->push('statusReason', $concept);
         return $this;
     }
 
@@ -60,21 +66,39 @@ class PayloadBuilderMedicationStatement extends Builder
         return $this;
     }
 
-    public function setMedicationReference(Reference $medicationReference): self
+    public function setMedicationReference(string $reference, ?string $display = null): self
     {
-        $this->set('medicationReference', $medicationReference->toArray());
+        if (strpos($reference, '/') === false) {
+            $reference = 'Medication/' . $reference;
+        }
+        $this->set('medicationReference', array_filter([
+            'reference' => $reference,
+            'display' => $display,
+        ], fn($v) => $v !== null));
         return $this;
     }
 
-    public function setSubject(Reference $subject): self
+    public function setSubject(string $reference, ?string $display = null): self
     {
-        $this->set('subject', $subject->toArray());
+        if (strpos($reference, '/') === false) {
+            $reference = 'Patient/' . $reference;
+        }
+        $this->set('subject', array_filter([
+            'reference' => $reference,
+            'display' => $display,
+        ], fn($v) => $v !== null));
         return $this;
     }
 
-    public function setContext(Reference $context): self
+    public function setContext(string $reference, ?string $display = null): self
     {
-        $this->set('context', $context->toArray());
+        if (strpos($reference, '/') === false) {
+            $reference = 'Encounter/' . $reference;
+        }
+        $this->set('context', array_filter([
+            'reference' => $reference,
+            'display' => $display,
+        ], fn($v) => $v !== null));
         return $this;
     }
 
@@ -96,9 +120,15 @@ class PayloadBuilderMedicationStatement extends Builder
         return $this;
     }
 
-    public function setInformationSource(Reference $informationSource): self
+    public function setInformationSource(string $reference, ?string $display = null): self
     {
-        $this->set('informationSource', $informationSource->toArray());
+        if (strpos($reference, '/') === false) {
+            $reference = 'Patient/' . $reference;
+        }
+        $this->set('informationSource', array_filter([
+            'reference' => $reference,
+            'display' => $display,
+        ], fn($v) => $v !== null));
         return $this;
     }
 
@@ -126,48 +156,32 @@ class PayloadBuilderMedicationStatement extends Builder
         return $this;
     }
 
+    public function addContained(array $resource): self
+    {
+        $this->push('contained', $resource);
+        return $this;
+    }
+
     public function addDosageInstruction(
         ?string $text = null,
-        ?int $sequence = null,
-        ?CodeableConcept $timingCode = null,
-        ?Period $timingPeriod = null,
-        ?Quantity $doseQuantity = null,
-        ?Range $doseRange = null,
-        ?string $route = null,
-        ?CodeableConcept $routeCode = null
+        ?int $frequency = null,
+        ?int $period = null,
+        ?string $periodUnit = null
     ): self {
         $dosage = [];
 
         if ($text !== null) {
             $dosage['text'] = $text;
         }
-
-        if ($sequence !== null) {
-            $dosage['sequence'] = $sequence;
+        if ($frequency !== null) {
+            $dosage['sequence'] = $frequency;
+            $dosage['timing']['repeat']['frequency'] = $frequency;
         }
-
-        if ($timingCode !== null) {
-            $dosage['timing']['code'] = $timingCode->toArray();
+        if ($period !== null) {
+            $dosage['timing']['repeat']['period'] = $period;
         }
-
-        if ($timingPeriod !== null) {
-            $dosage['timing']['repeat']['boundsPeriod'] = $timingPeriod->toArray();
-        }
-
-        if ($doseQuantity !== null) {
-            $dosage['doseAndRate'][0]['doseQuantity'] = $doseQuantity->toArray();
-        }
-
-        if ($doseRange !== null) {
-            $dosage['doseAndRate'][0]['doseRange'] = $doseRange->toArray();
-        }
-
-        if ($route !== null) {
-            $dosage['route'] = ['text' => $route];
-        }
-
-        if ($routeCode !== null) {
-            $dosage['route'] = $routeCode->toArray();
+        if ($periodUnit !== null) {
+            $dosage['timing']['repeat']['periodUnit'] = $periodUnit;
         }
 
         $this->push('dosage', $dosage);

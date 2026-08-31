@@ -29,9 +29,13 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function addIdentifier(Identifier $identifier): self
+    public function addIdentifier(string|Identifier $identifier, ?string $value = null): self
     {
-        $this->push('identifier', $identifier->toArray());
+        if ($identifier instanceof Identifier) {
+            $this->push('identifier', $identifier->toArray());
+        } else {
+            $this->push('identifier', ['system' => $identifier, 'value' => $value]);
+        }
         return $this;
     }
 
@@ -47,8 +51,21 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
+    private const VALID_STATUSES = [
+        'draft', 'requested', 'received', 'accepted', 'rejected', 'ready',
+        'cancelled', 'in-progress', 'on-hold', 'failed', 'completed', 'entered-in-error',
+    ];
+
+    private const VALID_INTENTS = [
+        'unknown', 'proposal', 'plan', 'order', 'original-order',
+        'reflex-order', 'filler-order', 'instance-order', 'option',
+    ];
+
     public function setStatus(string $status): self
     {
+        if (!in_array($status, self::VALID_STATUSES, true)) {
+            throw new \InvalidArgumentException("Invalid status: {$status}");
+        }
         $this->set('status', $status);
         return $this;
     }
@@ -67,6 +84,9 @@ class PayloadBuilderTask extends Builder
 
     public function setIntent(string $intent): self
     {
+        if (!in_array($intent, self::VALID_INTENTS, true)) {
+            throw new \InvalidArgumentException("Invalid intent: {$intent}");
+        }
         $this->set('intent', $intent);
         return $this;
     }
@@ -89,21 +109,42 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function setFocus(Reference $focus): self
+    public function setFocus(string|Reference $focus, ?string $display = null): self
     {
-        $this->set('focus', $focus->toArray());
+        if ($focus instanceof Reference) {
+            $this->set('focus', $focus->toArray());
+        } else {
+            if (strpos($focus, '/') === false) {
+                $focus = 'QuestionnaireResponse/' . $focus;
+            }
+            $this->set('focus', array_filter(['reference' => $focus, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
-    public function setFor(Reference $for): self
+    public function setFor(string|Reference $for, ?string $display = null): self
     {
-        $this->set('for', $for->toArray());
+        if ($for instanceof Reference) {
+            $this->set('for', $for->toArray());
+        } else {
+            if (strpos($for, '/') === false) {
+                $for = 'Patient/' . $for;
+            }
+            $this->set('for', array_filter(['reference' => $for, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
-    public function setEncounter(Reference $encounter): self
+    public function setEncounter(string|Reference $encounter, ?string $display = null): self
     {
-        $this->set('encounter', $encounter->toArray());
+        if ($encounter instanceof Reference) {
+            $this->set('encounter', $encounter->toArray());
+        } else {
+            if (strpos($encounter, '/') === false) {
+                $encounter = 'Encounter/' . $encounter;
+            }
+            $this->set('encounter', array_filter(['reference' => $encounter, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
@@ -125,9 +166,16 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function setRequester(Reference $requester): self
+    public function setRequester(string|Reference $requester, ?string $display = null): self
     {
-        $this->set('requester', $requester->toArray());
+        if ($requester instanceof Reference) {
+            $this->set('requester', $requester->toArray());
+        } else {
+            if (strpos($requester, '/') === false) {
+                $requester = 'Practitioner/' . $requester;
+            }
+            $this->set('requester', array_filter(['reference' => $requester, 'display' => $display], fn($v) => $v !== null));
+        }
         return $this;
     }
 
@@ -155,30 +203,28 @@ class PayloadBuilderTask extends Builder
         return $this;
     }
 
-    public function addInput(CodeableConcept $type, mixed $value, ?string $valueType = null): self
+    public function addInput(CodeableConcept|string $type, mixed $value): self
     {
-        $input = ['type' => $type->toArray()];
-
-        if ($valueType !== null) {
-            $input['value' . ucfirst($valueType)] = $value;
+        $input = [];
+        if ($type instanceof CodeableConcept) {
+            $input['type'] = $type->toArray();
         } else {
-            $input['valueString'] = is_string($value) ? $value : $value;
+            $input['type'] = ['text' => $type];
         }
-
+        $input['valueString'] = is_string($value) ? $value : (string) $value;
         $this->push('input', $input);
         return $this;
     }
 
-    public function addOutput(CodeableConcept $type, mixed $value, ?string $valueType = null): self
+    public function addOutput(CodeableConcept|string $type, mixed $value): self
     {
-        $output = ['type' => $type->toArray()];
-
-        if ($valueType !== null) {
-            $output['value' . ucfirst($valueType)] = $value;
+        $output = [];
+        if ($type instanceof CodeableConcept) {
+            $output['type'] = $type->toArray();
         } else {
-            $output['valueString'] = is_string($value) ? $value : $value;
+            $output['type'] = ['text' => $type];
         }
-
+        $output['valueString'] = is_string($value) ? $value : (string) $value;
         $this->push('output', $output);
         return $this;
     }
