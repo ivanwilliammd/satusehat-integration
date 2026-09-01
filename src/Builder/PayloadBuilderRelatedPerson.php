@@ -11,10 +11,6 @@ use Satusehat\Integration\DataType\HumanName;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Reference;
 
-/**
- * RelatedPerson FHIR R4 Resource Builder
- * @link https://www.hl7.org/fhir/relatedperson.html
- */
 class PayloadBuilderRelatedPerson extends Builder
 {
     protected string $resourceType = 'RelatedPerson';
@@ -30,9 +26,13 @@ class PayloadBuilderRelatedPerson extends Builder
         return $this;
     }
 
-    public function addIdentifier(Identifier $identifier): self
+    public function addIdentifier(Identifier|string $identifier, ?string $value = null): self
     {
-        $this->push('identifier', $identifier->toArray());
+        if ($identifier instanceof Identifier) {
+            $this->push('identifier', $identifier->toArray());
+        } else {
+            $this->push('identifier', ['system' => $identifier, 'value' => $value]);
+        }
         return $this;
     }
 
@@ -42,27 +42,94 @@ class PayloadBuilderRelatedPerson extends Builder
         return $this;
     }
 
-    public function setPatient(Reference $patient): self
+    public function setPatient(Reference|string $patient, ?string $display = null): self
     {
-        $this->set('patient', $patient->toArray());
+        if ($patient instanceof Reference) {
+            $this->set('patient', $patient->toArray());
+        } else {
+            if (strpos($patient, '/') === false) {
+                $patient = 'Patient/' . $patient;
+            }
+            $this->set('patient', array_filter([
+                'reference' => $patient,
+                'display' => $display,
+            ], fn($v) => $v !== null));
+        }
         return $this;
     }
 
-    public function addRelationship(CodeableConcept $relationship): self
+    public function addRelationship(CodeableConcept|string $relationship, ?string $display = null): self
     {
-        $this->push('relationship', $relationship->toArray());
+        if ($relationship instanceof CodeableConcept) {
+            $this->push('relationship', $relationship->toArray());
+        } else {
+            $this->push('relationship', [
+                'coding' => [
+                    [
+                        'system' => 'http://terminology.hl7.org/CodeSystem/v2-0131',
+                        'code' => $relationship,
+                        'display' => $display,
+                    ],
+                ],
+            ]);
+        }
         return $this;
     }
 
-    public function addName(HumanName $name): self
+    public function addName(HumanName|string $name, ?string $text = null): self
     {
-        $this->push('name', $name->toArray());
+        if ($name instanceof HumanName) {
+            $this->push('name', $name->toArray());
+        } else {
+            $this->push('name', [
+                'use' => 'official',
+                'text' => $name,
+            ]);
+        }
         return $this;
     }
 
-    public function addTelecom(ContactPoint $telecom): self
+    public function addTelecom(ContactPoint|string $system, ?string $value = null, string $use = 'home'): self
     {
-        $this->push('telecom', $telecom->toArray());
+        if ($system instanceof ContactPoint) {
+            $this->push('telecom', $system->toArray());
+        } else {
+            $this->push('telecom', [
+                'system' => $system,
+                'value' => $value,
+                'use' => $use,
+            ]);
+        }
+        return $this;
+    }
+
+    public function addAddress(Address|array $address): self
+    {
+        if ($address instanceof Address) {
+            $this->push('address', $address->toArray());
+        } else {
+            $this->push('address', $address);
+        }
+        return $this;
+    }
+
+    public function addCommunication(CodeableConcept|string $language, ?bool $preferred = true): self
+    {
+        $comm = [];
+        if ($language instanceof CodeableConcept) {
+            $comm['language'] = $language->toArray();
+        } else {
+            $comm['language'] = [
+                'coding' => [
+                    [
+                        'system' => 'urn:ietf:bcp:47',
+                        'code' => $language,
+                    ],
+                ],
+            ];
+        }
+        $comm['preferred'] = $preferred ?? true;
+        $this->push('communication', $comm);
         return $this;
     }
 
@@ -78,37 +145,19 @@ class PayloadBuilderRelatedPerson extends Builder
         return $this;
     }
 
-    public function addAddress(Address $address): self
-    {
-        $this->push('address', $address->toArray());
-        return $this;
-    }
-
-    public function addCommunication(CodeableConcept $language, bool $preferred = true): self
-    {
-        $this->push('communication', [
-            'language' => $language->toArray(),
-            'preferred' => $preferred,
-        ]);
-        return $this;
-    }
-
-    public function addExtension(string $url, mixed $value, ?string $valueType = null): self
+    public function addExtension(string $url, mixed $value): self
     {
         $extension = ['url' => $url];
-
-        if ($valueType !== null) {
-            $extension['value' . ucfirst($valueType)] = $value;
-        } else {
-            $extension['valueString'] = is_string($value) ? $value : $value;
+        if (is_bool($value)) {
+            $extension['valueBoolean'] = $value;
+        } elseif (is_string($value)) {
+            $extension['valueString'] = $value;
+        } elseif (is_int($value)) {
+            $extension['valueInteger'] = $value;
+        } elseif (is_array($value)) {
+            $extension = array_merge($extension, $value);
         }
-
         $this->push('extension', $extension);
         return $this;
-    }
-
-    public function build(): array
-    {
-        return parent::build();
     }
 }

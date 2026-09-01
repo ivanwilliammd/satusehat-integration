@@ -26,8 +26,8 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 |  8 | Observation | P1 | done | Lab results, vitals |
 |  9 | Specimen | P1 | done | Lab specimen |
 | 10 | Task | P1 | done | Workflow task |
-| 11 | Group | P2 | pending | Patient grouping |
-| 12 | RelatedPerson | P1 | pending | Personal relationship |
+| 11 | Group | P2 | done | Patient grouping |
+| 12 | RelatedPerson | P1 | done | Personal relationship |
 | 13 | ServiceRequest | P2 | pending | Request for procedure |
 | 14 | QuestionnaireResponse | P2 | pending | Form response |
 | 15 | Substance | P3 | pending | Substance reference |

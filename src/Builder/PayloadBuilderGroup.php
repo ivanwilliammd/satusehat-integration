@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\Builder;
 
+use Satusehat\Integration\DataType\Address;
 use Satusehat\Integration\DataType\CodeableConcept;
+use Satusehat\Integration\DataType\ContactPoint;
+use Satusehat\Integration\DataType\HumanName;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Reference;
 
-/**
- * Group FHIR R4 Resource Builder
- * @link https://www.hl7.org/fhir/group.html
- */
 class PayloadBuilderGroup extends Builder
 {
     protected string $resourceType = 'Group';
@@ -23,7 +22,7 @@ class PayloadBuilderGroup extends Builder
 
     public function setMetaProfile(string $profile): self
     {
-        $this->push('meta/profile', $profile);
+        $this->data['meta/profile'] = [$profile];
         return $this;
     }
 
@@ -33,9 +32,13 @@ class PayloadBuilderGroup extends Builder
         return $this;
     }
 
-    public function addIdentifier(Identifier $identifier): self
+    public function addIdentifier(Identifier|string $identifier, ?string $value = null): self
     {
-        $this->push('identifier', $identifier->toArray());
+        if ($identifier instanceof Identifier) {
+            $this->push('identifier', $identifier->toArray());
+        } else {
+            $this->push('identifier', ['system' => $identifier, 'value' => $value]);
+        }
         return $this;
     }
 
@@ -57,9 +60,13 @@ class PayloadBuilderGroup extends Builder
         return $this;
     }
 
-    public function setCode(CodeableConcept $code): self
+    public function setCode(CodeableConcept|array $code): self
     {
-        $this->set('code', $code->toArray());
+        if ($code instanceof CodeableConcept) {
+            $this->set('code', $code->toArray());
+        } else {
+            $this->set('code', $code);
+        }
         return $this;
     }
 
@@ -75,17 +82,51 @@ class PayloadBuilderGroup extends Builder
         return $this;
     }
 
-    public function setManagingEntity(Reference $managingEntity): self
+    public function setManagingEntity(Reference|array $managingEntity): self
     {
-        $this->set('managingEntity', $managingEntity->toArray());
+        if ($managingEntity instanceof Reference) {
+            $this->set('managingEntity', $managingEntity->toArray());
+        } else {
+            $this->set('managingEntity', $managingEntity);
+        }
         return $this;
     }
 
-    public function addMember(Reference $entity, ?array $period = null, ?bool $inactive = null): self
+    public function addMember(Reference|string $reference, mixed $displayOrPeriod = null, mixed $periodOrInactive = null, ?bool $inactive = null): self
     {
-        $member = [
-            'entity' => $entity->toArray(),
-        ];
+        $member = [];
+        if ($reference instanceof Reference) {
+            $member['entity'] = $reference->toArray();
+        } else {
+            if (strpos($reference, '/') === false) {
+                $reference = 'Patient/' . $reference;
+            }
+            $member['entity'] = [
+                'reference' => $reference,
+            ];
+            if (is_string($displayOrPeriod)) {
+                $member['entity']['display'] = $displayOrPeriod;
+            }
+        }
+
+        // Handle variations of parameters in tests:
+        // addMember($ref, $period) -> $displayOrPeriod is array
+        // addMember($ref, null, $inactive) -> $periodOrInactive is bool
+        // addMember($ref, $display, $period) -> $displayOrPeriod is string, $periodOrInactive is array
+        // addMember($ref, null, $period, $inactive) -> $periodOrInactive is array, $inactive is bool
+
+        $period = null;
+        if (is_array($displayOrPeriod)) {
+            $period = $displayOrPeriod;
+        } elseif (is_array($periodOrInactive)) {
+            $period = $periodOrInactive;
+        }
+
+        if (is_bool($displayOrPeriod)) {
+            $inactive = $displayOrPeriod;
+        } elseif (is_bool($periodOrInactive)) {
+            $inactive = $periodOrInactive;
+        }
 
         if ($period !== null) {
             $member['period'] = $period;
@@ -99,22 +140,19 @@ class PayloadBuilderGroup extends Builder
         return $this;
     }
 
-    public function addExtension(string $url, mixed $value, ?string $valueType = null): self
+    public function addExtension(string $url, mixed $value): self
     {
         $extension = ['url' => $url];
-
-        if ($valueType !== null) {
-            $extension['value' . ucfirst($valueType)] = $value;
-        } else {
-            $extension['valueString'] = is_string($value) ? $value : $value;
+        if (is_bool($value)) {
+            $extension['valueBoolean'] = $value;
+        } elseif (is_string($value)) {
+            $extension['valueString'] = $value;
+        } elseif (is_int($value)) {
+            $extension['valueInteger'] = $value;
+        } elseif (is_array($value)) {
+            $extension = array_merge($extension, $value);
         }
-
         $this->push('extension', $extension);
         return $this;
-    }
-
-    public function build(): array
-    {
-        return parent::build();
     }
 }
