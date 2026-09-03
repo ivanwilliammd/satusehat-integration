@@ -98,7 +98,7 @@ class PayloadBuilderGroup extends Builder
         if ($reference instanceof Reference) {
             $member['entity'] = $reference->toArray();
         } else {
-            if (strpos($reference, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $reference) && strpos($reference, '/') === false) {
                 $reference = 'Patient/' . $reference;
             }
             $member['entity'] = [

@@ -47,7 +47,7 @@ class PayloadBuilderRelatedPerson extends Builder
         if ($patient instanceof Reference) {
             $this->set('patient', $patient->toArray());
         } else {
-            if (strpos($patient, '/') === false) {
+            if (!preg_match('/^(urn:|https?:\/\/)/', $patient) && strpos($patient, '/') === false) {
                 $patient = 'Patient/' . $patient;
             }
             $this->set('patient', array_filter([
