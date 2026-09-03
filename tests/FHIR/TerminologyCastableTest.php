@@ -9,10 +9,10 @@ use Satusehat\Integration\Builder\PayloadBuilderCondition;
 use Satusehat\Integration\Builder\PayloadBuilderObservation;
 
 /**
- * Phase 7: terminology castable on array — "System:Code" notation auto-resolves
+ * Terminology castable on array — "System:Code" notation auto-resolves
  * to a CodeableConcept with the correct system URL.
  */
-class Phase7TerminologyCastableTest extends TestCase
+class TerminologyCastableTest extends TestCase
 {
     public function test_condition_set_code_with_icd10_notation(): void
     {

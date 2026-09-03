@@ -37,7 +37,7 @@ use Satusehat\Integration\Builder\{
 /**
  * @coversNothing
  */
-class Phase6ResourcesTest extends TestCase
+class FhirR4NonSatusehatResourcesTest extends TestCase
 {
     /**
      * @dataProvider builderProvider
@@ -92,6 +92,7 @@ class Phase6ResourcesTest extends TestCase
             function (string $c): array {
                 $ref = new \ReflectionClass($c);
                 $prop = $ref->getProperty('resourceType');
+                $prop->setAccessible(true); // PHP < 8.1 requires explicit accessibility
                 $builder = new $c();
                 $resourceType = $prop->getValue($builder);
                 return [$c, $resourceType];
