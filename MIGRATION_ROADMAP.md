@@ -28,8 +28,8 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 | 10 | Task | P1 | done | Workflow task |
 | 11 | Group | P2 | done | Patient grouping |
 | 12 | RelatedPerson | P1 | done | Personal relationship |
-| 13 | ServiceRequest | P2 | pending | Request for procedure |
-| 14 | QuestionnaireResponse | P2 | pending | Form response |
+| 13 | ServiceRequest | P2 | done | Request for procedure |
+| 14 | QuestionnaireResponse | P2 | done | Form response |
 | 15 | Substance | P3 | pending | Substance reference |
 | 16 | MolecularSequence | P3 | pending | Genomic sequence |
 | 17 | GenomicStudy | P3 | pending | Genomic study |
