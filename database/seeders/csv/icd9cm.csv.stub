@@ -52,7 +52,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 00.56,Insertion or replacement of implantable pressure sensor (lead) for intracardiac hemodynamic monitoring,Penyisipan atau penggantian sensor tekanan implan (timbal) untuk pemantauan hemodinamik intrakardiak
 00.57,Implantation or replacement of subcutaneous device for intracardiac hemodynamic monitoring,Implantasi atau penggantian perangkat subkutan untuk pemantauan hemodinamik intrakardiak
 00.58,Insertion of intra-aneurysm sac pressure monitoring device (intraoperative),Penyisipan Perangkat Pemantauan Tekanan Kantung intra-aneurysm (intraoperatif)
-00.59,Intravascular pressure measurement o coronary arteries,Pengukuran tekanan intravaskular o arteri koroner
+00.59,Intravascular pressure measurement of coronary arteries,Pengukuran tekanan intravaskular o arteri koroner
 00.6,Procedures on blood vessels,Prosedur pembuluh darah
 00.61,Percutaneous angioplasty or atherectomy of precerebral(extracranial)vessel(s),Angioplasti atau aterektomi perkiraan pembuluh predebral (ekstrakranial) (S) (S)
 00.62,Percutaneous angioplasty or atherectomy intracranial vessel,Kapal intrakranial angioplasti atau aterektomi perkutan
@@ -76,7 +76,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 00.80,"Revision of knee replacement, total (all components)","Revisi Penggantian Lutut, Total (Semua Komponen)"
 00.81,"Revision of knee replacement, tibial component","Revisi Penggantian Lutut, Komponen Tibial"
 00.82,"Revision of knee replacement, femoral component","Revisi penggantian lutut, komponen femoralis"
-00.83,"Revision of knee replacement,patellar component","Revisi Penggantian Lutut, Komponen Patellar"
+00.83,"Revision of knee replacement, patellar component","Revisi Penggantian Lutut, Komponen Patellar"
 00.84,"Revision of total knee replacement, tibial insertion (liner)","Revisi Total Penggantian Lutut, Penyisipan Tibial (Liner)"
 00.85,"Resurfacing hip, total, acetabulum and femoral head","Pelapisan kembali pinggul, total, asetabulum dan kepala femoralis"
 00.86,"Resurfacing hip, partial, femoral head","Pelapisan kembali pinggul, parsial, kepala femoralis"
@@ -170,7 +170,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 03.3,Diagnostic procedures on spinal cord and spinal canal structures,Prosedur diagnostik pada sumsum tulang belakang dan struktur kanal tulang belakang
 03.31,Spinal tap,Tap tulang belakang
 03.32,Biopsy of spinal cord or spinal meninges,Biopsi sumsum tulang belakang atau meninge tulang belakang
-03.39,Other diagnostic procedures on spinal cord and spinal canal structur,Prosedur diagnostik lainnya pada sumsum tulang belakang dan struktur kanal tulang belakang
+03.39,Other diagnostic procedures on spinal cord and spinal canal structure,Prosedur diagnostik lainnya pada sumsum tulang belakang dan struktur kanal tulang belakang
 03.4,Excision or destruction of lesion of spinal cord or spinal meninges,Eksisi atau penghancuran lesi sumsum tulang belakang atau meninge tulang belakang
 03.5,Plastic operations on spinal cord structures,Operasi plastik pada struktur sumsum tulang belakang
 03.51,Repair of spinal meningocele,Perbaikan meningokel tulang belakang
@@ -291,7 +291,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 07.00,"Exploration of adrenal field, not otherwise specified","Eksplorasi bidang adrenal, tidak ditentukan lain"
 07.01,Unilateral exploration of adrenal field,Eksplorasi unilateral bidang adrenal
 07.02,Bilateral exploration of adrenal field,Eksplorasi bilateral bidang adrenal
-07.1,"Diagnostic procedures on adrenal glands, pituitary gland, pineal gla","Prosedur diagnostik pada kelenjar adrenal, kelenjar hipofisis, GLA pineal"
+07.1,"Diagnostic procedures on adrenal glands, pituitary gland, pineal gland and thymus","Prosedur diagnostik pada kelenjar adrenal, kelenjar hipofisis, GLA pineal"
 07.11,Closed (percutaneous) (needle) biopsy of adrenal gland,Biopsi (perkutan) (jarum) dari kelenjar adrenal
 07.12,Open biopsy of adrenal gland,Terbuka Biopsi Kelenjar Adrenal
 07.13,"Biopsy of pituitary gland, transfrontal approach","Biopsi kelenjar hipofisis, pendekatan transfrontal"
@@ -361,8 +361,8 @@ icd9cm_code,icd9cm_en,icd9cm_id
 08.25,Destruction of lesion of eyelid,Penghancuran lesi kelopak mata
 08.3,Repair of blepharoptosis and lid retraction,Perbaikan blepharoptosis dan retraksi tutup
 08.31,Repair of blepharoptosis by frontalis muscle technique with suture,Perbaikan Blepharoptosis oleh Teknik Otot Frontalis dengan Jahitan
-08.32,Repair of blepharoptosis by frontalis muscle technique with fascial,Perbaikan Blepharoptosis oleh Teknik Otot Frontalis dengan Fasia
-08.33,Repair of blepharoptosis by resection or advancement of levator musc,Perbaikan blepharoptosis dengan reseksi atau kemajuan levator musc
+08.32,Repair of blepharoptosis by frontalis muscle technique with fascial sling,Perbaikan Blepharoptosis oleh Teknik Otot Frontalis dengan Fasia
+08.33,Repair of blepharoptosis by resection or advancement of levator muscle or aponeurosis,Perbaikan blepharoptosis dengan reseksi atau kemajuan levator musc
 08.34,Repair of blepharoptosis by other levator muscle techniques,Perbaikan Blepharoptosis dengan teknik otot levator lainnya
 08.35,Repair of blepharoptosis by tarsal technique,Perbaikan Blepharoptosis dengan Teknik Tarsal
 08.36,Repair of blepharoptosis by other techniques,Perbaikan Blepharoptosis dengan teknik lain
@@ -502,18 +502,18 @@ icd9cm_code,icd9cm_en,icd9cm_id
 11.99,Other operations on cornea,Operasi lain di kornea
 12,"Operations on iris, ciliary body, sclera, and anterior chamber","Operasi pada Iris, Badan Ciliary, Sklera, dan Ruang Anterior"
 12.0,Removal of intraocular foreign body from anterior segment of eye,Penghapusan benda asing intraokular dari segmen mata anterior
-12.00,"Removal of intraocular foreign body from anterior segment of eye, no","Penghapusan benda asing intraokular dari segmen mata anterior, tidak"
-12.01,Removal of intraocular foreign body from anterior segment of eye wit,Penghapusan benda asing intraokular dari segmen anterior mata kecerdasan
-12.02,Removal of intraocular foreign body from anterior segment of eye wit,Penghapusan benda asing intraokular dari segmen anterior mata kecerdasan
+12.00,"Removal of intraocular foreign body from anterior segment of eye, not otherwise specified","Penghapusan benda asing intraokular dari segmen mata anterior, tidak"
+12.01,Removal of intraocular foreign body from anterior segment of eye with use of magnet,Penghapusan benda asing intraokular dari segmen anterior mata kecerdasan
+12.02,Removal of intraocular foreign body from anterior segment of eye without use of magnet,Penghapusan benda asing intraokular dari segmen anterior mata kecerdasan
 12.1,Iridotomy and simple iridectomy,Iridotomi dan iridektomi sederhana
 12.11,Iridotomy with transfixion,Iridotomi dengan Transfixion
 12.12,Other iridotomy,Iridotomi lainnya
 12.13,Excision of prolapsed iris,Eksisi iris yang berkembang biak
 12.14,Other iridectomy,Iridektomi lainnya
-12.2,"Diagnostic procedures on iris, ciliary body, sclera, and anterior ch","Prosedur Diagnostik pada Iris, Tubuh Ciliary, Sklera, dan CH Anterior"
+12.2,"Diagnostic procedures on iris, ciliary body, sclera, and anterior chamber","Prosedur Diagnostik pada Iris, Tubuh Ciliary, Sklera, dan CH Anterior"
 12.21,Diagnostic aspiration of anterior chamber of eye,Aspirasi diagnostik Ruang Mata Anterior
 12.22,Biopsy of iris,Biopsi Iris
-12.29,"Other diagnostic procedures on iris, ciliary body, sclera, and anter","Prosedur diagnostik lainnya pada iris, tubuh ciliary, sclera, dan anter"
+12.29,"Other diagnostic procedures on iris, ciliary body, sclera, and anterior chamber","Prosedur diagnostik lainnya pada iris, tubuh ciliary, sclera, dan anter"
 12.3,Iridoplasty and coreoplasty,Iridoplasty dan Coreoplasty
 12.31,Lysis of goniosynechiae,Lisis Goniosynechiae
 12.32,Lysis of other anterior synechiae,Lisis sinekia anterior lainnya
@@ -522,7 +522,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 12.35,Coreoplasty,Coreoplasty
 12.39,Other iridoplasty,Iridoplasty lainnya
 12.4,Excision or destruction of lesion of iris and ciliary body,Eksisi atau penghancuran lesi iris dan tubuh ciliary
-12.40,"Removal of lesion of anterior segment of eye, not otherwise specifie","Penghapusan lesi segmen mata anterior, tidak ditentukan"
+12.40,"Removal of lesion of anterior segment of eye, not otherwise specified","Penghapusan lesi segmen mata anterior, tidak ditentukan"
 12.41,"Destruction of lesion of iris, nonexcisional","Penghancuran lesi iris, tidak ada"
 12.42,Excision of lesion of iris,Eksisi lesi iris
 12.43,"Destruction of lesion of ciliary body, nonexcisional","Penghancuran lesi tubuh ciliary, tidak ada"
@@ -551,7 +551,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 12.8,Operations on sclera,Operasi di Sclera
 12.81,Suture of laceration of sclera,Jahitan laserasi sklera
 12.82,Repair of scleral fistula,Perbaikan fistula scleral
-12.83,"Revision of operative wound of anterior segment, not elsewhere class","Revisi luka operasi segmen anterior, bukan kelas di tempat lain"
+12.83,"Revision of operative wound of anterior segment, not elsewhere classified","Revisi luka operasi segmen anterior, bukan kelas di tempat lain"
 12.84,Excision or destruction of lesion of sclera,Eksisi atau penghancuran lesi sklera
 12.85,Repair of scleral staphyloma with graft,Perbaikan scleral staphyloma dengan cangkok
 12.86,Other repair of scleral staphyloma,Perbaikan staphyloma scleral lainnya
@@ -561,7 +561,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 12.9,"Other operations on iris, ciliary body, and anterior chamber","Operasi lain pada iris, tubuh ciliary, dan ruang anterior"
 12.91,Therapeutic evacuation of anterior chamber,Evakuasi terapi ruang anterior
 12.92,Injection into anterior chamber,Injeksi ke ruang anterior
-12.93,Removal or destruction of epithelial downgrowth from anterior chambe,Penghapusan atau Penghancuran Downgrowth Epitel dari Chambe Anterior
+12.93,Removal or destruction of epithelial downgrowth from anterior chamber,Penghapusan atau Penghancuran Downgrowth Epitel dari Chambe Anterior
 12.97,Other operations on iris,Operasi lain pada Iris
 12.98,Other operations on ciliary body,Operasi lain di badan ciliary
 12.99,Other operations on anterior chamber,Operasi lain di ruang anterior
@@ -574,10 +574,10 @@ icd9cm_code,icd9cm_en,icd9cm_id
 13.11,Intracapsular extraction of lens by temporal inferior route,Ekstraksi intrakapsular lensa dengan rute inferior temporal
 13.19,Other intracapsular extraction of lens,Ekstraksi lensa intrakapsular lainnya
 13.2,Extracapsular extraction of lens by linear extraction technique,Ekstraksi ekstrakapsular lensa dengan teknik ekstraksi linier
-13.3,Extracapsular extraction of lens by simple aspiration (and irrigatio,Ekstraksi ekstrakapsular lensa dengan aspirasi sederhana (dan irigasi
-13.4,Extracapsular extraction of lens by fragmentation and aspiration tec,Ekstraksi ekstrakapsular lensa dengan fragmentasi dan aspirasi TEC
+13.3,Extracapsular extraction of lens by simple aspiration (and irrigation) technique,Ekstraksi ekstrakapsular lensa dengan aspirasi sederhana (dan irigasi
+13.4,Extracapsular extraction of lens by fragmentation and aspiration technique,Ekstraksi ekstrakapsular lensa dengan fragmentasi dan aspirasi TEC
 13.41,Phacoemulsification and aspiration of cataract,Facoemulsifikasi dan aspirasi katarak
-13.42,Mechanical phacofragmentation and aspiration of cataract by posterio,Phacofragmentasi mekanis dan aspirasi katarak oleh posterio
+13.42,Mechanical phacofragmentation and aspiration of cataract by posterior route,Phacofragmentasi mekanis dan aspirasi katarak oleh posterio
 13.43,Mechanical phacofragmentation and other aspiration of cataract,Phacofragmentasi mekanis dan aspirasi katarak lainnya
 13.5,Other extracapsular extraction of lens,Ekstraksi ekstrakapsular lensa lainnya
 13.51,Extracapsular extraction of lens by temporal inferior route,Ekstraksi ekstrakapsular lensa dengan rute inferior temporal
@@ -594,23 +594,23 @@ icd9cm_code,icd9cm_en,icd9cm_id
 13.8,Removal of implanted lens,Penghapusan lensa implan
 13.9,Other operations on lens,Operasi lain pada lensa
 13.90,"Operation on lens, Not Elsewhere Classified","Operasi pada lensa, tidak diklasifikasikan di tempat lain"
-13.91,Implatation of intraocular telescope prosthesis,Implatasi prostesis teleskop intraokular
+13.91,Implantation of intraocular telescope prosthesis,Implatasi prostesis teleskop intraokular
 14,"Operations on retina, choroid, vitreous, and posterior chamber","Operasi pada retina, koroid, vitreous, dan ruang posterior"
 14.0,Removal of foreign body from posterior segment of eye,Penghapusan benda asing dari segmen mata posterior
-14.00,"Removal of foreign body from posterior segment of eye, not otherwise","Penghapusan benda asing dari segmen mata posterior, bukan sebaliknya"
-14.01,Removal of foreign body from posterior segment of eye with use of ma,Penghapusan benda asing dari segmen posterior mata dengan penggunaan MA
-14.02,Removal of foreign body from posterior segment of eye without use of,Penghapusan benda asing dari segmen mata posterior tanpa menggunakan
-14.1,"Diagnostic procedures on retina, choroid, vitreous, and posterior ch","Prosedur diagnostik pada retina, koroid, vitreous, dan pos posterior"
+14.00,"Removal of foreign body from posterior segment of eye, not otherwise specified","Penghapusan benda asing dari segmen mata posterior, bukan sebaliknya"
+14.01,Removal of foreign body from posterior segment of eye with use of magnet,Penghapusan benda asing dari segmen posterior mata dengan penggunaan MA
+14.02,Removal of foreign body from posterior segment of eye without use of magnet,Penghapusan benda asing dari segmen mata posterior tanpa menggunakan
+14.1,"Diagnostic procedures on retina, choroid, vitreous, and posterior chamber","Prosedur diagnostik pada retina, koroid, vitreous, dan pos posterior"
 14.11,Diagnostic aspiration of vitreous,Aspirasi diagnostik vitreous
-14.19,"Other diagnostic procedures on retina, choroid, vitreous, and poster","Prosedur diagnostik lainnya pada retina, koroid, vitreous, dan poster"
+14.19,"Other diagnostic procedures on retina, choroid, vitreous, and posterior chamber","Prosedur diagnostik lainnya pada retina, koroid, vitreous, dan poster"
 14.2,Destruction of lesion of retina and choroid,Penghancuran lesi retina dan koroid
 14.21,Destruction of chorioretinal lesion by diathermy,Penghancuran lesi chorioretinal oleh diatermi
 14.22,Destruction of chorioretinal lesion by cryotherapy,Penghancuran lesi chorioretinal oleh cryotherapy
 14.23,Destruction of chorioretinal lesion by xenon arc photocoagulation,Penghancuran lesi chorioretinal oleh fotokoagulasi arc xenon
 14.24,Destruction of chorioretinal lesion by laser photocoagulation,Penghancuran lesi chorioretinal oleh fotokoagulasi laser
-14.25,Destruction of chorioretinal lesion by photocoagulation of unspecifi,Penghancuran lesi chorioretinal dengan fotokoagulasi unspecifi
+14.25,Destruction of chorioretinal lesion by photocoagulation of unspecified type,Penghancuran lesi chorioretinal dengan fotokoagulasi unspecifi
 14.26,Destruction of chorioretinal lesion by radiation therapy,Penghancuran lesi chorioretinal oleh terapi radiasi
-14.27,Destruction of chorioretinal lesion by implantation of radiation sou,Penghancuran lesi chorioretinal dengan implantasi radiasi SOU
+14.27,Destruction of chorioretinal lesion by implantation of radiation source,Penghancuran lesi chorioretinal dengan implantasi radiasi SOU
 14.29,Other destruction of chorioretinal lesion,Penghancuran lesi chorioretinal lainnya
 14.3,Repair of retinal tear,Perbaikan robekan retina
 14.31,Repair of retinal tear by diathermy,Perbaikan robekan retina oleh diatermi
@@ -627,7 +627,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 14.52,Repair of retinal detachment with cryotherapy,Perbaikan detasemen retina dengan cryotherapy
 14.53,Repair of retinal detachment with xenon arc photocoagulation,Perbaikan detasemen retina dengan fotokoagulasi arc xenon
 14.54,Repair of retinal detachment with laser photocoagulation,Perbaikan detasemen retina dengan fotokoagulasi laser
-14.55,Repair of retinal detachment with photocoagulation of unspecified ty,Perbaikan detasemen retina dengan fotokoagulasi Ty yang tidak ditentukan
+14.55,Repair of retinal detachment with photocoagulation of unspecified type,Perbaikan detasemen retina dengan fotokoagulasi Ty yang tidak ditentukan
 14.59,Other repair of retinal detachment,Perbaikan detasemen retina lainnya
 14.6,Removal of surgically implanted material from posterior segment of eye,Penghapusan bahan implan pembedahan dari segmen mata posterior
 14.7,Operations on vitreous,Operasi di Vitreous
@@ -646,13 +646,13 @@ icd9cm_code,icd9cm_en,icd9cm_id
 15.11,Recession of one extraocular muscle,Resesi satu otot ekstraokular
 15.12,Advancement of one extraocular muscle,Kemajuan satu otot ekstraokular
 15.13,Resection of one extraocular muscle,Reseksi satu otot ekstraokular
-15.19,Other operations on one extraocular muscle involving temporary detac,Operasi lain pada satu otot ekstraokular yang melibatkan detac sementara
+15.19,Other operations on one extraocular muscle involving temporary detachment from globe,Operasi lain pada satu otot ekstraokular yang melibatkan detac sementara
 15.2,Other operations on one extraocular muscle,Operasi lain pada satu otot ekstraokular
 15.21,Lengthening procedure on one extraocular muscle,Prosedur Perpanjangan pada Satu Otot Ekstraokular
 15.22,Shortening procedure on one extraocular muscle,Prosedur pemendekan pada satu otot ekstraokular
 15.29,Other operations on one extraocular muscle,Operasi lain pada satu otot ekstraokular
-15.3,Operations on two or more extraocular muscles involving temporary de,Operasi pada dua atau lebih otot ekstraokular yang melibatkan DE sementara
-15.4,"Other operations on two or more extraocular muscles, one or both eye","Operasi lain pada dua atau lebih otot ekstraokular, satu atau kedua mata"
+15.3,"Operations on two or more extraocular muscles involving temporary detachment from globe, one or both eyes",Operasi pada dua atau lebih otot ekstraokular yang melibatkan DE sementara
+15.4,"Other operations on two or more extraocular muscles, one or both eyes","Operasi lain pada dua atau lebih otot ekstraokular, satu atau kedua mata"
 15.5,Transposition of extraocular muscles,Transposisi otot ekstraokular
 15.6,Revision of extraocular muscle surgery,Revisi operasi otot ekstraokular
 15.7,Repair of injury of extraocular muscle,Perbaikan cedera otot ekstraokular
@@ -662,17 +662,17 @@ icd9cm_code,icd9cm_en,icd9cm_id
 16.01,Orbitotomy with bone flap,Orbitotomi dengan flap tulang
 16.02,Orbitotomy with insertion of orbital implant,Orbitotomi dengan penyisipan implan orbital
 16.09,Other orbitotomy,Orbitotomi lainnya
-16.1,"Removal of penetrating foreign body from eye, not otherwise specifie","Penghapusan benda asing yang menembus dari mata, tidak ditentukan sebaliknya"
+16.1,"Removal of penetrating foreign body from eye, not otherwise specified","Penghapusan benda asing yang menembus dari mata, tidak ditentukan sebaliknya"
 16.2,Diagnostic procedures on orbit and eyeball,Prosedur diagnostik pada orbit dan bola mata
 16.21,Ophthalmoscopy,Ophthalmoscopy
 16.22,Diagnostic aspiration of orbit,Aspirasi diagnostik orbit
 16.23,Biopsy of eyeball and orbit,Biopsi bola mata dan orbit
 16.29,Other diagnostic procedures on orbit and eyeball,Prosedur diagnostik lainnya di orbit dan bola mata
 16.3,Evisceration of eyeball,Evisceritation of eyeball
-16.31,Removal of ocular contents with synchronous implant into scleral she,Penghapusan konten okular dengan implan sinkron ke scleral dia
+16.31,Removal of ocular contents with synchronous implant into scleral shell,Penghapusan konten okular dengan implan sinkron ke scleral dia
 16.39,Other evisceration of eyeball,Penghampuran bola mata lainnya
 16.4,Enucleation of eyeball,Enukleasi bola mata
-16.41,Enucleation of eyeball with synchronous implant into tenon's capsule,Enukleasi bola mata dengan implan sinkron ke dalam kapsul Tenon
+16.41,Enucleation of eyeball with synchronous implant into tenon's capsule with attachment of muscles,Enukleasi bola mata dengan implan sinkron ke dalam kapsul Tenon
 16.42,Enucleation of eyeball with other synchronous implant,Enukleasi bola mata dengan implan sinkron lainnya
 16.49,Other enucleation of eyeball,Enukleasi bola mata lainnya
 16.5,Exenteration of orbital contents,Exenterasi konten orbital
@@ -725,15 +725,15 @@ icd9cm_code,icd9cm_en,icd9cm_id
 17.44,Endoscopic robotic assisted procedure,Prosedur berbantuan robot endoskopi
 17.45,Thoracoscopic robotic assisted procedure,Prosedur berbantuan robot torakoskopik
 17.49,Other and unspecified robotic assisted procedure,Prosedur bantuan robot lainnya dan tidak ditentukan
-17.5,Implantation of rechargeable cardiac contractility modulation [CCM],Implantasi modulasi kontraktilitas jantung yang dapat diisi ulang [CCM]
+17.5,Additional cardiovascular procedures,Implantasi modulasi kontraktilitas jantung yang dapat diisi ulang [CCM]
 17.51,"Implantation of rechargeable cardiac contractility modulation [CCM], total system","Implantasi modulasi kontraktilitas jantung yang dapat diisi ulang [CCM], sistem total"
 17.52,Implantation or replacement of cardiac contractility modulation [CCM] rechargeable pulse generator only,Implantasi atau penggantian modulasi kontraktilitas jantung [CCM] saja generator pulsa yang dapat diisi ulang
-17.6,Laser interstitial thermal therapy [LITT] of lesion or tissue,Terapi termal interstitial laser [litt] lesi atau jaringan
+17.6,Laser interstitial thermal therapy [LITT] under guidance,Terapi termal interstitial laser [litt] lesi atau jaringan
 17.61,Laser interstitial thermal therapy [LITT] of lesion or tissue of brain under guidance,Terapi termal interstitial laser [litt] lesi atau jaringan otak di bawah bimbingan
 17.62,Laser interstitial thermal therapy [LITT] of lesion or tissue of head and neck under guidance,Terapi termal interstitial laser [litt] lesi atau jaringan kepala dan leher di bawah bimbingan
 17.63,Laser interstitial thermal therapy [LITT] of lesion or tissue of liver under guidance,Terapi termal interstitial laser [litt] lesi atau jaringan hati di bawah bimbingan
 17.69,Laser interstitial thermal therapy [LITT] of lesion or tissue of other and unspecified site under guidance,Terapi termal interstitial laser [litt] lesi atau jaringan situs lain dan tidak ditentukan di bawah panduan
-17.7,Intravenous infusion,Infus intravena
+17.7,Other diagnostic and therapeutic procedures,Infus intravena
 17.70,Intravenous infusion of clofarabine,Infus clofarabine intravena
 18,Operations on external ear,Operasi di telinga eksternal
 18.0,Incision of external ear,Sayatan telinga eksternal
@@ -820,9 +820,9 @@ icd9cm_code,icd9cm_en,icd9cm_id
 21.02,Control of epistaxis by posterior (and anterior) packing,Kontrol epistaksis dengan pengemasan posterior (dan anterior)
 21.03,Control of epistaxis by cauterization (and packing),Kontrol Epistaksis dengan Kauterisasi (dan Pengepakan)
 21.04,Control of epistaxis by ligation of ethmoidal arteries,Kontrol epistaksis dengan ligasi arteri ethmoidal
-21.05,Control of epistaxis by (transantral) ligation of the maxillary arte,Kontrol Epistaksis oleh Ligasi (Transantal) dari Maxillary Arte
+21.05,Control of epistaxis by (transantral) ligation of the maxillary artery,Kontrol Epistaksis oleh Ligasi (Transantal) dari Maxillary Arte
 21.06,Control of epistaxis by ligation of the external carotid artery,Kontrol epistaksis dengan ligasi arteri karotis eksternal
-21.07,Control of epistaxis by excision of nasal mucosa and skin grafting o,Kontrol epistaksis dengan eksisi mukosa hidung dan pencangkokan kulit o
+21.07,Control of epistaxis by excision of nasal mucosa and skin grafting of septum and lateral nasal wall,Kontrol epistaksis dengan eksisi mukosa hidung dan pencangkokan kulit o
 21.09,Control of epistaxis by other means,Kontrol epistaksis dengan cara lain
 21.1,Incision of nose,Sayatan hidung
 21.2,Diagnostic procedures on nose,Prosedur diagnostik di hidung
@@ -1148,7 +1148,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 33.52,Bilateral lung transplantation,Transplantasi paru -paru bilateral
 33.6,Combined heart-lung transplantation,Gabungan transplantasi jantung-paru
 33.7,Other Endoscopic procedures in bronchus or lung,Prosedur endoskopi lainnya di bronkus atau paru -paru
-33.71,Endoscopic insertion or replacement of bronchial valve(s),Penyisipan endoskopi atau penggantian katup bronkial (S)
+33.71,"Endoscopic insertion or replacement of bronchial valve(s), single lobe",Penyisipan endoskopi atau penggantian katup bronkial (S)
 33.72,Endoscopic pulmonary airway flow measurement,Pengukuran aliran saluran napas paru endoskopi
 33.73,"Endoscopic insertion or replacement of bronchial valve(s), multiple lobes","Penyisipan endoskopi atau penggantian katup bronkial, beberapa lobus"
 33.78,Endoscopic removal of bronchial device(s) or substances,Penghapusan endoskopi perangkat bronkial atau zat
@@ -1169,7 +1169,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 34.06,Thoracoscopic drainage of pleural cavity,Drainase torakoskopik rongga pleura
 34.09,Other incision of pleura,Sayatan pleura lainnya
 34.1,Incision of mediastinum,Sayatan mediastinum
-34.2,"Diagnostic procedures on chest wall, pleura, mediastinum, and diaphr","Prosedur diagnostik di dinding dada, pleura, mediastinum, dan diafrum"
+34.2,"Diagnostic procedures on chest wall, pleura, mediastinum, and diaphragm","Prosedur diagnostik di dinding dada, pleura, mediastinum, dan diafrum"
 34.20,Thoracoscopic pleural biopsy,Biopsi pleura torakoskopik
 34.21,Transpleural thoracoscopy,Thoracoscopy transpleural
 34.22,Mediastinoscopy,Mediastinoskopi
@@ -1332,13 +1332,13 @@ icd9cm_code,icd9cm_en,icd9cm_id
 37.6,Implantation of heart circulatory assist system(s),Implantasi sistem assist sirkulasi jantung (s)
 37.60,Implantation or insertion of biventricular external heart assist system,Implantasi atau penyisipan sistem bantuan jantung eksternal biventrikular
 37.61,Implant of pulsation balloon,Implan balon denyut
-37.62,Insertion of temporary non-implantable extracorporeal heart circulatory assist system device,Penyisipan Perangkat Sistem Bantuan Jantung Ekstrakorporeal yang tidak dapat diimplantasikan
+37.62,Insertion of temporary non-implantable extracorporeal heart circulatory assist device,Penyisipan Perangkat Sistem Bantuan Jantung Ekstrakorporeal yang tidak dapat diimplantasikan
 37.63,Repair of heart assist system,Perbaikan sistem bantuan hati
 37.64,Removal of external heart assist system(s) or device (s),Penghapusan Sistem Bantuan Hati Eksternal atau Perangkat
 37.65,Implant of single ventricular (extracorporeal) external heart assist system,Implan Sistem Bantuan Jantung Eksternal Ventrikel Single (Extracorporeal)
 37.66,Insertion of implantable heart assist system,Penyisipan sistem bantuan jantung implan
 37.67,Implantation of cardiomyostimulation system,Implantasi sistem kardiomiostimulasi
-37.68,Insertion of pertaneous external heart assist device,Penyisipan perangkat bantuan jantung eksternal yang terkait
+37.68,Insertion of percutaneous external heart assist device,Penyisipan perangkat bantuan jantung eksternal yang terkait
 37.7,"Insertion, revision, replacement, and removal of pacemaker leads: insertion of temporary pacemaker system; or revision of cardiac device pocket","Penyisipan, revisi, penggantian, dan penghapusan lead alat pacu jantung: penyisipan sistem alat pacu jantung sementara; atau revisi saku perangkat jantung"
 37.70,"Initial insertion of lead (electrode), not otherwise specified","Penyisipan awal timbal (elektroda), tidak ditentukan sebaliknya"
 37.71,Initial insertion of transvenous lead (electrode) into ventricle,Penyisipan awal timbal transvenous (elektroda) ke dalam ventrikel
@@ -1423,11 +1423,11 @@ icd9cm_code,icd9cm_en,icd9cm_id
 38.5,Ligation and stripping of varicose veins,Ligasi dan pengupasan varises
 38.50,"Ligation and stripping of varicose veins, unspecified site","Ligasi dan pengupasan varises, situs yang tidak ditentukan"
 38.51,"Ligation and stripping of varicose veins, intracranial vessels","Ligasi dan pengupasan varises, kapal intrakranial"
-38.52,"Ligation and stripping of varicose veins, other vessels of head an","Ligasi dan pengupasan varises, kapal kepala lainnya"
-38.53,"Ligation and stripping of varicose veins , upper limb vessels","Ligasi dan pengupasan varises, kapal tungkai atas"
+38.52,"Ligation and stripping of varicose veins, other vessels of head and neck","Ligasi dan pengupasan varises, kapal kepala lainnya"
+38.53,"Ligation and stripping of varicose veins, upper limb vessels","Ligasi dan pengupasan varises, kapal tungkai atas"
 38.55,"Ligation and stripping of varicose veins, thoracic vessels","Ligasi dan pengupasan varises, kapal toraks"
-38.57,"Ligation and stripping of varicose veins ,abdominal varicose veins","Ligasi dan pengupasan varises, vena varises perut"
-38.59,"Ligation and stripping of varicose veins ,lower limb varicose veins","Ligasi dan pengupasan varises, vena varises ekstremitas bawah"
+38.57,"Ligation and stripping of varicose veins, abdominal varicose veins","Ligasi dan pengupasan varises, vena varises perut"
+38.59,"Ligation and stripping of varicose veins, lower limb varicose veins","Ligasi dan pengupasan varises, vena varises ekstremitas bawah"
 38.6,Other excision of vessels,Eksisi kapal lainnya
 38.60,"Other excision of vessels, unspecified site","Eksisi kapal lainnya, situs yang tidak ditentukan"
 38.61,"Other excision of vessels, intracranial vessels","Eksisi kapal lainnya, kapal intrakranial"
@@ -1501,7 +1501,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 39.66,Percutaneous cardiopulmonary bypass,Bypass kardiopulmoner perkutan
 39.7,Endovascular Repair of Vessel,Perbaikan endovaskular kapal
 39.71,Endovascular implantation of graft in abdominal aorta,Implantasi cangkok endovaskular dalam aorta perut
-39.72,Endovascular repair or occlusion of head and neck vessels,Perbaikan endovaskular atau oklusi kapal kepala dan leher
+39.72,Endovascular embolization or occlusion of head and neck vessels,Perbaikan endovaskular atau oklusi kapal kepala dan leher
 39.73,Endovascular implantation of graft in thoracic aorta,Implantasi cangkok endovaskular dalam aorta toraks
 39.74,Endovascular removal of obstruction from head and neck vessel (s),Penghapusan obstruksi endovaskular dari kapal kepala dan leher (S)
 39.75,Endovascular embolization or occlusion of vessel(s) of head or neck using bare coils,Embolisasi endovaskular atau oklusi pembuluh kepala atau leher menggunakan kumparan telanjang
@@ -1559,7 +1559,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 41.05,Allogeneic hematopoietic stem cell transplant without purging,Transplantasi sel induk hematopoietik alogenik tanpa pembersihan
 41.06,Cord blood stem cell transplant,Transplantasi sel induk darah tali pusat
 41.07,Autologous hematopoietic stem cell transplant with purging,Transplantasi sel induk hematopoietik autologous dengan pembersihan
-41.08,Autologous hematopoietic stem cell transplant,Transplantasi sel induk hematopoietik autolog
+41.08,Allogeneic hematopoietic stem cell transplant,Transplantasi sel induk hematopoietik autolog
 41.09,Autologous bone marrow transplant with purging,Transplantasi sumsum tulang autologous dengan pembersihan
 41.1,Puncture of spleen,Tusukan limpa
 41.2,Splenotomy,Splenotomi
@@ -1696,7 +1696,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 44.65,Esophagogastroplasty,Esophagogastroplasty
 44.66,Other procedures for creation of esophagogastric sphincteric competence,Prosedur lain untuk penciptaan kompetensi sphincteric esofagogastrik
 44.67,Laparoscopic procedures for creation of esophagogastric spincteric competence,Prosedur laparoskopi untuk penciptaan kompetensi spincteri esofagogastrik
-44.68,Laparoscopic gastroplasy,Gastroplasy laparoskopi
+44.68,Laparoscopic gastroplasty,Gastroplasy laparoskopi
 44.69,Other repair of stomach,Perbaikan lambung lainnya
 44.9,Other operations on stomach,Operasi lain di perut
 44.91,Ligation of gastric varices,Ligasi varises lambung
@@ -1834,7 +1834,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 47.09,Other appendectomy,Usus buntu lainnya
 47.1,Incidental appendectomy,Appendektomi Insidental
 47.11,Laposcopic incidental appendectomy,Laposkopik appendectomy insidental
-47.19,other incidental appendectomy,Appendektomi insidental lainnya
+47.19,Other incidental appendectomy,Appendektomi insidental lainnya
 47.2,Drainage of appendiceal abscess,Drainase abses appendiceal
 47.9,Other operations on appendix,Operasi lain di Lampiran
 47.91,Appendicostomy,Usus buntu
@@ -1928,7 +1928,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 49.72,Anal cerclage,Cerclage anal
 49.73,Closure of anal fistula,Penutupan fistula anal
 49.74,Gracilis muscle transplant for anal incontinence,Transplantasi otot gracilis untuk inkontinensia anal
-49.75,Implantation or revision  of artificial anal sphincter,Implantasi atau revisi sfingter anal buatan
+49.75,Implantation or revision of artificial anal sphincter,Implantasi atau revisi sfingter anal buatan
 49.76,Removal of artificial anal sphincter,Penghapusan sfingter anal buatan
 49.79,Other repair of anal sphincter,Perbaikan sfingter anal lainnya
 49.9,Other operations on anus,Operasi lain di Anus
@@ -1950,7 +1950,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 50.21,Marsupialization of lesion of liver,Marsupialisasi lesi hati
 50.22,Partial hepatectomy,Hepatektomi parsial
 50.23,Open ablation of liver lesion or tissue,Ablasi lesi atau jaringan hati terbuka
-50.24,Percutaneous  ablation of liver lesion or tissue,Ablasi lesi atau jaringan hati perkutan
+50.24,Percutaneous ablation of liver lesion or tissue,Ablasi lesi atau jaringan hati perkutan
 50.25,Laparoscopic ablation of liver lesion or tissue,Ablasi laparoskopi lesi hati atau jaringan
 50.26,Other and unspecified ablation of liver lesion or tissue,Ablasi lesi atau jaringan hati lainnya dan tidak ditentukan
 50.29,Other destruction of lesion of liver,Penghancuran lesi hati lainnya
@@ -3431,7 +3431,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 82.93,Aspiration of other soft tissue of hand,Aspirasi jaringan lunak lainnya
 82.94,Injection of therapeutic substance into bursa of hand,Suntikan zat terapeutik ke bursa tangan
 82.95,Injection of therapeutic substance into tendon of hand,Suntikan zat terapeutik ke dalam tendon tangan
-82.96,Other injection of locally-acting therapeutic substance into soft ti,Suntikan lain dari zat terapeutik akting lokal ke dalam Ti lunak
+82.96,Other injection of locally-acting therapeutic substance into soft tissue of hand,Suntikan lain dari zat terapeutik akting lokal ke dalam Ti lunak
 82.99,"Other operations on muscle, tendon, and fascia of hand","Operasi lain pada otot, tendon, dan fasia tangan"
 83,"Operations on muscle, tendon, fascia, and bursa, except hand","Operasi pada otot, tendon, fasia, dan bursa, kecuali tangan"
 83.0,"Incision of muscle, tendon, fascia, and bursa","Sayatan otot, tendon, fasia, dan bursa"
@@ -3659,11 +3659,11 @@ icd9cm_code,icd9cm_en,icd9cm_id
 86.26,Ligation of dermal appendage,Ligasi pelengkap kulit
 86.27,"Debridement of nail, nail bed, or nail fold","Debridemen kuku, tempat tidur kuku, atau lipatan kuku"
 86.28,"Nonexcisional debridement of wound, infection, or burn","Debridemen luka, infeksi, atau luka bakar yang tidak ada"
-86.3,Other local excision or destruction of lesion or tissue of skin and,Eksisi lokal atau penghancuran lesi atau jaringan kulit dan
+86.3,Other local excision or destruction of lesion or tissue of skin and subcutaneous tissue,Eksisi lokal atau penghancuran lesi atau jaringan kulit dan
 86.4,Radical excision of skin lesion,Eksisi radikal lesi kulit
 86.5,Suture of skin and subcutaneous tissue,Jahitan kulit dan jaringan subkutan
 86.51,Replantation of scalp,Replantasi kulit kepala
-86.59,Suture of skin and subcutaneous tissue of other sites,Jahitan kulit dan jaringan subkutan dari situs lain
+86.59,Closure of skin and subcutaneous tissue of other sites,Jahitan kulit dan jaringan subkutan dari situs lain
 86.6,Free skin graft,Cangkok kulit gratis
 86.60,"Free skin graft, not otherwise specified","Cangkok kulit gratis, tidak ditentukan lain"
 86.61,Full-thickness skin graft to hand,Cangkok kulit dengan ketebalan penuh ke tangan
@@ -3748,7 +3748,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 87.59,Other biliary tract x-ray,X-ray traktat empedu lainnya
 87.6,Other x-ray of digestive system,X-ray lain dari sistem pencernaan
 87.61,Barium swallow,Barium Swallow
-87.62,Upper gi series,Seri GI Atas
+87.62,Upper GI series,Seri GI Atas
 87.63,Small bowel series,Seri usus kecil
 87.64,Lower gi series,Seri GI Bawah
 87.65,Other x-ray of intestine,X-ray usus lainnya
@@ -3842,7 +3842,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 88.63,Phlebography of other intrathoracic veins using contrast material,Paphlebografi vena intrathoracic lainnya menggunakan bahan kontras
 88.64,Phlebography of the portal venous system using contrast material,Phlebography dari sistem vena portal menggunakan bahan kontras
 88.65,Phlebography of other intra-abdominal veins using contrast material,Phlebography dari vena intra-abdominal lainnya menggunakan bahan kontras
-88.66,Phlebography of femoral and other lower extremity veins using contra,Flebografi femoral dan vena ekstremitas bawah lainnya menggunakan Contra
+88.66,Phlebography of femoral and other lower extremity veins using contrast material,Flebografi femoral dan vena ekstremitas bawah lainnya menggunakan Contra
 88.67,Phlebography of other specified sites using contrast material,Phlebography dari situs lain yang ditentukan menggunakan bahan kontras
 88.68,Impedance phlebography,Impedansi PHLEBOGRAPHY
 88.7,Diagnostic ultrasound,USG diagnostik
@@ -3866,7 +3866,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 88.9,Other diagnostic imaging,Pencitraan diagnostik lainnya
 88.90,"Diagnostic imaging, not elsewhere classified","Pencitraan diagnostik, tidak diklasifikasikan di tempat lain"
 88.91,Magnetic resonance imaging of brain and brain stem,Pencitraan resonansi magnetik batang otak dan otak
-88.92,Magnetic resonance imaging of chest and myocardium for evaluation of,Pencitraan resonansi magnetik dada dan miokardium untuk evaluasi
+88.92,Magnetic resonance imaging of chest and myocardium,Pencitraan resonansi magnetik dada dan miokardium untuk evaluasi
 88.93,Magnetic resonance imaging of spinal canal,Pencitraan Resonansi Magnetik dari Kanal Tulang Belakang
 88.94,Magnetic resonance imaging of musculoskeletal,Pencitraan resonansi magnetik muskuloskeletal
 88.95,"Magnetic resonance imaging of pelvis, prostate, and bladder","Pencitraan resonansi magnetik panggul, prostat, dan kandung kemih"
@@ -4580,7 +4580,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 99.76,Extracorporeal immunoadsorption,Immunoadsorpsi Ekstrakorporeal
 99.77,Application or administration of adhesion barrier sucstance,Aplikasi atau pemberian Sucstance Penghalang Adhesion
 99.78,Aquapheresis,Aquapheresis
-99.79,Other,Lainnya
+99.79,Other therapeutic apheresis,Lainnya
 99.8,Miscellaneous physical procedures,Prosedur fisik lain -lain
 99.81,Hypothermia (central) (local),Hipotermia (Tengah) (lokal)
 99.82,Ultraviolet light therapy,Terapi Cahaya Ultraviolet
@@ -4598,7 +4598,7 @@ icd9cm_code,icd9cm_en,icd9cm_id
 99.96,Collection of sperm for artificial insemination,Koleksi sperma untuk inseminasi buatan
 99.97,Fitting of denture,Pemasangan gigitiruan
 99.98,Extraction of milk from lactating breast,Ekstraksi susu dari payudara menyusui
-99.99,Other,Lainnya
+99.99,Other miscellaneous procedures,Lainnya
 86.90,Extraction of fat for graft or banking,Ekstraksi lemak untuk cangkok atau perbankan
 86.87,Fat graft of skin and subcutaneous tissue,Cangkok lemak kulit dan jaringan subkutan
 85.55,Fat graft to breast,Cangkok lemak ke payudara
