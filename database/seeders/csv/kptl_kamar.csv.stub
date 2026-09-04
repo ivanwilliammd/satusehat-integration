@@ -1,4 +1,4 @@
-nama_tindakan_dan_layanan;base_code;allowed_modifiers;kode_kptl;display;code_system;version
+nama_layanan;base_code;allowed_modifiers;kode_kptl;display;code_system;version
 Kamar Regular;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR002.x.x;Kamar Regular, x, Non isolasi, x, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
 Isolasi Tekanan Negatif;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR001.RM001.x;Kamar Regular, x, Isolasi, dengan tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
 Isolasi Tanpa Tekanan Negatif;Kamar Regular;Spesialisasi kamar, Status kamar, Pengaturan kamar, Kategori Pasien;20000.x.KR001.RM002.x;Kamar Regular, x, Isolasi, tanpa tekanan negatif, x;http://terminology.kemkes.go.id/CodeSystem/kptl;v1.1
