@@ -7,6 +7,7 @@ return [
      */
     'log_table_name' => 'satusehat_log',
     'token_table_name' => 'satusehat_token',
+    'queue_table_name' => 'satusehat_queue',
 
     'icd10_table_name' => 'satusehat_icd10',
     'icd9cm_table_name' => 'satusehat_icd9cm',
