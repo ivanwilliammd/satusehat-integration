@@ -1235,10 +1235,10 @@ Kompleksitas;>4 layer;KM018
 Kompleksitas;Common Case;KM019
 Kompleksitas;Dalam;KM020
 Kompleksitas;Hybrid;KM021
-Kompleksitas;1;KM022
-Kompleksitas;2;KM023
-Kompleksitas;3;KM024
-Kompleksitas;4;KM025
+Kompleksitas;1.0;KM022
+Kompleksitas;2.0;KM023
+Kompleksitas;3.0;KM024
+Kompleksitas;4.0;KM025
 Kompleksitas;Kasus Berat;KM026
 Kompleksitas;Kasus Berat dengan Penyulit;KM027
 Kompleksitas;Advance;KM028
@@ -1758,7 +1758,6 @@ Target Saraf;Lengkap;SA056
 Target Saraf;Trigeminal;SA057
 Target Saraf;Fasialis;SA058
 Target Saraf;Optikus;SA059
-Target Saraf;Presacral;SA058
 Target Seleksi Kromosom;Seks-X;SX001
 Target Seleksi Kromosom;Seks-Y;SX002
 Target Seleksi Kromosom;Tanpa Seleksi;SX003
