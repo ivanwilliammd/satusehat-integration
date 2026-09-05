@@ -16,8 +16,8 @@ class CreateSatusehatKfaTable extends Migration
         Schema::connection(config('satusehatintegration.database_connection_master'))->create(config('satusehatintegration.kfa_table_name'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kfa_code');
-            $table->string('product_template');
-            $table->string('display_name');
+            $table->text('product_template');
+            $table->text('display_name');
             $table->string('brand');
             $table->string('uom_drug_form');
             $table->string('drug_form_hl7');
