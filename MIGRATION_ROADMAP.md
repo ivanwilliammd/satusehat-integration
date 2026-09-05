@@ -7,12 +7,12 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 ## Gap Analysis
 
 **fhirvel-ss**: 38 FHIR classes  
-**satusehat-integration**: 30 FHIR classes + 51 PayloadBuilder classes  
-**Missing**: 19 resources
+**satusehat-integration**: 49 FHIR classes + 142 PayloadBuilder classes  
+**Missing**: 0 core resources (all migrated)
 
 ---
 
-## Missing Resources (Core)
+## Missing Resources (Core) — ALL DONE
 
 | # | Resource | Priority | Status | Notes |
 |---|---------|---------|--------|-------|
@@ -30,26 +30,26 @@ Tracking migration of FHIR resources + features from `fhirvel-ss` → `satusehat
 | 12 | RelatedPerson | P1 | done | Personal relationship |
 | 13 | ServiceRequest | P2 | done | Request for procedure |
 | 14 | QuestionnaireResponse | P2 | done | Form response |
-| 15 | Substance | P3 | pending | Substance reference |
-| 16 | MolecularSequence | P3 | pending | Genomic sequence |
-| 17 | GenomicStudy | P3 | pending | Genomic study |
-| 18 | FamilyMemberHistory | P2 | pending | Family history |
-| 19 | RiskAssessment | P2 | pending | Risk evaluation |
+| 15 | Substance | P3 | done | Substance reference (v4.11.x) |
+| 16 | MolecularSequence | P3 | done | Genomic sequence (v4.11.x) |
+| 17 | GenomicStudy | P3 | done | Genomic study (v4.11.x) |
+| 18 | FamilyMemberHistory | P2 | done | Family history (v4.11.x) |
+| 19 | RiskAssessment | P2 | done | Risk evaluation (v4.11.x) |
+| 20 | DocumentReference | P3 | done | Document reference (v4.11.x) |
 
 ---
 
-## Missing Resources (Non-Core / Future)
+## Non-Core Resources (Builder-only, no FHIR class)
 
-| # | Resource | Priority | Status |
-|---|---------|---------|--------|
-| 20 | DocumentReference | P3 | pending |
-| 21 | Endpoint | — | not in fhirvel-ss |
-| 22 | Appointment | — | not in fhirvel-ss |
-| 23 | Schedule | — | not in fhirvel-ss |
-| 24 | Slot | — | not in fhirvel-ss |
-| 25 | CareTeam | — | not in fhirvel-ss |
-| 26 | ExplanationOfBenefit | — | not in fhirvel-ss |
-| 27 | VerificationResult | — | not in fhirvel-ss |
+| # | Resource | Builder | Notes |
+|---|---------|---------|-------|
+| 21 | Endpoint | ✅ | SATUSEHAT non-FHIR JSON payloads (BillingStatus, PurificationDecision) |
+| 22 | Appointment | ✅ | Builder-only |
+| 23 | Schedule | ✅ | Builder-only |
+| 24 | Slot | ✅ | Builder-only |
+| 25 | CareTeam | ✅ | Builder-only |
+| 26 | ExplanationOfBenefit | ✅ | Builder-only |
+| 27 | VerificationResult | ✅ | Builder-only |
 
 ---
 
@@ -91,4 +91,6 @@ Each release: **2 resources per 2 days**
 | v4.5.0 | 2026-08-18 | Non-core resources (12) + FHIR PATCH + BundleResponse |
 | v4.6.0 | 2026-08-18 | Phase 2: Durable queue + transaction logger |
 | v4.9.0 | 2026-08-29 | MedicationRequest + Procedure |
-| v4.10.0 | 2026-09-02 | MedicationStatement + Task |
+| v4.13.0 | 2026-09-03 | ServiceRequest + QuestionnaireResponse |
+| v4.14.0 | 2026-09-04 | 6 remaining FHIR classes (Substance, MolecularSequence, GenomicStudy, FamilyMemberHistory, RiskAssessment, DocumentReference) — parity complete |
+| v4.14.1 | 2026-09-05 | SDK parity bump (node/python/go) |
