@@ -23,7 +23,10 @@ return [
 
     'ucum_table_name' => 'satusehat_ucum',
 
-    'kfa_table_name' => 'satusehat_kfa',
+    'kfa_table_name' => 'satusehat_kfa', // @deprecated backward-compat — gunakan kfa_obat_table_name
+    'kfa_obat_table_name' => 'satusehat_kfa_obat',
+    'kfa_alkes_table_name' => 'satusehat_kfa_alkes',
+    'kfa_bza_table_name' => 'satusehat_kfa_bza',
 
     'kemkesterm_table_name' => 'satusehat_kemkesterm',
 

@@ -12,8 +12,8 @@ class KfaSeeder extends CsvSeeder
      * @return void
      */
     public function __construct(){
-        $this->file = base_path().'/database/seeders/csv/kfa.csv.stub';
-        $this->tablename = config('satusehatintegration.kfa_table_name');
+        $this->file = base_path().'/database/seeders/csv/kfa_obat.csv.stub';
+        $this->tablename = config('satusehatintegration.kfa_table_name'); // @deprecated alias — tabel legacy satusehat_kfa
         $this->delimiter = ';';
 
         // CSV values come from the KFA (Kemenkes) dump which uses Indonesian

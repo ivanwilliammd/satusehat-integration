@@ -109,6 +109,65 @@ class SatusehatIntegrationServiceProvider extends ServiceProvider
                 __DIR__.'/../database/seeders/KodeWilayahIndonesiaSeeder.php.stub' => database_path('/seeders/KodeWilayahIndonesiaSeeder.php'),
             ], 'kodewilayahindonesia');
         }
+
+        // Publish KFA Migrations (obat / alkes / bza)
+        if (! class_exists('CreateSatusehatKfaTable')) {
+            $this->publishMigration(
+                'CreateSatusehatKfaTable',
+                __DIR__.'/../database/migrations/create_satusehat_kfa_table.php.stub',
+                'kfa'
+            );
+        }
+        if (! class_exists('CreateSatusehatKfaObatTable')) {
+            $this->publishMigration(
+                'CreateSatusehatKfaObatTable',
+                __DIR__.'/../database/migrations/create_satusehat_kfa_obat_table.php.stub',
+                'kfa'
+            );
+        }
+        if (! class_exists('CreateSatusehatKfaAlkesTable')) {
+            $this->publishMigration(
+                'CreateSatusehatKfaAlkesTable',
+                __DIR__.'/../database/migrations/create_satusehat_kfa_alkes_table.php.stub',
+                'kfa'
+            );
+        }
+        if (! class_exists('CreateSatusehatKfaBzaTable')) {
+            $this->publishMigration(
+                'CreateSatusehatKfaBzaTable',
+                __DIR__.'/../database/migrations/create_satusehat_kfa_bza_table.php.stub',
+                'kfa'
+            );
+        }
+
+        // Publish KFA csv data
+        $this->publishes([
+            __DIR__.'/../database/seeders/csv/kfa_obat.csv.stub' => database_path('/seeders/csv/kfa_obat.csv.stub'),
+            __DIR__.'/../database/seeders/csv/kfa_alkes.csv.stub' => database_path('/seeders/csv/kfa_alkes.csv.stub'),
+            __DIR__.'/../database/seeders/csv/kfa_bza.csv.stub' => database_path('/seeders/csv/kfa_bza.csv.stub'),
+        ], 'kfa');
+
+        // Publish KFA Seeders (obat / alkes / bza)
+        if (! class_exists('KfaSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/KfaSeeder.php.stub' => database_path('/seeders/KfaSeeder.php'),
+            ], 'kfa');
+        }
+        if (! class_exists('KfaObatSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/KfaObatSeeder.php.stub' => database_path('/seeders/KfaObatSeeder.php'),
+            ], 'kfa');
+        }
+        if (! class_exists('KfaAlkesSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/KfaAlkesSeeder.php.stub' => database_path('/seeders/KfaAlkesSeeder.php'),
+            ], 'kfa');
+        }
+        if (! class_exists('KfaBzaSeeder')) {
+            $this->publishes([
+                __DIR__.'/../database/seeders/KfaBzaSeeder.php.stub' => database_path('/seeders/KfaBzaSeeder.php'),
+            ], 'kfa');
+        }
     }
 
     private function publishMigration(string $className, string $stubPath, string $tag): void

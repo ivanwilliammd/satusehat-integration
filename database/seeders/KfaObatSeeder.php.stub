@@ -1,0 +1,53 @@
+<?php
+namespace Database\Seeders;
+
+use JeroenZwart\CsvSeeder\CsvSeeder;
+use DB;
+
+class KfaObatSeeder extends CsvSeeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function __construct(){
+        $this->file = base_path().'/database/seeders/csv/kfa_obat.csv.stub';
+        $this->tablename = config('satusehatintegration.kfa_obat_table_name');
+        $this->delimiter = ';';
+
+        // CSV values come from the KFA (Kemenkes) dump which uses Indonesian
+        // decimal comma (e.g. "308934,5") and '?' as a NULL placeholder.
+        // PostgreSQL rejects "308934,5" for float columns, so normalize here:
+        //   - '?'         -> null
+        //   - '123,45'    -> '123.45'
+        //   - 'TRUE'/'FALSE' handled natively by CsvRowParser::isEmptyValue()
+        $decimal = function ($v) {
+            if ($v === null || strtoupper((string) $v) === 'NULL' || $v === '') {
+                return null;
+            }
+            if (is_bool($v)) {
+                return $v;
+            }
+            $v = trim((string) $v);
+            if ($v === '?' || $v === '') {
+                return null;
+            }
+            return str_replace(',', '.', $v);
+        };
+
+        $this->parsers = [
+            'het'          => $decimal,
+            'lkpp_price'   => $decimal,
+            'logistic_dose' => $decimal,
+        ];
+    }
+
+    public function run()
+    {
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
+
+        parent::run();
+    }
+}
