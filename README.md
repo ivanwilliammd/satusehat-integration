@@ -49,34 +49,34 @@ obat/alkes/BZA). Berguna saat aplikasi TIDAK ingin menyimpan dataset nasional
 lokal — cukup panggil REST API untuk search / validate / resolve FHIR code.
 
 ```env
-TERMINOLOGY_BASE_URL=https://terminology.ivanmd.id   # opsional
-TERMINOLOGY_API_TOKEN=your_bearer_token              # JWT OIDC auth.ivanmd.id ATAU Sanctum PAT
+TERMINOLOGY_BASE_URL=https://terminology.ivanmd.id      # opsional
+# Auth — pilih SALAH SATU:
+TERMINOLOGY_API_TOKEN=your_pat                           # 1) Sanctum PAT (statis)
+TERMINOLOGY_CLIENT_ID=your_oidc_client                   # 2) OIDC client_credentials
+TERMINOLOGY_CLIENT_SECRET=your_oidc_secret               #    ke auth.ivanmd.id (auto refresh)
+TERMINOLOGY_TOKEN_URL=https://auth.ivanmd.id/oauth/token #    default
 ```
 
 ```php
 use Satusehat\Integration\TerminologyClient;
 
-$term = new TerminologyClient(); // baca env, atau:
-$term = new TerminologyClient('https://terminology.ivanmd.id', 'BearerToken...');
+// PAT statis (atau kosongkan kalau pakai env OIDC → auto-fetch + cache + refresh)
+$term = new TerminologyClient('https://terminology.ivanmd.id', 'sanctum-pat-...');
 
-// Cari istilah bebas (lokal/typo) → kode resmi lintas terminologi
-$result = $term->search('demam berdarah', 'diagnosis', 10);
+// Fluent chaining — istilah bebas RS → kode resmi
+$result = $term->query('pemasangan kateter')->on('kptl')->limit(10)->get();
+$result = $term->query('demam berdarah')->category('diagnosis')->first()->get();
+$result = $term->query('93004944')->asCode()->get();     // validasi kode, sistem ditebak (93→kfa)
+$result = $term->query('91001834')->on('kfa_bza')->asCode()->get(); // paksa sistem
 
-// Search per sistem: icd10|icd9cm|snomed|loinc|kfa|kfa_alkes|kfa_bza|kptl
-$alkes = $term->searchSystem('kfa_alkes', 'termometer', 5);
-$obat  = $term->searchSystem('kfa', 'paracetamol', 5);
-
-// Validasi kode sebelum kirim ke SATUSEHAT
-$ok = $term->validate('snomed', '44054006');      // { valid, display, active }
-
-// Resolusi konteks FHIR (Condition / Observation / MedicationRequest / ServiceRequest)
-$cond = $term->resolveCondition('E11', 'icd10', 'encounter-diagnosis');
-$obs  = $term->resolveObservation('4548-4');       // LOINC primary
-$med  = $term->resolveMedication('93004944');      // KFA obat
-
-// KPTL multi-layer + mapping lintas terminologi
-$kptl = $term->kptlCombine('10026', ['OR032', 'PD002']);
-$map  = $term->map('icd10', 'snomed', 'E11');
+// Atau method langsung:
+$result = $term->search('demam berdarah', 'diagnosis', 10);  // unified
+$alkes  = $term->searchSystem('kfa_alkes', 'termometer', 5); // per sistem
+$ok     = $term->validate('snomed', '44054006');             // { valid, display, active }
+$cond   = $term->resolveCondition('E11', 'icd10', 'encounter-diagnosis');
+$med    = $term->resolveMedication('93004944');              // KFA obat
+$kptl   = $term->kptlCombine('10026', ['OR032', 'PD002']);   // KPTL multi-layer
+$map    = $term->map('icd10', 'snomed', 'E11');              // lintas terminologi
 ```
 
 ---

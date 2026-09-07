@@ -133,4 +133,47 @@ class TerminologyClientTest extends TestCase
 
         $client->search('demam');
     }
+
+    public function testFluentQueryChainingOnSystem(): void
+    {
+        $client = new class('https://terminology.ivanmd.id', 'tok') extends TerminologyClient {
+            public array $last = [];
+
+            public function request(string $method, string $path, array $query = [], ?array $body = null): array
+            {
+                $this->last = [$method, $path, $query, $body];
+
+                return [200, ['success' => true, 'data' => [], 'count' => 0]];
+            }
+        };
+
+        $client->query('pemasangan kateter')->on('kptl')->limit(10)->get();
+
+        $this->assertSame('GET', $client->last[0]);
+        $this->assertSame('api/v1/terminology/kptl/search', $client->last[1]);
+        $this->assertSame(['q' => 'pemasangan kateter', 'limit' => 10], $client->last[2]);
+    }
+
+    public function testFluentQueryAsCodeGuessesSystem(): void
+    {
+        $client = new class('https://terminology.ivanmd.id', 'tok') extends TerminologyClient {
+            public array $last = [];
+
+            public function request(string $method, string $path, array $query = [], ?array $body = null): array
+            {
+                $this->last = [$method, $path, $query, $body];
+
+                return [200, ['success' => true, 'data' => ['valid' => true]]];
+            }
+        };
+
+        // 930xxxxx → kfa obat; explicit asCode → POST /validate
+        $client->query('93004944')->asCode()->get();
+        $this->assertSame('POST', $client->last[0]);
+        $this->assertSame(['system' => 'kfa', 'code' => '93004944'], $client->last[3]);
+
+        // 91xxxxxx → kfa_bza
+        $client->query('91001834')->asCode()->get();
+        $this->assertSame('kfa_bza', $client->last[3]['system']);
+    }
 }
