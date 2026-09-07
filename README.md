@@ -41,6 +41,44 @@ CLIENTSECRET_DEV=your_client_secret
 ORGID_DEV=your_org_id
 ```
 
+### TerminologyClient — SmarTerm (terminology.ivanmd.id)
+
+`TerminologyClient` menghubungkan aplikasi ke **SmarTerm** — layanan kamus terpadu
+terminologi kesehatan Indonesia (ICD-10, ICD-9-CM, SNOMED CT, LOINC, KPTL, KFA
+obat/alkes/BZA). Berguna saat aplikasi TIDAK ingin menyimpan dataset nasional
+lokal — cukup panggil REST API untuk search / validate / resolve FHIR code.
+
+```env
+TERMINOLOGY_BASE_URL=https://terminology.ivanmd.id   # opsional
+TERMINOLOGY_API_TOKEN=your_bearer_token              # JWT OIDC auth.ivanmd.id ATAU Sanctum PAT
+```
+
+```php
+use Satusehat\Integration\TerminologyClient;
+
+$term = new TerminologyClient(); // baca env, atau:
+$term = new TerminologyClient('https://terminology.ivanmd.id', 'BearerToken...');
+
+// Cari istilah bebas (lokal/typo) → kode resmi lintas terminologi
+$result = $term->search('demam berdarah', 'diagnosis', 10);
+
+// Search per sistem: icd10|icd9cm|snomed|loinc|kfa|kfa_alkes|kfa_bza|kptl
+$alkes = $term->searchSystem('kfa_alkes', 'termometer', 5);
+$obat  = $term->searchSystem('kfa', 'paracetamol', 5);
+
+// Validasi kode sebelum kirim ke SATUSEHAT
+$ok = $term->validate('snomed', '44054006');      // { valid, display, active }
+
+// Resolusi konteks FHIR (Condition / Observation / MedicationRequest / ServiceRequest)
+$cond = $term->resolveCondition('E11', 'icd10', 'encounter-diagnosis');
+$obs  = $term->resolveObservation('4548-4');       // LOINC primary
+$med  = $term->resolveMedication('93004944');      // KFA obat
+
+// KPTL multi-layer + mapping lintas terminologi
+$kptl = $term->kptlCombine('10026', ['OR032', 'PD002']);
+$map  = $term->map('icd10', 'snomed', 'E11');
+```
+
 ---
 
 ## Architecture
