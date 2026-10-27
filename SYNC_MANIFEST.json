@@ -2,13 +2,13 @@
   "schema": 2,
   "measured_at": "2026-10-27",
   "measured_by": "scripts/parity-manifest.sh (repo satusehat-integration)",
-  "php_last_commit": "2a7fc79",
+  "php_last_commit": "af604ff",
   "counts": {
     "payload_builder":   { "php": 141, "node": 142, "python": 140, "go": 141 },
     "datatype":          { "php": 32, "node": 31, "python": 33, "go": 33 },
     "terminology_files": { "php": 22, "node": 20, "python": 27, "go": 17 },
     "queue_files":       { "php": 8, "node": 3, "python": 3, "go": 3 },
-    "test_files":        { "php": 45, "node": 3, "python": 5, "go": 3 }
+    "test_files":        { "php": 45, "node": 4, "python": 5, "go": 3 }
   },
   "capabilities": {
     "payload_builder":     { "php": "present", "node": "present", "python": "present", "go": "present" },
