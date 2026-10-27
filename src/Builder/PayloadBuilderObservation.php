@@ -179,9 +179,9 @@ class PayloadBuilderObservation extends Builder
         return $this;
     }
 
-    public function addNote(Annotation $note): self
+    public function addNote(Annotation|string $note): self
     {
-        $this->push('note', $note->toArray());
+        $this->push('note', $note instanceof Annotation ? $note->toArray() : ['text' => $note]);
         return $this;
     }
 
