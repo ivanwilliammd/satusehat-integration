@@ -67,6 +67,20 @@ class PayloadBuilderProcedure extends Builder
         return $this;
     }
 
+    /** Procedure.basedOn 0..* Reference — permintaan asal tindakan (mis. ServiceRequest). */
+    public function addBasedOn(Reference $basedOn): self
+    {
+        $this->push('basedOn', $basedOn->toArray());
+        return $this;
+    }
+
+    /** Procedure.reasonCode 0..* CodeableConcept — alasan tindakan (ICD-10/Snomed). */
+    public function addReasonCode(CodeableConcept $reasonCode): self
+    {
+        $this->push('reasonCode', $reasonCode->toArray());
+        return $this;
+    }
+
     // performed[x] polymorphic setters
     public function setPerformedDateTime(string $dateTime): self
     {

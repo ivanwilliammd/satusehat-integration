@@ -2,6 +2,7 @@
 
 namespace Satusehat\Integration\FHIR;
 
+use Satusehat\Integration\Builder\PayloadBuilderProcedure;
 use Satusehat\Integration\Exception\FHIR\FHIRInvalidPropertyValue;
 use Satusehat\Integration\Exception\FHIR\FHIRMissingProperty;
 use Satusehat\Integration\OAuth2Client;
@@ -153,6 +154,12 @@ class Procedure extends OAuth2Client
         $this->procedure['basedOn'][] = [
             'reference' => $reference,
         ];
+    }
+
+    /** Jalur native: pembangun bertipe untuk Procedure (menggantikan penyusunan array manual). */
+    public static function build(): PayloadBuilderProcedure
+    {
+        return new PayloadBuilderProcedure();
     }
 
     public function json()

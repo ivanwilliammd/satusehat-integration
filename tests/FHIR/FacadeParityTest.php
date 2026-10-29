@@ -8,18 +8,21 @@ use Satusehat\Integration\Builder\PayloadBuilderDevice;
 use Satusehat\Integration\Builder\PayloadBuilderDiagnosticReport;
 use Satusehat\Integration\Builder\PayloadBuilderLocation;
 use Satusehat\Integration\Builder\PayloadBuilderOrganization;
+use Satusehat\Integration\Builder\PayloadBuilderProcedure;
 use Satusehat\Integration\DataType\Address;
 use Satusehat\Integration\DataType\Annotation;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\ContactPoint;
 use Satusehat\Integration\DataType\Identifier;
+use Satusehat\Integration\DataType\Period;
 use Satusehat\Integration\DataType\Reference;
 use Satusehat\Integration\FHIR\AllergyIntolerance as FacadeAllergyIntolerance;
 use Satusehat\Integration\FHIR\Device as FacadeDevice;
 use Satusehat\Integration\FHIR\DiagnosticReport as FacadeDiagnosticReport;
 use Satusehat\Integration\FHIR\Location as FacadeLocation;
 use Satusehat\Integration\FHIR\Organization as FacadeOrganization;
+use Satusehat\Integration\FHIR\Procedure as FacadeProcedure;
 
 /**
  * Uji paritas: facade lama (Satusehat\Integration\FHIR\*) dan PayloadBuilder native
@@ -167,6 +170,53 @@ class FacadeParityTest extends TestCase
         $builder->setConclusion('Normal');
 
         $this->assertParitySame('DiagnosticReport', json_decode($facade->json(), true), $builder->json());
+    }
+
+    /**
+     * Procedure: facade lama dan builder native harus menghasilkan payload yang sama.
+     * `setLocation()` facade sengaja TIDAK ikut diuji — builder belum punya padanannya dan bentuk
+     * facade-nya (Reference datar) tidak sesuai tapak FHIR `Procedure.location` 0..* BackboneElement;
+     * selisih itu dicatat di docs/FACADE_PARITY.md sebagai cacat terbuka, bukan dinormalkan di sini.
+     */
+    public function test_procedure_facade_matches_native_builder(): void
+    {
+        $facade = new FacadeProcedure();
+        $facade->addIdentifier('http://sys-ids.kemkes.go.id/procedure/1000004', 'PROC-1');
+        $facade->setStatus('completed');
+        $facade->setCategory('387713003', 'Surgical procedure', 'http://snomed.info/sct', 'Tindakan bedah');
+        $facade->setCode('86.22', 'Excisional biopsy of breast');
+        $facade->setSubject('Patient/P1', 'Budi Santoso');
+        $facade->setEncounter('enc-1', 'Kunjungan');
+        $facade->addPerformer('Practitioner/N1', 'dr. Ani');
+        $facade->setPerformedPeriod('2026-01-01T08:00:00+07:00', '2026-01-01T09:00:00+07:00');
+        $facade->addReasonCode('C50', 'Neoplasma mammae');
+        $facade->addBodySite('80248007', 'Left breast');
+        $facade->addNote('catatan tindakan');
+        $facade->addUsedCode('9100020000002', 'Alat bedah');
+        $facade->addBasedOn('ServiceRequest/sr-1');
+
+        $builder = new PayloadBuilderProcedure();
+        $builder->addIdentifier(new Identifier('http://sys-ids.kemkes.go.id/procedure/1000004', 'PROC-1'));
+        $builder->setStatus('completed');
+        $builder->setCategory((new CodeableConcept())
+            ->addCoding(new Coding('http://snomed.info/sct', '387713003', 'Surgical procedure'))
+            ->setText('Tindakan bedah'));
+        $builder->setCode((new CodeableConcept())
+            ->addCoding(new Coding('http://hl7.org/fhir/sid/icd-9-cm', '86.22', 'Excisional biopsy of breast')));
+        $builder->setSubject(new Reference('Patient/P1', 'Budi Santoso'));
+        $builder->setEncounter(new Reference('Encounter/enc-1', 'Kunjungan'));
+        $builder->addPerformer(new Reference('Practitioner/N1', 'dr. Ani'));
+        $builder->setPerformedPeriod(new Period('2026-01-01T08:00:00+07:00', '2026-01-01T09:00:00+07:00'));
+        $builder->addReasonCode((new CodeableConcept())
+            ->addCoding(new Coding('http://hl7.org/fhir/sid/icd-10', 'C50', 'Neoplasma mammae')));
+        $builder->addBodySite((new CodeableConcept())
+            ->addCoding(new Coding('http://snomed.info/sct', '80248007', 'Left breast')));
+        $builder->addNote('catatan tindakan');
+        $builder->addUsedCode((new CodeableConcept())
+            ->addCoding(new Coding('http://sys-ids.kemkes.go.id/kfa', '9100020000002', 'Alat bedah')));
+        $builder->addBasedOn(new Reference('ServiceRequest/sr-1'));
+
+        $this->assertParitySame('Procedure', json_decode($facade->json(), true), $builder->json());
     }
 
     /**

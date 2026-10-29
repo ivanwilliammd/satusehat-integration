@@ -17,6 +17,11 @@
 
 ### Added
 
+- `PayloadBuilderProcedure::addBasedOn()` + `addReasonCode()` — dua medan 0..\* yang HANYA dimiliki
+  jalur facade lama, sehingga jalur native tidak bisa menyatakannya sama sekali. Uji paritas
+  Procedure yang menemukannya (bukan pembacaan kode).
+- `FHIR\Procedure::build()` — shim ke `PayloadBuilderProcedure`; uji paritas isi payload facade ↔
+  builder (13 setter, termasuk `basedOn`/`reasonCode`/`performedPeriod`).
 - `tests/FHIR/ResourceTypeCardinalityTest.php` — 4 uji / 14 asersi: penjaga tapak `type` 0..* untuk
   `HealthcareService` dan `InsurancePlan`, termasuk uji bahwa dua panggilan `setType()` menghasilkan
   dua entri. Suite: **872 uji, 1438 asersi**.

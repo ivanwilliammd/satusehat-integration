@@ -27,9 +27,9 @@ setelah keduanya dikanonikalisasi (`ksort` rekursif) supaya urutan kunci tidak i
 ## Status terukur (2026-10-28)
 
 - Kelas facade di `src/FHIR/`: **50**
-- Facade yang punya shim `public static function build(): PayloadBuilder…`: **4**
-- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **4**
-- Kelas facade yang **belum** punya shim: **46** → **45** setelah `Organization` (semuanya sudah punya
+- Facade yang punya shim `public static function build(): PayloadBuilder…`: **5**
+- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **5**
+- Kelas facade yang **belum** punya shim: **46** → **44** setelah `Organization` dan `Procedure` (semuanya sudah punya
   `PayloadBuilder` pasangannya, jadi pekerjaannya aditif: satu metode `build()` + satu kasus uji
   paritas per resource)
 
@@ -41,6 +41,7 @@ membuat suite gagal.
 - shim: `Device`
 - shim: `DiagnosticReport`
 - shim: `Organization`
+- shim: `Procedure`
 
 ## Jebakan yang sudah terbukti
 
@@ -167,3 +168,25 @@ padahal `InsurancePlan.coverage` adalah **0..\* BackboneElement** yang mewajibka
 `benefit` (1..\*). Artinya payload `InsurancePlan` tetap tidak sah menurut tapak meski `type` sudah
 benar. Memperbaikinya bukan penambalan satu baris: bentuk `coverage` berubah dan setiap pemanggil
 lama ikut berubah — jadi perlu keputusan pemilik pustaka (perilaku baru vs keluaran ganda).
+
+## Cacat yang ditemukan uji paritas Procedure (2026-10-29)
+
+1. **Builder Procedure kehilangan dua medan yang FASADE punya** — `basedOn` (0..\* Reference) dan
+   `reasonCode` (0..\* CodeableConcept). Kode lama yang dibangun lewat facade (`addBasedOn()`,
+   `addReasonCode()`) tidak punya padanan di jalur native sama sekali, jadi pemakaian baru yang
+   butuh dua medan itu harus kembali menyusun array manual — persis yang ingin diakhiri facade.
+   Ditambahkan `PayloadBuilderProcedure::addBasedOn(Reference)` + `addReasonCode(CodeableConcept)`
+   (keduanya `push()`, sesuai tapak 0..\*); uji paritas menutup selisihnya.
+   **Pelajaran:** paritas bukan hanya soal *bentuk* payload untuk setter yang ada di kedua jalur —
+   periksa juga setter yang hanya ada di SATU jalur. Uji paritaslah yang menemukannya, bukan
+   pembacaan kode.
+2. **`Procedure.location` pada facade berbentuk Reference datar** (`location: {reference: …}`),
+   padahal FHIR R4 menetapkan `Procedure.location` = **0..\* BackboneElement** yang mewajibkan
+   `location` (Reference) 1..1 di dalamnya. Builder belum punya setter padanannya. Karena
+   memperbaikinya berarti mengubah bentuk keluaran facade (breaking bagi pemanggil lama),
+   cacat ini **dibiarkan terbuka dan dicatat** — uji paritas sengaja tidak menyertakan
+   `setLocation()` supaya selisih yang disengaja tidak tersamarkan sebagai paritas.
+3. **`setCategory()` facade selalu menulis `text: null`** bila argumen `$text` tidak diisi
+   (`'text' => $text` tanpa pemeriksaan), sedangkan `DataType` membuang nilai null. FHIR tidak
+   mengenal properti bernilai null, jadi bentuk facade itu bukan payload yang sah. Uji paritas
+   memakai `$text` terisi sehingga kedua jalur sama; pemakaian baru sebaiknya lewat builder.
