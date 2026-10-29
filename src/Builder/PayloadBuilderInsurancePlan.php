@@ -50,7 +50,9 @@ class PayloadBuilderInsurancePlan extends Builder
 
     public function setType(string $system, string $code, string $display = ''): self
     {
-        $this->set('type', [
+        // FHIR R4: InsurancePlan.type adalah 0..* CodeableConcept, jadi payload WAJIB daftar
+        // dan pemanggilan berulang MENAMBAH, bukan menimpa.
+        $this->push('type', [
             'coding' => [['system' => $system, 'code' => $code, 'display' => $display]],
         ]);
         return $this;
