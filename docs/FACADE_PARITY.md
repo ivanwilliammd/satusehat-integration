@@ -285,6 +285,11 @@ Kontrol negatifnya empat (tanpa `addItem`, `series` melompat, `set()` ber-indeks
 galat menyebut jalur) — semuanya MERAH sebelum perbaikan dan hijau sesudahnya. Suite penuh
 **887 uji / 1505 asersi / 0 gagal** (sebelumnya 879/1479); `deprecated` tetap 0.
 
-**Sisa yang butuh keputusan pemilik pustaka (SRD T-06):** `ImagingStudy::setSeriesBodySite()`
-mengirim Coding sementara `ImagingStudy.series.bodySite` adalah CodeableConcept. Mengubah bentuk
-keluaran berarti memutus pemanggil yang membaca `.bodySite.code`; karena itu dicatat, belum diubah.
+**T-06 DITUTUP 2026-10-30 — `setSeriesBodySite()` kini CodeableConcept.** `ImagingStudy.series.bodySite`
+bertipe CodeableConcept, jadi keluaran lama (`{system, code, display}`) ditolak validator FHIR. Alasan
+penundaan sebelumnya ("memutus pemanggil yang membaca `.bodySite.code`") tidak berlaku: pembaca seperti
+itu hanya ada pada payload yang **sudah tidak sah**, dan `grep -rn setSeriesBodySite` di ekosistem
+menemukan **nol** pemanggil di luar pustaka ini. Kedua berkas (`src/Builder/PayloadBuilderImagingStudy.php`,
+`src/FHIR/ImagingStudy.php`) diubah bersama supaya dua wajah API tidak menyimpang; `display` kosong
+diomit, bukan dikirim sebagai string kosong. Penjaga: `tests/FHIR/ImagingStudyTest.php` (4 uji/9 asersi,
+3 di antaranya MERAH sebelum perbaikan).

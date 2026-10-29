@@ -119,13 +119,18 @@ class PayloadBuilderImagingStudy extends Builder
         return $this;
     }
 
+    /**
+     * series.bodySite bertipe CodeableConcept (bukan Coding): kode dibungkus di dalam `coding`.
+     * @link https://hl7.org/fhir/R4/imagingstudy.html
+     */
     public function setSeriesBodySite(int $seriesIdx, string $system, string $code, string $display = ''): self
     {
-        $this->set("series/{$seriesIdx}/bodySite", [
-            'system' => $system,
-            'code' => $code,
-            'display' => $display,
-        ]);
+        $coding = ['system' => $system, 'code' => $code];
+        if ($display !== '') {
+            $coding['display'] = $display;
+        }
+
+        $this->set("series/{$seriesIdx}/bodySite", ['coding' => [$coding]]);
         return $this;
     }
 

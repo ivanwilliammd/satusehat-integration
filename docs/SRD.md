@@ -259,7 +259,7 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 | T-02 | README menyebut "51 PayloadBuilder", kenyataannya 141 | `ls src/Builder/PayloadBuilder*.php` |
 | T-03 | Uji paritas lintas bahasa (PRD FR-14) belum ada | tidak ada berkas uji paritas di `tests/` |
 | T-04 | PHP 7.4 di `require` tetapi tidak diuji CI | `.github/workflows` hanya 8.0 + 8.3 |
-| T-06 | `ImagingStudy::setSeriesBodySite()` mengirim **Coding** (`{system, code, display}`) padahal `ImagingStudy.series.bodySite` adalah **CodeableConcept** (`{coding:[…]}`) — berlaku juga di `src/FHIR/ImagingStudy.php` | kedua berkas, `grep -n bodySite src/` |
+| T-06 | **SELESAI 2026-10-30** — `setSeriesBodySite()` kini mengirim **CodeableConcept** (`{coding:[{…}]}`) di `src/Builder/PayloadBuilderImagingStudy.php` **dan** `src/FHIR/ImagingStudy.php`; `display` kosong tidak lagi dikirim sebagai string kosong. Uji MERAH dulu 3/3 di `tests/FHIR/ImagingStudyTest.php` (4 uji/9 asersi). Bentuk lama **tidak mungkin dipakai pemanggil yang berhasil**: `series.bodySite` bertipe Coding ditolak validator FHIR, jadi tidak ada pemanggil sehat yang membaca `.bodySite.code` | `vendor/bin/phpunit tests/FHIR/ImagingStudyTest.php` · sapuan kelas yang sama: 10 kandidat "emit `system` tanpa `coding`" diperiksa, 1 cacat nyata (T-06), sisanya benar menurut spesifikasi (`ImagingStudy.modality`/`series.modality` = Coding, `Location.operationalStatus` = Coding, `MedicationDispense.category` sudah `category/coding`) |
 | T-05 | **SELESAI 2026-10-30** — 4 jalur berjenjang ber-variabel kini ber-uji dinamis di `tests/FHIR/NestedPathVariablePathTest.php` (8 uji/26 asersi), dan indeks yang tidak menunjuk elemen ditolak | `vendor/bin/phpunit tests/FHIR/NestedPathVariablePathTest.php` |
 
 ## 12. Ketertelusuran PRD → SRD
