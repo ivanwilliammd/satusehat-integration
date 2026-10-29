@@ -16,6 +16,8 @@ class Address extends DataType
     public ?string $postalCode = null;
     public ?string $country = null;
     public ?Period $period = null;
+    /** @var array<int, array<string, mixed>> Extension[] (FHIR R4 Address.extension, 0..*) */
+    public array $extension = [];
 
     public function __construct() {}
 

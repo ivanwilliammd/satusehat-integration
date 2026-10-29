@@ -55,7 +55,8 @@ class PayloadBuilderOrganization extends Builder
 
     public function setType(CodeableConcept $type): self
     {
-        $this->set('type', $type->toArray());
+        // FHIR R4: organization.type adalah 0..* CodeableConcept, jadi payload WAJIB daftar.
+        $this->push('type', $type->toArray());
         return $this;
     }
 

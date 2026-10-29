@@ -6,14 +6,20 @@ use PHPUnit\Framework\TestCase;
 use Satusehat\Integration\Builder\PayloadBuilderAllergyIntolerance;
 use Satusehat\Integration\Builder\PayloadBuilderDevice;
 use Satusehat\Integration\Builder\PayloadBuilderDiagnosticReport;
+use Satusehat\Integration\Builder\PayloadBuilderLocation;
+use Satusehat\Integration\Builder\PayloadBuilderOrganization;
+use Satusehat\Integration\DataType\Address;
 use Satusehat\Integration\DataType\Annotation;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\Coding;
+use Satusehat\Integration\DataType\ContactPoint;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Reference;
 use Satusehat\Integration\FHIR\AllergyIntolerance as FacadeAllergyIntolerance;
 use Satusehat\Integration\FHIR\Device as FacadeDevice;
 use Satusehat\Integration\FHIR\DiagnosticReport as FacadeDiagnosticReport;
+use Satusehat\Integration\FHIR\Location as FacadeLocation;
+use Satusehat\Integration\FHIR\Organization as FacadeOrganization;
 
 /**
  * Uji paritas: facade lama (Satusehat\Integration\FHIR\*) dan PayloadBuilder native
@@ -241,6 +247,76 @@ class FacadeParityTest extends TestCase
             $objek = new $kelas();
             $this->assertInstanceOf(\Satusehat\Integration\FHIR\Element::class, $objek);
             $this->assertSame($nama, $objek->json()['resourceType'] ?? null, $nama.' — resourceType salah');
+        }
+    }
+
+    public function test_organization_facade_matches_native_builder(): void
+    {
+        $facade = new FacadeOrganization();
+        $facade->organization_id = '1000004';
+        $facade->addIdentifier('ORG-1');
+        $facade->setName('RS Sehat');
+        $facade->setType('prov');
+        $facade->addPhone('021-1234567');
+        $facade->addEmail('admin@rssehat.id');
+        $facade->addUrl('https://rssehat.id');
+        $facade->addAddress('Jl. Sehat 1', '12345', 'Jakarta', '31.71.01.1001');
+        $facade->setPartOf('2000002');
+
+        $builder = new PayloadBuilderOrganization();
+        $builder->setActive(true);
+        $builder->addIdentifier(new Identifier('http://sys-ids.kemkes.go.id/organization/1000004', 'ORG-1', 'official'));
+        $builder->setName('RS Sehat');
+        $builder->setType((new CodeableConcept())->addCoding(
+            new Coding('http://terminology.hl7.org/CodeSystem/organization-type', 'prov', 'Healthcare Provider')
+        ));
+        $builder->addTelecom(new ContactPoint('phone', '021-1234567', 'work'));
+        $builder->addTelecom(new ContactPoint('email', 'admin@rssehat.id', 'work'));
+        $builder->addTelecom(new ContactPoint('url', 'https://rssehat.id', 'work'));
+        $address = new Address();
+        $address->use = 'work';
+        $address->type = 'both';
+        $address->line = ['Jl. Sehat 1'];
+        $address->city = 'Jakarta';
+        $address->postalCode = '12345';
+        $address->country = 'ID';
+        // Facade lama menyisipkan extension administrativeCode SATUSEHAT sendiri; builder tidak
+        // menambahkannya otomatis, jadi sisi builder menyusunnya eksplisit (bentuk yang sama).
+        $address->extension = [[
+            'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode',
+            'extension' => [
+                ['url' => 'province', 'valueCode' => '31'],
+                ['url' => 'city', 'valueCode' => '3171'],
+                ['url' => 'district', 'valueCode' => '317101'],
+                ['url' => 'village', 'valueCode' => '3171011001'],
+            ],
+        ]];
+        $builder->addAddress($address);
+        $builder->setPartOf(new Reference('Organization/2000002'));
+
+        $this->assertParitySame('Organization', json_decode($facade->json(), true), $builder->json());
+    }
+
+    /**
+     * Tapak `type` pada Organization/Location adalah 0..* di FHIR R4, jadi payload WAJIB berupa
+     * daftar CodeableConcept. Facade lama sudah benar; builder native sempat menulis satu objek.
+     * Uji ini menjaga bentuk daftarnya, terpisah dari uji paritas, supaya cacatnya tidak bisa
+     * kembali tanpa terlihat.
+     */
+    public function test_list_cardinality_fields_are_arrays(): void
+    {
+        $kasus = [
+            [PayloadBuilderOrganization::class, 'http://terminology.hl7.org/CodeSystem/organization-type', 'prov'],
+            [PayloadBuilderLocation::class, 'http://terminology.hl7.org/CodeSystem/location-type', 'ICU'],
+        ];
+
+        foreach ($kasus as [$kelas, $system, $kode]) {
+            $payload = (new $kelas())
+                ->setType((new CodeableConcept())->addCoding(new Coding($system, $kode, null)))
+                ->json();
+
+            $this->assertIsArray($payload['type'] ?? null, basename(str_replace('\\', '/', $kelas)).' — type harus daftar (0..*)');
+            $this->assertSame($kode, $payload['type'][0]['coding'][0]['code'] ?? null, $kelas.' — type[0] tidak memuat kode');
         }
     }
 }

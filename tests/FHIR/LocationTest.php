@@ -80,7 +80,7 @@ class LocationTest extends TestCase
         $type = new CodeableConcept();
         $type->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/location-type', 'ICU', 'Intensive Care Unit'));
         $result = $builder->setType($type)->build();
-        $this->assertSame('ICU', $result['type']['coding'][0]['code']);
+        $this->assertSame('ICU', $result['type'][0]['coding'][0]['code']);
     }
 
     public function test_add_telecom()

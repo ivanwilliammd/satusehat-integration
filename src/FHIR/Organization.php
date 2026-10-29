@@ -2,6 +2,7 @@
 
 namespace Satusehat\Integration\FHIR;
 
+use Satusehat\Integration\Builder\PayloadBuilderOrganization;
 use Satusehat\Integration\Exception\FHIR\FHIRException;
 use Satusehat\Integration\OAuth2Client;
 
@@ -136,6 +137,12 @@ class Organization extends OAuth2Client
                 ],
             ],
         ];
+    }
+
+    /** Jalur native: pembangun bertipe untuk Organization (menggantikan penyusunan array manual). */
+    public static function build(): PayloadBuilderOrganization
+    {
+        return new PayloadBuilderOrganization();
     }
 
     public function json()
