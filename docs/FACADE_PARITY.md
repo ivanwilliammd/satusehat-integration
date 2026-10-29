@@ -26,11 +26,12 @@ setelah keduanya dikanonikalisasi (`ksort` rekursif) supaya urutan kunci tidak i
 
 ## Status terukur (2026-10-28)
 
-- Kelas facade di `src/FHIR/`: **49**
-- Facade yang punya shim `public static function build(): PayloadBuilder…`: **3**
-- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **3**
-- Kelas facade yang **belum** punya shim: **46** (semuanya sudah punya `PayloadBuilder` pasangannya,
-  jadi pekerjaannya aditif: satu metode `build()` + satu kasus uji paritas per resource)
+- Kelas facade di `src/FHIR/`: **50**
+- Facade yang punya shim `public static function build(): PayloadBuilder…`: **4**
+- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **4**
+- Kelas facade yang **belum** punya shim: **46** → **45** setelah `Organization` (semuanya sudah punya
+  `PayloadBuilder` pasangannya, jadi pekerjaannya aditif: satu metode `build()` + satu kasus uji
+  paritas per resource)
 
 Daftar yang sudah ber-shim dan beruji — **daftar ini dijaga uji**
 (`test_shim_list_matches_documented_parity_matrix`): menambah shim tanpa memperbarui berkas ini
@@ -39,6 +40,7 @@ membuat suite gagal.
 - shim: `AllergyIntolerance`
 - shim: `Device`
 - shim: `DiagnosticReport`
+- shim: `Organization`
 
 ## Jebakan yang sudah terbukti
 
@@ -96,7 +98,38 @@ membuat suite gagal.
 - **46 facade belum ber-shim** `build()` (lihat tabel di atas); semuanya sudah punya
   `PayloadBuilder` pasangannya, jadi tidak ada resource yang tertinggal tanpa jalur native.
 
-## Status uji terakhir
+## Cacat yang ditemukan uji paritas Organization (2026-10-29)
+
+1. **Tapak `type` 0..* ditulis sebagai satu objek.** `PayloadBuilderOrganization::setType()` dan
+   `PayloadBuilderLocation::setType()` memakai `set()` sehingga payload berbunyi `type: {coding: […]}`
+   — sedangkan FHIR R4 menetapkan `Organization.type` dan `Location.type` sebagai **0..\***, jadi
+   yang sah adalah `type: [{coding: […]}]`. Facade lama sudah benar, sehingga paritas inilah yang
+   menyingkap cacatnya: `diff` menunjuk `/type/0` di sisi facade vs `/type/coding` di sisi builder.
+   Akibat di lapisan atas: validator yang menuntut bentuk daftar menolak payload yang dibangun jalur
+   native, sementara jalur facade lama lolos — dua jalur untuk satu resource memberi hasil berbeda.
+   Perbaikan: `push()` (bukan `set()`), dan `test_list_cardinality_fields_are_arrays` menjaga
+   bentuknya untuk kedua builder tanpa bergantung pada uji paritas.
+   **Jangan tertukar dengan `Device.type`** — di sana tapaknya 0..1, jadi satu objek memang benar;
+   itulah sebabnya cacat ini lolos di `Device` dan hanya muncul di `Organization`/`Location`.
+2. **`InvalidArgumentException`-nya bukan:** mengubah `setType()` menjadi daftar TIDAK memutus
+   pemanggil lama yang membaca `type.coding` — bentuk itu memang tidak sah, jadi tidak ada pemakaian
+   benar yang bisa dipertahankan. Uji lama di `OrganizationTest`/`LocationTest` justru mengunci
+   bentuk objek; keduanya disesuaikan ke `type[0].coding[0].code`.
+3. **`Address` tidak punya `extension`.** Facade lama menyisipkan
+   `https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode` (province/city/district/
+   village) sendiri, sedangkan `DataType\Address` tidak menyediakan wadahnya — sehingga jalur native
+   sama sekali tidak bisa menyatakan kode wilayah yang dituntut SATUSEHAT. Ditambahkan
+   `public array $extension = []` (FHIR R4 `Address.extension` 0..*). Bedanya tetap DISENGAJA:
+   builder tidak menambahkan extension itu otomatis; pemanggil yang menyusunnya.
+
+## Status uji terakhir (2026-10-29)
+
+```
+vendor/bin/phpunit                                  → OK (868 tests, 1424 assertions)
+vendor/bin/phpunit tests/FHIR/FacadeParityTest.php  → OK (8 tests, 43 assertions)
+```
+
+## Status uji terakhir (sebelum 2026-10-29)
 
 ```
 vendor/bin/phpunit                    → OK (866 tests, 1418 assertions)
