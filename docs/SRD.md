@@ -241,6 +241,15 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 9. Menulis kunci berjenjang sebagai literal (`$this->data['meta/profile']`) alih-alih lewat
    `push('meta/profile', …)`. Payload-nya tetap JSON yang sah sehingga tidak ada galat: yang hilang
    hanya medannya. Penjaganya `tests/FHIR/NestedPathSweepTest.php` (memindai TITIK PEMANGGILAN).
+10. Menyusun jalur berjenjang dengan indeks yang tidak menunjuk elemen mana pun
+   (`push("addItem/{$idx}/adjudication", …)` saat daftar `addItem` masih kosong → indeks `-1`).
+   PHP lalu membuat array ber-kunci rapat dari angka itu dan `json_encode` mengubahnya menjadi
+   **objek** (`{"-1": …}`, `{"0": …, "3": …}`) — sedangkan FHIR menuntut **list** di posisi
+   tersebut. Tidak ada galat, payload tetap JSON yang sah, server menolak sebagai tipe salah
+   tanpa menyebut medan penyebabnya. Aturannya: **segmen numerik hanya boleh menunjuk elemen yang
+   sudah dibuat**; `Builder::assertIndexedSegmentExists()` melempar `InvalidArgumentException`
+   yang menyebut jalurnya. Penjaganya `tests/FHIR/NestedPathVariablePathTest.php` (4 jalur
+   ber-variabel + 4 kontrol negatif).
 
 ## 11b. Utang Teknis Terukur
 
@@ -250,7 +259,8 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 | T-02 | README menyebut "51 PayloadBuilder", kenyataannya 141 | `ls src/Builder/PayloadBuilder*.php` |
 | T-03 | Uji paritas lintas bahasa (PRD FR-14) belum ada | tidak ada berkas uji paritas di `tests/` |
 | T-04 | PHP 7.4 di `require` tetapi tidak diuji CI | `.github/workflows` hanya 8.0 + 8.3 |
-| T-05 | 4 jalur berjenjang ber-variabel (`item/{$idx}/location`, `addItem/{$idx}/adjudication`, `series/{$idx}/instance`, `lineItem/{$idx}/priceComponent`) belum punya uji dinamis | `NestedPathSweepTest::test_every_nested_call_site_has_a_dynamic_counterpart` mencetak keempatnya |
+| T-06 | `ImagingStudy::setSeriesBodySite()` mengirim **Coding** (`{system, code, display}`) padahal `ImagingStudy.series.bodySite` adalah **CodeableConcept** (`{coding:[…]}`) — berlaku juga di `src/FHIR/ImagingStudy.php` | kedua berkas, `grep -n bodySite src/` |
+| T-05 | **SELESAI 2026-10-30** — 4 jalur berjenjang ber-variabel kini ber-uji dinamis di `tests/FHIR/NestedPathVariablePathTest.php` (8 uji/26 asersi), dan indeks yang tidak menunjuk elemen ditolak | `vendor/bin/phpunit tests/FHIR/NestedPathVariablePathTest.php` |
 
 ## 12. Ketertelusuran PRD → SRD
 

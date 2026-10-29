@@ -255,3 +255,36 @@ memindai titik pemanggilan, bukan keluaran.
 → `insurance.account` dan `NutritionOrder::addOralDietSchedule()` → `oralDiet.schedule`. Empat jalur
 ber-variabel (`item/{$idx}/location` dan sejenisnya) sengaja dihitung, bukan dicocokkan; angka 4
 diasersikan supaya titik baru muncul di diff, bukan lolos diam-diam (SRD T-05).
+
+### Empat jalur ber-variabel: dihitung ≠ dibuktikan (T-05, ditutup 2026-10-30)
+
+Penjaga statis hanya MENGHITUNG keempat titik ber-variabel. Yang membuktikan hasilnya
+`tests/FHIR/NestedPathVariablePathTest.php` — 8 uji / 26 asersi: setiap jalur dibangun dengan
+DAFTAR lebih dari satu elemen, lalu diasersikan bahwa isinya mendarat di indeks yang BENAR dan
+elemen lain tidak ikut terisi (`item[1].location`, `addItem[0].adjudication`, `series[1].instance`,
+`lineItem[0].priceComponent`).
+
+**Cacat yang ditemukan uji ini, dan hanya terlihat di JSON:** indeks yang tidak menunjuk elemen
+apa pun. Sumbernya `PayloadBuilderClaimResponse::addAddItemAdjudication()` yang menghitung
+`count($this->data['addItem'] ?? []) - 1`; pada daftar kosong hasilnya **-1**. Terukur sebelum
+perbaikan:
+
+```
+{"addItem":{"-1":{"adjudication":[…]}}}                       ← objek, bukan list
+{"series":{"0":{…CT…},"3":{…instance…}}}                      ← objek, bukan list
+```
+
+Dua-duanya JSON yang sah, sehingga tidak ada galat di sisi pemanggil; FHIR menolaknya sebagai tipe
+salah dan pesannya tidak menyebut medan penyebabnya. Perbaikannya satu tempat, bukan empat:
+`Builder::assertIndexedSegmentExists()` dipanggil di dalam `set()` **dan** `push()` untuk setiap
+segmen numerik pada jalur. Indeks `-1` (dari `count(...) - 1`) maupun indeks yang melompat
+(`3` pada daftar berisi satu elemen) kini `InvalidArgumentException` yang menyebut jalurnya
+(`Jalur "addItem/-1/adjudication" menunjuk indeks -1 yang belum ada …`).
+
+Kontrol negatifnya empat (tanpa `addItem`, `series` melompat, `set()` ber-indeks hilang, pesan
+galat menyebut jalur) — semuanya MERAH sebelum perbaikan dan hijau sesudahnya. Suite penuh
+**887 uji / 1505 asersi / 0 gagal** (sebelumnya 879/1479); `deprecated` tetap 0.
+
+**Sisa yang butuh keputusan pemilik pustaka (SRD T-06):** `ImagingStudy::setSeriesBodySite()`
+mengirim Coding sementara `ImagingStudy.series.bodySite` adalah CodeableConcept. Mengubah bentuk
+keluaran berarti memutus pemanggil yang membaca `.bodySite.code`; karena itu dicatat, belum diubah.
