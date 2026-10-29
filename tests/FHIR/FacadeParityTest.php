@@ -8,12 +8,14 @@ use Satusehat\Integration\Builder\PayloadBuilderDevice;
 use Satusehat\Integration\Builder\PayloadBuilderDiagnosticReport;
 use Satusehat\Integration\Builder\PayloadBuilderLocation;
 use Satusehat\Integration\Builder\PayloadBuilderOrganization;
+use Satusehat\Integration\Builder\PayloadBuilderPatient;
 use Satusehat\Integration\Builder\PayloadBuilderProcedure;
 use Satusehat\Integration\DataType\Address;
 use Satusehat\Integration\DataType\Annotation;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\Coding;
 use Satusehat\Integration\DataType\ContactPoint;
+use Satusehat\Integration\DataType\HumanName;
 use Satusehat\Integration\DataType\Identifier;
 use Satusehat\Integration\DataType\Period;
 use Satusehat\Integration\DataType\Reference;
@@ -22,6 +24,7 @@ use Satusehat\Integration\FHIR\Device as FacadeDevice;
 use Satusehat\Integration\FHIR\DiagnosticReport as FacadeDiagnosticReport;
 use Satusehat\Integration\FHIR\Location as FacadeLocation;
 use Satusehat\Integration\FHIR\Organization as FacadeOrganization;
+use Satusehat\Integration\FHIR\Patient as FacadePatient;
 use Satusehat\Integration\FHIR\Procedure as FacadeProcedure;
 
 /**
@@ -170,6 +173,83 @@ class FacadeParityTest extends TestCase
         $builder->setConclusion('Normal');
 
         $this->assertParitySame('DiagnosticReport', json_decode($facade->json(), true), $builder->json());
+    }
+
+    /**
+     * Patient: facade lama menyisipkan `meta.profile` + `active: true` sendiri, dan jalur native
+     * menyatakannya eksplisit (`setMetaProfile()`/`setActive()`) — perbedaan itu DISENGAJA dan
+     * dinyatakan di sini, bukan dinormalkan diam-diam di dalam helper paritas.
+     */
+    public function test_patient_facade_matches_native_builder(): void
+    {
+        $facade = new FacadePatient();
+        $facade->addIdentifier('nik', '3273010101990001');
+        $facade->setName('Budi Santoso');
+        $facade->addTelecom('08123456789');
+        $facade->setGender('male');
+        $facade->setBirthDate('1990-01-01');
+        $facade->setAddress([
+            'address' => 'Jl. Sehat 1',
+            'city' => 'Jakarta',
+            'postalCode' => '12345',
+            'country' => 'ID',
+            'provinceCode' => '31',
+            'cityCode' => '31.71',
+            'districtCode' => '31.71.01',
+            'villageCode' => '31.71.01.1001',
+            'rt' => '001',
+            'rw' => '002',
+        ]);
+        $facade->setMaritalStatus('Married');
+        $facade->setMultipleBirth(2);
+        $facade->setEmergencyContact('Siti', '081200000000');
+        $facade->setCommunication();
+        $facade->setExtension('Jakarta', 'ID', 'WNI');
+
+        $builder = new PayloadBuilderPatient();
+        $builder->setMetaProfile('https://fhir.kemkes.go.id/r4/StructureDefinition/Patient');
+        $builder->setActive(true);
+        $builder->addIdentifier(new Identifier('https://fhir.kemkes.go.id/id/nik', '3273010101990001', 'official'));
+        $builder->addName(new HumanName(null, [], 'official', 'Budi Santoso'));
+        $builder->addTelecom(new ContactPoint('phone', '08123456789', 'mobile'));
+        $builder->setGender('male');
+        $builder->setBirthDate('1990-01-01');
+
+        $address = new Address();
+        $address->use = 'home';
+        $address->line = ['Jl. Sehat 1'];
+        $address->city = 'Jakarta';
+        $address->postalCode = '12345';
+        $address->country = 'ID';
+        $address->extension = [[
+            'url' => 'https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode',
+            'extension' => [
+                ['url' => 'province', 'valueCode' => '31'],
+                ['url' => 'city', 'valueCode' => '3171'],
+                ['url' => 'district', 'valueCode' => '317101'],
+                ['url' => 'village', 'valueCode' => '3171011001'],
+                ['url' => 'rt', 'valueCode' => '001'],
+                ['url' => 'rw', 'valueCode' => '002'],
+            ],
+        ]];
+        $builder->addAddress($address);
+
+        $builder->setMaritalStatus((new CodeableConcept())
+            ->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v3-MaritalStatus', 'M', 'Married'))
+            ->setText('Married'));
+        $builder->setMultipleBirthInteger(2);
+        $builder->addContact(
+            (new CodeableConcept())->addCoding(new Coding('http://terminology.hl7.org/CodeSystem/v2-0131', 'C')),
+            new HumanName(null, [], 'official', 'Siti'),
+            new ContactPoint('phone', '081200000000', 'mobile')
+        );
+        $builder->addCommunication((new CodeableConcept())
+            ->addCoding(new Coding('urn:ietf:bcp:47', 'id-ID', 'Indonesian'))
+            ->setText('Indonesian'), true);
+        $builder->addExtension('https://fhir.kemkes.go.id/r4/StructureDefinition/birthPlace', ['city' => 'Jakarta', 'country' => 'ID'], 'Address');
+        $builder->addExtension('https://fhir.kemkes.go.id/r4/StructureDefinition/citizenshipStatus', 'WNI', 'code');
+
+        $this->assertParitySame('Patient', json_decode($facade->json(), true), $builder->json());
     }
 
     /**

@@ -27,9 +27,9 @@ setelah keduanya dikanonikalisasi (`ksort` rekursif) supaya urutan kunci tidak i
 ## Status terukur (2026-10-28)
 
 - Kelas facade di `src/FHIR/`: **50**
-- Facade yang punya shim `public static function build(): PayloadBuilder…`: **5**
-- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **5**
-- Kelas facade yang **belum** punya shim: **46** → **44** setelah `Organization` dan `Procedure` (semuanya sudah punya
+- Facade yang punya shim `public static function build(): PayloadBuilder…`: **6**
+- Resource dengan uji paritas isi payload (facade vs builder, masukan identik): **6**
+- Kelas facade yang **belum** punya shim: **46** → **43** setelah `Organization`, `Procedure`, `Patient` (semuanya sudah punya
   `PayloadBuilder` pasangannya, jadi pekerjaannya aditif: satu metode `build()` + satu kasus uji
   paritas per resource)
 
@@ -41,6 +41,7 @@ membuat suite gagal.
 - shim: `Device`
 - shim: `DiagnosticReport`
 - shim: `Organization`
+- shim: `Patient`
 - shim: `Procedure`
 
 ## Jebakan yang sudah terbukti
@@ -190,3 +191,40 @@ lama ikut berubah — jadi perlu keputusan pemilik pustaka (perilaku baru vs kel
    (`'text' => $text` tanpa pemeriksaan), sedangkan `DataType` membuang nilai null. FHIR tidak
    mengenal properti bernilai null, jadi bentuk facade itu bukan payload yang sah. Uji paritas
    memakai `$text` terisi sehingga kedua jalur sama; pemakaian baru sebaiknya lewat builder.
+
+## Cacat kelas: `Builder::push('a/b')` menulis KUNCI LITERAL (2026-10-29, ditemukan uji paritas Patient)
+
+`Builder::push()` dulu tidak mengenal jalur berjenjang — hanya `set()` yang mengenalnya. Akibatnya
+`push('meta/profile', …)` menambah entri pada kunci **`"meta/profile"`**, bukan `meta.profile`.
+Payload-nya tetap JSON yang sah, jadi tidak ada satu pun galat: `json_encode` hanya meng-escape
+garis miring, dan halaman/uji yang memeriksa `resourceType` atau medan lain tetap hijau. Yang
+hilang adalah medan itu sendiri — `meta.profile` yang dituntut SATUSEHAT tidak pernah ada, dan
+server menerima properti yang tidak dikenal.
+
+Enam titik pemanggil terkena, semuanya terbukti lewat uji:
+
+| Berkas | Pemanggilan | Bentuk lama | Bentuk benar |
+|---|---|---|---|
+| `PayloadBuilderPatient` | `push('meta/profile')` | `"meta/profile": [...]` | `meta.profile` |
+| `PayloadBuilderImmunization` | `$this->data['meta/profile'] = …` | sama | `meta.profile` |
+| `PayloadBuilderGroup` | `$this->data['meta/profile'] = …` | sama | `meta.profile` |
+| `PayloadBuilderGenomicStudy` | `push('meta/profile')` | sama | `meta.profile` |
+| `PayloadBuilderNutritionOrder` | `push('oralDiet/type')`, `push('oralDiet/schedule')` | `"oralDiet/type"` | `oralDiet.type` |
+| `PayloadBuilderClaim` | `push('insurance/account')` | `"insurance/account"` | `insurance[0].account` |
+
+Perbaikan dipilih di **satu tempat** (`Builder::push()` kini menelusuri segmen jalur seperti
+`set()`), bukan enam tambalan — kalau tidak, builder berikutnya yang memakai bentuk berjenjang akan
+mengulang cacat yang sama. Penjaga: `tests/FHIR/NestedPushPathTest.php` (2 uji) memindai seluruh
+payload keenam builder dan menolak **kunci apa pun yang memuat `/`** di kedalaman berapa pun.
+
+**Yang membuat cacat ini bertahan lama:** tiga uji justru MENGUNCI bentuk yang salah —
+`GroupTest::test_set_meta_profile` dan `ImmunizationTest::test_set_meta_profile` menegaskan
+`$result['meta/profile'][0]`, sementara `GenomicStudyTest` memuat komentar "push() doesn't handle
+dot notation" sebagai keadaan yang diterima. Uji yang membaca kunci datar tidak membuktikan apa pun
+tentang FHIR; ia hanya membuktikan kode berperilaku seperti kodenya. Keduanya diperbaiki ke
+`$result['meta']['profile'][0]`.
+
+**Cacat yang MASIH terbuka (butuh keputusan pemilik pustaka):** `Claim::addInsuranceAccount()`
+menghasilkan `insurance: [{account: …}]`, padahal `Claim.insurance` 0..\* BackboneElement mewajibkan
+`sequence` 1..1, `focal` 1..1, dan `coverage` 1..1. Sama kelasnya dengan `Procedure.location` dan
+`InsurancePlan.coverage`: memperbaikinya mengubah bentuk keluaran (breaking), jadi dicatat dulu.

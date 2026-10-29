@@ -26,7 +26,7 @@ class PayloadBuilderImmunization extends Builder
         return $arr;
     }
 
-    public function setMetaProfile(string $profile): self { $this->data['meta/profile'] = [$profile]; return $this; }
+    public function setMetaProfile(string $profile): self { $this->push('meta/profile', $profile); return $this; }
     public function setId(string $id): self { $this->set('id', $id); return $this; }
     public function addIdentifier(Identifier $identifier): self { $this->push('identifier', $identifier->toArray()); return $this; }
 

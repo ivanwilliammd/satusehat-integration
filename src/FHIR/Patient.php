@@ -2,6 +2,7 @@
 
 namespace Satusehat\Integration\FHIR;
 
+use Satusehat\Integration\Builder\PayloadBuilderPatient;
 use Satusehat\Integration\Exception\FHIR\FHIRException;
 use Satusehat\Integration\OAuth2Client;
 
@@ -225,6 +226,12 @@ class Patient extends OAuth2Client
             ],
         ];
         $this->patient['extension'] = $extension;
+    }
+
+    /** Jalur native: pembangun bertipe untuk Patient (menggantikan penyusunan array manual). */
+    public static function build(): PayloadBuilderPatient
+    {
+        return new PayloadBuilderPatient();
     }
 
     public function json()

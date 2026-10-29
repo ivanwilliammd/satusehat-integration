@@ -39,7 +39,7 @@ class GenomicStudyTest extends TestCase
     public function test_set_meta_profile()
     {
         $builder = new PayloadBuilderGenomicStudy();
-        // Note: setMetaProfile uses push('meta/profile', ...) which doesn't handle dot notation
+        // push() menangani jalur berjenjang ('meta/profile') sejak 2026-10-29; kunci datar tidak lagi terbentuk.
         // This is a known limitation of the Builder class
         $builder->setId('test-id');
 

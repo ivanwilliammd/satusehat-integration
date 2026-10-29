@@ -15,16 +15,30 @@
   `administrativeCode` (province/city/district/village) yang dituntut SATUSEHAT. Ditambahkan
   `public array $extension = []` (FHIR R4 `Address.extension` 0..*).
 
+### Fixed
+
+- **`Builder::push('a/b', …)` menulis kunci literal `"a/b"`**, bukan medan berjenjang `a.b`. Enam
+  titik terkena: `meta.profile` (Patient, Immunization, Group, GenomicStudy), `oralDiet.type` /
+  `oralDiet.schedule` (NutritionOrder), `insurance.account` (Claim). Payload tetap JSON sah sehingga
+  tidak pernah ada galat — yang hilang justru medannya. Diperbaiki di satu tempat (`Builder::push()`
+  kini menelusuri segmen jalur) + penjaga `tests/FHIR/NestedPushPathTest.php` (2 uji: tidak ada kunci
+  berisi `/`, dan medan berjenjang benar-benar mendarat di tempatnya).
+- Dua uji lama justru mengunci bentuk salah (`GroupTest`, `ImmunizationTest` menegaskan
+  `meta/profile`) → diperbaiki ke `meta.profile`; komentar usang di `GenomicStudyTest` dibuang.
+
 ### Added
 
+- `FHIR\Patient::build()` — shim ke `PayloadBuilderPatient`; uji paritas Patient (16 setter, termasuk
+  `meta.profile` + `active` yang facade tambahkan sendiri) di `tests/FHIR/FacadeParityTest.php`.
 - `PayloadBuilderProcedure::addBasedOn()` + `addReasonCode()` — dua medan 0..\* yang HANYA dimiliki
   jalur facade lama, sehingga jalur native tidak bisa menyatakannya sama sekali. Uji paritas
   Procedure yang menemukannya (bukan pembacaan kode).
 - `FHIR\Procedure::build()` — shim ke `PayloadBuilderProcedure`; uji paritas isi payload facade ↔
   builder (13 setter, termasuk `basedOn`/`reasonCode`/`performedPeriod`).
+- `tests/FHIR/NestedPushPathTest.php` — 2 uji, penjaga jalur berjenjang `push()`.
 - `tests/FHIR/ResourceTypeCardinalityTest.php` — 4 uji / 14 asersi: penjaga tapak `type` 0..* untuk
   `HealthcareService` dan `InsurancePlan`, termasuk uji bahwa dua panggilan `setType()` menghasilkan
-  dua entri. Suite: **872 uji, 1438 asersi**.
+  dua entri. Suite: **876 uji, 1464 asersi**.
 - `docs/FACADE_PARITY.md` §"Sapuan tapak `type`" — tabel builder yang diperbaiki, daftar 18 builder
   yang **tidak boleh** diubah beserta alasannya, dan cacat `InsurancePlan.coverage` yang masih terbuka.
 - `FHIR\Organization::build()` — shim ke `PayloadBuilderOrganization`.

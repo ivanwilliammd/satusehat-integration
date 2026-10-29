@@ -21,7 +21,7 @@ class GroupTest extends TestCase
     {
         $builder = new PayloadBuilderGroup;
         $result = $builder->setMetaProfile('https://fhir.kemkes.go.id/r4/StructureDefinition/Group')->build();
-        $this->assertSame('https://fhir.kemkes.go.id/r4/StructureDefinition/Group', $result['meta/profile'][0]);
+        $this->assertSame('https://fhir.kemkes.go.id/r4/StructureDefinition/Group', $result['meta']['profile'][0]);
     }
 
     public function test_set_id()

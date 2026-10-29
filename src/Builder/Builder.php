@@ -49,10 +49,23 @@ abstract class Builder
      */
     protected function push(string $key, $value): void
     {
-        if (!isset($this->data[$key])) {
-            $this->data[$key] = [];
+        // `push('meta/profile', …)` harus menambah ke meta.profile, BUKAN membuat kunci literal
+        // "meta/profile" — bentuk terakhir tetap JSON yang sah sehingga tidak ada galat, tetapi
+        // payload-nya bukan FHIR dan medan berjenjangnya tidak pernah sampai ke server.
+        $keys = explode('/', $key);
+        $ref = &$this->data;
+        foreach (array_slice($keys, 0, -1) as $k) {
+            if (!isset($ref[$k]) || !is_array($ref[$k])) {
+                $ref[$k] = [];
+            }
+            $ref = &$ref[$k];
         }
-        $this->data[$key][] = $value;
+        $last = array_slice($keys, -1)[0];
+        if (!isset($ref[$last]) || !is_array($ref[$last])) {
+            $ref[$last] = [];
+        }
+        $ref[$last][] = $value;
+        unset($ref);
     }
 
     /**

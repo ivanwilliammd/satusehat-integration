@@ -22,7 +22,7 @@ class PayloadBuilderGroup extends Builder
 
     public function setMetaProfile(string $profile): self
     {
-        $this->data['meta/profile'] = [$profile];
+        $this->push('meta/profile', $profile);
         return $this;
     }
 

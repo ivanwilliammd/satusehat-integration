@@ -22,7 +22,7 @@ class ImmunizationTest extends TestCase
     {
         $builder = new PayloadBuilderImmunization;
         $result = $builder->setMetaProfile('https://fhir.kemkes.go.id/r4/StructureDefinition/Immunization')->build();
-        $this->assertSame('https://fhir.kemkes.go.id/r4/StructureDefinition/Immunization', $result['meta/profile'][0]);
+        $this->assertSame('https://fhir.kemkes.go.id/r4/StructureDefinition/Immunization', $result['meta']['profile'][0]);
     }
 
     public function test_set_id()
