@@ -135,3 +135,35 @@ vendor/bin/phpunit tests/FHIR/FacadeParityTest.php  → OK (8 tests, 43 assertio
 vendor/bin/phpunit                    → OK (866 tests, 1418 assertions)
 vendor/bin/phpunit tests/FHIR/FacadeParityTest.php → OK (6 tests, 38 assertions)
 ```
+
+## Sapuan tapak `type` (2026-10-29, lanjutan)
+
+Kelas cacat yang sama ternyata **tidak berhenti di dua resource**. Dua builder lagi menulis `type`
+sebagai objek padahal tapaknya **0..\***, dan keduanya sudah diperbaiki dengan `push()` sehingga
+pemanggilan berulang MENAMBAH, bukan menimpa:
+
+| Builder | Tapak `type` | Bukti |
+|---|---|---|
+| `PayloadBuilderHealthcareService::setType()` | 0..* | `HealthcareService.type [0..*] CodeableConcept` |
+| `PayloadBuilderInsurancePlan::setType()` | 0..* | `InsurancePlan.type [0..*] CodeableConcept` |
+
+Tapak diverifikasi lewat alat MCP `fhir-r4` (`fhir_elemen`), bukan dari ingatan, karena `InsurancePlan`
+punya dua medan bernama `type` dengan tapak BERBEDA: `InsurancePlan.type` = **0..*** sedangkan
+`InsurancePlan.plan.type` = **0..1**. Menyamakan keduanya menghasilkan payload yang salah di salah
+satu tempat. Penjaganya `tests/FHIR/ResourceTypeCardinalityTest.php` (4 uji) — satu uji bentuk
+(`type` bukan objek) dan satu uji perilaku (dua panggilan = dua entri).
+
+**Delapan belas builder lain yang menulis `set('type', …)` TIDAK diubah, dan itu keputusan yang
+diukur.** Tapaknya 0..1 atau 1..1, jadi objek tunggal memang benar: `Account`, `AllergyIntolerance`,
+`Bundle`, `CatalogEntry`, `Claim`, `ClaimResponse`, `Composition`, `Coverage`, `Device`,
+`DeviceMetric`, `DocumentManifest`, `ExplanationOfBenefit`, `Group`, `Invoice`, `MolecularSequence`,
+`PaymentReconciliation`, `Specimen`, `SpecimenDefinition`. Menyalin `push()` ke semuanya akan
+MENAMBAHKAN cacat baru. Bila kelak ada yang diubah, periksa tapaknya per medan — bukan per nama medan.
+
+### Cacat yang masih terbuka (belum dikerjakan, sengaja)
+
+`PayloadBuilderInsurancePlan::setCoverage()` menulis `coverage` sebagai **CodeableConcept**,
+padahal `InsurancePlan.coverage` adalah **0..\* BackboneElement** yang mewajibkan `type` (1..1) dan
+`benefit` (1..\*). Artinya payload `InsurancePlan` tetap tidak sah menurut tapak meski `type` sudah
+benar. Memperbaikinya bukan penambalan satu baris: bentuk `coverage` berubah dan setiap pemanggil
+lama ikut berubah — jadi perlu keputusan pemilik pustaka (perilaku baru vs keluaran ganda).

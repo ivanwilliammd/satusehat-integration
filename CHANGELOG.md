@@ -8,12 +8,20 @@
   sebagai satu objek, padahal FHIR R4 menetapkan `Organization.type` dan `Location.type` sebagai
   **0..\***. Kini keduanya menghasilkan daftar (`type[0]`). Payload jalur native untuk dua resource
   itu sebelumnya tidak sah menurut tapak FHIR, sementara jalur facade lama sudah benar.
+- `PayloadBuilderHealthcareService::setType()` dan `PayloadBuilderInsurancePlan::setType()` juga
+  menulis `type` sebagai satu objek padahal tapaknya **0..\*** (diverifikasi lewat MCP `fhir-r4`).
+  Kini memakai `push()`, sehingga panggilan berulang menambah entri dan bukan menimpa.
 - `DataType\Address` belum punya `extension`, sehingga jalur native tidak bisa menyatakan extension
   `administrativeCode` (province/city/district/village) yang dituntut SATUSEHAT. Ditambahkan
   `public array $extension = []` (FHIR R4 `Address.extension` 0..*).
 
 ### Added
 
+- `tests/FHIR/ResourceTypeCardinalityTest.php` — 4 uji / 14 asersi: penjaga tapak `type` 0..* untuk
+  `HealthcareService` dan `InsurancePlan`, termasuk uji bahwa dua panggilan `setType()` menghasilkan
+  dua entri. Suite: **872 uji, 1438 asersi**.
+- `docs/FACADE_PARITY.md` §"Sapuan tapak `type`" — tabel builder yang diperbaiki, daftar 18 builder
+  yang **tidak boleh** diubah beserta alasannya, dan cacat `InsurancePlan.coverage` yang masih terbuka.
 - `FHIR\Organization::build()` — shim ke `PayloadBuilderOrganization`.
 - `FacadeParityTest::test_organization_facade_matches_native_builder()` dan
   `test_list_cardinality_fields_are_arrays()` — 2 uji, 8 asersi. Suite: **868 uji, 1424 asersi**.
