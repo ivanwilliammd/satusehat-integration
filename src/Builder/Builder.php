@@ -23,6 +23,29 @@ abstract class Builder
     protected array $data = [];
 
     /**
+     * Segmen numerik pada jalur menunjuk ELEMEN DAFTAR yang sudah ada.
+     *
+     * Tanpa pemeriksaan ini, indeks yang tidak menunjuk apa pun (mis. `-1` dari
+     * `count(...) - 1` pada daftar kosong, atau `3` pada daftar berisi satu elemen) membuat
+     * PHP menyusun array ber-kunci rapat dari angka itu. `json_encode` lalu mengubahnya
+     * menjadi OBJEK (`{"-1": …}`), sedangkan FHIR menuntut LIST di posisi tersebut — server
+     * menolak payload-nya sebagai tipe salah tanpa menyebut medan mana penyebabnya.
+     */
+    private function assertIndexedSegmentExists(string $segment, $ref, string $path): void
+    {
+        if (!preg_match('/^-?[0-9]+$/', $segment)) {
+            return;
+        }
+
+        if (!is_array($ref) || !array_key_exists((int) $segment, $ref)) {
+            throw new \InvalidArgumentException(
+                'Jalur "' . $path . '" menunjuk indeks ' . $segment . ' yang belum ada; '
+                . 'tambahkan elemen daftarnya lebih dulu (indeks hanya boleh menunjuk elemen yang sudah dibuat).'
+            );
+        }
+    }
+
+    /**
      * @param string $key
      * @param mixed $value
      */
@@ -32,6 +55,7 @@ abstract class Builder
             $keys = explode('/', $key);
             $ref = &$this->data;
             foreach (array_slice($keys, 0, -1) as $k) {
+                $this->assertIndexedSegmentExists((string) $k, $ref, $key);
                 if (!isset($ref[$k]) || !is_array($ref[$k])) {
                     $ref[$k] = [];
                 }
@@ -55,6 +79,7 @@ abstract class Builder
         $keys = explode('/', $key);
         $ref = &$this->data;
         foreach (array_slice($keys, 0, -1) as $k) {
+            $this->assertIndexedSegmentExists((string) $k, $ref, $key);
             if (!isset($ref[$k]) || !is_array($ref[$k])) {
                 $ref[$k] = [];
             }
