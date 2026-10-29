@@ -280,7 +280,7 @@ class BundleTest extends TestCase
         // Manually unset timestamp (auto-set in constructor, no public API to disable before run)
         $reflection = new \ReflectionClass($builder);
         $prop = $reflection->getProperty('data');
-        $prop->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) { $prop->setAccessible(true); } // PHP < 8.1 saja; 8.5 menandainya deprecated
         $data = $prop->getValue($builder);
         unset($data['timestamp']);
         $prop->setValue($builder, $data);
@@ -325,7 +325,7 @@ class BundleTest extends TestCase
     {
         $reflection = new \ReflectionClass(PayloadBuilderBundle::class);
         $prop = $reflection->getProperty('timestampAutoSet');
-        $prop->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) { $prop->setAccessible(true); } // PHP < 8.1 saja; 8.5 menandainya deprecated
 
         // Default (before construction) is true
         $this->assertTrue($prop->getValue($reflection->newInstanceWithoutConstructor()));
@@ -344,7 +344,7 @@ class BundleTest extends TestCase
         $builder = new PayloadBuilderBundle;
         $reflection = new \ReflectionClass($builder);
         $prop = $reflection->getProperty('timestampAutoSet');
-        $prop->setAccessible(true);
+        if (PHP_VERSION_ID < 80100) { $prop->setAccessible(true); } // PHP < 8.1 saja; 8.5 menandainya deprecated
         $this->assertFalse($prop->getValue($builder)); // constructor already set it false
 
         $builder->setTimestamp('2024-01-15T10:00:00+00:00');

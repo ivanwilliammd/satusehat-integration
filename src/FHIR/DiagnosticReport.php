@@ -38,7 +38,7 @@ class DiagnosticReport extends OAuth2Client
         return $this;
     }
 
-    public function addCategory(string $system, string $code, string $display = '', string $text = null): self
+    public function addCategory(string $system, string $code, string $display = '', ?string $text = null): self
     {
         $category = [
             'coding' => [
@@ -56,7 +56,7 @@ class DiagnosticReport extends OAuth2Client
         return $this;
     }
 
-    public function setCode(string $system, string $code, string $display, string $text = null): self
+    public function setCode(string $system, string $code, string $display, ?string $text = null): self
     {
         $codeArr = [
             'coding' => [
@@ -74,7 +74,7 @@ class DiagnosticReport extends OAuth2Client
         return $this;
     }
 
-    public function setSubject(string $reference, string $display = null): self
+    public function setSubject(string $reference, ?string $display = null): self
     {
         $this->diagnosticReport['subject'] = ['reference' => $reference];
         if ($display !== null) {
@@ -101,7 +101,7 @@ class DiagnosticReport extends OAuth2Client
         return $this;
     }
 
-    public function addPerformer(string $reference, string $display = null): self
+    public function addPerformer(string $reference, ?string $display = null): self
     {
         $performer = ['reference' => $reference];
         if ($display !== null) {
@@ -111,7 +111,7 @@ class DiagnosticReport extends OAuth2Client
         return $this;
     }
 
-    public function addResultsInterpreter(string $reference, string $display = null): self
+    public function addResultsInterpreter(string $reference, ?string $display = null): self
     {
         $interpreter = ['reference' => $reference];
         if ($display !== null) {

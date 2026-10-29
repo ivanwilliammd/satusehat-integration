@@ -204,7 +204,11 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 ## 9. Pengujian
 
 - 45 kelas uji: `tests/FHIR` 43, `tests/Unit` 1, `ArchTest` 1. Jalankan `composer test`.
-- Terukur 2026-10-27 (`vendor/bin/phpunit`): **860 uji, 1380 asersi, 0 gagal**, 0,12 detik.
+- Terukur 2026-10-30 (`vendor/bin/phpunit`): **879 uji, 1479 asersi, 0 gagal**, 0,43 detik,
+  **0 baris `Deprecated`** di keluaran. Deprecation dihitung sebagai gerbang, bukan kebisingan:
+  ia satu-satunya tanda bahwa pustaka akan pecah di PHP berikutnya sementara semua uji tetap hijau
+  (terukur: 34 baris → 0 setelah 5 parameter implicit-nullable di `src/FHIR/DiagnosticReport.php`
+  dan 4 `setAccessible()` di uji yang kini dijaga `PHP_VERSION_ID < 80100`).
 - Uji tidak menyentuh jaringan: klien di-stub, token di-inject.
 - Uji wajib untuk setiap kontrak di §5: bentuk payload, penolakan `status` tidak sah, awalan
   rujukan, pemetaan galat, transisi status antrean.
