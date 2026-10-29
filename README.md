@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Latest Version](https://img.shields.io/packagist/v/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 [![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
+[![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/ivanwilliammd/badge.svg)](https://hub.xerj.org/contributors/ivanwilliammd)
 
 ---
 
