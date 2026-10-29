@@ -157,7 +157,7 @@ class PayloadBuilderProcedure extends Builder
 
     public function addFocalDevice(
         CodeableConcept $action,
-        Reference $manufactureItem = null,
+        ?Reference $manufactureItem = null,
         ?Reference $device = null
     ): self {
         $focalDevice = ['action' => $action->toArray()];

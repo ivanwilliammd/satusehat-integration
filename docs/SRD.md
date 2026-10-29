@@ -234,6 +234,9 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 7. Mengubah `.csv` hasil publish lalu meng-commit-nya, bukan `.stub`-nya.
 8. Menambah `meta.profile` atau klaim FHIR-native lain tanpa memastikan resource-nya memang
    dibangun di sini — pustaka ini klien, bukan server FHIR.
+9. Menulis kunci berjenjang sebagai literal (`$this->data['meta/profile']`) alih-alih lewat
+   `push('meta/profile', …)`. Payload-nya tetap JSON yang sah sehingga tidak ada galat: yang hilang
+   hanya medannya. Penjaganya `tests/FHIR/NestedPathSweepTest.php` (memindai TITIK PEMANGGILAN).
 
 ## 11b. Utang Teknis Terukur
 
@@ -243,6 +246,7 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 | T-02 | README menyebut "51 PayloadBuilder", kenyataannya 141 | `ls src/Builder/PayloadBuilder*.php` |
 | T-03 | Uji paritas lintas bahasa (PRD FR-14) belum ada | tidak ada berkas uji paritas di `tests/` |
 | T-04 | PHP 7.4 di `require` tetapi tidak diuji CI | `.github/workflows` hanya 8.0 + 8.3 |
+| T-05 | 4 jalur berjenjang ber-variabel (`item/{$idx}/location`, `addItem/{$idx}/adjudication`, `series/{$idx}/instance`, `lineItem/{$idx}/priceComponent`) belum punya uji dinamis | `NestedPathSweepTest::test_every_nested_call_site_has_a_dynamic_counterpart` mencetak keempatnya |
 
 ## 12. Ketertelusuran PRD → SRD
 

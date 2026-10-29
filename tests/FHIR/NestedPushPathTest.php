@@ -11,6 +11,7 @@ use Satusehat\Integration\Builder\PayloadBuilderNutritionOrder;
 use Satusehat\Integration\Builder\PayloadBuilderPatient;
 use Satusehat\Integration\DataType\CodeableConcept;
 use Satusehat\Integration\DataType\Coding;
+use Satusehat\Integration\DataType\Timing;
 
 /**
  * `Builder::push()` dulu hanya menambah ke kunci datar, sehingga `push('meta/profile', …)`
@@ -50,6 +51,7 @@ class NestedPushPathTest extends TestCase
         $claim = (new PayloadBuilderClaim())->addInsuranceAccount('Coverage/C1');
         $diet = (new PayloadBuilderNutritionOrder())
             ->setOralDietType((new CodeableConcept())->addCoding(new Coding('http://snomed.info/sct', '386619000', null)));
+        $jadwal = (new PayloadBuilderNutritionOrder())->addOralDietSchedule(new Timing());
 
         return [
             'Patient.meta.profile' => [$patient, 'meta.profile'],
@@ -57,7 +59,9 @@ class NestedPushPathTest extends TestCase
             'Immunization.meta.profile' => [$immunization, 'meta.profile'],
             'GenomicStudy.meta.profile' => [$genomic, 'meta.profile'],
             'Claim.insurance' => [$claim, 'insurance'],
+            'Claim.insurance.account' => [$claim, 'insurance.account'],
             'NutritionOrder.oralDiet.type' => [$diet, 'oralDiet.type'],
+            'NutritionOrder.oralDiet.schedule' => [$jadwal, 'oralDiet.schedule'],
         ];
     }
 
@@ -75,8 +79,9 @@ class NestedPushPathTest extends TestCase
             $payload = $builder->json();
             $node = $payload;
             foreach (explode('.', $path) as $seg) {
-                $this->assertIsArray($node[$seg] ?? null, $label.' — '.$path.' tidak ada sebagai medan berjenjang');
-                $node = $node[$seg];
+                // Indeks numerik (mis. `insurance.0.account`) menunjuk elemen daftar, bukan kunci.
+                $node = ctype_digit($seg) ? ($node[(int) $seg] ?? null) : ($node[$seg] ?? null);
+                $this->assertIsArray($node, $label.' — '.$path.' tidak ada sebagai medan berjenjang');
             }
             $this->assertNotEmpty($node, $label.' — '.$path.' kosong');
         }

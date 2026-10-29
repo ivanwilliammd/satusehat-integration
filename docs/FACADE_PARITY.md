@@ -228,3 +228,30 @@ tentang FHIR; ia hanya membuktikan kode berperilaku seperti kodenya. Keduanya di
 menghasilkan `insurance: [{account: …}]`, padahal `Claim.insurance` 0..\* BackboneElement mewajibkan
 `sequence` 1..1, `focal` 1..1, dan `coverage` 1..1. Sama kelasnya dengan `Procedure.location` dan
 `InsurancePlan.coverage`: memperbaikinya mengubah bentuk keluaran (breaking), jadi dicatat dulu.
+
+## Penjaga cakupan jalur berjenjang (2026-10-30)
+
+`NestedPushPathTest` (6→8 kasus) membuktikan PERILAKU: `push('a/b', …)` mendarat di `a.b`. Ia tidak
+menjaga CAKUPAN — pemanggil baru yang salah tetap lolos selama enam kasus lama hijau. Karena itu
+`tests/FHIR/NestedPathSweepTest.php` memindai `src/` dan menuntut tiga hal:
+
+1. setiap `push('<a>/<b>', …)` yang TIDAK ber-variabel punya padanan dinamis di
+   `NestedPushPathTest` (dicocokkan sebagai jalur bertitik, mis. `insurance.account`);
+2. tidak ada `$this->data['a/b']` (kunci literal) di `src/`;
+3. tidak ada uji yang MENGUNCI kunci literal berjenjang (cacat 2026-10-29 terjadi justru karena
+   dua uji menegaskan `['meta/profile']`).
+
+**Komentar dibuang lebih dulu** (`token_get_all`) — `Builder::push()` memuat contoh
+`push('meta/profile', …)` di komentarnya sendiri, dan `str_contains` akan menghitungnya sebagai
+pemanggil sungguhan.
+
+**Sapuan pertama versi ini hijau palsu.** Ia membangun SETIAP builder tanpa argumen lalu memeriksa
+payload kosong — dan payload kosong tidak pernah memuat jalur berjenjang, jadi nol kunci berisi `/`
+selalu benar. Kontrol negatif yang membuktikannya: mengembalikan `push()` ke bentuk literal membuat
+`NestedPushPathTest` merah (2 kegagalan) sementara sapuan kosong itu TETAP hijau. Yang benar adalah
+memindai titik pemanggilan, bukan keluaran.
+
+**Dua celah yang ditemukan penjaga ini** (langsung ditutup uji dinamis): `Claim::addInsuranceAccount()`
+→ `insurance.account` dan `NutritionOrder::addOralDietSchedule()` → `oralDiet.schedule`. Empat jalur
+ber-variabel (`item/{$idx}/location` dan sejenisnya) sengaja dihitung, bukan dicocokkan; angka 4
+diasersikan supaya titik baru muncul di diff, bukan lolos diam-diam (SRD T-05).
