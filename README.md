@@ -17,7 +17,7 @@
 
 Built on the official [SATUSEHAT Platform Guidelines](https://satusehat.kemkes.go.id/platform/docs). Ships with:
 - **32 DataType** classes — composable FHIR R4 value objects
-- **51 PayloadBuilder** classes — fluent builders for all FHIR resources
+- **141 PayloadBuilder** classes — fluent builders for 139 FHIR R4 resources + 2 SATUSEHAT NON-FHIR builders (`BillingStatus`, `PurificationDecision`)
 - **SSRequest / SSResponse** — HTTP client with OAuth2 + retry
 - **Durable queue + worker** — SQLite-backed, retry/DLQ, rate limiting, monitoring
 - **SSValidationError** — maps 558 SATUSEHAT validation rule codes to human messages
