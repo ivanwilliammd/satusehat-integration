@@ -60,7 +60,7 @@ tersisa harus **tertulis** di tabel §4, bukan ditemukan oleh pemakai.
 | Antrean | SQLite penuh (worker, DLQ, monitor) | SQLite via `better-sqlite3`, tanpa worker | belum setara | belum setara |
 | Master data | CSV + seeder (pilar data) | — | — | — |
 | Jalur lawas | `src/FHIR/*` untuk pemakai 3.x | tidak ada | tidak ada | tidak ada |
-| PHP 7.4 / Node 18 / Python 3.9 / Go 1.21 | versi minimum masing-masing | | | |
+| PHP 8.0 / Node 18 / Python 3.9 / Go 1.21 | versi minimum masing-masing | | | |
 
 **Aturan**: perbedaan pada tabel §4 boleh ada; perbedaan pada §3 adalah cacat yang harus
 ditutup atau dipindahkan ke §4 dengan alasan tertulis.

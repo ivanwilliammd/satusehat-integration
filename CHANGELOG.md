@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Changed (batas versi)
+
+- **Lantai PHP naik ke 8.0** (`composer.json` `require.php` = `^8.0`). `src/` sudah memakai
+  `match` dan `?->` di 8 berkas sejak lama, jadi instalasi di PHP 7.4 berhasil tetapi berakhir
+  parse error saat kelasnya dimuat. Properti `readonly` (8.1) di `Queue\QueueResult` dicabut —
+  imutabilitas tetap dijaga `final` + konstruktor privat — supaya lantai 8.0 (yang diuji CI)
+  benar-benar berlaku. Dijaga `tests/Unit/PhpVersionContractTest.php`.
+
 ### Fixed
 
 - `PayloadBuilderOrganization::setType()` dan `PayloadBuilderLocation::setType()` menulis `type`

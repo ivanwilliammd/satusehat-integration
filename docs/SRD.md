@@ -190,8 +190,14 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 - **Logika baru hanya di `PayloadBuilder`**; menambah perilaku di `src/FHIR/*` dilarang. Berkas
   `FHIR` yang belum memakai builder (46 dari 49) dibiarkan apa adanya sampai dimigrasikan (T-01).
 - **`DataType::toArray()` tidak boleh mengembalikan objek**; uji lama mengandalkan array penuh.
-- **Dukungan PHP 7.4 wajib dijaga** pada `src/` (tidak ada properti bertipe read-only, tidak ada
-  `enum`, tidak ada `match`), walaupun CI utama memakai 8.0/8.3.
+- **Lantai PHP 8.0** — diukur, bukan disepakati: `match(`/`?->` dipakai 8 berkas di `src/`, jadi 7.4
+  sudah mustahil sejak lama sementara `composer.json` masih mengizinkannya (pemasangan sukses di 7.4,
+  parse error saat kelas dimuat). Properti `readonly` (8.1) di `src/Queue/QueueResult.php` dicabut →
+  imutabilitas dijaga `final` + konstruktor privat. Penjaganya
+  `tests/Unit/PhpVersionContractTest.php`: memindai token `src/` (bukan teks, jadi `match(` di komentar
+  tidak dihitung), mengambil versi terendah dari `composer.json`, dan menuntut versi itu ADA di
+  matriks `.github/workflows/run-tests.yml`. Menambah konstruksi 8.1 di `src/` = uji merah yang
+  menyebut versinya.
 - **`illuminate/*` `^8`–`^13`**: jangan memakai API yang hanya ada di satu major.
 
 ## 8. Kinerja & Batas
@@ -256,9 +262,9 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 | # | Utang | Bukti |
 |---|---|---|
 | T-01 | 46 dari 49 kelas `src/FHIR/*` belum memakai `PayloadBuilder` | `grep -l Builder src/FHIR/*.php` → 3 |
-| T-02 | README menyebut "51 PayloadBuilder", kenyataannya 141 | `ls src/Builder/PayloadBuilder*.php` |
+| T-02 | **SELESAI 2026-10-30** — README sudah menyebut **141** (`README.md:20`), angka 51 adalah sisa dokumen lama | `ls src/Builder/PayloadBuilder*.php \| wc -l` → 141 · `grep -n '141 PayloadBuilder' README.md` |
 | T-03 | Uji paritas lintas bahasa (PRD FR-14) belum ada | tidak ada berkas uji paritas di `tests/` |
-| T-04 | PHP 7.4 di `require` tetapi tidak diuji CI | `.github/workflows` hanya 8.0 + 8.3 |
+| T-04 | **SELESAI 2026-10-30** — `require.php` → `^8.0`; lantai itu kini diuji CI 8.0 **dan** dijaga uji kontrak | `tests/Unit/PhpVersionContractTest.php` (2 uji/13 asersi) · matriks 8.0+8.3 |
 | T-06 | **SELESAI 2026-10-30** — `setSeriesBodySite()` kini mengirim **CodeableConcept** (`{coding:[{…}]}`) di `src/Builder/PayloadBuilderImagingStudy.php` **dan** `src/FHIR/ImagingStudy.php`; `display` kosong tidak lagi dikirim sebagai string kosong. Uji MERAH dulu 3/3 di `tests/FHIR/ImagingStudyTest.php` (4 uji/9 asersi). Bentuk lama **tidak mungkin dipakai pemanggil yang berhasil**: `series.bodySite` bertipe Coding ditolak validator FHIR, jadi tidak ada pemanggil sehat yang membaca `.bodySite.code` | `vendor/bin/phpunit tests/FHIR/ImagingStudyTest.php` · sapuan kelas yang sama: 10 kandidat "emit `system` tanpa `coding`" diperiksa, 1 cacat nyata (T-06), sisanya benar menurut spesifikasi (`ImagingStudy.modality`/`series.modality` = Coding, `Location.operationalStatus` = Coding, `MedicationDispense.category` sudah `category/coding`) |
 | T-05 | **SELESAI 2026-10-30** — 4 jalur berjenjang ber-variabel kini ber-uji dinamis di `tests/FHIR/NestedPathVariablePathTest.php` (8 uji/26 asersi), dan indeks yang tidak menunjuk elemen ditolak | `vendor/bin/phpunit tests/FHIR/NestedPathVariablePathTest.php` |
 
@@ -279,8 +285,11 @@ aplikasi Laravel yang ingin menyimpan dataset secara lokal.
 
 ## 13. Keputusan yang Harus Diambil Pemilik Produk
 
-1. **Dukungan PHP 7.4**: masih di `composer.json` tetapi CI hanya menguji 8.0/8.3. Pertahankan
-   (dan tambah job 7.4) atau cabut di v5.
+1. ~~**Dukungan PHP 7.4**~~ **SELESAI 2026-10-30** — dicabut, bukan dipertahankan: `src/` sudah
+   memakai `match`/`?->` (8.0) di 8 berkas, sehingga janji 7.4 sudah gagal sebelum diputuskan.
+   `composer.json` → `^8.0`, matriks CI 8.0/8.3 kini benar-benar mewakili lantai. Bukti:
+   `vendor/bin/phpunit tests/Unit/PhpVersionContractTest.php` 2 uji/13 asersi (MERAH 2/2 sebelum
+   perbaikan, menyebut `8.1` vs `7.4`).
 2. **Uji paritas lintas bahasa**: apakah paritas dijaga manual per rilis (sekarang) atau dibangun
    uji kontrak bersama yang membaca berkas contoh yang sama.
 3. **Antrean**: tetap SQLite, atau sediakan antarmuka kedua (Redis/DB Laravel) untuk fasilitas besar.

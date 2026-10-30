@@ -110,8 +110,10 @@ Status diukur dari berkas yang ada di repo, bukan dari niat.
 
 ## 7. Kebutuhan Non-Fungsional
 
-- **Kompatibilitas**: PHP `^7.4|^8.0|^8.1|^8.2|^8.3`; `illuminate/*` `^8.0`–`^13.0` (satu pustaka
-  dipakai repo yang berbeda major Laravel). Menambah dependensi baru wajib punya alasan kuat.
+- **Kompatibilitas**: PHP `^8.0`; `illuminate/*` `^8.0`–`^13.0` (satu pustaka dipakai repo yang
+  berbeda major Laravel). Menambah dependensi baru wajib punya alasan kuat. Batas bawah ini BUKAN
+  selera: `match`/`?->` sudah dipakai di `src/`, dan `tests/Unit/PhpVersionContractTest.php`
+  memerah bila janji di `composer.json` turun di bawah konstruksi yang benar-benar dipakai.
 - **Tanpa state global**: kredensial dibaca lewat config/env saat dipakai, bukan disimpan di
   properti statis — supaya satu proses dapat melayani beberapa tenant.
 - **Kegagalan terlihat**: setiap jalur yang menelan galat wajib mencatatnya (log atau DLQ),

@@ -6,6 +6,10 @@ namespace Satusehat\Integration\Queue;
 
 /**
  * Immutable result of a queue job processed by Worker.
+ *
+ * Imutabilitas dijaga `final` + konstruktor privat, BUKAN `readonly`: properti `readonly` baru ada
+ * di PHP 8.1, sedangkan paket ini menjanjikan (dan menguji di CI) PHP 8.0. `tests/Unit/PhpVersionContractTest.php`
+ * menahan janji itu — menambah konstruksi 8.1 di `src/` memerahkannya.
  */
 final class QueueResult
 {
@@ -14,11 +18,11 @@ final class QueueResult
     public const STATUS_DLQ    = 'dlq';
 
     private function __construct(
-        public readonly int    $id,
-        public readonly string $status,
-        public readonly ?string $error,
-        public readonly ?array  $response,
-        public readonly int     $attempts,
+        public int    $id,
+        public string $status,
+        public ?string $error,
+        public ?array  $response,
+        public int     $attempts,
     ) {}
 
     public static function success(int $id, array $response = [], int $attempts = 1): self
