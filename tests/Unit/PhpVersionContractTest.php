@@ -20,13 +20,21 @@ use PHPUnit\Framework\TestCase;
  */
 class PhpVersionContractTest extends TestCase
 {
-    /** @var array<int,string> token -> versi minimum yang memperkenalkannya */
+    /**
+     * nama token -> versi minimum yang memperkenalkannya.
+     *
+     * Dikunci dengan NAMA (`token_name()`), bukan konstanta `T_*`: di PHP 8.0 konstanta
+     * `T_READONLY`/`T_ENUM` belum ada, sehingga peta berbasis konstanta membuat pemeriksa ini
+     * sendiri fatal pada versi yang justru ingin dijaganya.
+     *
+     * @var array<string,string>
+     */
     private const TOKENS = [
-        T_MATCH => '8.0',                        // match expression
-        T_NULLSAFE_OBJECT_OPERATOR => '8.0',     // ?->
-        T_ATTRIBUTE => '8.0',                    // #[...]
-        T_READONLY => '8.1',                     // properti readonly
-        T_ENUM => '8.1',
+        'T_MATCH' => '8.0',                        // match expression
+        'T_NULLSAFE_OBJECT_OPERATOR' => '8.0',     // ?->
+        'T_ATTRIBUTE' => '8.0',                    // #[...]
+        'T_READONLY' => '8.1',                     // properti readonly
+        'T_ENUM' => '8.1',
     ];
 
     public function test_declared_php_floor_matches_what_src_actually_needs(): void
@@ -86,11 +94,17 @@ class PhpVersionContractTest extends TestCase
             $berkas++;
 
             foreach (token_get_all((string) file_get_contents($satu->getPathname())) as $token) {
-                if (! is_array($token) || ! isset(self::TOKENS[$token[0]])) {
+                if (! is_array($token)) {
                     continue;
                 }
 
-                $versi = self::TOKENS[$token[0]];
+                $nama = token_name($token[0]);
+
+                if (! isset(self::TOKENS[$nama])) {
+                    continue;
+                }
+
+                $versi = self::TOKENS[$nama];
 
                 if ($tertinggi === null || version_compare($versi, $tertinggi, '>')) {
                     $tertinggi = $versi;
