@@ -46,6 +46,7 @@ jobs:
       # adalah src/ bebas parse error. Suite penuh berjalan di 8.1+.
       - name: Lint sintaks (lantai versi)
         if: matrix.php == '8.0'
+        shell: bash
         run: find src tests -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null && echo "parse 8.0 bersih"
 
       - name: Execute tests
@@ -87,6 +88,7 @@ jobs:
       # adalah src/ bebas parse error. Suite penuh berjalan di 8.1+.
       - name: Lint sintaks (lantai versi)
         if: matrix.php == '8.0'
+        shell: bash
         run: find src tests -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null && echo "parse 8.0 bersih"
 
       - name: Execute tests
