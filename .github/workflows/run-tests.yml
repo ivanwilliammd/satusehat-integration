@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.0, 8.3]
+        php: [8.1, 8.3, 8.5]
 
     name: Unix / PHP ${{ matrix.php }}
 
@@ -38,10 +38,6 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-      - name: Pin parser yang masih hidup di PHP 8.0
-        if: matrix.php == '8.0'
-        run: composer require --dev --no-update nikic/php-parser:^4.19
-
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
 
@@ -55,7 +51,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.0, 8.3]
+        php: [8.1, 8.3, 8.5]
 
     name: Windows / PHP ${{ matrix.php }}
 
@@ -74,10 +70,6 @@ jobs:
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-
-      - name: Pin parser yang masih hidup di PHP 8.0
-        if: matrix.php == '8.0'
-        run: composer require --dev --no-update nikic/php-parser:^4.19
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
