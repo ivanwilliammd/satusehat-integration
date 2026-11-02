@@ -13,11 +13,13 @@ for d in "$PHP_R" "$ND_R" "$PY_R" "$GO_R"; do
 done
 c_php=$(ls "$PHP_R"/src/Builder/PayloadBuilder*.php | wc -l)
 c_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/builder/*.ts | wc -l)
-c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder --include="*.py" --exclude="test_*.py" | wc -l)
+# Berkas pembangun Python boleh bernama `test_*.py` (TestScript/TestReport); yang membedakan
+# berkas uji adalah adanya `def test_`, bukan namanya.
+c_py=$(grep -L "def test_" "$PY_R"/src/builder/*.py | grep -v "/base_builder.py$" | xargs grep -hoE "^class [A-Za-z0-9_]+Builder" | wc -l)
 c_go=$(grep -rhoE "^type [A-Za-z0-9_]+Builder struct" "$GO_R"/src/builder/*.go | wc -l)
 d_php=$(ls "$PHP_R"/src/DataType/*.php | wc -l)
 d_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/datatype/datatype.ts "$ND_R"/src/datatype/datatypes.ts | wc -l)
-d_py=$(grep -rhoE "^class [A-Za-z0-9_]+" "$PY_R"/src/datatype --include="*.py" --exclude="test_*.py" | wc -l)
+d_py=$(grep -L "def test_" "$PY_R"/src/datatype/*.py 2>/dev/null | xargs grep -hoE "^class [A-Za-z0-9_]+" | wc -l)
 d_go=$(grep -rhoE "^type [A-Za-z0-9_]+ struct" "$GO_R"/src/datatype/*.go | wc -l)
 t_php=$(ls "$PHP_R"/src/Terminology/*.php | wc -l)
 t_nd=$(ls "$ND_R"/src/terminology/*.ts | wc -l)
