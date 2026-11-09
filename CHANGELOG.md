@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v4.16.0 - 2026-11-09
+
+### Added
+
+- Full cross-language SDK parity (4.16.0) across PHP, Node.js/TypeScript, Python, and Go (OAuth2Client, SSRequest, SSResponse, BundleResponse, SSValidationError with 558 rules + 14 response types, 18 FHIR resource Parser classes, and full 8-module durable SqliteQueue + Worker).
+- Updated scripts/parity-manifest.sh, SYNC_MANIFEST.json, and docs/PRD-SDK-ECOSYSTEM.md to measure http_send, esponse_validation, hir_parser, and parser_files across all 4 repositories.
+
 ### Changed (batas versi)
 
 - **Lantai PHP naik ke 8.0** (`composer.json` `require.php` = `^8.0`). `src/` sudah memakai
