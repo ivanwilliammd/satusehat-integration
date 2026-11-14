@@ -69,10 +69,17 @@ class PayloadBuilderImmunization extends Builder
     public function setRecorded(string $dateTime): self { $this->set('recorded', $dateTime); return $this; }
     public function setPrimarySource(bool $primarySource): self { $this->set('primarySource', $primarySource); return $this; }
 
-    public function addProtocolApplied(int $doseNumberPositiveInt, ?CodeableConcept $series = null): self
-    {
+    public function addProtocolApplied(
+        int $doseNumberPositiveInt,
+        ?CodeableConcept $series = null,
+        ?int $seriesDosesPositiveInt = null
+    ): self {
+        // FHIR R4: protocolApplied.series adalah CodeableConcept 0..1, sedangkan seriesDoses[x]
+        // adalah positiveInt|string yang berdiri sendiri. Versi lama menulis seriesDosesPositiveInt = 1
+        // setiap kali $series diberikan dan mengabaikan isinya.
         $row = ['doseNumberPositiveInt' => $doseNumberPositiveInt];
-        if ($series !== null) $row['seriesDosesPositiveInt'] = 1;
+        if ($series !== null) $row['series'] = $series->toArray();
+        if ($seriesDosesPositiveInt !== null) $row['seriesDosesPositiveInt'] = $seriesDosesPositiveInt;
         $this->push('protocolApplied', $row);
         return $this;
     }
