@@ -1,22 +1,25 @@
 {
-  "schema": 2,
-  "measured_at": "2026-11-09",
+  "schema": 3,
+  "measured_at": "2026-11-14",
   "measured_by": "scripts/parity-manifest.sh (repo satusehat-integration)",
-  "php_last_commit": "e637f25",
+  "php_last_commit": "e4c3667",
   "counts": {
-    "payload_builder":   { "php": 141, "node": 141, "python": 141, "go": 141 },
-    "datatype":          { "php": 32, "node": 31, "python": 33, "go": 33 },
-    "terminology_files": { "php": 22, "node": 20, "python": 27, "go": 17 },
-    "queue_files":       { "php": 8, "node": 8, "python": 8, "go": 8 },
-    "parser_files":      { "php": 18, "node": 18, "python": 18, "go": 18 },
-    "test_files":        { "php": 53, "node": 8, "python": 9, "go": 7 }
+    "payload_builder":   { "php": 141, "node": 141, "python": 141, "go": 141, "rust": 4 },
+    "datatype":          { "php": 32, "node": 31, "python": 33, "go": 33, "rust": 12 },
+    "terminology_files": { "php": 22, "node": 20, "python": 27, "go": 17, "rust": 1 },
+    "queue_files":       { "php": 8, "node": 8, "python": 8, "go": 8, "rust": 1 },
+    "parser_files":      { "php": 18, "node": 18, "python": 18, "go": 18, "rust": 0 },
+    "test_files":        { "php": 53, "node": 8, "python": 9, "go": 7, "rust": 38 }
   },
   "capabilities": {
-    "payload_builder":     { "php": "present", "node": "present", "python": "present", "go": "present" },
-    "http_send":           { "php": "present", "node": "present", "python": "present", "go": "present" },
-    "response_validation": { "php": "present", "node": "present", "python": "present", "go": "present" },
-    "fhir_parser":         { "php": "present", "node": "present", "python": "present", "go": "present" },
-    "terminology_client":  { "php": "present", "node": "present", "python": "present", "go": "present" }
+    "payload_builder":     { "php": "present", "node": "present", "python": "present", "go": "present", "rust": "partial" },
+    "http_send":           { "php": "present", "node": "present", "python": "present", "go": "present", "rust": "present" },
+    "response_validation": { "php": "present", "node": "present", "python": "present", "go": "present", "rust": "present" },
+    "fhir_parser":         { "php": "present", "node": "present", "python": "present", "go": "present", "rust": "absent" },
+    "terminology_client":  { "php": "present", "node": "present", "python": "present", "go": "present", "rust": "present" }
   },
-  "notes": "diukur dengan find src -iname; lihat docs/SRD.md tiap repo. Jangan sunting tangan."
+  "defects": [
+    { "language": "go", "issue": "metode builder tidak diekspor", "measured": "629 dari 976 metode berhuruf kecil", "impact": "347 metode dapat dipanggil dari luar paket" }
+  ],
+  "notes": "Semua angka diukur find/grep pada checkout masing-masing. absent/partial bukan penilaian kualitas. Lihat docs/PARITY.md."
 }
