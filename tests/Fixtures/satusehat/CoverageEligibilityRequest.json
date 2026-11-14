@@ -1,0 +1,269 @@
+{
+  "resourceType": "CoverageEligibilityRequest",
+  "identifier": [
+    {
+      "system": "https://sys-ids.kemkes.go.id/insurance-number/{{Org_AsuransiKedua}}",
+      "value": "{{Coverage_Identifier_AKT}}"
+    }
+  ],
+  "status": "active",
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal",
+        "display": "Normal"
+      }
+    ]
+  },
+  "purpose": [
+    "validation"
+  ],
+  "patient": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "servicedDate": "2023-06-04",
+  "created": "2023-06-04T00:08:15+00:00",
+  "enterer": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "provider": {
+    "reference": "Organization/{{Org_Faskes}}"
+  },
+  "insurer": {
+    "reference": "Organization/{{Org_AsuransiKedua}}"
+  },
+  "facility": {
+    "reference": "Location/{{Location_id}}"
+  },
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/{{Coverage_id_AKT}}"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "information": {
+        "reference": "ServiceRequest/{{ServiceRequest_id}}"
+      }
+    },
+    {
+      "sequence": 2,
+      "information": {
+        "reference": "Condition/{{Condition_id}}"
+      }
+    },
+    {
+      "sequence": 3,
+      "information": {
+        "reference": "FamilyMemberHistory/{{FamilyMemberHistory_id}}"
+      }
+    },
+    {
+      "sequence": 4,
+      "information": {
+        "reference": "AllergyIntolerance/{{AllergyIntolerance_id}}"
+      }
+    },
+    {
+      "sequence": 5,
+      "information": {
+        "reference": "MedicationStatement/{{MedicationStatement_id}}"
+      }
+    },
+    {
+      "sequence": 6,
+      "information": {
+        "reference": "Observation/{{Observation_id_1}}"
+      }
+    },
+    {
+      "sequence": 7,
+      "information": {
+        "reference": "Observation/{{Observation_id_2}}"
+      }
+    },
+    {
+      "sequence": 8,
+      "information": {
+        "reference": "DiagnosticReport/{{DiagnosticReport_Lab_id_1}}"
+      }
+    },
+    {
+      "sequence": 9,
+      "information": {
+        "reference": "DiagnosticReport/{{DiagnosticReport_Lab_id_2}}"
+      }
+    },
+    {
+      "sequence": 10,
+      "information": {
+        "reference": "DiagnosticReport/{{DiagnosticReport_Rad_id}}"
+      }
+    },
+    {
+      "sequence": 11,
+      "information": {
+        "reference": "CarePlan/{{CarePlan_id_1}}"
+      }
+    },
+    {
+      "sequence": 12,
+      "information": {
+        "reference": "CarePlan/{{CarePlan_id_2}}"
+      }
+    },
+    {
+      "sequence": 13,
+      "information": {
+        "reference": "#QRID-00001",
+        "display": "Questionnaire Response SEP"
+      }
+    },
+    {
+      "sequence": 14,
+      "information": {
+        "reference": "Account/{{Account_id}}"
+      }
+    },
+    {
+      "sequence": 15,
+      "information": {
+        "reference": "ClaimResponse/{{ClaimResponse_id}}"
+      }
+    },
+    {
+      "sequence": 16,
+      "information": {
+        "reference": "Encounter/{{Encounter_id}}"
+      }
+    }
+  ],
+  "contained": [
+    {
+      "resourceType": "QuestionnaireResponse",
+      "id": "QRID-00001",
+      "questionnaire": "https://fhir.kemkes.go.id/Questionnaire/Q0018",
+      "status": "completed",
+      "subject": {
+        "reference": "Patient/{{Patient_id}}",
+        "display": "Jane Smith"
+      },
+      "authored": "2023-06-04T05:24:48+00:00",
+      "author": {
+        "reference": "Practitioner/{{Practitioner_id}}"
+      },
+      "source": {
+        "reference": "Patient/{{Patient_id}}"
+      },
+      "encounter": {
+        "reference": "Encounter/{{Encounter_id}}"
+      },
+      "item": [
+        {
+          "linkId": "1",
+          "text": "Jenis Pelayanan",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "IMP",
+                "display": "inpatient encounter"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "2",
+          "text": "ID Dokter",
+          "answer": [
+            {
+              "valueReference": {
+                "reference": "Practitioner/{{Practitioner_id}}"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "3",
+          "text": "Poli Tujuan",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-speciality",
+                "code": "LY241",
+                "display": "Bedah - Bedah onkologi"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "4",
+          "text": "Sub Jenis Pelayanan",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+                "code": "QRI000042",
+                "display": "Post Hospitalization"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "5",
+          "text": "Asuransi Kesehatan Tambahan",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "5.1",
+                  "text": "ID Asuransi",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Coverage/{{Coverage_id}}"
+                      }
+                    },
+                    {
+                      "valueReference": {
+                        "reference": "Coverage/{{Coverage_id_AKT}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "linkId": "6",
+          "text": "Pernyataan Alasan Peserta Menempati Kamar Tidak Sesuai Haknya",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+                "code": "QRI000041",
+                "display": "Atas Permintaan Sendiri (APS)"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "7",
+          "text": "Informasi Lainnya",
+          "answer": [
+            {
+              "valueString": "Permintaan elgibilitas peserta untuk rawat inap"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

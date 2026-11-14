@@ -1,0 +1,125 @@
+{
+  "resourceType": "MedicationStatement",
+  "contained": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://sys-ids.kemkes.go.id/kfa",
+            "code": "93000256",
+            "display": "Amoxicillin Trihydrate 100 mg/mL Sirup Kering (PHARMA LABORATORIES)"
+          }
+        ]
+      },
+      "extension": [
+        {
+          "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "NC",
+                "display": "Non-compound",
+                "system": "http://terminology.kemkes.go.id/CodeSystem/medication-type"
+              }
+            ]
+          }
+        }
+      ],
+      "form": {
+        "coding": [
+          {
+            "code": "BS056",
+            "display": "Sirup Kering",
+            "system": "http://terminology.kemkes.go.id/CodeSystem/medication-form"
+          }
+        ]
+      },
+      "id": "2024070141486-med001",
+      "identifier": [
+        {
+          "system": "http://sys-ids.kemkes.go.id/medication/{{Org_id}}",
+          "use": "official",
+          "value": "2024070141486-med001"
+        }
+      ],
+      "ingredient": [
+        {
+          "isActive": true,
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "code": "91000237",
+                "display": "Amoxicillin",
+                "system": "http://sys-ids.kemkes.go.id/kfa"
+              }
+            ]
+          },
+          "strength": {
+            "numerator": {
+              "code": "mg",
+              "system": "http://unitsofmeasure.org",
+              "unit": "mg",
+              "value": 100
+            },
+            "denominator": {
+              "code": "ml",
+              "system": "http://unitsofmeasure.org",
+              "unit": "ml",
+              "value": 1
+            }
+          }
+        }
+      ],
+      "batch": {
+        "lotNumber": "BA1928092",
+        "expirationDate": "2026-07-28"
+      },
+      "meta": {
+        "profile": [
+          "https://fhir.kemkes.go.id/r4/StructureDefinition/Medication"
+        ]
+      },
+      "resourceType": "Medication",
+      "status": "active"
+    }
+  ],
+  "status": "completed",
+  "category": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+        "code": "community",
+        "display": "Community"
+      }
+    ]
+  },
+  "medicationReference": {
+    "reference": "#2024070141486-med001",
+    "display": "Amoxicillin Trihydrate 100 mg/mL Sirup Kering (PHARMA LABORATORIES)"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_Id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "dosage": [
+    {
+      "text": "Amoxicillin Trihydrate 100 mg/mL Sirup Kering (PHARMA LABORATORIES), 5 mL diminum 3 kali sehari",
+      "timing": {
+        "repeat": {
+          "frequency": 3,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      }
+    }
+  ],
+  "effectiveDateTime": "2023-01-23T18:00:00+00:00",
+  "dateAsserted": "2023-06-04T05:40:00+00:00",
+  "informationSource": {
+    "reference": "Patient/{{Patient_Id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "context": {
+    "reference": "Encounter/{{Encounter_id}}"
+  }
+}

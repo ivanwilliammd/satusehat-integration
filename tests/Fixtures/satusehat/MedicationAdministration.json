@@ -1,0 +1,233 @@
+{
+  "resourceType": "MedicationAdministration",
+  "contained": [
+    {
+      "resourceType": "Medication",
+      "meta": {
+        "profile": [
+          "https://fhir.kemkes.go.id/r4/StructureDefinition/Medication"
+        ]
+      },
+      "identifier": [
+        {
+          "system": "http://sys-ids.kemkes.go.id/medication/{{Org_id}}",
+          "use": "official",
+          "value": "123456790-2"
+        }
+      ],
+      "id": "123456790-2",
+      "code": {
+        "coding": [
+          {
+            "system": "http://sys-ids.kemkes.go.id/kfa",
+            "code": "93000374",
+            "display": "Ringer Lactate (NATURA LABORATORIA PRIMA, 500 mL)"
+          }
+        ]
+      },
+      "status": "active",
+      "manufacturer": {
+        "reference": "Organization/90000001"
+      },
+      "form": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/medication-form",
+            "code": "BS035",
+            "display": "Infus"
+          }
+        ]
+      },
+      "ingredient": [
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000568",
+                "display": "Calcium Chloride, Dihydration"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "value": 0.1,
+              "system": "http://unitsofmeasure.org",
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Bottle - unit of product usage",
+              "system": "http://snomed.info/sct",
+              "code": "419672006"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000171",
+                "display": "Sodium Chloride"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "value": 1.55,
+              "system": "http://unitsofmeasure.org",
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Bottle - unit of product usage",
+              "system": "http://snomed.info/sct",
+              "code": "419672006"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000265",
+                "display": "Sodium Lactate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "value": 3,
+              "system": "http://unitsofmeasure.org",
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Bottle - unit of product usage",
+              "system": "http://snomed.info/sct",
+              "code": "419672006"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000198",
+                "display": "Potassium Chloride"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "value": 0.15,
+              "system": "http://unitsofmeasure.org",
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Bottle - unit of product usage",
+              "system": "http://snomed.info/sct",
+              "code": "419672006"
+            }
+          }
+        }
+      ],
+      "batch": {
+        "lotNumber": "1725042G",
+        "expirationDate": "2025-12-31"
+      },
+      "extension": [
+        {
+          "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/medication-type",
+                "code": "NC",
+                "display": "Non-compound"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "status": "completed",
+  "category": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/medication-admin-category",
+        "code": "inpatient",
+        "display": "Inpatient"
+      }
+    ]
+  },
+  "medicationReference": {
+    "reference": "#123456790-2"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "context": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "effectivePeriod": {
+    "start": "2023-06-04T10:00:00+00:00",
+    "end": "2023-06-04T10:00:00+00:00"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/{{Practitioner_id}}"
+      }
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/reason-medication-given",
+          "code": "b",
+          "display": "Given as Ordered"
+        }
+      ]
+    }
+  ],
+  "request": {
+    "reference": "MedicationRequest/{{MedicationRequest_InfusDay3}}"
+  },
+  "dosage": {
+    "site": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "66480008",
+          "display": "Structure of left forearm"
+        }
+      ]
+    },
+    "route": {
+      "coding": [
+        {
+          "system": "http://www.whocc.no/atc",
+          "code": "P",
+          "display": "Parenteral"
+        }
+      ]
+    },
+    "dose": {
+      "value": 500,
+      "unit": "mL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mL"
+    }
+  }
+}

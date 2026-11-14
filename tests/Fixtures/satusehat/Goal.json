@@ -1,0 +1,116 @@
+{
+  "resourceType": "Goal",
+  "id": "{{Goal_TujuanPerawatan}}",
+  "lifecycleStatus": "active",
+  "achievementStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+        "code": "in-progress",
+        "display": "In Progress"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/goal-category",
+          "code": "nursing",
+          "display": "Nursing"
+        }
+      ]
+    }
+  ],
+  "description": {
+    "text": "Perawatan dilakukan untuk mengatasi benjolan pada kelenjar tiroid"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "target": [
+    {
+      "measure": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "58410-2",
+            "display": "CBC panel - Blood by Automated count"
+          }
+        ]
+      },
+      "detailCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "17621005",
+            "display": "Normal"
+          }
+        ]
+      },
+      "dueDate": "2023-06-04"
+    },
+    {
+      "measure": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "1994-3",
+            "display": "Calcium.ionized [Moles/volume] in Blood"
+          }
+        ]
+      },
+      "detailCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "17621005",
+            "display": "Normal"
+          }
+        ]
+      },
+      "dueDate": "2023-06-04"
+    },
+    {
+      "measure": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "36955-3",
+            "display": "CT Thyroid gland WO contrast"
+          }
+        ]
+      },
+      "detailCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "17621005",
+            "display": "Normal"
+          }
+        ]
+      },
+      "dueDate": "2023-06-04"
+    }
+  ],
+  "statusDate": "2023-06-04",
+  "expressedBy": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/{{Condition_KeluhanUtama}}"
+    }
+  ],
+  "outcomeCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "706907002",
+          "display": "Some progress toward goal"
+        }
+      ]
+    }
+  ]
+}

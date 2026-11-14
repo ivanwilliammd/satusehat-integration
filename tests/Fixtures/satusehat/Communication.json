@@ -1,0 +1,32 @@
+{
+  "resourceType": "Communication",
+  "status": "completed",
+  "basedOn": [
+    {
+      "reference": "CommunicationRequest/{{CommunicationRequest_id}}"
+    }
+  ],
+  "payload": [
+    {
+      "contentString": "Terima kasih, diagnosa telah sesuai"
+    }
+  ],
+  "about": [
+    {
+      "reference": "Claim/{{Claim_id}}"
+    }
+  ],
+  "inResponseTo": [
+    {
+      "reference": "Communication/{{Communication_reply_to_id}}"
+    }
+  ],
+  "sender": {
+    "reference": "Organization/{{Org_id_Asuransi}}"
+  },
+  "recipient": [
+    {
+      "reference": "Organization/{{Org_id_Faskes}}"
+    }
+  ]
+}

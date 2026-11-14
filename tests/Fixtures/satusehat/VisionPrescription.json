@@ -1,0 +1,49 @@
+{
+  "resourceType": "VisionPrescription",
+  "status": "active",
+  "created": "2024-08-20T03:15:00+00:00",
+  "patient": {
+    "reference": "Patient/{{Patient_ID}}",
+    "display": "{{Patient_Name}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_ID}}"
+  },
+  "dateWritten": "2024-08-20T03:16:00+00:00",
+  "prescriber": {
+    "reference": "Practitioner/{{Practitioner_ID}}",
+    "display": "{{Practitioner_Name}}"
+  },
+  "lensSpecification": [
+    {
+      "product": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+            "code": "lens",
+            "display": "Lens"
+          }
+        ]
+      },
+      "eye": "right",
+      "sphere": -4.5,
+      "cylinder": 0,
+      "axis": 0
+    },
+    {
+      "product": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct",
+            "code": "lens",
+            "display": "Lens"
+          }
+        ]
+      },
+      "eye": "left",
+      "sphere": -4.75,
+      "cylinder": 0,
+      "axis": 0
+    }
+  ]
+}

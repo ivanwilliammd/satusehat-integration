@@ -1,0 +1,47 @@
+{
+  "resourceType": "PaymentReconciliation",
+  "status": "active",
+  "period": {
+    "start": "2023-07-05T09:07:58+00:00",
+    "end": "2023-07-05T10:07:58+00:00"
+  },
+  "created": "2023-07-05T10:07:58+00:00",
+  "paymentIssuer": {
+    "reference": "Organization/{{Org_Asuransi}}"
+  },
+  "requestor": {
+    "reference": "Organization/{{Org_Faskes}}"
+  },
+  "outcome": "complete",
+  "disposition": "Pembayaran telah berhasil diproses",
+  "paymentDate": "2023-07-08",
+  "paymentAmount": {
+    "value": 12146519,
+    "currency": "IDR"
+  },
+  "detail": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type",
+            "code": "payment",
+            "display": "Payment"
+          }
+        ]
+      },
+      "request": {
+        "reference": "Claim/{{Claim_id}}"
+      },
+      "response": {
+        "reference": "ClaimResponse/{{ClaimResponse_id}}"
+      }
+    }
+  ],
+  "processNote": [
+    {
+      "type": "display",
+      "text": "Pembayaran telah berhasil diproses"
+    }
+  ]
+}

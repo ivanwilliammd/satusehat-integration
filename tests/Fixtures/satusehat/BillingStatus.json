@@ -1,0 +1,23 @@
+{
+  "resourceType": "BillingStatus",
+  "id": "0000002",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/billingstatus/{{Org_AsuransiKedua}}",
+      "value": "10000001"
+    }
+  ],
+  "status": "final",
+  "insurer": {
+    "reference": "Organization/{{Org_AsuransiKedua}}"
+  },
+  "recipient": {
+    "reference": "Organization/{{Org_Faskes}}"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "request": {
+    "reference": "CoverageEligibilityRequest/{{CoverageEligibilityRequest_id_2}}"
+  }
+}

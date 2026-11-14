@@ -1,0 +1,33 @@
+{
+  "resourceType": "CommunicationRequest",
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+          "code": "notification",
+          "display": "Notification"
+        }
+      ]
+    }
+  ],
+  "payload": [
+    {
+      "contentString": "Mohon untuk bisa matching antara resume medis dengan diagnosa sekundernya."
+    }
+  ],
+  "about": [
+    {
+      "reference": "Claim/{{Claim_id}}"
+    }
+  ],
+  "sender": {
+    "reference": "Organization/{{Org_id_Asuransi}}"
+  },
+  "recipient": [
+    {
+      "reference": "Organization/{{Org_id_Faskes}}"
+    }
+  ]
+}

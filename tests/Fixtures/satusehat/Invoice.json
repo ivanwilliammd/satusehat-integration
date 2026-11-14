@@ -1,0 +1,212 @@
+{
+  "resourceType": "Invoice",
+  "status": "issued",
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "date": "2022-12-30T10:30:00+00:00",
+  "issuer": {
+    "reference": "Organization/{{Org_id}}"
+  },
+  "account": {
+    "reference": "Account/{{Account_id}}"
+  },
+  "lineItem": [
+    {
+      "sequence": 1,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Kolesterol}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "30326",
+                "display": "CHOLESTEROL TOTAL/KOLESTEROL TOTAL"
+              }
+            ]
+          },
+          "amount": {
+            "value": 175000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Kreatinin}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "30691.SP050",
+                "display": "Kreatinin, Urin"
+              }
+            ]
+          },
+          "amount": {
+            "value": 200000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_USGGinjal}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "31537",
+                "display": "USG Ginjal"
+              }
+            ]
+          },
+          "amount": {
+            "value": 750000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_RingerLactate}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "93000374",
+                "display": "Ringer Lactate (NATURA LABORATORIA PRIMA, 500 mL)"
+              }
+            ]
+          },
+          "amount": {
+            "value": 45000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Furosemide}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "93001603",
+                "display": "Furosemide 40 mg Tablet (KIMIA FARMA)"
+              }
+            ]
+          },
+          "amount": {
+            "value": 30000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Hemodialisis}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "11586.HD002.PC002.LT016.x",
+                "display": "Hemodialisis, Slow Efficiency Dialysis (SLED), Dewasa, di ruang intensif, x"
+              }
+            ]
+          },
+          "amount": {
+            "value": 2000000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Edukasi}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "10913",
+                "display": "Edukasi Kesehatan Individu"
+              }
+            ]
+          },
+          "amount": {
+            "value": 200000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "chargeItemReference": {
+        "reference": "ChargeItem/{{ChargeItem_Kamar}}"
+      },
+      "priceComponent": [
+        {
+          "type": "surcharge",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+                "code": "20000.x.KR002.x.x",
+                "display": "Kamar Regular, x, Non isolasi, x, x"
+              }
+            ]
+          },
+          "amount": {
+            "value": 5000000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    }
+  ],
+  "totalNet": {
+    "value": 8400000,
+    "currency": "IDR"
+  }
+}

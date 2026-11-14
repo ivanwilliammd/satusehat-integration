@@ -1,0 +1,44 @@
+{
+  "resourceType": "DeviceDispense",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/devicedispense/{{Org_id}}",
+      "value": "DD-2025-0001"
+    }
+  ],
+  "status": "completed",
+  "basedOn": [
+    {
+      "reference": "DeviceRequest/{{DeviceRequest_id}}",
+      "display": "Permintaan Nebulizer"
+    }
+  ],
+  "device": {
+    "reference": "Device/{{Device_id}}",
+    "display": "Nebulizer Portable"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "receiver": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Organization/{{Org_id}}",
+        "display": "Gudang Alkes RS Contoh"
+      }
+    }
+  ],
+  "whenPrepared": "2025-01-10T09:30:00+00:00",
+  "whenHandedOver": "2025-01-10T10:00:00+00:00",
+  "destination": {
+    "reference": "Location/{{Location_id}}"
+  },
+  "note": [
+    {
+      "text": "Alkes diserahkan dalam kondisi baik dan berfungsi normal."
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "resourceType": "NutritionOrder",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/nutrition-order/{{Org_id}}",
+      "value": "{{MRID}}"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "patient": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "dateTime": "2023-09-02T01:29:00+00:00",
+  "oralDiet": {
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "435731000124108",
+            "display": "Liquid diet"
+          }
+        ]
+      }
+    ],
+    "schedule": [
+      {
+        "repeat": {
+          "frequency": 1,
+          "period": 3,
+          "periodUnit": "h"
+        }
+      }
+    ],
+    "nutrient": [
+      {
+        "modifier": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258790008",
+              "display": "calorie"
+            }
+          ]
+        },
+        "amount": {
+          "value": 672,
+          "unit": "cal",
+          "system": "http://unitsofmeasure.org",
+          "code": "cal"
+        }
+      },
+      {
+        "modifier": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "88878007",
+              "display": "Protein"
+            }
+          ]
+        },
+        "amount": {
+          "value": 19.2,
+          "unit": "g",
+          "system": "http://unitsofmeasure.org",
+          "code": "g"
+        }
+      },
+      {
+        "modifier": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256674009",
+              "display": "Fat"
+            }
+          ]
+        },
+        "amount": {
+          "value": 38.4,
+          "unit": "g",
+          "system": "http://unitsofmeasure.org",
+          "code": "g"
+        }
+      },
+      {
+        "modifier": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "2331003",
+              "display": "Carbohydrate"
+            }
+          ]
+        },
+        "amount": {
+          "value": 67.2,
+          "unit": "g",
+          "system": "http://unitsofmeasure.org",
+          "code": "g"
+        }
+      }
+    ],
+    "texture": [
+      {
+        "modifier": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "228055009",
+              "display": "Liquidized food"
+            }
+          ]
+        }
+      }
+    ],
+    "instruction": "Tujuan: Tercapainya asupan energi lebih dari 90% RDA dalam waktu 1 minggu untuk memperbaiki status gizi, Preskripsi: Diet full cair F75"
+  }
+}
