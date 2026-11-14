@@ -1,0 +1,722 @@
+{
+  "resourceType": "Composition",
+  "status": "final",
+  "attester": [
+    {
+      "mode": "legal"
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.kemkes.go.id/CodeSystem/composition-type",
+        "code": "COM000006",
+        "display": "Form Skrining PTM"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_Id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_id}}",
+    "display": "Kunjungan {{Patient_Name}} di hari 24 April 2024"
+  },
+  "date": "2024-04-24T03:48:36+00:00",
+  "author": [
+    {
+      "reference": "Practitioner/{{Practitioner_Id}}",
+      "display": "{{Practitioner_Name}}"
+    }
+  ],
+  "title": "Form Skrining PTM",
+  "section": [
+    {
+      "title": "Deteksi Dini Hipertensi",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000006",
+            "display": "Deteksi Dini Hipertensi"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tekanan Darah Sistolik "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tekanan Darah Diastolik "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Interpretasi Tekanan Darah "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Obesitas",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000007",
+            "display": "Deteksi Dini Obesitas"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Berat Badan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tinggi Badan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Indeks Massa Tubuh "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Lingkar Pinggang "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Obesitas",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000008",
+            "display": "Deteksi Dini Penyakit Jantung"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan EKG 12 Lead "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan EKG 12 Lead "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan EKG 12 Lead "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Diabetes Melitus",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000009",
+            "display": "Deteksi Dini Diabetes Melitus"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Gula Darah Sewaktu "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Gula Darah Sewaktu "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Gula Darah Sewaktu "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Gula Darah Sewaktu "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Gula Darah Puasa "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Gula Darah Puasa "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Gula Darah Puasa "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Gula Darah Puasa "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Gula Darah 2 Jam Setelah Makan "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Gula Darah 2 Jam Setelah Makan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Gula Darah 2 Jam Setelah Makan "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Gula Darah 2 Jam Setelah Makan "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Rasio Hemoglobin A1c Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Rasio Hemoglobin A1c Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Rasio Hemoglobin A1c Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Rasio Hemoglobin A1c Dalam Darah "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Stroke",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000010",
+            "display": "Deteksi Dini Stroke"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Kolesterol Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Kolesterol Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Kolesterol Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Kolesterol Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Kolesterol HDL Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Kolesterol HDL Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Kolesterol HDL Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Kolesterol HDL Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Kolesterol LDL Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Kolesterol LDL Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Kolesterol LDL Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Kolesterol LDL Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Trigliseride Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Trigliseride Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Trigliseride Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Trigliseride Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Prediksi Risiko PTM dengan Pemeriksaan Laboratorium "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Prediksi Risiko PTM tanpa Pemeriksaan Laboratorium "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Asam Urat",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000011",
+            "display": "Deteksi Dini Asam Urat"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Asam Urat Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Asam Urat Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Asam Urat Dalam Darah "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Kanker",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000012",
+            "display": "Deteksi Dini Kanker"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "Procedure/{{Procedure Reference}}",
+          "display": "Prosedur Inspekulo Vagina "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Inspekulo Vagina "
+        },
+        {
+          "reference": "Procedure/{{Procedure Reference}}",
+          "display": "Prosedur Tes IVA "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tes IVA "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Cryotherapy "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Rujukan Pasien "
+        },
+        {
+          "reference": "Procedure/{{Procedure Reference}}",
+          "display": "Prosedur Cryotherapy "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Rujukan Pasien "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Virus HPV Dalam Serviks "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Swab Serviks Virus HPV Dalam Serviks "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Virus HPV Dalam Serviks "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Virus HPV Dalam Serviks "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan SADANIS Payudara "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan USG Payudara "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan USG Payudara "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan USG Payudara "
+        },
+        {
+          "reference": "QuestionnaireResponse/{{QuestionnaireResponse Reference}}",
+          "display": "Hasil Kuesioner Kuesioner Kanker Paru "
+        },
+        {
+          "reference": "QuestionnaireResponse/{{QuestionnaireResponse Reference}}",
+          "display": "Hasil Kuesioner Kuesioner Kanker Kolorektal "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan Rektum "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Hemoglobin Dalam Tinja "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Tinja Hemoglobin Dalam Tinja "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Hemoglobin Dalam Tinja "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Hemoglobin Dalam Tinja "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Thalassemia",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000013",
+            "display": "Deteksi Dini Thalassemia"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Hemoglobin Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Hemoglobin Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Hemoglobin Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Hemoglobin Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Variabel MCV Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Variabel MCV Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Variabel MCV Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Variabel MCV Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Variabel MCH Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Variabel MCH Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Variabel MCH Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Variabel MCH Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Volume Eritrosit Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Volume Eritrosit Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Volume Eritrosit Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Volume Eritrosit Dalam Darah "
+        },
+        {
+          "reference": "ServiceRequest/{{ServiceRequest Reference}}",
+          "display": "Permintaan Pemeriksaan Distribusi Eritorosit/RDW Dalam Darah "
+        },
+        {
+          "reference": "Specimen/{{Specimen Reference}}",
+          "display": "Spesimen Darah Distribusi Eritorosit/RDW Dalam Darah "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Distribusi Eritorosit/RDW Dalam Darah "
+        },
+        {
+          "reference": "DiagnosticReport/{{DiagnosticReport Reference}}",
+          "display": "Laporan Pemeriksaan Distribusi Eritorosit/RDW Dalam Darah "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi dini PPOK",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000014",
+            "display": "Deteksi dini PPOK"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "QuestionnaireResponse/{{QuestionnaireResponse Reference}}",
+          "display": "Hasil Kuesioner Deteksi dini PPOK (Khusus usia >40 tahun dan merokok) "
+        },
+        {
+          "reference": "Condition/{{Condition Reference}}",
+          "display": "Keluhan Produktif "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Perokok "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pajanan Polusi Udara "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pajanan di rumah tangga/tempat kerja "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Penampilan pink puffer ( warna kulit kemerahan) "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Nafas Mencucu "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Penggunaan Otot Napas Tambahan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Sela Iga Melebar "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Barrel chest "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Hiperesonansi Pada Auskultasi "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suara Nafas Vesikuler Pada Auskultasi "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suara Nafas Mengi/Rhonci Pada Auskultasi "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Ekspirasi Memanjang "
+        },
+        {
+          "reference": "Procedure/{{Procedure Reference}}",
+          "display": "Prosedur Spirometri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Spirometri "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Gangguan Penglihatan",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000015",
+            "display": "Deteksi Dini Gangguan Penglihatan"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Mata Kanan Tanpa Koreksi Menggunakan Snellen "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Menggunakan Pinhole Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Menggunakan Pinhole Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Refleks Pupil Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Refleks Pupil Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Refleks Fundus Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Refleks Fundus Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tes Bayangan Pada Pupil Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tes Bayangan Pada Pupil Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Jauh Dengan Koreksi Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Jauh Dengan Koreksi Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan lanjutan jika dinyatakan buta Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan lanjutan jika dinyatakan buta Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Dekat Dengan Koreksi Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tajam Penglihatan Dekat Dengan Koreksi Mata Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tekanan Dalam Bola Mata Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Tekanan Dalam Bola Mata Kiri "
+        }
+      ]
+    },
+    {
+      "title": "Deteksi Dini Gangguan Pendengaran",
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/composition-section",
+            "code": "COS000016",
+            "display": "Deteksi Dini Gangguan Pendengaran"
+          }
+        ]
+      },
+      "entry": [
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suspek tuli kongenital Telinga Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suspek tuli kongenital Telinga Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Otitis Media Kronik Supuratif Telinga Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Otitis Media Kronik Supuratif Telinga Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Serumen Terimpaksi Telinga Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Serumen Terimpaksi Telinga Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suspek presbikusis Telinga Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Suspek presbikusis Telinga Kiri "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan Mendengar Suara Berbisik Telinga Kanan "
+        },
+        {
+          "reference": "Observation/{{Observation Reference}}",
+          "display": "Hasil Pemeriksaan Pemeriksaan Mendengar Suara Berbisik Telinga Kiri "
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "resourceType": "Claim",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/claim-batch-number/{{Org_BPJS}}",
+      "value": "{{No_Batch}}"
+    },
+    {
+      "system": "http://sys-ids.kemkes.go.id/claim-number/{{Org_BPJS}}",
+      "value": "{{No_SEP}}"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "institutional",
+        "display": "Institutional"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "billablePeriod": {
+    "start": "2023-06-04T05:24:47+00:00",
+    "end": "2023-06-04T10:24:47+00:00"
+  },
+  "created": "2023-06-04T10:35:00+00:00",
+  "enterer": {
+    "identifier": {
+      "system": "https://fhir.kemkes.go.id/id/nik",
+      "value": "3657746633553535555"
+    },
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "insurer": {
+    "reference": "Organization/{{Org_BPJS}}"
+  },
+  "provider": {
+    "reference": "Organization/{{Org_id}}"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal",
+        "display": "Normal"
+      }
+    ]
+  },
+  "payee": {
+    "type": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/payeetype",
+          "code": "provider",
+          "display": "Provider"
+        }
+      ]
+    },
+    "party": {
+      "reference": "Organization/{{Org_id}}"
+    }
+  },
+  "facility": {
+    "reference": "Location/{{Location_id}}"
+  },
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claiminformationcategory",
+            "code": "upgrade-class-indicator",
+            "display": "Indikator Naik Kelas"
+          }
+        ]
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/upgradeClassIndicator",
+            "code": "upgrade",
+            "display": "Ada Kenaikan Kelas"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claiminformationcategory",
+            "code": "upgrade-class-class",
+            "display": "Kenaikan Kelas"
+          }
+        ]
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/locationServiceClass-Inpatient",
+            "code": "vip",
+            "display": "Kelas VIP"
+          }
+        ]
+      },
+      "timingPeriod": {
+        "start": "2023-06-04T06:24:47+00:00",
+        "end": "2023-06-04T10:24:47+00:00"
+      }
+    },
+    {
+      "sequence": 3,
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claiminformationcategory",
+            "code": "unu-grouper-version",
+            "display": "Versi Grouper INACBG"
+          }
+        ]
+      },
+      "valueString": "4"
+    },
+    {
+      "sequence": 4,
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claiminformationcategory",
+            "code": "e-klaim-version",
+            "display": "Versi Aplikasi E-Klaim"
+          }
+        ]
+      },
+      "valueString": "5.8.3.202301311257"
+    },
+    {
+      "sequence": 5,
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claiminformationcategory",
+            "code": "encounter",
+            "display": "Encounter"
+          }
+        ]
+      },
+      "valueReference": {
+        "reference": "Encounter/{{Encounter_id}}"
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "A91",
+            "display": "Dengue Hemorrhagic Fever"
+          }
+        ]
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
+              "code": "discharge",
+              "display": "Discharge Diagnosis"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "procedure": [
+    {
+      "sequence": 1,
+      "procedureCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-9-cm",
+            "code": "99.04",
+            "display": "Transfusion of packed cells"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "procedureCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-9-cm",
+            "code": "89.07",
+            "display": "Consultation, described as comprehensive"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "procedureCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-9-cm",
+            "code": "90.59",
+            "display": "Microscopic examination of blood, Other microscopic examination"
+          }
+        ]
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/{{Coverage_id}}"
+      },
+      "identifier": {
+        "system": "http://sys-ids.kemkes.go.id/claim-number/{{Org_BPJS}}",
+        "value": "{{No_SEP}}"
+      }
+    }
+  ],
+  "total": {
+    "value": 528519,
+    "currency": "IDR"
+  },
+  "extension": [
+    {
+      "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/Package",
+      "extension": [
+        {
+          "url": "tariffClass",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/tariffClass",
+                "code": "AP",
+                "display": "Tarif Kelas A Pemerintah"
+              }
+            ]
+          }
+        },
+        {
+          "url": "basePackage",
+          "extension": [
+            {
+              "url": "code",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.kemkes.go.id/CodeSystem/inacbg-v5",
+                    "code": "A-4-13-I",
+                    "display": "INFEKSI VIRAL & NON-BAKTERIAL LAIN (RINGAN)"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "value",
+              "valueInteger": 528519
+            }
+          ]
+        },
+        {
+          "url": "additionalPackage",
+          "extension": [
+            {
+              "url": "code",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.kemkes.go.id/CodeSystem/inacbg-special-cmg-v5",
+                    "code": "II-02-III",
+                    "display": "MRI"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "value",
+              "valueInteger": 528519
+            }
+          ]
+        },
+        {
+          "url": "additionalPackage",
+          "extension": [
+            {
+              "url": "code",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.kemkes.go.id/CodeSystem/inacbg-sac-v5",
+                    "code": "SF-4-10-I",
+                    "display": "INPATIENT SUB ACUTE FOR SCHIZOPHRENIA"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "value",
+              "valueInteger": 528519
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

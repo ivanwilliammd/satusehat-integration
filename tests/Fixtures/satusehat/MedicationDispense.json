@@ -1,0 +1,713 @@
+{
+  "resourceType": "MedicationDispense",
+  "contained": [
+    {
+      "resourceType": "Medication",
+      "meta": {
+        "profile": [
+          "https://fhir.kemkes.go.id/r4/StructureDefinition/Medication"
+        ]
+      },
+      "identifier": [
+        {
+          "system": "http://sys-ids.kemkes.go.id/medication/{{Org_id}}",
+          "use": "official",
+          "value": "123456789"
+        }
+      ],
+      "id": "123456789",
+      "code": {
+        "coding": [
+          {
+            "system": "http://sys-ids.kemkes.go.id/kfa",
+            "code": "93016652",
+            "display": "Clinimix N9G15E Infus (Umum)"
+          }
+        ]
+      },
+      "status": "active",
+      "manufacturer": {
+        "reference": "Organization/90000001"
+      },
+      "form": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/medication-form",
+            "code": "BS035",
+            "display": "Infus"
+          }
+        ]
+      },
+      "ingredient": [
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000109",
+                "display": "Dextrose Monohydrate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 165,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000171",
+                "display": "Sodium Chloride"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.12,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000386",
+                "display": "ALANINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 5.69,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000387",
+                "display": "ARGININE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 3.165,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000436",
+                "display": "Sodium Acetate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 2.155,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000448",
+                "display": "Glycine"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 2.835,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000449",
+                "display": "LEUCINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 2.01,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000450",
+                "display": "ISOLEUCINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.65,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000451",
+                "display": "VALINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.595,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000454",
+                "display": "THREONINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.155,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000456",
+                "display": "HISTIDINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.32,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000457",
+                "display": "TRYPTOPHAN"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 0.495,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000458",
+                "display": "Lysine Hydrochloride"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.995,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000459",
+                "display": "METHIONINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.1,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000460",
+                "display": "PHENYLALANINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.54,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000461",
+                "display": "TYROSINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 0.11,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000462",
+                "display": "PROLINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.87,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000463",
+                "display": "SERINE"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 1.375,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000464",
+                "display": "Dibasic Potassium Phosphate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 2.61,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000613",
+                "display": "Calcium Chlorate Dihydrate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 0.331,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        },
+        {
+          "itemCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://sys-ids.kemkes.go.id/kfa",
+                "code": "91000641",
+                "display": "Magnesium Chloride Hexahydrate"
+              }
+            ]
+          },
+          "isActive": true,
+          "strength": {
+            "numerator": {
+              "system": "http://unitsofmeasure.org",
+              "value": 0.51,
+              "code": "g"
+            },
+            "denominator": {
+              "value": 1,
+              "unit": "Intravenous Solution",
+              "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+              "code": "IVSOL"
+            }
+          }
+        }
+      ],
+      "batch": {
+        "lotNumber": "1625042A",
+        "expirationDate": "2025-07-28"
+      },
+      "extension": [
+        {
+          "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.kemkes.go.id/CodeSystem/medication-type",
+                "code": "NC",
+                "display": "Non-compound"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/prescription/{{Org_id}}",
+      "use": "official",
+      "value": "123456788"
+    },
+    {
+      "system": "http://sys-ids.kemkes.go.id/prescription-item/{{Org_id}}",
+      "use": "official",
+      "value": "123456788-1"
+    }
+  ],
+  "status": "completed",
+  "category": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
+        "code": "inpatient",
+        "display": "Inpatient"
+      }
+    ]
+  },
+  "medicationReference": {
+    "reference": "#123456789",
+    "display": "Clinimix N9G15E Infus"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "context": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/N10000003",
+        "display": "John Miller"
+      }
+    }
+  ],
+  "location": {
+    "reference": "Location/{{Location_farmasi_id}}",
+    "display": "Instalasi Farmasi RS SATUSEHAT"
+  },
+  "authorizingPrescription": [
+    {
+      "reference": "MedicationRequest/{{MedicationRequest_TPN}}"
+    }
+  ],
+  "quantity": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+    "code": "IVSOL",
+    "value": 1
+  },
+  "daysSupply": {
+    "value": 1,
+    "unit": "Day",
+    "system": "http://unitsofmeasure.org",
+    "code": "d"
+  },
+  "whenPrepared": "2023-09-02T01:16:00+00:00",
+  "whenHandedOver": "2023-09-02T01:16:00+00:00",
+  "dosageInstruction": [
+    {
+      "sequence": 1,
+      "additionalInstruction": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "421769005",
+              "display": "Follow directions"
+            }
+          ]
+        },
+        {
+          "text": "Hanya melalui jalur CVC, dilarang melalui jalur infus, berikan 800 ml/24 jam perlahan ditingkatkan s.d. 1490 ml/24 jam"
+        }
+      ],
+      "timing": {
+        "repeat": {
+          "frequency": 24,
+          "period": 24,
+          "periodUnit": "h"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://www.whocc.no/atc",
+            "code": "P",
+            "display": "Parenteral"
+          }
+        ]
+      },
+      "doseAndRate": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                "code": "ordered",
+                "display": "Ordered"
+              }
+            ]
+          },
+          "doseRange": {
+            "low": {
+              "value": 800,
+              "unit": "mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL"
+            },
+            "high": {
+              "value": 1490,
+              "unit": "mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

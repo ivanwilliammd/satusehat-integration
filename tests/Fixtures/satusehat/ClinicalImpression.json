@@ -1,0 +1,147 @@
+{
+  "resourceType": "ClinicalImpression",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/clinicalimpression/{{Org_Faskes}}",
+      "use": "official",
+      "value": "Prognosis_000123"
+    }
+  ],
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "20481000",
+        "display": "Determination of prognosis"
+      }
+    ]
+  },
+  "description": "Ibu Jane Smith terdiagnosis neoplasma jinak pada kelenjar tiroid",
+  "subject": {
+    "reference": "Patient/{{Patient_id}}",
+    "display": "Jane Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "effectiveDateTime": "2023-06-04T10:00:00+00:00",
+  "date": "2023-06-04T10:00:00+00:00",
+  "assessor": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "problem": [
+    {
+      "reference": "Condition/{{Diagnosis_Primer}}"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Pemeriksaan Hematologi Rutin"
+      },
+      "item": [
+        {
+          "reference": "Observation/{{Observation_Lab_id_1}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Hemoglobin"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_2}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Hematokrit"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_3}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Leukosit"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_4}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Trombosit"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_5}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Eritrosit"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_6}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - MCV"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_7}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - MCH"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_8}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - MCHC"
+        },
+        {
+          "reference": "Observation/{{Observation_Lab_id_9}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - RDWCV"
+        }
+      ]
+    },
+    {
+      "code": {
+        "text": "Pemeriksaan Calcium Ion"
+      },
+      "item": [
+        {
+          "reference": "Observation/{{Observation_Lab_id_10}}",
+          "display": "Hasil Pemeriksaan Penunjang Laboratorium - Calcium Ion"
+        }
+      ]
+    },
+    {
+      "code": {
+        "text": "Pemeriksaan CT Scan Thyroid"
+      },
+      "item": [
+        {
+          "reference": "Observation/{{Observation_Rad_id}}",
+          "display": "Hasil Pemeriksaan Penunjang Radiologi"
+        }
+      ]
+    }
+  ],
+  "summary": "Prognosis Neoplasma Jinak pada Kelenjar Tiroid",
+  "finding": [
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "D34",
+            "display": "Benign neoplasm of thyroid gland"
+          }
+        ]
+      },
+      "itemReference": {
+        "reference": "Condition/{{Diagnosis_Primer}}"
+      }
+    },
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10",
+            "code": "E03.9",
+            "display": "Hypothyroidism, unspecified"
+          }
+        ]
+      },
+      "itemReference": {
+        "reference": "Condition/{{Diagnosis_Sekunder}}"
+      }
+    }
+  ],
+  "prognosisCodeableConcept": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "65872000",
+          "display": "Fair prognosis"
+        }
+      ]
+    }
+  ]
+}

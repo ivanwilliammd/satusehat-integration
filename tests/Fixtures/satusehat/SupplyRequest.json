@@ -1,0 +1,34 @@
+{
+  "resourceType": "SupplyRequest",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/supplyrequest/{{Org_id_Faskes}}",
+      "value": "DR0000001"
+    }
+  ],
+  "status": "active",
+  "itemReference": {
+    "reference": "Device/{{Device_id}}",
+    "display": "Nebulizer Portable"
+  },
+  "quantity": {
+    "value": 1,
+    "unit": "unit"
+  },
+  "authoredOn": "2025-01-10T09:30:00+00:00",
+  "requester": {
+    "reference": "Organization/{{Org_id_Faskes}}",
+    "display": "{{Organization_Name_Faskes}}"
+  },
+  "supplier": [
+    {
+      "reference": "Organization/{{Org_id_Supplier}}",
+      "display": "{{Organization_Name_Supplier}}"
+    }
+  ],
+  "reasonCode": [
+    {
+      "text": "Kebutuhan pasien Rawat Inap"
+    }
+  ]
+}

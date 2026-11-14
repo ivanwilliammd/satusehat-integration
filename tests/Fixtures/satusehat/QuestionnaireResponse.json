@@ -1,0 +1,402 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "questionnaire": "https://fhir.kemkes.go.id/Questionnaire/Q0027",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/{{Patient_MTBS_id}}",
+    "display": "{{Patient_MTBS_Name}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_MTBS_id}}"
+  },
+  "authored": "2023-02-14T01:19:00+00:00",
+  "author": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "source": {
+    "reference": "Patient/{{Patient_MTBS_id}}"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Pemeriksaan Tanda Bahaya Umum (Status Kegawatan) Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "1.1",
+          "text": "Apakah dilakukan pemeriksaan tanda bahaya umum (status kegawatan)?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "1.1.1",
+                  "text": "Hasil pemeriksaan tanda bahaya umum (status kegawatan)",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiStatusKegawatan}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Pemeriksaan Batuk dan/atau Sukar Bernapas Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "2.1",
+          "text": "Apakah dilakukan pemeriksaan batuk dan/atau sukar bernapas?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "2.1.1",
+                  "text": "Apakah anak menderita batuk dan/atau sukar bernapas?",
+                  "answer": [
+                    {
+                      "valueBoolean": true,
+                      "item": [
+                        {
+                          "linkId": "2.1.1.1",
+                          "text": "Hasil pemeriksaan batuk dan/atau sukar bernapas",
+                          "answer": [
+                            {
+                              "valueReference": {
+                                "reference": "Observation/{{Observation_KlasifikasiBatukSukarBernapas}}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "Pemeriksaan Diare Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "3.1",
+          "text": "Apakah dilakukan pemeriksaan diare?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "3.1.1",
+                  "text": "Apakah anak diare?",
+                  "answer": [
+                    {
+                      "valueBoolean": true,
+                      "item": [
+                        {
+                          "linkId": "3.1.1.1",
+                          "text": "Hasil pemeriksaan diare",
+                          "answer": [
+                            {
+                              "valueReference": {
+                                "reference": "Observation/{{Observation_KlasifikasiDiare}}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "text": "Pemeriksaan Demam dan Malaria Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "4.1",
+          "text": "Apakah dilakukan pemeriksaan demam?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "4.1.1",
+                  "text": "Apakah anak demam?",
+                  "answer": [
+                    {
+                      "valueBoolean": true,
+                      "item": [
+                        {
+                          "linkId": "4.1.1.1",
+                          "text": "Apakah dilakukan pemeriksaan malaria?",
+                          "answer": [
+                            {
+                              "valueBoolean": true
+                            }
+                          ]
+                        },
+                        {
+                          "linkId": "4.1.1.2",
+                          "text": "Hasil pemeriksaan demam dan malaria",
+                          "answer": [
+                            {
+                              "valueReference": {
+                                "reference": "Observation/{{Observation_DemamDanMalaria}}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "text": "Pmeriksaan Campak Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "5.1",
+          "text": "Apakah dilakukan pemeriksaan campak?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "5.1.1",
+                  "text": "Apakah anak campak saat ini?",
+                  "answer": [
+                    {
+                      "valueBoolean": true,
+                      "item": [
+                        {
+                          "linkId": "5.1.1.1",
+                          "text": "Hasil pemeriksaan campak",
+                          "answer": [
+                            {
+                              "valueReference": {
+                                "reference": "Observation/{{Observation_KlasifikasiCampak}}"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "text": "Pemeriksaan Infeksi Dengue Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "6.1",
+          "text": "Apakah dilakukan pemeriksaan infeksi dengue?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "6.1.1",
+                  "text": "Hasil pemeriksaan infeksi dengue",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiDengue}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "text": "Pemeriksaan Masalah Telinga Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "7.1",
+          "text": "Apakah dilakukan pemeriksaan masalah telinga?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "7.1.1",
+                  "text": "Hasil pemeriksaan masalah telinga",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiMasalahTelinga}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "text": "Pemeriksaan Status Gizi Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "8.1",
+          "text": "Apakah dilakukan pemeriksaan status gizi?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "8.1.1",
+                  "text": "Hasil pemeriksaan status gizi",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiStatusGizi}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "9",
+      "text": "Pemeriksaan Status Pertumbuhan Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "9.1",
+          "text": "Apakah dilakukan pemeriksaan status pertumbuhan?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "9.1.1",
+                  "text": "Apakah anak berumur < 2 tahun?",
+                  "answer": [
+                    {
+                      "valueBoolean": true
+                    }
+                  ]
+                },
+                {
+                  "linkId": "9.1.2",
+                  "text": "Hasil pemeriksaan status pertumbuhan",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_PemeriksaanStatusPertumbuhan}}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "linkId": "9.1.3",
+                  "text": "Hasil pemeriksaan lingkar kepala menurut umur",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_PemeriksaanLingkarKepala}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "10",
+      "text": "Pemeriksaan Anemia Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "10.1",
+          "text": "Apakah dilakukan pemeriksaan anemia?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "10.1.1",
+                  "text": "Hasil pemeriksaan anemia",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiAnemia}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "11",
+      "text": "Pemeriksaan HIV Usia 2 Bulan - 5 Tahun",
+      "item": [
+        {
+          "linkId": "11.1",
+          "text": "Apakah dilakukan pemeriksaan HIV?",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "11.1.1",
+                  "text": "Hasil pemeriksaan HIV",
+                  "answer": [
+                    {
+                      "valueReference": {
+                        "reference": "Observation/{{Observation_KlasifikasiHIV}}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

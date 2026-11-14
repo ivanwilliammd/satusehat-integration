@@ -1,0 +1,43 @@
+{
+  "resourceType": "FamilyMemberHistory",
+  "status": "completed",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "FAMMEMB",
+        "display": "family member"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "patient": {
+    "reference": "Patient/{{Patient_id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "date": "2023-06-04T05:06:00+00:00",
+  "condition": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "430679000",
+            "display": "Family history of diabetes mellitus type 2"
+          }
+        ]
+      },
+      "outcome": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "315051004",
+            "display": "Diabetes resolved"
+          }
+        ]
+      },
+      "contributedToDeath": false,
+      "onsetString": "Keluarga pasien yaitu Ibu pernah mengalami DM Tipe 2 namun sudah dinyatakan sembuh sejak 5 tahun yang lalu"
+    }
+  ]
+}

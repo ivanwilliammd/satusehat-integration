@@ -1,0 +1,65 @@
+{
+  "resourceType": "Coverage",
+  "identifier": [
+    {
+      "system": "https://sys-ids.kemkes.go.id/insurance-subscriber/{{Org_BPJS}}",
+      "value": "{{Coverage_No}}"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PUBLICPOL",
+        "display": "public healthcare"
+      }
+    ]
+  },
+  "subscriberId": "{{Coverage_No}}",
+  "beneficiary": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "payor": [
+    {
+      "reference": "Organization/{{Org_BPJS}}",
+      "display": "Asuransi BPJS"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "group",
+            "display": "Group"
+          }
+        ]
+      },
+      "value": "ppu-pegawai-swasta",
+      "name": "Pegawai Swasta"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "class",
+            "display": "Class"
+          }
+        ]
+      },
+      "value": "1",
+      "name": "Kelas 1"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://fhir.kemkes.go.id/r4/structureDefinition/primaryCareProvider",
+      "valueReference": {
+        "reference": "Organization/{{Org_id_primary}}"
+      }
+    }
+  ]
+}

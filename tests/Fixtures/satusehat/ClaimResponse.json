@@ -1,0 +1,156 @@
+{
+  "resourceType": "ClaimResponse",
+  "status": "active",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/claim-number/{{Org_AsuransiKedua}}",
+      "value": "{{Eligibility_Number_AKT}}"
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "institutional",
+        "display": "Institutional"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "created": "2023-06-11T06:01:09+00:00",
+  "insurer": {
+    "reference": "Organization/{{Org_AsuransiKedua}}"
+  },
+  "requestor": {
+    "reference": "Organization/{{Org_Faskes}}"
+  },
+  "request": {
+    "reference": "Claim/{{Claim_id_2}}"
+  },
+  "outcome": "complete",
+  "payeeType": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/payeetype",
+        "code": "provider",
+        "display": "Provider"
+      }
+    ]
+  },
+  "adjudication": [
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "309010003",
+            "display": "Report payment claim status"
+          }
+        ]
+      },
+      "reason": {
+        "coding": [
+          {
+            "system": "http://terminology.kemkes.go.id/CodeSystem/claimresponse-adjudication",
+            "code": "CRA000001",
+            "display": "Layak"
+          }
+        ],
+        "text": " Pengajuan klaim layak"
+      },
+      "amount": {
+        "value": 3000000,
+        "currency": "IDR"
+      },
+      "value": 1
+    }
+  ],
+  "item": [
+    {
+      "itemSequence": 1,
+      "adjudication": [
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "eligible",
+                "display": "Eligible Amount"
+              }
+            ]
+          },
+          "amount": {
+            "value": 3000000,
+            "currency": "IDR"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "copay",
+                "display": "CoPay"
+              }
+            ]
+          },
+          "amount": {
+            "value": 3000000,
+            "currency": "IDR"
+          }
+        }
+      ]
+    }
+  ],
+  "total": [
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+            "code": "submitted",
+            "display": "Submitted Amount"
+          }
+        ]
+      },
+      "amount": {
+        "value": 3000000,
+        "currency": "IDR"
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+            "code": "benefit",
+            "display": "Benefit Amount"
+          }
+        ]
+      },
+      "amount": {
+        "value": 3000000,
+        "currency": "IDR"
+      }
+    }
+  ],
+  "payment": {
+    "type": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ex-paymenttype",
+          "code": "complete",
+          "display": "Complete"
+        }
+      ]
+    },
+    "date": "2023-06-12",
+    "amount": {
+      "value": 3000000,
+      "currency": "IDR"
+    }
+  }
+}

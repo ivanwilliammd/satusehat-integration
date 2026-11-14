@@ -1,0 +1,77 @@
+{
+  "resourceType": "ChargeItem",
+  "status": "billable",
+  "code": {
+    "coding": [
+      {
+        "system": "http://terminology.kemkes.go.id/CodeSystem/kptl",
+        "code": "14141.TB022",
+        "display": "RetCam, Injeksi Intravena Kemoterapi"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "context": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "occurrencePeriod": {
+    "start": "2023-06-04T05:30:00+00:00",
+    "end": "2023-06-10T04:55:00+00:00"
+  },
+  "performer": [
+    {
+      "function": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "39677007",
+            "display": "Internal medicine specialist"
+          }
+        ]
+      },
+      "actor": {
+        "reference": "Practitioner/{{Practitioner_id}}"
+      }
+    },
+    {
+      "function": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "1290289004",
+            "display": "Fellow physician"
+          }
+        ]
+      },
+      "actor": {
+        "reference": "Practitioner/{{Practitioner_id}}"
+      }
+    }
+  ],
+  "quantity": {
+    "value": 2
+  },
+  "account": [
+    {
+      "reference": "Account/{{Account_id}}"
+    }
+  ],
+  "extension": [
+    {
+      "url": "https: //fhir.kemkes.go.id/r4/StructureDefinition/unitPrice",
+      "valueMoney": {
+        "value": 56000,
+        "currency": "IDR"
+      }
+    },
+    {
+      "url": "https: //fhir.kemkes.go.id/r4/StructureDefinition/totalPrice",
+      "valueMoney": {
+        "value": 112000,
+        "currency": "IDR"
+      }
+    }
+  ]
+}

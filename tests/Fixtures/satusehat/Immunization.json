@@ -1,0 +1,116 @@
+{
+  "resourceType": "Immunization",
+  "status": "completed",
+  "vaccineCode": {
+    "coding": [
+      {
+        "system": "http://sys-ids.kemkes.go.id/kfa",
+        "code": "93001282",
+        "display": "Vaksin DTP - HB - Hib 0,5 mL (PENTABIO, 1)"
+      },
+      {
+        "system": "http://sys-ids.kemkes.go.id/kfa",
+        "code": "VG17",
+        "display": "HIB"
+      },
+      {
+        "system": "http://sys-ids.kemkes.go.id/kfa",
+        "code": "VG45",
+        "display": "HepB"
+      },
+      {
+        "system": "http://sys-ids.kemkes.go.id/kfa",
+        "code": "VG107",
+        "display": "DTAP"
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/cvx",
+        "code": "198",
+        "display": "DTP-hepB-Hib Pentavalent Non-US"
+      }
+    ]
+  },
+  "patient": {
+    "reference": "Patient/{{Patient_Id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_uuid}}"
+  },
+  "occurrenceDateTime": "2023-07-07T00:30:00+00:00",
+  "recorded": "2023-07-07T00:30:00+00:00",
+  "reaction": [
+    {
+      "date": "2023-07-07T00:30:00+00:00",
+      "detail": {
+        "reference": "Observation/{{Observation_KIPI}}",
+        "display": "Common cold"
+      },
+      "reported": false
+    }
+  ],
+  "primarySource": true,
+  "location": {
+    "reference": "Location/{{Location_Id}}",
+    "display": "{{Location_Name}}"
+  },
+  "lotNumber": "202009007",
+  "expirationDate": "2025-07-01",
+  "route": {
+    "coding": [
+      {
+        "system": "http://www.whocc.no/atc",
+        "code": "inj.intramuscular",
+        "display": "Injection Intramuscular"
+      }
+    ]
+  },
+  "doseQuantity": {
+    "value": 1,
+    "unit": "mL",
+    "system": "http://unitsofmeasure.org",
+    "code": "ml"
+  },
+  "performer": [
+    {
+      "function": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+            "code": "AP",
+            "display": "Administering Provider"
+          }
+        ]
+      },
+      "actor": {
+        "reference": "Practitioner/{{Practitioner_Id}}"
+      }
+    },
+    {
+      "actor": {
+        "reference": "Organization/{{Org_id}}"
+      }
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.kemkes.go.id/CodeSystem/immunization-reason",
+          "code": "IM-Dasar",
+          "display": "Imunisasi Program Rutin Dasar"
+        },
+        {
+          "system": "http://terminology.kemkes.go.id/CodeSystem/immunization-routine-timing",
+          "code": "IM-Ideal",
+          "display": "Imunisasi Ideal"
+        }
+      ]
+    }
+  ],
+  "protocolApplied": [
+    {
+      "doseNumberPositiveInt": 1
+    }
+  ]
+}

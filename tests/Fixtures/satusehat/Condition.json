@@ -1,0 +1,80 @@
+{
+  "resourceType": "Condition",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://terminology.kemkes.go.id/CodeSystem/icd-o-topography",
+        "code": "C50.2",
+        "display": "Upper-inner quadrant of breast"
+      },
+      {
+        "system": "http://terminology.kemkes.go.id/CodeSystem/icd-o-morphology",
+        "code": "8520/3",
+        "display": "Lobular carcinoma, NOS"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "1240414004",
+        "display": "Malignant neoplasm"
+      }
+    ]
+  },
+  "stage": [
+    {
+      "summary": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "384812005",
+            "display": "Moderately differentiated"
+          }
+        ]
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "370114008",
+            "display": "Histological grades"
+          }
+        ]
+      }
+    }
+  ],
+  "subject": {
+    "reference": "Patient/{{Patient_Id}}",
+    "display": "{{Patient_Name}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter2_uuid}}"
+  },
+  "recordedDate": "2023-11-13T08:05:00+00:00"
+}

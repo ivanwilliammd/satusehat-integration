@@ -1,0 +1,31 @@
+{
+  "resourceType": "DeviceRequest",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/devicerequest/{{Org_id}}",
+      "value": "DR0000001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "priority": "routine",
+  "codeReference": {
+    "reference": "Device/{{Device_id}}",
+    "display": "Nebulizer Portable"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "authoredOn": "2025-08-27",
+  "requester": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "performer": {
+    "reference": "Organization/{{Org_id}}"
+  },
+  "reasonCode": [
+    {
+      "text": "Pasien mengalami keterbatasan mobilisasi"
+    }
+  ]
+}

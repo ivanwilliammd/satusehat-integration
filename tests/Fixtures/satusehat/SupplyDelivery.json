@@ -1,0 +1,42 @@
+{
+  "resourceType": "SupplyDelivery",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/supplydelivery/{{Org_id}}",
+      "value": "DR0000001"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "SupplyRequest/{{SupplyRequest_id}}"
+    }
+  ],
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "suppliedItem": {
+    "itemReference": {
+      "reference": "Device/{{Device_id}}",
+      "display": "{{Device_Name}}"
+    },
+    "quantity": {
+      "value": 1,
+      "unit": "unit"
+    }
+  },
+  "occurrenceDateTime": "2025-08-27T14:00:00+00:00",
+  "supplier": {
+    "reference": "Organization/{{Org_id_Supplier}}",
+    "display": "{{Organization_Name_Supplier}}"
+  },
+  "destination": {
+    "reference": "Location/{{Location_id}}"
+  },
+  "receiver": [
+    {
+      "reference": "Practitioner/{{Practitioner_id}}",
+      "display": "{{Practitioner_Name}}"
+    }
+  ]
+}

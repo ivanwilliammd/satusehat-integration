@@ -1,0 +1,42 @@
+{
+  "resourceType": "DeviceUseStatement",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/deviceusestatement/{{Org_id}}",
+      "value": "DUS-2025-0001"
+    }
+  ],
+  "status": "active",
+  "device": {
+    "reference": "Device/{{Device_id}}",
+    "display": "Nebulizer Portable"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "timingPeriod": {
+    "start": "2025-01-09T10:15:00+00:00",
+    "end": "2025-01-11T10:15:00+00:00"
+  },
+  "recordedOn": "2025-01-10T10:15:00+00:00",
+  "source": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "195967001",
+          "display": "Asthma"
+        }
+      ],
+      "text": "Terapi nebulisasi pada pasien asma"
+    }
+  ],
+  "note": [
+    {
+      "text": "Digunakan 2 kali sehari selama 7 hari."
+    }
+  ]
+}

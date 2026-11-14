@@ -1,0 +1,59 @@
+{
+  "resourceType": "ChargeItemResponse",
+  "id": "0000001",
+  "identifier": [
+    {
+      "system": "http://sys-ids.kemkes.go.id/chargeItemResponse/{{Org_Asuransi}}",
+      "value": "10000001"
+    }
+  ],
+  "status": {
+    "coding": [
+      {
+        "code": "CIR000001",
+        "display": "Dijamin",
+        "system": "http://terminology.kemkes.go.id/CodeSystem/chargeItemResponse-status"
+      }
+    ]
+  },
+  "chargeItem": {
+    "reference": "ChargeItem/{{ChargeItem_Paratiroidektomi}}"
+  },
+  "coverage": {
+    "reference": "Coverage/{{Coverage_id}}"
+  },
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_id}}"
+  },
+  "payor": {
+    "reference": "Organization/{{Org_Asuransi}}"
+  },
+  "quantity": {
+    "value": 1
+  },
+  "unitPriceOverride": {
+    "amount": {
+      "value": 12000000,
+      "currency": "IDR"
+    }
+  },
+  "factorOverride": 0.8,
+  "overrideReason": {
+    "text": "Biaya yang dicover 12000000 sesuai sisa benefit category, excess ditagihkan ke peserta"
+  },
+  "total": {
+    "amount": {
+      "value": 12000000,
+      "currency": "IDR"
+    }
+  },
+  "excess": {
+    "amount": {
+      "value": 3000000,
+      "currency": "IDR"
+    }
+  }
+}

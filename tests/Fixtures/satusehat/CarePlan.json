@@ -1,0 +1,121 @@
+{
+  "resourceType": "CarePlan",
+  "title": "Rencana Pengobatan Pasien TB",
+  "description": "Mencakup data paduan OAT, Bentuk OAT, dan Paduan Pengobatan pasien TB",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.kemkes.go.id/CodeSystem/careplan-category",
+          "code": "TB-SO",
+          "display": "Tuberkulosis Sensitif Obat"
+        }
+      ]
+    }
+  ],
+  "status": "active",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/{{Patient_id}}"
+  },
+  "encounter": {
+    "reference": "Encounter/{{Encounter_02}}"
+  },
+  "period": {
+    "start": "2023-07-14T00:00:12+00:00"
+  },
+  "created": "2023-07-14T00:00:12+00:00",
+  "author": {
+    "reference": "Practitioner/{{Practitioner_id}}"
+  },
+  "activity": [
+    {
+      "detail": {
+        "status": "not-started",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id",
+              "code": "TK000022",
+              "display": "Akan diobati/dirujuk"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "reference": "Organization/{{Org_id}}"
+          }
+        ]
+      }
+    },
+    {
+      "detail": {
+        "status": "not-started",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000006",
+              "display": "Paduan OAT"
+            }
+          ]
+        },
+        "productCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000007",
+              "display": "OAT Kategori 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "detail": {
+        "status": "not-started",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000004",
+              "display": "Bentuk OAT"
+            }
+          ]
+        },
+        "productCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000091",
+              "display": "KDT"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "detail": {
+        "status": "not-started",
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000005",
+              "display": "Paduan Pengobatan"
+            }
+          ]
+        },
+        "productCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.kemkes.go.id/CodeSystem/clinical-term",
+              "code": "CP000015",
+              "display": "2(HRZE)/4(HR)3"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
