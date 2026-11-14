@@ -27,7 +27,7 @@ class PayloadBuilderListResource extends Builder
     {
         $ident = ['system' => $system, 'value' => $value];
         if ($use !== null) $ident['use'] = $use;
-        $this->add('identifier', $ident);
+        $this->push('identifier', $ident);
         return $this;
     }
 

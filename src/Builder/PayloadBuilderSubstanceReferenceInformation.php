@@ -32,7 +32,7 @@ class PayloadBuilderSubstanceReferenceInformation extends Builder
                 'coding' => [['system' => 'http://terminology.hl7.org/CodeSystem/v2-0203', 'code' => $typeCode, 'display' => $typeDisplay ?? $typeCode]]
             ];
         }
-        $this->add('identifier', $ident);
+        $this->push('identifier', $ident);
         return $this;
     }
 
