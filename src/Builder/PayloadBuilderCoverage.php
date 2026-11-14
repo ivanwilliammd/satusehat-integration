@@ -118,9 +118,13 @@ class PayloadBuilderCoverage extends Builder
 
     public function setCostToBeneficiary(float $value, string $code = 'IDR'): self
     {
+        // FHIR R4: costToBeneficiary.value[x] adalah Money, jadi nilai dan mata uang harus berada
+        // di dalam valueMoney, bukan di tingkat elemen.
         $this->push('costToBeneficiary', [
-            'value' => $value,
-            'currency' => $code,
+            'valueMoney' => [
+                'value' => $value,
+                'currency' => $code,
+            ],
         ]);
         return $this;
     }

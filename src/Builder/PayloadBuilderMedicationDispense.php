@@ -102,9 +102,9 @@ class PayloadBuilderMedicationDispense extends Builder
         return $this;
     }
 
-    public function setWhenPrepared(string $dateTime): self { $this->set('whenPrepared', date('c', strtotime($dateTime))); return $this; }
+    public function setWhenPrepared(string $dateTime): self { $this->set('whenPrepared', (new \DateTimeImmutable($dateTime))->format(\DateTimeInterface::ATOM)); return $this; }
 
-    public function setWhenHandedOver(string $dateTime): self { $this->set('whenHandedOver', date('c', strtotime($dateTime))); return $this; }
+    public function setWhenHandedOver(string $dateTime): self { $this->set('whenHandedOver', (new \DateTimeImmutable($dateTime))->format(\DateTimeInterface::ATOM)); return $this; }
 
     public function addDosageInstruction(int $sequence, string $text, float $doseValue, string $doseUnit, string $routeCode, string $routeDisplay, string $timingCode, string $timingDisplay, string $additionalCode, string $additionalText): self
     {
