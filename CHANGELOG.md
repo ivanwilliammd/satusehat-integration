@@ -2,12 +2,44 @@
 
 ## Unreleased
 
+## v4.17.0 - 2026-11-16
+
+### Added
+
+- `contracts/php_method_surface.json` — daftar 1.405 method kanon di 141 `PayloadBuilder*.php`,
+  di-commit agar uji permukaan method di repo Node, Python, dan Go berjalan penuh di CI tanpa
+  checkout repo PHP (privat) maupun token. Dihasilkan `scripts/perbarui_kontrak.py` di repo Python.
+- Kasus kontrak lintas-SDK `golden/builder/Patient.input.json` kini memakai datatype bertipe
+  (`Identifier`, `HumanName`, `CodeableConcept`+`Coding`, `Address`, `ContactPoint`), dieksekusi
+  PHP, Python, Node, dan Go dengan hasil identik.
+
+### Fixed
+
+- `DataType\Identifier` pada port Go hanya memuat `system`+`value`; `use`, `type`, `period`, dan
+  `assigner` hilang tanpa galat, sehingga identitas resmi (NIK `use: official`) tidak bisa
+  dibedakan. Ditemukan oleh kasus kontrak bertipe, bukan oleh uji yang sudah ada.
+- `PayloadBuilderImmunization::addProtocolApplied()` — uji lama masih menuntut
+  `seriesDosesPositiveInt` muncul hanya karena `series` diberikan; itu perilaku yang sudah
+  dibetulkan (R4 memisahkan keduanya). Uji diselaraskan dan ditambah kasus argumen ketiga.
+- `FacadeParityTest` gagal di mesin tanpa `.env` karena facade membangun `OAuth2Client` di
+  konstruktornya. Uji kini memakai kredensial palsu di `setUp` (tidak pernah memanggil jaringan),
+  sehingga suite PHP berjalan 1077 tes tanpa variabel lingkungan apa pun.
+
+### Changed (CI)
+
+- Repo Node: langkah uji `npm test -- --run || echo "No test files found"` menelan kegagalan
+  vitest — CI hijau meski satu berkas uji merah. Diganti `npx vitest run`.
+- Repo Go: tidak ada CI sama sekali; ditambah `go vet ./...` + `go test ./...`.
+- Repo Python: delapan builder memakai `Any`/`Optional`/`Dict` di anotasi tanpa impor — meledak
+  sebagai `NameError` di Python 3.10/3.11 (PEP 649 menundanya di 3.14), menjatuhkan seluruh suite
+  lewat `src/builder/__init__.py`. Tiga golden pula tidak pernah ter-commit.
+
 ## v4.16.0 - 2026-11-09
 
 ### Added
 
 - Full cross-language SDK parity (4.16.0) across PHP, Node.js/TypeScript, Python, and Go (OAuth2Client, SSRequest, SSResponse, BundleResponse, SSValidationError with 558 rules + 14 response types, 18 FHIR resource Parser classes, and full 8-module durable SqliteQueue + Worker).
-- Updated scripts/parity-manifest.sh, SYNC_MANIFEST.json, and docs/PRD-SDK-ECOSYSTEM.md to measure http_send, esponse_validation, hir_parser, and parser_files across all 4 repositories.
+- Updated scripts/parity-manifest.sh, SYNC_MANIFEST.json, and docs/PRD-SDK-ECOSYSTEM.md to measure http_send, response_validation, fhir_parser, and parser_files across all 4 repositories.
 
 ### Changed (batas versi)
 
