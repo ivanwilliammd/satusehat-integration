@@ -100,6 +100,48 @@ json() {
   printf '  "notes": "Semua angka diukur find/grep pada checkout masing-masing. absent/partial bukan penilaian kualitas. Lihat docs/PARITY.md."\n'
   printf '}\n'
 }
+# Blok tabel untuk docs/PARITY.md. Ditulis di antara dua penanda supaya angka di
+# dokumentasi tidak pernah disunting tangan: dokumen yang memuat angka hasil ukur
+# akan basi pada commit berikutnya, dan yang basi lebih buruk daripada tidak ada.
+block() {
+  printf '<!-- parity:begin (dihasilkan scripts/parity-manifest.sh --docs, jangan disunting) -->\n'
+  printf 'Diukur: %s · commit PHP `%s`\n\n' "$(date +%Y-%m-%d)" "$sha"
+  printf '| bagian | PHP | Node | Python | Go | Rust |\n'
+  printf '|---|---|---|---|---|---|\n'
+  printf '| payload builder | %s | %s | %s | %s | %s |\n' "$c_php" "$c_nd" "$c_py" "$c_go" "$c_rs"
+  printf '| datatype | %s | %s | %s | %s | %s |\n' "$d_php" "$d_nd" "$d_py" "$d_go" "$d_rs"
+  printf '| terminology files | %s | %s | %s | %s | %s |\n' "$t_php" "$t_nd" "$t_py" "$t_go" "$t_rs"
+  printf '| queue files | %s | %s | %s | %s | %s |\n' "$q_php" "$q_nd" "$q_py" "$q_go" "$q_rs"
+  printf '| parser files | %s | %s | %s | %s | %s |\n' "$p_php" "$p_nd" "$p_py" "$p_go" "$p_rs"
+  printf '| test files | %s | %s | %s | %s | %s |\n' "$x_php" "$x_nd" "$x_py" "$x_go" "$x_rs"
+  printf '| metode builder tidak diekspor (Go) | — | — | — | %s dari %s | — |\n' "$((go_total-go_exported))" "$go_total"
+  printf '<!-- parity:end -->\n'
+}
+
+patch_docs() {
+  local f="$1" tmp
+  tmp=$(mktemp)
+  block > "$tmp"
+  python3 - "$f" "$tmp" <<'PY'
+import re, sys
+path, blok = sys.argv[1], open(sys.argv[2]).read().rstrip()
+teks = open(path).read()
+baru, n = re.subn(r"<!-- parity:begin.*?<!-- parity:end -->", blok, teks, flags=re.S)
+if n == 0:
+    sys.exit("penanda parity:begin/end tidak ada di " + path)
+open(path, "w").write(baru)
+PY
+  rm -f "$tmp"
+  echo "ditulis: $f"
+}
+
+if [ "${1:-}" = "--docs" ]; then
+  for f in "$PHP_R/docs/PARITY.md" "$ND_R/docs/PARITY.md" "$PY_R/docs/PARITY.md" "$RS_R/docs/PARITY.md"; do
+    patch_docs "$f"
+  done
+  exit 0
+fi
+
 if [ "${1:-}" = "--write" ]; then
   for target in "$PHP_R/SYNC_MANIFEST.json" "$ND_R/SYNC_MANIFEST.json" "$PY_R/SYNC_MANIFEST.json" "$GO_R/SYNC_MANIFEST.json" "$RS_R/SYNC_MANIFEST.json"; do
     json > "$target" && echo "ditulis: $target"

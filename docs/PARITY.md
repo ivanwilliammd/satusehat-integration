@@ -8,22 +8,34 @@ Diukur: 2026-11-15 · commit PHP `67c91fd`
 
 ## 1. Jumlah artefak
 
+Tabel di bawah **dihasilkan** oleh `scripts/parity-manifest.sh --docs` dari hitungan `find`/`grep` pada
+tiap checkout. Jangan menyunting angkanya: sunting skripnya, lalu jalankan ulang. Angka hasil ukur yang
+disalin tangan akan basi pada commit berikutnya, dan dokumen yang basi lebih buruk daripada tidak ada.
+
+<!-- parity:begin (dihasilkan scripts/parity-manifest.sh --docs, jangan disunting) -->
+Diukur: 2026-11-15 · commit PHP `8ec3e1a`
+
 | bagian | PHP | Node | Python | Go | Rust |
 |---|---|---|---|---|---|
-| payload builder | 141 | 144 | 141 | 141 | 5 |
+| payload builder | 141 | 144 | 141 | 141 | 6 |
 | datatype | 33 | 33 | 33 | 33 | 12 |
 | terminology files | 21 | 21 | 21 | 21 | 1 |
 | queue files | 8 | 8 | 8 | 8 | 1 |
 | parser files | 55 | 55 | 55 | 142 | 0 |
-| test files | 231 | 196 | 183 | 246 | 48 |
+| test files | 231 | 196 | 183 | 246 | 53 |
+| metode builder tidak diekspor (Go) | — | — | — | 62 dari 1788 | — |
+<!-- parity:end -->
 
-Empat SDK (PHP · Node · Python · Go) **sama jumlahnya** pada builder dan queue: 141 dan 8.
-Node menghitung 144 kelas builder karena tiga alias kelas (nama kanon ditambah nama lama); Python dan Go
-141. Parser sama-sama 55 berkas, sedangkan Go menghitung 142 karena satu berkas pembantu ikut terhitung
-pola `*_parser.go`. Rust: 5 builder, tanpa parser.
+Selisih yang perlu dijelaskan, dan yang tidak akan hilang dengan sendirinya:
 
-Jumlah berkas uji bukan ukuran cakupan — PHP 231, Go 246 — karena satu berkas bisa memuat satu uji atau
-seratus.
+- **Node menghitung lebih banyak kelas builder daripada PHP.** Tiga alias kelas ikut terhitung — nama
+  kanon ditambah nama lama yang dipertahankan supaya pemanggil lama tidak pecah.
+- **Parser Go menghitung satu berkas lebih banyak** karena satu berkas pembantu cocok dengan pola
+  `*_parser.go`. Berkas parser per resource sama banyaknya dengan PHP.
+- **Rust tidak mengejar jumlah builder.** Desainnya struct input bertipe per resource klinis, jadi
+  cakupannya diukur dari resource yang dipakai, bukan dari jumlah modul.
+- **Jumlah berkas uji bukan ukuran cakupan.** Satu berkas bisa memuat satu uji atau seratus; yang menentukan
+  adalah apakah kedua implementasi pernah dijalankan pada input yang sama.
 
 ## 2. Kemampuan
 
@@ -39,11 +51,7 @@ seratus.
 
 ## 3. Cacat terukur
 
-```
-go: 62 dari 1788 metode builder berhuruf kecil; 1726 dapat dipanggil dari luar paket
-```
-
-Enam puluh dua metode itu bukan setter resource: 28 `set`, 28 `push`, 2 `fail`, dan empat pembantu lain
+Angkanya ada di tabel bagian 1, baris terakhir. Metode berhuruf kecil itu bukan setter resource: 28 `set`, 28 `push`, 2 `fail`, dan empat pembantu lain
 (`ref`, `autoPrefix`, `setCodeable`, `dispenseRequest`). Semuanya dipakai di dalam paket; tidak ada satu pun
 setter resource yang tersembunyi. Pada 2026-11-14 keadaan yang tercatat di halaman ini berbeda: saat itu angka
 "629 dari 976" dan klaim bahwa `PatientBuilder` tidak mengekspor `SetId`/`AddIdentifier`. Keduanya sudah
