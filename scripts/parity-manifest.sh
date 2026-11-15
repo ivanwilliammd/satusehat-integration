@@ -101,7 +101,7 @@ json() {
   printf '}\n'
 }
 if [ "${1:-}" = "--write" ]; then
-  for target in "$PHP_R/SYNC_MANIFEST.json" "$ND_R/SYNC_MANIFEST.json" "$PY_R/SYNC_MANIFEST.json" "$GO_R/SYNC_MANIFEST.json"; do
+  for target in "$PHP_R/SYNC_MANIFEST.json" "$ND_R/SYNC_MANIFEST.json" "$PY_R/SYNC_MANIFEST.json" "$GO_R/SYNC_MANIFEST.json" "$RS_R/SYNC_MANIFEST.json"; do
     json > "$target" && echo "ditulis: $target"
   done
 else

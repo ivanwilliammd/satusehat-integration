@@ -4,22 +4,26 @@ Halaman ini **identik di lima wiki**: `satusehat-integration` (PHP), `-node`, `-
 `-rust`. Semua angka **diukur** oleh `scripts/parity-manifest.sh` (di repo PHP) ke
 `SYNC_MANIFEST.json` schema 3 — bukan dari ingatan.
 
-Diukur: 2026-11-14 · commit PHP `e4c3667`
+Diukur: 2026-11-15 · commit PHP `67c91fd`
 
 ## 1. Jumlah artefak
 
 | bagian | PHP | Node | Python | Go | Rust |
 |---|---|---|---|---|---|
-| payload builder | 141 | 141 | 141 | 141 | 4 |
-| datatype | 32 | 31 | 33 | 33 | 12 |
-| terminology files | 22 | 20 | 27 | 17 | 1 |
+| payload builder | 141 | 144 | 141 | 141 | 5 |
+| datatype | 33 | 33 | 33 | 33 | 12 |
+| terminology files | 21 | 21 | 21 | 21 | 1 |
 | queue files | 8 | 8 | 8 | 8 | 1 |
-| parser files | 18 | 18 | 18 | 18 | 0 |
-| test files | 53 | 8 | 9 | 7 | 38 |
+| parser files | 55 | 55 | 55 | 142 | 0 |
+| test files | 231 | 196 | 183 | 246 | 48 |
 
-Empat SDK (PHP · Node · Python · Go) **sama jumlahnya** pada builder, queue, dan parser:
-141 · 8 · 18. Perbedaan yang tersisa: datatype (31–33), terminologi (17–27), dan jumlah berkas uji
-(8–9 vs 53 di PHP) — jumlah uji bukan ukuran cakupan.
+Empat SDK (PHP · Node · Python · Go) **sama jumlahnya** pada builder dan queue: 141 dan 8.
+Node menghitung 144 kelas builder karena tiga alias kelas (nama kanon ditambah nama lama); Python dan Go
+141. Parser sama-sama 55 berkas, sedangkan Go menghitung 142 karena satu berkas pembantu ikut terhitung
+pola `*_parser.go`. Rust: 5 builder, tanpa parser.
+
+Jumlah berkas uji bukan ukuran cakupan — PHP 231, Go 246 — karena satu berkas bisa memuat satu uji atau
+seratus.
 
 ## 2. Kemampuan
 
@@ -36,13 +40,16 @@ Empat SDK (PHP · Node · Python · Go) **sama jumlahnya** pada builder, queue, 
 ## 3. Cacat terukur
 
 ```
-go: metode builder tidak diekspor — 629 dari 976 metode berhuruf kecil
-        dampak: 347 metode dapat dipanggil dari luar paket
+go: 62 dari 1788 metode builder berhuruf kecil; 1726 dapat dipanggil dari luar paket
 ```
-`PatientBuilder` di Go punya `setId`, `addIdentifier`, `setStatus`, `setSubject` — semuanya huruf
-kecil, jadi **tidak diekspor**. Perbaikan menyentuh ratusan metode dan harus disertai
-`go build ./...` yang sehat; toolchain Go di VPS build saat ini rusak (`/usr/lib/golang` tanpa
-`src`), jadi perbaikan belum dikerjakan.
+
+Enam puluh dua metode itu bukan setter resource: 28 `set`, 28 `push`, 2 `fail`, dan empat pembantu lain
+(`ref`, `autoPrefix`, `setCodeable`, `dispenseRequest`). Semuanya dipakai di dalam paket; tidak ada satu pun
+setter resource yang tersembunyi. Pada 2026-11-14 keadaan yang tercatat di halaman ini berbeda: saat itu angka
+"629 dari 976" dan klaim bahwa `PatientBuilder` tidak mengekspor `SetId`/`AddIdentifier`. Keduanya sudah
+tidak berlaku — seluruh setter resource sekarang berhuruf besar dan `go build ./...` bersih di VPS ini.
+
+Nol cacat terbuka yang terukur sampai 2026-11-15.
 
 ## 4. Konvensi penamaan
 
@@ -110,7 +117,8 @@ done | awk '{print $1}' | sort -u | wc -l     # harus 1
 
 ## 7. Pekerjaan berikut
 
-1. **Go: ekspor 629 metode builder** — penghalang pemakaian nyata; butuh toolchain sehat.
-2. **Node/Python/Go: berkas uji** — 8–9 vs 53 di PHP; cakupan perilaku belum terukur.
-3. **Rust: 4 → 141 builder, tambah parser** — jalur panjang, dikerjakan bertahap oleh nightly worker.
-4. **Samakan cara menghitung aturan validasi** di kelima bahasa.
+1. **Rust: builder 5 dari permukaan typed, parser nol.** Rust tidak mengejar angka 141: desainnya struct
+   input bertipe, jadi cakupan diukur dari resource klinis yang dipakai, bukan dari jumlah modul.
+2. **Wiki `Parity` di lima repo harus identik kata per kata**, dan halaman ini baru saja diubah — wiki
+   belum disinkronkan.
+3. **Samakan cara menghitung aturan validasi** di kelima bahasa; sekarang hanya PHP yang menghitungnya.
