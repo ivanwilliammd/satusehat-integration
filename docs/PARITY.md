@@ -13,7 +13,7 @@ tiap checkout. Jangan menyunting angkanya: sunting skripnya, lalu jalankan ulang
 disalin tangan akan basi pada commit berikutnya, dan dokumen yang basi lebih buruk daripada tidak ada.
 
 <!-- parity:begin (dihasilkan scripts/parity-manifest.sh --docs, jangan disunting) -->
-Diukur: 2026-11-15 · commit PHP `28f6980`
+Diukur: 2026-11-15 · commit PHP `b0402f7`
 
 | bagian | PHP | Node | Python | Go | Rust |
 |---|---|---|---|---|---|
@@ -44,7 +44,7 @@ Selisih yang perlu dijelaskan, dan yang tidak akan hilang dengan sendirinya:
 | payload builder | present | present | present | present | partial |
 | http send | present | present | present | present | present |
 | response validation | present | present | present | present | present |
-| fhir parser | present | present | present | present | absent |
+| fhir parser | present | present | present | present | present |
 | terminology client | present | present | present | present | present |
 
 `partial` = ada sebagian. `absent` = tidak ada. Dinilai dari keberadaan berkas, bukan uji perilaku.
@@ -69,7 +69,7 @@ Nol cacat terbuka yang terukur sampai 2026-11-15.
 | hasil | `->build()` | `.build()` | `.build()` | `.Build()` | `Builder::patient(&input)` |
 | validasi | `validate()` | `validate()` | `validate()` | `Validate()` | `validate(&value)` |
 | kirim | `SSRequest` | `SSRequest` | `SSRequest` | `SSRequest` | `submit_bundle()` / CLI `push` |
-| parser | `PatientParser` | `PatientParser` | `PatientParser` | `PatientParser` | belum |
+| parser | `PatientParser` | `PatientParser` | `PatientParser` | `PatientParser` | `parser::patient()` |
 
 Dua ketidakseragaman yang **sengaja dibiarkan**:
 
