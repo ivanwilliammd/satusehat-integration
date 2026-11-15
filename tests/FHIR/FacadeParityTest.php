@@ -38,6 +38,27 @@ class FacadeParityTest extends TestCase
 {
     private const DOC = __DIR__.'/../../docs/FACADE_PARITY.md';
 
+    /**
+     * Facade membangun OAuth2Client di konstruktornya, dan konstruktor itu menolak jalan tanpa
+     * kredensial. Uji ini tidak pernah memanggil jaringan — ia hanya membandingkan payload —
+     * jadi kredensial palsu sudah cukup dan membuat suite tidak bergantung pada .env mesin.
+     */
+    protected function setUp(): void
+    {
+        $default = [
+            'SATUSEHAT_ENV' => 'DEV',
+            'CLIENTID_DEV' => 'uji-paritas',
+            'CLIENTSECRET_DEV' => 'uji-paritas',
+            'ORGID_DEV' => '1000000001',
+        ];
+        foreach ($default as $kunci => $nilai) {
+            if (getenv($kunci) === false || getenv($kunci) === '') {
+                putenv("$kunci=$nilai");
+                $_ENV[$kunci] = $nilai;
+            }
+        }
+    }
+
     /** Bandingkan payload facade (string JSON) dengan payload builder (array). */
     private function assertParitySame(string $label, array $facade, array $builder): void
     {

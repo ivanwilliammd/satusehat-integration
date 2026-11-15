@@ -188,7 +188,17 @@ class ImmunizationTest extends TestCase
         $series = new CodeableConcept();
         $series->addCoding(new Coding(null, '1 of 3', 'Dose 1 of 3'));
         $result = $builder->addProtocolApplied(1, $series)->build();
-        $this->assertArrayHasKey('seriesDosesPositiveInt', $result['protocolApplied'][0]);
+        // R4: series adalah CodeableConcept; seriesDoses[x] berdiri sendiri dan TIDAK boleh
+        // dikarang dari kehadiran series (perilaku lama menulis 1 tanpa diminta).
+        $this->assertSame('1 of 3', $result['protocolApplied'][0]['series']['coding'][0]['code']);
+        $this->assertArrayNotHasKey('seriesDosesPositiveInt', $result['protocolApplied'][0]);
+    }
+
+    public function test_add_protocol_applied_with_series_doses(): void
+    {
+        $builder = new PayloadBuilderImmunization;
+        $result = $builder->addProtocolApplied(1, null, 3)->build();
+        $this->assertSame(3, $result['protocolApplied'][0]['seriesDosesPositiveInt']);
     }
 
     public function test_add_reason_code()
