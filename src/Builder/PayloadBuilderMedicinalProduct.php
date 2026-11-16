@@ -52,11 +52,19 @@ class PayloadBuilderMedicinalProduct extends Builder
         return $this;
     }
 
+    /**
+     * Produsen produk obat.
+     *
+     * R4 tidak punya `MedicinalProduct.manufacturer` di tingkat atas; tempatnya di
+     * `manufacturingBusinessOperation[].manufacturer`. Builder ini menulis ke sana dan membuat
+     * entri pertama bila belum ada.
+     */
     public function setManufacturer(string $reference, ?string $display = null): self
     {
         $ref = ['reference' => $reference];
         if ($display !== null) $ref['display'] = $display;
-        $this->set('manufacturer', $ref);
+        $this->data['manufacturingBusinessOperation'] = $this->data['manufacturingBusinessOperation'] ?? [[]];
+        $this->data['manufacturingBusinessOperation'][0]['manufacturer'] = $ref;
         return $this;
     }
 

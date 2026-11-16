@@ -211,6 +211,15 @@ class PayloadBuilderClaimResponse extends Builder
         return $this;
     }
 
+    /**
+     * Menambahkan cakupan pada respons klaim.
+     *
+     * R4 menempatkan rujukan cakupan di `ClaimResponse.insurance[].coverage`, bukan
+     * `ClaimResponse.coverage`.
+     *
+     * @deprecated parameter $prioritySystem/$priorityCode tidak ditulis: R4 tidak punya
+     *             `insurance.priority`, jadi nilainya dibuang alih-alih menjadi elemen asing.
+     */
     public function addCoverage(
         int $sequence,
         string $reference,
@@ -218,16 +227,14 @@ class PayloadBuilderClaimResponse extends Builder
         ?string $prioritySystem = null,
         ?string $priorityCode = null
     ): self {
-        $coverage = ['sequence' => $sequence, 'reference' => $reference];
+        $insurance = [
+            'sequence' => $sequence,
+            'coverage' => ['reference' => $reference],
+        ];
         if ($focal !== null) {
-            $coverage['focal'] = (bool) $focal;
+            $insurance['focal'] = (bool) $focal;
         }
-        if ($prioritySystem && $priorityCode) {
-            $coverage['priority'] = [
-                'coding' => [['system' => $prioritySystem, 'code' => $priorityCode]],
-            ];
-        }
-        $this->push('coverage', $coverage);
+        $this->push('insurance', $insurance);
         return $this;
     }
 

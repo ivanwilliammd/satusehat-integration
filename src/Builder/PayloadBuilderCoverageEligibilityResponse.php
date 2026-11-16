@@ -90,13 +90,15 @@ class PayloadBuilderCoverageEligibilityResponse extends Builder
         return $this;
     }
 
+    /**
+     * Menambahkan cakupan pada respons kelayakan.
+     *
+     * R4: `CoverageEligibilityResponse.insurance[]` dengan `coverage`. `preAuthRef` tidak ada di
+     * resource ini (milik `Claim.insurance`), jadi tidak ditulis.
+     */
     public function addCoverage(string $reference, string $preAuthRef = ''): self
     {
-        $coverage = ['reference' => $reference];
-        if ($preAuthRef) {
-            $coverage['preAuthRef'] = [$preAuthRef];
-        }
-        $this->push('coverage', $coverage);
+        $this->push('insurance', ['coverage' => ['reference' => $reference]]);
         return $this;
     }
 

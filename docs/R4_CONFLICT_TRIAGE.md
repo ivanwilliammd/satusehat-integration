@@ -5,9 +5,9 @@ Elemen pilihan (`start[x]`, `deceased[x]`) sudah diperluas ke nama konkretnya, s
 `deceasedBoolean` tidak lagi dilaporkan sebagai pelanggaran.
 
 - builder: **141**
-- bersih terhadap R4: **46**
-- kategori A (kebocoran setter generik): **68**
-- kategori B (elemen khas resource): **20**
+- bersih terhadap R4: **48**
+- kategori A (kebocoran setter generik): **69**
+- kategori B (elemen khas resource): **17**
 - kategori C (resource tidak ada di R4): **7**
 
 ## Kategori C — resource di luar R4
@@ -85,6 +85,7 @@ lain, jadi yang salah adalah PEMAKAIANNYA di builder ini, bukan setter-nya.
 | `PayloadBuilderSchedule` | `code`, `encounter`, `status`, `subject` |
 | `PayloadBuilderSearchParameter` | `encounter`, `identifier`, `subject` |
 | `PayloadBuilderSlot` | `code`, `encounter`, `subject` |
+| `PayloadBuilderSpecimenDefinition` | `status` |
 | `PayloadBuilderSubscription` | `code`, `encounter`, `identifier`, `subject` |
 | `PayloadBuilderSubstanceNucleicAcid` | `code`, `encounter`, `identifier`, `status`, `subject` |
 | `PayloadBuilderSubstancePolymer` | `code`, `encounter`, `identifier`, `status`, `subject` |
@@ -111,22 +112,19 @@ kompatibilitas. Setiap baris harus diputuskan sendiri, dan keputusannya dicatat 
 | `PayloadBuilderCatalogEntry` | `reference` | belum diputuskan |
 | `PayloadBuilderChargeItem` | `focus`, `performedDateTime` | belum diputuskan |
 | `PayloadBuilderChargeItemDefinition` | `applies`, `name`, `property` | belum diputuskan |
-| `PayloadBuilderClaim` | `coverage`, `prescriber`, `priorityPayor` | belum diputuskan |
-| `PayloadBuilderClaimResponse` | `coverage` | belum diputuskan |
+| `PayloadBuilderClaim` | `prescriber`, `priorityPayor` | belum diputuskan |
 | `PayloadBuilderClinicalImpression` | `previousOpinion` | belum diputuskan |
-| `PayloadBuilderCoverageEligibilityRequest` | `coverage` | belum diputuskan |
-| `PayloadBuilderCoverageEligibilityResponse` | `coverage`, `requestProvider` | belum diputuskan |
+| `PayloadBuilderCoverageEligibilityResponse` | `requestProvider` | belum diputuskan |
 | `PayloadBuilderFamilyMemberHistory` | `ageUnit`, `deceasedAgeUnit`, `deceasedCodeableConcept` | belum diputuskan |
 | `PayloadBuilderGoal` | `startAge`, `startDateTime`, `startPeriod` | belum diputuskan |
 | `PayloadBuilderImagingStudy` | `ended`, `partOf` | belum diputuskan |
-| `PayloadBuilderMedicinalProduct` | `manufacturer`, `productClass` | belum diputuskan |
+| `PayloadBuilderMedicinalProduct` | `productClass` | belum diputuskan |
 | `PayloadBuilderMedicinalProductIndication` | `disease` | belum diputuskan |
 | `PayloadBuilderMedicinalProductIngredient` | `quantity` | belum diputuskan |
 | `PayloadBuilderMedicinalProductPharmaceutical` | `doseForm`, `route` | belum diputuskan |
 | `PayloadBuilderNutritionOrder` | `allergyType` | belum diputuskan |
 | `PayloadBuilderPaymentNotice` | `insurer`, `paymentReconciliation`, `statusDate` | belum diputuskan |
 | `PayloadBuilderPaymentReconciliation` | `insurer`, `outcomeCode`, `requestMatchDate`, `requestProvider`, `type` | belum diputuskan |
-| `PayloadBuilderSpecimenDefinition` | `preparation`, `type` | belum diputuskan |
 
 ## Catatan
 

@@ -98,13 +98,19 @@ class PayloadBuilderCoverageEligibilityRequest extends Builder
         return $this;
     }
 
+    /**
+     * Menambahkan cakupan yang diperiksa.
+     *
+     * R4: `CoverageEligibilityRequest.insurance[]` dengan `focal` (wajib) dan `coverage` (wajib).
+     * `preAuthRef` tidak ada di resource ini — ia milik `Claim.insurance`, jadi tidak ditulis.
+     */
     public function addCoverage(string $reference, string $preAuthRef = ''): self
     {
-        $coverage = ['reference' => $reference];
-        if ($preAuthRef) {
-            $coverage['preAuthRef'] = [$preAuthRef];
-        }
-        $this->push('coverage', $coverage);
+        $insurance = [
+            'focal' => ! isset($this->data['insurance']) || $this->data['insurance'] === [],
+            'coverage' => ['reference' => $reference],
+        ];
+        $this->push('insurance', $insurance);
         return $this;
     }
 

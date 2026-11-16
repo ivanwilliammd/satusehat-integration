@@ -154,22 +154,31 @@ class PayloadBuilderClaim extends Builder
         return $this;
     }
 
+    /**
+     * Menambahkan cakupan asuransi pada klaim.
+     *
+     * R4 menempatkan rujukan cakupan di `Claim.insurance[].coverage`, bukan `Claim.coverage`.
+     * Menulis di tingkat atas menghasilkan elemen yang tidak ada di resource ini, sehingga
+     * payload ditolak server — bukan sekadar diabaikan.
+     *
+     * @deprecated parameter $prioritySystem/$priorityCode tidak diabaikan diam-diam: R4 tidak
+     *             punya `insurance.priority` maupun `coverage.priority`, jadi keduanya tidak
+     *             ditulis sama sekali. Hapus dari pemanggilan.
+     */
     public function addCoverage(
         string $reference,
         ?bool $focal = null,
         ?string $prioritySystem = null,
         ?string $priorityCode = null
     ): self {
-        $coverage = ['reference' => $reference];
+        $insurance = [
+            'sequence' => count($this->data['insurance'] ?? []) + 1,
+            'coverage' => ['reference' => $reference],
+        ];
         if ($focal !== null) {
-            $coverage['focal'] = (bool) $focal;
+            $insurance['focal'] = (bool) $focal;
         }
-        if ($prioritySystem && $priorityCode) {
-            $coverage['priority'] = [
-                'coding' => [['system' => $prioritySystem, 'code' => $priorityCode]],
-            ];
-        }
-        $this->push('coverage', $coverage);
+        $this->push('insurance', $insurance);
         return $this;
     }
 

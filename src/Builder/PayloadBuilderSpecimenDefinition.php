@@ -46,11 +46,18 @@ class PayloadBuilderSpecimenDefinition extends Builder
         return $this;
     }
 
+    /**
+     * Jenis spesimen yang diharapkan.
+     *
+     * R4 tidak punya `SpecimenDefinition.type` di tingkat atas: jenis ini melekat pada
+     * `typeTested[].type`. Builder ini menulis ke sana, membuat `typeTested[0]` bila belum ada.
+     */
     public function setType(string $system, string $code, string $display = ''): self
     {
-        $this->set('type', [
+        $this->data['typeTested'] = $this->data['typeTested'] ?? [[]];
+        $this->data['typeTested'][0]['type'] = [
             'coding' => [['system' => $system, 'code' => $code, 'display' => $display]],
-        ]);
+        ];
         return $this;
     }
 
@@ -60,11 +67,17 @@ class PayloadBuilderSpecimenDefinition extends Builder
         return $this;
     }
 
+    /**
+     * Cara penyiapan spesimen.
+     *
+     * R4 menempatkannya di `typeTested[].container.preparation`, bukan di tingkat atas.
+     */
     public function setPreparation(string $system, string $code, string $display = ''): self
     {
-        $this->set('preparation', [
+        $this->data['typeTested'] = $this->data['typeTested'] ?? [[]];
+        $this->data['typeTested'][0]['container']['preparation'] = [
             'coding' => [['system' => $system, 'code' => $code, 'display' => $display]],
-        ]);
+        ];
         return $this;
     }
 }
