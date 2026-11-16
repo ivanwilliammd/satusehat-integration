@@ -1,0 +1,28 @@
+{
+ "_sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/encounter",
+ "_diambil": "2026-11-16",
+ "_catatan": "Aturan wajib yang dinyatakan dokumentasi SATUSEHAT, bukan preferensi lokal. Setiap aturan menyebut sumbernya.",
+ "Encounter": [
+  {
+   "elemen": "class",
+   "aturan": "harus Coding dengan system http://terminology.hl7.org/CodeSystem/v3-ActCode",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/encounter"
+  },
+  {
+   "elemen": "status",
+   "aturan": "harus salah satu kode EncounterStatus",
+   "kode": [
+    "planned",
+    "arrived",
+    "triaged",
+    "in-progress",
+    "onleave",
+    "finished",
+    "cancelled",
+    "entered-in-error",
+    "unknown"
+   ],
+   "sumber": "http://hl7.org/fhir/encounter-status"
+  }
+ ]
+}

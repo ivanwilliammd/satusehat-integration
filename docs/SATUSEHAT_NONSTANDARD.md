@@ -66,6 +66,23 @@ memastikan konstanta sama dengan berkas rujukan.
 Konsekuensinya: mengganti satu URL karena ingatan yang berbeda akan membuat uji gagal sampai berkas
 rujukan ikut diubah — dan perubahan pada rujukan terlihat di diff.
 
+## 3. Aturan wajib yang bisa diperiksa dari payload
+
+Audit R4 menjawab "apakah elemen ini ada di R4". Ia tidak menjawab "apakah isinya bentuk yang diterima
+SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa data lain:
+
+| Resource | Aturan | Sumber |
+| --- | --- | --- |
+| Encounter | `class` wajib `Coding` dengan sistem `http://terminology.hl7.org/CodeSystem/v3-ActCode` | dokumentasi Encounter SATUSEHAT |
+| Encounter | `status` wajib salah satu kode `EncounterStatus` | <http://hl7.org/fhir/encounter-status> |
+
+Payload dengan `class` bersistem lain tetap lolos R4 dan tetap ditolak platform. Aturannya disimpan di
+`data/satusehat/required-rules.json` bersama sumbernya, dan uji memastikan kode tidak menyimpang dari
+berkas itu.
+
+Catatan tipe: `Encounter.class` adalah `Coding`, bukan `CodeableConcept` — sistemnya ada di
+`class.system`. Pemeriksa menerima kedua bentuk, tetapi bentuk yang benar bukan yang kedua.
+
 ## Batas yang belum ditutup
 
 - Aturan wajib per resource belum diuji (mis. `Encounter.class` harus memakai sistem v3-ActCode,
