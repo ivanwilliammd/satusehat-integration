@@ -32,6 +32,24 @@ class R4TriageTest extends TestCase
         );
     }
 
+    public function test_setiap_setter_bocor_ditandai_deprecated(): void
+    {
+        $keluaran = [];
+        $kode = 0;
+        exec(
+            'cd '.escapeshellarg(__DIR__.'/../..')
+            .' && python3 scripts/mark_generic_leaks.py --check 2>&1',
+            $keluaran,
+            $kode
+        );
+
+        $this->assertSame(
+            0,
+            $kode,
+            "setter yang menulis elemen non-R4 belum ditandai:\n".implode("\n", $keluaran)
+        );
+    }
+
     public function test_setiap_builder_di_luar_r4_ditandai_deprecated(): void
     {
         $keluaran = [];

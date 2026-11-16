@@ -23,6 +23,10 @@ class PayloadBuilderSubscription extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `identifier` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function addIdentifier(string $system, string $value, ?string $use = null, ?string $typeCode = null, ?string $typeDisplay = null): self
     {
         $ident = ['system' => $system, 'value' => $value];
@@ -42,6 +46,10 @@ class PayloadBuilderSubscription extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `code` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setCode(string $system, string $code, string $display): self
     {
         $this->set('code', [
@@ -50,6 +58,10 @@ class PayloadBuilderSubscription extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `subject` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setSubject(string $reference, ?string $display = null): self
     {
         $subject = ['reference' => $reference];
@@ -58,6 +70,10 @@ class PayloadBuilderSubscription extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `encounter` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setEncounter(string $reference): self
     {
         $this->set('encounter', ['reference' => $reference]);

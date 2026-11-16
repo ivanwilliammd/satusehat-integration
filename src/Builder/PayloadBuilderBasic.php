@@ -36,6 +36,10 @@ class PayloadBuilderBasic extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `status` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setStatus(string $status): self
     {
         $this->set('status', $status);
@@ -58,6 +62,10 @@ class PayloadBuilderBasic extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `encounter` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setEncounter(string $reference): self
     {
         $this->set('encounter', ['reference' => $reference]);

@@ -50,6 +50,10 @@ class PayloadBuilderDetectedIssue extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `subject` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setSubject(string $reference, ?string $display = null): self
     {
         $subject = ['reference' => $reference];
@@ -58,6 +62,10 @@ class PayloadBuilderDetectedIssue extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `encounter` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setEncounter(string $reference): self
     {
         $this->set('encounter', ['reference' => $reference]);

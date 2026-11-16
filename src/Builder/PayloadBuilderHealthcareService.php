@@ -36,6 +36,10 @@ class PayloadBuilderHealthcareService extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `status` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setStatus(string $status): self
     {
         $this->set('status', $status);

@@ -23,6 +23,10 @@ class PayloadBuilderSubstanceReferenceInformation extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `identifier` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function addIdentifier(string $system, string $value, ?string $use = null, ?string $typeCode = null, ?string $typeDisplay = null): self
     {
         $ident = ['system' => $system, 'value' => $value];
@@ -36,6 +40,10 @@ class PayloadBuilderSubstanceReferenceInformation extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `status` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setStatus(string $status): self
     {
         $this->set('status', $status);

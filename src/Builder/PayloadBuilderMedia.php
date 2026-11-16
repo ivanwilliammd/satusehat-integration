@@ -42,6 +42,10 @@ class PayloadBuilderMedia extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated menulis `code` padahal resource ini tidak
+     *             punya elemen tersebut di FHIR R4 — payload-nya akan ditolak server.
+     */
     public function setCode(string $system, string $code, string $display): self
     {
         $this->set('code', [
