@@ -55,11 +55,14 @@ class R4TriageTest extends TestCase
         $keluaran = [];
         exec(
             'cd '.escapeshellarg(__DIR__.'/../..')
-            .' && python3 scripts/audit-r4-conformance.py --json 2>/dev/null',
+            // Tanpa `2>/dev/null`: itu sintaks shell Unix dan membuat perintah gagal di cmd.exe,
+            // sehingga JSON tidak pernah terbaca dan uji gagal dengan pesan yang menyesatkan.
+            .' && python3 scripts/audit-r4-conformance.py --json',
             $keluaran
         );
-        $rows = json_decode(implode("\n", $keluaran), true);
-        $this->assertIsArray($rows, 'audit tidak menghasilkan JSON');
+        $mentah = implode("\n", $keluaran);
+        $rows = json_decode($mentah, true);
+        $this->assertIsArray($rows, 'audit tidak menghasilkan JSON: '.substr($mentah, 0, 300));
 
         $tanpaTanda = [];
         foreach ($rows as $row) {
