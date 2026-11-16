@@ -212,4 +212,31 @@ class SatusehatRulesTest extends TestCase
         $this->assertSame(SatusehatRules::OBSERVATION_STATUS, $kode('Observation', 'status'));
         $this->assertSame(SatusehatRules::PROCEDURE_STATUS, $kode('Procedure', 'status'));
     }
+
+    /**
+     * Sidik jari berkas aturan. Kelima port memakai berkas yang sama; kalau berkas ini
+     * bergeser tanpa uji ikut berubah, kelima port memvalidasi hal berbeda tanpa ada
+     * yang tahu. Angka di bawah adalah pengganti murah untuk pemeriksa lintas-repo,
+     * yang tetap dijalankan lewat scripts/check-rules-drift.sh.
+     */
+    public function test_sidik_jari_berkas_aturan(): void
+    {
+        $jalur = dirname(__DIR__, 2).'/data/satusehat/required-rules.json';
+        $mentah = file_get_contents($jalur);
+
+        $this->assertSame(5849, strlen($mentah), 'jumlah byte berkas aturan berubah');
+        $harap = [
+            'Condition' => 3,
+            'DiagnosticReport' => 4,
+            'Encounter' => 2,
+            'Immunization' => 4,
+            'MedicationRequest' => 3,
+            'Observation' => 4,
+            'Patient' => 2,
+            'Procedure' => 4,
+        ];
+        foreach ($harap as $resource => $jumlah) {
+            $this->assertCount($jumlah, $this->aturan()[$resource], "jumlah butir {$resource} berubah");
+        }
+    }
 }
