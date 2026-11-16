@@ -2,6 +2,44 @@
 
 ## Unreleased
 
+## v4.18.0 - 2026-11-16
+
+### Added
+
+- Parser untuk seluruh 141 resource: 55 → 141 kelas di `src/Parser`. Getter diturunkan dari builder
+  (`scripts/generate_parsers.py`), bukan ditulis tangan — getter yang salah nama tidak melempar
+  apa pun, hanya mengembalikan `null`, jadi daftar elemen diambil dari satu-satunya sumber yang tahu
+  apa yang bisa ditulis. `tests/Parser/ParserSurfaceTest.php` menjaga kesimetrian arah baca/tulis.
+- Namespace R5: 142 builder + 34 datatype di `src/R5`, semuanya turunan apa adanya dari kelas R4.
+  Memakai R5 cukup mengganti baris `use`. R5 masih **additif** — belum ada perbedaan R5 yang
+  dikodekan, karena belum ada yang diverifikasi terhadap spesifikasi R5.
+- `docs/FHIR_VERSIONING.md` — janji versi, cara menambah perbedaan R5, dan batas yang belum ditutup.
+- `docs/R4_CONFLICT_TRIAGE.md` — triase konformansi R4 yang dihasilkan audit: 46 builder bersih,
+  68 kategori A, 20 kategori B, 7 kategori C.
+- `scripts/mark_generic_leaks.py` + `tests/Docs/R4TriageTest.php` — memastikan dokumen triase tidak
+  basi dan setiap kebocoran elemen tertandai.
+
+### Changed
+
+- 7 builder untuk resource yang tidak ada di FHIR R4 (`BillingStatus`, `ChargeItemResponse`,
+  `GenomicStudy`, `ImagingManifest`, `ImagingSelection`, `PurificationDecision`, `ResourceGuide`)
+  ditandai `@deprecated`. Tidak dihapus: pemanggil lama tetap berjalan.
+- 194 setter ditandai `@deprecated` karena menulis elemen yang tidak ada di resource-nya pada R4.
+  Setter itu sah untuk resource lain; yang salah adalah pemakaiannya di builder tersebut.
+
+### Fixed
+
+- Audit R4 menghitung `onset[x]` sebagai `onset` sehingga `onsetDateTime` dituduh melanggar. Elemen
+  pilihan kini diperluas ke nama konkretnya dari daftar `type` di definisi R4; angka "101 builder
+  bermasalah" turun ke 88, dan sisanya nyata.
+- CI: skrip audit memaksa stdout UTF-8, membaca `profiles-resources.json` sebagai UTF-8, dan tidak
+  lagi memakai redirect gaya Unix — tiga penyebab suite merah **hanya di Windows**.
+- CI: `scripts/**` kini memicu workflow; sebelumnya perubahan skrip Python tidak menjalankan satu pun
+  job.
+- Generator R5 membandingkan isi berkas setelah normalisasi CRLF, sehingga `--check` tidak gagal di
+  runner Windows.
+
+
 ## v4.17.0 - 2026-11-16
 
 ### Added
