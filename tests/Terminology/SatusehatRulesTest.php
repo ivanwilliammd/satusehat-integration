@@ -224,6 +224,10 @@ class SatusehatRulesTest extends TestCase
         $jalur = dirname(__DIR__, 2).'/data/satusehat/required-rules.json';
         $mentah = file_get_contents($jalur);
 
+        // Checkout Windows memakai CRLF; jumlah byte harus dihitung setelah normalisasi,
+        // kalau tidak uji ini gagal di Windows dan lulus di Linux tanpa ada yang berubah.
+        $mentah = str_replace(["\r\n", "\r"], "\n", $mentah);
+
         $this->assertSame(5849, strlen($mentah), 'jumlah byte berkas aturan berubah');
         $harap = [
             'Condition' => 3,
