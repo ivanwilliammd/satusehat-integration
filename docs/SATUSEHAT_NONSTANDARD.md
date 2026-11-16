@@ -92,6 +92,22 @@ berkas.
 menyebutnya opsional. Perbedaan itu disengaja dan pesan pelanggarannya menyebutnya, supaya tidak dikira
 bug pustaka ini.
 
+## 4. Kelima port memakai aturan yang sama
+
+| Port | Cara membawa aturan |
+| --- | --- |
+| PHP | dibaca dari `data/satusehat/required-rules.json` |
+| Node | `resolveJsonModule` — JSON disalin `tsc` ke `dist` |
+| Python | artefak generate `_rules_generated.py` + SHA |
+| Go | `go:embed` |
+| Rust | `include_str!` saat kompilasi |
+
+Empat salinan berarti bisa menyimpang. `scripts/check-rules-drift.sh` membandingkan sha256 kelima
+berkas (repo yang tidak ada dilewati, jadi aman dijalankan di CI satu repo) dan keluar 1 bila ada yang
+berbeda.
+
+Saat ini kelimanya sama: `335561b0a605944d`.
+
 ## Batas yang belum ditutup
 
 - Aturan wajib baru mencakup `Encounter`; resource lain belum dipetakan.
