@@ -46,6 +46,9 @@ class PayloadBuilderMedicinalProductPharmaceutical extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `route` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setRoute(string $system, string $code, string $display = ''): self
     {
         $this->set('route', [
@@ -54,6 +57,9 @@ class PayloadBuilderMedicinalProductPharmaceutical extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `doseForm` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setDoseForm(string $system, string $code, string $display = ''): self
     {
         $this->set('doseForm', [

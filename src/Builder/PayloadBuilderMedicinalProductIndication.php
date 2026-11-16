@@ -58,6 +58,9 @@ class PayloadBuilderMedicinalProductIndication extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `disease` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setDisease(string $system, string $code, string $display = ''): self
     {
         $this->set('disease', [

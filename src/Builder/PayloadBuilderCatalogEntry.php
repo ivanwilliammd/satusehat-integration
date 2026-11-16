@@ -50,6 +50,9 @@ class PayloadBuilderCatalogEntry extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `reference` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setReference(string $reference, ?string $display = null): self
     {
         $ref = ['reference' => $reference];

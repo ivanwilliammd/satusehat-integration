@@ -78,6 +78,9 @@ class PayloadBuilderCoverageEligibilityResponse extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `requestProvider` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setRequestProvider(string $reference): self
     {
         $this->set('requestProvider', ['reference' => $reference]);

@@ -108,12 +108,18 @@ class PayloadBuilderClaim extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `priorityPayor` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setPriorityPayor(string $reference): self
     {
         $this->push('priorityPayor', ['reference' => $reference]);
         return $this;
     }
 
+    /**
+     * @deprecated `prescriber` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setPrescriber(string $reference): self
     {
         $this->set('prescriber', ['reference' => $reference]);

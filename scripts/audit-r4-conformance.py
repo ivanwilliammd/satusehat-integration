@@ -164,9 +164,18 @@ def render_triase(rows: list) -> str:
         "| Builder | Elemen asing | Status |",
         "| --- | --- | --- |",
     ]
+    keputusan = {}
+    berkas_keputusan = TUJUAN_TRIASE.parent / "r4_category_b_decisions.json"
+    if berkas_keputusan.exists():
+        keputusan = json.loads(berkas_keputusan.read_text(encoding="utf-8"))
     for r in kat_b:
         khusus = [e for e in r["not_in_r4"] if e not in GENERIK]
-        baris.append(f"| `{r['builder']}` | {', '.join('`'+e+'`' for e in khusus)} | belum diputuskan |")
+        diputuskan = keputusan.get(r["builder"], {})
+        status = "; ".join(
+            f"`{e}` {diputuskan[e]['status']}" if e in diputuskan else f"`{e}` belum diputuskan"
+            for e in khusus
+        )
+        baris.append(f"| `{r['builder']}` | {', '.join('`'+e+'`' for e in khusus)} | {status} |")
 
     baris += [
         "",

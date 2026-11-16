@@ -60,6 +60,9 @@ class PayloadBuilderMedicinalProductIngredient extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `quantity` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setQuantity(string $value): self
     {
         $this->set('quantity', $value);

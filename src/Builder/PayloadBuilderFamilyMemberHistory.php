@@ -105,6 +105,9 @@ class PayloadBuilderFamilyMemberHistory extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `ageUnit` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setAgeAge(int $value, string $unit): self
     {
         $this->set('ageAge', $value);
@@ -134,6 +137,9 @@ class PayloadBuilderFamilyMemberHistory extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `deceasedAgeUnit` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setDeceasedAge(int $value, string $unit): self
     {
         $this->set('deceasedAge', $value);
@@ -163,6 +169,9 @@ class PayloadBuilderFamilyMemberHistory extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `deceasedCodeableConcept` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setDeceasedCodeableConcept(CodeableConcept $deceased): self
     {
         $this->set('deceasedCodeableConcept', $deceased->toArray());

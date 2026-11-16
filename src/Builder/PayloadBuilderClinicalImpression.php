@@ -84,6 +84,9 @@ class PayloadBuilderClinicalImpression extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `previousOpinion` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setPreviousOpinion(Reference $previousOpinion): self
     {
         $this->set('previousOpinion', $previousOpinion->toArray());

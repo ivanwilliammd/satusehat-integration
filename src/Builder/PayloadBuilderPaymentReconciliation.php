@@ -35,6 +35,9 @@ class PayloadBuilderPaymentReconciliation extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `type` hanya ada di FHIR R5; payload R4 dengan elemen ini akan ditolak server
+     */
     public function setType(string $system, string $code, string $display = ''): self
     {
         $this->set('type', [
@@ -64,6 +67,9 @@ class PayloadBuilderPaymentReconciliation extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `requestProvider` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setRequestProvider(string $reference): self
     {
         $this->set('requestProvider', ['reference' => $reference]);
@@ -84,18 +90,27 @@ class PayloadBuilderPaymentReconciliation extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `insurer` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setInsurer(string $reference): self
     {
         $this->set('insurer', ['reference' => $reference]);
         return $this;
     }
 
+    /**
+     * @deprecated `requestMatchDate` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setRequestMatchDate(string $date): self
     {
         $this->set('requestMatchDate', $date);
         return $this;
     }
 
+    /**
+     * @deprecated `outcomeCode` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setOutcomeCode(string $system, string $code, string $display = ''): self
     {
         $this->push('outcomeCode', [

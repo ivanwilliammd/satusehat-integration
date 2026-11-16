@@ -73,6 +73,9 @@ class PayloadBuilderNutritionOrder extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `allergyType` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function addAllergyType(CodeableConcept $allergyType): self
     {
         $this->push('allergyType', $allergyType->toArray());

@@ -57,18 +57,27 @@ class PayloadBuilderGoal extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `startDateTime` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setStartDateTime(string $startDateTime): self
     {
         $this->set('startDateTime', $startDateTime);
         return $this;
     }
 
+    /**
+     * @deprecated `startAge` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setStartAge(Age $startAge): self
     {
         $this->set('startAge', $startAge->toArray());
         return $this;
     }
 
+    /**
+     * @deprecated `startPeriod` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setStartPeriod(Period $startPeriod): self
     {
         $this->set('startPeriod', $startPeriod->toArray());

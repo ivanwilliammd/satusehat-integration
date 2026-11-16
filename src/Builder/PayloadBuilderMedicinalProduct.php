@@ -68,6 +68,9 @@ class PayloadBuilderMedicinalProduct extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `productClass` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setProductClass(string $system, string $code, string $display = ''): self
     {
         $this->set('productClass', [

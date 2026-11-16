@@ -55,6 +55,9 @@ class PayloadBuilderChargeItem extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `focus` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setFocus(string $reference): self
     {
         $this->set('focus', ['reference' => $reference]);
@@ -67,6 +70,9 @@ class PayloadBuilderChargeItem extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `performedDateTime` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setPerformedDate(string $dateTime): self
     {
         $this->set('performedDateTime', $dateTime);

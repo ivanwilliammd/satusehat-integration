@@ -50,6 +50,39 @@ class R4TriageTest extends TestCase
         );
     }
 
+    public function test_setiap_setter_kategori_b_ditandai(): void
+    {
+        $keluaran = [];
+        $kode = 0;
+        exec(
+            'cd '.escapeshellarg(__DIR__.'/../..')
+            .' && python3 scripts/mark_category_b.py --check 2>&1',
+            $keluaran,
+            $kode
+        );
+
+        $this->assertSame(0, $kode, implode("\n", $keluaran));
+    }
+
+    public function test_keputusan_kategori_b_tidak_basi(): void
+    {
+        $berkas = __DIR__.'/../../docs/r4_category_b_decisions.json';
+        $this->assertFileExists($berkas, 'keputusan kategori B belum dibuat');
+
+        $keputusan = json_decode((string) file_get_contents($berkas), true);
+        $this->assertIsArray($keputusan);
+
+        $tanpaAlasan = [];
+        foreach ($keputusan as $builder => $elemen) {
+            foreach ($elemen as $nama => $isi) {
+                if (empty($isi['alasan']) || empty($isi['status'])) {
+                    $tanpaAlasan[] = "{$builder}.{$nama}";
+                }
+            }
+        }
+        $this->assertSame([], $tanpaAlasan, 'keputusan tanpa status/alasan: '.implode(', ', $tanpaAlasan));
+    }
+
     public function test_setiap_builder_di_luar_r4_ditandai_deprecated(): void
     {
         $keluaran = [];

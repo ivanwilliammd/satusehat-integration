@@ -47,6 +47,9 @@ class PayloadBuilderPaymentNotice extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `statusDate` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setStatusDate(string $date): self
     {
         $this->set('statusDate', $date);
@@ -92,12 +95,18 @@ class PayloadBuilderPaymentNotice extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `insurer` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setInsurer(string $reference): self
     {
         $this->set('insurer', ['reference' => $reference]);
         return $this;
     }
 
+    /**
+     * @deprecated `paymentReconciliation` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setPaymentReconciliation(string $reference): self
     {
         $this->set('paymentReconciliation', ['reference' => $reference]);

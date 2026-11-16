@@ -63,6 +63,9 @@ class PayloadBuilderImagingStudy extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `ended` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function setEnded(string $dateTime): self
     {
         $this->set('ended', $dateTime);
@@ -81,6 +84,9 @@ class PayloadBuilderImagingStudy extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `partOf` hanya ada di FHIR R5; payload R4 dengan elemen ini akan ditolak server
+     */
     public function addPartOf(string $reference): self
     {
         $this->push('partOf', ['reference' => $reference]);

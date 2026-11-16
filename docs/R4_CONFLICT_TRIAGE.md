@@ -108,23 +108,23 @@ kompatibilitas. Setiap baris harus diputuskan sendiri, dan keputusannya dicatat 
 
 | Builder | Elemen asing | Status |
 | --- | --- | --- |
-| `PayloadBuilderCarePlan` | `addressee` | belum diputuskan |
-| `PayloadBuilderCatalogEntry` | `reference` | belum diputuskan |
-| `PayloadBuilderChargeItem` | `focus`, `performedDateTime` | belum diputuskan |
-| `PayloadBuilderChargeItemDefinition` | `applies`, `name`, `property` | belum diputuskan |
-| `PayloadBuilderClaim` | `prescriber`, `priorityPayor` | belum diputuskan |
-| `PayloadBuilderClinicalImpression` | `previousOpinion` | belum diputuskan |
-| `PayloadBuilderCoverageEligibilityResponse` | `requestProvider` | belum diputuskan |
-| `PayloadBuilderFamilyMemberHistory` | `ageUnit`, `deceasedAgeUnit`, `deceasedCodeableConcept` | belum diputuskan |
-| `PayloadBuilderGoal` | `startAge`, `startDateTime`, `startPeriod` | belum diputuskan |
-| `PayloadBuilderImagingStudy` | `ended`, `partOf` | belum diputuskan |
-| `PayloadBuilderMedicinalProduct` | `productClass` | belum diputuskan |
-| `PayloadBuilderMedicinalProductIndication` | `disease` | belum diputuskan |
-| `PayloadBuilderMedicinalProductIngredient` | `quantity` | belum diputuskan |
-| `PayloadBuilderMedicinalProductPharmaceutical` | `doseForm`, `route` | belum diputuskan |
-| `PayloadBuilderNutritionOrder` | `allergyType` | belum diputuskan |
-| `PayloadBuilderPaymentNotice` | `insurer`, `paymentReconciliation`, `statusDate` | belum diputuskan |
-| `PayloadBuilderPaymentReconciliation` | `insurer`, `outcomeCode`, `requestMatchDate`, `requestProvider`, `type` | belum diputuskan |
+| `PayloadBuilderCarePlan` | `addressee` | `addressee` asing |
+| `PayloadBuilderCatalogEntry` | `reference` | `reference` asing |
+| `PayloadBuilderChargeItem` | `focus`, `performedDateTime` | `focus` asing; `performedDateTime` asing |
+| `PayloadBuilderChargeItemDefinition` | `applies`, `name`, `property` | `applies` asing; `name` quirk; `property` asing |
+| `PayloadBuilderClaim` | `prescriber`, `priorityPayor` | `prescriber` asing; `priorityPayor` asing |
+| `PayloadBuilderClinicalImpression` | `previousOpinion` | `previousOpinion` asing |
+| `PayloadBuilderCoverageEligibilityResponse` | `requestProvider` | `requestProvider` asing |
+| `PayloadBuilderFamilyMemberHistory` | `ageUnit`, `deceasedAgeUnit`, `deceasedCodeableConcept` | `ageUnit` asing; `deceasedAgeUnit` asing; `deceasedCodeableConcept` asing |
+| `PayloadBuilderGoal` | `startAge`, `startDateTime`, `startPeriod` | `startAge` asing; `startDateTime` asing; `startPeriod` asing |
+| `PayloadBuilderImagingStudy` | `ended`, `partOf` | `ended` asing; `partOf` quirk |
+| `PayloadBuilderMedicinalProduct` | `productClass` | `productClass` asing |
+| `PayloadBuilderMedicinalProductIndication` | `disease` | `disease` asing |
+| `PayloadBuilderMedicinalProductIngredient` | `quantity` | `quantity` asing |
+| `PayloadBuilderMedicinalProductPharmaceutical` | `doseForm`, `route` | `doseForm` asing; `route` asing |
+| `PayloadBuilderNutritionOrder` | `allergyType` | `allergyType` asing |
+| `PayloadBuilderPaymentNotice` | `insurer`, `paymentReconciliation`, `statusDate` | `insurer` asing; `paymentReconciliation` asing; `statusDate` asing |
+| `PayloadBuilderPaymentReconciliation` | `insurer`, `outcomeCode`, `requestMatchDate`, `requestProvider`, `type` | `insurer` asing; `outcomeCode` asing; `requestMatchDate` asing; `requestProvider` asing; `type` quirk |
 
 ## Catatan
 

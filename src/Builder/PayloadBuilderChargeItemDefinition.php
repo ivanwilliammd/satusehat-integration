@@ -41,6 +41,9 @@ class PayloadBuilderChargeItemDefinition extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `name` hanya ada di FHIR R5; payload R4 dengan elemen ini akan ditolak server
+     */
     public function setName(string $name): self
     {
         $this->set('name', $name);
@@ -104,6 +107,9 @@ class PayloadBuilderChargeItemDefinition extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `property` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function addProperty(
         string $codeSystem,
         string $codeValue,
@@ -116,6 +122,9 @@ class PayloadBuilderChargeItemDefinition extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `applies` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function addApplies(string $appliesType, string $value): self
     {
         $this->set('applies' . ucfirst($appliesType), $value);

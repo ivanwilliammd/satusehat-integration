@@ -96,6 +96,9 @@ class PayloadBuilderCarePlan extends Builder
         return $this;
     }
 
+    /**
+     * @deprecated `addressee` tidak ada di FHIR R4 maupun R5; jangan diandalkan
+     */
     public function addAddressee(Reference $addressee): self
     {
         $this->push('addressee', $addressee->toArray());
