@@ -9,6 +9,31 @@
 [![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 [![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/ivanwilliammd/badge.svg)](https://hub.xerj.org/contributors/ivanwilliammd)
 
+## Status & cakupan (diukur, bukan diklaim)
+
+| Bagian | Jumlah | Bukti |
+| --- | --- | --- |
+| Builder | 141 resource | `src/Builder/PayloadBuilder*.php` |
+| Method kanon | 1.405 | uji permukaan method per resource |
+| Parser | 142 kelas | satu getter per elemen builder, `tests/Parser/ParserSurfaceTest.php` |
+| Datatype | 34 | `src/DataType` |
+| Namespace R5 | 142 builder + 34 datatype | `src/R5`, `tests/Version/R5NamespaceTest.php` |
+| Tes | 1.892 | `vendor/bin/phpunit tests` |
+
+Konformansi R4 bukan hal yang sama dengan paritas antar-bahasa. [`docs/R4_CONFLICT_TRIAGE.md`](docs/R4_CONFLICT_TRIAGE.md)
+mencatat hasil audit terhadap definisi R4: 46 builder bersih, 68 memakai setter generik pada
+resource yang tidak punya elemen itu, 20 perlu keputusan per elemen, 7 resource tidak ada di R4.
+
+## R4 acuan, R5 cukup ganti `use`
+
+```php
+use Satusehat\Integration\Builder\PayloadBuilderPatient;      // R4 (acuan)
+use Satusehat\Integration\R5\Builder\PayloadBuilderPatient;   // R5 — hanya baris ini
+```
+
+Kelas R5 adalah turunan apa adanya dari kelas R4, dan uji memastikan permukaan method-nya identik.
+Cara menambahkan perbedaan R5 yang terverifikasi: [`docs/FHIR_VERSIONING.md`](docs/FHIR_VERSIONING.md).
+
 ---
 
 ## Overview
