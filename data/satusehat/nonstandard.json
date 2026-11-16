@@ -1,0 +1,47 @@
+{
+ "_sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient",
+ "_diambil": "2026-11-16",
+ "_catatan": "Objek non-standar SATUSEHAT (di luar FHIR R4 inti). Setiap entri menyebut sumbernya.",
+ "identifier_system": {
+  "nik": {
+   "url": "https://fhir.kemkes.go.id/id/nik",
+   "use": "official",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient"
+  },
+  "paspor": {
+   "url": "https://fhir.kemkes.go.id/id/paspor",
+   "use": "official"
+  },
+  "kk": {
+   "url": "https://fhir.kemkes.go.id/id/kk",
+   "use": "official"
+  },
+  "ihs": {
+   "url": "https://fhir.kemkes.go.id/id/patient-ihs-number",
+   "use": "official"
+  }
+ },
+ "extension": {
+  "administrative_code": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode",
+   "slice": [
+    "province",
+    "city",
+    "district",
+    "village",
+    "rt",
+    "rw"
+   ],
+   "sumber": "https://simplifier.net/guide/SATUSEHAT-FHIR-R4-Implementation-Guide/Home/Extensions/AdministrativeCode.page.md"
+  },
+  "birth_place": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/birthPlace"
+  },
+  "citizenship_status": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/citizenshipStatus"
+  }
+ },
+ "profile": {
+  "patient": "https://fhir.kemkes.go.id/r4/StructureDefinition/Patient"
+ }
+}
