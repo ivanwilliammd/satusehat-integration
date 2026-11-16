@@ -55,4 +55,9 @@ class MedicinalProductParser
     {
         return $this->data['productClass'] ?? null;
     }
+
+    public function getManufacturingBusinessOperation()
+    {
+        return $this->data['manufacturingBusinessOperation'] ?? null;
+    }
 }

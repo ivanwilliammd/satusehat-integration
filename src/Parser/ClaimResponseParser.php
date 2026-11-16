@@ -143,4 +143,9 @@ class ClaimResponseParser
     {
         return $this->data['coverage'] ?? null;
     }
+
+    public function getInsurance()
+    {
+        return $this->data['insurance'] ?? null;
+    }
 }

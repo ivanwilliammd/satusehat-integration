@@ -55,4 +55,9 @@ class SpecimenDefinitionParser
     {
         return $this->data['preparation'] ?? null;
     }
+
+    public function getTypeTested()
+    {
+        return $this->data['typeTested'] ?? null;
+    }
 }
