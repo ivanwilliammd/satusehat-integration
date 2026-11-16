@@ -70,5 +70,4 @@ rujukan ikut diubah — dan perubahan pada rujukan terlihat di diff.
 
 - Aturan wajib per resource belum diuji (mis. `Encounter.class` harus memakai sistem v3-ActCode,
   `Patient.name` wajib bila `active`).
-- Aturan wajib SATUSEHAT per resource (mis. `Encounter.class` harus memakai sistem v3-ActCode) belum
-  dijadikan uji; yang ada baru daftar system identifier dan extension alamat.
+
