@@ -85,6 +85,7 @@ Catatan tipe: `Encounter.class` adalah `Coding`, bukan `CodeableConcept` — sis
 
 ## Batas yang belum ditutup
 
-- Aturan wajib per resource belum diuji (mis. `Encounter.class` harus memakai sistem v3-ActCode,
-  `Patient.name` wajib bila `active`).
+- Aturan wajib baru mencakup `Encounter`; resource lain belum dipetakan.
+- Aturan yang butuh data luar payload (mis. identifier organisasi harus terdaftar di master sarana)
+  tidak bisa diputuskan pustaka ini dan tidak diklaim.
 
