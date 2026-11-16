@@ -110,7 +110,9 @@ Saat ini kelimanya sama: `335561b0a605944d`.
 
 ## Batas yang belum ditutup
 
-- Aturan wajib baru mencakup `Encounter`; resource lain belum dipetakan.
+- Aturan wajib mencakup 8 resource; sisanya belum dipetakan.
+- Aturan bersyarat (mis. `Procedure.performer` wajib hanya bila ada tindakan) belum bisa diputuskan
+  tanpa konteks, jadi belum diperiksa.
 - Aturan yang butuh data luar payload (mis. identifier organisasi harus terdaftar di master sarana)
   tidak bisa diputuskan pustaka ini dan tidak diklaim.
 
