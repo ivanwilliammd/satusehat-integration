@@ -53,9 +53,11 @@ class SatusehatRulesTest extends TestCase
         $this->assertStringContainsString('EncounterStatus', $pelanggaran[0]);
     }
 
-    public function test_resource_lain_tidak_diperiksa(): void
+    public function test_resource_yang_belum_dipetakan_tidak_diperiksa(): void
     {
-        $this->assertSame([], SatusehatRules::violations(['resourceType' => 'Patient', 'active' => true]));
+        // Condition belum punya aturan wajib di sini; menuduhnya melanggar tanpa dasar lebih buruk
+        // daripada tidak memeriksa sama sekali.
+        $this->assertSame([], SatusehatRules::violations(['resourceType' => 'Condition', 'id' => 'c1']));
     }
 
     public function test_tanpa_resource_type_dilaporkan(): void
@@ -80,5 +82,78 @@ class SatusehatRulesTest extends TestCase
 
         $status = $aturan['Encounter'][1];
         $this->assertSame(SatusehatRules::ENCOUNTER_STATUS, $status['kode']);
+    }
+
+    public function test_observation_lengkap_lolos(): void
+    {
+        $obs = [
+            'resourceType' => 'Observation',
+            'status' => 'final',
+            'code' => ['coding' => [['system' => 'http://loinc.org', 'code' => '8867-4']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+            'encounter' => ['reference' => 'Encounter/1000000002'],
+        ];
+
+        $this->assertSame([], SatusehatRules::violations($obs));
+    }
+
+    public function test_observation_tanpa_encounter_dilaporkan_sebagai_aturan_satusehat(): void
+    {
+        $obs = [
+            'resourceType' => 'Observation',
+            'status' => 'final',
+            'code' => ['coding' => [['system' => 'http://loinc.org', 'code' => '8867-4']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+        ];
+
+        $pelanggaran = SatusehatRules::violations($obs);
+        $this->assertCount(1, $pelanggaran);
+        $this->assertStringContainsString('R4', $pelanggaran[0], 'alasan wajibnya harus disebut');
+    }
+
+    public function test_observation_status_di_luar_kode_ditolak(): void
+    {
+        $obs = [
+            'resourceType' => 'Observation',
+            'status' => 'selesai',
+            'code' => ['coding' => [['system' => 'http://loinc.org', 'code' => '8867-4']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+            'encounter' => ['reference' => 'Encounter/1000000002'],
+        ];
+
+        $pelanggaran = SatusehatRules::violations($obs);
+        $this->assertCount(1, $pelanggaran);
+        $this->assertStringContainsString('observation-status', $pelanggaran[0]);
+    }
+
+    public function test_patient_wajib_punya_nama(): void
+    {
+        $pasien = [
+            'resourceType' => 'Patient',
+            'identifier' => [['system' => 'https://fhir.kemkes.go.id/id/nik', 'value' => '3273010101900001']],
+        ];
+
+        $pelanggaran = SatusehatRules::violations($pasien);
+        $this->assertCount(1, $pelanggaran);
+        $this->assertStringContainsString('name', $pelanggaran[0]);
+    }
+
+    public function test_berkas_aturan_memuat_observation_dan_patient(): void
+    {
+        $aturan = json_decode(
+            (string) file_get_contents(__DIR__.'/../../data/satusehat/required-rules.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+
+        $this->assertArrayHasKey('Observation', $aturan);
+        $this->assertArrayHasKey('Patient', $aturan);
+
+        foreach (['Encounter', 'Observation', 'Patient'] as $resource) {
+            foreach ($aturan[$resource] as $butir) {
+                $this->assertNotEmpty($butir['sumber'], "{$resource} tanpa sumber");
+            }
+        }
     }
 }

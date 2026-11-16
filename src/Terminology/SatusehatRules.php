@@ -37,8 +37,72 @@ final class SatusehatRules
             return ['resourceType tidak ada'];
         }
 
-        if ($resourceType === 'Encounter') {
-            $masalah = array_merge($masalah, self::encounter($payload));
+        $masalah = match ($resourceType) {
+            'Encounter' => array_merge($masalah, self::encounter($payload)),
+            'Observation' => array_merge($masalah, self::observation($payload)),
+            'Patient' => array_merge($masalah, self::patient($payload)),
+            default => $masalah,
+        };
+
+        return $masalah;
+    }
+
+    /** @var array<int, string> */
+    public const OBSERVATION_STATUS = [
+        'registered', 'preliminary', 'final', 'amended', 'corrected',
+        'cancelled', 'entered-in-error', 'unknown',
+    ];
+
+    /**
+     * Dokumentasi SATUSEHAT menandai empat elemen Observation sebagai wajib: status, code, subject,
+     * encounter. `encounter` wajib menurut SATUSEHAT meski di R4 opsional — itu perbedaan yang
+     * disengaja, bukan kelalaian.
+     *
+     * @param array<string, mixed> $payload
+     * @return array<int, string>
+     */
+    private static function observation(array $payload): array
+    {
+        $masalah = [];
+
+        $status = $payload['status'] ?? null;
+        if (! is_string($status) || ! in_array($status, self::OBSERVATION_STATUS, true)) {
+            $masalah[] = 'Observation.status bukan kode observation-status: '.(is_string($status) ? $status : '(kosong)');
+        }
+
+        $coding = $payload['code']['coding'] ?? null;
+        if (! is_array($coding) || $coding === []) {
+            $masalah[] = 'Observation.code.coding wajib diisi minimal satu';
+        }
+
+        $subject = $payload['subject']['reference'] ?? null;
+        if (! is_string($subject) || ! str_starts_with($subject, 'Patient/')) {
+            $masalah[] = 'Observation.subject wajib merujuk Patient';
+        }
+
+        if (! isset($payload['encounter']['reference'])) {
+            $masalah[] = 'Observation.encounter wajib ada (SATUSEHAT, meski opsional di R4)';
+        }
+
+        return $masalah;
+    }
+
+    /**
+     * @param array<string, mixed> $payload
+     * @return array<int, string>
+     */
+    private static function patient(array $payload): array
+    {
+        $masalah = [];
+
+        $identifier = $payload['identifier'] ?? null;
+        if (! is_array($identifier) || $identifier === []) {
+            $masalah[] = 'Patient.identifier wajib diisi minimal satu';
+        }
+
+        $nama = $payload['name'] ?? null;
+        if (! is_array($nama) || $nama === []) {
+            $masalah[] = 'Patient.name wajib diisi minimal satu';
         }
 
         return $masalah;

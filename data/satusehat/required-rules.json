@@ -1,7 +1,7 @@
 {
  "_sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/encounter",
  "_diambil": "2026-11-16",
- "_catatan": "Aturan wajib yang dinyatakan dokumentasi SATUSEHAT, bukan preferensi lokal. Setiap aturan menyebut sumbernya.",
+ "_catatan": "Aturan wajib yang dinyatakan dokumentasi SATUSEHAT (tanda * pada judul elemen), bukan preferensi lokal. Setiap aturan menyebut sumbernya.",
  "Encounter": [
   {
    "elemen": "class",
@@ -23,6 +23,50 @@
     "unknown"
    ],
    "sumber": "http://hl7.org/fhir/encounter-status"
+  }
+ ],
+ "Observation": [
+  {
+   "elemen": "status",
+   "aturan": "wajib ada; nilai dari EncounterStatus set observation-status",
+   "kode": [
+    "registered",
+    "preliminary",
+    "final",
+    "amended",
+    "corrected",
+    "cancelled",
+    "entered-in-error",
+    "unknown"
+   ],
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/observation"
+  },
+  {
+   "elemen": "code.coding",
+   "aturan": "wajib ada minimal satu coding",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/observation"
+  },
+  {
+   "elemen": "subject",
+   "aturan": "wajib ada, reference Patient",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/observation"
+  },
+  {
+   "elemen": "encounter",
+   "aturan": "wajib ada menurut dokumentasi SATUSEHAT (di R4 opsional)",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/observation"
+  }
+ ],
+ "Patient": [
+  {
+   "elemen": "identifier",
+   "aturan": "wajib ada minimal satu identifier",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient"
+  },
+  {
+   "elemen": "name",
+   "aturan": "wajib ada minimal satu nama",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient"
   }
  ]
 }

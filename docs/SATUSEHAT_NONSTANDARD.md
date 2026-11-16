@@ -75,6 +75,11 @@ SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa 
 | --- | --- | --- |
 | Encounter | `class` wajib `Coding` dengan sistem `http://terminology.hl7.org/CodeSystem/v3-ActCode` | dokumentasi Encounter SATUSEHAT |
 | Encounter | `status` wajib salah satu kode `EncounterStatus` | <http://hl7.org/fhir/encounter-status> |
+| Observation | `status` · `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Observation SATUSEHAT |
+| Patient | `identifier` · `name` wajib ada minimal satu | dokumentasi Patient SATUSEHAT |
+
+`Observation.encounter` wajib menurut SATUSEHAT meski di R4 opsional — perbedaan itu disengaja dan
+pesannya menyebut alasannya, supaya tidak dikira bug.
 
 Payload dengan `class` bersistem lain tetap lolos R4 dan tetap ditolak platform. Aturannya disimpan di
 `data/satusehat/required-rules.json` bersama sumbernya, dan uji memastikan kode tidak menyimpang dari
