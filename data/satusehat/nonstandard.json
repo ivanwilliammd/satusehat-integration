@@ -39,9 +39,26 @@
   },
   "citizenship_status": {
    "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/citizenshipStatus"
+  },
+  "patient_religion": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/patient-religion",
+   "value": "CodeableConcept"
+  },
+  "patient_disability": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/patient-disability",
+   "value": "CodeableConcept"
+  },
+  "patient_citizenship": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/patient-citizenship",
+   "value": "CodeableConcept"
+  },
+  "patient_birth_time": {
+   "url": "https://fhir.kemkes.go.id/r4/StructureDefinition/patient-birthTime",
+   "value": "dateTime"
   }
  },
  "profile": {
   "patient": "https://fhir.kemkes.go.id/r4/StructureDefinition/Patient"
- }
+ },
+ "_sumber_extension_pasien": "https://simplifier.net/guide/SATUSEHAT-FHIR-R4-Implementation-Guide/Home/FHIRProfiles/Patient.page.md"
 }

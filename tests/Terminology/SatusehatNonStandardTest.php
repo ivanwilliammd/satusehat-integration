@@ -42,6 +42,10 @@ class SatusehatNonStandardTest extends TestCase
         $this->assertSame($reg['extension']['administrative_code']['url'], SatusehatNonStandard::EXT_ADMINISTRATIVE_CODE);
         $this->assertSame($reg['extension']['birth_place']['url'], SatusehatNonStandard::EXT_BIRTH_PLACE);
         $this->assertSame($reg['extension']['citizenship_status']['url'], SatusehatNonStandard::EXT_CITIZENSHIP_STATUS);
+        $this->assertSame($reg['extension']['patient_religion']['url'], SatusehatNonStandard::EXT_PATIENT_RELIGION);
+        $this->assertSame($reg['extension']['patient_disability']['url'], SatusehatNonStandard::EXT_PATIENT_DISABILITY);
+        $this->assertSame($reg['extension']['patient_citizenship']['url'], SatusehatNonStandard::EXT_PATIENT_CITIZENSHIP);
+        $this->assertSame($reg['extension']['patient_birth_time']['url'], SatusehatNonStandard::EXT_PATIENT_BIRTH_TIME);
         $this->assertSame($reg['profile']['patient'], SatusehatNonStandard::PROFILE_PATIENT);
     }
 
@@ -83,5 +87,39 @@ class SatusehatNonStandardTest extends TestCase
         $this->assertSame('Bandung', $json['city']);
         $this->assertSame('province', $json['extension'][0]['extension'][0]['url']);
         $this->assertSame('32', $json['extension'][0]['extension'][0]['valueString']);
+    }
+
+    public function test_extension_codeable_membungkus_nilai(): void
+    {
+        $agama = SatusehatNonStandard::codeableExtension(SatusehatNonStandard::EXT_PATIENT_RELIGION, [
+            'coding' => [[
+                'system' => 'http://terminology.hl7.org/CodeSystem/v3-ReligiousAffiliation',
+                'code' => '1001',
+                'display' => 'Islam',
+            ]],
+        ]);
+
+        $this->assertSame(SatusehatNonStandard::EXT_PATIENT_RELIGION, $agama['url']);
+        $this->assertSame('1001', $agama['valueCodeableConcept']['coding'][0]['code']);
+    }
+
+    public function test_extension_codeable_menolak_canonical_lain(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        SatusehatNonStandard::codeableExtension(SatusehatNonStandard::EXT_BIRTH_PLACE, ['text' => 'x']);
+    }
+
+    public function test_extension_codeable_menolak_nilai_kosong(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        SatusehatNonStandard::codeableExtension(SatusehatNonStandard::EXT_PATIENT_DISABILITY, []);
+    }
+
+    public function test_birth_time_memakai_valuedatetime(): void
+    {
+        $ext = SatusehatNonStandard::birthTimeExtension('1990-01-01T03:15:00+07:00');
+
+        $this->assertSame(SatusehatNonStandard::EXT_PATIENT_BIRTH_TIME, $ext['url']);
+        $this->assertSame('1990-01-01T03:15:00+07:00', $ext['valueDateTime']);
     }
 }

@@ -25,7 +25,46 @@ final class SatusehatNonStandard
     public const EXT_BIRTH_PLACE = 'https://fhir.kemkes.go.id/r4/StructureDefinition/birthPlace';
     public const EXT_CITIZENSHIP_STATUS = 'https://fhir.kemkes.go.id/r4/StructureDefinition/citizenshipStatus';
 
+    public const EXT_PATIENT_RELIGION = 'https://fhir.kemkes.go.id/r4/StructureDefinition/patient-religion';
+    public const EXT_PATIENT_DISABILITY = 'https://fhir.kemkes.go.id/r4/StructureDefinition/patient-disability';
+    public const EXT_PATIENT_CITIZENSHIP = 'https://fhir.kemkes.go.id/r4/StructureDefinition/patient-citizenship';
+    public const EXT_PATIENT_BIRTH_TIME = 'https://fhir.kemkes.go.id/r4/StructureDefinition/patient-birthTime';
+
     public const PROFILE_PATIENT = 'https://fhir.kemkes.go.id/r4/StructureDefinition/Patient';
+
+    /**
+     * Extension bernilai CodeableConcept pada Patient: agama, disabilitas, kewarganegaraan.
+     *
+     * Ketiganya 0..1, jadi satu nilai per pasien. Nilai yang diberikan pemanggil; yang tetap di sini
+     * hanya canonical URL-nya — itu bagian yang tidak boleh dikarang.
+     *
+     * @param array<string, mixed> $codeable mis. ['coding' => [['system' => ..., 'code' => ..., 'display' => ...]]]
+     * @return array<string, mixed>
+     */
+    public static function codeableExtension(string $canonical, array $codeable): array
+    {
+        $sah = [self::EXT_PATIENT_RELIGION, self::EXT_PATIENT_DISABILITY, self::EXT_PATIENT_CITIZENSHIP];
+        if (! in_array($canonical, $sah, true)) {
+            throw new \InvalidArgumentException(
+                'Extension bukan CodeableConcept pasien: '.$canonical
+            );
+        }
+        if ($codeable === []) {
+            throw new \InvalidArgumentException('Nilai CodeableConcept kosong');
+        }
+
+        return ['url' => $canonical, 'valueCodeableConcept' => $codeable];
+    }
+
+    /**
+     * Extension birthTime pada Patient (dateTime).
+     *
+     * @return array<string, mixed>
+     */
+    public static function birthTimeExtension(string $dateTime): array
+    {
+        return ['url' => self::EXT_PATIENT_BIRTH_TIME, 'valueDateTime' => $dateTime];
+    }
 
     /**
      * Extension administrativeCode untuk Address.

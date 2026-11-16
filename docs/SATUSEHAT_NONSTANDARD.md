@@ -27,6 +27,16 @@ tidak akan ditemukan saat pencarian pasien, meski payload-nya lolos validasi R4.
 | Administrative code | `https://fhir.kemkes.go.id/r4/StructureDefinition/administrativeCode` |
 | Birth place | `https://fhir.kemkes.go.id/r4/StructureDefinition/birthPlace` |
 | Citizenship status | `https://fhir.kemkes.go.id/r4/StructureDefinition/citizenshipStatus` |
+| Religion | `https://fhir.kemkes.go.id/r4/StructureDefinition/patient-religion` |
+| Disability | `https://fhir.kemkes.go.id/r4/StructureDefinition/patient-disability` |
+| Citizenship (patient) | `https://fhir.kemkes.go.id/r4/StructureDefinition/patient-citizenship` |
+| Birth time | `https://fhir.kemkes.go.id/r4/StructureDefinition/patient-birthTime` |
+
+Religion, disability, and patient-citizenship are `CodeableConcept` (0..1); birthTime is a `dateTime`.
+`SatusehatNonStandard::codeableExtension()` and `birthTimeExtension()` build those wrappers and refuse
+a canonical that is not one of the listed extensions — a typo here means the extension is silently
+ignored by the platform. Sources: the Patient profile page of the SATUSEHAT FHIR R4 Implementation
+Guide.
 
 `administrativeCode` bersarang: satu extension induk, lalu sub-extension dengan `url` **tetap**
 `province`, `city`, `district`, `village`, `rt`, `rw`, dan nilainya `valueString`.
@@ -58,7 +68,7 @@ rujukan ikut diubah — dan perubahan pada rujukan terlihat di diff.
 
 ## Batas yang belum ditutup
 
-- Extension lain (mis. `patient-religion`, `patient-disability`, `citizenshipStatus`) baru dicatat
-  URL-nya, belum punya helper pembentuk.
+- Aturan wajib per resource belum diuji (mis. `Encounter.class` harus memakai sistem v3-ActCode,
+  `Patient.name` wajib bila `active`).
 - Aturan wajib SATUSEHAT per resource (mis. `Encounter.class` harus memakai sistem v3-ActCode) belum
   dijadikan uji; yang ada baru daftar system identifier dan extension alamat.
