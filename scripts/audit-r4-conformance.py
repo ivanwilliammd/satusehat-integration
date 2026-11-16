@@ -21,6 +21,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Windows memakai cp1252 sebagai encoding konsol; dokumen ini berisi karakter non-ASCII dan
+# JSON-nya dibaca skrip lain, jadi stdout dipaksa UTF-8 supaya tidak gagal di runner Windows.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 R4_DIR = Path(os.environ.get("R4_DIR", "/tmp/r4def"))
 BUILDER_DIR = Path(__file__).resolve().parent.parent / "src" / "Builder"
 RETRIEVE = r"->(?:set|push|setCodeable)\(\s*'([A-Za-z][A-Za-z0-9]*)'"
@@ -180,14 +185,14 @@ def main() -> int:
     if "--triage" in sys.argv:
         dokumen = render_triase(rows)
         if "--check" in sys.argv:
-            lama = TUJUAN_TRIASE.read_text() if TUJUAN_TRIASE.exists() else ""
+            lama = TUJUAN_TRIASE.read_text(encoding="utf-8") if TUJUAN_TRIASE.exists() else ""
             if lama != dokumen:
                 print("docs/R4_CONFLICT_TRIAGE.md tidak sinkron — jalankan --triage")
                 return 1
             print("triase sinkron")
             return 0
         TUJUAN_TRIASE.parent.mkdir(parents=True, exist_ok=True)
-        TUJUAN_TRIASE.write_text(dokumen)
+        TUJUAN_TRIASE.write_text(dokumen, encoding="utf-8")
         print(f"ditulis: {TUJUAN_TRIASE}")
         return 0
     if "--json" in sys.argv:

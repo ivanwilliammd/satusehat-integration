@@ -23,7 +23,7 @@ BUILDER = AKAR / "src" / "Builder"
 def audit() -> list:
     keluaran = subprocess.run(
         [sys.executable, str(AKAR / "scripts" / "audit-r4-conformance.py"), "--json"],
-        capture_output=True, text=True, check=True,
+        capture_output=True, text=True, encoding="utf-8", check=True,
     ).stdout
     return json.loads(keluaran)
 
