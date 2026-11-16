@@ -83,4 +83,34 @@ class CarePlanParser
     {
         return $this->payload['activity'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getContributor()
+    {
+        return $this->data['contributor'] ?? null;
+    }
+
+    public function getAddressee()
+    {
+        return $this->data['addressee'] ?? null;
+    }
+
+    public function getSupportingInfo()
+    {
+        return $this->data['supportingInfo'] ?? null;
+    }
+
+    public function getGoal()
+    {
+        return $this->data['goal'] ?? null;
+    }
 }

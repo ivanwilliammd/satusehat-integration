@@ -83,4 +83,29 @@ class PaymentNoticeParser
     {
         return $this->payload['paymentStatus'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getStatusDate()
+    {
+        return $this->data['statusDate'] ?? null;
+    }
+
+    public function getInsurer()
+    {
+        return $this->data['insurer'] ?? null;
+    }
+
+    public function getPaymentReconciliation()
+    {
+        return $this->data['paymentReconciliation'] ?? null;
+    }
 }

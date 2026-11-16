@@ -78,4 +78,19 @@ class EpisodeOfCareParser
     {
         return $this->payload['careManager'] ?? null;
     }
+
+    public function getReferralRequest()
+    {
+        return $this->data['referralRequest'] ?? null;
+    }
+
+    public function getTeam()
+    {
+        return $this->data['team'] ?? null;
+    }
+
+    public function getAccount()
+    {
+        return $this->data['account'] ?? null;
+    }
 }

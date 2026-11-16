@@ -68,4 +68,14 @@ class AccountParser
     {
         return $this->payload['description'] ?? null;
     }
+
+    public function getCoverage()
+    {
+        return $this->data['coverage'] ?? null;
+    }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
 }

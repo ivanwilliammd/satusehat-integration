@@ -119,4 +119,44 @@ class DiagnosticReportParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCategory()
+    {
+        return $this->data['category'] ?? null;
+    }
+
+    public function getPerformer()
+    {
+        return $this->data['performer'] ?? null;
+    }
+
+    public function getResult()
+    {
+        return $this->data['result'] ?? null;
+    }
+
+    public function getSpecimen()
+    {
+        return $this->data['specimen'] ?? null;
+    }
+
+    public function getConclusionCode()
+    {
+        return $this->data['conclusionCode'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

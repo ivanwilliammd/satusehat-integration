@@ -103,4 +103,34 @@ class RiskAssessmentParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getReasonReference()
+    {
+        return $this->data['reasonReference'] ?? null;
+    }
+
+    public function getPrediction()
+    {
+        return $this->data['prediction'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

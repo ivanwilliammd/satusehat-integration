@@ -63,4 +63,34 @@ class MolecularSequenceParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getPatient()
+    {
+        return $this->data['patient'] ?? null;
+    }
+
+    public function getSpecimen()
+    {
+        return $this->data['specimen'] ?? null;
+    }
+
+    public function getDevice()
+    {
+        return $this->data['device'] ?? null;
+    }
+
+    public function getPerformer()
+    {
+        return $this->data['performer'] ?? null;
+    }
+
+    public function getVariant()
+    {
+        return $this->data['variant'] ?? null;
+    }
 }

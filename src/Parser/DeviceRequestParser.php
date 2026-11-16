@@ -78,4 +78,19 @@ class DeviceRequestParser
     {
         return $this->payload['reasonCode'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
 }

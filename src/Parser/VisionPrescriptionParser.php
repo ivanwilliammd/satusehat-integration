@@ -63,4 +63,24 @@ class VisionPrescriptionParser
     {
         return $this->payload['lensSpecification'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
 }

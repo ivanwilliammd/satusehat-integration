@@ -83,4 +83,39 @@ class GoalParser
     {
         return $this->payload['outcomeCode'] ?? null;
     }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getStartDateTime()
+    {
+        return $this->data['startDateTime'] ?? null;
+    }
+
+    public function getStartAge()
+    {
+        return $this->data['startAge'] ?? null;
+    }
+
+    public function getStartPeriod()
+    {
+        return $this->data['startPeriod'] ?? null;
+    }
+
+    public function getStatusReason()
+    {
+        return $this->data['statusReason'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getOutcomeReference()
+    {
+        return $this->data['outcomeReference'] ?? null;
+    }
 }

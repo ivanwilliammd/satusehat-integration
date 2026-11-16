@@ -132,4 +132,49 @@ class EncounterParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getClass()
+    {
+        return $this->data['class'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getParticipant()
+    {
+        return $this->data['participant'] ?? null;
+    }
+
+    public function getLocation()
+    {
+        return $this->data['location'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getReasonReference()
+    {
+        return $this->data['reasonReference'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

@@ -122,4 +122,89 @@ class ProcedureParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getPerformedDateTime()
+    {
+        return $this->data['performedDateTime'] ?? null;
+    }
+
+    public function getPerformedString()
+    {
+        return $this->data['performedString'] ?? null;
+    }
+
+    public function getPerformedAge()
+    {
+        return $this->data['performedAge'] ?? null;
+    }
+
+    public function getPerformedRange()
+    {
+        return $this->data['performedRange'] ?? null;
+    }
+
+    public function getPerformer()
+    {
+        return $this->data['performer'] ?? null;
+    }
+
+    public function getOutcome()
+    {
+        return $this->data['outcome'] ?? null;
+    }
+
+    public function getReport()
+    {
+        return $this->data['report'] ?? null;
+    }
+
+    public function getFollowUp()
+    {
+        return $this->data['followUp'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getFocalDevice()
+    {
+        return $this->data['focalDevice'] ?? null;
+    }
+
+    public function getUsedReference()
+    {
+        return $this->data['usedReference'] ?? null;
+    }
+
+    public function getUsedCode()
+    {
+        return $this->data['usedCode'] ?? null;
+    }
+
+    public function getBodySite()
+    {
+        return $this->data['bodySite'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

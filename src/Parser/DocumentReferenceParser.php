@@ -85,4 +85,54 @@ class DocumentReferenceParser
     {
         return $this->documentReference['context'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getCategory()
+    {
+        return $this->data['category'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
+
+    public function getAuthor()
+    {
+        return $this->data['author'] ?? null;
+    }
+
+    public function getCustodian()
+    {
+        return $this->data['custodian'] ?? null;
+    }
+
+    public function getSecurityLabel()
+    {
+        return $this->data['securityLabel'] ?? null;
+    }
+
+    public function getContent()
+    {
+        return $this->data['content'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

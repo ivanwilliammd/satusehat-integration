@@ -113,4 +113,34 @@ class SpecimenParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getCollection()
+    {
+        return $this->data['collection'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getRequest()
+    {
+        return $this->data['request'] ?? null;
+    }
+
+    public function getCondition()
+    {
+        return $this->data['condition'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

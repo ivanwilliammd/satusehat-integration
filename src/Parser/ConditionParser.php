@@ -68,4 +68,89 @@ class ConditionParser
     {
         return $this->payload['recordedDate'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getOnsetDateTime()
+    {
+        return $this->data['onsetDateTime'] ?? null;
+    }
+
+    public function getOnsetAge()
+    {
+        return $this->data['onsetAge'] ?? null;
+    }
+
+    public function getOnsetPeriod()
+    {
+        return $this->data['onsetPeriod'] ?? null;
+    }
+
+    public function getOnsetRange()
+    {
+        return $this->data['onsetRange'] ?? null;
+    }
+
+    public function getOnsetString()
+    {
+        return $this->data['onsetString'] ?? null;
+    }
+
+    public function getAbatementDateTime()
+    {
+        return $this->data['abatementDateTime'] ?? null;
+    }
+
+    public function getAbatementAge()
+    {
+        return $this->data['abatementAge'] ?? null;
+    }
+
+    public function getAbatementPeriod()
+    {
+        return $this->data['abatementPeriod'] ?? null;
+    }
+
+    public function getAbatementRange()
+    {
+        return $this->data['abatementRange'] ?? null;
+    }
+
+    public function getAbatementString()
+    {
+        return $this->data['abatementString'] ?? null;
+    }
+
+    public function getRecorder()
+    {
+        return $this->data['recorder'] ?? null;
+    }
+
+    public function getAsserter()
+    {
+        return $this->data['asserter'] ?? null;
+    }
+
+    public function getEvidence()
+    {
+        return $this->data['evidence'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

@@ -83,4 +83,54 @@ class PaymentReconciliationParser
     {
         return $this->payload['processNote'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getRequest()
+    {
+        return $this->data['request'] ?? null;
+    }
+
+    public function getRequestProvider()
+    {
+        return $this->data['requestProvider'] ?? null;
+    }
+
+    public function getInsurer()
+    {
+        return $this->data['insurer'] ?? null;
+    }
+
+    public function getRequestMatchDate()
+    {
+        return $this->data['requestMatchDate'] ?? null;
+    }
+
+    public function getOutcomeCode()
+    {
+        return $this->data['outcomeCode'] ?? null;
+    }
+
+    public function getPaymentIdentifier()
+    {
+        return $this->data['paymentIdentifier'] ?? null;
+    }
+
+    public function getTotalAmount()
+    {
+        return $this->data['totalAmount'] ?? null;
+    }
 }

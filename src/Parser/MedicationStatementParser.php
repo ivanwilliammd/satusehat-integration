@@ -78,4 +78,54 @@ class MedicationStatementParser
     {
         return $this->payload['context'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getStatusReason()
+    {
+        return $this->data['statusReason'] ?? null;
+    }
+
+    public function getMedicationCodeableConcept()
+    {
+        return $this->data['medicationCodeableConcept'] ?? null;
+    }
+
+    public function getEffectivePeriod()
+    {
+        return $this->data['effectivePeriod'] ?? null;
+    }
+
+    public function getDerivedFrom()
+    {
+        return $this->data['derivedFrom'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getReasonReference()
+    {
+        return $this->data['reasonReference'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

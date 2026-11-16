@@ -73,4 +73,24 @@ class CompositionParser
     {
         return $this->payload['section'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCategory()
+    {
+        return $this->data['category'] ?? null;
+    }
+
+    public function getCustodian()
+    {
+        return $this->data['custodian'] ?? null;
+    }
 }

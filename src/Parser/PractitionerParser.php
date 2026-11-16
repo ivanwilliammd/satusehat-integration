@@ -107,4 +107,19 @@ class PractitionerParser extends OAuth2Client
         }
         return $value;
     }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getQualification()
+    {
+        return $this->data['qualification'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

@@ -98,4 +98,54 @@ class ChargeItemResponseParser
     {
         return $this->payload['excess'] ?? null;
     }
+
+    public function getPartOf()
+    {
+        return $this->data['partOf'] ?? null;
+    }
+
+    public function getRequest()
+    {
+        return $this->data['request'] ?? null;
+    }
+
+    public function getOutcome()
+    {
+        return $this->data['outcome'] ?? null;
+    }
+
+    public function getDescription()
+    {
+        return $this->data['description'] ?? null;
+    }
+
+    public function getCreated()
+    {
+        return $this->data['created'] ?? null;
+    }
+
+    public function getRequestor()
+    {
+        return $this->data['requestor'] ?? null;
+    }
+
+    public function getOutcomeInfo()
+    {
+        return $this->data['outcomeInfo'] ?? null;
+    }
+
+    public function getError()
+    {
+        return $this->data['error'] ?? null;
+    }
+
+    public function getCostCenterChargeItemResponse()
+    {
+        return $this->data['costCenterChargeItemResponse'] ?? null;
+    }
+
+    public function getResponseDate()
+    {
+        return $this->data['responseDate'] ?? null;
+    }
 }

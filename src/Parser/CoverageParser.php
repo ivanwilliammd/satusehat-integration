@@ -68,4 +68,49 @@ class CoverageParser
     {
         return $this->payload['extension'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getPolicyHolder()
+    {
+        return $this->data['policyHolder'] ?? null;
+    }
+
+    public function getSubscriber()
+    {
+        return $this->data['subscriber'] ?? null;
+    }
+
+    public function getDependent()
+    {
+        return $this->data['dependent'] ?? null;
+    }
+
+    public function getRelationship()
+    {
+        return $this->data['relationship'] ?? null;
+    }
+
+    public function getOrder()
+    {
+        return $this->data['order'] ?? null;
+    }
+
+    public function getNetwork()
+    {
+        return $this->data['network'] ?? null;
+    }
+
+    public function getCostToBeneficiary()
+    {
+        return $this->data['costToBeneficiary'] ?? null;
+    }
+
+    public function getPeriod()
+    {
+        return $this->data['period'] ?? null;
+    }
 }

@@ -80,4 +80,69 @@ class GenomicStudyParser
     {
         return $this->genomicStudy['performer'] ?? null;
     }
+
+    public function getMeta()
+    {
+        return $this->data['meta'] ?? null;
+    }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
+
+    public function getBasedOn()
+    {
+        return $this->data['basedOn'] ?? null;
+    }
+
+    public function getReferrer()
+    {
+        return $this->data['referrer'] ?? null;
+    }
+
+    public function getInterpreter()
+    {
+        return $this->data['interpreter'] ?? null;
+    }
+
+    public function getReason()
+    {
+        return $this->data['reason'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getAnalysis()
+    {
+        return $this->data['analysis'] ?? null;
+    }
+
+    public function getPerformer()
+    {
+        return $this->data['performer'] ?? null;
+    }
 }

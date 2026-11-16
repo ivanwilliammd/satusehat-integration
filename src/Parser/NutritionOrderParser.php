@@ -63,4 +63,39 @@ class NutritionOrderParser
     {
         return $this->payload['oralDiet'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getOrderer()
+    {
+        return $this->data['orderer'] ?? null;
+    }
+
+    public function getAllergyType()
+    {
+        return $this->data['allergyType'] ?? null;
+    }
+
+    public function getFoodPreferenceModifier()
+    {
+        return $this->data['foodPreferenceModifier'] ?? null;
+    }
+
+    public function getExcludeFoodModifier()
+    {
+        return $this->data['excludeFoodModifier'] ?? null;
+    }
+
+    public function getSupplement()
+    {
+        return $this->data['supplement'] ?? null;
+    }
+
+    public function getEnteralFormula()
+    {
+        return $this->data['enteralFormula'] ?? null;
+    }
 }

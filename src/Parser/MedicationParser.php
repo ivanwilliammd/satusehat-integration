@@ -73,4 +73,9 @@ class MedicationParser
     {
         return $this->payload['extension'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
 }

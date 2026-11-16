@@ -83,4 +83,29 @@ class ImagingStudyParser
     {
         return $this->payload['series'] ?? null;
     }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
+
+    public function getEnded()
+    {
+        return $this->data['ended'] ?? null;
+    }
+
+    public function getLocation()
+    {
+        return $this->data['location'] ?? null;
+    }
+
+    public function getReferrer()
+    {
+        return $this->data['referrer'] ?? null;
+    }
+
+    public function getPartOf()
+    {
+        return $this->data['partOf'] ?? null;
+    }
 }

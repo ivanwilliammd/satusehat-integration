@@ -88,4 +88,29 @@ class CoverageEligibilityResponseParser
     {
         return $this->payload['extension'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getServicedDate()
+    {
+        return $this->data['servicedDate'] ?? null;
+    }
+
+    public function getServicedPeriod()
+    {
+        return $this->data['servicedPeriod'] ?? null;
+    }
+
+    public function getRequestProvider()
+    {
+        return $this->data['requestProvider'] ?? null;
+    }
+
+    public function getCoverage()
+    {
+        return $this->data['coverage'] ?? null;
+    }
 }

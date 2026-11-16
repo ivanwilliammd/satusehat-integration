@@ -138,4 +138,59 @@ class ServiceRequestParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCategory()
+    {
+        return $this->data['category'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
+
+    public function getRequester()
+    {
+        return $this->data['requester'] ?? null;
+    }
+
+    public function getPerformer()
+    {
+        return $this->data['performer'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getSpecimen()
+    {
+        return $this->data['specimen'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

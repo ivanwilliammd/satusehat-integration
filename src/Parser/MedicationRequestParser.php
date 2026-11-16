@@ -98,4 +98,54 @@ class MedicationRequestParser
     {
         return $this->payload['dispenseRequest'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getMedicationCodeableConcept()
+    {
+        return $this->data['medicationCodeableConcept'] ?? null;
+    }
+
+    public function getRecorder()
+    {
+        return $this->data['recorder'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getReasonReference()
+    {
+        return $this->data['reasonReference'] ?? null;
+    }
+
+    public function getSubstitution()
+    {
+        return $this->data['substitution'] ?? null;
+    }
+
+    public function getPriorPrescription()
+    {
+        return $this->data['priorPrescription'] ?? null;
+    }
+
+    public function getDetectedIssue()
+    {
+        return $this->data['detectedIssue'] ?? null;
+    }
+
+    public function getEventHistory()
+    {
+        return $this->data['eventHistory'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

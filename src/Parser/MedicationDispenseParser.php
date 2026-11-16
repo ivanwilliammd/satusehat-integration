@@ -103,4 +103,14 @@ class MedicationDispenseParser
     {
         return $this->payload['dosageInstruction'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getSubstitution()
+    {
+        return $this->data['substitution'] ?? null;
+    }
 }

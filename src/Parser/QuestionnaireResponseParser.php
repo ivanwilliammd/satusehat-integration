@@ -68,4 +68,9 @@ class QuestionnaireResponseParser
     {
         return $this->payload['item'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
 }

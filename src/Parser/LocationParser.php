@@ -78,4 +78,39 @@ class LocationParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getAlias()
+    {
+        return $this->data['alias'] ?? null;
+    }
+
+    public function getDescription()
+    {
+        return $this->data['description'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getEndpoint()
+    {
+        return $this->data['endpoint'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

@@ -145,4 +145,99 @@ class ObservationParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCategory()
+    {
+        return $this->data['category'] ?? null;
+    }
+
+    public function getEffectivePeriod()
+    {
+        return $this->data['effectivePeriod'] ?? null;
+    }
+
+    public function getEffectiveInstant()
+    {
+        return $this->data['effectiveInstant'] ?? null;
+    }
+
+    public function getEffectiveTiming()
+    {
+        return $this->data['effectiveTiming'] ?? null;
+    }
+
+    public function getValueBoolean()
+    {
+        return $this->data['valueBoolean'] ?? null;
+    }
+
+    public function getValueInteger()
+    {
+        return $this->data['valueInteger'] ?? null;
+    }
+
+    public function getValueRange()
+    {
+        return $this->data['valueRange'] ?? null;
+    }
+
+    public function getValueRatio()
+    {
+        return $this->data['valueRatio'] ?? null;
+    }
+
+    public function getValueTime()
+    {
+        return $this->data['valueTime'] ?? null;
+    }
+
+    public function getValueDateTime()
+    {
+        return $this->data['valueDateTime'] ?? null;
+    }
+
+    public function getValuePeriod()
+    {
+        return $this->data['valuePeriod'] ?? null;
+    }
+
+    public function getInterpretation()
+    {
+        return $this->data['interpretation'] ?? null;
+    }
+
+    public function getBodySite()
+    {
+        return $this->data['bodySite'] ?? null;
+    }
+
+    public function getDevice()
+    {
+        return $this->data['device'] ?? null;
+    }
+
+    public function getReferenceRange()
+    {
+        return $this->data['referenceRange'] ?? null;
+    }
+
+    public function getComponent()
+    {
+        return $this->data['component'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

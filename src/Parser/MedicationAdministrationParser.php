@@ -83,4 +83,14 @@ class MedicationAdministrationParser
     {
         return $this->payload['dosage'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
 }

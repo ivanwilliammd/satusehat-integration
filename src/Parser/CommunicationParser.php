@@ -63,4 +63,29 @@ class CommunicationParser
     {
         return $this->payload['recipient'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
 }

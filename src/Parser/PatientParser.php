@@ -78,4 +78,49 @@ class PatientParser
         }
         return $value;
     }
+
+    public function getMeta()
+    {
+        return $this->data['meta'] ?? null;
+    }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getActive()
+    {
+        return $this->data['active'] ?? null;
+    }
+
+    public function getDeceasedBoolean()
+    {
+        return $this->data['deceasedBoolean'] ?? null;
+    }
+
+    public function getDeceasedDateTime()
+    {
+        return $this->data['deceasedDateTime'] ?? null;
+    }
+
+    public function getMultipleBirthBoolean()
+    {
+        return $this->data['multipleBirthBoolean'] ?? null;
+    }
+
+    public function getMultipleBirthInteger()
+    {
+        return $this->data['multipleBirthInteger'] ?? null;
+    }
+
+    public function getContact()
+    {
+        return $this->data['contact'] ?? null;
+    }
 }

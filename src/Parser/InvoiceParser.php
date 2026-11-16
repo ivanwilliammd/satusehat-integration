@@ -63,4 +63,49 @@ class InvoiceParser
     {
         return $this->payload['totalNet'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getCancelledReason()
+    {
+        return $this->data['cancelledReason'] ?? null;
+    }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getParticipant()
+    {
+        return $this->data['participant'] ?? null;
+    }
+
+    public function getTotalGross()
+    {
+        return $this->data['totalGross'] ?? null;
+    }
+
+    public function getTotalVAT()
+    {
+        return $this->data['totalVAT'] ?? null;
+    }
+
+    public function getPaymentTerms()
+    {
+        return $this->data['paymentTerms'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
 }

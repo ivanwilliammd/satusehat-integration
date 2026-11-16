@@ -60,4 +60,49 @@ class RelatedPersonParser
     {
         return $this->relatedPerson['communication'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getPatient()
+    {
+        return $this->data['patient'] ?? null;
+    }
+
+    public function getRelationship()
+    {
+        return $this->data['relationship'] ?? null;
+    }
+
+    public function getName()
+    {
+        return $this->data['name'] ?? null;
+    }
+
+    public function getTelecom()
+    {
+        return $this->data['telecom'] ?? null;
+    }
+
+    public function getAddress()
+    {
+        return $this->data['address'] ?? null;
+    }
+
+    public function getCommunication()
+    {
+        return $this->data['communication'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

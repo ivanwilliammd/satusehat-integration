@@ -55,4 +55,29 @@ class GroupParser
     {
         return $this->group['member'] ?? null;
     }
+
+    public function getMeta()
+    {
+        return $this->data['meta'] ?? null;
+    }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getMember()
+    {
+        return $this->data['member'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }

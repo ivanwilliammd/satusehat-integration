@@ -68,4 +68,24 @@ class SupplyRequestParser
     {
         return $this->payload['reasonCode'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getSubject()
+    {
+        return $this->data['subject'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
 }

@@ -103,4 +103,44 @@ class ClaimResponseParser
     {
         return $this->payload['payment'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getSubType()
+    {
+        return $this->data['subType'] ?? null;
+    }
+
+    public function getDisposition()
+    {
+        return $this->data['disposition'] ?? null;
+    }
+
+    public function getPreAuthRef()
+    {
+        return $this->data['preAuthRef'] ?? null;
+    }
+
+    public function getPreAuthPeriod()
+    {
+        return $this->data['preAuthPeriod'] ?? null;
+    }
+
+    public function getAddItem()
+    {
+        return $this->data['addItem'] ?? null;
+    }
+
+    public function getError()
+    {
+        return $this->data['error'] ?? null;
+    }
+
+    public function getCoverage()
+    {
+        return $this->data['coverage'] ?? null;
+    }
 }

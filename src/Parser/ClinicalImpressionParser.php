@@ -98,4 +98,34 @@ class ClinicalImpressionParser
     {
         return $this->payload['prognosisCodeableConcept'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getEffectivePeriod()
+    {
+        return $this->data['effectivePeriod'] ?? null;
+    }
+
+    public function getPreviousOpinion()
+    {
+        return $this->data['previousOpinion'] ?? null;
+    }
+
+    public function getPrognosisReference()
+    {
+        return $this->data['prognosisReference'] ?? null;
+    }
+
+    public function getSupportingInfo()
+    {
+        return $this->data['supportingInfo'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
 }

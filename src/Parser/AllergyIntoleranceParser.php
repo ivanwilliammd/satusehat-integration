@@ -73,4 +73,39 @@ class AllergyIntoleranceParser
     {
         return $this->payload['recorder'] ?? null;
     }
+
+    public function getType()
+    {
+        return $this->data['type'] ?? null;
+    }
+
+    public function getCriticality()
+    {
+        return $this->data['criticality'] ?? null;
+    }
+
+    public function getOnsetDateTime()
+    {
+        return $this->data['onsetDateTime'] ?? null;
+    }
+
+    public function getAsserter()
+    {
+        return $this->data['asserter'] ?? null;
+    }
+
+    public function getLastOccurrence()
+    {
+        return $this->data['lastOccurrence'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getReaction()
+    {
+        return $this->data['reaction'] ?? null;
+    }
 }

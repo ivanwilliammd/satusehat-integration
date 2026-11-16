@@ -73,4 +73,19 @@ class DeviceUseStatementParser
     {
         return $this->payload['note'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getEncounter()
+    {
+        return $this->data['encounter'] ?? null;
+    }
 }

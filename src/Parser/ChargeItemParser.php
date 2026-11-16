@@ -73,4 +73,79 @@ class ChargeItemParser
     {
         return $this->payload['extension'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getPartOf()
+    {
+        return $this->data['partOf'] ?? null;
+    }
+
+    public function getFocus()
+    {
+        return $this->data['focus'] ?? null;
+    }
+
+    public function getPerformedDateTime()
+    {
+        return $this->data['performedDateTime'] ?? null;
+    }
+
+    public function getPerformingOrganization()
+    {
+        return $this->data['performingOrganization'] ?? null;
+    }
+
+    public function getRequestingOrganization()
+    {
+        return $this->data['requestingOrganization'] ?? null;
+    }
+
+    public function getBodysite()
+    {
+        return $this->data['bodysite'] ?? null;
+    }
+
+    public function getProductCodeableConcept()
+    {
+        return $this->data['productCodeableConcept'] ?? null;
+    }
+
+    public function getPriceOverride()
+    {
+        return $this->data['priceOverride'] ?? null;
+    }
+
+    public function getOverrideReason()
+    {
+        return $this->data['overrideReason'] ?? null;
+    }
+
+    public function getEnterer()
+    {
+        return $this->data['enterer'] ?? null;
+    }
+
+    public function getEnteredDate()
+    {
+        return $this->data['enteredDate'] ?? null;
+    }
+
+    public function getReason()
+    {
+        return $this->data['reason'] ?? null;
+    }
+
+    public function getService()
+    {
+        return $this->data['service'] ?? null;
+    }
 }

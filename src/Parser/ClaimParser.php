@@ -123,4 +123,44 @@ class ClaimParser
     {
         return $this->payload['extension'] ?? null;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getSubType()
+    {
+        return $this->data['subType'] ?? null;
+    }
+
+    public function getPriorityPayor()
+    {
+        return $this->data['priorityPayor'] ?? null;
+    }
+
+    public function getPrescriber()
+    {
+        return $this->data['prescriber'] ?? null;
+    }
+
+    public function getRelated()
+    {
+        return $this->data['related'] ?? null;
+    }
+
+    public function getCoverage()
+    {
+        return $this->data['coverage'] ?? null;
+    }
+
+    public function getItem()
+    {
+        return $this->data['item'] ?? null;
+    }
+
+    public function getCareTeam()
+    {
+        return $this->data['careTeam'] ?? null;
+    }
 }

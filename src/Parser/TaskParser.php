@@ -88,4 +88,94 @@ class TaskParser
         }
         return $value;
     }
+
+    public function getId()
+    {
+        return $this->data['id'] ?? null;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->data['identifier'] ?? null;
+    }
+
+    public function getInstantiatesCanonical()
+    {
+        return $this->data['instantiatesCanonical'] ?? null;
+    }
+
+    public function getStatusReason()
+    {
+        return $this->data['statusReason'] ?? null;
+    }
+
+    public function getBusinessStatus()
+    {
+        return $this->data['businessStatus'] ?? null;
+    }
+
+    public function getCode()
+    {
+        return $this->data['code'] ?? null;
+    }
+
+    public function getFocus()
+    {
+        return $this->data['focus'] ?? null;
+    }
+
+    public function getExecutionPeriod()
+    {
+        return $this->data['executionPeriod'] ?? null;
+    }
+
+    public function getLastModified()
+    {
+        return $this->data['lastModified'] ?? null;
+    }
+
+    public function getOwner()
+    {
+        return $this->data['owner'] ?? null;
+    }
+
+    public function getLocation()
+    {
+        return $this->data['location'] ?? null;
+    }
+
+    public function getReasonCode()
+    {
+        return $this->data['reasonCode'] ?? null;
+    }
+
+    public function getReasonReference()
+    {
+        return $this->data['reasonReference'] ?? null;
+    }
+
+    public function getInput()
+    {
+        return $this->data['input'] ?? null;
+    }
+
+    public function getOutput()
+    {
+        return $this->data['output'] ?? null;
+    }
+
+    public function getRestriction()
+    {
+        return $this->data['restriction'] ?? null;
+    }
+
+    public function getNote()
+    {
+        return $this->data['note'] ?? null;
+    }
+
+    public function getExtension()
+    {
+        return $this->data['extension'] ?? null;
+    }
 }
