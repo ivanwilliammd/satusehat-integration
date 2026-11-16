@@ -14,8 +14,14 @@ for d in "$PHP_R" "$ND_R" "$PY_R" "$GO_R" "$RS_R"; do
 done
 c_php=$(ls "$PHP_R"/src/Builder/PayloadBuilder*.php | wc -l)
 # Node menamai kelas builder sama dengan resource (Patient, Encounter), bukan PatientBuilder.
-c_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/builder/*.ts | wc -l)
-c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder --include="*.py" --exclude="test_builders.py" --exclude="base_builder.py" | wc -l)
+# Sebagian kelas Node berakhiran `Builder`, sebagian tidak; akhiran itu dibuang supaya angkanya
+# sebanding dengan port lain, dan berkas uji/base tidak ikut dihitung.
+c_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/builder/*.ts \
+  | grep -v "/" | sed -E 's/export class //; s/Builder$//' | sort -u | wc -l)
+# Berkas uji di src/builder memuat builder palsu, dan `test_script.py`/`test_report.py` adalah
+# builder sungguhan: uji dikenali dari isinya (`def test_`), bukan dari nama berkasnya.
+c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder --include="*.py" --exclude="base_builder.py" --exclude="test_*.py" | wc -l)
+c_py=$(( c_py + $(grep -hoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder/test_script.py "$PY_R"/src/builder/test_report.py 2>/dev/null | wc -l) ))
 c_go=$(grep -rhoE "^type [A-Za-z0-9_]+Builder struct" "$GO_R"/src/builder/*.go | wc -l)
 c_rs=$(find "$RS_R"/crates/core/src/builder -name "*.rs" ! -name "mod.rs" | wc -l)
 d_php=$(ls "$PHP_R"/src/DataType/*.php | grep -v "/DataType\.php$" | wc -l)
@@ -33,9 +39,11 @@ q_nd=$(ls "$ND_R"/src/queue/*.ts | grep -vE '(index\.ts|\.test\.ts)$' | wc -l)
 q_py=$(ls "$PY_R"/src/queue/*.py | grep -vE '(__init__\.py|test_.*\.py)$' | wc -l)
 q_go=$(ls "$GO_R"/src/queue/*.go | grep -vE '_test\.go$' | wc -l)
 q_rs=$(ls "$RS_R"/crates/client/src/journal.rs 2>/dev/null | wc -l)
-p_php=$(ls "$PHP_R"/src/Parser/*Parser.php 2>/dev/null | wc -l)
+p_php=$(ls "$PHP_R"/src/Parser/*Parser.php 2>/dev/null | grep -v "/Parser\.php$" | wc -l)
 p_nd=$(ls "$ND_R"/src/parser/*Parser.ts 2>/dev/null | wc -l)
-p_py=$(ls "$PY_R"/src/parser/*_parser.py 2>/dev/null | grep -v "/test_" | wc -l)
+# Dihitung dari kelas Parser yang benar-benar ada, bukan dari nama berkas: `test_script_parser.py`
+# adalah parser TestScript, sedangkan berkas uji di direktori itu tidak mendefinisikan kelas Parser.
+p_py=$(grep -rlE "^class [A-Za-z0-9_]+Parser" "$PY_R"/src/parser --include="*.py" | wc -l)
 p_go=$(ls "$GO_R"/src/parser/*_parser.go 2>/dev/null | wc -l)
 p_rs=$(find "$RS_R"/crates/core/src -maxdepth 1 -name "parser*.rs" | wc -l)
 x_php=$(find "$PHP_R"/tests -name "*Test.php" | wc -l)
