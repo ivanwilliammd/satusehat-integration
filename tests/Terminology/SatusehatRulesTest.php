@@ -55,9 +55,24 @@ class SatusehatRulesTest extends TestCase
 
     public function test_resource_yang_belum_dipetakan_tidak_diperiksa(): void
     {
-        // Condition belum punya aturan wajib di sini; menuduhnya melanggar tanpa dasar lebih buruk
-        // daripada tidak memeriksa sama sekali.
-        $this->assertSame([], SatusehatRules::violations(['resourceType' => 'Condition', 'id' => 'c1']));
+        // Resource yang belum punya aturan wajib tidak diperiksa: menuduhnya melanggar tanpa dasar
+        // lebih buruk daripada tidak memeriksa sama sekali. Daftarnya dibaca dari berkas aturan,
+        // supaya uji ini tidak perlu diperbarui setiap kali cakupan bertambah.
+        $aturan = json_decode(
+            (string) file_get_contents(__DIR__.'/../../data/satusehat/required-rules.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+        $belum = null;
+        foreach (['AuditEvent', 'Immunization', 'DiagnosticReport'] as $calon) {
+            if (! isset($aturan[$calon])) {
+                $belum = $calon;
+                break;
+            }
+        }
+        $this->assertNotNull($belum, 'semua calon sudah dipetakan — pilih resource lain untuk uji ini');
+        $this->assertSame([], SatusehatRules::violations(['resourceType' => $belum, 'id' => 'x1']));
     }
 
     public function test_tanpa_resource_type_dilaporkan(): void
@@ -155,5 +170,64 @@ class SatusehatRulesTest extends TestCase
                 $this->assertNotEmpty($butir['sumber'], "{$resource} tanpa sumber");
             }
         }
+    }
+
+    public function test_condition_lengkap_lolos(): void
+    {
+        $kondisi = [
+            'resourceType' => 'Condition',
+            'code' => ['coding' => [['system' => 'http://hl7.org/fhir/sid/icd-10', 'code' => 'E11.9']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+            'encounter' => ['reference' => 'Encounter/1000000002'],
+        ];
+
+        $this->assertSame([], SatusehatRules::violations($kondisi));
+    }
+
+    public function test_condition_tanpa_encounter_dilaporkan(): void
+    {
+        $kondisi = [
+            'resourceType' => 'Condition',
+            'code' => ['coding' => [['system' => 'http://hl7.org/fhir/sid/icd-10', 'code' => 'E11.9']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+        ];
+
+        $pelanggaran = SatusehatRules::violations($kondisi);
+        $this->assertCount(1, $pelanggaran);
+        $this->assertStringContainsString('encounter', $pelanggaran[0]);
+    }
+
+    public function test_procedure_status_di_luar_kode_ditolak(): void
+    {
+        $tindakan = [
+            'resourceType' => 'Procedure',
+            'status' => 'selesai',
+            'code' => ['coding' => [['system' => 'http://snomed.info/sct', 'code' => '80146002']]],
+            'subject' => ['reference' => 'Patient/1000000001'],
+            'encounter' => ['reference' => 'Encounter/1000000002'],
+        ];
+
+        $pelanggaran = SatusehatRules::violations($tindakan);
+        $this->assertCount(1, $pelanggaran);
+        $this->assertStringContainsString('procedure-status', $pelanggaran[0]);
+    }
+
+    public function test_berkas_aturan_memuat_condition_dan_procedure(): void
+    {
+        $aturan = json_decode(
+            (string) file_get_contents(__DIR__.'/../../data/satusehat/required-rules.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+
+        foreach (['Condition', 'Procedure'] as $resource) {
+            $this->assertArrayHasKey($resource, $aturan);
+            foreach ($aturan[$resource] as $butir) {
+                $this->assertNotEmpty($butir['sumber'], "{$resource} tanpa sumber");
+            }
+        }
+
+        $this->assertSame(SatusehatRules::PROCEDURE_STATUS, $aturan['Procedure'][0]['kode']);
     }
 }

@@ -77,6 +77,8 @@ SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa 
 | Encounter | `status` wajib salah satu kode `EncounterStatus` | <http://hl7.org/fhir/encounter-status> |
 | Observation | `status` · `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Observation SATUSEHAT |
 | Patient | `identifier` · `name` wajib ada minimal satu | dokumentasi Patient SATUSEHAT |
+| Condition | `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Condition SATUSEHAT |
+| Procedure | `status` · `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Procedure SATUSEHAT |
 
 `Observation.encounter` wajib menurut SATUSEHAT meski di R4 opsional — perbedaan itu disengaja dan
 pesannya menyebut alasannya, supaya tidak dikira bug.

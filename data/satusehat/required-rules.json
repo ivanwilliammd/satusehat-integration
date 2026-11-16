@@ -68,5 +68,54 @@
    "aturan": "wajib ada minimal satu nama",
    "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient"
   }
+ ],
+ "Condition": [
+  {
+   "elemen": "code.coding",
+   "aturan": "wajib ada minimal satu coding (ICD-10 atau SNOMED)",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/condition"
+  },
+  {
+   "elemen": "subject",
+   "aturan": "wajib ada, reference Patient",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/condition"
+  },
+  {
+   "elemen": "encounter",
+   "aturan": "wajib ada menurut dokumentasi SATUSEHAT (di R4 opsional)",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/condition"
+  }
+ ],
+ "Procedure": [
+  {
+   "elemen": "status",
+   "aturan": "wajib ada; nilai dari procedure-status",
+   "kode": [
+    "preparation",
+    "in-progress",
+    "not-done",
+    "on-hold",
+    "stopped",
+    "completed",
+    "entered-in-error",
+    "unknown"
+   ],
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/procedure"
+  },
+  {
+   "elemen": "code.coding",
+   "aturan": "wajib ada minimal satu coding (ICD-9-CM atau SNOMED)",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/procedure"
+  },
+  {
+   "elemen": "subject",
+   "aturan": "wajib ada, reference Patient",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/procedure"
+  },
+  {
+   "elemen": "encounter",
+   "aturan": "wajib ada menurut dokumentasi SATUSEHAT (di R4 opsional)",
+   "sumber": "https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/procedure"
+  }
  ]
 }

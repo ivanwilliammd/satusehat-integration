@@ -41,6 +41,8 @@ final class SatusehatRules
             'Encounter' => array_merge($masalah, self::encounter($payload)),
             'Observation' => array_merge($masalah, self::observation($payload)),
             'Patient' => array_merge($masalah, self::patient($payload)),
+            'Condition' => array_merge($masalah, self::condition($payload)),
+            'Procedure' => array_merge($masalah, self::procedure($payload)),
             default => $masalah,
         };
 
@@ -103,6 +105,70 @@ final class SatusehatRules
         $nama = $payload['name'] ?? null;
         if (! is_array($nama) || $nama === []) {
             $masalah[] = 'Patient.name wajib diisi minimal satu';
+        }
+
+        return $masalah;
+    }
+
+    /** @var array<int, string> */
+    public const PROCEDURE_STATUS = [
+        'preparation', 'in-progress', 'not-done', 'on-hold', 'stopped',
+        'completed', 'entered-in-error', 'unknown',
+    ];
+
+    /**
+     * @param array<string, mixed> $payload
+     * @return array<int, string>
+     */
+    private static function condition(array $payload): array
+    {
+        $masalah = [];
+
+        if (! is_array($payload['code']['coding'] ?? null) || $payload['code']['coding'] === []) {
+            $masalah[] = 'Condition.code.coding wajib diisi minimal satu';
+        }
+        $masalah = array_merge($masalah, self::subject_dan_encounter('Condition', $payload));
+
+        return $masalah;
+    }
+
+    /**
+     * @param array<string, mixed> $payload
+     * @return array<int, string>
+     */
+    private static function procedure(array $payload): array
+    {
+        $masalah = [];
+
+        $status = $payload['status'] ?? null;
+        if (! is_string($status) || ! in_array($status, self::PROCEDURE_STATUS, true)) {
+            $masalah[] = 'Procedure.status bukan kode procedure-status: '.(is_string($status) ? $status : '(kosong)');
+        }
+        if (! is_array($payload['code']['coding'] ?? null) || $payload['code']['coding'] === []) {
+            $masalah[] = 'Procedure.code.coding wajib diisi minimal satu';
+        }
+        $masalah = array_merge($masalah, self::subject_dan_encounter('Procedure', $payload));
+
+        return $masalah;
+    }
+
+    /**
+     * Dua elemen yang sama-sama wajib di Condition dan Procedure; dipisah supaya pesannya tidak
+     * berbeda untuk dua resource yang aturannya identik.
+     *
+     * @param array<string, mixed> $payload
+     * @return array<int, string>
+     */
+    private static function subject_dan_encounter(string $resource, array $payload): array
+    {
+        $masalah = [];
+
+        $subject = $payload['subject']['reference'] ?? null;
+        if (! is_string($subject) || ! str_starts_with($subject, 'Patient/')) {
+            $masalah[] = "{$resource}.subject wajib merujuk Patient";
+        }
+        if (! isset($payload['encounter']['reference'])) {
+            $masalah[] = "{$resource}.encounter wajib ada (SATUSEHAT, meski opsional di R4)";
         }
 
         return $masalah;
