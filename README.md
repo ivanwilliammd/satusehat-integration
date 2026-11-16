@@ -495,7 +495,12 @@ All 51 resources fully implemented via PayloadBuilder classes. Core (✅) + Non-
 
 ---
 
-## Documentation
+## Mode ketat R4
+
+`SATUSEHAT_STRICT_R4=1` membuat `build()` menolak elemen tingkat atas yang tidak ada di R4, dengan
+pesan yang menyebut resource dan elemennya. Mati secara bawaan — lihat [docs/STRICT_R4.md](docs/STRICT_R4.md).
+
+## Dokumentasi
 
 | Page | Description |
 |------|-------------|

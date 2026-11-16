@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Satusehat\Integration\Builder;
 
+use Satusehat\Integration\Conformance\R4ElementGuard;
+
 // PHP 7 polyfills for str_contains / str_starts_with
 if (!function_exists('Satusehat\Integration\Builder\str_contains')) {
     function str_contains(string $haystack, string $needle): bool
@@ -142,7 +144,16 @@ abstract class Builder
 
     public function build(): array
     {
-        return array_filter($this->data, fn($v) => $v !== null && $v !== []);
+        $hasil = array_filter($this->data, fn($v) => $v !== null && $v !== []);
+
+        // Opt-in: setter lama masih bisa menulis elemen di luar R4, dan mematikannya secara default
+        // akan menggagalkan pemanggil produksi. Dengan SATUSEHAT_STRICT_R4=1 kesalahan itu berubah
+        // jadi pengecualian yang menyebut elemen mana yang salah.
+        if (R4ElementGuard::strictEnabled()) {
+            R4ElementGuard::assert($hasil);
+        }
+
+        return $hasil;
     }
 
     /**
