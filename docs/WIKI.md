@@ -2,7 +2,8 @@
 
 Wiki GitHub (`ivanwilliammd/satusehat-integration.wiki.git`) adalah dokumentasi pemakai paket.
 Halaman yang ada: `Home`, `Installation`, `Onboarding`, `Usage`, `Features`, `PayloadBuilder`,
-`FHIR-Resources`, `FHIR-DataTypes`, `SSRequest-SSResponse`, `Validation-Rule-Numbers`, `Error-Handling`.
+`FHIR-Resources`, `FHIR-DataTypes`, `SSRequest-SSResponse`, `Validation-Rule-Numbers`, `Error-Handling`,
+`Parity`, `Status-Parity`.
 
 ## Angka yang tidak boleh ditulis tangan
 
@@ -27,6 +28,10 @@ php docs/scripts/build-wiki-builder-index.php --splice=wiki/PayloadBuilder.md
 
 # periksa apakah wiki basi; keluar 1 bila ya (bisa dipakai di CI/pre-push)
 php docs/scripts/build-wiki-builder-index.php --check=wiki/PayloadBuilder.md
+
+# halaman Status-Parity: angka R5 diukur dari src/R5 (berkas tanpa @generated = berbeda dari R4)
+php docs/scripts/build-wiki-status-parity.php --splice=Status-Parity.md
+php docs/scripts/build-wiki-status-parity.php --check=Status-Parity.md
 ```
 
 Berkas sasaran **wajib** memuat penanda berikut; tanpa penanda skrip keluar 1 (bukan menebak posisi):
@@ -35,6 +40,11 @@ Berkas sasaran **wajib** memuat penanda berikut; tanpa penanda skrip keluar 1 (b
 <!-- GENERATED:builder-index:start -->
 <!-- GENERATED:builder-index:end -->
 ```
+
+Halaman `Status-Parity` memakai penanda yang sama polanya (`GENERATED:status-parity`). Bedanya,
+angkanya diambil dari `src/R5` dan pembedaannya bukan hitungan berkas melainkan **ada/tidaknya
+penanda `@generated`** — definisi yang sama yang dipakai `scripts/generate_r5_namespace.py` untuk
+berhenti menimpa berkas milik manusia. Resep menambah perbedaan R5 ada di halaman itu sendiri.
 
 ## Aturan saat menambah PayloadBuilder
 

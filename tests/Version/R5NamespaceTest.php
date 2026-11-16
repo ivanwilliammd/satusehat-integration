@@ -21,6 +21,13 @@ class R5NamespaceTest extends TestCase
 {
     private const RUANG = ['Builder', 'DataType'];
 
+    /**
+     * Kelas yang memang BERBEDA di R5 dan sudah ditinjau, ditulis "Ruang\Kelas".
+     * Hanya kelas di daftar ini yang boleh punya permukaan method berbeda dari kanon;
+     * uji khusus resource itu yang kemudian menanggung buktinya.
+     */
+    private const BEDA_R5 = [];
+
     /** @return array<string, array{0:string,1:string}> */
     public static function kelasProvider(): array
     {
@@ -59,6 +66,10 @@ class R5NamespaceTest extends TestCase
     /** @dataProvider kelasProvider */
     public function test_permukaan_method_r5_sama_dengan_kanon(string $ruang, string $nama): void
     {
+        if (in_array($ruang.'\\'.$nama, self::BEDA_R5, true)) {
+            $this->markTestSkipped("{$ruang}\\{$nama} terdaftar sebagai perbedaan R5; buktinya ada di uji resource itu");
+        }
+
         $kanon = new ReflectionClass("Satusehat\\Integration\\{$ruang}\\{$nama}");
         $r5 = new ReflectionClass("Satusehat\\Integration\\R5\\{$ruang}\\{$nama}");
 
