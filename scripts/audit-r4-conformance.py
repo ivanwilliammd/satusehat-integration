@@ -48,7 +48,7 @@ def load_definitions() -> dict:
             check=True,
         )
         subprocess.run(["unzip", "-o", "-q", str(R4_DIR / "definitions.json.zip"), "-d", str(R4_DIR)], check=True)
-    entries = json.loads(source.read_text())
+    entries = json.loads(source.read_text(encoding="utf-8"))
     allowed = {}
     for entry in entries["entry"]:
         res = entry["resource"]
