@@ -69,26 +69,28 @@ rujukan ikut diubah — dan perubahan pada rujukan terlihat di diff.
 ## 3. Aturan wajib yang bisa diperiksa dari payload
 
 Audit R4 menjawab "apakah elemen ini ada di R4". Ia tidak menjawab "apakah isinya bentuk yang diterima
-SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa data lain:
+SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa data lain.
 
-| Resource | Aturan | Sumber |
-| --- | --- | --- |
-| Encounter | `class` wajib `Coding` dengan sistem `http://terminology.hl7.org/CodeSystem/v3-ActCode` | dokumentasi Encounter SATUSEHAT |
-| Encounter | `status` wajib salah satu kode `EncounterStatus` | <http://hl7.org/fhir/encounter-status> |
-| Observation | `status` · `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Observation SATUSEHAT |
-| Patient | `identifier` · `name` wajib ada minimal satu | dokumentasi Patient SATUSEHAT |
-| Condition | `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Condition SATUSEHAT |
-| Procedure | `status` · `code.coding` · `subject` · `encounter` wajib ada | dokumentasi Procedure SATUSEHAT |
+| Resource | Aturan |
+| --- | --- |
+| Encounter | `class` `Coding` bersistem v3-ActCode; `status` dari EncounterStatus |
+| Observation | `status` · `code.coding` · `subject` → Patient · `encounter` |
+| Patient | `identifier` · `name` |
+| Condition | `code.coding` · `subject` → Patient · `encounter` |
+| Procedure | `status` · `code.coding` · `subject` → Patient · `encounter` |
+| DiagnosticReport | `status` · `code.coding` · `subject` → Patient · `encounter` |
+| Immunization | `status` · `vaccineCode.coding` · `patient` → Patient · salah satu `occurrence[x]` |
+| MedicationRequest | `status` · `intent` · `subject` → Patient |
 
-`Observation.encounter` wajib menurut SATUSEHAT meski di R4 opsional — perbedaan itu disengaja dan
-pesannya menyebut alasannya, supaya tidak dikira bug.
+Aturannya **tidak ditulis di kelas**. `data/satusehat/required-rules.json` memuat tiap butir bersama
+jenisnya (`kode`, `isi`, `ada`, `referensi`, `sistem`, `salah_satu`) dan URL dokumentasi sumbernya;
+`SatusehatRules` hanya menjalankan butir itu. Menambah resource = menambah data, bukan method baru.
+Uji memastikan setiap butir punya sumber, jenisnya dikenal, dan konstanta kode tidak menyimpang dari
+berkas.
 
-Payload dengan `class` bersistem lain tetap lolos R4 dan tetap ditolak platform. Aturannya disimpan di
-`data/satusehat/required-rules.json` bersama sumbernya, dan uji memastikan kode tidak menyimpang dari
-berkas itu.
-
-Catatan tipe: `Encounter.class` adalah `Coding`, bukan `CodeableConcept` — sistemnya ada di
-`class.system`. Pemeriksa menerima kedua bentuk, tetapi bentuk yang benar bukan yang kedua.
+`encounter` wajib pada Observation/Condition/Procedure/DiagnosticReport menurut SATUSEHAT meski R4
+menyebutnya opsional. Perbedaan itu disengaja dan pesan pelanggarannya menyebutnya, supaya tidak dikira
+bug pustaka ini.
 
 ## Batas yang belum ditutup
 
