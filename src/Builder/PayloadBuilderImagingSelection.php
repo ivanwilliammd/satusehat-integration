@@ -8,6 +8,11 @@ namespace Satusehat\Integration\Builder;
  * ImagingSelection FHIR R4 Resource Builder
  * @link https://www.hl7.org/fhir/imagingselection.html
  */
+/**
+ * @deprecated Resource `ImagingSelection` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderImagingSelection extends Builder
 {
     protected string $resourceType = 'ImagingSelection';

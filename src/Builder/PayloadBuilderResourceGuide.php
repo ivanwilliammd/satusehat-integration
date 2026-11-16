@@ -8,6 +8,11 @@ namespace Satusehat\Integration\Builder;
  * ResourceGuide FHIR R4 Resource Builder
  * @link https://hl7.org/fhir/R4/resourceguide.html
  */
+/**
+ * @deprecated Resource `ResourceGuide` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderResourceGuide extends Builder
 {
     protected string $resourceType = 'ResourceGuide';

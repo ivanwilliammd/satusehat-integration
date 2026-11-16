@@ -8,6 +8,11 @@ namespace Satusehat\Integration\Builder;
  * ImagingManifest FHIR R4 Resource Builder
  * @link https://www.hl7.org/fhir/imagingmanifest.html
  */
+/**
+ * @deprecated Resource `ImagingManifest` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderImagingManifest extends Builder
 {
     protected string $resourceType = 'ImagingManifest';

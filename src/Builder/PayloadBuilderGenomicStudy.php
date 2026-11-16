@@ -13,6 +13,11 @@ use Satusehat\Integration\DataType\Reference;
  * GenomicStudy FHIR R4 Resource Builder
  * @link https://www.hl7.org/fhir/genomicstudy.html
  */
+/**
+ * @deprecated Resource `GenomicStudy` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderGenomicStudy extends Builder
 {
     protected string $resourceType = 'GenomicStudy';

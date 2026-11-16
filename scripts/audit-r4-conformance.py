@@ -27,7 +27,13 @@ RETRIEVE = r"->(?:set|push|setCodeable)\(\s*'([A-Za-z][A-Za-z0-9]*)'"
 
 
 def load_definitions() -> dict:
-    """Return {resourceType: set(allowed top-level property names)} from the R4 snapshot."""
+    """Return {resourceType: set(allowed top-level property names)} from the R4 snapshot.
+
+    Choice types (`onset[x]`, `deceased[x]`, `multipleBirth[x]`) are expanded to the concrete
+    names they can serialise as: `onsetDateTime`, `deceasedBoolean`, `multipleBirthInteger`, and
+    so on. Without this, a builder that correctly writes `onsetDateTime` is reported as writing an
+    element R4 does not define — a false positive that buries the real ones.
+    """
     source = R4_DIR / "profiles-resources.json"
     if not source.exists():
         R4_DIR.mkdir(parents=True, exist_ok=True)
@@ -45,11 +51,24 @@ def load_definitions() -> dict:
             continue
         if not res.get("snapshot", {}).get("element"):
             continue
-        allowed[res["id"]] = {
-            el["path"].split(".")[1].replace("[x]", "")
-            for el in res["snapshot"]["element"]
-            if el["path"].startswith(res["id"] + ".") and el["path"].count(".") == 1
-        }
+        nama = set()
+        for el in res["snapshot"]["element"]:
+            if not el["path"].startswith(res["id"] + ".") or el["path"].count(".") != 1:
+                continue
+            akar = el["path"].split(".")[1]
+            if akar.endswith("[x]"):
+                dasar = akar[:-3]
+                # Tipe yang sah untuk elemen pilihan ini, dari daftar type pada definisinya.
+                for tipe in el.get("type", []):
+                    kode = tipe.get("code", "")
+                    if kode and kode != "Extension":
+                        nama.add(dasar + kode[0].upper() + kode[1:])
+                nama.add(dasar[0].upper() + dasar[1:] if dasar else dasar)
+                # Path dasarnya sendiri juga sah untuk pemakaian resource-specific.
+                nama.add(dasar)
+            else:
+                nama.add(akar.replace("[x]", ""))
+        allowed[res["id"]] = nama
     return allowed
 
 
@@ -76,8 +95,101 @@ def audit(allowed: dict) -> list:
     return rows
 
 
+GENERIK = {"id", "identifier", "status", "code", "subject", "encounter"}
+TUJUAN_TRIASE = Path(__file__).resolve().parent.parent / "docs" / "R4_CONFLICT_TRIAGE.md"
+
+
+def render_triase(rows: list) -> str:
+    """Dokumen triase: setiap builder yang menulis elemen asing, dengan kategori dan tindakan.
+
+    Kategori dipisah karena tindakannya berbeda tajam:
+      A. kebocoran generic setter — setter generik dipakai pada resource yang tidak punya elemennya
+      B. elemen khas resource — perlu keputusan manusia per elemen
+      C. resource yang R4 tidak pernah definisikan — di luar cakupan konformansi
+    """
+    bukan_r4 = [r for r in rows if not r["in_r4"]]
+    asing = [r for r in rows if r["in_r4"] and r["not_in_r4"]]
+    kat_a = [r for r in asing if set(r["not_in_r4"]) <= GENERIK]
+    kat_b = [r for r in asing if set(r["not_in_r4"]) - GENERIK]
+    bersih = [r for r in rows if r["in_r4"] and not r["not_in_r4"]]
+
+    baris = [
+        "# Triase konformansi R4 — builder kanon",
+        "",
+        "Dihasilkan `scripts/audit-r4-conformance.py --triage`; jangan disunting tangan.",
+        "Elemen pilihan (`start[x]`, `deceased[x]`) sudah diperluas ke nama konkretnya, sehingga",
+        "`deceasedBoolean` tidak lagi dilaporkan sebagai pelanggaran.",
+        "",
+        f"- builder: **{len(rows)}**",
+        f"- bersih terhadap R4: **{len(bersih)}**",
+        f"- kategori A (kebocoran setter generik): **{len(kat_a)}**",
+        f"- kategori B (elemen khas resource): **{len(kat_b)}**",
+        f"- kategori C (resource tidak ada di R4): **{len(bukan_r4)}**",
+        "",
+        "## Kategori C — resource di luar R4",
+        "",
+        "| Builder | Tindakan |",
+        "| --- | --- |",
+    ]
+    for r in bukan_r4:
+        baris.append(f"| `{r['builder']}` | ditandai `@deprecated`; jangan dipakai untuk SATUSEHAT |")
+
+    baris += [
+        "",
+        "## Kategori A — setter generik pada resource yang tidak punya elemen itu",
+        "",
+        "Pola sama di semua baris: `setStatus`/`setCode`/`setSubject`/`setEncounter`/`addIdentifier`",
+        "menulis elemen yang tidak ada di resource tersebut. Setter itu tetap berguna untuk resource",
+        "lain, jadi yang salah adalah PEMAKAIANNYA di builder ini, bukan setter-nya.",
+        "",
+        "| Builder | Elemen asing |",
+        "| --- | --- |",
+    ]
+    for r in kat_a:
+        baris.append(f"| `{r['builder']}` | {', '.join('`'+e+'`' for e in r['not_in_r4'])} |")
+
+    baris += [
+        "",
+        "## Kategori B — perlu keputusan per elemen",
+        "",
+        "Tidak ada perbaikan borongan di sini: sebagian elemen adalah nama yang salah, sebagian",
+        "salinan dari versi FHIR lain (R5), sebagian lagi memang quirk yang dipertahankan demi",
+        "kompatibilitas. Setiap baris harus diputuskan sendiri, dan keputusannya dicatat di sini.",
+        "",
+        "| Builder | Elemen asing | Status |",
+        "| --- | --- | --- |",
+    ]
+    for r in kat_b:
+        khusus = [e for e in r["not_in_r4"] if e not in GENERIK]
+        baris.append(f"| `{r['builder']}` | {', '.join('`'+e+'`' for e in khusus)} | belum diputuskan |")
+
+    baris += [
+        "",
+        "## Catatan",
+        "",
+        "Bersih terhadap R4 berarti elemen tingkat atasnya ada di definisi resource — bukan berarti",
+        "payload lolos validasi penuh (kardinalitas, tipe, binding). Untuk itu ada korpus contoh di",
+        "`satusehat-conformance`.",
+        "",
+    ]
+    return "\n".join(baris)
+
+
 def main() -> int:
     rows = audit(load_definitions())
+    if "--triage" in sys.argv:
+        dokumen = render_triase(rows)
+        if "--check" in sys.argv:
+            lama = TUJUAN_TRIASE.read_text() if TUJUAN_TRIASE.exists() else ""
+            if lama != dokumen:
+                print("docs/R4_CONFLICT_TRIAGE.md tidak sinkron — jalankan --triage")
+                return 1
+            print("triase sinkron")
+            return 0
+        TUJUAN_TRIASE.parent.mkdir(parents=True, exist_ok=True)
+        TUJUAN_TRIASE.write_text(dokumen)
+        print(f"ditulis: {TUJUAN_TRIASE}")
+        return 0
     if "--json" in sys.argv:
         print(json.dumps(rows, indent=2))
         return 0

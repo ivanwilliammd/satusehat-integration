@@ -12,6 +12,11 @@ use Satusehat\Integration\DataType\Reference;
  * PurificationDecision SATUSEHAT-specific NON-FHIR JSON Resource Builder
  * @link https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/purification-decision
  */
+/**
+ * @deprecated Resource `PurificationDecision` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderPurificationDecision extends Builder
 {
     protected string $resourceType = 'PurificationDecision';

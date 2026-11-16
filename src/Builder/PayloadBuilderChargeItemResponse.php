@@ -8,6 +8,11 @@ namespace Satusehat\Integration\Builder;
  * ChargeItemResponse FHIR R4 Resource Builder
  * @link https://hl7.org/fhir/R4/chargeitemresponse.html
  */
+/**
+ * @deprecated Resource `ChargeItemResponse` tidak didefinisikan FHIR R4, sehingga payload dari builder ini
+ *             tidak akan diterima server FHIR mana pun. Dipertahankan hanya agar pemanggil
+ *             lama tidak rusak; jangan dipakai untuk SATUSEHAT.
+ */
 class PayloadBuilderChargeItemResponse extends Builder
 {
     protected string $resourceType = 'ChargeItemResponse';
