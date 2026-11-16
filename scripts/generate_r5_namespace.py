@@ -59,14 +59,16 @@ def sinkronkan() -> list[str]:
             tujuan = TUJUAN / ruang / f"{nama}.php"
             baru = isi(ruang, nama)
             if not tujuan.exists():
-                tujuan.write_text(baru)
+                tujuan.write_text(baru, encoding="utf-8", newline="\n")
                 berubah.append(f"baru   R5/{ruang}/{nama}.php")
                 continue
-            lama = tujuan.read_text()
+            # Windows checkout mengubah akhir baris menjadi CRLF; tanpa normalisasi, setiap
+            # berkas akan terlihat "berubah" dan --check gagal di runner Windows saja.
+            lama = tujuan.read_text(encoding="utf-8").replace("\r\n", "\n")
             if "@generated" not in lama:
                 continue  # milik manusia: implementasi R5 yang berbeda
             if lama != baru:
-                tujuan.write_text(baru)
+                tujuan.write_text(baru, encoding="utf-8", newline="\n")
                 berubah.append(f"ubah   R5/{ruang}/{nama}.php")
     return berubah
 
