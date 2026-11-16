@@ -18,7 +18,7 @@
 | Parser | 142 kelas | satu getter per elemen builder, `tests/Parser/ParserSurfaceTest.php` |
 | Datatype | 34 | `src/DataType` |
 | Namespace R5 | 142 builder + 34 datatype | `src/R5`, `tests/Version/R5NamespaceTest.php` |
-| Tes | 1.892 | `vendor/bin/phpunit tests` |
+| Tes | 1.933 | `vendor/bin/phpunit tests` |
 
 Konformansi R4 bukan hal yang sama dengan paritas antar-bahasa. [`docs/R4_CONFLICT_TRIAGE.md`](docs/R4_CONFLICT_TRIAGE.md)
 mencatat hasil audit terhadap definisi R4: 46 builder bersih, 68 memakai setter generik pada
