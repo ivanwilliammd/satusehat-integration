@@ -13,17 +13,23 @@ tiap checkout. Jangan menyunting angkanya: sunting skripnya, lalu jalankan ulang
 disalin tangan akan basi pada commit berikutnya, dan dokumen yang basi lebih buruk daripada tidak ada.
 
 <!-- parity:begin (dihasilkan scripts/parity-manifest.sh --docs, jangan disunting) -->
-Diukur: 2026-11-16 · commit PHP `73da1c4`
+Diukur: 2026-11-16 · commit PHP `4ed7b5f`
 
 | bagian | PHP | Node | Python | Go | Rust |
 |---|---|---|---|---|---|
-| payload builder | 141 | 141 | 141 | 141 | 25 |
+| payload builder | 141 | 141 | 141 | 141 | 133 |
 | datatype | 33 | 33 | 33 | 33 | 12 |
-| terminology files | 22 | 21 | 21 | 21 | 1 |
+| terminology files | 23 | 22 | 23 | 22 | 1 |
 | queue files | 8 | 8 | 8 | 8 | 1 |
 | parser files | 142 | 142 | 141 | 142 | 1 |
-| test files | 236 | 211 | 217 | 249 | 129 |
+| test files | 238 | 212 | 218 | 250 | 361 |
 | metode builder tidak diekspor (Go) | — | — | — | 62 dari 1788 | — |
+
+Catatan pembacaan: kolom *parser files*, *terminology files*, dan *queue files* menghitung
+**berkas**, bukan fungsi. Rust menyatukan seluruh parser dalam satu `parser.rs` dan
+terminologi dalam satu modul, jadi angkanya 1 meski fungsinya ratusan. Jangan
+menyimpulkan cakupan Rust lebih kecil dari angka ini — bandingkan lewat `PARITY.md`
+per repo, yang memuat jumlah fungsi terukur.
 <!-- parity:end -->
 
 Selisih yang perlu dijelaskan, dan yang tidak akan hilang dengan sendirinya:

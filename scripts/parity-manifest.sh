@@ -123,6 +123,12 @@ block() {
   printf '| parser files | %s | %s | %s | %s | %s |\n' "$p_php" "$p_nd" "$p_py" "$p_go" "$p_rs"
   printf '| test files | %s | %s | %s | %s | %s |\n' "$x_php" "$x_nd" "$x_py" "$x_go" "$x_rs"
   printf '| metode builder tidak diekspor (Go) | — | — | — | %s dari %s | — |\n' "$((go_total-go_exported))" "$go_total"
+  printf '\n'
+  printf 'Catatan pembacaan: kolom *parser files*, *terminology files*, dan *queue files* menghitung\n'
+  printf '**berkas**, bukan fungsi. Rust menyatukan seluruh parser dalam satu `parser.rs` dan\n'
+  printf 'terminologi dalam satu modul, jadi angkanya 1 meski fungsinya ratusan. Jangan\n'
+  printf 'menyimpulkan cakupan Rust lebih kecil dari angka ini — bandingkan lewat `PARITY.md`\n'
+  printf 'per repo, yang memuat jumlah fungsi terukur.\n'
   printf '<!-- parity:end -->\n'
 }
 
