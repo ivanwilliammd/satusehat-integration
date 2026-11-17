@@ -33,7 +33,7 @@ class WikiBuilderIndexTest extends TestCase
         [$out, $jumlah] = self::generate();
 
         $this->assertStringContainsString(
-            "**{$jumlah} kelas PayloadBuilder**",
+            "**{$jumlah} PayloadBuilder classes**",
             $out,
             'angka kelas di indeks wiki tidak sama dengan jumlah berkas PayloadBuilder*.php'
         );
@@ -55,7 +55,7 @@ class WikiBuilderIndexTest extends TestCase
         [$out] = self::generate();
 
         $this->assertMatchesRegularExpression(
-            '/\d+ pembangun NON-FHIR khusus SATUSEHAT \(BillingStatus, PurificationDecision\)/',
+            '/\d+ NON-FHIR builders specific to SATUSEHAT \(BillingStatus, [^)]*PurificationDecision[,)]/',
             $out,
             'BillingStatus dan PurificationDecision harus terdeteksi NON-FHIR dari docblock kelasnya'
         );
