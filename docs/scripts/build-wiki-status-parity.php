@@ -58,19 +58,19 @@ $bedaDataType = $tanpaPenanda($r5DataType);
 
 $out = [];
 $out[] = '<!-- GENERATED:status-parity:start -->';
-$out[] = 'Diukur dari `src/` oleh `docs/scripts/build-wiki-status-parity.php` pada '
-    .date('Y-m-d').' — jangan disunting tangan.';
+$out[] = 'Measured from `src/` by `docs/scripts/build-wiki-status-parity.php` on '
+    .date('Y-m-d').' — do not edit by hand.';
 $out[] = '';
-$out[] = '| bagian | R4 (kanon) | R5 (`src/R5`) | berbeda dari R4 |';
+$out[] = '| part | R4 (canonical) | R5 (`src/R5`) | different from R4 |';
 $out[] = '|---|---|---|---|';
 $out[] = '| payload builder | '.count($r4Builder).' | '.count($r5Builder).' | '.count($bedaBuilder).' |';
 $out[] = '| datatype | '.count($r4DataType).' | '.count($r5DataType).' | '.count($bedaDataType).' |';
 $out[] = '| parser | '.count($parser).' | — | — |';
 $out[] = '';
-$out[] = 'Builder R5 yang implementasinya berbeda dari kanon: '
-    .($bedaBuilder === [] ? 'belum ada — semuanya masih turunan apa adanya' : implode(', ', $bedaBuilder)).'.';
-$out[] = 'Datatype R5 yang berbeda dari kanon: '
-    .($bedaDataType === [] ? 'belum ada' : implode(', ', $bedaDataType)).'.';
+$out[] = 'R5 builders whose implementation differs from the canonical one: '
+    .($bedaBuilder === [] ? 'none — all are plain subclasses' : implode(', ', $bedaBuilder)).'.';
+$out[] = 'R5 datatypes that differ from the canonical one: '
+    .($bedaDataType === [] ? 'none' : implode(', ', $bedaDataType)).'.';
 $out[] = '<!-- GENERATED:status-parity:end -->';
 $block = implode("\n", $out);
 
