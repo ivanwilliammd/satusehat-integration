@@ -13,7 +13,7 @@ tiap checkout. Jangan menyunting angkanya: sunting skripnya, lalu jalankan ulang
 disalin tangan akan basi pada commit berikutnya, dan dokumen yang basi lebih buruk daripada tidak ada.
 
 <!-- parity:begin (dihasilkan scripts/parity-manifest.sh --docs, jangan disunting) -->
-Diukur: 2026-11-16 · commit PHP `4ed7b5f`
+Diukur: 2026-11-17 · commit PHP `0a7b281`
 
 | bagian | PHP | Node | Python | Go | Rust |
 |---|---|---|---|---|---|
@@ -22,7 +22,7 @@ Diukur: 2026-11-16 · commit PHP `4ed7b5f`
 | terminology files | 23 | 22 | 23 | 22 | 1 |
 | queue files | 8 | 8 | 8 | 8 | 1 |
 | parser files | 142 | 142 | 141 | 142 | 1 |
-| test files | 238 | 212 | 218 | 250 | 361 |
+| test files | 238 | 213 | 218 | 250 | 376 |
 | metode builder tidak diekspor (Go) | — | — | — | 62 dari 1788 | — |
 
 Catatan pembacaan: kolom *parser files*, *terminology files*, dan *queue files* menghitung
