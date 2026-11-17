@@ -14,7 +14,7 @@
 | Bagian | Jumlah | Bukti |
 | --- | --- | --- |
 | Builder | 141 resource | `src/Builder/PayloadBuilder*.php` |
-| Method kanon | 1.405 | uji permukaan method per resource |
+| Method builder | 1.405 | uji permukaan method per resource |
 | Parser | 142 kelas | satu getter per elemen builder, `tests/Parser/ParserSurfaceTest.php` |
 | Datatype | 34 | `src/DataType` |
 | Namespace R5 | 142 builder + 34 datatype | `src/R5`, `tests/Version/R5NamespaceTest.php` |

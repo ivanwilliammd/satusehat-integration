@@ -43,7 +43,7 @@ Aturan yang sama berlaku untuk datatype: `src/R5/DataType/CodeableConcept.php`, 
 
 **Saat ini belum ada satu pun perbedaan R5 yang ditulis**, karena belum ada yang diverifikasi
 terhadap spesifikasi R5. Menyalin dugaan ke dalam kode akan menghasilkan kelas R5 yang mengaku
-sesuatu yang tidak diperiksa — persis kesalahan yang membuat angka "141/141" dulu menyesatkan.
+sesuatu yang tidak diperiksa.
 Menambah perbedaan dilakukan satu per satu, dengan rujukan elemen R5-nya.
 
 ## Batas yang perlu dinyatakan
@@ -52,5 +52,3 @@ Menambah perbedaan dilakukan satu per satu, dengan rujukan elemen R5-nya.
   `R5\Builder\X` menghasilkan payload R4 — dan itu memang perilaku yang diuji.
 - Validasi, parser, dan queue belum dipisah per versi; mereka bekerja pada bentuk payload, bukan
   pada definisi versi.
-- Port Node, Python, Go, dan Rust belum punya lapisan ini. Urutannya: PHP (kanon) lebih dulu,
-  lalu port mengikuti pola yang sama setelah keputusan Anda.
