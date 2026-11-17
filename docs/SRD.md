@@ -1,297 +1,192 @@
-# SRD — satusehat-integration (PHP SDK SATUSEHAT FHIR R4)
+# SRD — satusehat-integration (PHP SDK for SATUSEHAT FHIR R4)
 
-Status: v1.0 · 2026-10-27 · Pendamping: `docs/PRD.md`
-Semua angka di bawah **diukur** dari repo (`ls`, `grep`, `composer test`), bukan dari ingatan.
-Bila kode berubah, perbarui dokumen ini di commit yang sama.
+Status: v2.0 · 2026-11-17 · Companion: `docs/PRD.md`
+Every number below is **measured** from this repository (`ls`, `grep`, `phpunit`); the command is
+written next to the ones that are easy to re-derive. When the code changes, update this document in the
+same commit.
 
-## 1. Ruang Lingkup Dokumen
+## 1. Scope
 
-Menjelaskan cara kerja internal pustaka: lapisan, kontrak publik, alur token dan antrean,
-pemetaan galat, aturan kompatibilitas, dan cara mengujinya. Tidak menjelaskan cara memakai
-(SATUSEHAT sendiri di `README.md`) dan tidak menjelaskan produk yang memakainya.
+How the library works internally: layers, public contract, token and queue flow, error mapping,
+compatibility rules, and how it is tested. It does not explain how to use SATUSEHAT (that is
+`README.md`) or the products that consume it.
 
-## 2. Prinsip Arsitektur
+## 2. Architecture principles
 
-1. **Bangun dulu, kirim kemudian.** Pembangun payload (`Builder`, `DataType`) tidak menyentuh
-   jaringan; pengiriman hanya di `SSRequest`/`Queue\Worker`. Satu arah ketergantungan.
-2. **Nilai bertipe, bukan array bebas di jalur baru.** Tipe, `status`, dan rujukan divalidasi
-   saat dibangun — galat ditemukan sebelum dikirim.
-3. **Jalur lama tetap hidup, tetapi tidak ditumbuhkan.** `src/FHIR/*` (49 kelas) adalah lapisan
-   kompatibilitas pemakai versi 3.x. Baru **3** berkas yang memakai `PayloadBuilder`; sisanya
-   masih berdiri sendiri — dicatat sebagai utang teknis T-01, bukan pola yang boleh ditiru.
-4. **Kegagalan punya tempat.** Setiap kegagalan kiriman berakhir di status `failed` atau `dlq`
-   dengan alasan tersimpan; tidak ada `catch` kosong.
-5. **Rahasia hanya dari lingkungan.** Tidak ada kredensial di kode, config contoh, atau log.
-6. **Satu perilaku, empat bahasa.** Perubahan bentuk payload harus punya padanan di SDK
-   Node/Python/Go pada nomor rilis yang sama.
+1. **Build first, send later.** Payload builders (`Builder`, `DataType`) never touch the network;
+   transport lives only in `SSRequest` and `Queue\Worker`. One direction of dependency.
+2. **Typed values on the new path.** Types, `status`, and references are validated while the payload is
+   built, so an error surfaces before anything is sent.
+3. **The legacy path stays alive but does not grow.** `src/FHIR/*` is the compatibility layer for 3.x
+   callers. New behaviour goes into `PayloadBuilder` only; legacy files are migrated one at a time
+   (tracked as T-01).
+4. **Every failure has a home.** A failed send ends in `failed` or `dlq` with the reason stored; there
+   is no empty `catch`.
+5. **Secrets come from the environment.** No credential in code, sample config, or log.
+6. **One behaviour, five languages.** A payload shape change must have its counterpart in the Node,
+   Python, Go, and Rust SDKs at the same release number.
 
-## 3. Arsitektur Sistem
+## 3. System architecture
 
 ```
-pemakai (aplikasi RS / Laravel / skrip)
+consumer (hospital app / Laravel / script)
    │
-   ├── Builder/*        susun payload FHIR         (tanpa jaringan)
-   │     └── DataType/* nilai bertipe (32)
+   ├── Builder/*        build the FHIR payload      (no network)
+   │     └── DataType/* typed values (34)
    │
-   ├── SSRequest        kirim sinkron              (guzzle, retry, refresh token)
-   │     └── SSResponse jawaban terbungkus
-   │     └── SSValidationError 558 aturan + 14 tipe jawaban
+   ├── SSRequest        synchronous send            (guzzle, retry, token refresh)
+   │     ├── SSResponse          wrapped response
+   │     └── SSValidationError   558 rules + 14 response types
    │
-   ├── Queue/*          kirim asinkron             (SQLite: pending→processing→success|failed|dlq)
+   ├── Queue/*          asynchronous send           (SQLite: pending→processing→success|failed|dlq)
    │     ├── SqliteQueue, Worker, RateLimiter, ErrorClassifier, QueueMonitor, QueueResult
    │     └── Console/Commands: EnqueueSatusehat, ProcessSatusehatQueue, QueueStatusSatusehat
    │
-   ├── Publisher/*      kirim ke broker/klien      (Guzzle, PSR-18, Laravel HTTP)
+   ├── Publisher/*      send to a broker/client     (Guzzle, PSR-18, Laravel HTTP)
    │
-   └── Domain layanan luar
-         ├── OAuth2Client   token SATUSEHAT (client_credentials)
-         ├── TerminologyClient  SmarTerm (PAT atau OIDC client_credentials)
-         ├── Tenancy/TenantCredentialResolver  kredensial per tenant
-         └── KYC            kunci RSA + enkripsi (verifikasi identitas)
+   └── external services
+         ├── OAuth2Client     SATUSEHAT token (client_credentials)
+         ├── TerminologyClient SmarTerm (PAT or OIDC client_credentials)
+         ├── Tenancy/TenantCredentialResolver  per-tenant credentials
+         └── KYC              RSA keys + encryption (identity verification)
 ```
 
-Ketergantungan hanya ke bawah. `Builder` tidak boleh mengimpor `SSRequest`; `DataType` tidak
-boleh mengimpor apa pun dari `Queue`.
+Dependencies point downward only: `Builder` may not import `SSRequest`; `DataType` may not import
+anything from `Queue`.
 
-## 4. Inventaris Kelas (terukur 2026-10-27)
+## 4. Measured inventory (2026-11-17)
 
-| Direktori | Berkas | Peran |
+| Directory | Files | Role |
 |---|---|---|
-| `src/Builder/` | 142 | 141 `PayloadBuilderXxx` per resource + basis abstrak `Builder` |
-| `src/DataType/` | 32 | Coding, CodeableConcept, HumanName, Reference, Quantity, … |
-| `src/FHIR/` | 49 | resource gaya lama (kompatibilitas 3.x); **3** di antaranya sudah memakai `PayloadBuilder` |
-| `src/Parser/` | 18 | pembaca jawaban SATUSEHAT → objek (Patient, Encounter, Observation, …) |
-| `src/Terminology/` | 22 | pendukung klien terminologi |
-| `src/Queue/` | 8 | antrean persisten |
-| `src/SSResponse/` | 3 | `SSResponse`, `SSValidationError`, pendukung |
+| `src/Builder/` | 142 | 141 `PayloadBuilderXxx` per resource plus the abstract `Builder` |
+| `src/DataType/` | 34 | Coding, CodeableConcept, HumanName, Reference, Quantity, … |
+| `src/FHIR/` | 50 | legacy-style resources for 3.x compatibility; not extended any more |
+| `src/Parser/` | 142 | typed readers over a SATUSEHAT payload |
+| `src/Terminology/` | 24 | terminology client support |
+| `src/Queue/` | 8 | persistent queue |
+| `src/SSResponse/` | 3 | `SSResponse`, `SSValidationError`, support |
 | `src/Models/` | 3 | `SatusehatLog`, `SatusehatQueue`, `SatusehatToken` |
-| `src/Console/Commands/` | 3 | perintah artisan antrean |
+| `src/Console/Commands/` | 3 | artisan queue commands |
 | `src/Tenancy/` | 1 | `TenantCredentialResolver` |
-| akar `src/` | — | `OAuth2Client`, `TerminologyClient`, `TerminologyQueryBuilder`, `KYC`, service provider |
+| `src/` root | 5 | `OAuth2Client`, `TerminologyClient`, `TerminologyQueryBuilder`, `KYC`, service provider |
+| `database/seeders/csv/*.stub` | 18 | master-data datasets shipped as stubs |
 
-## 5. Kontrak Publik
+## 5. Public contract
 
 ### 5.1 Builder
 
 ```php
-$b = new PayloadBuilderPatient();                  // 141 kelas PayloadBuilder*
+$b = new PayloadBuilderPatient();                  // 141 PayloadBuilder* classes
 $b->setId('100000000001')
   ->addName(new HumanName(family: 'Harsono', given: ['Ivan']))
   ->setGender('male')
   ->setBirthDate('1990-01-01')
   ->setMetaProfile('https://fhir.kemkes.go.id/r4/StructureDefinition/Patient');
-$payload = $b->build();   // array FHIR, null & array kosong dibuang
-$payload = $b->json();    // sama; subkelas boleh menambah validasi lalu melempar RuntimeException
+$payload = $b->build();   // FHIR array; nulls and empty arrays dropped
+$payload = $b->json();    // same; subclasses may add validation and throw RuntimeException
 ```
 
-Basis abstrak `Builder` menyediakan `build()`/`json()`; **tidak ada** `::make()` — kelas dibuat
-dengan `new`. Nama kelas selalu berawalan `PayloadBuilder`.
+The abstract `Builder` provides `build()`/`json()`; there is **no** `::make()` — instances come from
+`new`, and class names always start with `PayloadBuilder`.
 
-Aturan yang mengikat:
+Binding rules:
 
-- **Metode tidak seragam antar resource.** Tidak semua resource punya penyetel untuk setiap
-  elemen (mis. `PayloadBuilderPatient` belum punya `setManagingOrganization`); periksa kelasnya
-  sebelum menulis pemanggilan.
-- **Objek bertipe ATAU string** diterima pada metode yang menerima rujukan/CodeableConcept.
-  String yang sudah memuat `/`, atau berawalan `urn:`, `http://`, `https://`, **tidak** diberi
-  awalan tipe lagi.
-- **`status`/`intent` divalidasi**; nilai di luar daftar melempar `InvalidArgumentException`.
-- **`build()` mengembalikan array**, bukan objek; `DataType::toArray()` rekursif dan membuang null.
+- **Methods are not uniform across resources.** Not every resource has a setter for every element
+  (for example `PayloadBuilderPatient` has no `setManagingOrganization`); read the class before calling.
+- **Typed object OR string** is accepted wherever a reference or CodeableConcept is expected. A string
+  that already contains `/`, or starts with `urn:`, `http://`, `https://`, gets no type prefix.
+- **`status`/`intent` are validated**; a value outside the list throws `InvalidArgumentException`.
+- **`build()` returns an array**, not an object.
 
-### 5.2 SSRequest
+### 5.2 Transport
 
-```php
-$ss = new SSRequest($oauth2, token: null, baseUrl: null, config: [
-    'timeout' => 30, 'maxRetries' => 5, 'headers' => [...],
-]);
-$ss->get($url, $params); $ss->post($url, $body); $ss->put($url, $body);
-$ss->patch($url, $patch); $ss->patchFhirPath($url, $fhirPathPayload);
-$ss->delete($url, $body); $ss->postBundle($url, $bundle);
-```
+`SSRequest` wraps Guzzle: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `PATCH` by FHIRPath, and
+`POST` of a Bundle. On `401` it refreshes the token once and retries; on `429`/`5xx` it backs off
+exponentially, honouring `Retry-After` when present.
 
-Perilaku yang sudah terpasang:
+### 5.3 Validation
 
-| Keadaan | Tindakan |
-|---|---|
-| `401` | minta token baru lewat `OAuth2Client`, ulangi **sekali** |
-| `429` | tunggu sesuai `Retry-After`, lalu ulangi |
-| `5xx` / galat jaringan | percobaan ulang eksponensial `2^n`, batas `maxRetries`, jeda maksimum 60 s |
-| `4xx` lain | tidak diulang; galat diteruskan sebagai `SSResponse` |
+`SSValidationError` maps the 558 SATUSEHAT rule codes and 14 response types onto readable messages.
+Callers branch on the code, never on the message text.
 
-### 5.3 Antrean
+### 5.4 Terminology
 
-Status: `pending → processing → success | failed → dlq`. `DEFAULT_MAX_ATTEMPTS = 5`.
-`QueueInterface` menyediakan `enqueue`, `enqueueBundle`, `dequeue`, `markSuccess`, `markFailed`,
-`markDlq`, `reset`, `get`, `pendingCount`, `dlqCount`, `stats`, `pendingJobs`, `dlqJobs`,
-`resetAll`, `purgeSuccess($days)`.
+`TerminologyClient` talks to SmarTerm (`terminology.ivanmd.id`), separate from SATUSEHAT OAuth. Two
+modes: **Sanctum PAT** (`TERMINOLOGY_API_TOKEN`) or **OIDC client_credentials**
+(`TERMINOLOGY_CLIENT_ID`/`_SECRET`/`_TOKEN_URL`) with automatic refresh. When both are configured, PAT
+wins. Terminology must not become a silent dead end: a service failure is surfaced as a clear error,
+never as an empty payload masquerading as "no data".
 
-`ErrorClassifier` memetakan jawaban menjadi kategori yang menentukan boleh-ulang:
+`TerminologyQueryBuilder` gives the fluent surface: `query($text)->…`, `map()`, `validate()`,
+`autoMap()`, `kptlCombine()`, `resolveCondition()`, `resolveChiefComplaint()`, `resolveObservation()`,
+`resolveMedication()`, `resolveServiceRequest()`, `valueSets()`, `valueSet($bundleId)`.
 
-| Kategori | Boleh ulang | Status akhir |
-|---|---|---|
-| `success` | — | `success` |
-| `invalid_request`, `validation_error`, `not_found` | tidak | `dlq` |
-| `unauthorized` | ya (token baru) | tetap `pending` |
-| `forbidden` | tidak | `dlq` |
-| `conflict` (409) | **tidak** — saat ini langsung `dlq` | `dlq` |
-| `rate_limited` | ya (jeda) | `pending` |
-| `server_error`, `network_error` | ya (`2^n`) | `pending`, `dlq` setelah batas |
-| `unexpected` | tidak | `dlq` |
+### 5.5 Per-tenant credentials
 
-`RateLimiter` membatasi laju kiriman (bawaan 300 permintaan/menit) — satu-satunya tempat
-penundaan terpusat, supaya worker paralel tidak menjumlah melampaui kuota SATUSEHAT.
+`TenantCredentialResolver::resolve(?string $teamKey)` picks a credential source in order: override
+disabled → **env**; override enabled with a non-database driver → **array**; override enabled with the
+`database` driver → **tenant row**, falling back to the array. The cache key includes `teamKey`, so one
+process can serve several tenants without overwriting each other.
 
-### 5.4 TerminologyClient (SmarTerm)
+## 6. Flows
 
-```php
-$tc = new TerminologyClient(baseUrl: null, token: null, config: []);  // env dipakai bila null
-$tc->search($q, category: 'all', limit: 20);
-$tc->searchSystem('icd10', $q);           // per sistem kode
-$tc->kptlCombine($baseCode, $modifiers);  // KPTL berlapis → kode gabungan
-$tc->map($source, $target, $code);
-$tc->validate($system, $code);
-$tc->autoMap($sourceSystem, $sourceCode);
-$tc->resolveCondition($code, $systemHint, $category);
-$tc->resolveChiefComplaint($code); $tc->resolveObservation($code);
-$tc->resolveMedication($code);     $tc->resolveServiceRequest($code, $category);
-$tc->valueSets(); $tc->valueSet($bundleId);
-$tc->query($text)->…                // TerminologyQueryBuilder (fluent)
-```
-
-Auth: **Sanctum PAT** (`TERMINOLOGY_API_TOKEN`) **atau** **OIDC client_credentials**
-(`TERMINOLOGY_CLIENT_ID`/`_SECRET`/`_TOKEN_URL`) dengan refresh otomatis. Dua-duanya boleh ada;
-PAT dipakai lebih dulu. Terminology **tidak boleh** menjadi titik mati: kegagalan layanan
-diteruskan sebagai galat yang jelas, bukan payload kosong yang menyamar sebagai "tidak ada data".
-
-### 5.5 Kredensial per tenant
-
-`TenantCredentialResolver::resolve(?string $teamKey)` memilih sumber kredensial berurutan:
-override nonaktif → **env**; override aktif + driver non-database → **array**; override aktif +
-driver `database` → **baris tenant**, dengan cadangan array. Kunci cache memuat `teamKey` supaya
-satu proses dapat melayani beberapa tenant tanpa saling menimpa.
-
-## 6. Alur
-
-**Kirim sinkron**: susun payload → `SSRequest::post` → `401`? token baru + ulangi → `429`? tunggu
-→ `2xx`? bungkus jadi `SSResponse` dengan id resource → selain itu petakan galat lewat
+**Synchronous send**: build payload → `SSRequest::post` → `401`? new token and retry → `429`? wait →
+`2xx`? wrap as `SSResponse` with the resource id → otherwise map the error through
 `SSValidationError`.
 
-**Kirim asinkron**: `EnqueueSatusehat` menulis baris `pending` → `ProcessSatusehatQueue` menjalankan
-`Worker::process(limit)` → `RateLimiter::wait()` → kirim → `markSuccess` / `markFailed` →
-percobaan habis → `markDlq`. `QueueStatusSatusehat` mencetak hitungan per status dan isi DLQ.
+**Asynchronous send**: `EnqueueSatusehat` writes a `pending` row → `ProcessSatusehatQueue` runs
+`Worker::process(limit)` → `RateLimiter::wait()` → send → `markSuccess` / `markFailed` → attempts
+exhausted → `markDlq`. `QueueStatusSatusehat` prints per-status counts and the DLQ contents.
 
-**Master data**: berkas `database/seeders/csv/*.csv.stub` (18 berkas) disalin menjadi `.csv` saat
-publish, lalu seeder membacanya (pemisah `;`, ada baris header). Migrasi `.stub` disediakan untuk
-aplikasi Laravel yang ingin menyimpan dataset secara lokal.
+**Master data**: `database/seeders/csv/*.csv.stub` files (18) are copied to `.csv` at publish time and
+read by the seeders (separator `;`, with a header row). A migration for `.stub` ships for applications
+that want the dataset stored locally.
 
-## 7. Aturan Kompatibilitas
+## 7. Compatibility rules
 
-- **Jangan hapus atau ubah nama metode publik** tanpa catatan migrasi di `CHANGELOG.md`.
-- **Logika baru hanya di `PayloadBuilder`**; menambah perilaku di `src/FHIR/*` dilarang. Berkas
-  `FHIR` yang belum memakai builder (46 dari 49) dibiarkan apa adanya sampai dimigrasikan (T-01).
-- **`DataType::toArray()` tidak boleh mengembalikan objek**; uji lama mengandalkan array penuh.
-- **Lantai PHP 8.0** — diukur, bukan disepakati: `match(`/`?->` dipakai 8 berkas di `src/`, jadi 7.4
-  sudah mustahil sejak lama sementara `composer.json` masih mengizinkannya (pemasangan sukses di 7.4,
-  parse error saat kelas dimuat). Properti `readonly` (8.1) di `src/Queue/QueueResult.php` dicabut →
-  imutabilitas dijaga `final` + konstruktor privat. Penjaganya
-  `tests/Unit/PhpVersionContractTest.php`: memindai token `src/` (bukan teks, jadi `match(` di komentar
-  tidak dihitung), mengambil versi terendah dari `composer.json`, dan menuntut versi itu ADA di
-  matriks `.github/workflows/run-tests.yml`. Menambah konstruksi 8.1 di `src/` = uji merah yang
-  menyebut versinya.
-- **`illuminate/*` `^8`–`^13`**: jangan memakai API yang hanya ada di satu major.
+- **Never remove or rename a public method** without a migration note in `CHANGELOG.md`.
+- **New logic only in `PayloadBuilder`**; adding behaviour under `src/FHIR/*` is forbidden.
+- **`DataType::toArray()` must not return an object**; older tests rely on plain arrays.
+- **PHP 8.0 floor** — measured, not negotiated: `match(` and `?->` appear across `src/`, so 7.4 has
+  been impossible for a long time. `tests/Unit/PhpVersionContractTest.php` scans `src/` tokens (not
+  text, so `match(` inside a comment does not count), reads the lowest constraint from
+  `composer.json`, and requires that version to exist in the CI matrix.
 
-## 8. Kinerja & Batas
+## 8. Performance and limits
 
-- `SSRequest` sinkron; untuk volume besar pakai antrean.
-- Antrean berbasis SQLite: cocok untuk kiriman asinkron satu fasilitas, bukan pengganti broker.
-- `RateLimiter` (300 rpm bawaan) adalah pengaman kuota, bukan penjadwal.
-- Payload besar (`Bundle`) dikirim lewat `postBundle`, bukan dipecah manual oleh pemanggil.
+Building a payload is pure array work; the expensive part is the network. The queue exists so a caller
+can accept a request without waiting for SATUSEHAT, and the rate limiter keeps the send rate inside the
+platform quota. Nothing in this library caches SATUSEHAT responses: a stale cache in a clinical
+integration is a wrong answer, not a fast one.
 
-## 9. Pengujian
+## 9. Tests
 
-- 45 kelas uji: `tests/FHIR` 43, `tests/Unit` 1, `ArchTest` 1. Jalankan `composer test`.
-- Terukur 2026-10-30 (`vendor/bin/phpunit`): **879 uji, 1479 asersi, 0 gagal**, 0,43 detik,
-  **0 baris `Deprecated`** di keluaran. Deprecation dihitung sebagai gerbang, bukan kebisingan:
-  ia satu-satunya tanda bahwa pustaka akan pecah di PHP berikutnya sementara semua uji tetap hijau
-  (terukur: 34 baris → 0 setelah 5 parameter implicit-nullable di `src/FHIR/DiagnosticReport.php`
-  dan 4 `setAccessible()` di uji yang kini dijaga `PHP_VERSION_ID < 80100`).
-- Uji tidak menyentuh jaringan: klien di-stub, token di-inject.
-- Uji wajib untuk setiap kontrak di §5: bentuk payload, penolakan `status` tidak sah, awalan
-  rujukan, pemetaan galat, transisi status antrean.
-- **Matriks CI**: PHP 8.0 + 8.3, Linux + Windows. Uji yang hanya lulus di satu versi adalah cacat.
-- Uji paritas lintas bahasa (PHP vs Node/Python/Go) **belum ada** — lihat PRD FR-14.
+```bash
+SATUSEHAT_ENV=DEV vendor/bin/phpunit --no-configuration --bootstrap vendor/autoload.php tests
+```
 
-## 10. Keputusan Arsitektur (ADR)
+1.933 test methods, 4.672 assertions. CI runs the suite on Linux, macOS, and Windows for each supported
+PHP version.
 
-| # | Keputusan | Alasan | Konsekuensi |
-|---|---|---|---|
-| ADR-01 | Pembangun payload terpisah dari klien HTTP | Dapat diuji tanpa jaringan; satu sumber bentuk FHIR | Dua kelas untuk satu resource, disengaja |
-| ADR-07 | Nama kelas `PayloadBuilder*` (bukan `Builder*`) | Konsisten dengan `DataType` dan nama paket lama | Basis abstrak tetap `Builder`; pencarian nama harus menyertakan awalan |
-| ADR-02 | `build()` mengembalikan array, bukan objek | Pemanggil bebas mengubah sebelum kirim; JSON langsung | Kehilangan type-safety setelah `build()` |
-| ADR-03 | Antrean SQLite, bukan Redis | Satu berkas, tanpa layanan tambahan di fasilitas kecil | Tidak cocok untuk konkurensi tinggi |
-| ADR-04 | Kode galat dipetakan ke kategori, bukan dicocokkan per pesan | Pesan SATUSEHAT berubah; kategori stabil | Perlu menambah kategori saat muncul kelas galat baru |
-| ADR-05 | Master data disimpan sebagai `.csv.stub` yang dilacak | Berkas `.csv` hasil publish tidak di-commit | Alur ubah: segarkan `.csv` → `cp` ke `.stub` → hapus `.csv` → commit `.stub` |
-| ADR-06 | Kredensial per tenant lewat resolver, bukan properti statis | Satu proses dapat melayani banyak tenant | Setiap jalur harus memanggil resolver, tidak menyimpan hasil di `static` |
+## 10. Architecture decisions
 
-## 11. Anti-Pola (jangan diulang)
+See `docs/ARCHITECTURE.md` for the decision records. The ones that shape this document: build/send
+separation, typed datatypes on the new path, inheritance for the R5 namespace, and rules as data rather
+than code.
 
-1. Menyusun payload dengan array tangan di aplikasi pemanggil — lewati validasi tipe.
-2. Menaruh logika HTTP di dalam `Builder` — menguji payload jadi butuh jaringan.
-3. Menyalin isi `src/FHIR/*` ke `Builder` (atau sebaliknya) — dua sumber bentuk yang akan menyimpang.
-4. `catch (\Throwable) {}` pada jalur kirim — kiriman hilang tanpa jejak.
-5. Menyimpan token di properti `static` atau di berkas yang di-commit.
-6. Memakai `RateLimiter` sebagai penjadwal (menahan proses utama tanpa batas).
-7. Mengubah `.csv` hasil publish lalu meng-commit-nya, bukan `.stub`-nya.
-8. Menambah `meta.profile` atau klaim FHIR-native lain tanpa memastikan resource-nya memang
-   dibangun di sini — pustaka ini klien, bukan server FHIR.
-9. Menulis kunci berjenjang sebagai literal (`$this->data['meta/profile']`) alih-alih lewat
-   `push('meta/profile', …)`. Payload-nya tetap JSON yang sah sehingga tidak ada galat: yang hilang
-   hanya medannya. Penjaganya `tests/FHIR/NestedPathSweepTest.php` (memindai TITIK PEMANGGILAN).
-10. Menyusun jalur berjenjang dengan indeks yang tidak menunjuk elemen mana pun
-   (`push("addItem/{$idx}/adjudication", …)` saat daftar `addItem` masih kosong → indeks `-1`).
-   PHP lalu membuat array ber-kunci rapat dari angka itu dan `json_encode` mengubahnya menjadi
-   **objek** (`{"-1": …}`, `{"0": …, "3": …}`) — sedangkan FHIR menuntut **list** di posisi
-   tersebut. Tidak ada galat, payload tetap JSON yang sah, server menolak sebagai tipe salah
-   tanpa menyebut medan penyebabnya. Aturannya: **segmen numerik hanya boleh menunjuk elemen yang
-   sudah dibuat**; `Builder::assertIndexedSegmentExists()` melempar `InvalidArgumentException`
-   yang menyebut jalurnya. Penjaganya `tests/FHIR/NestedPathVariablePathTest.php` (4 jalur
-   ber-variabel + 4 kontrol negatif).
+## 11. Anti-patterns (do not repeat)
 
-## 11b. Utang Teknis Terukur
+- Adding a setter that writes an element the resource does not define. `docs/R4_CONFLICT_TRIAGE.md`
+  exists because that mistake was made 68 times.
+- Duplicating the R5 classes instead of inheriting them, which forks behaviour silently.
+- Copying a measurement into prose instead of generating it.
 
-| # | Utang | Bukti |
-|---|---|---|
-| T-01 | 46 dari 49 kelas `src/FHIR/*` belum memakai `PayloadBuilder` | `grep -l Builder src/FHIR/*.php` → 3 |
-| T-02 | **SELESAI 2026-10-30** — README sudah menyebut **141** (`README.md:20`), angka 51 adalah sisa dokumen lama | `ls src/Builder/PayloadBuilder*.php \| wc -l` → 141 · `grep -n '141 PayloadBuilder' README.md` |
-| T-03 | Uji paritas lintas bahasa (PRD FR-14) belum ada | tidak ada berkas uji paritas di `tests/` |
-| T-04 | **SELESAI 2026-10-30** — `require.php` → `^8.0`; lantai itu kini diuji CI 8.0 **dan** dijaga uji kontrak | `tests/Unit/PhpVersionContractTest.php` (2 uji/13 asersi) · matriks 8.0+8.3 |
-| T-06 | **SELESAI 2026-10-30** — `setSeriesBodySite()` kini mengirim **CodeableConcept** (`{coding:[{…}]}`) di `src/Builder/PayloadBuilderImagingStudy.php` **dan** `src/FHIR/ImagingStudy.php`; `display` kosong tidak lagi dikirim sebagai string kosong. Uji MERAH dulu 3/3 di `tests/FHIR/ImagingStudyTest.php` (4 uji/9 asersi). Bentuk lama **tidak mungkin dipakai pemanggil yang berhasil**: `series.bodySite` bertipe Coding ditolak validator FHIR, jadi tidak ada pemanggil sehat yang membaca `.bodySite.code` | `vendor/bin/phpunit tests/FHIR/ImagingStudyTest.php` · sapuan kelas yang sama: 10 kandidat "emit `system` tanpa `coding`" diperiksa, 1 cacat nyata (T-06), sisanya benar menurut spesifikasi (`ImagingStudy.modality`/`series.modality` = Coding, `Location.operationalStatus` = Coding, `MedicationDispense.category` sudah `category/coding`) |
-| T-05 | **SELESAI 2026-10-30** — 4 jalur berjenjang ber-variabel kini ber-uji dinamis di `tests/FHIR/NestedPathVariablePathTest.php` (8 uji/26 asersi), dan indeks yang tidak menunjuk elemen ditolak | `vendor/bin/phpunit tests/FHIR/NestedPathVariablePathTest.php` |
+## 12. Measured technical debt
 
-## 12. Ketertelusuran PRD → SRD
+T-01: 46 of the 50 legacy `src/FHIR/*` classes still build their payload by hand instead of delegating
+to a `PayloadBuilder`. Tracked, not hidden.
 
-| PRD | Bagian SRD |
-|---|---|
-| FR-01, FR-02, FR-03, FR-04 | §5.1, §7 |
-| FR-05, FR-06, FR-07 | §5.2, §5.3 (tabel pemetaan galat) |
-| FR-08 | §5.3, §6 |
-| FR-09 | §6 (master data), ADR-05 |
-| FR-10 | §5.4 |
-| FR-11 | §5.5, ADR-06 |
-| FR-12 | §3, §4 |
-| FR-13, FR-14 | §9 |
-| NFR kompatibilitas | §7 |
-| NFR kegagalan terlihat | §5.3, §11 butir 4 |
+## 13. Traceability
 
-## 13. Keputusan yang Harus Diambil Pemilik Produk
-
-1. ~~**Dukungan PHP 7.4**~~ **SELESAI 2026-10-30** — dicabut, bukan dipertahankan: `src/` sudah
-   memakai `match`/`?->` (8.0) di 8 berkas, sehingga janji 7.4 sudah gagal sebelum diputuskan.
-   `composer.json` → `^8.0`, matriks CI 8.0/8.3 kini benar-benar mewakili lantai. Bukti:
-   `vendor/bin/phpunit tests/Unit/PhpVersionContractTest.php` 2 uji/13 asersi (MERAH 2/2 sebelum
-   perbaikan, menyebut `8.1` vs `7.4`).
-2. **Uji paritas lintas bahasa**: apakah paritas dijaga manual per rilis (sekarang) atau dibangun
-   uji kontrak bersama yang membaca berkas contoh yang sama.
-3. **Antrean**: tetap SQLite, atau sediakan antarmuka kedua (Redis/DB Laravel) untuk fasilitas besar.
-4. **`src/FHIR/*`**: berapa lama lapisan kompatibilitas dipertahankan sebelum dihapus di major
-   berikutnya.
+Every functional requirement in `docs/PRD.md` maps to a class in this document; a requirement without a
+class is a requirement nobody implemented.
