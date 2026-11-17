@@ -1,234 +1,234 @@
 {
- "PayloadBuilderCarePlan": {
-  "addressee": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderCatalogEntry": {
-  "reference": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderChargeItem": {
-  "focus": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderCarePlan": {
+    "addressee": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "performedDateTime": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderChargeItemDefinition": {
-  "applies": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderCatalogEntry": {
+    "reference": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "name": {
-   "alasan": "hanya ada di R5",
-   "r4_path": null,
-   "r5": true,
-   "status": "quirk"
+  "PayloadBuilderChargeItem": {
+    "focus": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "performedDateTime": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "property": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderClaim": {
-  "prescriber": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderChargeItemDefinition": {
+    "applies": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "name": {
+      "alasan": "hanya ada di R5",
+      "r4_path": null,
+      "r5": true,
+      "status": "quirk"
+    },
+    "property": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "priorityPayor": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderClinicalImpression": {
-  "previousOpinion": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderCoverageEligibilityResponse": {
-  "requestProvider": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderFamilyMemberHistory": {
-  "ageUnit": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderClaim": {
+    "prescriber": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "priorityPayor": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "deceasedAgeUnit": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderClinicalImpression": {
+    "previousOpinion": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
   },
-  "deceasedCodeableConcept": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
+  "PayloadBuilderCoverageEligibilityResponse": {
+    "requestProvider": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderFamilyMemberHistory": {
+    "ageUnit": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "deceasedAgeUnit": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "deceasedCodeableConcept": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderGoal": {
+    "startAge": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "startDateTime": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "startPeriod": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderImagingStudy": {
+    "ended": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "partOf": {
+      "alasan": "hanya ada di R5",
+      "r4_path": null,
+      "r5": true,
+      "status": "quirk"
+    }
+  },
+  "PayloadBuilderMedicinalProduct": {
+    "productClass": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderMedicinalProductIndication": {
+    "disease": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderMedicinalProductIngredient": {
+    "quantity": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderMedicinalProductPharmaceutical": {
+    "doseForm": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "route": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderNutritionOrder": {
+    "allergyType": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderPaymentNotice": {
+    "insurer": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "paymentReconciliation": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "statusDate": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    }
+  },
+  "PayloadBuilderPaymentReconciliation": {
+    "insurer": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "outcomeCode": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "requestMatchDate": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "requestProvider": {
+      "alasan": "tidak ada di R4 maupun R5",
+      "r4_path": null,
+      "r5": false,
+      "status": "foreign"
+    },
+    "type": {
+      "alasan": "hanya ada di tingkat atas pada R5; R4.detail.type bukan elemen yang sama",
+      "r4_path": "PaymentReconciliation.detail.type",
+      "r5": true,
+      "status": "quirk"
+    }
   }
- },
- "PayloadBuilderGoal": {
-  "startAge": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "startDateTime": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "startPeriod": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderImagingStudy": {
-  "ended": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "partOf": {
-   "alasan": "hanya ada di R5",
-   "r4_path": null,
-   "r5": true,
-   "status": "quirk"
-  }
- },
- "PayloadBuilderMedicinalProduct": {
-  "productClass": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderMedicinalProductIndication": {
-  "disease": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderMedicinalProductIngredient": {
-  "quantity": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderMedicinalProductPharmaceutical": {
-  "doseForm": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "route": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderNutritionOrder": {
-  "allergyType": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderPaymentNotice": {
-  "insurer": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "paymentReconciliation": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "statusDate": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  }
- },
- "PayloadBuilderPaymentReconciliation": {
-  "insurer": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "outcomeCode": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "requestMatchDate": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "requestProvider": {
-   "alasan": "tidak ada di R4 maupun R5",
-   "r4_path": null,
-   "r5": false,
-   "status": "asing"
-  },
-  "type": {
-   "alasan": "hanya ada di tingkat atas pada R5; R4.detail.type bukan elemen yang sama",
-   "r4_path": "PaymentReconciliation.detail.type",
-   "r5": true,
-   "status": "quirk"
-  }
- }
 }

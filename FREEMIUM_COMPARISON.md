@@ -4,21 +4,21 @@
 Premium (closed source) package name: 
 FHIRVel-SS (FHIR Laravel library based on SATUSEHAT Profile)
 
-### Bagaimana langkah berlangganan premium
-1. Calon klien mengirimkan [email (klik disini)](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) untuk pertanyaan awal, yang akan dibalas dalam 1x24 jam.
-2. Pada sesi awal, akan diadakan sesi **konsultasi diagnostik berbayar** antara konsultan dengan calon klien untuk mengetahui kebutuhan integrasi dan dukungan yang Anda butuhkan. (1x sesi konsultasi diagnostik akan dibayar di muka)
-3. Setelah sesi konsultasi diagnostik berbayar, calon klien akan menerima **proposal penawaran/quotation** yang berisi rincian biaya langganan dan dukungan yang akan diterima dengan skema     
-   - **Skema pemakaian library:** perpetual jual putus/*one-time payment* atau berlangganan tahunan.
-   - **Dukungan yang diperlukan:** maintenance, konsultasi/pendampingan/training cara integrasi, pelatihan, dan atau dukungan teknis.
-4. Calon klien dapat memilih untuk **setuju** atau **menolak** penawaran.
+### How to subscribe to the premium tier
+1. A prospective client sends an [email (click here)](mailto:ivan.harsono@ivanmd.id?subject=Subscription%20and%20Support%20for%20SATUSEHAT%20Integration&body=Salam%20sehat%2C%20dr.%20Ivan%0A%0ASaya%20berkebutuhan%20untuk%3A%20(sesuaikan%20dengan%20kebutuhan%20Anda)%0A1.%20Integrasi%20Resource%20%5Bsebutkan%5D%0A2.%20Support%20coding%2Fintegrasi%20database%0A3%20....%0A%0AAnda%20dapat%20mengontak%20saya%20kembali%20melalui%3A%0ANama%3A%20%0ANo.%20Whatsapp%3A%0A%0ATerimakasih%20banyak.) with an initial question; it is answered within 24 hours.
+2. In the first session, a **paid diagnostic consultation** takes place between the consultant and the prospective client to establish the integration and support requirements. (One diagnostic session, paid in advance.)
+3. After the paid diagnostic session, the prospective client receives a **quotation** describing subscription cost and the support included, under this scheme:
+   - **Library usage scheme:** perpetual (one-time payment) or an annual subscription.
+   - **Support required:** maintenance, consultation/integration assistance, training, and/or technical support.
+4. The prospective client may **accept** or **decline** the offer.
 5. Apabila calon klien **setuju dengan penawaran**, maka akan diterbitkan **invoice**, dan klien wajib melunasi invoice sebelum waktu tenggat untuk mendapatkan **receipt** (bukti tanda lunas), beserta SLA dan kesepakatan.
 
-### Kualitas Kode dan Dukungan
+### Code quality and support
 |  | Free | Premium |
 |----------|------|---------|
 | Functional Testing | ⚠️ | ✅ |
 | Code Quality Check | ❌ | ✅ |
-| Dukungan integrasi | ❌ | ✅ |
+| Integration support | ❌ | ✅ |
 | Tanya Jawab | ❌ | ✅ |
 | Pelatihan FHIR | ❌ | ✅ |
 | Pelatihan Terminologi | ❌ | ✅ |
