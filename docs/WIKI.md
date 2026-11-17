@@ -1,65 +1,55 @@
-# Wiki: apa yang dijaga, dan bagaimana memperbaruinya
+# Wiki: what it guarantees, and how to update it
 
-Wiki GitHub (`ivanwilliammd/satusehat-integration.wiki.git`) adalah dokumentasi pemakai paket.
-Halaman yang ada: `Home`, `Installation`, `Onboarding`, `Usage`, `Features`, `PayloadBuilder`,
-`FHIR-Resources`, `FHIR-DataTypes`, `SSRequest-SSResponse`, `Validation-Rule-Numbers`, `Error-Handling`,
-`Parity`, `Status-Parity`.
+The GitHub wiki (`ivanwilliammd/satusehat-integration.wiki.git`) is the user-facing documentation of
+the package. Pages: `Home`, `Installation`, `Onboarding`, `Usage`, `Features`, `PayloadBuilder`,
+`FHIR-Resources`, `FHIR-DataTypes`, `SSRequest-SSResponse`, `Validation-Rule-Numbers`,
+`Error-Handling`, `Parity`, `Status-Parity`.
 
-## Angka yang tidak boleh ditulis tangan
+## Numbers that must never be typed by hand
 
-Jumlah kelas PayloadBuilder adalah angka yang paling cepat basi: wiki sempat menyebut **112**
-sementara `src/Builder/` sudah berisi **141**, dan README menyebut **51**. Ketiganya sekarang
-dijaga mesin, bukan ingatan.
+The PayloadBuilder count is the fastest-rotting number in this repository: the wiki once said **112**
+while `src/Builder/` held **141**, and the README said **51**. All three are now guarded by a machine,
+not by memory.
 
-| Sumber angka | Dijaga oleh |
+| Source of a number | Guarded by |
 |---|---|
-| Wiki `PayloadBuilder` (indeks per kelas) | `docs/scripts/build-wiki-builder-index.php` — blok di antara penanda `GENERATED:builder-index` |
-| Hitungan di `Home`, `Features`, `FHIR-Resources` | dibangkitkan/diperiksa dengan skrip yang sama |
-| Angka di `README.md` | `tests/Unit/WikiBuilderIndexTest.php` (gagal bila berbeda) |
+| Wiki `PayloadBuilder` (index per class) | `docs/scripts/build-wiki-builder-index.php` — the block between `GENERATED:builder-index` markers |
+| Counts in `Home`, `Features`, `FHIR-Resources` | generated and checked by the same script |
+| Numbers in `README.md` | `tests/Unit/WikiBuilderIndexTest.php` (fails when they differ) |
 
-## Perintah
+## Commands
 
 ```bash
-# cetak indeks (tanpa menulis apa pun)
+# print the index without writing anything
 php docs/scripts/build-wiki-builder-index.php
 
-# tulis ulang blok di halaman wiki lokal (wiki-clone/ atau hasil git clone .wiki.git)
+# rewrite the block in a local wiki page (wiki-clone/ or a git clone of .wiki.git)
 php docs/scripts/build-wiki-builder-index.php --splice=wiki/PayloadBuilder.md
 
-# periksa apakah wiki basi; keluar 1 bila ya (bisa dipakai di CI/pre-push)
+# check whether the wiki is stale; exit 1 when it is (usable in CI / pre-push)
 php docs/scripts/build-wiki-builder-index.php --check=wiki/PayloadBuilder.md
 
-# halaman Status-Parity: angka R5 diukur dari src/R5 (berkas tanpa @generated = berbeda dari R4)
+# Status-Parity page: R5 numbers are measured from src/R5 (files without @generated differ from R4)
 php docs/scripts/build-wiki-status-parity.php --splice=Status-Parity.md
 php docs/scripts/build-wiki-status-parity.php --check=Status-Parity.md
 ```
 
-Berkas sasaran **wajib** memuat penanda berikut; tanpa penanda skrip keluar 1 (bukan menebak posisi):
+The target file **must** carry these markers; without them the script exits 1 instead of guessing a
+position:
 
 ```
 <!-- GENERATED:builder-index:start -->
 <!-- GENERATED:builder-index:end -->
 ```
 
-Halaman `Status-Parity` memakai penanda yang sama polanya (`GENERATED:status-parity`). Bedanya,
-angkanya diambil dari `src/R5` dan pembedaannya bukan hitungan berkas melainkan **ada/tidaknya
-penanda `@generated`** — definisi yang sama yang dipakai `scripts/generate_r5_namespace.py` untuk
-berhenti menimpa berkas milik manusia. Resep menambah perbedaan R5 ada di halaman itu sendiri.
+`Status-Parity` uses the same pattern (`GENERATED:status-parity`). Its numbers come from `src/R5`, and
+the distinction it draws is not a file count but the **presence of the `@generated` marker** — the same
+definition `scripts/generate_r5_namespace.py` uses to stop overwriting files people own. The recipe for
+adding an R5 difference lives on that page.
 
-## Aturan saat menambah PayloadBuilder
+## Rules when adding a PayloadBuilder
 
-1. Tambah berkas `src/Builder/PayloadBuilder<Tipe>.php` seperti biasa.
-2. Pembangun NON-FHIR **wajib** menyebut `NON-FHIR` di docblock kelasnya — itulah satu-satunya
-   penanda yang dipakai skrip untuk memisahkan 139 FHIR R4 dari 2 pembangun khusus SATUSEHAT.
-3. Jalankan `--splice` pada halaman wiki, lalu `--check` (harus "segar").
-4. Perbarui angka di `README.md`; uji `WikiBuilderIndexTest` akan menolak bila lupa.
-5. `vendor/bin/phpunit` tetap hijau sebelum push.
-
-## Batas yang diketahui
-
-- Skrip membaca **nama berkas + docblock + daftar metode publik**, bukan memvalidasi isi FHIR.
-  Kesalahan struktur resource tetap ditangkap uji FHIR, bukan oleh indeks wiki.
-- Kolom "Key Methods" berisi empat metode `set*`/`add*` pertama sesuai urutan di berkas — urutan itu
-  bukan penilaian kepentingan, jadi jangan dibaca sebagai anjuran pemakaian.
-- `ResourceGuide` dideklarasikan sebagai R4 di docblock-nya sendiri; indeks mengikuti deklarasi repo,
-  bukan katalog HL7 (ResourceGuide sebenarnya R5). Perbaikan deklarasi = keputusan pemilik paket.
+1. Add `src/Builder/PayloadBuilder<Type>.php` as usual.
+2. A NON-FHIR builder **must** say `NON-FHIR` in its class docblock — that marker is how the script
+   separates 139 FHIR R4 builders from the 2 SATUSEHAT-specific ones.
+3. Run `--splice` on the wiki page, then `--check` before committing.

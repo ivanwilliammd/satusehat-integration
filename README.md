@@ -20,19 +20,20 @@
 | Namespace R5 | 142 builder + 34 datatype | `src/R5`, `tests/Version/R5NamespaceTest.php` |
 | Tes | 1.933 | `vendor/bin/phpunit tests` |
 
-Konformansi R4 bukan hal yang sama dengan paritas antar-bahasa. [`docs/R4_CONFLICT_TRIAGE.md`](docs/R4_CONFLICT_TRIAGE.md)
-mencatat hasil audit terhadap definisi R4: 46 builder bersih, 68 memakai setter generik pada
-resource yang tidak punya elemen itu, 20 perlu keputusan per elemen, 7 resource tidak ada di R4.
+R4 conformance is not the same thing as cross-language parity. [`docs/R4_CONFLICT_TRIAGE.md`](docs/R4_CONFLICT_TRIAGE.md)
+records the audit against the R4 definitions: 46 builders clean, 68 using a generic setter on a
+resource that has no such element, 20 needing a per-element decision, 7 resources that do not exist
+in R4.
 
-## R4 acuan, R5 cukup ganti `use`
+## R4 is the reference; R5 changes one `use` line
 
 ```php
 use Satusehat\Integration\Builder\PayloadBuilderPatient;      // R4 (acuan)
-use Satusehat\Integration\R5\Builder\PayloadBuilderPatient;   // R5 — hanya baris ini
+use Satusehat\Integration\R5\Builder\PayloadBuilderPatient;   // R5 — this line only
 ```
 
-Kelas R5 adalah turunan apa adanya dari kelas R4, dan uji memastikan permukaan method-nya identik.
-Cara menambahkan perbedaan R5 yang terverifikasi: [`docs/FHIR_VERSIONING.md`](docs/FHIR_VERSIONING.md).
+Every R5 class extends its R4 class unchanged, and a test asserts that the method surface is
+identical. Adding a verified R5 difference: [`docs/FHIR_VERSIONING.md`](docs/FHIR_VERSIONING.md).
 
 ---
 

@@ -1,56 +1,64 @@
-# PRD — Ekosistem SDK SATUSEHAT (PHP · Node/TS · Python · Go)
+# PRD — SATUSEHAT SDK ecosystem (PHP · Node/TS · Python · Go · Rust)
 
-Status: v1.1 · 2026-11-09 · Pemilik produk: Ivan William Harsono
-Dokumen ini **satu-satunya** PRD lintas bahasa. SRD per bahasa terpisah:
-`docs/SRD.md` (PHP, di repo ini), `docs/SRD.md` di `satusehat-integration-node`,
-`-python`, `-go`.
+Status: v1.2 · 2026-11-17 · Product owner: Ivan William Harsono
+This is the **only** cross-language PRD. Per-language SRDs are separate: `docs/SRD.md` (PHP, this
+repository), and `docs/SRD.md` in `satusehat-integration-node`, `-python`, `-go`, `-rs`.
 
-## 1. Tujuan Bersama
+## 1. Shared goal
 
-Empat SDK, satu perilaku: memasang paket di bahasa apa pun harus memberi kemampuan yang sama
-untuk membangun payload FHIR R4 SATUSEHAT, mengirimnya dengan token yang selalu segar, dan
-membaca galat validasi dalam bahasa manusia. Nomor versi bergerak bersama; perbedaan yang
-tersisa harus **tertulis** di tabel §4, bukan ditemukan oleh pemakai.
+Five SDKs, one behaviour: installing the package in any language must give the same ability to build
+SATUSEHAT FHIR R4 payloads, send them with a token that is never stale, and read validation errors in
+human language. Version numbers move together; whatever still differs must be **written down** in
+section 4 rather than discovered by a user.
 
-## 2. Keadaan Terukur (2026-11-09)
+## 2. Measured state (2026-11-17)
 
-| | PHP | Node/TS | Python | Go |
-|---|---|---|---|---|
-| Paket | `ivanwilliammd/satusehat-integration` | `@ivanwilliammd/satusehat-integration` | `satusehat-integration` (PyPI) | `github.com/ivanwilliammd/satusehat-integration-go/v4` |
-| Versi terakhir di repo | 4.16.0 | 4.16.0 | 4.16.0 | v4.16.0 |
-| Registri | Packagist | npm | PyPI | proxy.golang.org |
-| Pembangun payload | 141 `PayloadBuilder*` | 141 `*Builder` | 141 `*Builder` | 141 `*Builder` |
-| DataType | 32 kelas | 31 kelas | 33 kelas | 33 struct |
-| Pengiriman HTTP & OAuth2 | `OAuth2Client` + `SSRequest` | `OAuth2Client` + `SSRequest` | `OAuth2Client` + `SSRequest` | `OAuth2Client` + `SSRequest` |
-| Validasi Respons (558 aturan) | `SSResponse`, `BundleResponse`, `SSValidationError` | `SSResponse`, `BundleResponse`, `SSValidationError` | `SSResponse`, `BundleResponse`, `SSValidationError` | `SSResponse`, `BundleResponse`, `SSValidationError` |
-| Parser FHIR | 18 kelas `Parser` | 18 kelas `Parser` | 18 kelas `Parser` | 18 struct `Parser` |
-| Antrean persisten | 8 modul (`SqliteQueue`, `Worker`, `QueueMonitor`, `RateLimiter`, `ErrorClassifier`, …) | 8 modul (`SqliteQueue`, `Worker`, `QueueMonitor`, `RateLimiter`, `ErrorClassifier`, …) | 8 modul (`SqliteQueue`, `Worker`, `QueueMonitor`, `RateLimiter`, `ErrorClassifier`, …) | 8 modul (`SqliteQueue`, `Worker`, `QueueMonitor`, `RateLimiter`, `ErrorClassifier`, …) |
-| Klien terminologi | `TerminologyClient` + 22 modul | `TerminologyClient` + 20 modul | `TerminologyClient` + 27 modul | `TerminologyClient` + 17 modul |
-| Berkas uji | 53 kelas (**898 uji / 1539 asersi**) | 8 berkas (**412 uji**) | 9 berkas (**92 uji**) | 7 berkas (**semua paket lulus**) |
-| Pelacak paritas | `SYNC_MANIFEST.json` | `SYNC_MANIFEST.json` | `SYNC_MANIFEST.json` | `v4/SYNC_MANIFEST.json` |
-
-## 3. Kebutuhan Fungsional Bersama
-
-| ID | Kebutuhan | PHP | Node | Python | Go |
+| | PHP | Node/TS | Python | Go | Rust |
 |---|---|---|---|---|---|
-| SDK-01 | Pembangun payload per resource FHIR (`build()`/`json()`) | ya (141) | ya (141) | ya (141) | ya (141) |
-| SDK-02 | `DataType` bertipe (Coding, HumanName, Reference, Quantity, …) | ya | ya | ya | ya |
-| SDK-03 | Permintaan HTTP: GET/POST/PUT/PATCH/DELETE + Bundle (`SSRequest`) | ya | ya | ya | ya |
-| SDK-04 | Token OAuth2 client_credentials, diperbarui otomatis pada 401 (`OAuth2Client`) | ya | ya | ya | ya |
-| SDK-05 | Pembungkus jawaban + pemetaan 558 kode galat validasi (`SSResponse`, `BundleResponse`, `SSValidationError`) | ya | ya | ya | ya |
-| SDK-06 | Antrean persisten (pending/failed/dlq) + worker + pembatas laju (`SqliteQueue`, `Worker`) | ya (8 modul) | ya (8 modul) | ya (8 modul) | ya (8 modul) |
-| SDK-07 | Klien terminologi SmarTerm (PAT / OIDC client_credentials) | ya | ya | ya | ya |
-| SDK-08 | Master data CSV + seeder Laravel | **ya (satu-satunya)** | tidak | tidak | tidak |
-| SDK-09 | Parser FHIR (18 resource parser) | ya (18) | ya (18) | ya (18) | ya (18) |
-| SDK-10 | Pelacak paritas yang benar-benar terbarui (`SYNC_MANIFEST.json`) | ya | ya | ya | ya |
+| Package | `ivanwilliammd/satusehat-integration` | `@ivanwilliammd/satusehat-integration` | `satusehat-integration` (PyPI) | `github.com/ivanwilliammd/satusehat-integration-go/v4` | `satusehat-integration` (crates.io) |
+| Latest version | 4.19.0 | 4.19.0 | 4.19.0 | v4.19.0 | 0.1.0 |
+| Registry | Packagist | npm | PyPI | proxy.golang.org | crates.io |
+| Payload builders | 141 `PayloadBuilder*` | 141 | 141 | 141 | 136 |
+| Datatypes | 33 | 33 | 33 | 33 | 12 |
+| HTTP send + OAuth2 | `OAuth2Client` + `SSRequest` | same | same | same | `client` crate |
+| Response validation (558 rules) | `SSResponse`, `BundleResponse`, `SSValidationError` | same | same | same | `report` + `validate` |
+| FHIR parsers | 142 | 142 | 141 | 142 | 136 |
+| Persistent queue | 8 modules | 8 modules | 8 modules | 8 modules | 1 module |
+| Terminology client | 23 modules | 23 modules | 24 modules | 23 modules | 1 module |
+| Tests | 1.933 (4.672 assertions) | 1.279 | 2.219 (+1 skipped) | 555 runs / 494 functions | 381 |
+| Parity tracker | `SYNC_MANIFEST.json` | same | same | `v4/SYNC_MANIFEST.json` | same |
 
-## 4. Perbedaan yang Disengaja (bukan cacat)
+Readers should treat the columns as **measured**, not as a claim of equality: the counts come from
+`scripts/parity-manifest.sh`, and `docs/PARITY.md` explains every difference that remains.
 
-| Hal | PHP | Node/TS | Python | Go |
-|---|---|---|---|---|
-| Gaya pemanggilan | `new PayloadBuilderXxx()` lalu metode rantai | kelas `XxxBuilder` + fungsi pabrik | kelas `XxxBuilder` (snake_case & camelCase) | struct + metode rantai |
-| Penamaan berkas | satu berkas per kelas | `src/builder/*.ts` (kebab-case) | `src/builder/*.py` (snake_case) | paket `v4/` per modul |
-| Antrean | SQLite PDO (`SqliteQueue` + `Worker`) | SQLite `better-sqlite3` (`SqliteQueue` + `Worker`) | SQLite `sqlite3` (`SqliteQueue` + `Worker`) | Durable JSON/In-Memory (`SqliteQueue` + `Worker`, zero CGo) |
-| Master data | CSV + seeder Laravel (pilar data) | via `TerminologyClient` | via `TerminologyClient` | via `TerminologyClient` |
-| Jalur lawas | `src/FHIR/*` untuk pemakai 3.x | tidak ada | tidak ada | tidak ada |
-| Versi runtime minimum | PHP 8.0 | Node 20 | Python 3.10 | Go 1.21 |
+## 3. Shared functional requirements
+
+| ID | Requirement | PHP | Node | Python | Go | Rust |
+|---|---|---|---|---|---|---|
+| SDK-01 | Per-resource payload builder (`build()` / `json()`) | yes (141) | yes (141) | yes (141) | yes (141) | yes (136 FHIR R4) |
+| SDK-02 | Typed `DataType` (Coding, HumanName, Reference, Quantity, …) | yes | yes | yes | yes | partial (12) |
+| SDK-03 | HTTP: GET/POST/PUT/PATCH/DELETE + Bundle (`SSRequest`) | yes | yes | yes | yes | yes (`submit_bundle`) |
+| SDK-04 | OAuth2 client_credentials, refreshed on 401 (`OAuth2Client`) | yes | yes | yes | yes | yes |
+| SDK-05 | Response wrapper + 558 validation rule codes | yes | yes | yes | yes | yes |
+| SDK-06 | Persistent queue (pending/failed/dlq) + worker + rate limiter | yes (8) | yes (8) | yes (8) | yes (8) | partial (1) |
+| SDK-07 | SmarTerm terminology client (PAT / OIDC client_credentials) | yes | yes | yes | yes | yes |
+| SDK-08 | Master data CSV + Laravel seeder | **yes (only PHP)** | no | no | no | no |
+| SDK-09 | FHIR parser per resource | yes (142) | yes (142) | yes (141) | yes (142) | yes (136) |
+| SDK-10 | Parity tracker that is actually regenerated (`SYNC_MANIFEST.json`) | yes | yes | yes | yes | yes |
+| SDK-11 | SATUSEHAT required rules as data, with a fingerprint test | yes | yes | yes | yes | yes |
+| SDK-12 | Non-standard SATUSEHAT identifiers and extensions as constants | yes | yes | yes | yes | yes |
+| SDK-13 | Opt-in strict R4 element guard | yes | yes | yes | yes | no |
+
+## 4. Deliberate differences (not defects)
+
+| Aspect | PHP | Node/TS | Python | Go | Rust |
+|---|---|---|---|---|---|
+| Call style | `new PayloadBuilderXxx()` then chain | `XxxBuilder` class + factory | `XxxBuilder` (snake_case and camelCase) | struct + chain methods | typed input struct + `Builder::xxx` |
+| File naming | one file per class | `src/builder/*.ts` (kebab-case) | `src/builder/*.py` (snake_case) | `v4/` package per module | one module per resource |
+| Queue | SQLite PDO | SQLite `better-sqlite3` | SQLite `sqlite3` | durable JSON / in-memory, no CGo | JSON journal |
+| Master data | CSV + Laravel seeder | via `TerminologyClient` | via `TerminologyClient` | via `TerminologyClient` | via terminology client |
+| Legacy path | `src/FHIR/*` for 3.x callers | none | none | none | none |
+| Minimum runtime | PHP 8.0 | Node 20 | Python 3.10 | Go 1.21 | stable Rust |
+
+Rust stays pre-1.0 because SDK-02, SDK-06 and SDK-13 are not yet equal; the version number says so
+instead of hiding it.

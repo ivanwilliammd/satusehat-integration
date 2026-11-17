@@ -1,54 +1,51 @@
-# Versi FHIR: R4 sebagai acuan, R5 disiapkan
+# FHIR versioning: R4 is the reference, R5 is prepared
 
-SATUSEHAT berjalan di FHIR R4. Karena itu **R4 adalah acuan utama SDK ini**, dan seluruh kelas
-tanpa awalan versi — `Satusehat\Integration\Builder\*`, `Satusehat\Integration\DataType\*` —
-adalah R4.
+SATUSEHAT runs on FHIR R4, so **R4 is the primary reference of this SDK**: every class without a
+version prefix — `Satusehat\Integration\Builder\*`, `Satusehat\Integration\DataType\*` — is R4.
 
-R5 disiapkan tanpa mengubah satu pun pemanggilan yang sudah ada.
+R5 is prepared without changing a single existing call site.
 
-## Janji yang dipegang
+## The promise that holds
 
-Memakai R5 cukup dengan mengganti baris `use`:
+Using R5 means changing the `use` line:
 
 ```php
-// R4 (acuan, tanpa perubahan apa pun)
+// R4 (reference, unchanged)
 use Satusehat\Integration\Builder\PayloadBuilderPatient;
 
-// R5 — hanya baris ini yang berubah
+// R5 — the only line that changes
 use Satusehat\Integration\R5\Builder\PayloadBuilderPatient;
 ```
 
-Sisanya tetap: nama kelas, nama method, urutan argumen, bentuk payload. Ini bukan harapan, melainkan
-dijaga uji `tests/Version/R5NamespaceTest.php` untuk setiap kelas:
+Everything else stays: class name, method names, argument order, payload shape. That is not a hope —
+`tests/Version/R5NamespaceTest.php` enforces it for every class:
 
-1. kelas R5 ada untuk semua 142 builder dan 34 datatype;
-2. kelas R5 adalah **turunan** kelas R4 (`is_subclass_of`);
-3. daftar method publiknya **identik** dengan kelas R4 (reflection);
-4. hasil generate tidak boleh menyimpang dari kanon (`--check`).
+1. an R5 class exists for all 142 builders and 34 datatypes;
+2. the R5 class **extends** the R4 class (`is_subclass_of`);
+3. its public method surface is **identical** to the R4 class (reflection);
+4. generated output may not diverge from the canonical source (`--check`).
 
-## Kenapa turunan, bukan salinan
+## Why inheritance, not a copy
 
-Salinan akan bercabang: satu perbaikan di R4 tidak sampai ke R5, dan dua perilaku mulai berbeda
-tanpa ada yang memutuskan. Turunan membuat R5 mewarisi R4 apa adanya — selama R5 memang tidak
-mengubah apa pun, tidak ada yang bisa melenceng.
+A copy forks: a fix in R4 never reaches R5, and two behaviours start to differ with nobody deciding
+it. Inheritance makes R5 carry R4 unchanged — as long as R5 really changes nothing, nothing can drift.
 
-## Bila R5 memang berbeda
+## When R5 genuinely differs
 
-Satu resource = satu berkas. Hapus penanda `@generated` di
-`src/R5/Builder/PayloadBuilderX.php`, lalu tulis implementasinya. Generator berhenti menyentuh
-berkas itu (ia hanya mengurus berkas ber-penanda `@generated`), dan uji reflection akan menuntut
-perbedaannya dinyatakan — bukan disembunyikan.
+One resource, one file. Remove the `@generated` marker from
+`src/R5/Builder/PayloadBuilderX.php` and write the implementation. The generator stops touching that
+file (it only manages files carrying `@generated`), and the reflection test then demands that the
+difference be stated rather than hidden.
 
-Aturan yang sama berlaku untuk datatype: `src/R5/DataType/CodeableConcept.php`, dan seterusnya.
+The same rule applies to datatypes: `src/R5/DataType/CodeableConcept.php`, and so on.
 
-**Saat ini belum ada satu pun perbedaan R5 yang ditulis**, karena belum ada yang diverifikasi
-terhadap spesifikasi R5. Menyalin dugaan ke dalam kode akan menghasilkan kelas R5 yang mengaku
-sesuatu yang tidak diperiksa.
-Menambah perbedaan dilakukan satu per satu, dengan rujukan elemen R5-nya.
+**No R5 difference is written yet**, because none has been verified against the R5 specification.
+Copying a guess into code produces an R5 class that claims something nobody checked. Differences are
+added one at a time, each with its R5 element reference.
 
-## Batas yang perlu dinyatakan
+## Limits worth stating
 
-- Lapisan R5 saat ini **belum** memuat elemen yang hanya ada di R5. Selama itu belum ditulis,
-  `R5\Builder\X` menghasilkan payload R4 — dan itu memang perilaku yang diuji.
-- Validasi, parser, dan queue belum dipisah per versi; mereka bekerja pada bentuk payload, bukan
-  pada definisi versi.
+- The R5 layer does **not** yet carry elements that exist only in R5. Until that is written,
+  `R5\Builder\X` produces an R4 payload — and that is the tested behaviour.
+- Validation, parsing, and queueing are not split per version; they work on the payload shape, not on
+  the version definition.

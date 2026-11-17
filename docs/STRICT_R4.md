@@ -14,7 +14,7 @@ export SATUSEHAT_STRICT_R4=1
 the resource and the offending elements:
 
 ```
-Goal menulis elemen yang tidak ada di FHIR R4: startDateTime
+Goal writes an element that does not exist in FHIR R4: startDateTime
 ```
 
 ## Why opt-in instead of default
