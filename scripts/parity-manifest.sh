@@ -9,6 +9,8 @@ ND_R=$ROOT/satusehat-integration-node
 PY_R=$ROOT/satusehat-integration-python
 GO_R=$ROOT/satusehat-integration-go/v4
 RS_R=$ROOT/satusehat-integration-rs
+PY_PKG=$PY_R/satusehat_integration
+[ -d "$PY_PKG" ] || { echo "paket Python tidak ada: $PY_PKG" >&2; exit 2; }
 for d in "$PHP_R" "$ND_R" "$PY_R" "$GO_R" "$RS_R"; do
   [ -d "$d" ] || { echo "checkout tidak ada: $d" >&2; exit 2; }
 done
@@ -20,35 +22,35 @@ c_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/builder/*.ts \
   | grep -v "/" | sed -E 's/export class //; s/Builder$//' | sort -u | wc -l)
 # Berkas uji di src/builder memuat builder palsu, dan `test_script.py`/`test_report.py` adalah
 # builder sungguhan: uji dikenali dari isinya (`def test_`), bukan dari nama berkasnya.
-c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder --include="*.py" --exclude="base_builder.py" --exclude="test_*.py" | wc -l)
-c_py=$(( c_py + $(grep -hoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/src/builder/test_script.py "$PY_R"/src/builder/test_report.py 2>/dev/null | wc -l) ))
+c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/satusehat_integration/builder --include="*.py" --exclude="base_builder.py" --exclude="test_*.py" | wc -l)
+c_py=$(( c_py + $(grep -hoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/satusehat_integration/builder/test_script.py "$PY_R"/satusehat_integration/builder/test_report.py 2>/dev/null | wc -l) ))
 c_go=$(grep -rhoE "^type [A-Za-z0-9_]+Builder struct" "$GO_R"/src/builder/*.go | wc -l)
 c_rs=$(find "$RS_R"/crates/core/src/builder -name "*.rs" ! -name "mod.rs" | wc -l)
 d_php=$(ls "$PHP_R"/src/DataType/*.php | grep -v "/DataType\.php$" | wc -l)
 d_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/datatype/datatype.ts "$ND_R"/src/datatype/datatypes.ts | wc -l)
-d_py=$(grep -rhoE "^class [A-Za-z0-9_]+" "$PY_R"/src/datatype --include="*.py" --exclude="test_*.py" | grep -vE "^class DataType$" | wc -l)
+d_py=$(grep -rhoE "^class [A-Za-z0-9_]+" "$PY_R"/satusehat_integration/datatype --include="*.py" --exclude="test_*.py" | grep -vE "^class DataType$" | wc -l)
 d_go=$(grep -rhoE "^type [A-Za-z0-9_]+ struct" "$GO_R"/src/datatype/*.go | wc -l)
 d_rs=$(grep -cE "^pub fn " "$RS_R"/crates/core/src/types.rs)
 t_php=$(ls "$PHP_R"/src/Terminology/*.php | grep -viE "/Resolver\.php$|/TerminologyClient\.php$" | wc -l)
 t_nd=$(ls "$ND_R"/src/terminology/*.ts | grep -viE "/index\.ts$|/resolver\.ts$|/terminologyclient\.ts$|\.test\.ts$" | wc -l)
-t_py=$(ls "$PY_R"/src/terminology/*.py | grep -viE "/__init__\.py$|/base\.py$|/resolver\.py$|/terminology_client\.py$|/terminology_query_builder\.py$|/test_.*\.py$" | wc -l)
+t_py=$(ls "$PY_R"/satusehat_integration/terminology/*.py | grep -viE "/__init__\.py$|/base\.py$|/resolver\.py$|/terminology_client\.py$|/terminology_query_builder\.py$|/test_.*\.py$" | wc -l)
 t_go=$(ls "$GO_R"/src/terminology/*.go | grep -viE "/resolver\.go$|/terminology_client\.go$|/terminology_query_builder\.go$|/catalog_decode\.go$|_test\.go$" | wc -l)
 t_rs=$(ls "$RS_R"/crates/core/src/terminology.rs | wc -l)
 q_php=$(ls "$PHP_R"/src/Queue/*.php | wc -l)
 q_nd=$(ls "$ND_R"/src/queue/*.ts | grep -vE '(index\.ts|\.test\.ts)$' | wc -l)
-q_py=$(ls "$PY_R"/src/queue/*.py | grep -vE '(__init__\.py|test_.*\.py)$' | wc -l)
+q_py=$(ls "$PY_R"/satusehat_integration/queue/*.py | grep -vE '(__init__\.py|test_.*\.py)$' | wc -l)
 q_go=$(ls "$GO_R"/src/queue/*.go | grep -vE '_test\.go$' | wc -l)
 q_rs=$(ls "$RS_R"/crates/client/src/journal.rs 2>/dev/null | wc -l)
 p_php=$(ls "$PHP_R"/src/Parser/*Parser.php 2>/dev/null | grep -v "/Parser\.php$" | wc -l)
 p_nd=$(ls "$ND_R"/src/parser/*Parser.ts 2>/dev/null | wc -l)
 # Dihitung dari kelas Parser yang benar-benar ada, bukan dari nama berkas: `test_script_parser.py`
 # adalah parser TestScript, sedangkan berkas uji di direktori itu tidak mendefinisikan kelas Parser.
-p_py=$(grep -rlE "^class [A-Za-z0-9_]+Parser" "$PY_R"/src/parser --include="*.py" | wc -l)
+p_py=$(grep -rlE "^class [A-Za-z0-9_]+Parser" "$PY_R"/satusehat_integration/parser --include="*.py" | wc -l)
 p_go=$(ls "$GO_R"/src/parser/*_parser.go 2>/dev/null | wc -l)
 p_rs=$(find "$RS_R"/crates/core/src -maxdepth 1 -name "parser*.rs" | wc -l)
 x_php=$(find "$PHP_R"/tests -name "*Test.php" | wc -l)
 x_nd=$(find "$ND_R"/src -name "*.test.ts" | wc -l)
-x_py=$(find "$PY_R"/src -name "test_*.py" | wc -l)
+x_py=$(find "$PY_R"/satusehat_integration -name "test_*.py" | wc -l)
 x_go=$(find "$GO_R"/src -name "*_test.go" | wc -l)
 x_rs=$(grep -rho "#\[test\]" "$RS_R"/crates | wc -l)
 go_total=$(grep -rhoE "^func \(b \*[A-Za-z]+\) [A-Za-z]+" "$GO_R"/src/builder/*.go | wc -l)
