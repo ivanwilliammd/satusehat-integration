@@ -1,175 +1,118 @@
-# PRD — satusehat-integration (PHP SDK SATUSEHAT FHIR R4)
+# PRD — satusehat-integration (PHP SDK for SATUSEHAT FHIR R4)
 
-Status: v1.0 · 2026-10-27 · Pemilik produk: Ivan William Harsono
-Dokumen teknis pendamping: `docs/SRD.md`. Sumber kebenaran kode: `src/`, `database/`,
-`tests/`, `CHANGELOG.md`.
+Status: v2.0 · 2026-11-17 · Product owner: Ivan William Harsono
+Technical companion: `docs/SRD.md`. Source of truth for code: `src/`, `database/`, `tests/`,
+`CHANGELOG.md`.
 
-## 1. Ringkasan Eksekutif
+## 1. Executive summary
 
-`satusehat-integration` adalah pustaka PHP open-source (MIT) untuk membangun payload FHIR R4
-dan memanggil SATUSEHAT — platform data kesehatan nasional Kemenkes. Pustaka ini dipakai
-sebagai **klien native**: ia menyusun resource, menandatangani permintaan OAuth2, dan membaca
-jawaban; ia **bukan** server FHIR dan tidak menyimpan data klinis.
+`satusehat-integration` is an open-source (MIT) PHP library for building FHIR R4 payloads and calling
+SATUSEHAT, the national health data platform of the Indonesian Ministry of Health. It is a **native
+client**: it assembles resources, signs OAuth2 requests, and reads responses. It is **not** a FHIR
+server and stores no clinical data.
 
-Terukur per 2026-10-27 (hitungan berkas di repo):
+Measured 2026-11-17 (file counts in this repository):
 
-| Bagian | Jumlah |
+| Part | Count |
 |---|---|
-| `src/Builder/` (141 `PayloadBuilder*` + basis `Builder`) | 142 berkas |
-| `src/DataType/` (value object FHIR) | 32 kelas |
-| `src/FHIR/` (resource lama, jalur kompatibilitas) | 49 kelas |
-| `src/Parser/` | 18 kelas |
-| `src/Terminology/` | 22 kelas |
-| `src/Queue/` (antrean SQLite: worker, DLQ, rate limit) | 8 kelas |
-| `src/Console/Commands/` | 3 perintah |
-| `database/seeders/csv/*.stub` (master data) | 18 berkas |
-| Kelas uji | 45 (`tests/FHIR` 43, `tests/Unit` 1, `ArchTest` 1) |
-| Uji yang berjalan | **860 uji, 1380 asersi, 0 gagal** (2026-10-27) |
+| `src/Builder/` (141 `PayloadBuilder*` + the abstract `Builder`) | 142 files |
+| `src/DataType/` (FHIR value objects) | 34 classes |
+| `src/FHIR/` (legacy resources, compatibility path) | 50 classes |
+| `src/Parser/` | 142 classes |
+| `src/Terminology/` | 24 classes |
+| `src/Queue/` (SQLite queue: worker, DLQ, rate limit) | 8 classes |
+| `src/Console/Commands/` | 3 commands |
+| `database/seeders/csv/*.stub` (master data) | 18 files |
+| Test methods / assertions | 1.933 / 4.672, 0 failing |
 
-## 2. Latar Belakang & Masalah
+## 2. Background and problem
 
-Integrasi SATUSEHAT di rumah sakit Indonesia berulang kali mengulang pekerjaan yang sama:
-menyusun JSON FHIR yang lolos validasi Kemenkes, mengelola token OAuth2 yang kedaluwarsa di
-tengah kiriman, dan menebak arti kode galat validasi yang hanya berupa angka.
+SATUSEHAT integration in Indonesian hospitals keeps repeating the same work: assembling FHIR JSON that
+passes Ministry validation, managing OAuth2 tokens that expire mid-send, and guessing what a numeric
+validation code means.
 
-Masalah yang harus dijawab pustaka ini:
+The problems this library answers:
 
-1. **Bentuk FHIR mahal ditulis ulang.** Satu `Encounter` yang sah butuh puluhan elemen
-   bersarang; menulisnya dengan array tangan menghasilkan galat validasi yang tidak informatif.
-2. **Token mengganggu alur.** Token SATUSEHAT berumur pendek; kiriman yang berjalan berjam-jam
-   gagal karena token mati di tengah jalan.
-3. **Kode galat tidak terbaca.** SATUSEHAT menjawab dengan nomor aturan, bukan kalimat.
-4. **Kiriman hilang tanpa jejak.** Kiriman ke fasilitas dengan jaringan buruk perlu antrean,
-   percobaan ulang, dan catatan; `try/catch` di controller tidak cukup.
-5. **Master data nasional besar.** ICD-10, ICD-9-CM, KFA, KPTL, LOINC, SNOMED, UCUM, Kode
-   Wilayah: menyalinnya manual ke setiap aplikasi berarti drift data antar institusi.
+1. **FHIR shapes are expensive to write by hand.** A valid `Encounter` needs dozens of nested elements;
+   hand-written arrays produce validation errors that say nothing useful.
+2. **Tokens interrupt the flow.** SATUSEHAT tokens are short-lived; a send that runs for hours fails
+   when the token dies in the middle.
+3. **Error codes are unreadable.** The platform answers with rule numbers, not sentences.
+4. **Sends disappear without a trace.** Sending to a facility with a poor network needs a queue,
+   retries, and a record; `try/catch` in a controller is not enough.
+5. **National master data is large.** ICD-10, ICD-9-CM, KFA, KPTL, LOINC, SNOMED, UCUM, and region
+   codes: copying them by hand into every application means drift between institutions.
 
-## 3. Pengguna & Persona
+## 3. Users and personas
 
-| Persona | Kebutuhan utama |
+| Persona | Primary need |
 |---|---|
-| Pengembang aplikasi RS/klinik (PHP/Laravel) | Menyusun resource FHIR sah tanpa hafal spesifikasi |
-| Integrator/interop engineer | Kontrol token, retry, dan idempotensi kiriman |
-| Analis data / coding | Master data nasional yang dapat di-seed dan dipakai ulang |
-| Pengelola produk turunan (v1.emr, fusion, claim) | Satu pustaka yang sama dipakai banyak repo |
+| Hospital/clinic application developer (PHP/Laravel) | Assemble valid FHIR resources without memorising the specification |
+| Integration / interoperability engineer | Control tokens, retries, and delivery idempotency |
+| Data analyst / clinical coder | National master data that can be seeded and reused |
+| Maintainer of derivative products (v1.emr, fusion, claim) | One library shared by several repositories |
 
-## 4. Tujuan & Metrik Keberhasilan
+## 4. Goals and success metrics
 
-| Tujuan | Metrik |
+| Goal | Metric |
 |---|---|
-| Payload sah tanpa menyusun array tangan | Setiap resource punya `PayloadBuilderXxx` dengan `json()`/`build()` |
-| Kiriman tahan token mati | `SSRequest` memperbarui token sendiri dan mengulang sekali |
-| Galat dapat ditindaklanjuti | Kode aturan dipetakan ke pesan manusia (`SSValidationError`) |
-| Tidak ada kiriman hilang | Antrean persisten + DLQ + penghitung percobaan |
-| Master data siap pakai | 18 berkas CSV + seeder, satu perintah |
-| Paritas lintas bahasa | Versi PHP/Node/Python/Go bergerak bersama (satu nomor rilis) |
+| Valid payloads without hand-written arrays | Every resource has a `PayloadBuilderXxx` with `json()`/`build()` |
+| Sends survive token expiry | `SSRequest` refreshes the token itself and retries once |
+| Errors are actionable | Rule codes mapped to human messages (`SSValidationError`) |
+| No lost sends | Persistent queue + DLQ + attempt counter |
+| Master data ready to use | 18 CSV files + seeders, one command |
+| Cross-language parity | PHP/Node/Python/Go share one release number; Rust carries its own while it is not equal |
 
-## 5. Ruang Lingkup
+## 5. Scope
 
-**Masuk ruang lingkup**
-- Pembangun payload FHIR R4 (142 kelas) + `DataType` (32) sebagai nilai tersusun.
-- Klien HTTP `SSRequest`/`SSResponse`: GET/POST/PUT/PATCH/DELETE, PATCH FHIRPath, `postBundle`.
-- OAuth2 client_credentials ke SATUSEHAT; token disimpan dan diperbarui otomatis.
-- Antrean persisten SQLite: `EnqueueSatusehat`, `ProcessSatusehatQueue`, `QueueStatusSatusehat`,
-  worker, DLQ, pembatas laju, pengawas.
-- Pemetaan 558 kode aturan validasi + 14 bentuk jawaban galat.
-- Master data (18 CSV) + seeder + migrasi `.stub` untuk aplikasi yang memakainya.
-- `TerminologyClient`: klien ke SmarTerm (`terminology.ivanmd.id`) — Sanctum PAT **atau**
-  OIDC client_credentials dengan refresh otomatis.
-- `TenantCredentialResolver`: kredensial per tenant (env / array / database) untuk aplikasi
-  multitenant.
-- `KYC`: pembangkit kunci RSA + enkripsi untuk alur verifikasi identitas SATUSEHAT.
+**In scope**
 
-**Di luar ruang lingkup**
-- Server FHIR: pustaka ini tidak menyajikan `CapabilityStatement`, tidak menegakkan
-  pencarian FHIR (`_include`, `searchset`), dan tidak menyimpan data pasien. Peran itu milik
-  `v1.emr`/`terminology` (lihat skill `health-tech-ecosystem`, `references/fhir-conformance-audit.md`).
-- Validasi penuh terhadap StructureDefinition resmi (validasi masih di sisi SATUSEHAT).
-- Antarmuka web/dashboard: semua lewat CLI atau kode pemanggil.
+- FHIR R4 payload builders (142 classes) and `DataType` (34) as structured values.
+- HTTP client `SSRequest`/`SSResponse`: GET/POST/PUT/PATCH/DELETE, FHIRPath PATCH, `postBundle`.
+- OAuth2 client_credentials against SATUSEHAT; token stored and refreshed automatically.
+- Persistent SQLite queue: `EnqueueSatusehat`, `ProcessSatusehatQueue`, `QueueStatusSatusehat`, worker,
+  DLQ, rate limiter, monitor.
+- Mapping of 558 validation rule codes and 14 error response shapes.
+- Master data (18 CSVs) + seeders + `.stub` migration for applications that use them.
+- `TerminologyClient`: client for SmarTerm (`terminology.ivanmd.id`) — Sanctum PAT **or** OIDC
+  client_credentials with automatic refresh.
+- `TenantCredentialResolver`: per-tenant credentials (env / array / database) for multitenant apps.
+- `KYC`: RSA key generation + encryption for the SATUSEHAT identity verification flow.
 
-## 6. Kebutuhan Fungsional
+**Out of scope**
 
-Status diukur dari berkas yang ada di repo, bukan dari niat.
+- A FHIR server: this library serves no `CapabilityStatement`, enforces no FHIR search (`_include`,
+  `searchset`), and stores no patient data. That role belongs to `v1.emr` and `terminology`.
+- Full validation against the official StructureDefinitions; that validation happens on the SATUSEHAT
+  side.
+- Any web interface or dashboard: everything goes through the CLI or the calling code.
 
-| ID | Kebutuhan | Status |
+## 6. Functional requirements
+
+Status is measured from files in the repository, not from intent.
+
+| ID | Requirement | Status |
 |---|---|---|
-| FR-01 | Setiap resource FHIR punya builder fluent yang menghasilkan array siap kirim | Ada: 141 kelas `PayloadBuilder*` |
-| FR-02 | Tipe kompleks FHIR sebagai objek tersusun, `toArray()` rekursif, null dibuang | Ada: 32 kelas `DataType` |
-| FR-03 | Builder menerima objek bertipe maupun string biasa; rujukan diberi awalan tipe resource | Ada |
-| FR-04 | Nilai `status`/`intent` yang tidak sah ditolak saat dibangun, bukan saat dikirim | Ada (`InvalidArgumentException`) |
-| FR-05 | Klien HTTP dengan retry eksponensial, hormat `429`/`Retry-After`, refresh token saat `401` | Ada: `SSRequest` |
-| FR-06 | Jawaban dibungkus: sukses, pesan galat, id resource | Ada: `SSResponse` |
-| FR-07 | Kode aturan validasi dipetakan ke pesan | Ada: `SSValidationError` (558 aturan, 14 tipe jawaban) |
-| FR-08 | Antrean persisten dengan percobaan ulang, DLQ, pembatas laju, pemantauan | Ada: `src/Queue` (8 kelas) + 3 perintah artisan |
-| FR-09 | Master data nasional dapat di-seed dari CSV | Ada: 18 CSV + seeder + migrasi `.stub` |
-| FR-10 | Klien terminologi (SmarTerm) dengan dua mode auth | Ada: `TerminologyClient` |
-| FR-11 | Kredensial per tenant tanpa menyalin kode | Ada: `TenantCredentialResolver` |
-| FR-12 | Dukungan Laravel (service provider, config, migrasi) maupun PHP murni | Ada: `SatusehatIntegrationServiceProvider` |
-| FR-13 | Semua jalur di atas punya uji otomatis | Sebagian: 45 kelas uji, terpusat di `tests/FHIR` |
-| FR-14 | Paritas perilaku dengan SDK Node/Python/Go | Berjalan; dijaga manual per rilis (belum ada uji paritas) |
+| FR-01 | Every FHIR resource has a fluent builder producing a send-ready array | Present: 141 `PayloadBuilder*` classes |
+| FR-02 | Complex FHIR types as structured objects, recursive `toArray()`, nulls dropped | Present: 34 `DataType` classes |
+| FR-03 | Builders accept typed objects and plain strings; references get a resource-type prefix | Present |
+| FR-04 | Invalid `status`/`intent` rejected at build time, not at send time | Present (`InvalidArgumentException`) |
+| FR-05 | HTTP client with exponential retry, `429`/`Retry-After` respected, token refresh on `401` | Present: `SSRequest` |
+| FR-06 | Response wrapped: success, error message, resource id | Present: `SSResponse` |
+| FR-07 | Validation rule codes mapped to messages | Present: `SSValidationError` (558 rules, 14 response types) |
+| FR-08 | Persistent queue with retries, DLQ, rate limiter, monitoring | Present: `src/Queue` (8 classes) + 3 artisan commands |
+| FR-09 | National master data seedable from CSV | Present: 18 CSVs + seeders + `.stub` migration |
+| FR-10 | Terminology client (SmarTerm) with two auth modes | Present: `TerminologyClient` |
+| FR-11 | Per-tenant credentials without copying code | Present: `TenantCredentialResolver` |
+| FR-12 | Laravel support (service provider, config, migrations) and plain PHP | Present: `SatusehatIntegrationServiceProvider` |
+| FR-13 | Every path above has automated tests | Present: 1.933 test methods |
+| FR-14 | Behavioural parity with the Node/Python/Go/Rust SDKs | Active: `docs/PARITY.md` plus the conformance corpus |
 
-## 7. Kebutuhan Non-Fungsional
+## 7. Non-functional requirements
 
-- **Kompatibilitas**: PHP `^8.0`; `illuminate/*` `^8.0`–`^13.0` (satu pustaka dipakai repo yang
-  berbeda major Laravel). Menambah dependensi baru wajib punya alasan kuat. Batas bawah ini BUKAN
-  selera: `match`/`?->` sudah dipakai di `src/`, dan `tests/Unit/PhpVersionContractTest.php`
-  memerah bila janji di `composer.json` turun di bawah konstruksi yang benar-benar dipakai.
-- **Tanpa state global**: kredensial dibaca lewat config/env saat dipakai, bukan disimpan di
-  properti statis — supaya satu proses dapat melayani beberapa tenant.
-- **Kegagalan terlihat**: setiap jalur yang menelan galat wajib mencatatnya (log atau DLQ),
-  tidak boleh `catch (\Throwable) {}` kosong.
-- **Idempotensi kiriman**: pengiriman ulang tidak boleh membuat resource ganda di SATUSEHAT;
-  id yang sudah ada disimpan dan dipakai untuk PUT, bukan POST.
-- **Keamanan**: rahasia hanya dari env/config; tidak ada kredensial di repo, contoh `.env`
-  hanya berisi placeholder; token tidak dicetak ke log.
-- **Keterbacaan kode**: nama simbol Inggris, teks pesan Indonesia.
-
-## 8. Batasan, Asumsi & Ketergantungan
-
-- Bergantung pada ketersediaan SATUSEHAT (DEV/STG/PROD) dan pada `terminology.ivanmd.id` untuk
-  jalur terminologi; keduanya bisa mati — pustaka harus gagal dengan pesan jelas, bukan diam.
-- Master data berasal dari berkas resmi Kemenkes; versi dataset dilacak per rilis (KPTL v1.7,
-  KFA v2, ICD-9-CM e-klaim).
-- Pustaka dijual/dibagikan sebagai paket Composer; `vendor/` tidak di-commit di repo ini
-  (berbeda dari repo aplikasi Ivan yang zero-build).
-
-## 9. Risiko & Mitigasi
-
-| Risiko | Mitigasi |
-|---|---|
-| Perubahan spesifikasi SATUSEHAT memecah builder | Rilis minor sering; `CHANGELOG.md` wajib per perubahan bentuk |
-| Master data basi | Berkas `.stub` dilacak, tanggal sumber dicatat di commit |
-| Antrean SQLite tidak cocok untuk beban besar | Antrean untuk kiriman asinkron, bukan pengganti pekerja berkapasitas tinggi |
-| Dua jalur pembangun resource (`PayloadBuilder` vs `FHIR/*` lama) menyimpang | Jalur baru hanya `PayloadBuilder`; `FHIR/*` dibekukan (46 dari 49 belum memakai builder — utang T-01 di SRD) |
-| Uji tidak pernah menyentuh jaringan nyata | Uji memakai stub; verifikasi ke SATUSEHAT dilakukan manual per rilis (dicatat di `CHANGELOG`) |
-
-## 10. Fase
-
-1. **Fase 1–3 (selesai)**: DataType, `SSRequest`/`SSResponse`, 17 builder pertama, migrasi
-   bertahap dari `fhirvel-ss`, 782 uji (kini 860).
-2. **Fase 4 (berjalan)**: paritas resource penuh (142 builder), antrean persisten, klien
-   terminologi, kredensial per tenant.
-3. **Fase 5 (rencana)**: uji paritas lintas bahasa otomatis, validasi lokal terhadap
-   StructureDefinition, jalur `meta.profile` bawaan.
-
-## 11. Kriteria Penerimaan Rilis
-
-Sebuah rilis boleh naik nomor hanya bila:
-
-- `composer test` hijau pada matriks PHP yang didukung (CI: 8.0 + 8.3, Linux + Windows);
-- `CHANGELOG.md` memuat entri untuk versi itu;
-- tidak ada perubahan yang memutus API publik tanpa catatan migrasi;
-- master data yang berubah disertai berkas `.stub` yang cocok (`cp x.csv x.csv.stub`, `.csv`
-  nyata tidak di-commit).
-
-## 12. Daftar Istilah
-
-| Istilah | Arti |
-|---|---|
-| PayloadBuilder | Kelas pembangun payload FHIR per resource (`PayloadBuilderXxx`); keluaran berupa array |
-| DataType | Nilai FHIR bertipe (Coding, HumanName, Reference, …) |
-| SSRequest / SSResponse | Klien HTTP dan pembungkus jawaban SATUSEHAT |
-| DLQ | Daftar kiriman yang gagal permanen, menunggu tindakan manusia |
-| SmarTerm | Layanan terminologi IvanMD (`terminology.ivanmd.id`) |
-| Master data | Dataset nasional (ICD, KFA, KPTL, LOINC, SNOMED, UCUM, CVX, Kode Wilayah) |
-| KYC | Alur verifikasi identitas SATUSEHAT (kunci RSA + enkripsi) |
+- **Compatibility**: PHP `^8.0`; `illuminate/*` `^8.0`–`^13.0`, because one library serves repositories
+  on different Laravel majors. A new dependency needs a strong reason. The floor is not a preference:
+  `match` and `?->` are already used in `src/`, and `tests/Unit/PhpVersionContractTest.php` fails when
+  the promise in `composer.json` drops.
+- **No clinical data at rest.** The library writes logs and queue rows, never patient records.
+- **Failure is visible.** No silent `catch`; every failed send ends in `failed` or `dlq` with a reason.
