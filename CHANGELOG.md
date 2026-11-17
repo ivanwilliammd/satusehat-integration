@@ -2,6 +2,40 @@
 
 ## Unreleased
 
+## v4.19.0 - 2026-11-17
+
+### Added
+
+- `Conformance\R4ElementGuard`: memeriksa elemen tingkat atas terhadap definisi FHIR R4 resmi.
+  Daftar sah berasal dari `data/r4_elements.json`, dihasilkan `scripts/generate_r4_elements.py`
+  dari `profiles-resources.json` HL7 — bukan dari ingatan penulis kode. Opt-in lewat
+  `SATUSEHAT_STRICT_R4=1`, karena menyalakannya secara bawaan akan menggagalkan pemanggil
+  yang sudah memakai setter lama.
+- `Terminology\SatusehatNonStandard`: 10 identifier system dan extension non-standar SATUSEHAT
+  (NIK, paspor, KK, IHS, administrativeCode, birthPlace, citizenshipStatus, patient-religion,
+  patient-disability, patient-citizenship) dengan canonical URL dari IG, bukan karangan.
+- `Terminology\SatusehatRules`: aturan wajib SATUSEHAT dijalankan dari data
+  (`data/satusehat/required-rules.json`, 8 resource / 26 butir), bukan dari method per resource.
+  Aturan baru = perubahan data, bukan perubahan kode.
+- `scripts/check-rules-drift.sh`: membandingkan sha256 berkas aturan di kelima port.
+
+### Changed
+
+- 33 elemen kategori B diputuskan berdasarkan definisi R4 dan R5 resmi, bukan selera: elemen yang
+  R4 tempatkan di jalur lain tidak lagi ditulis di tingkat atas.
+
+### Fixed
+
+- Parser: getter untuk elemen yang jalurnya berubah ikut diperbaiki, sehingga arah baca dan tulis
+  tetap simetris.
+- `scripts/parity-manifest.sh`: penanda berkas uji memakai isi (`def test_`), bukan nama berkas.
+
+### Tests
+
+- 1.933 tes / 4.672 asersi. Uji sidik jari berkas aturan menghitung byte setelah normalisasi CRLF,
+  sehingga job Windows dan Linux memberi jawaban yang sama.
+
+
 ## v4.18.0 - 2026-11-16
 
 ### Added
