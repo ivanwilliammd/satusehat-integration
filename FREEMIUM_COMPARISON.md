@@ -11,7 +11,7 @@ FHIRVel-SS (FHIR Laravel library based on SATUSEHAT Profile)
    - **Library usage scheme:** perpetual (one-time payment) or an annual subscription.
    - **Support required:** maintenance, consultation/integration assistance, training, and/or technical support.
 4. The prospective client may **accept** or **decline** the offer.
-5. Apabila calon klien **setuju dengan penawaran**, maka akan diterbitkan **invoice**, dan klien wajib melunasi invoice sebelum waktu tenggat untuk mendapatkan **receipt** (bukti tanda lunas), beserta SLA dan kesepakatan.
+5. When the prospective client **accepts the offer**, an **invoice** is issued and must be paid before the deadline to receive the **receipt**, together with the SLA and the agreement.
 
 ### Code quality and support
 |  | Free | Premium |
