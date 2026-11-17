@@ -22,14 +22,23 @@ sort($files);
 $rows = [];
 $nonFhir = [];
 
+$r4Resources = json_decode(
+    (string) file_get_contents(__DIR__.'/../../data/r4_elements.json'),
+    true
+) ?: [];
+
 foreach ($files as $file) {
     $resource = basename($file, '.php');
     $resource = substr($resource, strlen('PayloadBuilder'));
     $source = (string) file_get_contents($file);
 
-    // Judul kelas non-FHIR ditandai di docblock kelasnya ("NON-FHIR"), bukan di daftar terpisah.
+    // Keanggotaan R4 diputuskan oleh data resmi, bukan oleh kata kunci di docblock: lima
+    // builder (ChargeItemResponse, GenomicStudy, ImagingManifest, ImagingSelection,
+    // ResourceGuide) tidak pernah ada di R4 tetapi tidak bertanda NON-FHIR.
     $docblock = substr($source, 0, 1200);
-    if (stripos($docblock, 'NON-FHIR') !== false) {
+    $namaR4 = $resource === 'ListResource' ? 'List' : $resource;
+    $adaDiR4 = isset($r4Resources[$namaR4]);
+    if (! $adaDiR4) {
         $nonFhir[] = $resource;
     }
 
@@ -37,26 +46,40 @@ foreach ($files as $file) {
     $methods = array_slice(array_values(array_unique($m[1])), 0, 4);
     $methodText = $methods === [] ? '—' : implode(', ', array_map(static fn ($x) => $x.'()', $methods));
 
-    $slug = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $resource));
-    $rows[] = '| '.(count($rows) + 1).' | '.$resource.' | PayloadBuilder'.$resource.' | '.$methodText
-        .' | [HL7 FHIR](https://hl7.org/fhir/R4/'.$slug.'.html) |';
+    $rows[] = [
+        'resource' => $resource,
+        'methods' => $methodText,
+        'non_fhir' => ! $adaDiR4,
+    ];
+}
+
+// Tautan spesifikasi hanya untuk nama yang benar-benar ada di R4; nama NON-FHIR akan
+// menghasilkan 404 kalau ditautkan.
+$baris = [];
+foreach ($rows as $i => $row) {
+    $slug = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $row['resource']));
+    $spec = $row['non_fhir']
+        ? '**not in R4**'
+        : '[HL7 FHIR](https://hl7.org/fhir/R4/'.$slug.'.html)';
+    $baris[] = '| '.($i + 1).' | '.$row['resource'].' | PayloadBuilder'.$row['resource'].' | '
+        .$row['methods'].' | '.$spec.' |';
 }
 
 $total = count($rows);
 $r4 = $total - count($nonFhir);
-$nonFhirText = $nonFhir === [] ? 'tidak ada' : implode(', ', $nonFhir);
+$nonFhirText = $nonFhir === [] ? 'none' : implode(', ', $nonFhir);
 
 $out = [];
 $out[] = '<!-- GENERATED:builder-index:start -->';
-$out[] = '**'.$total.' kelas PayloadBuilder** — '.$r4.' resource FHIR R4 + '
-    .count($nonFhir).' pembangun NON-FHIR khusus SATUSEHAT ('.$nonFhirText.').';
+$out[] = '**'.$total.' PayloadBuilder classes** — '.$r4.' FHIR R4 resources + '
+    .count($nonFhir).' NON-FHIR builders specific to SATUSEHAT ('.$nonFhirText.').';
 $out[] = '';
-$out[] = 'Indeks di bawah dibangkitkan dari `src/Builder/` oleh '
-    .'`docs/scripts/build-wiki-builder-index.php` — jangan disunting tangan.';
+$out[] = 'The index below is generated from `src/Builder/` by '
+    .'`docs/scripts/build-wiki-builder-index.php` — do not edit by hand.';
 $out[] = '';
-$out[] = '| # | Resource | Class | Key Methods | FHIR Spec |';
+$out[] = '| # | Resource | Class | Key methods | FHIR spec |';
 $out[] = '|---|----------|-------|-------------|-----------|';
-foreach ($rows as $row) {
+foreach ($baris as $row) {
     $out[] = $row;
 }
 $out[] = '<!-- GENERATED:builder-index:end -->';
