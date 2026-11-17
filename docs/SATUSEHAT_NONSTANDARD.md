@@ -1,10 +1,9 @@
-# Objek non-standar SATUSEHAT
+# Non-standard SATUSEHAT objects
 
-SATUSEHAT berjalan di FHIR R4, tetapi tidak hanya R4. Ada dua lapisan tambahan yang sah dan wajib
-dipakai, dan keduanya **tidak akan tertangkap** audit konformansi R4 karena memang bukan bagian dari
-spesifikasi HL7.
+SATUSEHAT runs on FHIR R4, but not on R4 alone. Two additional layers are legitimate and mandatory,
+and neither is **caught** by an R4 conformance audit because neither is part of the HL7 specification.
 
-## 1. System identifier Kemenkes
+## 1. Kemenkes identifier systems
 
 | Keperluan | `identifier.system` |
 | --- | --- |
@@ -13,14 +12,14 @@ spesifikasi HL7.
 | Kartu Keluarga | `https://fhir.kemkes.go.id/id/kk` |
 | IHS Number | `https://fhir.kemkes.go.id/id/patient-ihs-number` |
 
-Sumber: dokumentasi resource Patient SATUSEHAT
-(<https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient>) — contoh JSON di halaman
-itu memakai `use: official` bersama keempat system tersebut.
+Source: the SATUSEHAT Patient resource documentation
+(<https://satusehat.kemkes.go.id/platform/docs/id/fhir/resources/patient>) — the JSON example on that
+page uses `use: official` together with all four systems.
 
-Memakai `system` lain (mis. `https://fhir.kemkes.go.id/id/nik-pasien`) menghasilkan identifier yang
-tidak akan ditemukan saat pencarian pasien, meski payload-nya lolos validasi R4.
+Any other `system` (for example `https://fhir.kemkes.go.id/id/nik-pasien`) produces an identifier that
+patient search will never find, even though the payload passes R4 validation.
 
-## 2. Extension administratif alamat
+## 2. Administrative address extensions
 
 | Extension | Canonical |
 | --- | --- |
@@ -38,8 +37,8 @@ a canonical that is not one of the listed extensions — a typo here means the e
 ignored by the platform. Sources: the Patient profile page of the SATUSEHAT FHIR R4 Implementation
 Guide.
 
-`administrativeCode` bersarang: satu extension induk, lalu sub-extension dengan `url` **tetap**
-`province`, `city`, `district`, `village`, `rt`, `rw`, dan nilainya `valueString`.
+`administrativeCode` nests: one parent extension, then sub-extensions whose `url` is **fixed** to
+`province`, `city`, `district`, `village`, `rt`, `rw`, each carrying its value as `valueString`.
 
 ```json
 {
@@ -53,66 +52,65 @@ Guide.
 }
 ```
 
-Sumber: halaman extension AdministrativeCode pada SATUSEHAT FHIR R4 Implementation Guide
+Source: the AdministrativeCode extension page of the SATUSEHAT FHIR R4 Implementation Guide
 (<https://simplifier.net/guide/SATUSEHAT-FHIR-R4-Implementation-Guide/Home/Extensions/AdministrativeCode.page.md>).
 
-## Cara kode ini menjaganya
+## How the code guards them
 
-Nilai-nilai tersebut tidak ditulis lepas di kode. `data/satusehat/nonstandard.json` memuatnya beserta
-sumber dan tanggal pengambilan; `src/Terminology/SatusehatNonStandard.php` menyediakan konstanta dan
-helper `administrativeCodeExtension()`; dan `tests/Terminology/SatusehatNonStandardTest.php`
-memastikan konstanta sama dengan berkas rujukan.
+These values are not typed loose in code. `data/satusehat/nonstandard.json` carries them together with
+their source and fetch date; `src/Terminology/SatusehatNonStandard.php` provides constants and
+helper `administrativeCodeExtension()`; and `tests/Terminology/SatusehatNonStandardTest.php` asserts
+that the constants equal the reference file.
 
-Konsekuensinya: mengganti satu URL karena ingatan yang berbeda akan membuat uji gagal sampai berkas
-rujukan ikut diubah — dan perubahan pada rujukan terlihat di diff.
+The consequence: changing a URL from memory makes the test fail until the reference file changes too —
+and a change to the reference is visible in the diff.
 
-## 3. Aturan wajib yang bisa diperiksa dari payload
+## 3. Required rules that can be checked from the payload
 
-Audit R4 menjawab "apakah elemen ini ada di R4". Ia tidak menjawab "apakah isinya bentuk yang diterima
-SATUSEHAT". `SatusehatRules::violations()` memeriksa yang bisa diputuskan tanpa data lain.
+An R4 audit answers "does this element exist in R4". It does not answer "is this content the shape
+SATUSEHAT accepts". `SatusehatRules::violations()` checks what can be decided without other data.
 
 | Resource | Aturan |
 | --- | --- |
-| Encounter | `class` `Coding` bersistem v3-ActCode; `status` dari EncounterStatus |
+| Encounter | `class` is a `Coding` in v3-ActCode; `status` from EncounterStatus |
 | Observation | `status` · `code.coding` · `subject` → Patient · `encounter` |
 | Patient | `identifier` · `name` |
 | Condition | `code.coding` · `subject` → Patient · `encounter` |
 | Procedure | `status` · `code.coding` · `subject` → Patient · `encounter` |
 | DiagnosticReport | `status` · `code.coding` · `subject` → Patient · `encounter` |
-| Immunization | `status` · `vaccineCode.coding` · `patient` → Patient · salah satu `occurrence[x]` |
+| Immunization | `status` · `vaccineCode.coding` · `patient` → Patient · one of `occurrence[x]` |
 | MedicationRequest | `status` · `intent` · `subject` → Patient |
 
-Aturannya **tidak ditulis di kelas**. `data/satusehat/required-rules.json` memuat tiap butir bersama
-jenisnya (`kode`, `isi`, `ada`, `referensi`, `sistem`, `salah_satu`) dan URL dokumentasi sumbernya;
-`SatusehatRules` hanya menjalankan butir itu. Menambah resource = menambah data, bukan method baru.
-Uji memastikan setiap butir punya sumber, jenisnya dikenal, dan konstanta kode tidak menyimpang dari
-berkas.
+The rules are **not written in the class**. `data/satusehat/required-rules.json` carries each item with
+its kind (`code`, `content`, `exists`, `reference`, `system`, `one_of`) and the URL of the documentation
+it came from; `SatusehatRules` only executes those items. Adding a resource means adding data, not a new
+method. Tests assert that every item has a source, that its kind is known, and that the code constants
+do not drift from the file.
 
-`encounter` wajib pada Observation/Condition/Procedure/DiagnosticReport menurut SATUSEHAT meski R4
-menyebutnya opsional. Perbedaan itu disengaja dan pesan pelanggarannya menyebutnya, supaya tidak dikira
-bug pustaka ini.
+`encounter` is required on Observation/Condition/Procedure/DiagnosticReport according to SATUSEHAT even
+though R4 calls it optional. The difference is deliberate, and the violation message says so, so it is
+not mistaken for a bug in this library.
 
-## 4. Kelima port memakai aturan yang sama
+## 4. All five ports use the same rules
 
 | Port | Cara membawa aturan |
 | --- | --- |
-| PHP | dibaca dari `data/satusehat/required-rules.json` |
+| PHP | read from `data/satusehat/required-rules.json` |
 | Node | `resolveJsonModule` — JSON disalin `tsc` ke `dist` |
-| Python | artefak generate `_rules_generated.py` + SHA |
+| Python | generated artefact `_rules_generated.py` + SHA |
 | Go | `go:embed` |
-| Rust | `include_str!` saat kompilasi |
+| Rust | `include_str!` at compile time |
 
-Empat salinan berarti bisa menyimpang. `scripts/check-rules-drift.sh` membandingkan sha256 kelima
-berkas (repo yang tidak ada dilewati, jadi aman dijalankan di CI satu repo) dan keluar 1 bila ada yang
-berbeda.
+Five copies can drift. `scripts/check-rules-drift.sh` compares the sha256 of all five files (missing
+repositories are skipped, so it is safe to run in a single-repository CI) and exits 1 when any differ.
 
-Saat ini kelimanya sama: `335561b0a605944d`.
+Today all five match: `335561b0a605944d`.
 
-## Batas yang belum ditutup
+## Limits not yet closed
 
-- Aturan wajib mencakup 8 resource; sisanya belum dipetakan.
-- Aturan bersyarat (mis. `Procedure.performer` wajib hanya bila ada tindakan) belum bisa diputuskan
-  tanpa konteks, jadi belum diperiksa.
-- Aturan yang butuh data luar payload (mis. identifier organisasi harus terdaftar di master sarana)
-  tidak bisa diputuskan pustaka ini dan tidak diklaim.
+- The required rules cover 8 resources; the rest are not mapped.
+- Conditional rules (for example `Procedure.performer` required only when a procedure exists) cannot be
+  decided without context, so they are not checked.
+- Rules that need data outside the payload (for example an organisation identifier that must exist in
+  the facility master) cannot be decided by this library, and are not claimed.
 
