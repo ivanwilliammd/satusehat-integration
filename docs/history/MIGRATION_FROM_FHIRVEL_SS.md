@@ -1,6 +1,6 @@
 > **Archived 2026-11-18.** Provenance record: which resources were migrated from the closed-source
 > `fhirvel-ss`, and in which release. The counts in it (38 vs 49 classes) are frozen at migration time
-> and are **not** current measurements — see [PARITY](PARITY.md) for those. Kept because the provenance
+> and are **not** current measurements — see [PARITY](../PARITY.md) for those. Kept because the provenance
 > is a licensing fact, not a progress report.
 
 # SATUSEHAT Integration — Migration Roadmap

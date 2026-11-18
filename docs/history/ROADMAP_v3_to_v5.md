@@ -1,7 +1,7 @@
 > **Archived 2026-11-18.** This plan covered v3.2 → v5.0 and described the package as having 8 FHIR
 > classes and a premium `fhirvel-ss` gap to close. None of that is true now: the package ships 141
 > builders and 142 parsers, the migration it planned is finished, and the measured state lives in
-> [PARITY](PARITY.md). Kept only so the old release notes that link here still resolve.
+> [PARITY](../PARITY.md). Kept only so the old release notes that link here still resolve.
 
 # Roadmap: satusehat-integration Open Source Journey
 
@@ -135,7 +135,7 @@ support   docs+minor   Procedure   Full R4     Full R4
 
 ## Contributing
 
-We welcome community contributions. See [CONTRIBUTING.md](CONTRIBUTING.md).
+We welcome community contributions. See [CONTRIBUTING.md](../../CONTRIBUTING.md).
 
 **Priority classes to migrate (from fhirvel-ss):**
 1. `Procedure` — high demand for lab/radiology integration
