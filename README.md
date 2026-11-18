@@ -440,7 +440,9 @@ if ($resp->isSuccess()) {
 
 ## Supported FHIR Resources
 
-All 51 resources fully implemented via PayloadBuilder classes. Core (✅) + Non-Core (💼):
+The table lists the resources this README documents per HTTP verb. The package itself ships **141**
+`PayloadBuilder*` classes and **142** parsers — the measured, re-runnable list is in
+[docs/PARITY.md](docs/PARITY.md), not in this table.
 
 | # | Resource | GET | POST | PUT | PATCH | Notes |
 |---|----------|-----|------|-----|-------|-------|
@@ -512,7 +514,8 @@ resource and the offending elements. Off by default — see [docs/STRICT_R4.md](
 | [Usage](https://github.com/ivanwilliammd/satusehat-integration/wiki/Usage) | OAuth, Patient, Encounter, Condition, Bundle, KFA |
 | [Features](https://github.com/ivanwilliammd/satusehat-integration/wiki/Features) | Full feature matrix |
 | [Onboarding](https://github.com/ivanwilliammd/satusehat-integration/wiki/Onboarding) | SATUSEHAT developer account setup |
-| [ROADMAP.md](ROADMAP.md) | Phased release plan v3.x → v5.0 |
+| [docs/PARITY.md](docs/PARITY.md) | Measured cross-language parity |
+| [docs/history/](docs/history/) | Archived plans and migration provenance |
 
 ## External Resources
 

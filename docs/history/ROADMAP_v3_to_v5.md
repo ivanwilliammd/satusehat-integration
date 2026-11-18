@@ -1,3 +1,8 @@
+> **Archived 2026-11-18.** This plan covered v3.2 → v5.0 and described the package as having 8 FHIR
+> classes and a premium `fhirvel-ss` gap to close. None of that is true now: the package ships 141
+> builders and 142 parsers, the migration it planned is finished, and the measured state lives in
+> [PARITY](PARITY.md). Kept only so the old release notes that link here still resolve.
+
 # Roadmap: satusehat-integration Open Source Journey
 
 > **Mission:** Build the most complete open-source SATUSEHAT FHIR R4 integration library for the PHP/Laravel ecosystem, closing the gap with the premium `fhirvel-ss` package by Q1 2027.

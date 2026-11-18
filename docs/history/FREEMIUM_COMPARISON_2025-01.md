@@ -1,3 +1,6 @@
+> **Archived 2026-11-18.** Written 2025-01-30 and never updated; its feature comparison predates the
+> 4.x line. Kept as a historical business note, not as a description of the current package.
+
 ## Here is the comparison between Free and Premium features
 *Last updated: 2025-01-30 12:00 WIB*
 

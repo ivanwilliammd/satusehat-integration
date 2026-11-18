@@ -127,9 +127,12 @@ class PayloadBuilderPatient extends Builder
 - Do not add styling-only changes (commas, whitespace, tab alignment) — these will not be merged
 - Significant contributors will be credited in the README
 
-## Phase 3 Migration
+## Migration status
 
-This project is in Phase 3 of migration from `fhirvel-ss`. Resources being migrated include ClinicalImpression, CarePlan, Goal, NutritionOrder, and Composition. See [ROADMAP.md](ROADMAP.md) for the full plan.
+The migration from the closed-source `fhirvel-ss` is complete; no phase is in progress. Which
+resources came from where is recorded once, in
+[docs/history/MIGRATION_FROM_FHIRVEL_SS.md](docs/history/MIGRATION_FROM_FHIRVEL_SS.md). Current
+coverage is measured, not described: see [docs/PARITY.md](docs/PARITY.md).
 
 ## Related Documentation
 

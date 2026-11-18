@@ -16,10 +16,10 @@ section 4 rather than discovered by a user.
 | | PHP | Node/TS | Python | Go | Rust |
 |---|---|---|---|---|---|
 | Package | `ivanwilliammd/satusehat-integration` | `@ivanwilliammd/satusehat-integration` | `satusehat-integration` (PyPI) | `github.com/ivanwilliammd/satusehat-integration-go/v4` | `satusehat-integration` (crates.io) |
-| Latest version | 4.19.0 | 4.19.0 | 4.19.0 | v4.19.0 | 0.1.0 |
+| Latest version | 4.19.1 | 4.19.1 | 4.19.1 | v4.19.1 | 4.19.1 |
 | Registry | Packagist | npm | PyPI | proxy.golang.org | crates.io |
-| Payload builders | 141 `PayloadBuilder*` | 141 | 141 | 141 | 136 |
-| Datatypes | 33 | 33 | 33 | 33 | 12 |
+| Payload builders | 141 `PayloadBuilder*` | 141 | 141 | 141 | 137 modules (141 of 141 names) |
+| Datatypes | 33 | 33 | 33 | 33 | 33 |
 | HTTP send + OAuth2 | `OAuth2Client` + `SSRequest` | same | same | same | `client` crate |
 | Response validation (558 rules) | `SSResponse`, `BundleResponse`, `SSValidationError` | same | same | same | `report` + `validate` |
 | FHIR parsers | 142 | 142 | 141 | 142 | 136 |

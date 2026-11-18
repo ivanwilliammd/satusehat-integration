@@ -40,7 +40,7 @@ Differences that need explaining, and that will not disappear on their own:
 - **Test file counts are not a coverage measure.** One file may hold one test or a hundred; what matters
   is whether both implementations were ever run on the same input — which is what
   `satusehat-conformance` provides.
-- **Rust keeps whole layers in one module.** One `parser.rs` holds 133 functions; one `terminology.rs`
+- **Rust keeps whole layers in one module.** One `parser.rs` holds 135 functions; one `terminology.rs`
   holds the catalog readers. Compare function counts, not module counts.
 
 ## 2. Capabilities
