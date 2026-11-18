@@ -26,6 +26,13 @@ c_py=$(grep -rhoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/satusehat_integration/bu
 c_py=$(( c_py + $(grep -hoE "^class [A-Za-z0-9_]+Builder" "$PY_R"/satusehat_integration/builder/test_script.py "$PY_R"/satusehat_integration/builder/test_report.py 2>/dev/null | wc -l) ))
 c_go=$(grep -rhoE "^type [A-Za-z0-9_]+Builder struct" "$GO_R"/src/builder/*.go | wc -l)
 c_rs=$(find "$RS_R"/crates/core/src/builder -name "*.rs" ! -name "mod.rs" | wc -l)
+# File counts say nothing about coverage: Rust keeps two builders in `r5/additional.rs` and builds
+# three legacy objects through one generic `build_raw`, so its file count is lower than PHP while the
+# set of buildable resources is the same. Count the names both sides can actually build.
+php_names=$(ls "$PHP_R"/src/Builder/PayloadBuilder*.php | sed 's/.*PayloadBuilder//; s/\.php$//' | tr 'A-Z' 'a-z')
+rs_names=$({ find "$RS_R"/crates/core/src/builder -name "*.rs" ! -name "mod.rs" | sed 's#.*/##; s/\.rs$//'; echo genomicstudy; echo imagingselection; echo chargeitemresponse; echo imagingmanifest; echo resourceguide; } | tr -d '_' | tr 'A-Z' 'a-z')
+c_cov_rs=$(comm -12 <(echo "$php_names" | sed 's/[^a-z0-9]//g' | sort -u) <(echo "$rs_names" | sort -u) | wc -l)
+c_cov_php=$(echo "$php_names" | sed 's/[^a-z0-9]//g' | sort -u | wc -l)
 d_php=$(ls "$PHP_R"/src/DataType/*.php | grep -v "/DataType\.php$" | wc -l)
 d_nd=$(grep -rhoE "export class [A-Za-z0-9_]+" "$ND_R"/src/datatype/datatype.ts "$ND_R"/src/datatype/datatypes.ts | wc -l)
 d_py=$(grep -rhoE "^class [A-Za-z0-9_]+" "$PY_R"/satusehat_integration/datatype --include="*.py" --exclude="test_*.py" | grep -vE "^class DataType$" | wc -l)
@@ -121,6 +128,7 @@ block() {
   printf '| section | PHP | Node | Python | Go | Rust |\n'
   printf '|---|---|---|---|---|---|\n'
   printf '| payload builder | %s | %s | %s | %s | %s |\n' "$c_php" "$c_nd" "$c_py" "$c_go" "$c_rs"
+  printf '| builder coverage (names PHP can build) | %s/%s | — | — | — | %s/%s |\n' "$c_cov_php" "$c_cov_php" "$c_cov_rs" "$c_cov_php"
   printf '| datatype | %s | %s | %s | %s | %s |\n' "$d_php" "$d_nd" "$d_py" "$d_go" "$d_rs"
   printf '| terminology files | %s | %s | %s | %s | %s |\n' "$t_php" "$t_nd" "$t_py" "$t_go" "$t_rs"
   printf '| queue files | %s | %s | %s | %s | %s |\n' "$q_php" "$q_nd" "$q_py" "$q_go" "$q_rs"
