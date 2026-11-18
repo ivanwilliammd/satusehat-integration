@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+## v4.19.1 - 2026-11-18
+
+### Changed
+
+- README status table translated to English; counts re-measured (1.933 tests, 141 builders, 142
+  parsers). The Indonesian version had drifted from the code.
+
+### Added
+
+- `docs/scripts/extract-terminology-maps.py`: extracts the static terminology tables (vaccine map,
+  medication form, composition category/section, …) into the Rust crate's embedded JSON, so the port
+  can be regenerated instead of retyped.
+
+### Fixed
+
+- `scripts/parity-manifest.sh` measured the Rust datatype column from helper functions and reported
+  12 instead of 33, and had no way to show that Rust covers all 141 builder names while keeping two
+  builders in another file. It now counts names.
+
 ## v4.19.0 - 2026-11-17
 
 ### Added
