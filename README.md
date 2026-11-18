@@ -10,16 +10,16 @@
 [![Downloads](https://img.shields.io/packagist/dt/ivanwilliammd/satusehat-integration)](https://packagist.org/packages/ivanwilliammd/satusehat-integration)
 [![XERJ Corpus Hub contributor](https://hub.xerj.org/contributors/ivanwilliammd/badge.svg)](https://hub.xerj.org/contributors/ivanwilliammd)
 
-## Status & cakupan (diukur, bukan diklaim)
+## Status and coverage (measured, not claimed)
 
-| Bagian | Jumlah | Bukti |
+| Area | Count | Evidence |
 | --- | --- | --- |
-| Builder | 141 resource | `src/Builder/PayloadBuilder*.php` |
-| Method builder | 1.405 | uji permukaan method per resource |
-| Parser | 142 kelas | satu getter per elemen builder, `tests/Parser/ParserSurfaceTest.php` |
+| Builder | 141 resources | `src/Builder/PayloadBuilder*.php` |
+| Builder methods | 1,405 | per-resource method surface test |
+| Parser | 142 classes | one getter per builder element, `tests/Parser/ParserSurfaceTest.php` |
 | Datatype | 34 | `src/DataType` |
-| Namespace R5 | 142 builder + 34 datatype | `src/R5`, `tests/Version/R5NamespaceTest.php` |
-| Tes | 1.933 | `vendor/bin/phpunit tests` |
+| R5 namespace | 142 builders + 34 datatypes | `src/R5`, `tests/Version/R5NamespaceTest.php` |
+| Tests | 1,933 | `vendor/bin/phpunit tests` |
 
 R4 conformance is not the same thing as cross-language parity. [`docs/R4_CONFLICT_TRIAGE.md`](docs/R4_CONFLICT_TRIAGE.md)
 records the audit against the R4 definitions: 46 builders clean, 68 using a generic setter on a
@@ -29,7 +29,7 @@ in R4.
 ## R4 is the reference; R5 changes one `use` line
 
 ```php
-use Satusehat\Integration\Builder\PayloadBuilderPatient;      // R4 (acuan)
+use Satusehat\Integration\Builder\PayloadBuilderPatient;      // R4 (reference)
 use Satusehat\Integration\R5\Builder\PayloadBuilderPatient;   // R5 — this line only
 ```
 
@@ -74,7 +74,7 @@ ORGID_DEV=your_org_id
 `TerminologyClient` menghubungkan aplikasi ke **SmarTerm** — layanan kamus terpadu
 terminologi kesehatan Indonesia (ICD-10, ICD-9-CM, SNOMED CT, LOINC, KPTL, KFA
 obat/alkes/BZA). Berguna saat aplikasi TIDAK ingin menyimpan dataset nasional
-lokal — cukup panggil REST API untuk search / validate / resolve FHIR code.
+locally — just call the REST API to search / validate / resolve FHIR codes.
 
 ```env
 TERMINOLOGY_BASE_URL=https://terminology.ivanmd.id      # opsional
