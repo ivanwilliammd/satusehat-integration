@@ -62,17 +62,92 @@ final class Client
     }
 
     /**
+     * Sends several messages over one TCP connection, reconnecting only when the link actually died.
+     *
+     * Persistent MLLP is what analyzers expect: a new connection per result is slow and, on some
+     * instruments, rejected outright. The caller gets one result per message, in order, so a failure
+     * on message 3 does not discard the two that were accepted.
+     *
+     * @param list<Message> $messages
+     * @return list<SendResult>
+     */
+    public function session(array $messages): array
+    {
+        return $this->sessionOnStream(null, $messages);
+    }
+
+    /**
+     * Same as session(), but reuses a stream the caller already holds. Passing null means "connect
+     * yourself", which is what session() does; tests pass a socket pair, and a long-lived daemon can
+     * pass its own socket.
+     *
+     * @param resource|null $stream
+     * @param list<Message> $messages
+     * @return list<SendResult>
+     */
+    public function sessionOnStream($stream, array $messages): array
+    {
+        $results = [];
+        $reader = new MllpReader();
+        // Ownership: a stream the caller handed us is closed by the caller. Only a connection this
+        // method opened itself is closed here.
+        $owned = !is_resource($stream);
+
+        try {
+            foreach ($messages as $msg) {
+                for ($attempt = 1; ; $attempt++) {
+                    try {
+                        if (!is_resource($stream)) {
+                            $stream = $this->connect();
+                            $reader = new MllpReader();
+                        }
+                        $results[] = $this->exchangeWith($stream, $reader, $msg);
+                        break;
+                    } catch (RuntimeException $e) {
+                        if (is_resource($stream) && $owned) {
+                            fclose($stream);
+                        }
+                        if (is_resource($stream) && $owned) {
+                            $stream = null;
+                        }
+                        if ($attempt > $this->retries) {
+                            throw new RuntimeException(
+                                'Koneksi MLLP gagal pada pesan ke-' . (count($results) + 1) . ': ' . $e->getMessage(),
+                                0,
+                                $e
+                            );
+                        }
+                        usleep((int) ($this->backoffSeconds * 1_000_000 * $attempt));
+                    }
+                }
+            }
+        } finally {
+            if ($owned && is_resource($stream)) {
+                fclose($stream);
+            }
+        }
+
+        return $results;
+    }
+
+    /**
      * Sends one message over an already-open stream and reads one ACK.
      *
      * @param resource $stream
      */
     public function exchange($stream, Message $message): SendResult
     {
+        return $this->exchangeWith($stream, new MllpReader(), $message);
+    }
+
+    /** @param resource $stream */
+    private function exchangeWith($stream, MllpReader $reader, Message $message): SendResult
+    {
         if (!Mllp::write($stream, $message->toString())) {
             throw new RuntimeException('Koneksi ditutup peer saat menulis pesan.');
         }
 
-        $ackRaw = Mllp::read($stream, 1 * 1024 * 1024);
+        $ackRaw = $reader->next($stream);
         if ($ackRaw === null) {
             throw new RuntimeException('Tidak ada ACK dalam batas waktu.');
         }

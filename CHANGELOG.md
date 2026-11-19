@@ -13,8 +13,15 @@
   failures, never application verdicts, and rejects an ACK whose MSA-2 does not echo MSH-10.
 - **Declarative profiles** (`HL7v2\Profile`, `HL7v2\Profiles`) with ADT_A01, ADT_A08 and ORU_R01
   built in; required segments, required fields and allowed values, errors block and warnings do not.
+- **Batches**: `HL7v2\Batch` parses FHS/BHS … BTS/FTS envelopes (and bare sequences of messages),
+  builds them with `wrap()`, and exposes `declaredCount()` from the trailer so a truncated transfer is
+  visible instead of silent.
+- **Persistent MLLP**: `Client::session()` sends many messages over one connection, one result each,
+  in order, reconnecting only when the link died. `MllpReader` keeps the bytes that arrive after a
+  complete frame — the bug that made a second ACK in the same `fread()` disappear, leaving the client
+  waiting for a reply it had already received.
 - **Corpus**: 20 fixtures (10 accepted, 10 refused) with expectations in `manifest.json`.
-  HL7 v2 tests 12 → 37; suite 1.945 → 1.970 tests, 4.778 assertions.
+  HL7 v2 tests 12 → 44; suite 1.945 → 1.977 tests, 4.798 assertions.
 - Deliberately not implemented, and documented as such: vendor profiles beyond the three built in,
   v2 table validation, batch messages, and a supervised MLLP daemon.
 

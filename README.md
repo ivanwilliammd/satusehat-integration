@@ -536,6 +536,35 @@ What is implemented: ER7 parsing and serialisation, field/component/subcomponent
 access, the five HL7 escape sequences plus `\Xdd..\` hex escapes, MSH-18 charset reporting, MLLP
 framing with a stream reader that tolerates arbitrary chunk boundaries, and ACK/NAK generation.
 
+
+### Batches
+
+A batch is not a message: its first segment is `FHS`, so `Message::parse()` would reject the whole
+file. `Batch` handles the envelope and hands back the messages inside it.
+
+```php
+$messages = Batch::parse($fileEr7);            // FHS/BHS … BTS/FTS, or bare messages
+Batch::declaredCount($fileEr7);                // 2, from BTS|2 — compare with count($messages)
+$file = Batch::wrap($messages, 'SIMRS', 'LAB'); // builds the envelope and the trailers
+```
+
+Comparing `declaredCount()` with what was actually parsed is the cheapest integrity check in v2:
+a truncated file transfer produces fewer messages than the trailer promised.
+
+### Persistent connections
+
+Analyzers expect one long-lived MLLP connection, not one per result. `session()` sends a list of
+messages over a single socket and returns one result per message, in order:
+
+```php
+$results = (new Client('10.0.0.21:2575'))->session($messages);
+```
+
+It reconnects only when the link actually died, and keeps the bytes that arrived after the previous
+frame: one `fread()` on a persistent connection routinely returns two or three ACKs at once, and a
+stateless reader would hand back the first and discard the rest — then block forever waiting for an
+ACK it had already received.
+
 Sending to an analyzer or LIS, with the two rules that keep a queue from melting:
 
 ```php

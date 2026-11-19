@@ -81,25 +81,14 @@ final class Mllp
     /**
      * Reads one message from a blocking stream. Returns null on EOF or when the peer closes.
      *
+     * Callers that read more than one message from the same stream MUST use MllpReader instead:
+     * a single fread() can return two frames, and this method would drop the second one.
+     *
      * @param resource $stream
      */
     public static function read($stream, int $maxBytes = 4 * 1024 * 1024): ?string
     {
-        $buffer = '';
-        while (true) {
-            [$message, $rest] = self::shift($buffer);
-            if ($message !== '') {
-                return $message;
-            }
-            $chunk = fread($stream, 8192);
-            if ($chunk === false || $chunk === '') {
-                return null;
-            }
-            $buffer .= $chunk;
-            if (strlen($buffer) > $maxBytes) {
-                throw new InvalidArgumentException('Frame MLLP melebihi batas 4 MB.');
-            }
-        }
+        return (new MllpReader($maxBytes))->next($stream);
     }
 
     /**
@@ -123,5 +112,43 @@ final class Mllp
         fflush($stream);
 
         return true;
+    }
+}
+
+/**
+ * Stateful frame reader: keeps the bytes that arrived after the last complete frame.
+ *
+ * This exists because TCP does not respect message boundaries. One fread() of a persistent MLLP
+ * connection routinely returns two or three ACKs at once; a stateless reader would hand back the
+ * first and silently discard the rest, and the client would then block waiting for an ACK that was
+ * already received.
+ */
+final class MllpReader
+{
+    private string $buffer = '';
+
+    public function __construct(private int $maxBytes = 4 * 1024 * 1024)
+    {
+    }
+
+    /** @param resource $stream */
+    public function next($stream): ?string
+    {
+        while (true) {
+            [$message, $rest] = Mllp::shift($this->buffer);
+            if ($message !== '') {
+                $this->buffer = $rest;
+
+                return $message;
+            }
+            $chunk = fread($stream, 8192);
+            if ($chunk === false || $chunk === '') {
+                return null;
+            }
+            $this->buffer .= $chunk;
+            if (strlen($this->buffer) > $this->maxBytes) {
+                throw new InvalidArgumentException('Frame MLLP melebihi batas 4 MB.');
+            }
+        }
     }
 }
