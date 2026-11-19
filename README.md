@@ -499,6 +499,48 @@ The table lists the resources this README documents per HTTP verb. The package i
 
 ---
 
+## HL7 v2 and MLLP
+
+The package also speaks HL7 v2, because a hospital is rarely a single standard: analyzers and LIS
+speak v2 over MLLP, while SATUSEHAT speaks FHIR R4. Both live in the same install, with no extra
+dependency.
+
+```php
+use Satusehat\Integration\HL7v2\Ack;
+use Satusehat\Integration\HL7v2\Message;
+use Satusehat\Integration\HL7v2\Mllp;
+
+$msg = Message::parse($er7);          // CR, LF or CRLF line endings, any encoding characters
+$msg->messageType();                  // "ADT"
+$msg->triggerEvent();                 // "A01"
+$msg->get('PID.5.1');                 // family name, escape sequences decoded
+$msg->get('OBX.5');                   // first repetition
+$msg->set('PID.8', 'F');              // re-escaped on write
+echo $msg->toString();                // ER7, CR-terminated, byte-for-byte round trip
+```
+
+MLLP framing, including the case that breaks naive implementations — a frame split across TCP
+chunks:
+
+```php
+$server = stream_socket_server('tcp://0.0.0.0:2575');
+$conn   = stream_socket_accept($server, 30);
+while (($er7 = Mllp::read($conn)) !== null) {
+    $in  = Message::parse($er7);
+    $ack = Ack::build($in, Ack::ACCEPT);   // AA / AE / AR, MSA-2 echoes MSH-10
+    Mllp::write($conn, $ack->toString());
+}
+```
+
+What is implemented: ER7 parsing and serialisation, field/component/subcomponent access, repetition
+access, the five HL7 escape sequences plus `\Xdd..\` hex escapes, MSH-18 charset reporting, MLLP
+framing with a stream reader that tolerates arbitrary chunk boundaries, and ACK/NAK generation.
+
+What is not implemented yet, and is not claimed: conformance profiles per vendor (each LIS has its
+own ADT/ORU dialect), HL7 v2 table validation, batching, and an MLLP client with automatic
+reconnect. The parser is deliberately generic: it preserves fields it does not model, so a message
+round-trips even when the profile is unknown.
+
 ## Strict R4 mode
 
 `SATUSEHAT_STRICT_R4=1` makes `build()` reject top-level elements that do not exist in R4, naming the

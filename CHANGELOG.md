@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+### Added
+
+- **HL7 v2 in the same package.** `Satusehat\Integration\HL7v2` parses ER7 (CR/LF/CRLF, encoding
+  characters read from MSH-2), resolves `PID.5.1`-style paths, decodes the five HL7 escapes plus
+  `\Xdd..\`, reports MSH-18 charset without re-encoding bytes, frames and reads MLLP with a
+  reader that tolerates frames split across TCP chunks, and builds ACK/AA,AE,AR with MSA-2 echoing
+  MSH-10. 12 tests, +70 assertions; suite 1.933 → 1.945.
+- Deliberately not implemented, and documented as such: vendor conformance profiles, v2 table
+  validation, batching, and an MLLP client with reconnect.
+
 ## v4.19.1 - 2026-11-18
 
 ### Changed
