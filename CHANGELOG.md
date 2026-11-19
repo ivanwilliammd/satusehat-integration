@@ -9,8 +9,14 @@
   `\Xdd..\`, reports MSH-18 charset without re-encoding bytes, frames and reads MLLP with a
   reader that tolerates frames split across TCP chunks, and builds ACK/AA,AE,AR with MSA-2 echoing
   MSH-10. 12 tests, +70 assertions; suite 1.933 → 1.945.
-- Deliberately not implemented, and documented as such: vendor conformance profiles, v2 table
-  validation, batching, and an MLLP client with reconnect.
+- **MLLP client** (`HL7v2\Client`) with per-attempt timeout and linear backoff; retries transport
+  failures, never application verdicts, and rejects an ACK whose MSA-2 does not echo MSH-10.
+- **Declarative profiles** (`HL7v2\Profile`, `HL7v2\Profiles`) with ADT_A01, ADT_A08 and ORU_R01
+  built in; required segments, required fields and allowed values, errors block and warnings do not.
+- **Corpus**: 20 fixtures (10 accepted, 10 refused) with expectations in `manifest.json`.
+  HL7 v2 tests 12 → 37; suite 1.945 → 1.970 tests, 4.778 assertions.
+- Deliberately not implemented, and documented as such: vendor profiles beyond the three built in,
+  v2 table validation, batch messages, and a supervised MLLP daemon.
 
 ## v4.19.1 - 2026-11-18
 

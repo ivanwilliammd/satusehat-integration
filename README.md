@@ -536,10 +536,47 @@ What is implemented: ER7 parsing and serialisation, field/component/subcomponent
 access, the five HL7 escape sequences plus `\Xdd..\` hex escapes, MSH-18 charset reporting, MLLP
 framing with a stream reader that tolerates arbitrary chunk boundaries, and ACK/NAK generation.
 
-What is not implemented yet, and is not claimed: conformance profiles per vendor (each LIS has its
-own ADT/ORU dialect), HL7 v2 table validation, batching, and an MLLP client with automatic
-reconnect. The parser is deliberately generic: it preserves fields it does not model, so a message
-round-trips even when the profile is unknown.
+Sending to an analyzer or LIS, with the two rules that keep a queue from melting:
+
+```php
+$client = new Client('10.0.0.21:2575', timeout: 10.0, retries: 2);
+$result = $client->send($msg);
+
+$result->accepted();   // MSA-1 == AA
+$result->attempts;     // transport retries used
+$result->text;         // MSA-3 when the receiver explains its refusal
+```
+
+- **Transport failures retry; verdicts do not.** A timeout or closed socket is retried with linear
+  backoff. An `AE`/`AR` is returned to the caller — retrying an application rejection turns one bad
+  message into a thousand.
+- **MSA-2 must echo MSH-10.** A reply carrying a different control id is a stale or misrouted ACK
+  and raises instead of being counted as success.
+
+Validation is data, not a class per message type:
+
+```php
+$issues = Profiles::oruR01()->validate($msg);      // ADT_A01, ADT_A08, ORU_R01 built in
+$issues = Profile::fromArray([
+    'name' => 'ORU_R01_VENDOR_X',
+    'message_type' => 'ORU',
+    'required_segments' => ['MSH', 'PID', 'OBR', 'OBX'],
+    'required_fields' => ['PID.3' => 'Patient identifier', 'OBX.5' => 'Observation value'],
+    'allowed_values' => ['OBX.11' => ['F', 'P', 'C', 'X']],
+])->validate($msg);
+```
+
+A new vendor is an array, not a port to five languages. Errors block, warnings do not: `passes()`
+is true when no `error` severity is produced.
+
+The test corpus is ten messages a hospital actually sends and ten that must be refused
+(`tests/HL7v2/fixtures`), with the expectation for each recorded in `manifest.json`. The refusal
+cases carry the weight: a parser that accepts a message with no PID moves the failure into the
+database at 03:00, without the raw message to look at.
+
+What is not implemented yet, and is not claimed: vendor-specific profiles beyond the three built in,
+HL7 v2 table validation, batch messages, and a persistent MLLP server daemon (the framing primitives
+and `Mllp::read()` are there; the supervisor loop is the operator's).
 
 ## Strict R4 mode
 

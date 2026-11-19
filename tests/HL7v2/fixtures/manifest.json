@@ -1,0 +1,90 @@
+{
+  "valid": {
+    "adt_a01_basic": {
+      "profile": "adtA01"
+    },
+    "adt_a01_escapes": {
+      "profile": "adtA01"
+    },
+    "adt_a08_update": {
+      "profile": "adtA08"
+    },
+    "adt_a01_repetitions": {
+      "profile": "adtA01"
+    },
+    "oru_r01_cbc": {
+      "profile": "oruR01"
+    },
+    "oru_r01_multi_obx": {
+      "profile": "oruR01"
+    },
+    "oru_r01_utf8": {
+      "profile": "oruR01"
+    },
+    "oru_r01_pending": {
+      "profile": "oruR01"
+    },
+    "adt_a01_other_class": {
+      "profile": "adtA01"
+    },
+    "adt_a01_no_gender": {
+      "profile": "adtA01"
+    }
+  },
+  "invalid": {
+    "empty": {
+      "profile": "adtA01",
+      "exception": "Pesan HL7 kosong"
+    },
+    "no_msh": {
+      "profile": "adtA01",
+      "exception": "harus dimulai dengan segmen MSH"
+    },
+    "adt_missing_pid": {
+      "profile": "adtA01",
+      "issues": [
+        "PID"
+      ]
+    },
+    "adt_missing_pv1": {
+      "profile": "adtA01",
+      "issues": [
+        "PV1"
+      ]
+    },
+    "oru_no_obx": {
+      "profile": "oruR01",
+      "issues": [
+        "OBX"
+      ]
+    },
+    "adt_missing_patient_id": {
+      "profile": "adtA01",
+      "issues": [
+        "PID.3"
+      ]
+    },
+    "oru_missing_value": {
+      "profile": "oruR01",
+      "issues": [
+        "OBX.5"
+      ]
+    },
+    "adt_wrong_trigger": {
+      "profile": "adtA01",
+      "issues": [
+        "MSH.9.2"
+      ]
+    },
+    "oru_missing_obr": {
+      "profile": "oruR01",
+      "issues": [
+        "OBR"
+      ]
+    },
+    "segment_before_msh": {
+      "profile": "adtA01",
+      "exception": "harus dimulai dengan segmen MSH"
+    }
+  }
+}
