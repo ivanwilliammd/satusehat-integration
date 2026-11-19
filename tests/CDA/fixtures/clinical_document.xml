@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="ID"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_MT000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1"/>
+  <id root="2.16.840.1.113883.3.3157.1004.1" extension="DOC-20261118-0001"/>
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" displayName="Summarization of episode note"/>
+  <title>Resume Medis Rawat Inap</title>
+  <effectiveTime value="20261118103000"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <recordTarget>
+    <patientRole>
+      <id root="2.16.840.1.113883.3.3157.1003.1" extension="3171234567890001"/>
+      <id root="1.2.840.114350.1.13.1.1" extension="MRN-0098123"/>
+      <patient>
+        <name><given>Siti</given><family>ANGGRAENI</family></name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19850312"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20261118103000"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.3.3157.1003.9" extension="1987654321"/>
+      <assignedPerson><name><given>Ivan</given><family>HARSONO</family></name></assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="2.16.840.1.113883.3.3157.1003.2" extension="RS-01"/>
+        <name>RS Umum Contoh</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <componentOf>
+    <encompassingEncounter>
+      <id root="2.16.840.1.113883.3.3157.1003.5" extension="ENC-556677"/>
+      <code code="IMP" codeSystem="2.16.840.1.113883.5.4"/>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <code code="10164-2" codeSystem="2.16.840.1.113883.6.1" displayName="History of present illness"/>
+          <title>Riwayat Penyakit Sekarang</title>
+          <text>
+            <paragraph>Pasien datang dengan demam tiga hari.</paragraph>
+            <paragraph>Riwayat perjalanan ke luar kota disangkal.</paragraph>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
+          <title>Diagnosis</title>
+          <text><paragraph>Demam tifoid (A01.0)</paragraph></text>
+          <component>
+            <section>
+              <code code="11450-4" codeSystem="2.16.840.1.113883.6.1"/>
+              <title>Masalah</title>
+              <text><paragraph>Tifoid</paragraph></text>
+            </section>
+          </component>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

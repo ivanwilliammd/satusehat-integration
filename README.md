@@ -537,6 +537,51 @@ access, the five HL7 escape sequences plus `\Xdd..\` hex escapes, MSH-18 charset
 framing with a stream reader that tolerates arbitrary chunk boundaries, and ACK/NAK generation.
 
 
+### CDA R2 documents
+
+HL7 CDA R2 is the other document format a hospital exchanges. This SDK reads and writes the part that
+is actually used — the header and the sections with narrative text — and leaves the rest alone.
+
+```php
+use Satusehat\Integration\CDA\Document;
+
+$doc = Document::parse($xml);              // refuses anything whose root is not ClinicalDocument
+$doc->title();                             // "Resume Medis Rawat Inap"
+$doc->patient()->identifier('2.16.840.1.113883.3.3157.1003.1');   // NIK
+$doc->patient()->name();
+$doc->authors();                           // ["Ivan HARSONO"]
+$doc->section('10164-2')->title;           // section by LOINC, searched depth-first
+$doc->sectionText('10164-2');              // narrative flattened to text, paragraphs kept
+$doc->validate();                          // [] means exchangeable, not clinically correct
+```
+
+```php
+$doc = Document::build([
+    'id' => 'DOC-1',
+    'title' => 'Resume Medis',
+    'custodian' => 'RS Contoh',
+    'author' => 'Dokter Contoh',
+    'patientId' => '3171234567890001',
+    'patientName' => 'ANGGRAENI',
+    'gender' => 'F',
+    'birthTime' => '19850312',
+    'sections' => [['loinc' => '10164-2', 'title' => 'Riwayat', 'text' => '<paragraph>Demam.</paragraph>']],
+]);
+echo $doc->toXml();
+```
+
+Two decisions worth stating:
+
+- **Unknown structure survives a round trip.** `toXml()` writes the same DOM that was parsed, so
+  `componentOf/encompassingEncounter`, `participant`, `legalAuthenticator` and vendor extensions are
+  preserved even though the SDK does not model them. A parser that rebuilds the document from its own
+  model quietly deletes everything it did not understand.
+- **Identifiers keep their `root`.** A NIK without its assigning-authority root cannot be matched
+  against anything, and dropping the root is how a local MRN silently becomes a national NIK.
+
+The HL7 CDA R2 schemas are licensed; the classes implement the structural rules from the specification
+and do not redistribute the XSD.
+
 ### Batches
 
 A batch is not a message: its first segment is `FHS`, so `Message::parse()` would reject the whole

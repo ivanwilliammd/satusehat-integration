@@ -20,6 +20,10 @@
   in order, reconnecting only when the link died. `MllpReader` keeps the bytes that arrive after a
   complete frame — the bug that made a second ACK in the same `fread()` disappear, leaving the client
   waiting for a reply it had already received.
+- **CDA R2**: `Satusehat\Integration\CDA\Document` parses and builds ClinicalDocument
+  (`patient()`, `authors()`, `section(loinc)`, `sectionText(loinc)`, `validate()`, `toXml()`), with
+  sections and patient roles as value objects. Unknown structure is preserved on round trip; the
+  licensed HL7 schemas are not redistributed. Tests 11; suite 1.977 → 1.988.
 - **Corpus**: 20 fixtures (10 accepted, 10 refused) with expectations in `manifest.json`.
   HL7 v2 tests 12 → 44; suite 1.945 → 1.977 tests, 4.798 assertions.
 - Deliberately not implemented, and documented as such: vendor profiles beyond the three built in,
