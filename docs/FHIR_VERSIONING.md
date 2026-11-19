@@ -49,3 +49,23 @@ added one at a time, each with its R5 element reference.
   `R5\Builder\X` produces an R4 payload — and that is the tested behaviour.
 - Validation, parsing, and queueing are not split per version; they work on the payload shape, not on
   the version definition.
+
+## R6: tracked, deliberately not built
+
+As of 2026-11-19 the published directory lists R6 as **Draft only** — `6.0.0-snapshot1` and
+`6.0.0-ballot5`, both dated 2026-07-17 (https://hl7.org/fhir/directory.html). The current published
+specification is still `5.0.0` (R5, trial-use). Nothing in R6 is normative, so nothing here targets it.
+
+The plan is one sentence: **R6 becomes work the day a normative version exists**, and until then the only
+allowed R6 activity is the isolation work R5 already has — a namespace, a generated subclass layer, and a
+test that proves each class exists and changes nothing. No `src/R6/` directory is created before that, because
+an empty namespace that "prepares for R6" is a promise the tests cannot check.
+
+Trigger to start, in order:
+
+1. `hl7.org/fhir/directory.html` lists an R6 version with status **N** (normative) or **T** (trial-use);
+2. a diff pass over `CapabilityStatement`/resource shapes names what actually differs from R4;
+3. each difference is written one at a time with its element reference — never copied from a draft;
+4. `Version/R6NamespaceTest` mirrors the R5 test before any R6 class is used.
+
+Until step 1 happens, `satusehat-integration` stays an R4 SDK with an R5 layer and says so in every README.
