@@ -47,10 +47,10 @@ class SSRequest
     ) {
         $this->oauth2 = $oauth2;
         $this->token = $token;
-        $this->config = array_merge(
-            ['log_enabled' => config('satusehatintegration.log_enabled', true)],
-            $config
-        );
+        // The package must load outside Laravel (unit tests, plain PHP scripts, another framework's worker);
+        // calling the config() helper unconditionally makes the constructor fatal there.
+        $logEnabled = function_exists('config') ? config('satusehatintegration.log_enabled', true) : true;
+        $this->config = array_merge(['log_enabled' => $logEnabled], $config);
 
         $this->timeout = (int) ($config['timeout'] ?? 30);
         $this->maxRetries = (int) ($config['maxRetries'] ?? 5);
@@ -73,7 +73,9 @@ class SSRequest
             $this->baseUrl = '';
         }
 
-        $this->http = new Client([
+        // A caller may inject its own client (tests use a MockHandler); the default stays the same so no
+        // existing call site changes behaviour.
+        $this->http = $config['http_client'] ?? new Client([
             'timeout' => $this->timeout,
             'verify' => $config['verify'] ?? true,
         ]);
@@ -174,6 +176,46 @@ class SSRequest
         $this->retryCount = 0;
 
         return $this->doRequest($method, $url, $body);
+    }
+
+    /**
+     * Headers for one request, including the bearer token. Public because the concurrent sender builds its own
+     * requests and must not keep a second copy of this logic — two copies drift, and the drifted one is the
+     * one that forgets the token.
+     *
+     * @return array<string,string>
+     */
+    public function authHeaders(string $method, ?string $contentType = null): array
+    {
+        $token = $this->getToken();
+
+        $headers = $this->defaultHeaders;
+        if ($token !== null) {
+            $headers['Authorization'] = 'Bearer ' . $token;
+        }
+
+        if ($method === 'PATCH') {
+            $headers['Content-Type'] = $contentType ?? 'application/json-patch+json';
+        } elseif ($contentType !== null) {
+            $headers['Content-Type'] = $contentType;
+        }
+
+        return $headers;
+    }
+
+    /**
+     * Same request as postBundle(), as a Guzzle promise. Concurrency in PHP lives in the promise pool or it
+     * does not exist; wrapping the blocking call in a thread would only pretend.
+     */
+    public function postBundleAsync(array $bundlePayload, string $url = ''): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->http->postAsync($this->buildUrl($url), [
+            'headers' => $this->authHeaders('POST', 'application/fhir+json'),
+            'body' => json_encode($bundlePayload, JSON_THROW_ON_ERROR),
+            // 4xx/5xx are answers, not exceptions: a batch caller wants the status of every Bundle, and an
+            // exception here would turn a 400 into a "connection failed" with no code at all.
+            'http_errors' => false,
+        ]);
     }
 
     private function doRequest(string $method, string $url, ?array $body = null, ?string $contentType = null): SSResponse
