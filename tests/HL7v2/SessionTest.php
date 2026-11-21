@@ -20,7 +20,7 @@ final class SessionTest extends TestCase
     {
         $messages = [$this->message('S1'), $this->message('S2'), $this->message('S3')];
 
-        [$client, $server] = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+        [$client, $server] = SocketPair::make();
         self::assertIsResource($client);
         // Pre-load three ACKs: the client writes, then reads whatever the peer has queued.
         foreach ($messages as $m) {

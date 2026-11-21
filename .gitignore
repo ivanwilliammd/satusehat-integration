@@ -11,3 +11,6 @@ vendor
 .php-cs-fixer.cache
 .env
 satusehat-integration/
+# stale clone of the GitHub wiki: a gitlink without .gitmodules made every checkout warn and
+# the CI cleanup step exit 128
+/wiki-clone/

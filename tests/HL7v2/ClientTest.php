@@ -17,7 +17,7 @@ final class ClientTest extends TestCase
     public function testExchangeReadsAckAndEchoesControlId(): void
     {
         $msg = Message::parse(self::ADT);
-        [$client, $server] = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+        [$client, $server] = SocketPair::make();
         self::assertIsResource($client);
 
         fwrite($server, Mllp::frame(Ack::build($msg)->toString()));
@@ -34,7 +34,7 @@ final class ClientTest extends TestCase
     public function testApplicationErrorIsNotAnException(): void
     {
         $msg = Message::parse(self::ADT);
-        [$client, $server] = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+        [$client, $server] = SocketPair::make();
         fwrite($server, Mllp::frame(Ack::error($msg, 'PID tidak valid')->toString()));
 
         $result = (new Client('unused:0'))->exchange($client, $msg);
